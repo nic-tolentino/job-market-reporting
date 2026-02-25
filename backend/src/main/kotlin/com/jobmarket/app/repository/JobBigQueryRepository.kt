@@ -9,10 +9,9 @@ import org.springframework.stereotype.Repository
 
 @Repository
 @Profile("!local")
-class JobPostingBigQueryRepository(private val bigQueryTemplate: BigQueryTemplate) :
-        JobPostingRepository {
+class JobBigQueryRepository(private val bigQueryTemplate: BigQueryTemplate) : JobRepository {
 
-    private val log = LoggerFactory.getLogger(JobPostingBigQueryRepository::class.java)
+    private val log = LoggerFactory.getLogger(JobBigQueryRepository::class.java)
 
     // Configured via application.yml
     private val tableName = "raw_postings"

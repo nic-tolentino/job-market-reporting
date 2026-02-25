@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository
 
 @Repository
 @Profile("local")
-class JobPostingLocalRepository : JobPostingRepository {
+class JobLocalRepository : JobRepository {
 
-    private val log = LoggerFactory.getLogger(JobPostingLocalRepository::class.java)
+    private val log = LoggerFactory.getLogger(JobLocalRepository::class.java)
 
     override fun saveAll(jobs: List<BigQueryJobRecord>) {
         if (jobs.isEmpty()) {
