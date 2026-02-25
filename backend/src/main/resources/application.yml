@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: job-market-backend
+  cloud:
+    gcp:
+      bigquery:
+        dataset-name: job_market_analysis
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+apify:
+  dataset-id: ${APIFY_DATASET_ID:xB85bR0v20qXfNH5r}
+  token: ${APIFY_TOKEN:''}

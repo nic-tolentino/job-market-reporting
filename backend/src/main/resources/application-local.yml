@@ -1,0 +1,10 @@
+spring:
+  autoconfigure:
+    exclude:
+      - com.google.cloud.spring.autoconfigure.bigquery.GcpBigQueryAutoConfiguration
+      - com.google.cloud.spring.autoconfigure.core.GcpContextAutoConfiguration
+      - com.google.cloud.spring.autoconfigure.sql.GcpCloudSqlAutoConfiguration
+
+apify:
+  dataset-id: xB85bR0v20qXfNH5r
+  token: ${APIFY_TOKEN:local_dummy_token}
