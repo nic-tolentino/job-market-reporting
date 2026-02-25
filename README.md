@@ -61,6 +61,41 @@ A full-stack data analyzer that tracks engineering job trends (technologies, sen
 - **Visualizations**: Recharts for line graphs (job volume) and bar charts (tech demand).
 - **Communication**: Standard REST calls to the Spring Boot backend.
 
+## 🔮 Future Considerations: Multi-Source Data
+
+As the system scales to ingest data from multiple job boards (e.g., LinkedIn, Workday, Seek) across various regions, we will evolve the data architecture:
+- **Composite Identity**: A job's unique identifier will need to be a combination of `jobId` AND `source` (and potentially `country`) to prevent collisions between different job boards using overlapping ID schemes.
+- **Normalization Adapters**: Different platforms provide varying levels of data quality. We will introduce an adapter/factory pattern to normalize disparate payloads into our standard `CompanyRecord` and `JobRecord` models.
+
+---
+
+## 📈 Analytical Charting Ideas
+
+To provide maximum value to job hunters and recruiters, the dashboard will support the following visualizations:
+
+- **Companies Using a Given Technology**: List or visualize all companies hiring for a specific tech stack (e.g., "Who's hiring for React?").
+- **Company Posting Frequency Timeline**: Line chart showing how many jobs a specific company has advertised each month.
+- **Technology Demand Timeline**: Line chart tracking the volume of jobs posted for a given technology over time (e.g., "Is Go increasing or decreasing?").
+- **Salary Bands by Technology**: Scatter plot or box plots comparing the min/max salary ranges across different technologies.
+- **Top Hiring Companies**: A leaderboard (bar chart) of companies actively posting the most roles in the current week/month.
+- **Benefits Cloud**: A word cloud or bar chart highlighting the most common perks (e.g., "Remote", "Health Insurance", "Stock Options").
+- **Seniority Demand Distribution**: A donut chart showing the split between Junior, Mid, and Senior roles currently active in the market.
+
+---
+
+## ⚡ Data Caching & Optimization
+
+Since historical job data does not change frequently (ingestion happens daily/weekly), we will implement targeted caching strategies to keep the Dashboard API responsive and minimize BigQuery scan costs:
+
+1. **BigQuery Materialized Views / Scheduled Queries**:
+   - Rather than querying the raw job entries every time a chart loads, we can create aggregated tables (e.g., `monthly_tech_demand`, `monthly_company_postings`).
+   - These tables are refreshed via Scheduled Queries after each Apify ingestion run.
+2. **Application-Level Caching (Spring Boot)**:
+   - Use Spring Cache (e.g., `@Cacheable` with caffeine or Redis) on the `DashboardController` endpoints.
+   - Cache TTL can be set to 12-24 hours or invalidated programmatically whenever the webhook indicates a new sync has completed.
+3. **Frontend Static Generation (Next.js)**:
+   - For high-level, slow-moving charts (like "Top Tech of the Year"), use Next.js ISR (Incremental Static Regeneration) to serve pre-rendered charts, pulling from the API only periodically.
+
 ---
 
 ## 🗺 Implementation Roadmap

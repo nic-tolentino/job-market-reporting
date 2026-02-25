@@ -1,11 +1,15 @@
 package com.jobmarket.app.sync
 
-import com.jobmarket.app.persistence.model.BigQueryJobRecord
+import com.jobmarket.app.persistence.model.CompanyRecord
+import com.jobmarket.app.persistence.model.JobRecord
 import com.jobmarket.app.sync.model.ApifyJobDto
+import java.time.Instant
 import java.time.LocalDate
 import java.time.format.DateTimeParseException
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
+
+data class MappedSyncData(val companies: List<CompanyRecord>, val jobs: List<JobRecord>)
 
 @Service
 class JobDataMapper {
@@ -42,50 +46,71 @@ class JobDataMapper {
                     "snowflake"
             )
 
-    fun mapToBigQueryRecords(apifyJobs: List<ApifyJobDto>): List<BigQueryJobRecord> {
-        val records = mutableListOf<BigQueryJobRecord>()
+    fun mapSyncData(apifyJobs: List<ApifyJobDto>): MappedSyncData {
+        val jobs = mutableListOf<JobRecord>()
+        val companiesMap = mutableMapOf<String, CompanyRecord>()
 
         apifyJobs.filter { !it.id.isNullOrBlank() }.forEach { dto ->
             try {
-                records.add(
-                        BigQueryJobRecord(
-                                job_id = dto.id!!,
+                val companyName = dto.companyName ?: "Unknown Company"
+                val companyId =
+                        companyName
+                                .lowercase()
+                                .replace(Regex("[^a-z0-9]+"), "-")
+                                .trim('-')
+                                .ifBlank { "unknown" }
+
+                val ingestedAt = Instant.now()
+
+                if (!companiesMap.containsKey(companyId)) {
+                    companiesMap[companyId] =
+                            CompanyRecord(
+                                    companyId = companyId,
+                                    name = companyName,
+                                    logoUrl = dto.companyLogo,
+                                    description = dto.companyDescription,
+                                    website = dto.companyWebsite,
+                                    employeesCount = dto.companyEmployeesCount,
+                                    industries = dto.industries,
+                                    ingestedAt = ingestedAt
+                            )
+                }
+
+                // TODO: When adding new sources, ensure the `jobId` uniquely identifies the job
+                // across all platforms.
+                // We will likely need to construct a composite key (e.g., "\${source}-\${dto.id}")
+                // for storage.
+                jobs.add(
+                        JobRecord(
+                                jobId = dto.id!!,
+                                companyId = companyId,
+                                companyName = companyName,
                                 source = "LinkedIn", // Hardcoded per requirements
                                 country = determineCountry(dto.location),
                                 title = dto.title ?: "Unknown Title",
-                                company = dto.companyName ?: "Unknown Company",
                                 location = dto.location ?: "Unknown Location",
-                                seniority_level =
+                                seniorityLevel =
                                         extractSeniority(dto.title ?: "", dto.seniorityLevel),
                                 technologies = extractTechnologies(dto.descriptionText ?: ""),
-                                salary_min = parseSalary(dto.salaryInfo?.firstOrNull()),
-                                salary_max = parseSalary(dto.salaryInfo?.lastOrNull()),
-                                posted_date = parseDate(dto.postedAt),
-                                raw_description = dto.descriptionText,
-                                companyLogo = dto.companyLogo,
+                                salaryMin = parseSalary(dto.salaryInfo?.firstOrNull()),
+                                salaryMax = parseSalary(dto.salaryInfo?.lastOrNull()),
+                                postedDate = parseDate(dto.postedAt),
                                 benefits = dto.benefits,
-                                applicantsCount = dto.applicantsCount,
-                                applyUrl = dto.applyUrl,
-                                jobPosterName = dto.jobPosterName,
                                 employmentType = dto.employmentType,
                                 jobFunction = dto.jobFunction,
-                                industries = dto.industries,
-                                companyDescription = dto.companyDescription,
-                                companyWebsite = dto.companyWebsite,
-                                companyEmployeesCount = dto.companyEmployeesCount,
-                                raw_location = dto.location,
-                                raw_seniority_level = dto.seniorityLevel,
-                                ingested_at = java.time.Instant.now()
+                                applyUrl = dto.applyUrl,
+                                rawLocation = dto.location,
+                                rawSeniorityLevel = dto.seniorityLevel,
+                                ingestedAt = ingestedAt
                         )
                 )
             } catch (e: Exception) {
-                // Log the exact DTO ID that failed to parse so we can debug schema changes later
                 LoggerFactory.getLogger(JobDataMapper::class.java)
                         .error("Failed to map job record ID: ${dto.id}. Error: ${e.message}", e)
             }
         }
 
-        return records
+        return MappedSyncData(companiesMap.values.toList(), jobs)
     }
 
     private fun determineCountry(location: String?): String {
@@ -101,7 +126,7 @@ class JobDataMapper {
             locUpper.contains("SPAIN") ||
                     locUpper.contains(" Madrid") ||
                     locUpper.contains(" Barcelona") -> "ES"
-            else -> "Unknown" // We can refine this later or map from a specific input source
+            else -> "Unknown"
         }
     }
 
@@ -119,7 +144,6 @@ class JobDataMapper {
     private fun extractTechnologies(description: String): List<String> {
         val descLower = description.lowercase()
         return techKeywords.filter { keyword ->
-            // Simple bound matching to avoid partial word hits (e.g. matching "go" inside "good")
             descLower.contains(Regex("\\b${Regex.escape(keyword)}\\b"))
         }
     }

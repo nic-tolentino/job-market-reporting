@@ -2,7 +2,8 @@ package com.jobmarket.app.persistence
 
 import com.google.cloud.spring.bigquery.core.BigQueryTemplate
 import com.jobmarket.app.dashboard.model.TechTrendDto
-import com.jobmarket.app.persistence.model.BigQueryJobRecord
+import com.jobmarket.app.persistence.model.CompanyRecord
+import com.jobmarket.app.persistence.model.JobRecord
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Repository
@@ -13,17 +14,18 @@ class JobBigQueryRepository(private val bigQueryTemplate: BigQueryTemplate) : Jo
 
     private val log = LoggerFactory.getLogger(JobBigQueryRepository::class.java)
 
-    // Configured via application.yml
-    private val tableName = "raw_postings"
+    private val jobsTableName = "raw_jobs"
+    private val companiesTableName = "raw_companies"
 
-    override fun saveAll(jobs: List<BigQueryJobRecord>) {
+    override fun saveJobs(jobs: List<JobRecord>) {
         if (jobs.isEmpty()) return
 
-        log.info("GCP: Streaming ${jobs.size} jobs to BigQuery table: $tableName")
+        log.info("GCP: Streaming ${jobs.size} jobs to BigQuery table: $jobsTableName")
         try {
-            // BigQueryTemplate handles the batching and streaming insert into the dataset
-            // configured in application.yml
-            bigQueryTemplate.writeJsonStream(tableName, jobs.map { it.toMap() }.byteInputStream())
+            bigQueryTemplate.writeJsonStream(
+                    jobsTableName,
+                    jobs.map { it.toMap() }.byteInputStream()
+            )
             log.info("GCP: Successfully inserted jobs into BigQuery.")
         } catch (e: Exception) {
             log.error("GCP: Failed to insert jobs into BigQuery: ${e.message}", e)
@@ -31,52 +33,67 @@ class JobBigQueryRepository(private val bigQueryTemplate: BigQueryTemplate) : Jo
         }
     }
 
+    override fun saveCompanies(companies: List<CompanyRecord>) {
+        if (companies.isEmpty()) return
+
+        log.info(
+                "GCP: Streaming ${companies.size} companies to BigQuery table: $companiesTableName"
+        )
+        try {
+            bigQueryTemplate.writeJsonStream(
+                    companiesTableName,
+                    companies.map { it.toMap() }.byteInputStream()
+            )
+            log.info("GCP: Successfully inserted companies into BigQuery.")
+        } catch (e: Exception) {
+            log.error("GCP: Failed to insert companies into BigQuery: ${e.message}", e)
+            throw e
+        }
+    }
+
     override fun getTechTrendsByWeek(monthsBack: Int): List<TechTrendDto> {
         // TODO: Implement the actual BigQuery SQL query to aggregate trends.
-        // This will be built in Phase 3 when we confirm the dataset structure is live.
         log.warn("GCP: getTechTrendsByWeek SQL query is not yet implemented.")
         return emptyList()
     }
 
-    /**
-     * Helper extension to convert our Kotlin data class to a JSON-like Map which the BigQuery
-     * template expects for streaming inserts.
-     */
-    private fun BigQueryJobRecord.toMap(): Map<String, Any?> {
+    private fun JobRecord.toMap(): Map<String, Any?> {
         return mapOf(
-                "job_id" to this.job_id,
+                "jobId" to this.jobId,
+                "companyId" to this.companyId,
+                "companyName" to this.companyName,
                 "source" to this.source,
                 "country" to this.country,
                 "title" to this.title,
-                "company" to this.company,
                 "location" to this.location,
-                "seniority_level" to this.seniority_level,
+                "seniorityLevel" to this.seniorityLevel,
                 "technologies" to this.technologies,
-                "salary_min" to this.salary_min,
-                "salary_max" to this.salary_max,
-                "posted_date" to
-                        this.posted_date
-                                ?.toString(), // Dates must be formatted as Strings for BQ JSON
-                // inserts
-                "raw_description" to this.raw_description,
-                "companyLogo" to this.companyLogo,
+                "salaryMin" to this.salaryMin,
+                "salaryMax" to this.salaryMax,
+                "postedDate" to this.postedDate?.toString(),
                 "benefits" to this.benefits,
-                "applicantsCount" to this.applicantsCount,
-                "applyUrl" to this.applyUrl,
-                "jobPosterName" to this.jobPosterName,
                 "employmentType" to this.employmentType,
                 "jobFunction" to this.jobFunction,
-                "industries" to this.industries,
-                "companyDescription" to this.companyDescription,
-                "companyWebsite" to this.companyWebsite,
-                "companyEmployeesCount" to this.companyEmployeesCount,
-                "raw_location" to this.raw_location,
-                "raw_seniority_level" to this.raw_seniority_level,
-                "ingested_at" to this.ingested_at.toString()
+                "applyUrl" to this.applyUrl,
+                "rawLocation" to this.rawLocation,
+                "rawSeniorityLevel" to this.rawSeniorityLevel,
+                "ingestedAt" to this.ingestedAt.toString()
         )
     }
 
-    // Helper to serialize a list of maps into an InputStream for the template
+    private fun CompanyRecord.toMap(): Map<String, Any?> {
+        return mapOf(
+                "companyId" to this.companyId,
+                "name" to this.name,
+                "logoUrl" to this.logoUrl,
+                "description" to this.description,
+                "website" to this.website,
+                "employeesCount" to this.employeesCount,
+                "industries" to this.industries,
+                "ingestedAt" to this.ingestedAt.toString()
+        )
+    }
+
     private fun List<Map<String, Any?>>.byteInputStream(): java.io.InputStream {
         val jsonString =
                 this.joinToString(separator = "\n") {

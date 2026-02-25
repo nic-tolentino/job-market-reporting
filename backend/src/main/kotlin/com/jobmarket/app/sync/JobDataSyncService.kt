@@ -17,7 +17,7 @@ class JobDataSyncService(
     /**
      * Executes the end-to-end data synchronization pipeline.
      * 1. Fetches raw DTOs from Apify.
-     * 2. Maps/Cleans data into BigQuery records.
+     * 2. Maps/Cleans data into Job and Company records.
      * 3. Saves them to the configured storage repository.
      */
     @Async
@@ -30,10 +30,14 @@ class JobDataSyncService(
             return
         }
 
-        val mappedJobs = jobDataMapper.mapToBigQueryRecords(rawJobs)
-        log.info("Successfully mapped ${mappedJobs.size} jobs for storage.")
+        val mappedData = jobDataMapper.mapSyncData(rawJobs)
+        log.info(
+                "Successfully mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies for storage."
+        )
 
-        jobRepository.saveAll(mappedJobs)
+        jobRepository.saveCompanies(mappedData.companies)
+        jobRepository.saveJobs(mappedData.jobs)
+
         log.info("Job Data Sync Pipeline completed successfully.")
     }
 }

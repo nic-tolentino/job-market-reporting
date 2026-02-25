@@ -1,7 +1,8 @@
 package com.jobmarket.app.persistence
 
 import com.jobmarket.app.dashboard.model.TechTrendDto
-import com.jobmarket.app.persistence.model.BigQueryJobRecord
+import com.jobmarket.app.persistence.model.CompanyRecord
+import com.jobmarket.app.persistence.model.JobRecord
 import java.time.LocalDate
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Profile
@@ -13,16 +14,24 @@ class JobLocalRepository : JobRepository {
 
     private val log = LoggerFactory.getLogger(JobLocalRepository::class.java)
 
-    override fun saveAll(jobs: List<BigQueryJobRecord>) {
+    override fun saveJobs(jobs: List<JobRecord>) {
         if (jobs.isEmpty()) {
             log.info("LOCAL: No jobs provided to save.")
             return
         }
 
         log.info("LOCAL: Mocking save of ${jobs.size} jobs to BigQuery.")
-        // In local development, simply print out a sample so the developer can verify mapping is
-        // working
         log.info("LOCAL First mapped job sample: {}", jobs.firstOrNull())
+    }
+
+    override fun saveCompanies(companies: List<CompanyRecord>) {
+        if (companies.isEmpty()) {
+            log.info("LOCAL: No companies provided to save.")
+            return
+        }
+
+        log.info("LOCAL: Mocking save of ${companies.size} companies to BigQuery.")
+        log.info("LOCAL First mapped company sample: {}", companies.firstOrNull())
     }
 
     override fun getTechTrendsByWeek(monthsBack: Int): List<TechTrendDto> {
