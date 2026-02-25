@@ -1,8 +1,8 @@
-package com.jobmarket.app.repository
+package com.jobmarket.app.persistence
 
 import com.google.cloud.spring.bigquery.core.BigQueryTemplate
-import com.jobmarket.app.dto.BigQueryJobRecord
-import com.jobmarket.app.dto.TechTrendDto
+import com.jobmarket.app.dashboard.model.TechTrendDto
+import com.jobmarket.app.persistence.model.BigQueryJobRecord
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Repository

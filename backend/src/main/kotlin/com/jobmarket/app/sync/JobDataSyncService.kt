@@ -1,7 +1,6 @@
-package com.jobmarket.app.service
+package com.jobmarket.app.sync
 
-import com.jobmarket.app.client.ApifyClient
-import com.jobmarket.app.repository.JobRepository
+import com.jobmarket.app.persistence.JobRepository
 import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service

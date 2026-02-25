@@ -1,7 +1,7 @@
-package com.jobmarket.app.controller
+package com.jobmarket.app.webhook
 
-import com.jobmarket.app.dto.ApifyWebhookPayload
-import com.jobmarket.app.service.JobDataSyncService
+import com.jobmarket.app.sync.JobDataSyncService
+import com.jobmarket.app.webhook.model.ApifyWebhookPayload
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/webhook/apify")
-class WebhookController(private val jobDataSyncService: JobDataSyncService) {
+class ApifyWebhookController(private val jobDataSyncService: JobDataSyncService) {
 
-    private val log = LoggerFactory.getLogger(WebhookController::class.java)
+    private val log = LoggerFactory.getLogger(ApifyWebhookController::class.java)
 
     @PostMapping("/data-changed")
     fun handleApifyWebhook(@RequestBody payload: ApifyWebhookPayload): ResponseEntity<String> {

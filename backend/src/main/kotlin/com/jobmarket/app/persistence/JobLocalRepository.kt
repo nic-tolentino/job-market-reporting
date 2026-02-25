@@ -1,7 +1,7 @@
-package com.jobmarket.app.repository
+package com.jobmarket.app.persistence
 
-import com.jobmarket.app.dto.BigQueryJobRecord
-import com.jobmarket.app.dto.TechTrendDto
+import com.jobmarket.app.dashboard.model.TechTrendDto
+import com.jobmarket.app.persistence.model.BigQueryJobRecord
 import java.time.LocalDate
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Profile

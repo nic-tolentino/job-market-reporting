@@ -1,4 +1,4 @@
-package com.jobmarket.app.dto
+package com.jobmarket.app.webhook.model
 
 data class ApifyWebhookPayload(
         val userId: String?,

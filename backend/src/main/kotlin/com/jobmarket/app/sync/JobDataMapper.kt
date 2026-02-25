@@ -1,7 +1,7 @@
-package com.jobmarket.app.service
+package com.jobmarket.app.sync
 
-import com.jobmarket.app.dto.ApifyJobDto
-import com.jobmarket.app.dto.BigQueryJobRecord
+import com.jobmarket.app.persistence.model.BigQueryJobRecord
+import com.jobmarket.app.sync.model.ApifyJobDto
 import java.time.LocalDate
 import java.time.format.DateTimeParseException
 import org.slf4j.LoggerFactory

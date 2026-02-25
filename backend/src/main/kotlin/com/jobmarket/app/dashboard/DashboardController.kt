@@ -1,7 +1,7 @@
-package com.jobmarket.app.controller
+package com.jobmarket.app.dashboard
 
-import com.jobmarket.app.dto.TechTrendDto
-import com.jobmarket.app.repository.JobRepository
+import com.jobmarket.app.dashboard.model.TechTrendDto
+import com.jobmarket.app.persistence.JobRepository
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam

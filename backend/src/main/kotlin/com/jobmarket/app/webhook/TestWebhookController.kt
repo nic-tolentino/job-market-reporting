@@ -1,6 +1,6 @@
-package com.jobmarket.app.controller
+package com.jobmarket.app.webhook
 
-import com.jobmarket.app.service.JobDataSyncService
+import com.jobmarket.app.sync.JobDataSyncService
 import org.springframework.context.annotation.Profile
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/api/sync")
 @Profile("local")
-class DataSyncController(private val jobDataSyncService: JobDataSyncService) {
+class TestWebhookController(private val jobDataSyncService: JobDataSyncService) {
 
     @GetMapping("/test")
     fun testSync(): String {

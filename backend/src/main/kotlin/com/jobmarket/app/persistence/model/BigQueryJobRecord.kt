@@ -1,4 +1,4 @@
-package com.jobmarket.app.dto
+package com.jobmarket.app.persistence.model
 
 import java.time.LocalDate
 
