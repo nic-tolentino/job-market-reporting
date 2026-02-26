@@ -1,4 +1,5 @@
-FROM eclipse-temurin:17-jdk-alpine AS builder
+# Build Stage
+FROM ghcr.io/graalvm/native-image-community:17-ol9 AS builder
 WORKDIR /workspace/app
 
 # Copy gradle files
@@ -10,19 +11,22 @@ COPY settings.gradle.kts .
 # Grant execution rights on the gradlew script
 RUN chmod +x ./gradlew
 
-# Resolve dependencies
-RUN ./gradlew dependencies --no-daemon
-
-# Copy source code and build
+# Copy source code
 COPY src src
-RUN ./gradlew build -x test --no-daemon
 
-# Second stage: minimal runtime image
-FROM eclipse-temurin:17-jre-alpine
+# Build Native Image
+# This will produce a native executable in build/native/nativeCompile/
+RUN ./gradlew nativeCompile -x test --no-daemon
+
+# Runtime Stage: Use a tiny base image (even smaller than JRE)
+FROM debian:bookworm-slim
 WORKDIR /app
 
-# Copy the built jar from the builder stage
-COPY --from=builder /workspace/app/build/libs/*.jar app.jar
+# Install necessary libraries for native executable (like glibc/zlib)
+RUN apt-get update && apt-get install -y libstdc++6 zlib1g && rm -rf /var/lib/apt/lists/*
 
-# Run the app
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Copy the native binary from the builder stage
+COPY --from=builder /workspace/app/build/native/nativeCompile/tech-market-backend tech-market-backend
+
+# Run the native binary
+ENTRYPOINT ["./tech-market-backend"]

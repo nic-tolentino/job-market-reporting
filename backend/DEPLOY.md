@@ -18,7 +18,12 @@ gcloud artifacts repositories create tech-market-repo \
 ```
 
 ## 2. Build & Deploy to Cloud Run
-Run the following command from the `backend/` directory. Google Cloud will read the `Dockerfile`, build the image remotely using Cloud Build, push it to your registry, and deploy it to Cloud Run.
+Run the following command from the `backend/` directory. 
+
+> [!NOTE]
+> We are now using **GraalVM Native Image** for production. This means the build will take significantly longer (3-8 minutes) in Cloud Build, but in return, the service will start in **under 100ms** on GCP, effectively eliminating cold starts.
+
+Google Cloud will read the `Dockerfile`, build the image remotely using Cloud Build, push it to your registry, and deploy it to Cloud Run.
 
 ```bash
 gcloud run deploy tech-market-backend \
