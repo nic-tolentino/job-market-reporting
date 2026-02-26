@@ -6,3 +6,23 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 }
+
+/* Global Recharts Focus Fix */
+svg:focus,
+rect:focus,
+path:focus,
+g:focus,
+text:focus,
+.recharts-wrapper:focus,
+.recharts-surface:focus,
+.recharts-cartesian-axis-tick:focus,
+.recharts-bar-rectangle:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Aggressive selection removal for the chart interactive area */
+.recharts-wrapper {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
