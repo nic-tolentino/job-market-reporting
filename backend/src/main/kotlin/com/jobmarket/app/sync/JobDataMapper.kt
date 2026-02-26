@@ -97,6 +97,7 @@ class JobDataMapper {
                                 postedDate = parseDate(dto.postedAt),
                                 benefits = dto.benefits,
                                 employmentType = dto.employmentType,
+                                workModel = extractWorkModel(dto.location, dto.title),
                                 jobFunction = dto.jobFunction,
                                 applyUrl = dto.applyUrl,
                                 rawLocation = dto.location,
@@ -127,6 +128,17 @@ class JobDataMapper {
                     locUpper.contains(" Madrid") ||
                     locUpper.contains(" Barcelona") -> "ES"
             else -> "Unknown"
+        }
+    }
+
+    private fun extractWorkModel(location: String?, title: String?): String {
+        val locLower = location?.lowercase() ?: ""
+        val titleLower = title?.lowercase() ?: ""
+        val combined = "$locLower $titleLower"
+        return when {
+            combined.contains("remote") -> "Remote"
+            combined.contains("hybrid") -> "Hybrid"
+            else -> "On-site"
         }
     }
 

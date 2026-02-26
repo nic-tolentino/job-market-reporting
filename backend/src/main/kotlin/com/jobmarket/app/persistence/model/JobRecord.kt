@@ -22,6 +22,7 @@ data class JobRecord(
         val postedDate: LocalDate?,
         val benefits: List<String>?,
         val employmentType: String?,
+        val workModel: String?,
         val jobFunction: String?,
         val applyUrl: String?,
         val rawLocation: String?,

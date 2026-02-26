@@ -1,7 +1,11 @@
 package com.jobmarket.app.sync
 
 import com.jobmarket.app.persistence.JobRepository
+import com.jobmarket.app.persistence.model.RawIngestionRecord
+import java.time.Instant
+import java.util.UUID
 import org.slf4j.LoggerFactory
+import org.springframework.cache.annotation.CacheEvict
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 
@@ -20,19 +24,37 @@ class JobDataSyncService(
      * 2. Maps/Cleans data into Job and Company records.
      * 3. Saves them to the configured storage repository.
      */
+    @CacheEvict(value = ["dashboard", "tech", "company"], allEntries = true)
     @Async
-    fun runDataSync() {
+    fun runDataSync(datasetId: String) {
         log.info("Starting Job Data Sync Pipeline...")
 
-        val rawJobs = apifyClient.fetchRecentJobs()
-        if (rawJobs.isEmpty()) {
+        val apifyResults = apifyClient.fetchRecentJobs(datasetId)
+        if (apifyResults.isEmpty()) {
             log.info("No jobs fetched from Apify. Aborting sync.")
             return
         }
 
+        val syncTime = Instant.now()
+        val rawRecords =
+                apifyResults.map {
+                    RawIngestionRecord(
+                            id = "${it.dto.id}-${UUID.randomUUID()}", // combine apify job ID +
+                            // uuid so it's always
+                            // unique
+                            source = "LinkedIn-Apify",
+                            ingestedAt = syncTime,
+                            rawPayload = it.rawJson
+                    )
+                }
+
+        log.info("Ingesting ${rawRecords.size} raw payloads into Bronze Layer.")
+        jobRepository.saveRawIngestions(rawRecords)
+
+        val rawJobs = apifyResults.map { it.dto }
         val mappedData = jobDataMapper.mapSyncData(rawJobs)
         log.info(
-                "Successfully mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies for storage."
+                "Successfully mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies for Silver Layer storage."
         )
 
         jobRepository.saveCompanies(mappedData.companies)

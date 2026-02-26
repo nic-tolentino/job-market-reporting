@@ -1,5 +1,6 @@
 package com.jobmarket.app.webhook
 
+import com.jobmarket.app.config.ApifyProperties
 import com.jobmarket.app.sync.JobDataSyncService
 import org.springframework.context.annotation.Profile
 import org.springframework.web.bind.annotation.GetMapping
@@ -13,11 +14,18 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/api/sync")
 @Profile("local")
-class TestWebhookController(private val jobDataSyncService: JobDataSyncService) {
+class TestWebhookController(
+        private val jobDataSyncService: JobDataSyncService,
+        private val apifyProperties: ApifyProperties
+) {
 
     @GetMapping("/test")
     fun testSync(): String {
-        jobDataSyncService.runDataSync()
-        return "Data Sync Pipeline executed. Check local console logs for mapped output."
+        val datasetId = apifyProperties.datasetId
+        if (datasetId.isBlank()) {
+            return "Error: apify.dataset-id is not configured in application.yml"
+        }
+        jobDataSyncService.runDataSync(datasetId)
+        return "Data Sync Pipeline executed for dataset $datasetId. Check local console logs for mapped output."
     }
 }

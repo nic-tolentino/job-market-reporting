@@ -1,12 +1,28 @@
-# Stage 1: Build the application
-FROM gradle:8-jdk17 AS build
-COPY --chown=gradle:gradle . /home/gradle/src
-WORKDIR /home/gradle/src
-RUN gradle build --no-daemon -x test
+FROM eclipse-temurin:17-jdk-alpine AS builder
+WORKDIR /workspace/app
 
-# Stage 2: Create the runtime image
-FROM eclipse-temurin:17-jre-jammy
-EXPOSE 8080
-RUN mkdir /app
-COPY --from=build /home/gradle/src/build/libs/*.jar /app/spring-boot-application.jar
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app/spring-boot-application.jar"]
+# Copy gradle files
+COPY gradlew .
+COPY gradle gradle
+COPY build.gradle.kts .
+COPY settings.gradle.kts .
+
+# Grant execution rights on the gradlew script
+RUN chmod +x ./gradlew
+
+# Resolve dependencies
+RUN ./gradlew dependencies --no-daemon
+
+# Copy source code and build
+COPY src src
+RUN ./gradlew build -x test --no-daemon
+
+# Second stage: minimal runtime image
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+
+# Copy the built jar from the builder stage
+COPY --from=builder /workspace/app/build/libs/*.jar app.jar
+
+# Run the app
+ENTRYPOINT ["java", "-jar", "app.jar"]

@@ -1,6 +1,13 @@
 spring:
   application:
     name: job-market-backend
+  cache:
+    cache-names:
+      - dashboard
+      - tech
+      - company
+    caffeine:
+      spec: expireAfterWrite=720h
   cloud:
     gcp:
       bigquery:
