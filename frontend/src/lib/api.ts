@@ -86,7 +86,7 @@ export interface SearchSuggestionsResponse {
 
 // --- API Client Fetchers ---
 
-const API_BASE_URL = '/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
 // Easy way to toggle mock data on the frontend: 
 // 1. Set VITE_FORCE_MOCK_DATA=true in .env
@@ -187,9 +187,8 @@ export const fetchSearchSuggestions = async (): Promise<SearchSuggestionsRespons
     }
     return {
         suggestions: [
-            { type: 'TECHNOLOGY', id: 'react', name: 'React' },
-            { type: 'TECHNOLOGY', id: 'kotlin', name: 'Kotlin' },
-            { type: 'COMPANY', id: 'google', name: 'Google' }
+            ...mockTechLeaderboard.map(t => ({ type: 'TECHNOLOGY' as const, id: t.name.toLowerCase(), name: t.name })),
+            ...mockCompanyLeaderboard.map(c => ({ type: 'COMPANY' as const, id: c.id, name: c.name }))
         ]
     };
 };

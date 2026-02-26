@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { Briefcase, Loader2 } from 'lucide-react';
 import { fetchLandingPageData, type LandingPageDto } from '../lib/api';
@@ -140,14 +140,18 @@ export default function LandingPage() {
                             </thead>
                             <tbody className="divide-y divide-gray-100">
                                 {data.topCompanies.map((company) => (
-                                    <tr key={company.id} className="hover:bg-gray-50 transition-colors group">
+                                    <tr
+                                        key={company.id}
+                                        onClick={() => navigate("/company/" + company.id)}
+                                        className="hover:bg-gray-50 transition-colors group cursor-pointer"
+                                    >
                                         <td className="px-6 py-4">
-                                            <Link to={"/company/" + company.id} className="flex items-center gap-3">
+                                            <div className="flex items-center gap-3">
                                                 <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 bg-white font-bold text-slate-700 shadow-sm group-hover:border-blue-300 group-hover:text-blue-600 transition-colors">
                                                     {company.logo}
                                                 </div>
                                                 <span className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{company.name}</span>
-                                            </Link>
+                                            </div>
                                         </td>
                                         <td className="px-6 py-4 text-right">
                                             <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-2.5 py-1 text-sm font-semibold text-blue-700">

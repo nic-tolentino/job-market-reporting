@@ -5,6 +5,7 @@ import com.jobmarket.app.sync.JobDataSyncService
 import org.springframework.context.annotation.Profile
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 /**
@@ -20,12 +21,15 @@ class TestWebhookController(
 ) {
 
     @GetMapping("/test")
-    fun testSync(): String {
-        val datasetId = apifyProperties.datasetId
-        if (datasetId.isBlank()) {
-            return "Error: apify.dataset-id is not configured in application.yml"
+    fun testSync(@RequestParam(required = false) datasetId: String?): String {
+        // Prefer the query parameter, fallback to application.yml
+        val effectiveId = datasetId ?: apifyProperties.datasetId
+
+        if (effectiveId.isBlank()) {
+            return "Error: Provide a datasetId as a query param (?datasetId=...) or configure apify.dataset-id in application.yml"
         }
-        jobDataSyncService.runDataSync(datasetId)
-        return "Data Sync Pipeline executed for dataset $datasetId. Check local console logs for mapped output."
+
+        jobDataSyncService.runDataSync(effectiveId)
+        return "Manual Data Sync Pipeline executed for dataset: $effectiveId. Check local console logs for progress."
     }
 }

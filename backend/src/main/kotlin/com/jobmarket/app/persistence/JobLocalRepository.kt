@@ -78,7 +78,12 @@ class JobLocalRepository : JobRepository {
                         listOf(
                                 SearchSuggestionDto("TECHNOLOGY", "react", "React"),
                                 SearchSuggestionDto("TECHNOLOGY", "kotlin", "Kotlin"),
-                                SearchSuggestionDto("COMPANY", "google", "Google")
+                                SearchSuggestionDto("TECHNOLOGY", "typescript", "TypeScript"),
+                                SearchSuggestionDto("COMPANY", "google", "Google"),
+                                SearchSuggestionDto("COMPANY", "atlassian", "Atlassian"),
+                                SearchSuggestionDto("COMPANY", "canva", "Canva"),
+                                SearchSuggestionDto("COMPANY", "amazon", "Amazon"),
+                                SearchSuggestionDto("COMPANY", "xero", "Xero")
                         )
         )
     }
