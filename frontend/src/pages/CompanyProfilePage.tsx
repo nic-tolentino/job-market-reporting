@@ -1,30 +1,34 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Building2, MapPin, DollarSign, Calendar, Loader2 } from 'lucide-react';
 import { fetchCompanyProfile, type CompanyProfilePageDto } from '../lib/api';
 import { FeedbackButton } from '../components/common/Feedback';
+import ErrorState from '../components/common/ErrorState';
 
 export default function CompanyProfilePage() {
     const { companyId } = useParams<{ companyId: string }>();
     const [data, setData] = useState<CompanyProfilePageDto | null>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(false);
+
+    const loadData = useCallback(async () => {
+        if (!companyId) return;
+        setIsLoading(true);
+        setError(false);
+        try {
+            const apiData = await fetchCompanyProfile(companyId);
+            setData(apiData);
+        } catch (err) {
+            console.error(`Failed to load company profile for ${companyId}:`, err);
+            setError(true);
+        } finally {
+            setIsLoading(false);
+        }
+    }, [companyId]);
 
     useEffect(() => {
-        const loadData = async () => {
-            if (!companyId) return;
-            setIsLoading(true);
-            try {
-                const apiData = await fetchCompanyProfile(companyId);
-                setData(apiData);
-            } catch (error) {
-                console.error(`Failed to load company profile for ${companyId}:`, error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
         loadData();
-    }, [companyId]);
+    }, [loadData]);
 
     if (isLoading) {
         return (
@@ -34,7 +38,9 @@ export default function CompanyProfilePage() {
         );
     }
 
-    if (!data) return null;
+    if (error || !data) {
+        return <ErrorState title="Couldn't load company profile" message="We had trouble fetching this company's data. Try again shortly." onRetry={loadData} />;
+    }
 
     const companyName = data.companyDetails.name;
 

@@ -1,4 +1,4 @@
-# GCP Deployment Guide for Job Market Backend
+# GCP Deployment Guide for Tech Market Backend
 
 This guide outlines the steps to deploy the Spring Boot backend to Google Cloud Run.
 

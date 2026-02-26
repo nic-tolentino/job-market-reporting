@@ -15,7 +15,7 @@ class SearchController(private val jobRepository: JobRepository) {
 
     private val log = LoggerFactory.getLogger(SearchController::class.java)
 
-    @Cacheable("search-suggestions", condition = "#term == null")
+    @Cacheable("search", condition = "#term == null")
     @GetMapping("/suggestions")
     fun getSuggestions(@RequestParam(required = false) term: String?): SearchSuggestionsResponse {
         if (!term.isNullOrBlank()) {

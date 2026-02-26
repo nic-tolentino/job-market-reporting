@@ -24,7 +24,7 @@ class JobDataSyncService(
      * 2. Maps/Cleans data into Job and Company records.
      * 3. Saves them to the configured storage repository.
      */
-    @CacheEvict(value = ["dashboard", "tech", "company"], allEntries = true)
+    @CacheEvict(value = ["landing", "tech", "company", "search"], allEntries = true)
     @Async
     fun runDataSync(datasetId: String) {
         log.info("Starting Job Data Sync Pipeline...")

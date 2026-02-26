@@ -1,29 +1,34 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { Briefcase, Loader2 } from 'lucide-react';
 import { fetchLandingPageData, type LandingPageDto } from '../lib/api';
 import { FeedbackButton } from '../components/common/Feedback';
+import ErrorState from '../components/common/ErrorState';
 
 export default function LandingPage() {
     const navigate = useNavigate();
     const [data, setData] = useState<LandingPageDto | null>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(false);
+
+    const loadData = useCallback(async () => {
+        setIsLoading(true);
+        setError(false);
+        try {
+            const apiData = await fetchLandingPageData();
+            setData(apiData);
+        } catch (err) {
+            console.error('Failed to load landing page data:', err);
+            setError(true);
+        } finally {
+            setIsLoading(false);
+        }
+    }, []);
 
     useEffect(() => {
-        const loadData = async () => {
-            try {
-                const apiData = await fetchLandingPageData();
-                setData(apiData);
-            } catch (error) {
-                console.error('Failed to load landing page data:', error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
         loadData();
-    }, []);
+    }, [loadData]);
 
     if (isLoading) {
         return (
@@ -33,14 +38,16 @@ export default function LandingPage() {
         );
     }
 
-    if (!data) return null;
+    if (error || !data) {
+        return <ErrorState title="Couldn't load market data" message="We had trouble fetching the latest insights. This might be a temporary issue." onRetry={loadData} />;
+    }
 
     return (
         <div className="space-y-10">
             {/* Hero Section */}
             <section className="text-center py-12 relative">
                 <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-                    Engineering Job Market Insights
+                    Engineering Tech Market Insights
                 </h1>
                 <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
                     Discover who's hiring, what tech they use, and how the market is trending.

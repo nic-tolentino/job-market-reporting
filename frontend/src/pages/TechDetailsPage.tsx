@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { Briefcase, Loader2 } from 'lucide-react';
 import { fetchTechDetails, type TechDetailsPageDto } from '../lib/api';
 import { FeedbackButton } from '../components/common/Feedback';
+import ErrorState from '../components/common/ErrorState';
 
 const COLORS = ['#f563EB', '#4F46E5', '#10B981', '#F59E0B'];
 
@@ -12,23 +13,26 @@ export default function TechDetailsPage() {
 
     const [data, setData] = useState<TechDetailsPageDto | null>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(false);
+
+    const loadData = useCallback(async () => {
+        if (!techId) return;
+        setIsLoading(true);
+        setError(false);
+        try {
+            const apiData = await fetchTechDetails(techId);
+            setData(apiData);
+        } catch (err) {
+            console.error(`Failed to load tech details for ${techId}:`, err);
+            setError(true);
+        } finally {
+            setIsLoading(false);
+        }
+    }, [techId]);
 
     useEffect(() => {
-        const loadData = async () => {
-            if (!techId) return;
-            setIsLoading(true);
-            try {
-                const apiData = await fetchTechDetails(techId);
-                setData(apiData);
-            } catch (error) {
-                console.error(`Failed to load tech details for ${techId}:`, error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
         loadData();
-    }, [techId]);
+    }, [loadData]);
 
     if (isLoading) {
         return (
@@ -38,7 +42,9 @@ export default function TechDetailsPage() {
         );
     }
 
-    if (!data) return null;
+    if (error || !data) {
+        return <ErrorState title={`Couldn't load ${techId || 'technology'} data`} message="We had trouble fetching details for this technology. Try again shortly." onRetry={loadData} />;
+    }
 
     const displayLetter = data.techName.charAt(0);
 

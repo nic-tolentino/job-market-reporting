@@ -1,21 +1,22 @@
 spring:
   application:
     name: tech-market-backend
-
-logging:
-  level:
-    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
   cache:
     cache-names:
-      - dashboard
+      - landing
       - tech
       - company
+      - search
     caffeine:
       spec: expireAfterWrite=720h
   cloud:
     gcp:
       bigquery:
         dataset-name: techmarket
+
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
 
 management:
   endpoints:

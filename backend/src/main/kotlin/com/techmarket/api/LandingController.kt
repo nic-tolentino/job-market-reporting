@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api/landing")
 class LandingController(private val jobRepository: JobRepository) {
 
-    @Cacheable("dashboard-data")
+    @Cacheable("landing")
     @GetMapping
     fun getLandingPageData(): LandingPageDto {
         return jobRepository.getLandingPageData()
