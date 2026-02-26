@@ -1,20 +1,48 @@
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Building2, MapPin, DollarSign, Calendar } from 'lucide-react';
-import { mockRecentJobs } from '../lib/mockData';
-import { getCompanyById } from '../lib/api';
+import { Building2, MapPin, DollarSign, Calendar, Loader2 } from 'lucide-react';
+import { fetchCompanyProfile, type CompanyProfilePageDto } from '../lib/api';
 import { FeedbackButton } from '../components/common/Feedback';
 
 export default function CompanyProfilePage() {
     const { companyId } = useParams<{ companyId: string }>();
-    const company = getCompanyById(companyId || '');
-    const companyName = company.name;
-    const displayLetter = company.logo;
+    const [data, setData] = useState<CompanyProfilePageDto | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const loadData = async () => {
+            if (!companyId) return;
+            setIsLoading(true);
+            try {
+                const apiData = await fetchCompanyProfile(companyId);
+                setData(apiData);
+            } catch (error) {
+                console.error(`Failed to load company profile for ${companyId}:`, error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        loadData();
+    }, [companyId]);
+
+    if (isLoading) {
+        return (
+            <div className="flex items-center justify-center min-h-[50vh]">
+                <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+            </div>
+        );
+    }
+
+    if (!data) return null;
+
+    const companyName = data.companyDetails.name;
 
     return (
         <div className="space-y-8">
             <div className="flex items-start gap-6 border-b border-gray-200 pb-8">
                 <div className="h-24 w-24 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center flex-shrink-0 text-3xl font-bold text-slate-700">
-                    {displayLetter}
+                    {data.companyDetails.logo}
                 </div>
                 <div className="flex-1">
                     <div className="flex items-center gap-3">
@@ -22,18 +50,18 @@ export default function CompanyProfilePage() {
                         <FeedbackButton variant="icon" context={`${companyName} Profile Info`} />
                     </div>
                     <p className="text-gray-600 mt-2 max-w-2xl text-lg">
-                        Engineering-focused organization specializing in web-scale infrastructure and developer tools.
+                        {data.companyDetails.description}
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
                             <Building2 className="h-3.5 w-3.5" />
-                            Technology & Software
+                            {data.companyDetails.industry}
                         </span>
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                            Public Company
+                            ~{data.companyDetails.employeesCount.toLocaleString()} Employees
                         </span>
-                        <a href="#" className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 hover:bg-blue-100 transition-colors">
-                            website.com
+                        <a href={data.companyDetails.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 hover:bg-blue-100 transition-colors">
+                            Website
                         </a>
                     </div>
                 </div>
@@ -52,7 +80,7 @@ export default function CompanyProfilePage() {
                         </div>
                         <div className="p-6">
                             <div className="flex flex-wrap gap-2.5">
-                                {['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'AWS', 'Docker', 'Kubernetes', 'GraphQL'].map(tech => (
+                                {data.techStack.map(tech => (
                                     <Link key={tech} to={"/tech/" + tech.toLowerCase()} className="inline-flex items-center rounded-full bg-white border border-gray-200 px-4 py-1.5 text-sm font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-colors shadow-sm">
                                         {tech}
                                     </Link>
@@ -76,7 +104,7 @@ export default function CompanyProfilePage() {
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-gray-100">
-                                    {mockRecentJobs.map((job) => (
+                                    {data.activeRoles.map((job) => (
                                         <tr key={job.id} className="hover:bg-gray-50 transition-colors group/row">
                                             <td className="px-6 py-5">
                                                 <div className="flex items-center gap-2">
@@ -128,15 +156,17 @@ export default function CompanyProfilePage() {
                         <ul className="space-y-4 text-sm text-gray-600">
                             <li className="flex justify-between items-center border-b border-gray-50 pb-3">
                                 <span className="font-medium text-slate-600">Work Model</span>
-                                <span className="font-semibold text-slate-900 bg-green-50 text-green-700 px-2 py-0.5 rounded text-xs border border-green-200">Hybrid Friendly</span>
+                                <span className="font-semibold text-slate-900 bg-green-50 text-green-700 px-2 py-0.5 rounded text-xs border border-green-200">{data.insights.workModel}</span>
                             </li>
                             <li className="flex justify-between items-center border-b border-gray-50 pb-3">
                                 <span className="font-medium text-slate-600">Top Hubs</span>
-                                <span className="font-semibold text-slate-900 text-right">Sydney<br />Remote</span>
+                                <span className="font-semibold text-slate-900 text-right whitespace-pre-line">
+                                    {data.insights.topHubs.replace(', ', '\n')}
+                                </span>
                             </li>
                             <li className="flex justify-between items-center cursor-pointer group">
                                 <span className="font-medium text-slate-600">Common Benefits</span>
-                                <span className="font-semibold text-blue-600 group-hover:underline">View 8 tags</span>
+                                <span className="font-semibold text-blue-600 group-hover:underline">View {data.insights.commonBenefits.length} tags</span>
                             </li>
                         </ul>
                     </div>
