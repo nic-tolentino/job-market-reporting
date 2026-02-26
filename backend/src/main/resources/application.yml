@@ -1,6 +1,10 @@
 spring:
   application:
     name: job-market-backend
+
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
   cache:
     cache-names:
       - dashboard
