@@ -11,7 +11,7 @@ This guide outlines the steps to deploy the Spring Boot backend to Google Cloud 
 First, create a Docker repository in Google Cloud Artifact Registry to hold your container images.
 
 ```bash
-gcloud artifacts repositories create job-market-repo \
+gcloud artifacts repositories create tech-market-repo \
     --repository-format=docker \
     --location=us-central1 \
     --description="Docker repository for Backend"
@@ -21,7 +21,7 @@ gcloud artifacts repositories create job-market-repo \
 Run the following command from the `backend/` directory. Google Cloud will read the `Dockerfile`, build the image remotely using Cloud Build, push it to your registry, and deploy it to Cloud Run.
 
 ```bash
-gcloud run deploy job-market-backend \
+gcloud run deploy tech-market-backend \
     --source . \
     --region us-central1 \
     --allow-unauthenticated \
@@ -42,10 +42,10 @@ Cloud Run automatically creates a default compute service account. You must ensu
 - **BigQuery Job User**
 
 ## 4. Post-Deployment Updates
-After the deployment completes, Cloud Run will provide you with a live URL (e.g., `https://job-market-backend-abc.a.run.app`).
+After the deployment completes, Cloud Run will provide you with a live URL (e.g., `https://tech-market-backend-abc.a.run.app`).
 
 1. **Update Vercel Frontend**: Update your Vercel project's environment variables (e.g., `VITE_API_URL` or equivalent) to point to the new backend URL.
 2. **Update Apify Webhook**: 
    - Go to your Apify Console.
-   - Update the webhook URL to `https://job-market-backend-abc.a.run.app/api/webhook/apify/data-changed`.
+   - Update the webhook URL to `https://tech-market-backend-abc.a.run.app/api/webhook/apify/data-changed`.
    - Add an HTTP Header: Key: `X-Apify-Webhook-Secret`, Value: `<the password you set in step 2>`.

@@ -4,7 +4,7 @@ export default function Footer() {
             <div className="mx-auto max-w-6xl px-4 pb-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
                     <p className="text-sm text-gray-500">
-                        &copy; {new Date().getFullYear()} JobMarket Pulse. Data extracted automatically for educational insights.
+                        &copy; {new Date().getFullYear()} TechMarket Insights. Data extracted automatically for educational insights.
                     </p>
                     <div className="flex gap-4 text-sm text-gray-500">
                         <a href="#" className="hover:text-gray-900 transition-colors">Privacy Policy</a>

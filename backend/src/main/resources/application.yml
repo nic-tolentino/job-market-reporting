@@ -1,6 +1,6 @@
 spring:
   application:
-    name: job-market-backend
+    name: tech-market-backend
 
 logging:
   level:
@@ -15,7 +15,7 @@ logging:
   cloud:
     gcp:
       bigquery:
-        dataset-name: job_market_analysis
+        dataset-name: techmarket
 
 management:
   endpoints:

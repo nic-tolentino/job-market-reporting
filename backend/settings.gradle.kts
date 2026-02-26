@@ -1,1 +1,1 @@
-rootProject.name = "job-market-backend"
+rootProject.name = "tech-market-backend"

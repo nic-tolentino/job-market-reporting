@@ -83,7 +83,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-2">
                     <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900 hover:text-blue-600 transition-colors">
                         <Briefcase className="h-6 w-6 text-blue-600" />
-                        TechMarket Pulse
+                        TechMarket Insights
                     </Link>
                 </div>
 

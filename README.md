@@ -1,4 +1,4 @@
-# Engineering Job Market Pulse (AU/NZ/ES)
+# Engineering Tech Market Insights (AU/NZ/ES)
 
 ## Objective
 A full-stack data analyzer that tracks engineering job trends (technologies, seniority, and location) across **Australia**, **New Zealand**, and **Spain**. The system periodically ingests data from major job boards, stores it in a data warehouse, and visualizes it on a web dashboard.
@@ -43,7 +43,7 @@ A full-stack data analyzer that tracks engineering job trends (technologies, sen
 - **Deployment**: Multi-stage Docker build, containerized via Jib/Docker, deployed to Cloud Run.
 
 ### 📊 Data Layer: The "Warehouse" (BigQuery)
-- **Dataset**: `job_market_analysis`
+- **Dataset**: `techmarket`
 - **Table**: `raw_postings`
 - **Schema**:
     - `job_id`: Unique identifier.
