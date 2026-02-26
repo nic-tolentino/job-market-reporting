@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { Briefcase } from 'lucide-react';
 import { mockGlobalStats, mockTechLeaderboard, mockCompanyLeaderboard } from '../lib/mockData';
+import { FeedbackButton } from '../components/common/Feedback';
 
 export default function LandingPage() {
     const navigate = useNavigate();
@@ -9,30 +10,42 @@ export default function LandingPage() {
     return (
         <div className="space-y-10">
             {/* Hero Section */}
-            <section className="text-center py-12">
+            <section className="text-center py-12 relative">
                 <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
                     Engineering Job Market Insights
                 </h1>
                 <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-                    Discover who is hiring, what tech they use, and how the market is trending across AU, NZ, and ES.
+                    Discover who's hiring, what tech they use, and how the market is trending.
                 </p>
             </section>
 
             {/* High-Level Stats Cards */}
             <section className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col justify-between">
+                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col justify-between group relative">
+                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <FeedbackButton variant="icon" context="Stat: Tracked Vacancies" />
+                    </div>
                     <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Tracked Vacancies</p>
                     <p className="mt-4 text-3xl font-bold text-slate-900">{mockGlobalStats.totalVacancies.toLocaleString()}</p>
                 </div>
-                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col justify-between">
+                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col justify-between group relative">
+                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <FeedbackButton variant="icon" context="Stat: Top Technology" />
+                    </div>
                     <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Top Technology</p>
                     <p className="mt-4 text-3xl font-bold text-slate-900">{mockGlobalStats.topTech}</p>
                 </div>
-                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col justify-between">
+                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col justify-between group relative">
+                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <FeedbackButton variant="icon" context="Stat: Remote Roles" />
+                    </div>
                     <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Remote Roles</p>
                     <p className="mt-4 text-3xl font-bold text-slate-900">{mockGlobalStats.remotePercentage}%</p>
                 </div>
-                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col justify-between">
+                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col justify-between group relative">
+                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <FeedbackButton variant="icon" context="Stat: Hybrid Roles" />
+                    </div>
                     <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Hybrid Roles</p>
                     <p className="mt-4 text-3xl font-bold text-slate-900">{mockGlobalStats.hybridPercentage}%</p>
                 </div>
@@ -43,9 +56,12 @@ export default function LandingPage() {
 
                 {/* Top Tech Chart */}
                 <div className="rounded-xl border border-gray-200 bg-white p-0 shadow-sm flex flex-col overflow-hidden">
-                    <div className="border-b border-gray-100 p-6">
-                        <h2 className="text-lg font-bold text-slate-900">Highest Demand Tech</h2>
-                        <p className="text-sm text-gray-500 mt-1">Based on active job postings</p>
+                    <div className="border-b border-gray-100 p-6 flex items-center justify-between">
+                        <div>
+                            <h2 className="text-lg font-bold text-slate-900">Highest Demand Tech</h2>
+                            <p className="text-sm text-gray-500 mt-1">Based on active job postings</p>
+                        </div>
+                        <FeedbackButton variant="icon" context="Highest Demand Tech Chart" />
                     </div>
                     <div className="p-6 flex-1 min-h-[400px] outline-none select-none [&_svg]:outline-none" tabIndex={-1}>
                         <ResponsiveContainer width="100%" height="100%">
@@ -79,11 +95,12 @@ export default function LandingPage() {
 
                 {/* Top Companies List */}
                 <div className="rounded-xl border border-gray-200 bg-white p-0 shadow-sm flex flex-col overflow-hidden">
-                    <div className="border-b border-gray-100 p-6 flex justify-between items-end">
+                    <div className="border-b border-gray-100 p-6 flex items-center justify-between">
                         <div>
                             <h2 className="text-lg font-bold text-slate-900">Top Hiring Companies</h2>
                             <p className="text-sm text-gray-500 mt-1">Companies with the most active vacancies</p>
                         </div>
+                        <FeedbackButton variant="icon" context="Top Hiring Companies List" />
                     </div>
                     <div className="flex-1 overflow-auto">
                         <table className="w-full text-left text-sm">

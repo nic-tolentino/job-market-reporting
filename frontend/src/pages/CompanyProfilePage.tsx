@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Building2, MapPin, DollarSign, Calendar } from 'lucide-react';
 import { mockRecentJobs } from '../lib/mockData';
 import { getCompanyById } from '../lib/api';
+import { FeedbackButton } from '../components/common/Feedback';
 
 export default function CompanyProfilePage() {
     const { companyId } = useParams<{ companyId: string }>();
@@ -15,8 +16,11 @@ export default function CompanyProfilePage() {
                 <div className="h-24 w-24 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center flex-shrink-0 text-3xl font-bold text-slate-700">
                     {displayLetter}
                 </div>
-                <div>
-                    <h1 className="text-3xl font-bold text-slate-900">{companyName}</h1>
+                <div className="flex-1">
+                    <div className="flex items-center gap-3">
+                        <h1 className="text-3xl font-bold text-slate-900">{companyName}</h1>
+                        <FeedbackButton variant="icon" context={`${companyName} Profile Info`} />
+                    </div>
                     <p className="text-gray-600 mt-2 max-w-2xl text-lg">
                         Engineering-focused organization specializing in web-scale infrastructure and developer tools.
                     </p>
@@ -39,9 +43,12 @@ export default function CompanyProfilePage() {
                 <div className="lg:col-span-2 space-y-8">
 
                     <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
-                        <div className="border-b border-gray-100 p-6">
-                            <h2 className="text-lg font-bold text-slate-900">Tech Stack</h2>
-                            <p className="text-sm text-gray-500 mt-1">Extracted from active and historical job postings</p>
+                        <div className="border-b border-gray-100 p-6 flex items-center justify-between">
+                            <div>
+                                <h2 className="text-lg font-bold text-slate-900">Tech Stack</h2>
+                                <p className="text-sm text-gray-500 mt-1">Extracted from active and historical job postings</p>
+                            </div>
+                            <FeedbackButton variant="icon" context={`${companyName} Tech Stack`} />
                         </div>
                         <div className="p-6">
                             <div className="flex flex-wrap gap-2.5">
@@ -55,8 +62,9 @@ export default function CompanyProfilePage() {
                     </div>
 
                     <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
-                        <div className="border-b border-gray-100 p-6">
+                        <div className="border-b border-gray-100 p-6 flex items-center justify-between">
                             <h2 className="text-lg font-bold text-slate-900">Active Roles</h2>
+                            <FeedbackButton variant="icon" context={`${companyName} Active Roles`} />
                         </div>
                         <div className="overflow-x-auto">
                             <table className="w-full text-left text-sm">
@@ -69,9 +77,14 @@ export default function CompanyProfilePage() {
                                 </thead>
                                 <tbody className="divide-y divide-gray-100">
                                     {mockRecentJobs.map((job) => (
-                                        <tr key={job.id} className="hover:bg-gray-50 transition-colors">
+                                        <tr key={job.id} className="hover:bg-gray-50 transition-colors group/row">
                                             <td className="px-6 py-5">
-                                                <div className="font-semibold text-slate-900">{job.title}</div>
+                                                <div className="flex items-center gap-2">
+                                                    <div className="font-semibold text-slate-900">{job.title}</div>
+                                                    <div className="opacity-0 group-hover/row:opacity-100 transition-opacity">
+                                                        <FeedbackButton variant="icon" context={`Job Role: ${job.title} at ${companyName}`} />
+                                                    </div>
+                                                </div>
                                                 <div className="mt-1 flex items-center gap-1.5 text-gray-500">
                                                     <MapPin className="h-3.5 w-3.5" />
                                                     {job.location}
@@ -107,7 +120,10 @@ export default function CompanyProfilePage() {
                 </div>
 
                 <div className="space-y-6">
-                    <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                    <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm relative">
+                        <div className="absolute top-4 right-4">
+                            <FeedbackButton variant="icon" context={`${companyName} Insights`} />
+                        </div>
                         <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-5">Extracted Insights</h3>
                         <ul className="space-y-4 text-sm text-gray-600">
                             <li className="flex justify-between items-center border-b border-gray-50 pb-3">

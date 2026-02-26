@@ -3,6 +3,7 @@ import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { Briefcase } from 'lucide-react';
 import { mockCompanyLeaderboard } from '../lib/mockData';
 import { formatTechName } from '../lib/api';
+import { FeedbackButton } from '../components/common/Feedback';
 
 const seniorityData = [
     { name: 'Senior', value: 400 },
@@ -15,20 +16,41 @@ const COLORS = ['#f563EB', '#4F46E5', '#10B981', '#F59E0B'];
 
 export default function TechDetailsPage() {
     const { techId } = useParams<{ techId: string }>();
+    const techName = formatTechName(techId);
+    const displayLetter = techName.charAt(0);
 
     return (
         <div className="space-y-8">
-            <div>
-                <h1 className="text-3xl font-bold text-slate-900">{formatTechName(techId)} Jobs</h1>
-                <p className="text-gray-600 mt-2 text-lg">Market demand breakdown and hiring hotspots.</p>
+            <div className="flex items-start gap-6 border-b border-gray-200 pb-8">
+                <div className="h-24 w-24 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center flex-shrink-0 text-3xl font-bold text-slate-700">
+                    {displayLetter}
+                </div>
+                <div className="flex-1">
+                    <div className="flex items-center gap-3">
+                        <h1 className="text-3xl font-bold text-slate-900">{techName} Jobs</h1>
+                        <FeedbackButton variant="icon" context={`${techName} Page Overview`} />
+                    </div>
+                    <p className="text-gray-600 mt-2 text-lg">
+                        Global market demand breakdown, hiring hotspots, and seniority requirements for {techName} experts.
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 border border-blue-100">
+                            High Demand
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                            Engineering
+                        </span>
+                    </div>
+                </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
                 {/* Seniority Donut Chart */}
-                <div className="rounded-xl border border-gray-200 bg-white shadow-sm flex flex-col">
-                    <div className="border-b border-gray-100 p-6">
+                <div className="rounded-xl border border-gray-200 bg-white shadow-sm flex flex-col overflow-hidden">
+                    <div className="border-b border-gray-100 p-6 flex items-center justify-between">
                         <h2 className="text-lg font-bold text-slate-900">Seniority Distribution</h2>
+                        <FeedbackButton variant="icon" context={`${techName} Seniority Breakdown`} />
                     </div>
                     <div className="p-6 flex-1 flex flex-col items-center justify-center min-h-[400px]">
                         <div className="h-64 flex items-center justify-center">
@@ -64,16 +86,17 @@ export default function TechDetailsPage() {
                 </div>
 
                 {/* Hiring Companies Table */}
-                <div className="lg:col-span-2 rounded-xl border border-gray-200 bg-white shadow-sm flex flex-col">
-                    <div className="border-b border-gray-100 p-6">
+                <div className="lg:col-span-2 rounded-xl border border-gray-200 bg-white shadow-sm flex flex-col overflow-hidden">
+                    <div className="border-b border-gray-100 p-6 flex items-center justify-between">
                         <h2 className="text-lg font-bold text-slate-900">Actively Hiring Companies</h2>
+                        <FeedbackButton variant="icon" context={`${techName} Hiring Companies`} />
                     </div>
                     <div className="flex-1 overflow-auto">
                         <table className="w-full text-left text-sm">
                             <thead className="bg-gray-50 text-gray-500 sticky top-0">
                                 <tr>
                                     <th className="px-6 py-3 font-medium uppercase tracking-wider">Company</th>
-                                    <th className="px-6 py-3 font-medium uppercase tracking-wider text-right">Active {formatTechName(techId)} Roles</th>
+                                    <th className="px-6 py-3 font-medium uppercase tracking-wider text-right">Active {techName} Roles</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-100">
