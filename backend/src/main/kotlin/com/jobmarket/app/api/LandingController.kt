@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/api/dashboard")
-class DashboardController(private val jobRepository: JobRepository) {
+@RequestMapping("/api/landing")
+class LandingController(private val jobRepository: JobRepository) {
 
-    @Cacheable("dashboard")
-    @GetMapping("/landing")
+    @Cacheable("dashboard-data")
+    @GetMapping
     fun getLandingPageData(): LandingPageDto {
         return jobRepository.getLandingPageData()
     }

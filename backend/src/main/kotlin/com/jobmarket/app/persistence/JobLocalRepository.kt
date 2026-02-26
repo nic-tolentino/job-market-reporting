@@ -1,11 +1,9 @@
 package com.jobmarket.app.persistence
 
 import com.jobmarket.app.api.model.*
-import com.jobmarket.app.dashboard.model.TechTrendDto
 import com.jobmarket.app.persistence.model.CompanyRecord
 import com.jobmarket.app.persistence.model.JobRecord
 import com.jobmarket.app.persistence.model.RawIngestionRecord
-import java.time.LocalDate
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Repository
@@ -44,19 +42,6 @@ class JobLocalRepository : JobRepository {
         log.info("LOCAL First mapped company sample: {}", companies.firstOrNull())
     }
 
-    override fun getTechTrendsByWeek(monthsBack: Int): List<TechTrendDto> {
-        log.info("LOCAL: Returning mock Tech Trends data for frontend development.")
-        val now = LocalDate.now()
-        return listOf(
-                TechTrendDto("Kotlin", now.minusDays(7), 45),
-                TechTrendDto("Java", now.minusDays(7), 120),
-                TechTrendDto("React", now.minusDays(7), 95),
-                TechTrendDto("Kotlin", now.minusDays(14), 40),
-                TechTrendDto("Java", now.minusDays(14), 115),
-                TechTrendDto("React", now.minusDays(14), 100)
-        )
-    }
-
     override fun getLandingPageData(): LandingPageDto {
         log.info("LOCAL: Returning stub LandingPageDto")
         return LandingPageDto(
@@ -84,5 +69,25 @@ class JobLocalRepository : JobRepository {
                 insights = CompanyInsightsDto("", "", emptyList()),
                 activeRoles = emptyList()
         )
+    }
+
+    override fun getSearchSuggestions(): SearchSuggestionsResponse {
+        log.info("LOCAL: Mocking search suggestions")
+        return SearchSuggestionsResponse(
+                suggestions =
+                        listOf(
+                                SearchSuggestionDto("TECHNOLOGY", "react", "React"),
+                                SearchSuggestionDto("TECHNOLOGY", "kotlin", "Kotlin"),
+                                SearchSuggestionDto("COMPANY", "google", "Google")
+                        )
+        )
+    }
+
+    override fun saveSearchMiss(term: String) {
+        log.info("LOCAL: Mocking save of search miss: $term")
+    }
+
+    override fun saveFeedback(context: String?, message: String) {
+        log.info("LOCAL: Mocking save of feedback [Context: $context]: $message")
     }
 }

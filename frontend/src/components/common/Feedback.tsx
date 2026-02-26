@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, AlertCircle } from 'lucide-react';
+import { submitFeedback } from '../../lib/api';
+import { useMutation } from '@tanstack/react-query';
 
 interface FeedbackModalProps {
     isOpen: boolean;
@@ -24,18 +26,27 @@ export function FeedbackModal({ isOpen, onClose, context }: FeedbackModalProps) 
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, [isOpen, onClose]);
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setStatus('submitting');
-        // Simulated submission
-        setTimeout(() => {
+    const { mutate, isPending } = useMutation({
+        mutationFn: (message: string) => submitFeedback(context, message),
+        onSuccess: () => {
             setStatus('success');
             setTimeout(() => {
                 onClose();
                 setStatus('idle');
                 setFeedback('');
             }, 2000);
-        }, 800);
+        },
+        onError: () => {
+            // Revert back or show error
+            setStatus('idle');
+            alert("Failed to submit feedback. Please try again.");
+        }
+    });
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('submitting');
+        mutate(feedback);
     };
 
     if (!isOpen) return null;
@@ -94,10 +105,10 @@ export function FeedbackModal({ isOpen, onClose, context }: FeedbackModalProps) 
 
                             <button
                                 type="submit"
-                                disabled={status === 'submitting'}
+                                disabled={isPending || status === 'submitting'}
                                 className="w-full py-3 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
                             >
-                                {status === 'submitting' ? (
+                                {isPending || status === 'submitting' ? (
                                     <div className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                                 ) : (
                                     <>

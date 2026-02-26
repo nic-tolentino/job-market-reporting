@@ -74,6 +74,16 @@ export interface CompanyProfilePageDto {
     activeRoles: JobRoleDto[];
 }
 
+export interface SearchSuggestionDto {
+    type: 'TECHNOLOGY' | 'COMPANY';
+    id: string;
+    name: string;
+}
+
+export interface SearchSuggestionsResponse {
+    suggestions: SearchSuggestionDto[];
+}
+
 // --- API Client Fetchers ---
 
 const API_BASE_URL = '/api';
@@ -86,7 +96,7 @@ const FORCE_MOCK_DATA = import.meta.env.VITE_FORCE_MOCK_DATA === 'true' || local
 export const fetchLandingPageData = async (): Promise<LandingPageDto> => {
     if (!FORCE_MOCK_DATA) {
         try {
-            const response = await fetch(`${API_BASE_URL}/dashboard/landing`);
+            const response = await fetch(`${API_BASE_URL}/landing`);
             if (response.ok) return await response.json();
         } catch (error) {
             console.warn('Backend API failed, falling back to local mock data:', error);
@@ -164,6 +174,58 @@ export const fetchCompanyProfile = async (companyId: string): Promise<CompanyPro
             companyName: fallbackCompany.name
         }))
     };
+};
+
+export const fetchSearchSuggestions = async (): Promise<SearchSuggestionsResponse> => {
+    if (!FORCE_MOCK_DATA) {
+        try {
+            const response = await fetch(`${API_BASE_URL}/search/suggestions`);
+            if (response.ok) return await response.json();
+        } catch (error) {
+            console.warn('Backend API failed for search suggestions:', error);
+        }
+    }
+    return {
+        suggestions: [
+            { type: 'TECHNOLOGY', id: 'react', name: 'React' },
+            { type: 'TECHNOLOGY', id: 'kotlin', name: 'Kotlin' },
+            { type: 'COMPANY', id: 'google', name: 'Google' }
+        ]
+    };
+};
+
+export const trackSearchMiss = async (term: string): Promise<void> => {
+    if (!FORCE_MOCK_DATA) {
+        try {
+            await fetch(`${API_BASE_URL}/search/suggestions?term=${encodeURIComponent(term)}`, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+            });
+        } catch (error) {
+            console.warn('Backend API failed for tracking search miss:', error);
+        }
+    } else {
+        console.log(`[MOCK] Tracked search miss: ${term}`);
+    }
+};
+
+export const submitFeedback = async (context: string | undefined, message: string): Promise<void> => {
+    if (!FORCE_MOCK_DATA) {
+        try {
+            const response = await fetch(`${API_BASE_URL}/feedback`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ context, message })
+            });
+            if (!response.ok) throw new Error("Failed to submit");
+        } catch (error) {
+            console.warn('Backend API failed for submitting feedback:', error);
+            throw error;
+        }
+    } else {
+        console.log(`[MOCK] Submitted feedback: [${context}] ${message}`);
+        await new Promise(resolve => setTimeout(resolve, 800));
+    }
 };
 
 // --- Legacy Formatters (to be removed once fully transitioned) ---
