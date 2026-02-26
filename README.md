@@ -11,7 +11,7 @@ A full-stack data analyzer that tracks engineering job trends (technologies, sen
 | :--- | :--- | :--- |
 | **Backend** | Spring Boot 3.x (Kotlin) | Google Cloud Run |
 | **Data Warehouse** | Google BigQuery | GCP (Serverless) |
-| **Frontend** | Next.js (TypeScript/React) | Vercel |
+| **Frontend** | React (Vite/TypeScript) + Tailwind | Vercel / static hosting |
 | **Data Ingestion** | Apify API | Seek & LinkedIn |
 | **Automation** | Cloud Scheduler | Weekly Triggers |
 
@@ -24,7 +24,7 @@ A full-stack data analyzer that tracks engineering job trends (technologies, sen
 │   ├── src/               # Application source code
 │   ├── build.gradle.kts   # Build configuration
 │   └── Dockerfile         # Multi-stage build for Cloud Run
-├── frontend/              # Next.js (TypeScript) Dashboard (Coming Soon)
+├── frontend/              # React (Vite/TypeScript) Dashboard (Coming Soon)
 └── README.md              # Project documentation
 ```
 
@@ -55,8 +55,9 @@ A full-stack data analyzer that tracks engineering job trends (technologies, sen
     - `salary_min`, `salary_max`.
     - `posted_date`.
 
-### 💻 Frontend: The "Dashboard" (Next.js)
-- **Philosophy**: Simple, modern, and data-focused.
+### 💻 Frontend: The "Dashboard" (React/Vite)
+- **Framework**: React 18+ bootstrapped with Vite and TypeScript.
+- **Styling**: Tailwind CSS for a clean, data-heavy, *levels.fyi-inspired* aesthetic.
 - **UI Components**: landing page with filters for Country and Tech.
 - **Visualizations**: Recharts for line graphs (job volume) and bar charts (tech demand).
 - **Communication**: Standard REST calls to the Spring Boot backend.
@@ -103,7 +104,7 @@ Since historical job data does not change frequently (ingestion happens daily/we
 - [ ] **Phase 1: Scaffolding** - Set up Spring Boot, GCP dependencies, and Docker configuration.
 - [ ] **Phase 2: Ingestion Logic** - Implement Apify integration and BigQuery streaming.
 - [ ] **Phase 3: Data Dashboard API** - Build aggregate query endpoints.
-- [ ] **Phase 4: Frontend** - Initialize Next.js and build the visualization dashboard.
+- [ ] **Phase 4: Frontend** - Initialize Vite application and build the 3 core pages (Landing, Tech Details, Company Profile).
 
 ---
 
