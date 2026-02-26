@@ -1,34 +1,76 @@
-# GCP Deployment Guide for Tech Market Backend
+# Comprehensive GCP Deployment Guide (From Scratch)
 
-This guide outlines the steps to deploy the Spring Boot backend to Google Cloud Run.
+This guide takes you step-by-step from having **no Google Cloud account** to having your `Tech Market Backend` completely hosted on Google Cloud Run with a serverless BigQuery database.
 
-## Prerequisites
-- Google Cloud CLI (`gcloud`) installed and authenticated.
-- A GCP Project with Billing enabled.
-- The BigQuery API and Cloud Run API enabled in your GCP project.
+---
 
-## 1. Create an Artifact Registry Repository
-First, create a Docker repository in Google Cloud Artifact Registry to hold your container images.
+## Stage 1: Google Cloud Setup
 
+### 1. Create a Google Cloud Account & Project
+1. Go to [console.cloud.google.com](https://console.cloud.google.com/) and sign in with your Google Account.
+2. If this is your first time, you will be prompted to sign up for a Free Trial and add a billing method (GCP requires a credit card to prevent spam, but what we are building fits within the Free Tier).
+3. At the top left of the console, click the **Project Dropdown** and select **New Project**.
+4. Name it something like `tech-market-insights` and click **Create**.
+5. Once created, make sure your new project is actively selected in the top dropdown. 
+6. Take note of your **Project ID** (e.g., `tech-market-insights-12345`).
+
+### 2. Install the Google Cloud CLI (`gcloud`)
+1. Download and install the Google Cloud CLI for macOS by following [the official guide](https://cloud.google.com/sdk/docs/install). 
+   - *If you have Homebrew, you can simply run:* `brew install --cask google-cloud-sdk`
+2. Open your terminal and initialize the CLI:
+   ```bash
+   gcloud init
+   ```
+3. Follow the prompts in the terminal to log in via your browser, and select the project you just created.
+
+---
+
+## Stage 2: Enable Services and Prepare the Database
+
+### 1. Enable Required APIs
+Before you can use Cloud Run or BigQuery, you need to turn their APIs "on" for your project. Run this in your terminal:
+```bash
+gcloud services enable \
+    run.googleapis.com \
+    artifactregistry.googleapis.com \
+    cloudbuild.googleapis.com \
+    bigquery.googleapis.com
+```
+
+### 2. Create the BigQuery Dataset
+The backend expects a dataset named `techmarket` to exist to store your tables.
+```bash
+bq mk --location=australia-southeast1 techmarket
+```
+*(The tables themselves will be automatically managed/created by your application logic if they don't exist, but the dataset folder must be created manually).*
+
+### 3. Create an Artifact Registry Repository
+This acts as a folder to hold your compiled Docker container images.
 ```bash
 gcloud artifacts repositories create tech-market-repo \
     --repository-format=docker \
-    --location=us-central1 \
+    --location=australia-southeast1 \
     --description="Docker repository for Backend"
 ```
 
-## 2. Build & Deploy to Cloud Run
-Run the following command from the `backend/` directory. 
+---
+
+## Stage 3: Build & Deploy
+
+Navigate to your `backend/` directory in your terminal:
+```bash
+cd /Users/nic/Projects/job-market-reporting/backend
+```
+
+Run the deployment command below. **Important:** Make sure to replace the placeholder environment variables with your actual Apify tokens and your new GCP Project ID!
 
 > [!NOTE]
-> We are now using **GraalVM Native Image** for production. This means the build will take significantly longer (3-8 minutes) in Cloud Build, but in return, the service will start in **under 100ms** on GCP, effectively eliminating cold starts.
-
-Google Cloud will read the `Dockerfile`, build the image remotely using Cloud Build, push it to your registry, and deploy it to Cloud Run.
+> We use **GraalVM Native Image** for production. This means the deployment/build phase will take between **3 to 8 minutes** on Cloud Build. Grab a coffee! When it finishes, your service will be able to cold-start in under **100 milliseconds**.
 
 ```bash
 gcloud run deploy tech-market-backend \
     --source . \
-    --region us-central1 \
+    --region australia-southeast1 \
     --allow-unauthenticated \
     --min-instances 0 \
     --max-instances 2 \
@@ -39,18 +81,46 @@ APIFY_DATASET_ID=your_real_apify_dataset_id,\
 APIFY_WEBHOOK_SECRET=your_made_up_secure_password,\
 SPRING_CLOUD_GCP_PROJECT_ID=your_gcp_project_id"
 ```
-*(Make sure to replace the environment variable placeholders with your actual production values!).*
 
-## 3. Grant BigQuery Access
-Cloud Run automatically creates a default compute service account. You must ensure that this service account (e.g., `123456789-compute@developer.gserviceaccount.com`) has the following IAM roles in your GCP project so it can read and write to your datasets:
-- **BigQuery Data Editor**
-- **BigQuery Job User**
+If prompted to "Allow unauthenticated invocations", type `y` and press Enter.
 
-## 4. Post-Deployment Updates
-After the deployment completes, Cloud Run will provide you with a live URL (e.g., `https://tech-market-backend-abc.a.run.app`).
+---
 
-1. **Update Vercel Frontend**: Update your Vercel project's environment variables (e.g., `VITE_API_URL` or equivalent) to point to the new backend URL.
-2. **Update Apify Webhook**: 
-   - Go to your Apify Console.
-   - Update the webhook URL to `https://tech-market-backend-abc.a.run.app/api/webhook/apify/data-changed`.
-   - Add an HTTP Header: Key: `X-Apify-Webhook-Secret`, Value: `<the password you set in step 2>`.
+## Stage 4: Grant Permissions (IAM)
+
+When Cloud Run deploys your app, it runs using a default "Compute Engine Service Account". This account looks something like: `12345678910-compute@developer.gserviceaccount.com`. 
+
+For your app to save data to BigQuery, you must give this account permission to do so.
+
+1. Go to the [IAM & Admin page in the GCP Console](https://console.cloud.google.com/iam-admin/iam).
+2. Find the row for the **Compute Engine default service account**.
+3. Click the pencil icon (Edit principal) on the right side of that row.
+4. Click **Add Another Role** and add:
+   - **BigQuery Data Editor**
+   - **BigQuery Job User**
+5. Click **Save**.
+
+---
+
+## Stage 5: Post-Deployment Wiring
+
+Once the deployment finishes successfully, the terminal will print out a **Service URL** (e.g., `https://tech-market-backend-abc.a.run.app`).
+
+### 1. Update the Frontend (Vercel)
+1. Go to your existing Vercel dashboard: [tech-market-insights.vercel.app](https://tech-market-insights.vercel.app/).
+2. Navigate to **Settings > Environment Variables**.
+3. Add a new variable:
+   - **Key**: `VITE_API_URL`
+   - **Value**: Your new Cloud Run URL (e.g., `https://tech-market-backend-abc.a.run.app/api`)
+4. Redeploy your frontend in Vercel for the changes to take effect.
+
+### 2. Connect the Apify Webhook
+1. Go to your [Apify Console](https://console.apify.com/).
+2. Navigate to the Actor or Task you use to scrape job data.
+3. Go to the **Integrations** tab and add an **HTTP Webhook**.
+4. Set the **Webhook URL** to your new backend endpoint: `https://tech-market-backend-abc.a.run.app/api/webhook/apify/data-changed`
+5. In the **Headers** section, add the security header to match what you deployed with:
+   - **Key**: `X-Apify-Webhook-Secret`
+   - **Value**: `your_made_up_secure_password`
+
+You're done! Your completely serverless pipeline is now live.

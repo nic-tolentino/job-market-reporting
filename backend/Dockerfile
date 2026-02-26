@@ -11,6 +11,9 @@ COPY settings.gradle.kts .
 # Grant execution rights on the gradlew script
 RUN chmod +x ./gradlew
 
+# Install xargs (findutils) which is required by gradlew
+RUN microdnf install -y findutils binutils
+
 # Copy source code
 COPY src src
 
