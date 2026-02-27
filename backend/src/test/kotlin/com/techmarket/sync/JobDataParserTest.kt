@@ -45,4 +45,52 @@ class JobDataParserTest {
         assertEquals(150000, parser.parseSalary("150000"))
         assertEquals(null, parser.parseSalary("competitive salary"))
     }
+
+    /**
+     * This test runs the parser against a real snapshot of the locations from BigQuery. Since
+     * `rawLocation` is no longer stored in the `raw_jobs` table, we must extract it from the Bronze
+     * layer (`raw_ingestions`) which preserves the full original JSON.
+     *
+     * To update the `raw_locations.csv` file with the latest production data, run:
+     *
+     * `bq query --use_legacy_sql=false --format=csv --max_rows=100000 "SELECT DISTINCT
+     * JSON_EXTRACT_SCALAR(rawPayload, '$.location') as location FROM techmarket.raw_ingestions
+     * WHERE JSON_EXTRACT_SCALAR(rawPayload, '$.location') IS NOT NULL" >
+     * backend/src/test/resources/raw_locations.csv`
+     */
+    @Test
+    fun testProdLocations() {
+        val file = java.io.File("src/test/resources/raw_locations.csv")
+        if (!file.exists()) return
+
+        var hits = 0
+        var misses = 0
+        var fallbacks = 0
+        val missExamples = mutableListOf<String>()
+
+        file.readLines().drop(1).forEach { line ->
+            val location = line.trim('"')
+            if (location.isNotBlank()) {
+                val (city, state, country) = parser.parseLocation(location)
+                if (country != "Unknown" && state != "Unknown") {
+                    hits++
+                } else if (country != "Unknown" && state == "Unknown") {
+                    fallbacks++
+                } else {
+                    misses++
+                    if (missExamples.size < 20) {
+                        missExamples.add("$location -> $city, $state, $country")
+                    }
+                }
+            }
+        }
+
+        println("=== LOCATION PARSING RESULTS ===")
+        println("Hits (Full match): $hits")
+        println("Fallbacks (Country matched, State unknown): $fallbacks")
+        println("Misses (Completely unknown): $misses")
+        println("Sample misses:")
+        missExamples.forEach { println(" - $it") }
+        println("================================")
+    }
 }

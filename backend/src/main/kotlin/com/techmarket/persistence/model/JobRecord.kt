@@ -14,6 +14,8 @@ data class JobRecord(
         val companyName: String,
         val source: String,
         val country: String,
+        val city: String,
+        val stateRegion: String,
         val title: String,
         val seniorityLevel: String,
         val technologies: List<String>,
@@ -25,7 +27,5 @@ data class JobRecord(
         val workModel: String?,
         val jobFunction: String?,
         val description: String?,
-        val rawLocation: String?,
-        val rawSeniorityLevel: String?,
         val ingestedAt: Instant
 )

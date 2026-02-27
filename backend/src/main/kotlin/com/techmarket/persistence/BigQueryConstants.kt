@@ -28,8 +28,8 @@ object JobFields {
     const val WORK_MODEL = "workModel"
     const val JOB_FUNCTION = "jobFunction"
     const val DESCRIPTION = "description"
-    const val RAW_LOCATION = "rawLocation"
-    const val RAW_SENIORITY_LEVEL = "rawSeniorityLevel"
+    const val CITY = "city"
+    const val STATE_REGION = "stateRegion"
     const val INGESTED_AT = "ingestedAt"
 }
 

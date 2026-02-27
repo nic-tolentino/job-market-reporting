@@ -120,9 +120,10 @@ Since historical job data does not change frequently (ingestion happens daily/we
 - Also show jobs in tech page???
 - Show all jobs for a given tech, filtered by location and seniority
 
-- Split location into city and state/region and country
+- [x] Split location into city and state/region and country
 
-- Can we get rid of rawSeniorityLevel and rawLocation? in the job record? Also can we rid of some of the nullable fields?
+- [x] Can we get rid of rawSeniorityLevel and rawLocation? in the job record? 
+
 
 - Technologies need to retain their capitalisation - e.g. AWS, .NET, Go, iOS, etc
 
@@ -136,3 +137,5 @@ Since historical job data does not change frequently (ingestion happens daily/we
 - Ability to filter companies by seniority in tech page. 
 - Test error scenarios
 - Create a Tech record with the pre-computed data for each tech to reduce computation? or just rely on cache?
+- Can we rid of some of the nullable fields on the company and jobs tables?
+- ideally we'd log when a location can't be properly parsed

@@ -21,7 +21,7 @@ object JobQueries {
     fun getSimilarSql(datasetName: String, jobsTableName: String, techList: List<String>): String {
         return if (techList.isEmpty()) {
             """
-            SELECT ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.COMPANY_ID}, ${JobFields.COMPANY_NAME}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}
+            SELECT ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.COMPANY_ID}, ${JobFields.COMPANY_NAME}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}, ${JobFields.CITY}, ${JobFields.STATE_REGION}
             FROM `$datasetName.$jobsTableName`
             WHERE ${JobFields.SENIORITY_LEVEL} = @seniority
               AND @jobId NOT IN UNNEST(${JobFields.JOB_IDS})
@@ -31,7 +31,7 @@ object JobQueries {
         } else {
             val techArrayString = techList.joinToString("','", "'", "'")
             """
-            SELECT DISTINCT j.${JobFields.JOB_IDS}, j.${JobFields.APPLY_URLS}, j.${JobFields.LOCATIONS}, j.${JobFields.TITLE}, j.${JobFields.COMPANY_ID}, j.${JobFields.COMPANY_NAME}, j.${JobFields.SALARY_MIN}, j.${JobFields.SALARY_MAX}, j.${JobFields.POSTED_DATE}, j.${JobFields.TECHNOLOGIES}
+            SELECT DISTINCT j.${JobFields.JOB_IDS}, j.${JobFields.APPLY_URLS}, j.${JobFields.LOCATIONS}, j.${JobFields.TITLE}, j.${JobFields.COMPANY_ID}, j.${JobFields.COMPANY_NAME}, j.${JobFields.SALARY_MIN}, j.${JobFields.SALARY_MAX}, j.${JobFields.POSTED_DATE}, j.${JobFields.TECHNOLOGIES}, j.${JobFields.CITY}, j.${JobFields.STATE_REGION}
             FROM `$datasetName.$jobsTableName` j, UNNEST(j.${JobFields.TECHNOLOGIES}) t
             WHERE j.${JobFields.SENIORITY_LEVEL} = @seniority
               AND @jobId NOT IN UNNEST(j.${JobFields.JOB_IDS})

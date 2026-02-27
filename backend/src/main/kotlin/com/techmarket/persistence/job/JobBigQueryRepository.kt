@@ -63,8 +63,8 @@ class JobBigQueryRepository(
                                 Field.of(JobFields.WORK_MODEL, StandardSQLTypeName.STRING),
                                 Field.of(JobFields.JOB_FUNCTION, StandardSQLTypeName.STRING),
                                 Field.of(JobFields.DESCRIPTION, StandardSQLTypeName.STRING),
-                                Field.of(JobFields.RAW_LOCATION, StandardSQLTypeName.STRING),
-                                Field.of(JobFields.RAW_SENIORITY_LEVEL, StandardSQLTypeName.STRING),
+                                Field.of(JobFields.CITY, StandardSQLTypeName.STRING),
+                                Field.of(JobFields.STATE_REGION, StandardSQLTypeName.STRING),
                                 Field.of(JobFields.INGESTED_AT, StandardSQLTypeName.TIMESTAMP)
                         )
                 bigQuery.ensureTableExists(datasetName, jobsTableName, jobsSchema)
@@ -126,8 +126,8 @@ class JobBigQueryRepository(
                         JobFields.WORK_MODEL to this.workModel,
                         JobFields.JOB_FUNCTION to this.jobFunction,
                         JobFields.DESCRIPTION to this.description,
-                        JobFields.RAW_LOCATION to this.rawLocation,
-                        JobFields.RAW_SENIORITY_LEVEL to this.rawSeniorityLevel,
+                        JobFields.CITY to this.city,
+                        JobFields.STATE_REGION to this.stateRegion,
                         JobFields.INGESTED_AT to this.ingestedAt.toString()
                 )
         }
