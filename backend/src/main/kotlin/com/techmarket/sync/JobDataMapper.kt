@@ -14,6 +14,8 @@ data class MappedSyncData(val companies: List<CompanyRecord>, val jobs: List<Job
 @Service
 class JobDataMapper {
 
+    private val log = LoggerFactory.getLogger(JobDataMapper::class.java)
+
     private val techKeywords =
             setOf(
                     // Languages
@@ -147,9 +149,104 @@ class JobDataMapper {
                     "pytorch"
             )
 
+    /** Intermediate representation for a single raw job posting before deduplication. */
+    private data class RawJobEntry(
+            val jobId: String,
+            val companyId: String,
+            val companyName: String,
+            val title: String,
+            val normalizedTitle: String,
+            val seniorityLevel: String,
+            val location: String,
+            val applyUrl: String?,
+            val technologies: List<String>,
+            val salaryMin: Int?,
+            val salaryMax: Int?,
+            val postedDate: LocalDate?,
+            val benefits: List<String>?,
+            val employmentType: String?,
+            val workModel: String,
+            val jobFunction: String?,
+            val rawLocation: String?,
+            val rawSeniorityLevel: String?,
+            val ingestedAt: Instant,
+            // Raw company metadata
+            val companyLogoUrl: String?,
+            val companyDescription: String?,
+            val companyWebsite: String?,
+            val companyEmployeesCount: Int?,
+            val companyIndustries: String?
+    )
+
     fun mapSyncData(apifyJobs: List<ApifyJobDto>): MappedSyncData {
-        val jobs = mutableListOf<JobRecord>()
-        // Track raw company metadata as we encounter companies
+        val ingestedAt = Instant.now()
+
+        // --- PASS 1: Parse every raw job posting into an intermediate record ---
+        val rawEntries = mutableListOf<RawJobEntry>()
+        apifyJobs.filter { !it.id.isNullOrBlank() }.forEach { dto ->
+            try {
+                val companyName = dto.companyName ?: "Unknown Company"
+                val companyId =
+                        companyName
+                                .lowercase()
+                                .replace(Regex("[^a-z0-9]+"), "-")
+                                .trim('-')
+                                .ifBlank { "unknown" }
+
+                val title = dto.title ?: "Unknown Title"
+                val seniorityLevel = extractSeniority(title, dto.seniorityLevel)
+                val techs = extractTechnologies(dto.descriptionText ?: "")
+                val location = dto.location ?: "Unknown Location"
+
+                rawEntries.add(
+                        RawJobEntry(
+                                jobId = dto.id!!,
+                                companyId = companyId,
+                                companyName = companyName,
+                                title = title,
+                                normalizedTitle = title.lowercase().trim(),
+                                seniorityLevel = seniorityLevel,
+                                location = location,
+                                applyUrl = dto.applyUrl,
+                                technologies = techs,
+                                salaryMin = parseSalary(dto.salaryInfo?.firstOrNull()),
+                                salaryMax = parseSalary(dto.salaryInfo?.lastOrNull()),
+                                postedDate = parseDate(dto.postedAt),
+                                benefits = dto.benefits,
+                                employmentType = dto.employmentType,
+                                workModel = extractWorkModel(location, title),
+                                jobFunction = dto.jobFunction,
+                                rawLocation = location,
+                                rawSeniorityLevel = dto.seniorityLevel,
+                                ingestedAt = ingestedAt,
+                                companyLogoUrl = dto.companyLogo,
+                                companyDescription = dto.companyDescription,
+                                companyWebsite = dto.companyWebsite,
+                                companyEmployeesCount = dto.companyEmployeesCount,
+                                companyIndustries = dto.industries
+                        )
+                )
+            } catch (e: Exception) {
+                log.error("Failed to map job record ID: ${dto.id}. Error: ${e.message}", e)
+            }
+        }
+
+        // --- PASS 2: Deduplicate by (companyId, normalizedTitle, seniorityLevel) ---
+        // Each group = one deduplicated job with multiple locations
+        data class DedupKey(
+                val companyId: String,
+                val normalizedTitle: String,
+                val seniorityLevel: String
+        )
+
+        val groups = LinkedHashMap<DedupKey, MutableList<RawJobEntry>>()
+        rawEntries.forEach { entry ->
+            val key = DedupKey(entry.companyId, entry.normalizedTitle, entry.seniorityLevel)
+            groups.getOrPut(key) { mutableListOf() }.add(entry)
+        }
+
+        // --- PASS 3: Build JobRecords and CompanyRecords ---
+        // Per-company accumulators
         data class CompanyMeta(
                 val companyId: String,
                 val name: String,
@@ -161,74 +258,66 @@ class JobDataMapper {
                 val ingestedAt: Instant
         )
         val companyMetas = mutableMapOf<String, CompanyMeta>()
-        // Collect all technologies per company across all jobs
         val companyTechSets = mutableMapOf<String, MutableSet<String>>()
+        val companyLocationSets = mutableMapOf<String, MutableSet<String>>()
 
-        apifyJobs.filter { !it.id.isNullOrBlank() }.forEach { dto ->
-            try {
-                val companyName = dto.companyName ?: "Unknown Company"
-                val companyId =
-                        companyName
-                                .lowercase()
-                                .replace(Regex("[^a-z0-9]+"), "-")
-                                .trim('-')
-                                .ifBlank { "unknown" }
+        val jobs =
+                groups.values.map { group ->
+                    val first = group.first()
 
-                val ingestedAt = Instant.now()
+                    // Record company metadata from the first occurrence we see
+                    if (!companyMetas.containsKey(first.companyId)) {
+                        companyMetas[first.companyId] =
+                                CompanyMeta(
+                                        companyId = first.companyId,
+                                        name = first.companyName,
+                                        logoUrl = first.companyLogoUrl,
+                                        description = first.companyDescription,
+                                        website = first.companyWebsite,
+                                        employeesCount = first.companyEmployeesCount,
+                                        industries = first.companyIndustries,
+                                        ingestedAt = ingestedAt
+                                )
+                    }
 
-                if (!companyMetas.containsKey(companyId)) {
-                    companyMetas[companyId] =
-                            CompanyMeta(
-                                    companyId = companyId,
-                                    name = companyName,
-                                    logoUrl = dto.companyLogo,
-                                    description = dto.companyDescription,
-                                    website = dto.companyWebsite,
-                                    employeesCount = dto.companyEmployeesCount,
-                                    industries = dto.industries,
-                                    ingestedAt = ingestedAt
-                            )
+                    // Union technologies across all duplicates
+                    val allTechs = group.flatMap { it.technologies }.toSet().sorted()
+                    companyTechSets.getOrPut(first.companyId) { mutableSetOf() }.addAll(allTechs)
+
+                    // Collect all locations (no deduplication per spec — same city can appear
+                    // twice)
+                    val allLocations = group.map { it.location }
+                    companyLocationSets
+                            .getOrPut(first.companyId) { mutableSetOf() }
+                            .addAll(allLocations)
+
+                    JobRecord(
+                            jobIds = group.map { it.jobId },
+                            applyUrls = group.map { it.applyUrl },
+                            locations = allLocations,
+                            companyId = first.companyId,
+                            companyName = first.companyName,
+                            source = "LinkedIn",
+                            country = determineCountry(first.rawLocation),
+                            title = first.title,
+                            seniorityLevel = first.seniorityLevel,
+                            technologies = allTechs,
+                            // First non-null wins for scalar fields
+                            salaryMin = group.firstNotNullOfOrNull { it.salaryMin },
+                            salaryMax = group.firstNotNullOfOrNull { it.salaryMax },
+                            postedDate = group.firstNotNullOfOrNull { it.postedDate },
+                            benefits = group.firstNotNullOfOrNull { it.benefits },
+                            employmentType = group.firstNotNullOfOrNull { it.employmentType },
+                            workModel = group.firstNotNullOfOrNull { it.workModel } ?: "On-site",
+                            jobFunction = group.firstNotNullOfOrNull { it.jobFunction },
+                            rawLocation = first.rawLocation,
+                            rawSeniorityLevel = first.rawSeniorityLevel,
+                            ingestedAt = ingestedAt
+                    )
                 }
 
-                val techs = extractTechnologies(dto.descriptionText ?: "")
-                companyTechSets.getOrPut(companyId) { mutableSetOf() }.addAll(techs)
+        log.info("Deduplication: ${rawEntries.size} raw postings → ${jobs.size} unique roles")
 
-                // TODO: When adding new sources, ensure the `jobId` uniquely identifies the job
-                // across all platforms.
-                // We will likely need to construct a composite key (e.g., "${source}-${dto.id}")
-                // for storage.
-                jobs.add(
-                        JobRecord(
-                                jobId = dto.id!!,
-                                companyId = companyId,
-                                companyName = companyName,
-                                source = "LinkedIn", // Hardcoded per requirements
-                                country = determineCountry(dto.location),
-                                title = dto.title ?: "Unknown Title",
-                                location = dto.location ?: "Unknown Location",
-                                seniorityLevel =
-                                        extractSeniority(dto.title ?: "", dto.seniorityLevel),
-                                technologies = techs,
-                                salaryMin = parseSalary(dto.salaryInfo?.firstOrNull()),
-                                salaryMax = parseSalary(dto.salaryInfo?.lastOrNull()),
-                                postedDate = parseDate(dto.postedAt),
-                                benefits = dto.benefits,
-                                employmentType = dto.employmentType,
-                                workModel = extractWorkModel(dto.location, dto.title),
-                                jobFunction = dto.jobFunction,
-                                applyUrl = dto.applyUrl,
-                                rawLocation = dto.location,
-                                rawSeniorityLevel = dto.seniorityLevel,
-                                ingestedAt = ingestedAt
-                        )
-                )
-            } catch (e: Exception) {
-                LoggerFactory.getLogger(JobDataMapper::class.java)
-                        .error("Failed to map job record ID: ${dto.id}. Error: ${e.message}", e)
-            }
-        }
-
-        // Build company records with aggregated technologies from all their jobs
         val companies =
                 companyMetas.values.map { meta ->
                     CompanyRecord(
@@ -240,6 +329,8 @@ class JobDataMapper {
                             employeesCount = meta.employeesCount,
                             industries = meta.industries,
                             technologies = companyTechSets[meta.companyId]?.sorted() ?: emptyList(),
+                            hiringLocations = companyLocationSets[meta.companyId]?.sorted()
+                                            ?: emptyList(),
                             ingestedAt = meta.ingestedAt
                     )
                 }
@@ -281,7 +372,7 @@ class JobDataMapper {
             t.contains("senior") || t.contains(" sr.") || t.contains(" sr ") -> "Senior"
             t.contains("lead") || t.contains("principal") || t.contains("staff") -> "Lead/Principal"
             t.contains("junior") || t.contains(" jr.") || t.contains(" jr ") -> "Junior"
-            !existingLevel.isNullOrBlank() -> existingLevel // Fallback to provided structured data
+            !existingLevel.isNullOrBlank() -> existingLevel
             else -> "Mid-Level"
         }
     }

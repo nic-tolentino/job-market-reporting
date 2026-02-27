@@ -19,6 +19,6 @@ data class CompanyDetailsDto(
 
 data class CompanyInsightsDto(
         val workModel: String,
-        val topHubs: String,
+        val hiringLocations: List<String>,
         val commonBenefits: List<String>
 )

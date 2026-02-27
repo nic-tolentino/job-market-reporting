@@ -44,7 +44,9 @@ export interface JobRoleDto {
     title: string;
     companyId: string;
     companyName: string;
-    location: string;
+    locations: string[];
+    jobIds: string[];
+    applyUrls: (string | null)[];
     salaryMin: number | null;
     salaryMax: number | null;
     postedDate: string;
@@ -63,7 +65,7 @@ export interface CompanyDetailsDto {
 
 export interface CompanyInsightsDto {
     workModel: string;
-    topHubs: string;
+    hiringLocations: string[];
     commonBenefits: string[];
 }
 
@@ -165,11 +167,14 @@ export const fetchCompanyProfile = async (companyId: string): Promise<CompanyPro
         techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js', 'Vue', 'Svelte', 'Framer Motion'],
         insights: {
             workModel: 'Hybrid Friendly',
-            topHubs: 'Sydney, Remote',
+            hiringLocations: ['Sydney, NSW, Australia', 'Remote'],
             commonBenefits: ['Health Insurance', 'Equity', 'Flexible Hours']
         },
         activeRoles: mockRecentJobs.map(job => ({
             ...job,
+            locations: [(job as any).location ?? 'Unknown Location'],
+            jobIds: [job.id],
+            applyUrls: [null],
             companyId: fallbackCompany.id,
             companyName: fallbackCompany.name
         }))

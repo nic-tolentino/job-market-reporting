@@ -115,7 +115,13 @@ class JobBigQueryRepository(
                                 com.google.cloud.bigquery.Field.of(
                                         "ingestedAt",
                                         com.google.cloud.bigquery.StandardSQLTypeName.TIMESTAMP
-                                )
+                                ),
+                                com.google.cloud.bigquery.Field.newBuilder(
+                                                "hiringLocations",
+                                                com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                        )
+                                        .setMode(com.google.cloud.bigquery.Field.Mode.REPEATED)
+                                        .build()
                         )
                 ensureTableExists(companiesTableName, companiesSchema)
 
@@ -146,10 +152,24 @@ class JobBigQueryRepository(
                                         "title",
                                         com.google.cloud.bigquery.StandardSQLTypeName.STRING
                                 ),
-                                com.google.cloud.bigquery.Field.of(
-                                        "location",
-                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
-                                ),
+                                com.google.cloud.bigquery.Field.newBuilder(
+                                                "locations",
+                                                com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                        )
+                                        .setMode(com.google.cloud.bigquery.Field.Mode.REPEATED)
+                                        .build(),
+                                com.google.cloud.bigquery.Field.newBuilder(
+                                                "jobIds",
+                                                com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                        )
+                                        .setMode(com.google.cloud.bigquery.Field.Mode.REPEATED)
+                                        .build(),
+                                com.google.cloud.bigquery.Field.newBuilder(
+                                                "applyUrls",
+                                                com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                        )
+                                        .setMode(com.google.cloud.bigquery.Field.Mode.REPEATED)
+                                        .build(),
                                 com.google.cloud.bigquery.Field.of(
                                         "seniorityLevel",
                                         com.google.cloud.bigquery.StandardSQLTypeName.STRING
@@ -188,10 +208,6 @@ class JobBigQueryRepository(
                                 ),
                                 com.google.cloud.bigquery.Field.of(
                                         "jobFunction",
-                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
-                                ),
-                                com.google.cloud.bigquery.Field.of(
-                                        "applyUrl",
                                         com.google.cloud.bigquery.StandardSQLTypeName.STRING
                                 ),
                                 com.google.cloud.bigquery.Field.of(
@@ -490,7 +506,7 @@ class JobBigQueryRepository(
         override fun getCompanyProfile(companyId: String): CompanyProfilePageDto {
                 val detailsSql =
                         """
-            SELECT name, logoUrl, website, employeesCount, industries, description, technologies
+            SELECT name, logoUrl, website, employeesCount, industries, description, technologies, hiringLocations
             FROM `$datasetName.$companiesTableName`
             WHERE companyId = @companyId
             LIMIT 1
@@ -498,7 +514,7 @@ class JobBigQueryRepository(
 
                 val jobsSql =
                         """
-            SELECT jobId, title, location, salaryMin, salaryMax, postedDate, technologies, benefits
+            SELECT jobIds, applyUrls, locations, title, salaryMin, salaryMax, postedDate, technologies, benefits
             FROM `$datasetName.$jobsTableName`
             WHERE companyId = @companyId
             ORDER BY postedDate DESC
@@ -506,15 +522,10 @@ class JobBigQueryRepository(
 
                 val aggSql =
                         """
-            SELECT 
-                MAX(workModel) as topModel,
-                MAX(location) as topHub
+            SELECT MAX(workModel) as topModel
             FROM (
                 SELECT workModel, COUNT(*) as c FROM `$datasetName.$jobsTableName` WHERE companyId = @companyId GROUP BY workModel ORDER BY c DESC LIMIT 1
             ) wm
-            CROSS JOIN (
-                SELECT location, COUNT(*) as c FROM `$datasetName.$jobsTableName` WHERE companyId = @companyId GROUP BY location ORDER BY c DESC LIMIT 1
-            ) loc
         """.trimIndent()
 
                 val detResult =
@@ -578,14 +589,26 @@ class JobBigQueryRepository(
                                                 r.get("technologies").repeatedValue.map {
                                                         it.stringValue
                                                 }
+                                val locationList =
+                                        if (r.get("locations").isNull) emptyList<String>()
+                                        else r.get("locations").repeatedValue.map { it.stringValue }
+                                val jobIdList =
+                                        if (r.get("jobIds").isNull) emptyList<String>()
+                                        else r.get("jobIds").repeatedValue.map { it.stringValue }
+                                val applyUrlList =
+                                        if (r.get("applyUrls").isNull) emptyList<String?>()
+                                        else
+                                                r.get("applyUrls").repeatedValue.map {
+                                                        if (it.isNull) null else it.stringValue
+                                                }
                                 JobRoleDto(
-                                        id = r.get("jobId").stringValue,
+                                        id = jobIdList.firstOrNull() ?: "",
                                         title = r.get("title").stringValue,
                                         companyId = companyId,
                                         companyName = name,
-                                        location =
-                                                if (r.get("location").isNull) "Unknown"
-                                                else r.get("location").stringValue,
+                                        locations = locationList,
+                                        jobIds = jobIdList,
+                                        applyUrls = applyUrlList,
                                         salaryMin =
                                                 if (r.get("salaryMin").isNull) null
                                                 else r.get("salaryMin").longValue.toInt(),
@@ -604,14 +627,16 @@ class JobBigQueryRepository(
                                 detRow.get("technologies").repeatedValue.map { it.stringValue }
                         else emptyList()
 
+                val hiringLocations =
+                        if (detRow?.get("hiringLocations")?.isNull == false)
+                                detRow.get("hiringLocations").repeatedValue.map { it.stringValue }
+                        else emptyList()
+
                 val aggRow = aggResult.values.firstOrNull()
                 val topModel =
                         if (aggRow?.get("topModel")?.isNull == false)
                                 aggRow.get("topModel").stringValue
                         else "Hybrid Friendly"
-                val topHub =
-                        if (aggRow?.get("topHub")?.isNull == false) aggRow.get("topHub").stringValue
-                        else "Multiple Locations"
 
                 val allBenefits =
                         jobsResult
@@ -628,7 +653,7 @@ class JobBigQueryRepository(
                                 .map { it.key }
                                 .take(5)
 
-                val insights = CompanyInsightsDto(topModel, topHub, allBenefits)
+                val insights = CompanyInsightsDto(topModel, hiringLocations, allBenefits)
 
                 return CompanyProfilePageDto(details, allTechs, insights, roles)
         }
@@ -756,13 +781,14 @@ class JobBigQueryRepository(
 
         private fun JobRecord.toMap(): Map<String, Any?> {
                 return mapOf(
-                        "jobId" to this.jobId,
+                        "jobIds" to this.jobIds,
+                        "applyUrls" to this.applyUrls,
+                        "locations" to this.locations,
                         "companyId" to this.companyId,
                         "companyName" to this.companyName,
                         "source" to this.source,
                         "country" to this.country,
                         "title" to this.title,
-                        "location" to this.location,
                         "seniorityLevel" to this.seniorityLevel,
                         "technologies" to this.technologies,
                         "salaryMin" to this.salaryMin,
@@ -772,7 +798,6 @@ class JobBigQueryRepository(
                         "employmentType" to this.employmentType,
                         "workModel" to this.workModel,
                         "jobFunction" to this.jobFunction,
-                        "applyUrl" to this.applyUrl,
                         "rawLocation" to this.rawLocation,
                         "rawSeniorityLevel" to this.rawSeniorityLevel,
                         "ingestedAt" to this.ingestedAt.toString()
@@ -789,6 +814,7 @@ class JobBigQueryRepository(
                         "employeesCount" to this.employeesCount,
                         "industries" to this.industries,
                         "technologies" to this.technologies,
+                        "hiringLocations" to this.hiringLocations,
                         "ingestedAt" to this.ingestedAt.toString()
                 )
         }

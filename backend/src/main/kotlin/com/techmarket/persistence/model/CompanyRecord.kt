@@ -11,5 +11,6 @@ data class CompanyRecord(
         val employeesCount: Int?,
         val industries: String?,
         val technologies: List<String>,
+        val hiringLocations: List<String>,
         val ingestedAt: Instant
 )

@@ -36,7 +36,6 @@ export default function CompanyProfilePage() {
         loadData();
     }, [loadData]);
 
-    // All unique techs across all active roles (for the filter pills)
     const filterableTechs = useMemo(() => {
         if (!data) return [];
         const all = data.activeRoles.flatMap(r => r.technologies);
@@ -196,8 +195,8 @@ export default function CompanyProfilePage() {
                                                     </div>
                                                 </div>
                                                 <div className="mt-1 flex items-center gap-1.5 text-gray-500">
-                                                    <MapPin className="h-3.5 w-3.5" />
-                                                    {job.location}
+                                                    <MapPin className="h-3.5 w-3.5 flex-shrink-0" />
+                                                    <span>{job.locations.join(' · ')}</span>
                                                 </div>
                                                 <div className="mt-2 flex flex-wrap gap-1.5">
                                                     {job.technologies.map(tech => (
@@ -248,16 +247,26 @@ export default function CompanyProfilePage() {
                                 <span className="font-medium text-slate-600">Work Model</span>
                                 <span className="font-semibold text-slate-900 bg-green-50 text-green-700 px-2 py-0.5 rounded text-xs border border-green-200">{data.insights.workModel}</span>
                             </li>
-                            <li className="flex justify-between items-center border-b border-gray-50 pb-3">
-                                <span className="font-medium text-slate-600">Top Hubs</span>
-                                <span className="font-semibold text-slate-900 text-right whitespace-pre-line">
-                                    {data.insights.topHubs.replace(', ', '\n')}
-                                </span>
-                            </li>
+
                             <li className="flex justify-between items-center border-b border-gray-50 pb-3 group cursor-pointer">
                                 <span className="font-medium text-slate-600">Common Benefits</span>
                                 <span className="font-semibold text-blue-600 group-hover:underline">View {data.insights.commonBenefits.length} tags</span>
                             </li>
+                            {data.insights.hiringLocations.length > 0 && (
+                                <li className="pt-2 border-b border-gray-50 pb-4">
+                                    <span className="block font-medium text-slate-600 mb-3">Hiring Locations</span>
+                                    <div className="flex flex-wrap gap-1.5 max-h-40 overflow-y-auto">
+                                        {[...new Set(data.insights.hiringLocations)].sort().map(loc => (
+                                            <span
+                                                key={loc}
+                                                className="inline-flex items-center rounded-full bg-slate-50 border border-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600"
+                                            >
+                                                {loc}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </li>
+                            )}
                             <li className="pt-2">
                                 <span className="block font-medium text-slate-600 mb-3">Tech Stacks</span>
                                 <div className="flex flex-wrap gap-1.5">

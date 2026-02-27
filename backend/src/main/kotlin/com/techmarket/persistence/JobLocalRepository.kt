@@ -79,7 +79,7 @@ class JobLocalRepository : JobRepository {
                 companyDetails =
                         CompanyDetailsDto(companyId, "Local Stub Company", "", "", 0, "", ""),
                 techStack = emptyList(),
-                insights = CompanyInsightsDto("", "", emptyList()),
+                insights = CompanyInsightsDto("", emptyList(), emptyList()),
                 activeRoles = emptyList()
         )
     }
