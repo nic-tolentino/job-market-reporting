@@ -106,6 +106,12 @@ class JobBigQueryRepository(
                                         "industries",
                                         com.google.cloud.bigquery.StandardSQLTypeName.STRING
                                 ),
+                                com.google.cloud.bigquery.Field.newBuilder(
+                                                "technologies",
+                                                com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                        )
+                                        .setMode(com.google.cloud.bigquery.Field.Mode.REPEATED)
+                                        .build(),
                                 com.google.cloud.bigquery.Field.of(
                                         "ingestedAt",
                                         com.google.cloud.bigquery.StandardSQLTypeName.TIMESTAMP
@@ -437,7 +443,6 @@ class JobBigQueryRepository(
             AND DATE(j.postedDate) >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
             GROUP BY c.companyId
             ORDER BY activeRoles DESC
-            LIMIT 10
         """.trimIndent()
 
                 val senResult =
@@ -485,7 +490,7 @@ class JobBigQueryRepository(
         override fun getCompanyProfile(companyId: String): CompanyProfilePageDto {
                 val detailsSql =
                         """
-            SELECT name, logoUrl, website, employeesCount, industries, description
+            SELECT name, logoUrl, website, employeesCount, industries, description, technologies
             FROM `$datasetName.$companiesTableName`
             WHERE companyId = @companyId
             LIMIT 1
@@ -497,7 +502,6 @@ class JobBigQueryRepository(
             FROM `$datasetName.$jobsTableName`
             WHERE companyId = @companyId
             ORDER BY postedDate DESC
-            LIMIT 10
         """.trimIndent()
 
                 val aggSql =
@@ -595,7 +599,10 @@ class JobBigQueryRepository(
                                 )
                         }
 
-                val allTechs = roles.flatMap { it.technologies }.distinct().take(10)
+                val allTechs =
+                        if (detRow?.get("technologies")?.isNull == false)
+                                detRow.get("technologies").repeatedValue.map { it.stringValue }
+                        else emptyList()
 
                 val aggRow = aggResult.values.firstOrNull()
                 val topModel =
@@ -781,6 +788,7 @@ class JobBigQueryRepository(
                         "website" to this.website,
                         "employeesCount" to this.employeesCount,
                         "industries" to this.industries,
+                        "technologies" to this.technologies,
                         "ingestedAt" to this.ingestedAt.toString()
                 )
         }

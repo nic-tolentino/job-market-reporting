@@ -116,7 +116,10 @@ Since historical job data does not change frequently (ingestion happens daily/we
 ---
 
 ## 💡 Future ideas
-- Add a soft skills leaderboard
+- We need to de-duplicate jobs - many jobs are the same but with a different location
+- Add a soft skills (leadership, communication, etc) or capabilities (agile, devops, etc) leaderboard
 - Add a locations with most jobs, and locations for a given tech
 - Add support for different countries
 - Add the ability to see more than just the top 10 technologies and companies
+- Show a total number of jobs for a given tech
+- Show all jobs for a given tech, filtered by location and seniority

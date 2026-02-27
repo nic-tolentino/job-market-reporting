@@ -55,17 +55,8 @@ gcloud artifacts repositories create tech-market-repo \
 
 ---
 
-## Stage 3: Build & Deploy
-
-Navigate to your `backend/` directory in your terminal:
-```bash
-cd /Users/nic/Projects/job-market-reporting/backend
-```
-
-Run the deployment command below. **Important:** Make sure to replace the placeholder environment variables with your actual Apify tokens and your new GCP Project ID!
-
-> [!NOTE]
-> We use a **standard JRE-based JAR build**. Cloud Build takes around **4-5 minutes**, but most of that time is downloading Gradle dependencies. On subsequent deploys the dependency layer is cached — only your source code changes are rebuilt (~1-2 min faster each time).
+### Method A: Standard Build (Via Cloud Build)
+This is the easiest method but takes around **4-5 minutes** since Cloud Build downloads all Gradle dependencies from scratch.
 
 ```bash
 gcloud run deploy tech-market-backend \
@@ -83,6 +74,32 @@ APIFY_DATASET_ID=your_real_apify_dataset_id,\
 APIFY_WEBHOOK_SECRET=your_made_up_secure_password,\
 SPRING_CLOUD_GCP_PROJECT_ID=your_gcp_project_id"
 ```
+
+### Method B: Fast Local Build (90 Seconds) 🚀
+Use this if you have Docker installed locally. It reuses your local Gradle cache and Docker layers, making redeployments extremely fast.
+
+1. **One-time authentication for Docker:**
+   ```bash
+   gcloud auth configure-docker australia-southeast1-docker.pkg.dev
+   ```
+
+2. **Build and push the image locally:**
+   ```bash
+   # Build the image locally (fast because of your local gradle cache)
+   docker build -t australia-southeast1-docker.pkg.dev/tech-market-insights/tech-market-repo/tech-market-backend:latest .
+
+   # Push the image to GCP (only pushes changed layers)
+   docker push australia-southeast1-docker.pkg.dev/tech-market-insights/tech-market-repo/tech-market-backend:latest
+   ```
+
+3. **Deploy from the pre-built image:**
+   ```bash
+   gcloud run deploy tech-market-backend \
+    --image australia-southeast1-docker.pkg.dev/tech-market-insights/tech-market-repo/tech-market-backend:latest \
+    --region australia-southeast1
+   ```
+   *(Note: Subsequent image deploys don't need the `--set-env-vars` again as Cloud Run remembers the previous config).*
+
 
 If prompted to "Allow unauthenticated invocations", type `y` and press Enter.
 

@@ -149,7 +149,20 @@ class JobDataMapper {
 
     fun mapSyncData(apifyJobs: List<ApifyJobDto>): MappedSyncData {
         val jobs = mutableListOf<JobRecord>()
-        val companiesMap = mutableMapOf<String, CompanyRecord>()
+        // Track raw company metadata as we encounter companies
+        data class CompanyMeta(
+                val companyId: String,
+                val name: String,
+                val logoUrl: String?,
+                val description: String?,
+                val website: String?,
+                val employeesCount: Int?,
+                val industries: String?,
+                val ingestedAt: Instant
+        )
+        val companyMetas = mutableMapOf<String, CompanyMeta>()
+        // Collect all technologies per company across all jobs
+        val companyTechSets = mutableMapOf<String, MutableSet<String>>()
 
         apifyJobs.filter { !it.id.isNullOrBlank() }.forEach { dto ->
             try {
@@ -163,9 +176,9 @@ class JobDataMapper {
 
                 val ingestedAt = Instant.now()
 
-                if (!companiesMap.containsKey(companyId)) {
-                    companiesMap[companyId] =
-                            CompanyRecord(
+                if (!companyMetas.containsKey(companyId)) {
+                    companyMetas[companyId] =
+                            CompanyMeta(
                                     companyId = companyId,
                                     name = companyName,
                                     logoUrl = dto.companyLogo,
@@ -177,9 +190,12 @@ class JobDataMapper {
                             )
                 }
 
+                val techs = extractTechnologies(dto.descriptionText ?: "")
+                companyTechSets.getOrPut(companyId) { mutableSetOf() }.addAll(techs)
+
                 // TODO: When adding new sources, ensure the `jobId` uniquely identifies the job
                 // across all platforms.
-                // We will likely need to construct a composite key (e.g., "\${source}-\${dto.id}")
+                // We will likely need to construct a composite key (e.g., "${source}-${dto.id}")
                 // for storage.
                 jobs.add(
                         JobRecord(
@@ -192,7 +208,7 @@ class JobDataMapper {
                                 location = dto.location ?: "Unknown Location",
                                 seniorityLevel =
                                         extractSeniority(dto.title ?: "", dto.seniorityLevel),
-                                technologies = extractTechnologies(dto.descriptionText ?: ""),
+                                technologies = techs,
                                 salaryMin = parseSalary(dto.salaryInfo?.firstOrNull()),
                                 salaryMax = parseSalary(dto.salaryInfo?.lastOrNull()),
                                 postedDate = parseDate(dto.postedAt),
@@ -212,7 +228,23 @@ class JobDataMapper {
             }
         }
 
-        return MappedSyncData(companiesMap.values.toList(), jobs)
+        // Build company records with aggregated technologies from all their jobs
+        val companies =
+                companyMetas.values.map { meta ->
+                    CompanyRecord(
+                            companyId = meta.companyId,
+                            name = meta.name,
+                            logoUrl = meta.logoUrl,
+                            description = meta.description,
+                            website = meta.website,
+                            employeesCount = meta.employeesCount,
+                            industries = meta.industries,
+                            technologies = companyTechSets[meta.companyId]?.sorted() ?: emptyList(),
+                            ingestedAt = meta.ingestedAt
+                    )
+                }
+
+        return MappedSyncData(companies, jobs)
     }
 
     private fun determineCountry(location: String?): String {
