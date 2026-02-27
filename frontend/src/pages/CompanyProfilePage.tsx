@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Building2, MapPin, DollarSign, Calendar, Loader2, X } from 'lucide-react';
+import { Building2, MapPin, DollarSign, Calendar, X } from 'lucide-react';
+import PageLoader from '../components/common/PageLoader';
 import { fetchCompanyProfile, type CompanyProfilePageDto } from '../lib/api';
 import { FeedbackButton } from '../components/common/Feedback';
 import ErrorState from '../components/common/ErrorState';
@@ -65,11 +66,7 @@ export default function CompanyProfilePage() {
     };
 
     if (isLoading) {
-        return (
-            <div className="flex items-center justify-center min-h-[50vh]">
-                <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
-            </div>
-        );
+        return <PageLoader />;
     }
 
     if (error || !data) {

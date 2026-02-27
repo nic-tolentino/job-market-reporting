@@ -9,6 +9,7 @@ import { Badge } from '../components/ui/Badge';
 import type { JobPageDto } from '../lib/api';
 import { fetchJobDetails } from '../lib/api';
 import CompanyLogo from '../components/common/CompanyLogo';
+import PageLoader from '../components/common/PageLoader';
 
 const JobPage: React.FC = () => {
     const { jobId } = useParams<{ jobId: string }>();
@@ -33,11 +34,7 @@ const JobPage: React.FC = () => {
     }, [jobId]);
 
     if (loading) {
-        return (
-            <div className="flex items-center justify-center min-h-[50vh]">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
-            </div>
-        );
+        return <PageLoader />;
     }
 
     if (!data) {

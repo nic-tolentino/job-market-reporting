@@ -118,9 +118,7 @@ Since historical job data does not change frequently (ingestion happens daily/we
 ## 💡 Future ideas
 
 Now:
-- the job page is broken?
-- we ??
-- The job page loading indicator is different to the company page loading indicator, use the company page loading indicator and make sure they are standard across all pages.
+- [x] The job page loading indicator is different to the company page loading indicator, use the company page loading indicator and make sure they are standard across all pages.
 
 Later:
 
@@ -144,6 +142,9 @@ Later:
 - Add a soft skills (leadership, communication, etc) and capabilities (agile, devops, etc) leaderboard, also show it on the job page
 - Extend appropriate unit tests, both backend and frontend.
 - Which companies provide 
+- How to handle when there's no apply to job link?
+- Manually search for logo urls for each of the technologies (and companies?). Host the images locally so they are more stable? Maybe use them as backups if the url isn't provided?
+- The salary data is very messy. See what we can do to clean it up.
 
 Nice to have:
 - ideally we'd log when a location can't be properly parsed
