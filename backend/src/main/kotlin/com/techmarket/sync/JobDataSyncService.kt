@@ -6,7 +6,6 @@ import java.time.Instant
 import java.util.UUID
 import org.slf4j.LoggerFactory
 import org.springframework.cache.annotation.CacheEvict
-import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 
 @Service
@@ -25,7 +24,6 @@ class JobDataSyncService(
      * 3. Saves them to the configured storage repository.
      */
     @CacheEvict(value = ["landing", "tech", "company", "search"], allEntries = true)
-    @Async
     fun runDataSync(datasetId: String) {
         log.info("Starting Job Data Sync Pipeline...")
 

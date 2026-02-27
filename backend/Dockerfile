@@ -1,35 +1,27 @@
 # Build Stage
-FROM ghcr.io/graalvm/native-image-community:17-ol9 AS builder
+FROM eclipse-temurin:17-jdk-alpine AS builder
 WORKDIR /workspace/app
 
-# Copy gradle files
+# 1. Copy only the files needed to download dependencies
 COPY gradlew .
 COPY gradle gradle
 COPY build.gradle.kts .
 COPY settings.gradle.kts .
 
-# Grant execution rights on the gradlew script
+# 2. Download dependencies (this layer will be cached unless build.gradle changes)
 RUN chmod +x ./gradlew
+RUN ./gradlew dependencies --no-daemon
 
-# Install xargs (findutils) which is required by gradlew
-RUN microdnf install -y findutils binutils
-
-# Copy source code
+# 3. Now copy the source code and build the JAR
 COPY src src
+RUN ./gradlew bootJar -x test --no-daemon
 
-# Build Native Image
-# This will produce a native executable in build/native/nativeCompile/
-RUN ./gradlew nativeCompile -x test --no-daemon
-
-# Runtime Stage: Use a tiny base image (even smaller than JRE)
-FROM debian:bookworm-slim
+# Runtime Stage
+FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
-
-# Install necessary libraries for native executable (like glibc/zlib)
-RUN apt-get update && apt-get install -y libstdc++6 zlib1g && rm -rf /var/lib/apt/lists/*
-
-# Copy the native binary from the builder stage
-COPY --from=builder /workspace/app/build/native/nativeCompile/tech-market-backend tech-market-backend
-
-# Run the native binary
-ENTRYPOINT ["./tech-market-backend"]
+COPY --from=builder /workspace/app/build/libs/*.jar app.jar
+ENTRYPOINT ["java", \
+    "-XX:+UseContainerSupport", \
+    "-XX:MaxRAMPercentage=75.0", \
+    "-XX:TieredStopAtLevel=1", \
+    "-jar", "app.jar"]

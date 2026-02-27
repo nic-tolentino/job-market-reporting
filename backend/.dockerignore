@@ -1,0 +1,20 @@
+# Exclude local build output — the Dockerfile builds its own JAR inside the container
+# NOTE: Do NOT exclude gradle/wrapper/gradle-wrapper.jar — it's needed by ./gradlew
+build/
+.gradle/
+
+# Logs and docs
+*.log
+Logs.txt
+DEPLOY.md
+api-sample.txt
+
+# Git
+.git/
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store

@@ -1,0 +1,19 @@
+# Prevent local build artifacts from being uploaded to Cloud Build
+# This MASSIVELY reduces upload size and time.
+build/
+.gradle/
+
+# Logs and local files
+*.log
+Logs.txt
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store

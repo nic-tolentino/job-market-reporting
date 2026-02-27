@@ -65,7 +65,7 @@ cd /Users/nic/Projects/job-market-reporting/backend
 Run the deployment command below. **Important:** Make sure to replace the placeholder environment variables with your actual Apify tokens and your new GCP Project ID!
 
 > [!NOTE]
-> We use **GraalVM Native Image** for production. This means the deployment/build phase will take between **3 to 8 minutes** on Cloud Build. Grab a coffee! When it finishes, your service will be able to cold-start in under **100 milliseconds**.
+> We use a **standard JRE-based JAR build**. Cloud Build takes around **4-5 minutes**, but most of that time is downloading Gradle dependencies. On subsequent deploys the dependency layer is cached — only your source code changes are rebuilt (~1-2 min faster each time).
 
 ```bash
 gcloud run deploy tech-market-backend \
@@ -74,6 +74,8 @@ gcloud run deploy tech-market-backend \
     --allow-unauthenticated \
     --min-instances 0 \
     --max-instances 2 \
+    --cpu 1 \
+    --memory 512Mi \
     --port 8080 \
     --set-env-vars="\
 APIFY_TOKEN=your_real_apify_token,\

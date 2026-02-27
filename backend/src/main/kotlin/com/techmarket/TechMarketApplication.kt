@@ -7,10 +7,7 @@ import org.springframework.boot.runApplication
 import org.springframework.cache.annotation.EnableCaching
 import org.springframework.scheduling.annotation.EnableAsync
 
-@SpringBootApplication(
-        exclude =
-                [com.google.cloud.spring.autoconfigure.bigquery.GcpBigQueryAutoConfiguration::class]
-)
+@SpringBootApplication
 @EnableConfigurationProperties(ApifyProperties::class)
 @EnableAsync
 @EnableCaching

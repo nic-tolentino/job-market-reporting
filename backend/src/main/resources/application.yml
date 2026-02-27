@@ -29,3 +29,4 @@ management:
 apify:
   dataset-id: ${APIFY_DATASET_ID:xB85bR0v20qXfNH5r}
   token: ${APIFY_TOKEN:''}
+  webhook-secret: ${APIFY_WEBHOOK_SECRET:default-local-secret}

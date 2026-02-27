@@ -9,6 +9,7 @@ import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.persistence.model.RawIngestionRecord
 import java.time.Instant
+import java.util.concurrent.TimeUnit
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Profile
@@ -31,17 +32,237 @@ class JobBigQueryRepository(
         private val searchMissesTableName = "search_misses"
         private val feedbackTableName = "user_feedback"
 
+        private fun ensureTableExists(tableName: String, schema: com.google.cloud.bigquery.Schema) {
+                val tableId = com.google.cloud.bigquery.TableId.of(datasetName, tableName)
+                val table = bigQuery.getTable(tableId)
+                if (table == null) {
+                        log.info(
+                                "GCP: Table $tableName not found in dataset $datasetName. Creating now..."
+                        )
+                        val tableDefinition =
+                                com.google.cloud.bigquery.StandardTableDefinition.of(schema)
+                        val tableInfo =
+                                com.google.cloud.bigquery.TableInfo.newBuilder(
+                                                tableId,
+                                                tableDefinition
+                                        )
+                                        .build()
+                        bigQuery.create(tableInfo)
+                        log.info("GCP: Table $tableName created successfully.")
+                }
+        }
+
+        private fun ensureAllTables() {
+                // raw_ingestions schema
+                val ingestionsSchema =
+                        com.google.cloud.bigquery.Schema.of(
+                                com.google.cloud.bigquery.Field.of(
+                                        "id",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "source",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "ingestedAt",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.TIMESTAMP
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "rawPayload",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                )
+                        )
+                ensureTableExists(ingestionsTableName, ingestionsSchema)
+
+                // raw_companies schema
+                val companiesSchema =
+                        com.google.cloud.bigquery.Schema.of(
+                                com.google.cloud.bigquery.Field.of(
+                                        "companyId",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "name",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "logoUrl",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "description",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "website",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "employeesCount",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.INT64
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "industries",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "ingestedAt",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.TIMESTAMP
+                                )
+                        )
+                ensureTableExists(companiesTableName, companiesSchema)
+
+                // raw_jobs schema
+                val jobsSchema =
+                        com.google.cloud.bigquery.Schema.of(
+                                com.google.cloud.bigquery.Field.of(
+                                        "jobId",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "companyId",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "companyName",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "source",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "country",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "title",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "location",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "seniorityLevel",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.newBuilder(
+                                                "technologies",
+                                                com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                        )
+                                        .setMode(com.google.cloud.bigquery.Field.Mode.REPEATED)
+                                        .build(),
+                                com.google.cloud.bigquery.Field.of(
+                                        "salaryMin",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.INT64
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "salaryMax",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.INT64
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "postedDate",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.DATE
+                                ),
+                                com.google.cloud.bigquery.Field.newBuilder(
+                                                "benefits",
+                                                com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                        )
+                                        .setMode(com.google.cloud.bigquery.Field.Mode.REPEATED)
+                                        .build(),
+                                com.google.cloud.bigquery.Field.of(
+                                        "employmentType",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "workModel",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "jobFunction",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "applyUrl",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "rawLocation",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "rawSeniorityLevel",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "ingestedAt",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.TIMESTAMP
+                                )
+                        )
+                ensureTableExists(jobsTableName, jobsSchema)
+
+                // search_misses schema
+                val searchMissesSchema =
+                        com.google.cloud.bigquery.Schema.of(
+                                com.google.cloud.bigquery.Field.of(
+                                        "term",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "timestamp",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.TIMESTAMP
+                                )
+                        )
+                ensureTableExists(searchMissesTableName, searchMissesSchema)
+
+                // user_feedback schema
+                val feedbackSchema =
+                        com.google.cloud.bigquery.Schema.of(
+                                com.google.cloud.bigquery.Field.of(
+                                        "context",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "message",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
+                                        "timestamp",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.TIMESTAMP
+                                )
+                        )
+                ensureTableExists(feedbackTableName, feedbackSchema)
+        }
+
         override fun saveRawIngestions(records: List<RawIngestionRecord>) {
                 if (records.isEmpty()) return
+
+                ensureAllTables()
 
                 log.info(
                         "GCP: Streaming ${records.size} raw ingestion records to BigQuery table: $ingestionsTableName"
                 )
                 try {
-                        bigQueryTemplate.writeJsonStream(
-                                ingestionsTableName,
-                                records.map { it.toMap() }.byteInputStream()
-                        )
+                        // IMPORTANT: We must call .get() to block on the CompletableFuture returned
+                        // by writeJsonStream. The BigQueryTemplate uses an internal
+                        // ThreadPoolTaskScheduler to poll the BigQuery Storage Write API (gRPC)
+                        // for a result. If the future is discarded (fire-and-forget), that
+                        // scheduler
+                        // can be destroyed by Spring/Cloud Run before the write completes, causing:
+                        //   TaskRejectedException: ExecutorService in shutdown state
+                        // Blocking here ensures the write is fully acknowledged before we return.
+                        // A 60s timeout is generous but prevents an indefinite hang if GCP is slow.
+                        bigQueryTemplate
+                                .writeJsonStream(
+                                        ingestionsTableName,
+                                        records.map { it.toMap() }.byteInputStream()
+                                )
+                                .get(
+                                        60,
+                                        TimeUnit.SECONDS
+                                ) // Block until write is acknowledged — see comment above
                         log.info("GCP: Successfully inserted raw ingestion records to BigQuery.")
                 } catch (e: Exception) {
                         log.error("GCP: Failed to insert raw ingestion records: ${e.message}", e)
@@ -52,12 +273,20 @@ class JobBigQueryRepository(
         override fun saveJobs(jobs: List<JobRecord>) {
                 if (jobs.isEmpty()) return
 
+                ensureAllTables()
+
                 log.info("GCP: Streaming ${jobs.size} jobs to BigQuery table: $jobsTableName")
                 try {
-                        bigQueryTemplate.writeJsonStream(
-                                jobsTableName,
-                                jobs.map { it.toMap() }.byteInputStream()
-                        )
+                        bigQueryTemplate
+                                .writeJsonStream(
+                                        jobsTableName,
+                                        jobs.map { it.toMap() }.byteInputStream()
+                                )
+                                .get(
+                                        60,
+                                        TimeUnit.SECONDS
+                                ) // Block until write is acknowledged — see saveRawIngestions for
+                        // rationale
                         log.info("GCP: Successfully inserted jobs into BigQuery.")
                 } catch (e: Exception) {
                         log.error("GCP: Failed to insert jobs into BigQuery: ${e.message}", e)
@@ -356,14 +585,22 @@ class JobBigQueryRepository(
         override fun saveCompanies(companies: List<CompanyRecord>) {
                 if (companies.isEmpty()) return
 
+                ensureAllTables()
+
                 log.info(
                         "GCP: Streaming ${companies.size} companies to BigQuery table: $companiesTableName"
                 )
                 try {
-                        bigQueryTemplate.writeJsonStream(
-                                companiesTableName,
-                                companies.map { it.toMap() }.byteInputStream()
-                        )
+                        bigQueryTemplate
+                                .writeJsonStream(
+                                        companiesTableName,
+                                        companies.map { it.toMap() }.byteInputStream()
+                                )
+                                .get(
+                                        60,
+                                        TimeUnit.SECONDS
+                                ) // Block until write is acknowledged — see saveRawIngestions for
+                        // rationale
                         log.info("GCP: Successfully inserted companies into BigQuery.")
                 } catch (e: Exception) {
                         log.error("GCP: Failed to insert companies into BigQuery: ${e.message}", e)
@@ -391,25 +628,33 @@ class JobBigQueryRepository(
                                 }
                         return SearchSuggestionsResponse(suggestions.toList())
                 } catch (e: Exception) {
-                        log.error("GCP: Failed to fetch search suggestions: \${e.message}", e)
+                        log.error("GCP: Failed to fetch search suggestions: ${e.message}", e)
                         return SearchSuggestionsResponse(emptyList())
                 }
         }
 
         override fun saveSearchMiss(term: String) {
+                ensureAllTables()
                 log.info("GCP: Saving search miss to BigQuery: $term")
                 val record = mapOf("term" to term, "timestamp" to Instant.now().toString())
                 try {
-                        bigQueryTemplate.writeJsonStream(
-                                searchMissesTableName,
-                                listOf(record).byteInputStream()
-                        )
+                        bigQueryTemplate
+                                .writeJsonStream(
+                                        searchMissesTableName,
+                                        listOf(record).byteInputStream()
+                                )
+                                .get(
+                                        30,
+                                        TimeUnit.SECONDS
+                                ) // Block until write is acknowledged — see saveRawIngestions for
+                        // rationale
                 } catch (e: Exception) {
-                        log.error("GCP: Failed to insert search miss: \${e.message}", e)
+                        log.error("GCP: Failed to insert search miss: ${e.message}", e)
                 }
         }
 
         override fun saveFeedback(context: String?, message: String) {
+                ensureAllTables()
                 log.info("GCP: Saving user feedback to BigQuery")
                 val record =
                         mapOf(
@@ -418,12 +663,18 @@ class JobBigQueryRepository(
                                 "timestamp" to Instant.now().toString()
                         )
                 try {
-                        bigQueryTemplate.writeJsonStream(
-                                feedbackTableName,
-                                listOf(record).byteInputStream()
-                        )
+                        bigQueryTemplate
+                                .writeJsonStream(
+                                        feedbackTableName,
+                                        listOf(record).byteInputStream()
+                                )
+                                .get(
+                                        30,
+                                        TimeUnit.SECONDS
+                                ) // Block until write is acknowledged — see saveRawIngestions for
+                        // rationale
                 } catch (e: Exception) {
-                        log.error("GCP: Failed to insert feedback: \${e.message}", e)
+                        log.error("GCP: Failed to insert feedback: ${e.message}", e)
                 }
         }
 
