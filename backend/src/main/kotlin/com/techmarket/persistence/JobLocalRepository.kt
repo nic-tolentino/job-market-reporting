@@ -10,7 +10,8 @@ import org.springframework.stereotype.Repository
 
 @Repository
 @Profile("local")
-class JobLocalRepository : JobRepository {
+class JobLocalRepository :
+        JobRepository, CompanyRepository, TechRepository, AnalyticsRepository, IngestionRepository {
 
     private val log = LoggerFactory.getLogger(JobLocalRepository::class.java)
 
@@ -68,6 +69,7 @@ class JobLocalRepository : JobRepository {
         log.info("LOCAL: Returning stub TechDetailsPageDto for $techName")
         return TechDetailsPageDto(
                 techName = techName,
+                totalJobs = 0,
                 seniorityDistribution = emptyList(),
                 hiringCompanies = emptyList()
         )

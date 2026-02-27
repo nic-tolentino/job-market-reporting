@@ -22,7 +22,7 @@ class JobBigQueryRepository(
         private val bigQuery: BigQuery,
         @Value("\${spring.cloud.gcp.bigquery.dataset-name:techmarket}")
         private val datasetName: String
-) : JobRepository {
+) : JobRepository, CompanyRepository, TechRepository, AnalyticsRepository, IngestionRepository {
 
         private val log = LoggerFactory.getLogger(JobBigQueryRepository::class.java)
 
@@ -504,7 +504,14 @@ class JobBigQueryRepository(
                                 )
                         }
 
-                return TechDetailsPageDto(formattedTechName, seniorityDistribution, companies)
+                val totalJobs = seniorityDistribution.sumOf { it.value }
+
+                return TechDetailsPageDto(
+                        formattedTechName,
+                        totalJobs,
+                        seniorityDistribution,
+                        companies
+                )
         }
 
         override fun getCompanyProfile(companyId: String): CompanyProfilePageDto {

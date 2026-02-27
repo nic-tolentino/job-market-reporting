@@ -1,5 +1,7 @@
 package com.techmarket.sync
 
+import com.techmarket.persistence.CompanyRepository
+import com.techmarket.persistence.IngestionRepository
 import com.techmarket.persistence.JobRepository
 import com.techmarket.persistence.model.RawIngestionRecord
 import java.time.Instant
@@ -13,6 +15,8 @@ class JobDataSyncService(
         private val apifyClient: ApifyClient,
         private val jobDataMapper: JobDataMapper,
         private val jobRepository: JobRepository,
+        private val companyRepository: CompanyRepository,
+        private val ingestionRepository: IngestionRepository,
         private val objectMapper: com.fasterxml.jackson.databind.ObjectMapper
 ) {
 
@@ -48,7 +52,7 @@ class JobDataSyncService(
                 }
 
         log.info("Ingesting ${rawRecords.size} raw payloads into Bronze Layer.")
-        jobRepository.saveRawIngestions(rawRecords)
+        ingestionRepository.saveRawIngestions(rawRecords)
 
         val rawJobs = apifyResults.map { it.dto }
         val mappedData = jobDataMapper.mapSyncData(rawJobs)
@@ -56,7 +60,7 @@ class JobDataSyncService(
                 "Successfully mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies for Silver Layer storage."
         )
 
-        jobRepository.saveCompanies(mappedData.companies)
+        companyRepository.saveCompanies(mappedData.companies)
         jobRepository.saveJobs(mappedData.jobs)
 
         log.info("Job Data Sync Pipeline completed successfully.")
@@ -65,7 +69,7 @@ class JobDataSyncService(
     @CacheEvict(value = ["landing", "tech", "company", "search"], allEntries = true)
     fun reprocessHistoricalData() {
         log.info("Starting Historical Data Reprocessing Pipeline...")
-        val rawRecords = jobRepository.getRawIngestions()
+        val rawRecords = ingestionRepository.getRawIngestions()
 
         if (rawRecords.isEmpty()) {
             log.info("No historical records found for reprocessing.")
@@ -97,10 +101,10 @@ class JobDataSyncService(
         // The Bronze layer (raw_ingestions) is never touched — it's the source of truth.
         log.info("Wiping Silver Layer tables before re-insert...")
         jobRepository.deleteAllJobs()
-        jobRepository.deleteAllCompanies()
+        companyRepository.deleteAllCompanies()
 
         log.info("Re-inserting freshly mapped data into Silver Layer...")
-        jobRepository.saveCompanies(mappedData.companies)
+        companyRepository.saveCompanies(mappedData.companies)
         jobRepository.saveJobs(mappedData.jobs)
         log.info("Historical Data Reprocessing Pipeline completed successfully.")
     }

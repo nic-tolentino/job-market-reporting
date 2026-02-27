@@ -35,6 +35,7 @@ export interface SeniorityDistributionDto {
 
 export interface TechDetailsPageDto {
     techName: string;
+    totalJobs: number;
     seniorityDistribution: SeniorityDistributionDto[];
     hiringCompanies: CompanyLeaderboardDto[];
 }
@@ -162,6 +163,7 @@ export const fetchTechDetails = async (techName: string): Promise<TechDetailsPag
     await new Promise(resolve => setTimeout(resolve, 1000));
     return {
         techName: formatTechName(techName),
+        totalJobs: 850,
         seniorityDistribution: [
             { name: 'Senior', value: 400 },
             { name: 'Mid-Level', value: 300 },

@@ -70,6 +70,9 @@ export default function TechDetailsPage() {
                         <Badge variant="blue">
                             High Demand
                         </Badge>
+                        <Badge variant="blue">
+                            {(data.totalJobs || 0).toLocaleString()} Active Roles
+                        </Badge>
                         <Badge variant="slate">
                             Engineering
                         </Badge>
