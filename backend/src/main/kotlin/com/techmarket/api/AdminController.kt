@@ -37,7 +37,7 @@ class AdminController(
             return ResponseEntity.ok("Historical data reprocessing completed.")
         } catch (e: Exception) {
             log.error("Failed to reprocess jobs", e)
-            return ResponseEntity.internalServerError().body("Error: \${e.message}")
+            return ResponseEntity.internalServerError().body("Error: ${e.message}")
         }
     }
 
@@ -68,7 +68,7 @@ class AdminController(
             return ResponseEntity.ok("Manual Data Sync Pipeline executed for dataset: $effectiveId")
         } catch (e: Exception) {
             log.error("Failed to trigger manual sync", e)
-            return ResponseEntity.internalServerError().body("Error: \${e.message}")
+            return ResponseEntity.internalServerError().body("Error: ${e.message}")
         }
     }
 }

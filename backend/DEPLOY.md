@@ -86,7 +86,8 @@ Use this if you have Docker installed locally. It reuses your local Gradle cache
 2. **Build and push the image locally:**
    ```bash
    # Build the image locally (fast because of your local gradle cache)
-   docker build -t australia-southeast1-docker.pkg.dev/tech-market-insights/tech-market-repo/tech-market-backend:latest .
+   # Note: --platform linux/amd64 is required for Mac M1/M2/M3 users for Cloud Run compatibility
+   docker build --platform linux/amd64 -t australia-southeast1-docker.pkg.dev/tech-market-insights/tech-market-repo/tech-market-backend:latest .
 
    # Push the image to GCP (only pushes changed layers)
    docker push australia-southeast1-docker.pkg.dev/tech-market-insights/tech-market-repo/tech-market-backend:latest

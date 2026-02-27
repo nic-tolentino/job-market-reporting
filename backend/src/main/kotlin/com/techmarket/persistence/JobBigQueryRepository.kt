@@ -364,7 +364,7 @@ class JobBigQueryRepository(
                 val statsSql =
                         """
             SELECT 
-                COUNT(jobId) as totalVacancies,
+                COUNT(*) as totalVacancies,
                 IFNULL(SUM(IF(workModel = 'Remote', 1, 0)), 0) as remoteCount,
                 IFNULL(SUM(IF(workModel = 'Hybrid', 1, 0)), 0) as hybridCount
             FROM `$datasetName.$jobsTableName`
@@ -373,7 +373,7 @@ class JobBigQueryRepository(
 
                 val topTechSql =
                         """
-            SELECT t as name, COUNT(jobId) as count
+            SELECT t as name, COUNT(*) as count
             FROM `$datasetName.$jobsTableName`, UNNEST(technologies) as t
             WHERE DATE(postedDate) >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
             GROUP BY name
@@ -383,7 +383,7 @@ class JobBigQueryRepository(
 
                 val topCompaniesSql =
                         """
-            SELECT c.companyId as id, MAX(c.name) as name, MAX(c.logoUrl) as logo, COUNT(j.jobId) as activeRoles
+            SELECT c.companyId as id, MAX(c.name) as name, MAX(c.logoUrl) as logo, COUNT(*) as activeRoles
             FROM `$datasetName.$jobsTableName` j
             JOIN `$datasetName.$companiesTableName` c ON j.companyId = c.companyId
             WHERE DATE(j.postedDate) >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
@@ -441,7 +441,7 @@ class JobBigQueryRepository(
 
                 val senioritySql =
                         """
-            SELECT seniorityLevel as name, COUNT(jobId) as value
+            SELECT seniorityLevel as name, COUNT(*) as value
             FROM `$datasetName.$jobsTableName`, UNNEST(technologies) as t
             WHERE LOWER(t) = LOWER(@techName)
             AND DATE(postedDate) >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
@@ -451,7 +451,7 @@ class JobBigQueryRepository(
 
                 val companiesSql =
                         """
-            SELECT c.companyId as id, MAX(c.name) as name, MAX(c.logoUrl) as logo, COUNT(j.jobId) as activeRoles
+            SELECT c.companyId as id, MAX(c.name) as name, MAX(c.logoUrl) as logo, COUNT(*) as activeRoles
             FROM `$datasetName.$jobsTableName` j
             JOIN `$datasetName.$companiesTableName` c ON j.companyId = c.companyId,
             UNNEST(j.technologies) as t
