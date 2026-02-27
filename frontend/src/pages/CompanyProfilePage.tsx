@@ -4,6 +4,7 @@ import { Building2, MapPin, DollarSign, Calendar, Loader2 } from 'lucide-react';
 import { fetchCompanyProfile, type CompanyProfilePageDto } from '../lib/api';
 import { FeedbackButton } from '../components/common/Feedback';
 import ErrorState from '../components/common/ErrorState';
+import CompanyLogo from '../components/common/CompanyLogo';
 
 export default function CompanyProfilePage() {
     const { companyId } = useParams<{ companyId: string }>();
@@ -47,9 +48,12 @@ export default function CompanyProfilePage() {
     return (
         <div className="space-y-8">
             <div className="flex items-start gap-6 border-b border-gray-200 pb-8">
-                <div className="h-24 w-24 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center flex-shrink-0 text-3xl font-bold text-slate-700">
-                    {data.companyDetails.logo}
-                </div>
+                <CompanyLogo
+                    logoUrl={data.companyDetails.logo}
+                    companyName={data.companyDetails.name}
+                    className="h-24 w-24 rounded-2xl border border-gray-200 shadow-sm flex-shrink-0 text-3xl"
+                    imageClassName="p-2"
+                />
                 <div className="flex-1">
                     <div className="flex items-center gap-3">
                         <h1 className="text-3xl font-bold text-slate-900">{companyName}</h1>

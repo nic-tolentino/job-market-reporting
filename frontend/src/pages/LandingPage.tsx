@@ -5,6 +5,7 @@ import { Briefcase, Loader2 } from 'lucide-react';
 import { fetchLandingPageData, type LandingPageDto } from '../lib/api';
 import { FeedbackButton } from '../components/common/Feedback';
 import ErrorState from '../components/common/ErrorState';
+import CompanyLogo from '../components/common/CompanyLogo';
 
 export default function LandingPage() {
     const navigate = useNavigate();
@@ -154,10 +155,14 @@ export default function LandingPage() {
                                     >
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-3">
-                                                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 bg-white font-bold text-slate-700 shadow-sm group-hover:border-blue-300 group-hover:text-blue-600 transition-colors">
-                                                    {company.logo}
-                                                </div>
-                                                <span className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{company.name}</span>
+                                                <CompanyLogo
+                                                    logoUrl={company.logo}
+                                                    companyName={company.name}
+                                                    className="h-10 w-10 rounded-lg border border-gray-200 shadow-sm group-hover:border-blue-300 group-hover:text-blue-600 transition-colors"
+                                                />
+                                                <span className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors flex-1 truncate" title={company.name}>
+                                                    {company.name}
+                                                </span>
                                             </div>
                                         </td>
                                         <td className="px-6 py-4 text-right">
