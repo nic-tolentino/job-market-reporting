@@ -6,6 +6,8 @@ import { fetchLandingPageData, type LandingPageDto } from '../lib/api';
 import { FeedbackButton } from '../components/common/Feedback';
 import ErrorState from '../components/common/ErrorState';
 import CompanyLogo from '../components/common/CompanyLogo';
+import { Card, CardHeader } from '../components/ui/Card';
+import { H2 } from '../components/ui/Typography';
 
 export default function LandingPage() {
     const navigate = useNavigate();
@@ -98,14 +100,14 @@ export default function LandingPage() {
             <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
                 {/* Top Tech Chart */}
-                <div className="rounded-xl border border-gray-200 bg-white p-0 shadow-sm flex flex-col overflow-hidden">
-                    <div className="border-b border-gray-100 p-6 flex items-center justify-between">
+                <Card className="p-0">
+                    <CardHeader>
                         <div>
-                            <h2 className="text-lg font-bold text-slate-900">Highest Demand Tech</h2>
+                            <H2>Highest Demand Tech</H2>
                             <p className="text-sm text-gray-500 mt-1">Based on active job postings</p>
                         </div>
                         <FeedbackButton variant="icon" context="Highest Demand Tech Chart" />
-                    </div>
+                    </CardHeader>
                     <div className="p-4 md:p-6 flex-1 min-h-[350px] md:min-h-[400px] outline-none select-none [&_svg]:outline-none" tabIndex={-1}>
                         <ResponsiveContainer width="100%" height="100%">
                             <BarChart data={data.topTech} layout="vertical" margin={{ top: 0, right: 30, left: 20, bottom: 0 }}>
@@ -134,17 +136,17 @@ export default function LandingPage() {
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
-                </div>
+                </Card>
 
                 {/* Top Companies List */}
-                <div className="rounded-xl border border-gray-200 bg-white p-0 shadow-sm flex flex-col overflow-hidden">
-                    <div className="border-b border-gray-100 p-6 flex items-center justify-between">
+                <Card className="p-0">
+                    <CardHeader>
                         <div>
-                            <h2 className="text-lg font-bold text-slate-900">Top Hiring Companies</h2>
+                            <H2>Top Hiring Companies</H2>
                             <p className="text-sm text-gray-500 mt-1">Companies with the most active vacancies</p>
                         </div>
                         <FeedbackButton variant="icon" context="Top Hiring Companies List" />
-                    </div>
+                    </CardHeader>
                     <div className="flex-1 overflow-auto">
                         <table className="w-full text-left text-sm">
                             <thead className="bg-gray-50 text-gray-500 sticky top-0">
@@ -183,7 +185,7 @@ export default function LandingPage() {
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </Card>
 
             </section>
         </div>

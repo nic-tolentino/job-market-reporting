@@ -3,6 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import { Building2, MapPin, Clock, Calendar, ChevronRight, ExternalLink } from 'lucide-react';
 import DOMPurify from 'dompurify';
 import { FeedbackButton } from '../components/common/Feedback';
+import { Card, CardHeader, CardContent } from '../components/ui/Card';
+import { H1, H2, SectionSubtitle } from '../components/ui/Typography';
+import { Badge } from '../components/ui/Badge';
 import type { JobPageDto } from '../lib/api';
 import { fetchJobDetails } from '../lib/api';
 import CompanyLogo from '../components/common/CompanyLogo';
@@ -64,9 +67,7 @@ const JobPage: React.FC = () => {
                 />
                 <div className="flex-1">
                     <div className="flex items-center gap-3">
-                        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
-                            {details.title}
-                        </h1>
+                        <H1>{details.title}</H1>
                         <FeedbackButton variant="icon" context={`Job: ${details.title}`} />
                     </div>
                     <div className="mt-3 flex flex-wrap items-center gap-y-2 gap-x-4 text-gray-600">
@@ -84,19 +85,13 @@ const JobPage: React.FC = () => {
 
                     <div className="mt-4 flex flex-wrap gap-2">
                         {details.employmentType && (
-                            <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 border border-blue-100">
-                                {details.employmentType}
-                            </span>
+                            <Badge variant="blue">{details.employmentType}</Badge>
                         )}
                         {details.workModel && (
-                            <span className="inline-flex items-center rounded-full bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-700 border border-purple-100">
-                                {details.workModel}
-                            </span>
+                            <Badge variant="purple">{details.workModel}</Badge>
                         )}
                         {details.jobFunction && (
-                            <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 border border-slate-200">
-                                {details.jobFunction}
-                            </span>
+                            <Badge variant="slate">{details.jobFunction}</Badge>
                         )}
                     </div>
                 </div>
@@ -107,12 +102,12 @@ const JobPage: React.FC = () => {
                 <div className="lg:col-span-2 space-y-8">
 
                     {/* Description Section */}
-                    <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col">
-                        <div className="border-b border-gray-100 p-6 flex items-center justify-between bg-white sticky top-0 z-10">
-                            <h2 className="text-lg font-bold text-slate-900">Job Description</h2>
+                    <Card>
+                        <CardHeader className="bg-white sticky top-0 z-10">
+                            <H2>Job Description</H2>
                             <FeedbackButton variant="icon" context={`Job Description: ${details.title}`} />
-                        </div>
-                        <div className="p-6 md:p-8">
+                        </CardHeader>
+                        <CardContent className="md:p-8">
                             {sanitizedDescription ? (
                                 <div
                                     className="prose prose-blue max-w-none text-gray-600 prose-headings:text-slate-900 prose-a:text-blue-600 hover:prose-a:text-blue-500 prose-strong:text-slate-900 prose-li:marker:text-blue-400"
@@ -123,17 +118,17 @@ const JobPage: React.FC = () => {
                                     No detailed description provided by the employer.
                                 </div>
                             )}
-                        </div>
-                    </div>
+                        </CardContent>
+                    </Card>
 
                     {/* Locations Section */}
-                    <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col">
-                        <div className="border-b border-gray-100 p-6 flex items-center justify-between">
-                            <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <Card>
+                        <CardHeader>
+                            <H2 className="flex items-center gap-2">
                                 <MapPin className="w-5 h-5 text-gray-400" />
                                 Available Locations ({locations.length})
-                            </h2>
-                        </div>
+                            </H2>
+                        </CardHeader>
                         <div className="p-0">
                             <ul className="divide-y divide-gray-100">
                                 {locations.map((loc, idx) => (
@@ -155,15 +150,15 @@ const JobPage: React.FC = () => {
                                 ))}
                             </ul>
                         </div>
-                    </div>
+                    </Card>
                 </div>
 
                 {/* Sidebar (Right) */}
                 <div className="space-y-6">
                     {/* Company Info Box */}
-                    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
-                        <div className="p-6 border-b border-gray-100">
-                            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-5">Hiring Company</h4>
+                    <Card>
+                        <CardContent className="border-b border-gray-100 p-6">
+                            <SectionSubtitle className="mb-5">Hiring Company</SectionSubtitle>
                             <div className="flex items-center gap-4">
                                 <Link to={`/company/${company.companyId}`} className="group relative block">
                                     <div className="w-16 h-16 bg-white rounded-xl border border-gray-100 flex items-center justify-center p-2 flex-shrink-0 shadow-sm group-hover:border-blue-200 transition-colors bg-slate-50/50">
@@ -181,10 +176,10 @@ const JobPage: React.FC = () => {
                                     </Link>
                                 </div>
                             </div>
-                        </div>
+                        </CardContent>
 
                         <div className="p-6 bg-slate-50/50">
-                            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Required Stack</h4>
+                            <SectionSubtitle className="mb-4">Required Stack</SectionSubtitle>
                             {details.technologies && details.technologies.length > 0 ? (
                                 <div className="flex flex-wrap gap-1.5">
                                     {details.technologies.map(tech => (
@@ -204,25 +199,23 @@ const JobPage: React.FC = () => {
 
                         {details.benefits && details.benefits.length > 0 && (
                             <div className="p-6 border-t border-gray-100">
-                                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Role Benefits</h4>
+                                <SectionSubtitle className="mb-4">Role Benefits</SectionSubtitle>
                                 <div className="flex flex-wrap gap-2">
                                     {details.benefits.map((benefit, i) => (
-                                        <span key={i} className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-50 border border-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
-                                            {benefit}
-                                        </span>
+                                        <Badge key={i} variant="emerald">{benefit}</Badge>
                                     ))}
                                 </div>
                             </div>
                         )}
-                    </div>
+                    </Card>
 
                     {/* Similar Roles */}
                     {similarRoles && similarRoles.length > 0 && (
-                        <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col">
-                            <div className="border-b border-gray-100 p-6 flex items-center justify-between">
-                                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest">Similar Roles</h3>
+                        <Card>
+                            <CardHeader>
+                                <SectionSubtitle>Similar Roles</SectionSubtitle>
                                 <FeedbackButton variant="icon" context="Similar Roles Section" />
-                            </div>
+                            </CardHeader>
                             <div className="divide-y divide-gray-50">
                                 {similarRoles.map(role => (
                                     <Link
@@ -249,7 +242,7 @@ const JobPage: React.FC = () => {
                                     </Link>
                                 ))}
                             </div>
-                        </div>
+                        </Card>
                     )}
                 </div>
             </div>

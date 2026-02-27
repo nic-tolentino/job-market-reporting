@@ -5,6 +5,9 @@ import { fetchCompanyProfile, type CompanyProfilePageDto } from '../lib/api';
 import { FeedbackButton } from '../components/common/Feedback';
 import ErrorState from '../components/common/ErrorState';
 import CompanyLogo from '../components/common/CompanyLogo';
+import { Card, CardContent } from '../components/ui/Card';
+import { H1, H2, SectionSubtitle } from '../components/ui/Typography';
+import { Badge } from '../components/ui/Badge';
 
 export default function CompanyProfilePage() {
     const navigate = useNavigate();
@@ -87,7 +90,7 @@ export default function CompanyProfilePage() {
                 />
                 <div className="flex-1">
                     <div className="flex items-center gap-3">
-                        <h1 className="text-3xl font-bold text-slate-900">{companyName}</h1>
+                        <H1>{companyName}</H1>
                         <FeedbackButton variant="icon" context={`${companyName} Profile Info`} />
                     </div>
                     <div>
@@ -105,14 +108,13 @@ export default function CompanyProfilePage() {
                     </div>
                     {/* Meta pills row */}
                     <div className="mt-4 flex flex-wrap gap-2">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                            <Building2 className="h-3.5 w-3.5" />
+                        <Badge variant="slate" icon={<Building2 className="h-3.5 w-3.5" />}>
                             {data.companyDetails.industry}
-                        </span>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                        </Badge>
+                        <Badge variant="slate">
                             ~{data.companyDetails.employeesCount.toLocaleString()} Employees
-                        </span>
-                        <a href={data.companyDetails.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 hover:bg-blue-100 transition-colors">
+                        </Badge>
+                        <a href={data.companyDetails.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 hover:bg-blue-100 transition-colors">
                             Website
                         </a>
                     </div>
@@ -123,11 +125,11 @@ export default function CompanyProfilePage() {
                 <div className="lg:col-span-2 space-y-8">
 
                     {/* Active Roles */}
-                    <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+                    <Card>
                         <div className="border-b border-gray-100 p-6">
                             <div className="flex items-center justify-between mb-1">
                                 <div className="flex items-center gap-2">
-                                    <h2 className="text-lg font-bold text-slate-900">Active Roles</h2>
+                                    <H2>Active Roles</H2>
                                     <span className="text-sm text-gray-400 font-normal">
                                         {selectedTechs.size > 0
                                             ? `(${filteredRoles.length} of ${data.activeRoles.length})`
@@ -240,56 +242,58 @@ export default function CompanyProfilePage() {
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </Card>
                 </div>
 
                 <div className="space-y-6">
-                    <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm relative">
-                        <div className="absolute top-4 right-4">
-                            <FeedbackButton variant="icon" context={`${companyName} Insights`} />
-                        </div>
-                        <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-5">Insights</h3>
-                        <ul className="space-y-4 text-sm text-gray-600">
-                            <li className="flex justify-between items-center border-b border-gray-50 pb-3">
-                                <span className="font-medium text-slate-600">Work Model</span>
-                                <span className="font-semibold text-slate-900 bg-green-50 text-green-700 px-2 py-0.5 rounded text-xs border border-green-200">{data.insights.workModel}</span>
-                            </li>
+                    <Card className="relative">
+                        <CardContent>
+                            <div className="absolute top-4 right-4">
+                                <FeedbackButton variant="icon" context={`${companyName} Insights`} />
+                            </div>
+                            <SectionSubtitle className="mb-5">Insights</SectionSubtitle>
+                            <ul className="space-y-4 text-sm text-gray-600">
+                                <li className="flex justify-between items-center border-b border-gray-50 pb-3">
+                                    <span className="font-medium text-slate-600">Work Model</span>
+                                    <Badge variant="emerald">{data.insights.workModel}</Badge>
+                                </li>
 
-                            <li className="flex justify-between items-center border-b border-gray-50 pb-3 group cursor-pointer">
-                                <span className="font-medium text-slate-600">Common Benefits</span>
-                                <span className="font-semibold text-blue-600 group-hover:underline">View {data.insights.commonBenefits.length} tags</span>
-                            </li>
-                            {data.insights.hiringLocations.length > 0 && (
-                                <li className="pt-2 border-b border-gray-50 pb-4">
-                                    <span className="block font-medium text-slate-600 mb-3">Hiring Locations</span>
-                                    <div className="flex flex-wrap gap-1.5 max-h-40 overflow-y-auto">
-                                        {[...new Set(data.insights.hiringLocations)].sort().map(loc => (
-                                            <span
-                                                key={loc}
-                                                className="inline-flex items-center rounded-full bg-slate-50 border border-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600"
+                                <li className="flex justify-between items-center border-b border-gray-50 pb-3 group cursor-pointer">
+                                    <span className="font-medium text-slate-600">Common Benefits</span>
+                                    <span className="font-semibold text-blue-600 group-hover:underline">View {data.insights.commonBenefits.length} tags</span>
+                                </li>
+                                {data.insights.hiringLocations.length > 0 && (
+                                    <li className="pt-2 border-b border-gray-50 pb-4">
+                                        <span className="block font-medium text-slate-600 mb-3">Hiring Locations</span>
+                                        <div className="flex flex-wrap gap-1.5 max-h-40 overflow-y-auto">
+                                            {[...new Set(data.insights.hiringLocations)].sort().map(loc => (
+                                                <span
+                                                    key={loc}
+                                                    className="inline-flex items-center rounded-full bg-slate-50 border border-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600"
+                                                >
+                                                    {loc}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </li>
+                                )}
+                                <li className="pt-2">
+                                    <span className="block font-medium text-slate-600 mb-3">Tech Stacks</span>
+                                    <div className="flex flex-wrap gap-1.5">
+                                        {data.techStack.map(tech => (
+                                            <Link
+                                                key={tech}
+                                                to={`/tech/${tech.toLowerCase()}`}
+                                                className="inline-flex items-center rounded-full bg-slate-50 border border-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 hover:border-blue-200 hover:text-blue-700 transition-colors"
                                             >
-                                                {loc}
-                                            </span>
+                                                {tech}
+                                            </Link>
                                         ))}
                                     </div>
                                 </li>
-                            )}
-                            <li className="pt-2">
-                                <span className="block font-medium text-slate-600 mb-3">Tech Stacks</span>
-                                <div className="flex flex-wrap gap-1.5">
-                                    {data.techStack.map(tech => (
-                                        <Link
-                                            key={tech}
-                                            to={`/tech/${tech.toLowerCase()}`}
-                                            className="inline-flex items-center rounded-full bg-slate-50 border border-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 hover:border-blue-200 hover:text-blue-700 transition-colors"
-                                        >
-                                            {tech}
-                                        </Link>
-                                    ))}
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                            </ul>
+                        </CardContent>
+                    </Card>
                 </div>
 
             </div>
