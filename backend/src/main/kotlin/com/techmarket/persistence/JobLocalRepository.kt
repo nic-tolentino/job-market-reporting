@@ -76,7 +76,8 @@ class JobLocalRepository :
                 techName = techName,
                 totalJobs = 0,
                 seniorityDistribution = emptyList(),
-                hiringCompanies = emptyList()
+                hiringCompanies = emptyList(),
+                roles = emptyList()
         )
     }
 

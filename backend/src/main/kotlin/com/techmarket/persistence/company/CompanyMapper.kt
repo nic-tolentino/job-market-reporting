@@ -88,6 +88,8 @@ object CompanyMapper {
                                         postedDate =
                                                 if (r.get(JobFields.POSTED_DATE).isNull) ""
                                                 else r.get(JobFields.POSTED_DATE).stringValue,
+                                        seniorityLevel =
+                                                r.get(JobFields.SENIORITY_LEVEL).stringValue,
                                         technologies = techList
                                 )
                         }

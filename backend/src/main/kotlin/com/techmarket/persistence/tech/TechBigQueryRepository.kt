@@ -52,7 +52,23 @@ class TechBigQueryRepository(
                                         )
                                         .build()
                         )
+                val rolesResult =
+                        bigQuery.query(
+                                QueryJobConfiguration.newBuilder(
+                                                TechQueries.getJobsSql(datasetName, jobsTableName)
+                                        )
+                                        .addNamedParameter(
+                                                "techName",
+                                                QueryParameterValue.string(techName)
+                                        )
+                                        .build()
+                        )
 
-                return TechMapper.mapTechDetails(formattedTechName, senResult, compResult)
+                return TechMapper.mapTechDetails(
+                        formattedTechName,
+                        senResult,
+                        compResult,
+                        rolesResult
+                )
         }
 }

@@ -143,6 +143,8 @@ object JobMapper {
                                         postedDate =
                                                 if (sim.get(JobFields.POSTED_DATE).isNull) ""
                                                 else sim.get(JobFields.POSTED_DATE).stringValue,
+                                        seniorityLevel =
+                                                sim.get(JobFields.SENIORITY_LEVEL).stringValue,
                                         technologies = simTechList
                                 )
                         }

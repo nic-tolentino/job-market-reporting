@@ -25,4 +25,13 @@ object TechQueries {
         GROUP BY c.${CompanyFields.COMPANY_ID}
         ORDER BY activeRoles DESC
     """.trimIndent()
+
+    fun getJobsSql(datasetName: String, jobsTableName: String) =
+            """
+        SELECT ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.COMPANY_ID}, ${JobFields.COMPANY_NAME}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}, ${JobFields.CITY}, ${JobFields.STATE_REGION}, ${JobFields.SENIORITY_LEVEL}
+        FROM `$datasetName.$jobsTableName` j, UNNEST(j.${JobFields.TECHNOLOGIES}) as t
+        WHERE LOWER(t) = LOWER(@techName)
+        AND DATE(j.${JobFields.POSTED_DATE}) >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+        ORDER BY j.${JobFields.POSTED_DATE} DESC
+    """.trimIndent()
 }

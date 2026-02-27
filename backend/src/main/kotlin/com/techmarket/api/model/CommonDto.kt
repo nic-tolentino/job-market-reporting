@@ -18,5 +18,6 @@ data class JobRoleDto(
         val salaryMin: Int?,
         val salaryMax: Int?,
         val postedDate: String,
+        val seniorityLevel: String,
         val technologies: List<String>
 )

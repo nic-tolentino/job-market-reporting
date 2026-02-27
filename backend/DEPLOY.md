@@ -144,3 +144,40 @@ Once the deployment finishes successfully, the terminal will print out a **Servi
    - **Value**: `your_made_up_secure_password`
 
 You're done! Your completely serverless pipeline is now live.
+
+---
+
+## Stage 6: Schema Migrations & Data Reprocessing
+
+When backend schema changes affect the **Silver layer** (i.e. the `raw_jobs` or `raw_companies` BigQuery tables), those tables must be dropped and rebuilt from the lossless **Bronze layer** (`raw_ingestions`).
+
+> **Why?** BigQuery does not support `ALTER TABLE DROP COLUMN`. The only way to remove a column from an existing table is to recreate it. The application automatically recreates the table with the correct schema on startup if it doesn't exist.
+>
+> The **Bronze layer** (`raw_ingestions`) is never touched — it's the source of truth and stores the full original JSON payload from Apify.
+
+### When to do this
+
+Run this workflow any time you:
+- Remove or rename a column from `JobRecord` or `CompanyRecord`
+- Add a non-nullable column that the old data didn't populate
+
+### Steps
+
+**1. Drop the Silver layer tables via the BigQuery CLI:**
+```bash
+bq rm -f -t techmarket.raw_jobs
+bq rm -f -t techmarket.raw_companies
+```
+
+**2. Trigger a reprocess from the raw ingestion records:**
+
+The backend exposes a protected admin endpoint that reads all records from `raw_ingestions`, re-parses them through the full mapper/parser pipeline, and re-inserts them into the newly created `raw_jobs` and `raw_companies` tables (with the correct schema).
+
+```bash
+# Replace YOUR_WEBHOOK_SECRET with the value of APIFY_WEBHOOK_SECRET in your Cloud Run config
+curl -X POST https://tech-market-backend-181692518949.australia-southeast1.run.app/api/admin/reprocess-jobs \
+  -H "x-apify-signature: YOUR_WEBHOOK_SECRET"
+```
+
+The tables will be auto-created with the correct schema by the application the first time it runs a query after the drop. The reprocess typically completes in a few seconds for current data volumes.
+

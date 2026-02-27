@@ -117,25 +117,38 @@ Since historical job data does not change frequently (ingestion happens daily/we
 
 ## 💡 Future ideas
 
+Now:
+- the job page is broken?
+- we ??
+- The job page loading indicator is different to the company page loading indicator, use the company page loading indicator and make sure they are standard across all pages.
+
+Later:
+
 - Also show jobs in tech page???
 - Show all jobs for a given tech, filtered by location and seniority
 
-- [x] Split location into city and state/region and country
+- why does raw_locations.csv not have any australia location when they are in the dataset?
 
-- [x] Can we get rid of rawSeniorityLevel and rawLocation? in the job record? 
-
+- Add a location job filter to the company page?
+- Ability to filter companies by seniority in tech page. 
 
 - Technologies need to retain their capitalisation - e.g. AWS, .NET, Go, iOS, etc
 
-- Add a soft skills (leadership, communication, etc) and capabilities (agile, devops, etc) leaderboard, also show it on the job page
 - Add a locations with most jobs, and locations for a given tech
--  Extend appropriate unit tests, both backend and frontend.
-- Add support for different countries
-- Add the ability to see more than just the top 10 technologies and companies
+- Add the ability to see more than just the top 10 technologies and companies on landing screen
 - Filters for people lead roles like managers?
 - The ability to group technologies by category, e.g. cloud, server, database, web, mobile, backend, etc in the landing, and company pages
-- Ability to filter companies by seniority in tech page. 
 - Test error scenarios
 - Create a Tech record with the pre-computed data for each tech to reduce computation? or just rely on cache?
 - Can we rid of some of the nullable fields on the company and jobs tables?
+- Add a soft skills (leadership, communication, etc) and capabilities (agile, devops, etc) leaderboard, also show it on the job page
+- Extend appropriate unit tests, both backend and frontend.
+- Which companies provide 
+
+Nice to have:
 - ideally we'd log when a location can't be properly parsed
+
+Major:
+- Add support for different countries
+- Add user accounts and authentication + saved companies / technologies + email notifications
+

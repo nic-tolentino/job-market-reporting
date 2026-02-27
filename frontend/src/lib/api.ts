@@ -38,6 +38,7 @@ export interface TechDetailsPageDto {
     totalJobs: number;
     seniorityDistribution: SeniorityDistributionDto[];
     hiringCompanies: CompanyLeaderboardDto[];
+    roles: JobRoleDto[];
 }
 
 export interface JobRoleDto {
@@ -51,6 +52,7 @@ export interface JobRoleDto {
     salaryMin: number | null;
     salaryMax: number | null;
     postedDate: string;
+    seniorityLevel: string;
     technologies: string[];
 }
 
@@ -173,7 +175,8 @@ export const fetchTechDetails = async (techName: string): Promise<TechDetailsPag
         hiringCompanies: mockCompanyLeaderboard.map(c => ({
             ...c,
             activeRoles: Math.floor(c.activeRoles * 0.3)
-        }))
+        })),
+        roles: []
     };
 };
 
@@ -230,38 +233,38 @@ export const fetchJobDetails = async (jobId: string): Promise<JobPageDto | null>
 
     await new Promise(resolve => setTimeout(resolve, 1000));
 
-    // Minimal mock response
+    // Enhanced mock response
     return {
         details: {
             title: "Senior Software Engineer",
-            description: "<strong>Join our amazing team!</strong><br/><p>We are looking for a highly skilled engineer to build out our market insights platform.</p>",
+            description: "<strong>Join our amazing team!</strong><br/><p>We are looking for a highly skilled engineer to build out our market insights platform. This role involves working with a modern tech stack including React, TypeScript, and Kotlin. You will be responsible for designing scalable infrastructure and delivering high-quality user experiences.</p>",
             seniorityLevel: "Senior",
             employmentType: "Full-time",
             workModel: "Hybrid Friendly",
             postedDate: new Date().toISOString().split('T')[0],
             jobFunction: "Engineering",
-            technologies: ["React", "TypeScript", "Kotlin", "FastAPI"],
-            benefits: ["Health Insurance", "Stock Options", "Flexible Hours"]
+            technologies: ["React", "TypeScript", "Kotlin", "BigQuery"],
+            benefits: ["Health Insurance", "Stock Options", "Flexible Hours", "Learning Budget"]
         },
         locations: [
-            { location: "Sydney, NSW", jobId: jobId, applyUrl: "https://example.com/apply" },
-            { location: "Melbourne, VIC", jobId: `${jobId}-melb`, applyUrl: "https://example.com/apply2" }
+            { location: "Sydney, NSW", jobId: jobId, applyUrl: "https://www.linkedin.com/jobs/view/" + jobId },
+            { location: "Melbourne, VIC", jobId: `${jobId}-melb`, applyUrl: "https://www.linkedin.com/jobs/view/" + jobId }
         ],
         company: {
             companyId: "mock-company",
-            name: "Mock Company Tech",
-            logoUrl: "M",
-            description: "A very cool mock company that builds mock products.",
-            website: "https://example.com/mock",
-            hiringLocations: ["Sydney, NSW", "Melbourne, VIC"]
+            name: "TechMarket Insights",
+            logoUrl: "https://logo.clearbit.com/google.com",
+            description: "TechMarket Insights is a leading data-driven platform for analyzing the engineering job market.",
+            website: "https://tech-market-insights.com",
+            hiringLocations: ["Sydney, NSW", "Melbourne, VIC", "Remote"]
         },
         similarRoles: mockRecentJobs.slice(0, 3).map(job => ({
             ...job,
             locations: [(job as any).location ?? 'Sydney'],
             jobIds: [job.id],
-            applyUrls: [null],
+            applyUrls: ["https://www.linkedin.com/jobs/view/" + job.id],
             companyId: "mock-company",
-            companyName: "Mock Company Tech",
+            companyName: "TechMarket Insights",
         }))
     };
 };

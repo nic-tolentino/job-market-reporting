@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { Briefcase, Loader2 } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 import { fetchLandingPageData, type LandingPageDto } from '../lib/api';
+import PageLoader from '../components/common/PageLoader';
 import { FeedbackButton } from '../components/common/Feedback';
 import ErrorState from '../components/common/ErrorState';
 import CompanyLogo from '../components/common/CompanyLogo';
@@ -34,11 +35,7 @@ export default function LandingPage() {
     }, [loadData]);
 
     if (isLoading) {
-        return (
-            <div className="flex items-center justify-center min-h-[50vh]">
-                <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
-            </div>
-        );
+        return <PageLoader />;
     }
 
     if (error || !data) {

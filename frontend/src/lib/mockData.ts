@@ -20,6 +20,7 @@ export interface JobRole {
     salaryMin: number | null;
     salaryMax: number | null;
     postedDate: string;
+    seniorityLevel: string;
     technologies: string[];
 }
 
@@ -59,6 +60,7 @@ export const mockRecentJobs: JobRole[] = [
         salaryMin: 160000,
         salaryMax: 210000,
         postedDate: '2024-05-15',
+        seniorityLevel: 'Senior',
         technologies: ['React', 'TypeScript', 'Tailwind CSS'],
     },
     {
@@ -70,6 +72,7 @@ export const mockRecentJobs: JobRole[] = [
         salaryMin: 140000,
         salaryMax: 180000,
         postedDate: '2024-05-14',
+        seniorityLevel: 'Mid-Level',
         technologies: ['React', 'Next.js', 'Framer Motion'],
     },
     {
@@ -81,6 +84,7 @@ export const mockRecentJobs: JobRole[] = [
         salaryMin: 120000,
         salaryMax: 150000,
         postedDate: '2024-05-12',
+        seniorityLevel: 'Senior',
         technologies: ['Vue', 'JavaScript', 'CSS'],
     },
 ];
