@@ -159,6 +159,7 @@ class JobDataMapper {
             val seniorityLevel: String,
             val location: String,
             val applyUrl: String?,
+            val description: String?,
             val technologies: List<String>,
             val salaryMin: Int?,
             val salaryMax: Int?,
@@ -208,6 +209,8 @@ class JobDataMapper {
                                 seniorityLevel = seniorityLevel,
                                 location = location,
                                 applyUrl = dto.applyUrl,
+                                description = dto.descriptionHtml?.ifBlank { null }
+                                                ?: dto.descriptionText,
                                 technologies = techs,
                                 salaryMin = parseSalary(dto.salaryInfo?.firstOrNull()),
                                 salaryMax = parseSalary(dto.salaryInfo?.lastOrNull()),
@@ -286,15 +289,20 @@ class JobDataMapper {
 
                     // Collect all locations (no deduplication per spec — same city can appear
                     // twice)
-                    val allLocations = group.map { it.location }
+                    val locations = group.map { it.location }
                     companyLocationSets
                             .getOrPut(first.companyId) { mutableSetOf() }
-                            .addAll(allLocations)
+                            .addAll(locations)
+
+                    // Description is from the first available entry
+                    val description = group.firstNotNullOfOrNull { it.description }
+                    val jobIds = group.map { it.jobId }
+                    val applyUrls = group.map { it.applyUrl }
 
                     JobRecord(
-                            jobIds = group.map { it.jobId },
-                            applyUrls = group.map { it.applyUrl },
-                            locations = allLocations,
+                            jobIds = jobIds,
+                            applyUrls = applyUrls,
+                            locations = locations,
                             companyId = first.companyId,
                             companyName = first.companyName,
                             source = "LinkedIn",
@@ -310,6 +318,7 @@ class JobDataMapper {
                             employmentType = group.firstNotNullOfOrNull { it.employmentType },
                             workModel = group.firstNotNullOfOrNull { it.workModel } ?: "On-site",
                             jobFunction = group.firstNotNullOfOrNull { it.jobFunction },
+                            description = description,
                             rawLocation = first.rawLocation,
                             rawSeniorityLevel = first.rawSeniorityLevel,
                             ingestedAt = ingestedAt

@@ -8,6 +8,7 @@ import LandingPage from './pages/LandingPage';
 
 const TechDetailsPage = lazy(() => import('./pages/TechDetailsPage'));
 const CompanyProfilePage = lazy(() => import('./pages/CompanyProfilePage'));
+const JobPage = lazy(() => import('./pages/JobPage'));
 
 function PageLoader() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/tech/:techId" element={<TechDetailsPage />} />
             <Route path="/company/:companyId" element={<CompanyProfilePage />} />
+            <Route path="/job/:jobId" element={<JobPage />} />
           </Routes>
         </Suspense>
       </Layout>

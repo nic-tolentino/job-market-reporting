@@ -189,7 +189,9 @@ export default function CompanyProfilePage() {
                                         <tr key={job.id} className="hover:bg-gray-50 transition-colors group/row">
                                             <td className="px-6 py-5">
                                                 <div className="flex items-center gap-2">
-                                                    <div className="font-semibold text-slate-900">{job.title}</div>
+                                                    <Link to={`/job/${job.id}`} className="font-semibold text-slate-900 hover:text-blue-600 hover:underline transition-colors block">
+                                                        {job.title}
+                                                    </Link>
                                                     <div className="opacity-0 group-hover/row:opacity-100 transition-opacity">
                                                         <FeedbackButton variant="icon" context={`Job Role: ${job.title} at ${companyName}`} />
                                                     </div>

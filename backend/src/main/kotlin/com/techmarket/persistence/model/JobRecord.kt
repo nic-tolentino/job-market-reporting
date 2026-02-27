@@ -24,6 +24,7 @@ data class JobRecord(
         val employmentType: String?,
         val workModel: String?,
         val jobFunction: String?,
+        val description: String?,
         val rawLocation: String?,
         val rawSeniorityLevel: String?,
         val ingestedAt: Instant

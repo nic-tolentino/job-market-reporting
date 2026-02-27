@@ -76,6 +76,40 @@ export interface CompanyProfilePageDto {
     activeRoles: JobRoleDto[];
 }
 
+export interface JobDetailsDto {
+    title: string;
+    description: string | null;
+    seniorityLevel: string;
+    employmentType: string | null;
+    workModel: string | null;
+    postedDate: string | null;
+    jobFunction: string | null;
+    technologies: string[];
+    benefits: string[] | null;
+}
+
+export interface JobLocationDto {
+    location: string;
+    applyUrl: string | null;
+    jobId: string;
+}
+
+export interface JobCompanyDto {
+    companyId: string;
+    name: string;
+    logoUrl: string;
+    description: string;
+    website: string;
+    hiringLocations: string[];
+}
+
+export interface JobPageDto {
+    details: JobDetailsDto;
+    locations: JobLocationDto[];
+    company: JobCompanyDto;
+    similarRoles: JobRoleDto[];
+}
+
 export interface SearchSuggestionDto {
     type: 'TECHNOLOGY' | 'COMPANY';
     id: string;
@@ -177,6 +211,55 @@ export const fetchCompanyProfile = async (companyId: string): Promise<CompanyPro
             applyUrls: [null],
             companyId: fallbackCompany.id,
             companyName: fallbackCompany.name
+        }))
+    };
+};
+
+export const fetchJobDetails = async (jobId: string): Promise<JobPageDto | null> => {
+    if (!FORCE_MOCK_DATA) {
+        try {
+            const response = await fetch(`${API_BASE_URL}/job/${jobId}`);
+            if (response.ok) return await response.json();
+            if (response.status === 404) return null;
+        } catch (error) {
+            console.warn(`Backend API failed for job ${jobId}, falling back to local mock data:`, error);
+        }
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Minimal mock response
+    return {
+        details: {
+            title: "Senior Software Engineer",
+            description: "<strong>Join our amazing team!</strong><br/><p>We are looking for a highly skilled engineer to build out our market insights platform.</p>",
+            seniorityLevel: "Senior",
+            employmentType: "Full-time",
+            workModel: "Hybrid Friendly",
+            postedDate: new Date().toISOString().split('T')[0],
+            jobFunction: "Engineering",
+            technologies: ["React", "TypeScript", "Kotlin", "FastAPI"],
+            benefits: ["Health Insurance", "Stock Options", "Flexible Hours"]
+        },
+        locations: [
+            { location: "Sydney, NSW", jobId: jobId, applyUrl: "https://example.com/apply" },
+            { location: "Melbourne, VIC", jobId: `${jobId}-melb`, applyUrl: "https://example.com/apply2" }
+        ],
+        company: {
+            companyId: "mock-company",
+            name: "Mock Company Tech",
+            logoUrl: "M",
+            description: "A very cool mock company that builds mock products.",
+            website: "https://example.com/mock",
+            hiringLocations: ["Sydney, NSW", "Melbourne, VIC"]
+        },
+        similarRoles: mockRecentJobs.slice(0, 3).map(job => ({
+            ...job,
+            locations: [(job as any).location ?? 'Sydney'],
+            jobIds: [job.id],
+            applyUrls: [null],
+            companyId: "mock-company",
+            companyName: "Mock Company Tech",
         }))
     };
 };

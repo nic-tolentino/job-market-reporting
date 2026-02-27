@@ -108,4 +108,9 @@ class JobLocalRepository : JobRepository {
     override fun saveFeedback(context: String?, message: String) {
         log.info("LOCAL: Mocking save of feedback [Context: $context]: $message")
     }
+
+    override fun getJobDetails(jobId: String): com.techmarket.api.model.JobPageDto? {
+        log.info("LOCAL: Mocking get job details for: $jobId")
+        return null
+    }
 }

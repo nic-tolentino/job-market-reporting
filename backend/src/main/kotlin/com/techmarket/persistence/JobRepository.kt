@@ -19,6 +19,7 @@ interface JobRepository {
     fun getLandingPageData(): LandingPageDto
     fun getTechDetails(techName: String): TechDetailsPageDto
     fun getCompanyProfile(companyId: String): CompanyProfilePageDto
+    fun getJobDetails(jobId: String): com.techmarket.api.model.JobPageDto?
 
     fun getSearchSuggestions(): SearchSuggestionsResponse
     fun saveSearchMiss(term: String)

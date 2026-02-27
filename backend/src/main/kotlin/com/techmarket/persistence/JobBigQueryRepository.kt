@@ -211,6 +211,10 @@ class JobBigQueryRepository(
                                         com.google.cloud.bigquery.StandardSQLTypeName.STRING
                                 ),
                                 com.google.cloud.bigquery.Field.of(
+                                        "description",
+                                        com.google.cloud.bigquery.StandardSQLTypeName.STRING
+                                ),
+                                com.google.cloud.bigquery.Field.of(
                                         "rawLocation",
                                         com.google.cloud.bigquery.StandardSQLTypeName.STRING
                                 ),
@@ -798,6 +802,7 @@ class JobBigQueryRepository(
                         "employmentType" to this.employmentType,
                         "workModel" to this.workModel,
                         "jobFunction" to this.jobFunction,
+                        "description" to this.description,
                         "rawLocation" to this.rawLocation,
                         "rawSeniorityLevel" to this.rawSeniorityLevel,
                         "ingestedAt" to this.ingestedAt.toString()
@@ -830,5 +835,201 @@ class JobBigQueryRepository(
                                         .writeValueAsString(it)
                         }
                 return jsonString.byteInputStream()
+        }
+
+        override fun getJobDetails(jobId: String): com.techmarket.api.model.JobPageDto? {
+                val detailsSql =
+                        """
+                    SELECT j.*,
+                           c.name as comp_name, c.logoUrl as comp_logo, c.description as comp_desc,
+                           c.website as comp_web, c.hiringLocations as comp_hiringLocations
+                    FROM `$datasetName.$jobsTableName` j
+                    JOIN `$datasetName.$companiesTableName` c ON j.companyId = c.companyId
+                    WHERE @jobId IN UNNEST(j.jobIds)
+                    LIMIT 1
+                """.trimIndent()
+
+                val detResult =
+                        bigQuery.query(
+                                QueryJobConfiguration.newBuilder(detailsSql)
+                                        .addNamedParameter(
+                                                "jobId",
+                                                QueryParameterValue.string(jobId)
+                                        )
+                                        .build()
+                        )
+
+                val r = detResult.values.firstOrNull() ?: return null
+
+                val techList =
+                        if (r.get("technologies").isNull) emptyList<String>()
+                        else r.get("technologies").repeatedValue.map { it.stringValue }
+
+                val benefitList =
+                        if (r.get("benefits").isNull) null
+                        else r.get("benefits").repeatedValue.map { it.stringValue }
+
+                val details =
+                        com.techmarket.api.model.JobDetailsDto(
+                                title = r.get("title").stringValue,
+                                description =
+                                        if (r.get("description").isNull) null
+                                        else r.get("description").stringValue,
+                                seniorityLevel = r.get("seniorityLevel").stringValue,
+                                employmentType =
+                                        if (r.get("employmentType").isNull) null
+                                        else r.get("employmentType").stringValue,
+                                workModel =
+                                        if (r.get("workModel").isNull) null
+                                        else r.get("workModel").stringValue,
+                                postedDate =
+                                        if (r.get("postedDate").isNull) null
+                                        else
+                                                java.time.LocalDate.parse(
+                                                        r.get("postedDate").stringValue
+                                                ),
+                                jobFunction =
+                                        if (r.get("jobFunction").isNull) null
+                                        else r.get("jobFunction").stringValue,
+                                technologies = techList,
+                                benefits = benefitList
+                        )
+
+                val locations = mutableListOf<com.techmarket.api.model.JobLocationDto>()
+                if (!r.get("locations").isNull && !r.get("jobIds").isNull) {
+                        val locArr = r.get("locations").repeatedValue
+                        val idArr = r.get("jobIds").repeatedValue
+                        val applyArr =
+                                if (r.get("applyUrls").isNull) emptyList()
+                                else r.get("applyUrls").repeatedValue
+
+                        for (i in 0 until minOf(locArr.size, idArr.size)) {
+                                locations.add(
+                                        com.techmarket.api.model.JobLocationDto(
+                                                location = locArr[i].stringValue,
+                                                jobId = idArr[i].stringValue,
+                                                applyUrl =
+                                                        if (i < applyArr.size && !applyArr[i].isNull
+                                                        )
+                                                                applyArr[i].stringValue
+                                                        else null
+                                        )
+                                )
+                        }
+                }
+
+                val hiringLocations =
+                        if (r.get("comp_hiringLocations").isNull) emptyList<String>()
+                        else r.get("comp_hiringLocations").repeatedValue.map { it.stringValue }
+
+                val company =
+                        com.techmarket.api.model.JobCompanyDto(
+                                companyId = r.get("companyId").stringValue,
+                                name = r.get("comp_name").stringValue,
+                                logoUrl =
+                                        if (r.get("comp_logo").isNull) ""
+                                        else r.get("comp_logo").stringValue,
+                                description =
+                                        if (r.get("comp_desc").isNull) ""
+                                        else r.get("comp_desc").stringValue,
+                                website =
+                                        if (r.get("comp_web").isNull) ""
+                                        else r.get("comp_web").stringValue,
+                                hiringLocations = hiringLocations
+                        )
+
+                // Similar roles: same seniority, sharing at least 1 tech, excluding this job
+                val seniority = r.get("seniorityLevel").stringValue
+                val techArrayString = techList.joinToString("','", "'", "'")
+
+                val similarSql =
+                        if (techList.isEmpty()) {
+                                """
+                            SELECT jobIds, applyUrls, locations, title, companyId, companyName, salaryMin, salaryMax, postedDate, technologies
+                            FROM `$datasetName.$jobsTableName`
+                            WHERE seniorityLevel = @seniority
+                              AND @jobId NOT IN UNNEST(jobIds)
+                            ORDER BY postedDate DESC
+                            LIMIT 3
+                        """.trimIndent()
+                        } else {
+                                """
+                            SELECT DISTINCT j.jobIds, j.applyUrls, j.locations, j.title, j.companyId, j.companyName, j.salaryMin, j.salaryMax, j.postedDate, j.technologies
+                            FROM `$datasetName.$jobsTableName` j, UNNEST(j.technologies) t
+                            WHERE j.seniorityLevel = @seniority
+                              AND @jobId NOT IN UNNEST(j.jobIds)
+                              AND t IN ($techArrayString)
+                            ORDER BY j.postedDate DESC
+                            LIMIT 3
+                        """.trimIndent()
+                        }
+
+                val similarResult =
+                        bigQuery.query(
+                                QueryJobConfiguration.newBuilder(similarSql)
+                                        .addNamedParameter(
+                                                "jobId",
+                                                QueryParameterValue.string(jobId)
+                                        )
+                                        .addNamedParameter(
+                                                "seniority",
+                                                QueryParameterValue.string(seniority)
+                                        )
+                                        .build()
+                        )
+
+                val similarRoles =
+                        similarResult.values.map { sim ->
+                                val simTechList =
+                                        if (sim.get("technologies").isNull) emptyList<String>()
+                                        else
+                                                sim.get("technologies").repeatedValue.map {
+                                                        it.stringValue
+                                                }
+                                val simLocList =
+                                        if (sim.get("locations").isNull) emptyList<String>()
+                                        else
+                                                sim.get("locations").repeatedValue.map {
+                                                        it.stringValue
+                                                }
+                                val simIdList =
+                                        if (sim.get("jobIds").isNull) emptyList<String>()
+                                        else sim.get("jobIds").repeatedValue.map { it.stringValue }
+                                val simApplyList =
+                                        if (sim.get("applyUrls").isNull) emptyList<String?>()
+                                        else
+                                                sim.get("applyUrls").repeatedValue.map {
+                                                        if (it.isNull) null else it.stringValue
+                                                }
+
+                                JobRoleDto(
+                                        id = simIdList.firstOrNull() ?: "",
+                                        title = sim.get("title").stringValue,
+                                        companyId = sim.get("companyId").stringValue,
+                                        companyName =
+                                                if (sim.get("companyName").isNull) ""
+                                                else sim.get("companyName").stringValue,
+                                        locations = simLocList,
+                                        jobIds = simIdList,
+                                        applyUrls = simApplyList,
+                                        salaryMin =
+                                                if (sim.get("salaryMin").isNull) null
+                                                else sim.get("salaryMin").longValue.toInt(),
+                                        salaryMax =
+                                                if (sim.get("salaryMax").isNull) null
+                                                else sim.get("salaryMax").longValue.toInt(),
+                                        postedDate =
+                                                if (sim.get("postedDate").isNull) ""
+                                                else sim.get("postedDate").stringValue,
+                                        technologies = simTechList
+                                )
+                        }
+
+                return com.techmarket.api.model.JobPageDto(
+                        details = details,
+                        locations = locations,
+                        company = company,
+                        similarRoles = similarRoles
+                )
         }
 }

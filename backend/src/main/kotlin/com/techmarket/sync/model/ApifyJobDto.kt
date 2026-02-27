@@ -11,6 +11,7 @@ data class ApifyJobDto(
         val benefits: List<String>?,
         val applicantsCount: String?,
         val applyUrl: String?,
+        val descriptionHtml: String?,
         val descriptionText: String?,
         val jobPosterName: String?,
         val seniorityLevel: String?,
