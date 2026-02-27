@@ -22,6 +22,15 @@ class JobLocalRepository : JobRepository {
         log.info("LOCAL: Mocking save of ${records.size} raw records to BigQuery.")
     }
 
+    override fun getRawIngestions(): List<RawIngestionRecord> {
+        log.info("LOCAL: Returning empty list of raw ingestions")
+        return emptyList()
+    }
+
+    override fun deleteAllJobs() {
+        log.info("LOCAL: Mocking delete of all jobs")
+    }
+
     override fun saveJobs(jobs: List<JobRecord>) {
         if (jobs.isEmpty()) {
             log.info("LOCAL: No jobs provided to save.")
@@ -30,6 +39,10 @@ class JobLocalRepository : JobRepository {
 
         log.info("LOCAL: Mocking save of ${jobs.size} jobs to BigQuery.")
         log.info("LOCAL First mapped job sample: {}", jobs.firstOrNull())
+    }
+
+    override fun deleteAllCompanies() {
+        log.info("LOCAL: Mocking delete of all companies")
     }
 
     override fun saveCompanies(companies: List<CompanyRecord>) {

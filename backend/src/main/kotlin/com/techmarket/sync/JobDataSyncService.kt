@@ -12,7 +12,8 @@ import org.springframework.stereotype.Service
 class JobDataSyncService(
         private val apifyClient: ApifyClient,
         private val jobDataMapper: JobDataMapper,
-        private val jobRepository: JobRepository
+        private val jobRepository: JobRepository,
+        private val objectMapper: com.fasterxml.jackson.databind.ObjectMapper
 ) {
 
     private val log = LoggerFactory.getLogger(JobDataSyncService::class.java)
@@ -59,5 +60,48 @@ class JobDataSyncService(
         jobRepository.saveJobs(mappedData.jobs)
 
         log.info("Job Data Sync Pipeline completed successfully.")
+    }
+
+    @CacheEvict(value = ["landing", "tech", "company", "search"], allEntries = true)
+    fun reprocessHistoricalData() {
+        log.info("Starting Historical Data Reprocessing Pipeline...")
+        val rawRecords = jobRepository.getRawIngestions()
+
+        if (rawRecords.isEmpty()) {
+            log.info("No historical records found for reprocessing.")
+            return
+        }
+
+        val rawJobs =
+                rawRecords.mapNotNull { record ->
+                    try {
+                        objectMapper.readValue(
+                                record.rawPayload,
+                                com.techmarket.sync.model.ApifyJobDto::class.java
+                        )
+                    } catch (e: Exception) {
+                        log.warn(
+                                "Failed to parse raw payload for record ${record.id}: ${e.message}"
+                        )
+                        null
+                    }
+                }
+
+        log.info("Successfully parsed ${rawJobs.size} raw jobs. Remapping...")
+        val mappedData = jobDataMapper.mapSyncData(rawJobs)
+        log.info(
+                "Remapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies."
+        )
+
+        // Wipe the Silver layer tables before re-inserting to prevent duplicates.
+        // The Bronze layer (raw_ingestions) is never touched — it's the source of truth.
+        log.info("Wiping Silver Layer tables before re-insert...")
+        jobRepository.deleteAllJobs()
+        jobRepository.deleteAllCompanies()
+
+        log.info("Re-inserting freshly mapped data into Silver Layer...")
+        jobRepository.saveCompanies(mappedData.companies)
+        jobRepository.saveJobs(mappedData.jobs)
+        log.info("Historical Data Reprocessing Pipeline completed successfully.")
     }
 }

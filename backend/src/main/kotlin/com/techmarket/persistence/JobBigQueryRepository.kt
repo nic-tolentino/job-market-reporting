@@ -270,6 +270,50 @@ class JobBigQueryRepository(
                 }
         }
 
+        override fun getRawIngestions(): List<RawIngestionRecord> {
+                ensureAllTables()
+                log.info("GCP: Fetching all raw ingestions for reprocessing")
+                val query =
+                        "SELECT id, source, ingestedAt, rawPayload FROM $datasetName.$ingestionsTableName"
+                val queryConfig = QueryJobConfiguration.newBuilder(query).build()
+
+                return try {
+                        val results = bigQuery.query(queryConfig)
+                        results.iterateAll()
+                                .map { row ->
+                                        val timestampMicros = row.get("ingestedAt").timestampValue
+                                        val ingestedAt =
+                                                java.time.Instant.ofEpochMilli(
+                                                        timestampMicros / 1000
+                                                )
+
+                                        RawIngestionRecord(
+                                                id = row.get("id").stringValue,
+                                                source = row.get("source").stringValue,
+                                                ingestedAt = ingestedAt,
+                                                rawPayload = row.get("rawPayload").stringValue
+                                        )
+                                }
+                                .toList()
+                } catch (e: Exception) {
+                        log.error("GCP: Failed to fetch raw ingestions: ${e.message}", e)
+                        emptyList()
+                }
+        }
+
+        override fun deleteAllJobs() {
+                log.info("GCP: Deleting all rows from $jobsTableName")
+                val query = "DELETE FROM $datasetName.$jobsTableName WHERE true"
+                val queryConfig = QueryJobConfiguration.newBuilder(query).build()
+                try {
+                        bigQuery.query(queryConfig)
+                        log.info("GCP: Successfully deleted all rows from $jobsTableName")
+                } catch (e: Exception) {
+                        log.error("GCP: Failed to delete rows from $jobsTableName: ${e.message}", e)
+                        throw e
+                }
+        }
+
         override fun saveJobs(jobs: List<JobRecord>) {
                 if (jobs.isEmpty()) return
 
@@ -580,6 +624,22 @@ class JobBigQueryRepository(
                 val insights = CompanyInsightsDto(topModel, topHub, allBenefits)
 
                 return CompanyProfilePageDto(details, allTechs, insights, roles)
+        }
+
+        override fun deleteAllCompanies() {
+                log.info("GCP: Deleting all rows from $companiesTableName")
+                val query = "DELETE FROM $datasetName.$companiesTableName WHERE true"
+                val queryConfig = QueryJobConfiguration.newBuilder(query).build()
+                try {
+                        bigQuery.query(queryConfig)
+                        log.info("GCP: Successfully deleted all rows from $companiesTableName")
+                } catch (e: Exception) {
+                        log.error(
+                                "GCP: Failed to delete rows from $companiesTableName: ${e.message}",
+                                e
+                        )
+                        throw e
+                }
         }
 
         override fun saveCompanies(companies: List<CompanyRecord>) {

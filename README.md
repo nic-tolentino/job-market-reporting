@@ -112,3 +112,11 @@ Since historical job data does not change frequently (ingestion happens daily/we
 - **Budget**: Targeting $0/month (staying within Free Tiers).
 - **Volume**: ~100 jobs per week across 3 countries.
 - **Environment**: Development via Docker Desktop.
+
+---
+
+## 💡 Future ideas
+- Add a soft skills leaderboard
+- Add a locations with most jobs, and locations for a given tech
+- Add support for different countries
+- Add the ability to see more than just the top 10 technologies and companies

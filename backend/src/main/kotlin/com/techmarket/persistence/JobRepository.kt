@@ -10,8 +10,11 @@ import com.techmarket.persistence.model.RawIngestionRecord
 
 interface JobRepository {
     fun saveRawIngestions(records: List<RawIngestionRecord>)
+    fun getRawIngestions(): List<RawIngestionRecord>
     fun saveJobs(jobs: List<JobRecord>)
+    fun deleteAllJobs()
     fun saveCompanies(companies: List<CompanyRecord>)
+    fun deleteAllCompanies()
 
     fun getLandingPageData(): LandingPageDto
     fun getTechDetails(techName: String): TechDetailsPageDto
