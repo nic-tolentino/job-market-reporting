@@ -1,4 +1,4 @@
-package com.techmarket.persistence
+package com.techmarket.persistence.ingestion
 
 import com.techmarket.persistence.model.RawIngestionRecord
 

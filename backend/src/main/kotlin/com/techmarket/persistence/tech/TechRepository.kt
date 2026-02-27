@@ -1,4 +1,4 @@
-package com.techmarket.persistence
+package com.techmarket.persistence.tech
 
 import com.techmarket.api.model.TechDetailsPageDto
 

@@ -1,9 +1,14 @@
 package com.techmarket.persistence
 
 import com.techmarket.api.model.*
+import com.techmarket.persistence.analytics.AnalyticsRepository
+import com.techmarket.persistence.company.CompanyRepository
+import com.techmarket.persistence.ingestion.IngestionRepository
+import com.techmarket.persistence.job.JobRepository
 import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.persistence.model.RawIngestionRecord
+import com.techmarket.persistence.tech.TechRepository
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Repository

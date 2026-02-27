@@ -1,7 +1,7 @@
 package com.techmarket.api
 
 import com.techmarket.api.model.TechDetailsPageDto
-import com.techmarket.persistence.TechRepository
+import com.techmarket.persistence.tech.TechRepository
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

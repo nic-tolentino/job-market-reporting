@@ -116,10 +116,23 @@ Since historical job data does not change frequently (ingestion happens daily/we
 ---
 
 ## 💡 Future ideas
-- We need to de-duplicate jobs - many jobs are the same but with a different location
-- Add a soft skills (leadership, communication, etc) or capabilities (agile, devops, etc) leaderboard
+
+- Also show jobs in tech page???
+- Show all jobs for a given tech, filtered by location and seniority
+
+- Split location into city and state/region and country
+
+- Can we get rid of rawSeniorityLevel and rawLocation? in the job record? Also can we rid of some of the nullable fields?
+
+- Technologies need to retain their capitalisation - e.g. AWS, .NET, Go, iOS, etc
+
+- Add a soft skills (leadership, communication, etc) and capabilities (agile, devops, etc) leaderboard, also show it on the job page
 - Add a locations with most jobs, and locations for a given tech
+-  Extend appropriate unit tests, both backend and frontend.
 - Add support for different countries
 - Add the ability to see more than just the top 10 technologies and companies
-- Show a total number of jobs for a given tech
-- Show all jobs for a given tech, filtered by location and seniority
+- Filters for people lead roles like managers?
+- The ability to group technologies by category, e.g. cloud, server, database, web, mobile, backend, etc in the landing, and company pages
+- Ability to filter companies by seniority in tech page. 
+- Test error scenarios
+- Create a Tech record with the pre-computed data for each tech to reduce computation? or just rely on cache?

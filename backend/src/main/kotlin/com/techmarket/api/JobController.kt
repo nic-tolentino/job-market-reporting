@@ -1,7 +1,7 @@
 package com.techmarket.api
 
 import com.techmarket.api.model.JobPageDto
-import com.techmarket.persistence.JobRepository
+import com.techmarket.persistence.job.JobRepository
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*

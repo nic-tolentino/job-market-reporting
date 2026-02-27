@@ -1,4 +1,4 @@
-package com.techmarket.persistence
+package com.techmarket.persistence.analytics
 
 import com.techmarket.api.model.LandingPageDto
 import com.techmarket.api.model.SearchSuggestionsResponse

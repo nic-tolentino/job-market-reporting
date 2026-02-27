@@ -1,7 +1,7 @@
 package com.techmarket.api
 
 import com.techmarket.api.model.CompanyProfilePageDto
-import com.techmarket.persistence.CompanyRepository
+import com.techmarket.persistence.company.CompanyRepository
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

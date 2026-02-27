@@ -1,4 +1,4 @@
-package com.techmarket.persistence
+package com.techmarket.persistence.company
 
 import com.techmarket.api.model.CompanyProfilePageDto
 import com.techmarket.persistence.model.CompanyRecord

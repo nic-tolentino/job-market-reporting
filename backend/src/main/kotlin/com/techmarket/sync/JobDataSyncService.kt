@@ -1,8 +1,8 @@
 package com.techmarket.sync
 
-import com.techmarket.persistence.CompanyRepository
-import com.techmarket.persistence.IngestionRepository
-import com.techmarket.persistence.JobRepository
+import com.techmarket.persistence.company.CompanyRepository
+import com.techmarket.persistence.ingestion.IngestionRepository
+import com.techmarket.persistence.job.JobRepository
 import com.techmarket.persistence.model.RawIngestionRecord
 import java.time.Instant
 import java.util.UUID

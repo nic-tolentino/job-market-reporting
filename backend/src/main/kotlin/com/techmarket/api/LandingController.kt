@@ -1,7 +1,7 @@
 package com.techmarket.api
 
 import com.techmarket.api.model.LandingPageDto
-import com.techmarket.persistence.AnalyticsRepository
+import com.techmarket.persistence.analytics.AnalyticsRepository
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping

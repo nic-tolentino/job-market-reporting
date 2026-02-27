@@ -1,4 +1,4 @@
-package com.techmarket.persistence
+package com.techmarket.persistence.job
 
 import com.techmarket.persistence.model.JobRecord
 

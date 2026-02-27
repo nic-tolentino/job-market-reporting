@@ -1,7 +1,7 @@
 package com.techmarket.api
 
 import com.techmarket.api.model.FeedbackRequest
-import com.techmarket.persistence.AnalyticsRepository
+import com.techmarket.persistence.analytics.AnalyticsRepository
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
