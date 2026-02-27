@@ -46,8 +46,8 @@ export default function LandingPage() {
     return (
         <div className="space-y-10">
             {/* Hero Section */}
-            <section className="text-center py-12 relative">
-                <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+            <section className="text-center py-8 md:py-12 relative px-4">
+                <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
                     Engineering Tech Market Insights
                 </h1>
                 <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
@@ -56,34 +56,41 @@ export default function LandingPage() {
             </section>
 
             {/* High-Level Stats Cards */}
-            <section className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col justify-between group relative">
-                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <section className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-7 shadow-sm flex flex-col items-center justify-center text-center group relative aspect-square md:aspect-auto transition-all hover:shadow-md hover:border-blue-200">
+                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
                         <FeedbackButton variant="icon" context="Stat: Tracked Vacancies" />
                     </div>
-                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Tracked Vacancies</p>
-                    <p className="mt-4 text-3xl font-bold text-slate-900">{data.globalStats.totalVacancies.toLocaleString()}</p>
+                    <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 md:mb-3">Tracked Vacancies</p>
+                    <p className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-none">{data.globalStats.totalVacancies.toLocaleString()}</p>
+                    <div className="mt-2 md:mt-3 w-8 h-1 bg-blue-500 rounded-full opacity-20"></div>
                 </div>
-                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col justify-between group relative">
-                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-7 shadow-sm flex flex-col items-center justify-center text-center group relative aspect-square md:aspect-auto transition-all hover:shadow-md hover:border-blue-200">
+                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
                         <FeedbackButton variant="icon" context="Stat: Top Technology" />
                     </div>
-                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Top Technology</p>
-                    <p className="mt-4 text-3xl font-bold text-slate-900">{data.globalStats.topTech}</p>
+                    <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 md:mb-3">Top Tech</p>
+                    <p className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">{data.globalStats.topTech}</p>
+                    <div className="mt-2 md:mt-3 w-8 h-1 bg-emerald-500 rounded-full opacity-20"></div>
                 </div>
-                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col justify-between group relative">
-                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-7 shadow-sm flex flex-col items-center justify-center text-center group relative aspect-square md:aspect-auto transition-all hover:shadow-md hover:border-blue-200">
+                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
                         <FeedbackButton variant="icon" context="Stat: Remote Roles" />
                     </div>
-                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Remote Roles</p>
-                    <p className="mt-4 text-3xl font-bold text-slate-900">{data.globalStats.remotePercentage}%</p>
+                    <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 md:mb-3">Remote</p>
+                    <p className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-none">{data.globalStats.remotePercentage}%</p>
+                    <div className="mt-2 md:mt-3 w-8 h-1 bg-purple-500 rounded-full opacity-20"></div>
                 </div>
-                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm flex flex-col justify-between group relative">
-                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-7 shadow-sm flex flex-col items-center justify-center text-center group relative aspect-square md:aspect-auto transition-all hover:shadow-md hover:border-blue-200">
+                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
                         <FeedbackButton variant="icon" context="Stat: Hybrid Roles" />
                     </div>
-                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Hybrid Roles</p>
-                    <p className="mt-4 text-3xl font-bold text-slate-900">{data.globalStats.hybridPercentage}%</p>
+                    <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 md:mb-3">Hybrid</p>
+                    <p className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-none">{data.globalStats.hybridPercentage}%</p>
+                    <div className="mt-2 md:mt-3 w-8 h-1 bg-amber-500 rounded-full opacity-20"></div>
                 </div>
             </section>
 
@@ -99,7 +106,7 @@ export default function LandingPage() {
                         </div>
                         <FeedbackButton variant="icon" context="Highest Demand Tech Chart" />
                     </div>
-                    <div className="p-6 flex-1 min-h-[400px] outline-none select-none [&_svg]:outline-none" tabIndex={-1}>
+                    <div className="p-4 md:p-6 flex-1 min-h-[350px] md:min-h-[400px] outline-none select-none [&_svg]:outline-none" tabIndex={-1}>
                         <ResponsiveContainer width="100%" height="100%">
                             <BarChart data={data.topTech} layout="vertical" margin={{ top: 0, right: 30, left: 20, bottom: 0 }}>
                                 <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#E5E7EB" />

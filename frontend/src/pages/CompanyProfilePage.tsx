@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Building2, MapPin, DollarSign, Calendar, Loader2, X } from 'lucide-react';
 import { fetchCompanyProfile, type CompanyProfilePageDto } from '../lib/api';
 import { FeedbackButton } from '../components/common/Feedback';
@@ -7,6 +7,7 @@ import ErrorState from '../components/common/ErrorState';
 import CompanyLogo from '../components/common/CompanyLogo';
 
 export default function CompanyProfilePage() {
+    const navigate = useNavigate();
     const { companyId } = useParams<{ companyId: string }>();
     const [data, setData] = useState<CompanyProfilePageDto | null>(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -186,7 +187,11 @@ export default function CompanyProfilePage() {
                                             </td>
                                         </tr>
                                     ) : filteredRoles.map((job) => (
-                                        <tr key={job.id} className="hover:bg-gray-50 transition-colors group/row">
+                                        <tr
+                                            key={job.id}
+                                            onClick={() => navigate(`/job/${job.id}`)}
+                                            className="hover:bg-gray-50 transition-colors group/row cursor-pointer"
+                                        >
                                             <td className="px-6 py-5">
                                                 <div className="flex items-center gap-2">
                                                     <Link to={`/job/${job.id}`} className="font-semibold text-slate-900 hover:text-blue-600 hover:underline transition-colors block">

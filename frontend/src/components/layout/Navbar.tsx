@@ -82,13 +82,13 @@ export default function Navbar() {
             <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center gap-2">
                     <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900 hover:text-blue-600 transition-colors">
-                        <Briefcase className="h-6 w-6 text-blue-600" />
-                        TechMarket Insights
+                        <Briefcase className="h-6 w-6 text-blue-600 flex-shrink-0" />
+                        <span className="hidden sm:inline">TechMarket</span>
                     </Link>
                 </div>
 
-                <div className="flex flex-1 items-center justify-center px-6">
-                    <div className="relative w-full max-w-lg hidden md:block" ref={searchRef}>
+                <div className="flex flex-1 items-center justify-center px-4 md:px-6">
+                    <div className="relative w-full max-w-lg" ref={searchRef}>
                         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                             <Search className="h-4 w-4 text-gray-400" />
                         </div>
