@@ -60,8 +60,9 @@ class CompanyBigQueryRepository(
         }
 
         override fun deleteAllCompanies() {
+                ensureTable() // table may have been dropped externally during schema migrations
                 log.info("GCP: Deleting all rows from \$companiesTableName")
-                val query = "DELETE FROM \$datasetName.\$companiesTableName WHERE true"
+                val query = "DELETE FROM `$datasetName.$companiesTableName` WHERE true"
                 val queryConfig = QueryJobConfiguration.newBuilder(query).build()
                 try {
                         bigQuery.query(queryConfig)

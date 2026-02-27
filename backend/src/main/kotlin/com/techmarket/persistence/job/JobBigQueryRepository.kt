@@ -71,8 +71,9 @@ class JobBigQueryRepository(
         }
 
         override fun deleteAllJobs() {
+                ensureTable() // table may have been dropped externally during schema migrations
                 log.info("GCP: Deleting all rows from \$jobsTableName")
-                val query = "DELETE FROM \$datasetName.\$jobsTableName WHERE true"
+                val query = "DELETE FROM `$datasetName.$jobsTableName` WHERE true"
                 val queryConfig = QueryJobConfiguration.newBuilder(query).build()
                 try {
                         bigQuery.query(queryConfig)
