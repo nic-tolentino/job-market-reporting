@@ -53,9 +53,16 @@ object JobMapper {
                                 else r.get(JobFields.LINKS).repeatedValue
 
                         for (i in 0 until min(locArr.size, idArr.size)) {
+                                val rawLoc = locArr[i].stringValue
+                                val locParts = rawLoc.split(", ")
+                                val displayLoc =
+                                        if (locParts.size == 2 && locParts[0] == locParts[1])
+                                                locParts[0]
+                                        else rawLoc
+
                                 locations.add(
                                         com.techmarket.api.model.JobLocationDto(
-                                                location = locArr[i].stringValue,
+                                                location = displayLoc,
                                                 jobId = idArr[i].stringValue,
                                                 applyUrl =
                                                         if (i < applyArr.size && !applyArr[i].isNull
@@ -73,7 +80,13 @@ object JobMapper {
 
                 val hiringLocations =
                         if (r.get("comp_hiringLocations").isNull) emptyList<String>()
-                        else r.get("comp_hiringLocations").repeatedValue.map { it.stringValue }
+                        else
+                                r.get("comp_hiringLocations").repeatedValue.map {
+                                        val rawLoc = it.stringValue
+                                        val parts = rawLoc.split(", ")
+                                        if (parts.size == 2 && parts[0] == parts[1]) parts[0]
+                                        else rawLoc
+                                }
 
                 val company =
                         com.techmarket.api.model.JobCompanyDto(
@@ -108,7 +121,8 @@ object JobMapper {
                                         else sim.get(JobFields.STATE_REGION).stringValue
                                 val simLocList =
                                         listOf(
-                                                if (stateRegion == "Unknown") city
+                                                if (stateRegion == "Unknown" || stateRegion == city)
+                                                        city
                                                 else "$city, $stateRegion"
                                         )
                                 val simIdList =

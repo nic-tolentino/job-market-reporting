@@ -189,7 +189,7 @@ class JobDataMapper(private val parser: JobDataParser) {
                                         group.map { rawEntry ->
                                                 val (c, s, _) =
                                                         parser.parseLocation(rawEntry.rawLocation)
-                                                if (s == "Unknown") c else "$c, $s"
+                                                if (s == "Unknown" || s == c) c else "$c, $s"
                                         }
                                 companyLocationSets
                                         .getOrPut(first.companyId) { mutableSetOf() }

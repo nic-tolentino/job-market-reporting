@@ -56,7 +56,8 @@ object CompanyMapper {
                                         else r.get(JobFields.STATE_REGION).stringValue
                                 val locationList =
                                         listOf(
-                                                if (stateRegion == "Unknown") city
+                                                if (stateRegion == "Unknown" || stateRegion == city)
+                                                        city
                                                 else "$city, $stateRegion"
                                         )
                                 val jobIdList =
@@ -110,7 +111,10 @@ object CompanyMapper {
                 val hiringLocations =
                         if (detRow?.get(CompanyFields.HIRING_LOCATIONS)?.isNull == false)
                                 detRow.get(CompanyFields.HIRING_LOCATIONS).repeatedValue.map {
-                                        it.stringValue
+                                        val rawLoc = it.stringValue
+                                        val parts = rawLoc.split(", ")
+                                        if (parts.size == 2 && parts[0] == parts[1]) parts[0]
+                                        else rawLoc
                                 }
                         else emptyList()
 

@@ -71,7 +71,8 @@ object TechMapper {
                                         else row.get(JobFields.STATE_REGION).stringValue
                                 val locList =
                                         listOf(
-                                                if (stateRegion == "Unknown") city
+                                                if (stateRegion == "Unknown" || stateRegion == city)
+                                                        city
                                                 else "$city, $stateRegion"
                                         )
 

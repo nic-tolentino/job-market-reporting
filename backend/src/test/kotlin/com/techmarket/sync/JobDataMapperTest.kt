@@ -141,4 +141,37 @@ class JobDataMapperTest {
                 )
                 assertEquals("Email us at [REDACTED EMAIL]", company.description)
         }
+
+        @Test
+        fun `mapSyncData deduplicates city and state in location strings`() {
+                val rawData =
+                        listOf(
+                                ApifyJobDto(
+                                        id = "job-loc",
+                                        title = "Engineer",
+                                        companyName = "NZ Corp",
+                                        companyLogo = null,
+                                        location = "Auckland, Auckland, New Zealand",
+                                        salaryInfo = null,
+                                        postedAt = "2024-01-01",
+                                        benefits = null,
+                                        applicantsCount = null,
+                                        applyUrl = null,
+                                        descriptionHtml = null,
+                                        descriptionText = null,
+                                        link = null,
+                                        seniorityLevel = "Mid-Level",
+                                        employmentType = null,
+                                        jobFunction = null,
+                                        industries = null,
+                                        companyDescription = null,
+                                        companyWebsite = null,
+                                        companyEmployeesCount = null
+                                )
+                        )
+
+                val result = mapper.mapSyncData(rawData)
+                val job = result.jobs.first()
+                assertEquals(listOf("Auckland"), job.locations)
+        }
 }

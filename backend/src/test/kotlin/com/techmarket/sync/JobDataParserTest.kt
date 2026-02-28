@@ -30,6 +30,16 @@ class JobDataParserTest {
     }
 
     @Test
+    fun `parseLocation handles duplicated city and state`() {
+        // This confirms the raw parsing works, though the deduplication logic
+        // now lives in the Mapper or Presentation layer.
+        val (city, state, country) = parser.parseLocation("Auckland, Auckland, New Zealand")
+        assertEquals("Auckland", city)
+        assertEquals("Auckland", state)
+        assertEquals("NZ", country) // The parser maps 'auckland' to 'NZ' via knownLocations
+    }
+
+    @Test
     fun `extractTechnologies finds matching keywords`() {
         val technologies = parser.extractTechnologies("We use Java, Spring Boot, and PostgreSQL.")
         assertEquals(listOf("java", "postgresql", "spring", "spring boot").sorted(), technologies)
