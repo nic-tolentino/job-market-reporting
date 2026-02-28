@@ -9,6 +9,9 @@ import CompanyLogo from '../components/common/CompanyLogo';
 import { Card, CardContent } from '../components/ui/Card';
 import { H1, H2, SectionSubtitle } from '../components/ui/Typography';
 import { Badge } from '../components/ui/Badge';
+import SimplePager from '../components/ui/SimplePager';
+
+const ROLES_PAGE_SIZE = 10;
 
 export default function CompanyProfilePage() {
     const navigate = useNavigate();
@@ -17,6 +20,7 @@ export default function CompanyProfilePage() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
     const [selectedTechs, setSelectedTechs] = useState<Set<string>>(new Set());
+    const [rolesPage, setRolesPage] = useState(1);
 
     const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
 
@@ -26,6 +30,7 @@ export default function CompanyProfilePage() {
         setError(false);
         setSelectedTechs(new Set());
         setIsDescriptionExpanded(false);
+        setRolesPage(1);
         try {
             const apiData = await fetchCompanyProfile(companyId);
             setData(apiData);
@@ -40,6 +45,16 @@ export default function CompanyProfilePage() {
     useEffect(() => {
         loadData();
     }, [loadData]);
+
+    const toggleTech = (tech: string) => {
+        setSelectedTechs(prev => {
+            const next = new Set(prev);
+            if (next.has(tech)) next.delete(tech);
+            else next.add(tech);
+            return next;
+        });
+        setRolesPage(1);
+    };
 
     const filterableTechs = useMemo(() => {
         if (!data) return [];
@@ -56,14 +71,12 @@ export default function CompanyProfilePage() {
         );
     }, [data, selectedTechs]);
 
-    const toggleTech = (tech: string) => {
-        setSelectedTechs(prev => {
-            const next = new Set(prev);
-            if (next.has(tech)) next.delete(tech);
-            else next.add(tech);
-            return next;
-        });
-    };
+    const paginatedRoles = useMemo(() => {
+        const start = (rolesPage - 1) * ROLES_PAGE_SIZE;
+        return filteredRoles.slice(start, start + ROLES_PAGE_SIZE);
+    }, [filteredRoles, rolesPage]);
+
+    const totalPages = Math.ceil(filteredRoles.length / ROLES_PAGE_SIZE);
 
     if (isLoading) {
         return <PageLoader />;
@@ -133,7 +146,14 @@ export default function CompanyProfilePage() {
                                             : `(${data.activeRoles.length})`}
                                     </span>
                                 </div>
-                                <FeedbackButton variant="icon" context={`${companyName} Active Roles`} />
+                                <div className="flex items-center gap-4">
+                                    <SimplePager
+                                        currentPage={rolesPage}
+                                        totalPages={totalPages}
+                                        onPageChange={setRolesPage}
+                                    />
+                                    <FeedbackButton variant="icon" context={`${companyName} Active Roles`} />
+                                </div>
                             </div>
 
                             {/* Tech filter pills */}
@@ -141,7 +161,10 @@ export default function CompanyProfilePage() {
                                 <div className="mt-3 flex flex-wrap gap-2">
                                     {/* "All" pill */}
                                     <button
-                                        onClick={() => setSelectedTechs(new Set())}
+                                        onClick={() => {
+                                            setSelectedTechs(new Set());
+                                            setRolesPage(1);
+                                        }}
                                         className={`inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-semibold transition-colors ${selectedTechs.size === 0
                                             ? 'border-blue-500 bg-blue-50 text-blue-700'
                                             : 'border-gray-200 bg-white text-slate-500 hover:border-gray-300'
@@ -185,7 +208,7 @@ export default function CompanyProfilePage() {
                                                 No roles match the selected filters.
                                             </td>
                                         </tr>
-                                    ) : filteredRoles.map((job) => (
+                                    ) : paginatedRoles.map((job) => (
                                         <tr
                                             key={job.id}
                                             onClick={() => navigate(`/job/${job.id}`)}
@@ -239,6 +262,15 @@ export default function CompanyProfilePage() {
                                 </tbody>
                             </table>
                         </div>
+                        {totalPages > 1 && (
+                            <div className="flex justify-center border-t border-gray-100 p-4">
+                                <SimplePager
+                                    currentPage={rolesPage}
+                                    totalPages={totalPages}
+                                    onPageChange={setRolesPage}
+                                />
+                            </div>
+                        )}
                     </Card>
                 </div>
 

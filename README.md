@@ -118,38 +118,60 @@ Since historical job data does not change frequently (ingestion happens daily/we
 ## 💡 Future ideas
 
 Now:
-- [x] The job page loading indicator is different to the company page loading indicator, use the company page loading indicator and make sure they are standard across all pages.
+
+- Improve the tech page layout - how can we show companies and jobs, and other insights, without resorting to giant lists? The main challenge is showing long lists of content. Perhaps a locally driven pager approach is suitable?
+- Update the current drop down filters in tech page for jobs to look similar to the country drop down in the navbar. Does it make sense to make this a standard component?
+
+Implement similar paging on the home screen, show 5 per page, but only load the top 20 companies? Maybe also only show a page size of 5 companies in the tech page?
+- Add the ability to see more than just the top 10 technologies and companies on landing screen
+
+- Find out if the Westpac iOS role is in the dataset
 
 Later:
 
-- Also show jobs in tech page???
-- Show all jobs for a given tech, filtered by location and seniority
-
-- why does raw_locations.csv not have any australia location when they are in the dataset?
+- Locations in company, tech, and job pages appear with city shown twice. Eg Auckland, Auckland. Countries are only shown once. Eg "New Zealand". Please check first whether this is a backend data or frontend display issue.
 
 - Add a location job filter to the company page?
 - Ability to filter companies by seniority in tech page. 
 
 - Technologies need to retain their capitalisation - e.g. AWS, .NET, Go, iOS, etc
 
-- Add a locations with most jobs, and locations for a given tech
-- Add the ability to see more than just the top 10 technologies and companies on landing screen
-- Filters for people lead roles like managers?
 - The ability to group technologies by category, e.g. cloud, server, database, web, mobile, backend, etc in the landing, and company pages
-- Test error scenarios
-- Create a Tech record with the pre-computed data for each tech to reduce computation? or just rely on cache?
-- Can we rid of some of the nullable fields on the company and jobs tables?
+
 - Add a soft skills (leadership, communication, etc) and capabilities (agile, devops, etc) leaderboard, also show it on the job page
 - Extend appropriate unit tests, both backend and frontend.
-- Which companies provide 
-- How to handle when there's no apply to job link?
-- Manually search for logo urls for each of the technologies (and companies?). Host the images locally so they are more stable? Maybe use them as backups if the url isn't provided?
-- The salary data is very messy. See what we can do to clean it up.
 
-Nice to have:
-- ideally we'd log when a location can't be properly parsed
+- How to handle when there's no apply to job link?
+- List trending jobs, companies, and technologies (most visited)
+
+- The salary data is very messy. See what we can do to clean it up.
+- Which companies provide Visa sponsorship?
+
+- Create a Tech record with the pre-computed data for each tech to reduce computation? or just rely on cache?
+- Can we rid of some of the nullable fields on the company and jobs tables?
+- Test error scenarios
+- Tidy up titles, figure out how to handle 'Mid-Senior level', maybe multiple levels are allowed for each job?
+
+- Mobile design is still pretty meh in places especially rows of information like jobs, and page headers.
+
+
+Images:
+- Manually search for logo urls for each of the technologies (and companies?). Host the images locally so they are more stable? Maybe use them as backups if the url isn't provided?
+- We should store the company images for when the companies stop advertising roles. Use them as backups if no updated url is available? Because companies may change their url over time
+
+Bugs?:
+- Wait, the landing page is now loading for an instant and then the whole page goes blank. Wait, now when I navigate to the landing page it loads fine, but if I navigate to a compage page the screen goes blank and navigating back doesn't fix the blank screen. Hmm, I wonder if it has to do with the backend taking too long or returning an error. I notice that upon loading a page, after a few seconds if I refresh. I'm struggling to reproduce the issue. Perhaps it has to do with the server cache and spinning up data?
 
 Major:
 - Add support for different countries
 - Add user accounts and authentication + saved companies / technologies + email notifications
+- Add interview preparation content
+- Add links to local tech communities (eg meetups) for each technology/city/country
+
+Nice to have:
+- ideally we'd log when a location can't be properly parsed
+
+Meh?:
+- Filters for people lead roles like managers?
+- Add a locations with most jobs, and locations for a given tech. Does this make sense? we have location filters for tech and companies. Maybe total jobs per city, but it's not very useful unless you're a migrant? Even then you can just filter jobs for a technology and location?
 

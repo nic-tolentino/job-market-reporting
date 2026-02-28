@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, Briefcase, ChevronDown } from 'lucide-react';
+import { Search, Briefcase } from 'lucide-react';
 import { fetchSearchSuggestions, trackSearchMiss } from '../../lib/api';
 import { useQuery } from '@tanstack/react-query';
+import Dropdown from '../ui/Dropdown';
 
 const countries = [
     { code: 'AU', name: 'Australia', flag: '🇦🇺' },
@@ -13,11 +14,9 @@ const countries = [
 export default function Navbar() {
     const navigate = useNavigate();
     const [selectedCountry, setSelectedCountry] = useState('NZ');
-    const [isOpen, setIsOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [isSearchFocused, setIsSearchFocused] = useState(false);
 
-    const dropdownRef = useRef<HTMLDivElement>(null);
     const searchRef = useRef<HTMLDivElement>(null);
     const currentCountry = countries.find(c => c.code === selectedCountry);
 
@@ -37,9 +36,6 @@ export default function Navbar() {
     // Close dropdowns when clicking outside
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-                setIsOpen(false);
-            }
             if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
                 setIsSearchFocused(false);
             }
@@ -131,45 +127,13 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-4 sm:gap-6 text-sm font-semibold text-gray-600">
-                    <div className="relative" ref={dropdownRef}>
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="flex items-center gap-2 bg-gray-50 border border-gray-300 rounded-full pl-2 pr-2.5 py-1 hover:bg-white hover:border-blue-400 hover:shadow-sm transition-all group"
-                        >
-                            <span className="text-xl leading-none">{currentCountry?.flag}</span>
-                            <span className="text-xs font-bold text-slate-700">{selectedCountry}</span>
-                            <ChevronDown className={`h-3 w-3 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-                        </button>
-
-                        {isOpen && (
-                            <div className="absolute right-0 mt-2 w-48 origin-top-right rounded-2xl border border-gray-300 bg-white shadow-xl ring-1 ring-black/5 focus:outline-none overflow-hidden z-50 animate-in fade-in zoom-in duration-200">
-                                <div className="py-1.5">
-                                    <div className="px-3 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-                                        Select Region
-                                    </div>
-                                    {countries.map((c) => (
-                                        <button
-                                            key={c.code}
-                                            onClick={() => {
-                                                setSelectedCountry(c.code);
-                                                setIsOpen(false);
-                                            }}
-                                            className={`flex w-full items-center gap-3 px-4 py-2.5 text-left transition-colors ${selectedCountry === c.code
-                                                ? 'bg-blue-50 text-blue-700'
-                                                : 'text-gray-700 hover:bg-gray-50'
-                                                }`}
-                                        >
-                                            <span className="text-xl leading-none">{c.flag}</span>
-                                            <span className="text-sm font-semibold">{c.name}</span>
-                                            {selectedCountry === c.code && (
-                                                <div className="ml-auto w-1.5 h-1.5 rounded-full bg-blue-600" />
-                                            )}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-                    </div>
+                    <Dropdown
+                        value={selectedCountry}
+                        onChange={setSelectedCountry}
+                        options={countries.map(c => ({ value: c.code, label: c.name }))}
+                        icon={<span className="text-xl leading-none">{currentCountry?.flag}</span>}
+                        className="min-w-0"
+                    />
                     <a href="#" className="hover:text-blue-600 transition-colors hidden sm:block">About</a>
                 </div>
             </div>

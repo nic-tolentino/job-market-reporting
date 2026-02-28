@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { Briefcase } from 'lucide-react';
@@ -9,12 +9,18 @@ import ErrorState from '../components/common/ErrorState';
 import CompanyLogo from '../components/common/CompanyLogo';
 import { Card, CardHeader } from '../components/ui/Card';
 import { H2 } from '../components/ui/Typography';
+import SimplePager from '../components/ui/SimplePager';
+
+const COMPANIES_PAGE_SIZE = 5;
+const MAX_COMPANIES = 20;
+const MAX_TECH = 20;
 
 export default function LandingPage() {
     const navigate = useNavigate();
     const [data, setData] = useState<LandingPageDto | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
+    const [companiesPage, setCompaniesPage] = useState(1);
 
     const loadData = useCallback(async () => {
         setIsLoading(true);
@@ -33,6 +39,23 @@ export default function LandingPage() {
     useEffect(() => {
         loadData();
     }, [loadData]);
+
+    const topCompanies = useMemo(() => {
+        if (!data) return [];
+        return data.topCompanies.slice(0, MAX_COMPANIES);
+    }, [data]);
+
+    const paginatedCompanies = useMemo(() => {
+        const start = (companiesPage - 1) * COMPANIES_PAGE_SIZE;
+        return topCompanies.slice(start, start + COMPANIES_PAGE_SIZE);
+    }, [topCompanies, companiesPage]);
+
+    const totalCompaniesPages = Math.ceil(topCompanies.length / COMPANIES_PAGE_SIZE);
+
+    const topTech = useMemo(() => {
+        if (!data) return [];
+        return data.topTech.slice(0, MAX_TECH);
+    }, [data]);
 
     if (isLoading) {
         return <PageLoader />;
@@ -107,7 +130,7 @@ export default function LandingPage() {
                     </CardHeader>
                     <div className="p-4 md:p-6 flex-1 min-h-[350px] md:min-h-[400px] outline-none select-none [&_svg]:outline-none" tabIndex={-1}>
                         <ResponsiveContainer width="100%" height="100%">
-                            <BarChart data={data.topTech} layout="vertical" margin={{ top: 0, right: 30, left: 20, bottom: 0 }}>
+                            <BarChart data={topTech} layout="vertical" margin={{ top: 0, right: 30, left: 20, bottom: 0 }}>
                                 <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#E5E7EB" />
                                 <XAxis type="number" hide />
                                 <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} tick={{ fill: '#475569', fontSize: 13, fontWeight: 500 }} width={80} />
@@ -126,7 +149,7 @@ export default function LandingPage() {
                                     }}
                                     style={{ cursor: 'pointer', outline: 'none' }}
                                 >
-                                    {data.topTech.map((_entry, index) => (
+                                    {topTech.map((_entry, index) => (
                                         <Cell key={`cell-${index}`} fill={index === 0 ? '#2563EB' : '#94A3B8'} className="hover:opacity-80 transition-opacity" />
                                     ))}
                                 </Bar>
@@ -137,12 +160,21 @@ export default function LandingPage() {
 
                 {/* Top Companies List */}
                 <Card className="p-0">
-                    <CardHeader>
+                    <CardHeader className="flex flex-row items-center justify-between">
                         <div>
                             <H2>Top Hiring Companies</H2>
-                            <p className="text-sm text-gray-500 mt-1">Companies with the most active vacancies</p>
+                            <div className="text-sm font-medium text-slate-500 mt-1">
+                                Showing <span className="text-slate-900 font-bold">{topCompanies.length > 0 ? (companiesPage - 1) * COMPANIES_PAGE_SIZE + 1 : 0}</span> to <span className="text-slate-900 font-bold">{Math.min(companiesPage * COMPANIES_PAGE_SIZE, topCompanies.length)}</span> of <span className="text-slate-900 font-bold">{topCompanies.length}</span>
+                            </div>
                         </div>
-                        <FeedbackButton variant="icon" context="Top Hiring Companies List" />
+                        <div className="flex items-center gap-4">
+                            <SimplePager
+                                currentPage={companiesPage}
+                                totalPages={totalCompaniesPages}
+                                onPageChange={setCompaniesPage}
+                            />
+                            <FeedbackButton variant="icon" context="Top Hiring Companies List" />
+                        </div>
                     </CardHeader>
                     <div className="flex-1 overflow-auto">
                         <table className="w-full text-left text-sm">
@@ -153,7 +185,7 @@ export default function LandingPage() {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-100">
-                                {data.topCompanies.map((company) => (
+                                {paginatedCompanies.map((company: any) => (
                                     <tr
                                         key={company.id}
                                         onClick={() => navigate("/company/" + company.id)}
@@ -182,6 +214,15 @@ export default function LandingPage() {
                             </tbody>
                         </table>
                     </div>
+                    {totalCompaniesPages > 1 && (
+                        <div className="flex justify-center border-t border-gray-100 p-4">
+                            <SimplePager
+                                currentPage={companiesPage}
+                                totalPages={totalCompaniesPages}
+                                onPageChange={setCompaniesPage}
+                            />
+                        </div>
+                    )}
                 </Card>
 
             </section>

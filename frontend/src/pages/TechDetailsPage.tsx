@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
-import { Briefcase, MapPin, DollarSign, Calendar, Filter } from 'lucide-react';
+import { Briefcase, MapPin, DollarSign, Calendar } from 'lucide-react';
 import PageLoader from '../components/common/PageLoader';
 import { fetchTechDetails, type TechDetailsPageDto } from '../lib/api';
 import { FeedbackButton } from '../components/common/Feedback';
@@ -10,8 +10,12 @@ import CompanyLogo from '../components/common/CompanyLogo';
 import { Card, CardHeader, CardContent } from '../components/ui/Card';
 import { H1, H2 } from '../components/ui/Typography';
 import { Badge } from '../components/ui/Badge';
+import Dropdown from '../components/ui/Dropdown';
+import SimplePager from '../components/ui/SimplePager';
 
 const COLORS = ['#f563EB', '#4F46E5', '#10B981', '#F59E0B'];
+const COMPANIES_PAGE_SIZE = 5;
+const JOBS_PAGE_SIZE = 10;
 
 export default function TechDetailsPage() {
     const { techId } = useParams<{ techId: string }>();
@@ -25,12 +29,18 @@ export default function TechDetailsPage() {
     const [selectedSeniority, setSelectedSeniority] = useState<string>('All');
     const [selectedCity, setSelectedCity] = useState<string>('All');
 
+    // Pagination states
+    const [companiesPage, setCompaniesPage] = useState(1);
+    const [jobsPage, setJobsPage] = useState(1);
+
     const loadData = useCallback(async () => {
         if (!techId) return;
         setIsLoading(true);
         setError(false);
         setSelectedSeniority('All');
         setSelectedCity('All');
+        setCompaniesPage(1);
+        setJobsPage(1);
         try {
             const apiData = await fetchTechDetails(techId);
             setData(apiData);
@@ -104,6 +114,21 @@ export default function TechDetailsPage() {
         return Array.from(companyMap.values())
             .sort((a, b) => b.activeRoles - a.activeRoles);
     }, [data, filteredRoles, selectedSeniority, selectedCity]);
+
+    // Paginated roles
+    const paginatedRoles = useMemo(() => {
+        const start = (jobsPage - 1) * JOBS_PAGE_SIZE;
+        return filteredRoles.slice(start, start + JOBS_PAGE_SIZE);
+    }, [filteredRoles, jobsPage]);
+
+    // Paginated companies
+    const paginatedCompanies = useMemo(() => {
+        const start = (companiesPage - 1) * COMPANIES_PAGE_SIZE;
+        return filteredHiringCompanies.slice(start, start + COMPANIES_PAGE_SIZE);
+    }, [filteredHiringCompanies, companiesPage]);
+
+    const totalJobsPages = Math.ceil(filteredRoles.length / JOBS_PAGE_SIZE);
+    const totalCompaniesPages = Math.ceil(filteredHiringCompanies.length / COMPANIES_PAGE_SIZE);
 
     if (isLoading) {
         return <PageLoader />;
@@ -186,9 +211,16 @@ export default function TechDetailsPage() {
 
                 {/* Hiring Companies Table */}
                 <Card className="lg:col-span-2">
-                    <CardHeader>
+                    <CardHeader className="flex flex-row items-center justify-between">
                         <H2>Actively Hiring Companies</H2>
-                        <FeedbackButton variant="icon" context={`${data.techName} Hiring Companies`} />
+                        <div className="flex items-center gap-4">
+                            <SimplePager
+                                currentPage={companiesPage}
+                                totalPages={totalCompaniesPages}
+                                onPageChange={setCompaniesPage}
+                            />
+                            <FeedbackButton variant="icon" context={`${data.techName} Hiring Companies`} />
+                        </div>
                     </CardHeader>
                     <div className="flex-1 overflow-auto">
                         <table className="w-full text-left text-sm">
@@ -199,7 +231,7 @@ export default function TechDetailsPage() {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-100">
-                                {filteredHiringCompanies.map((company) => (
+                                {paginatedCompanies.map((company) => (
                                     <tr key={company.id} className="hover:bg-gray-50 transition-colors group">
                                         <td className="px-6 py-4">
                                             <Link to={"/company/" + company.id} className="flex items-center gap-3">
@@ -241,37 +273,42 @@ export default function TechDetailsPage() {
                     <H2>Active {data.techName} Roles</H2>
 
                     <div className="flex flex-wrap items-center gap-3">
-                        <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-1.5 shadow-sm">
-                            <Filter className="h-4 w-4 text-gray-400" />
-                            <select
-                                value={selectedSeniority}
-                                onChange={(e) => setSelectedSeniority(e.target.value)}
-                                className="text-sm font-medium text-slate-700 bg-transparent border-none focus:ring-0 cursor-pointer"
-                            >
-                                <option value="All">All Seniorities</option>
-                                {seniorityOptions.map(opt => (
-                                    <option key={opt} value={opt}>{opt}</option>
-                                ))}
-                            </select>
-                        </div>
+                        <Dropdown
+                            value={selectedSeniority}
+                            onChange={setSelectedSeniority}
+                            options={[
+                                { value: 'All', label: 'All Seniorities' },
+                                ...seniorityOptions.map(opt => ({ value: opt, label: opt }))
+                            ]}
+                            labelPrefix="Seniority"
+                        />
 
-                        <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-1.5 shadow-sm">
-                            <Filter className="h-4 w-4 text-gray-400" />
-                            <select
-                                value={selectedCity}
-                                onChange={(e) => setSelectedCity(e.target.value)}
-                                className="text-sm font-medium text-slate-700 bg-transparent border-none focus:ring-0 cursor-pointer"
-                            >
-                                <option value="All">All Cities</option>
-                                {cityOptions.map(city => (
-                                    <option key={city} value={city}>{city}</option>
-                                ))}
-                            </select>
-                        </div>
+                        <Dropdown
+                            value={selectedCity}
+                            onChange={setSelectedCity}
+                            options={[
+                                { value: 'All', label: 'All Cities' },
+                                ...cityOptions.map(city => ({ value: city, label: city }))
+                            ]}
+                            labelPrefix="Location"
+                        />
                     </div>
                 </div>
 
                 <Card>
+                    <CardHeader className="flex flex-row items-center justify-between">
+                        <div className="text-sm font-medium text-slate-500">
+                            Showing <span className="text-slate-900 font-bold">{filteredRoles.length > 0 ? (jobsPage - 1) * JOBS_PAGE_SIZE + 1 : 0}</span> to <span className="text-slate-900 font-bold">{Math.min(jobsPage * JOBS_PAGE_SIZE, filteredRoles.length)}</span> of <span className="text-slate-900 font-bold">{filteredRoles.length}</span> positions
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <SimplePager
+                                currentPage={jobsPage}
+                                totalPages={totalJobsPages}
+                                onPageChange={setJobsPage}
+                            />
+                            <FeedbackButton variant="icon" context={`${data.techName} Job Listings`} />
+                        </div>
+                    </CardHeader>
                     <div className="overflow-x-auto">
                         <table className="w-full text-left text-sm">
                             <thead className="bg-gray-50 text-gray-500">
@@ -290,7 +327,7 @@ export default function TechDetailsPage() {
                                         </td>
                                     </tr>
                                 ) : (
-                                    filteredRoles.map((role) => (
+                                    paginatedRoles.map((role) => (
                                         <tr
                                             key={role.id}
                                             onClick={() => navigate(`/job/${role.id}`)}
@@ -332,6 +369,15 @@ export default function TechDetailsPage() {
                             </tbody>
                         </table>
                     </div>
+                    {totalJobsPages > 1 && (
+                        <div className="flex justify-center border-t border-gray-100 p-4">
+                            <SimplePager
+                                currentPage={jobsPage}
+                                totalPages={totalJobsPages}
+                                onPageChange={setJobsPage}
+                            />
+                        </div>
+                    )}
                 </Card>
             </div>
         </div>
