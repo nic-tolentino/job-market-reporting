@@ -131,6 +131,7 @@ export default function Navbar() {
                         value={selectedCountry}
                         onChange={setSelectedCountry}
                         options={countries.map(c => ({ value: c.code, label: c.name }))}
+                        selectedLabel={currentCountry?.code}
                         icon={<span className="text-xl leading-none">{currentCountry?.flag}</span>}
                         className="min-w-0"
                     />

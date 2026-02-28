@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PageLoader from './components/common/PageLoader';
+import ScrollToTop from './components/common/ScrollToTop';
 import Layout from './components/layout/Layout';
 import LandingPage from './pages/LandingPage';
 
@@ -17,6 +18,7 @@ const ContactPage = lazy(() => import('./pages/ContactPage'));
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Layout>
         <Suspense fallback={<PageLoader />}>
           <Routes>

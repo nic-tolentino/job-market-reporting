@@ -12,10 +12,11 @@ interface DropdownProps {
     options: Option[];
     labelPrefix?: string;
     icon?: ReactNode;
+    selectedLabel?: string;
     className?: string;
 }
 
-export default function Dropdown({ value, onChange, options, labelPrefix, icon, className = "" }: DropdownProps) {
+export default function Dropdown({ value, onChange, options, labelPrefix, icon, selectedLabel, className = "" }: DropdownProps) {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -48,7 +49,7 @@ export default function Dropdown({ value, onChange, options, labelPrefix, icon, 
                         </span>
                     )}
                     <span className="text-sm font-semibold text-slate-700 leading-tight truncate w-full">
-                        {selectedOption?.label}
+                        {selectedLabel || selectedOption?.label}
                     </span>
                 </div>
                 <ChevronDown className={`ml-auto h-4 w-4 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
