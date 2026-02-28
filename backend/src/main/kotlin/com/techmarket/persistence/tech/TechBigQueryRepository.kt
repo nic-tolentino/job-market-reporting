@@ -6,11 +6,9 @@ import com.google.cloud.bigquery.QueryParameterValue
 import com.techmarket.api.model.TechDetailsPageDto
 import com.techmarket.persistence.BigQueryTables
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Repository
 
 @Repository
-@Profile("!local")
 class TechBigQueryRepository(
         private val bigQuery: BigQuery,
         @Value("\${spring.cloud.gcp.bigquery.dataset-name:techmarket}")

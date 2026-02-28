@@ -99,7 +99,9 @@ object JobMapper {
                 val company =
                         com.techmarket.api.model.JobCompanyDto(
                                 companyId = r.get(JobFields.COMPANY_ID).stringValue,
-                                name = r.get("comp_name").stringValue,
+                                name =
+                                        if (r.get("comp_name").isNull) "Unknown Company"
+                                        else r.get("comp_name").stringValue,
                                 logoUrl =
                                         if (r.get("comp_logo").isNull) ""
                                         else r.get("comp_logo").stringValue,

@@ -106,7 +106,7 @@ object CompanyMapper {
                 val allTechs =
                         if (detRow?.get(CompanyFields.TECHNOLOGIES)?.isNull == false)
                                 detRow.get(CompanyFields.TECHNOLOGIES).repeatedValue.map {
-                                        it.stringValue
+                                        TechFormatter.format(it.stringValue)
                                 }
                         else emptyList()
                 val hiringLocations =
@@ -120,22 +120,28 @@ object CompanyMapper {
                         else emptyList()
 
                 val aggRow = aggResult.values.firstOrNull()
-                val techStack =
-                        aggResult.values.map { TechFormatter.format(it.get("tech").stringValue) }
                 val topModel =
-                        if (aggRow?.get("topModel")?.isNull == false)
-                                aggRow.get("topModel").stringValue
-                        else "Hybrid Friendly"
+                        try {
+                                if (aggRow != null && !aggRow.get("topModel").isNull)
+                                        aggRow.get("topModel").stringValue
+                                else "Hybrid Friendly"
+                        } catch (e: Exception) {
+                                "Hybrid Friendly"
+                        }
 
                 val allBenefits =
                         jobsResult
                                 .values
                                 .mapNotNull { r ->
-                                        if (r.get(JobFields.BENEFITS).isNull) null
-                                        else
-                                                r.get(JobFields.BENEFITS).repeatedValue.map {
-                                                        it.stringValue
-                                                }
+                                        try {
+                                                if (r.get(JobFields.BENEFITS).isNull) null
+                                                else
+                                                        r.get(JobFields.BENEFITS)
+                                                                .repeatedValue
+                                                                .map { it.stringValue }
+                                        } catch (e: Exception) {
+                                                null
+                                        }
                                 }
                                 .flatten()
                                 .groupingBy { it }

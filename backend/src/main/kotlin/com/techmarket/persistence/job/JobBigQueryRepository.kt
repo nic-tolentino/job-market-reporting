@@ -14,11 +14,9 @@ import com.techmarket.persistence.model.JobRecord
 import java.util.concurrent.TimeUnit
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Repository
 
 @Repository
-@Profile("!local")
 class JobBigQueryRepository(
         private val bigQueryTemplate: BigQueryTemplate,
         private val bigQuery: BigQuery,

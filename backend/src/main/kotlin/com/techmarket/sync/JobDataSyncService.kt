@@ -30,9 +30,11 @@ class JobDataSyncService(
      */
     @CacheEvict(value = ["landing", "tech", "company", "search"], allEntries = true)
     fun runDataSync(datasetId: String) {
-        log.info("Starting Job Data Sync Pipeline...")
+        log.info("Starting Job Data Sync Pipeline for dataset: $datasetId")
 
         val apifyResults = apifyClient.fetchRecentJobs(datasetId)
+        log.info("Fetched ${apifyResults.size} raw records from Apify.")
+
         if (apifyResults.isEmpty()) {
             log.info("No jobs fetched from Apify. Aborting sync.")
             return
@@ -42,37 +44,36 @@ class JobDataSyncService(
         val rawRecords =
                 apifyResults.map {
                     RawIngestionRecord(
-                            id = "${it.dto.id}-${UUID.randomUUID()}", // combine apify job ID +
-                            // uuid so it's always
-                            // unique
+                            id = "${it.dto.id}-${UUID.randomUUID()}",
                             source = "LinkedIn-Apify",
                             ingestedAt = syncTime,
                             rawPayload = it.rawJson
                     )
                 }
 
-        log.info("Ingesting ${rawRecords.size} raw payloads into Bronze Layer.")
+        log.info("Bronze Layer: Ingesting ${rawRecords.size} raw payloads.")
         ingestionRepository.saveRawIngestions(rawRecords)
 
         val rawJobs = apifyResults.map { it.dto }
         val mappedData = jobDataMapper.mapSyncData(rawJobs)
         log.info(
-                "Successfully mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies for Silver Layer storage."
+                "Silver Layer: Successfully mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies from ${rawJobs.size} raw records."
         )
 
         companyRepository.saveCompanies(mappedData.companies)
         jobRepository.saveJobs(mappedData.jobs)
 
-        log.info("Job Data Sync Pipeline completed successfully.")
+        log.info("Data Sync Pipeline completed successfully.")
     }
 
     @CacheEvict(value = ["landing", "tech", "company", "search"], allEntries = true)
     fun reprocessHistoricalData() {
-        log.info("Starting Historical Data Reprocessing Pipeline...")
+        log.info("Starting Historical Data Reprocessing (Silver Layer Refresh)...")
         val rawRecords = ingestionRepository.getRawIngestions()
+        log.info("Bronze Layer: Found ${rawRecords.size} historical records for reprocessing.")
 
         if (rawRecords.isEmpty()) {
-            log.info("No historical records found for reprocessing.")
+            log.info("No historical records found. Aborting reprocessing.")
             return
         }
 
@@ -91,21 +92,21 @@ class JobDataSyncService(
                     }
                 }
 
-        log.info("Successfully parsed ${rawJobs.size} raw jobs. Remapping...")
+        log.info("Parsed ${rawJobs.size} valid jobs from historical records. Remapping...")
         val mappedData = jobDataMapper.mapSyncData(rawJobs)
         log.info(
-                "Remapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies."
+                "Silver Layer: Freshly mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies."
         )
 
-        // Wipe the Silver layer tables before re-inserting to prevent duplicates.
-        // The Bronze layer (raw_ingestions) is never touched — it's the source of truth.
-        log.info("Wiping Silver Layer tables before re-insert...")
+        log.info(
+                "Silver Layer Cleanup: Wiping current tables before re-inserting freshly mapped data..."
+        )
         jobRepository.deleteAllJobs()
         companyRepository.deleteAllCompanies()
 
-        log.info("Re-inserting freshly mapped data into Silver Layer...")
+        log.info("Silver Layer: Re-inserting data...")
         companyRepository.saveCompanies(mappedData.companies)
         jobRepository.saveJobs(mappedData.jobs)
-        log.info("Historical Data Reprocessing Pipeline completed successfully.")
+        log.info("Historical Data Reprocessing completed successfully.")
     }
 }

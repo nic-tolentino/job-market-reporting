@@ -180,17 +180,22 @@ class JobDataMapper(private val parser: JobDataParser) {
                                 }
 
                                 // Union technologies across all duplicates
-                                val allTechs = group.flatMap { it.technologies }.toSet().sorted()
+                                val allTechs = group.flatMap { it.technologies }.distinct().sorted()
                                 companyTechSets
                                         .getOrPut(first.companyId) { mutableSetOf() }
                                         .addAll(allTechs)
 
                                 val locations =
-                                        group.map { rawEntry ->
-                                                val (c, s, _) =
-                                                        parser.parseLocation(rawEntry.rawLocation)
-                                                if (s == "Unknown" || s == c) c else "$c, $s"
-                                        }
+                                        group
+                                                .map { rawEntry ->
+                                                        val (c, s, _) =
+                                                                parser.parseLocation(
+                                                                        rawEntry.rawLocation
+                                                                )
+                                                        if (s == "Unknown" || s == c) c
+                                                        else "$c, $s"
+                                                }
+                                                .distinct()
                                 companyLocationSets
                                         .getOrPut(first.companyId) { mutableSetOf() }
                                         .addAll(locations)
@@ -198,9 +203,9 @@ class JobDataMapper(private val parser: JobDataParser) {
                                 // Description is from the first available entry
                                 val description =
                                         sanitize(group.firstNotNullOfOrNull { it.description })
-                                val jobIds = group.map { it.jobId }
-                                val applyUrls = group.map { it.applyUrl ?: "" }
-                                val links = group.map { it.link ?: "" }
+                                val jobIds = group.map { it.jobId }.distinct()
+                                val applyUrls = group.map { it.applyUrl ?: "" }.distinct()
+                                val links = group.map { it.link ?: "" }.distinct()
 
                                 val (city, stateRegion, country) =
                                         parser.parseLocation(first.rawLocation)
