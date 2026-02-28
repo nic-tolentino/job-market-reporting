@@ -61,12 +61,12 @@ export default function TransparencyPage() {
                                 <tr>
                                     <td className="py-4 font-medium text-slate-700">GCP Hosting</td>
                                     <td className="py-4 text-gray-500">Cloud Run & BigQuery storage</td>
-                                    <td className="py-4 text-right text-slate-900">$15.00</td>
+                                    <td className="py-4 text-right text-slate-900">$0.00</td>
                                 </tr>
                                 <tr>
                                     <td className="py-4 font-medium text-slate-700">Data Pipeline</td>
                                     <td className="py-4 text-gray-500">Apify usage & Credits</td>
-                                    <td className="py-4 text-right text-slate-900">$0.00 (Free Tier)</td>
+                                    <td className="py-4 text-right text-slate-900">$40.00 (Free Tier)</td>
                                 </tr>
                                 <tr>
                                     <td className="py-4 font-medium text-slate-700">Domains</td>
@@ -75,7 +75,7 @@ export default function TransparencyPage() {
                                 </tr>
                                 <tr className="bg-blue-50/50">
                                     <td className="py-4 font-bold text-blue-900" colSpan={2}>Total Operating Expense</td>
-                                    <td className="py-4 text-right font-bold text-blue-900">$17.00</td>
+                                    <td className="py-4 text-right font-bold text-blue-900">$42.00</td>
                                 </tr>
                                 <tr className="bg-emerald-50/50">
                                     <td className="py-4 font-bold text-emerald-900" colSpan={2}>Current Revenue</td>
