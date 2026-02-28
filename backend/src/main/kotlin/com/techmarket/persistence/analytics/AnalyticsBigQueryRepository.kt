@@ -26,105 +26,133 @@ class AnalyticsBigQueryRepository(
         private val datasetName: String
 ) : AnalyticsRepository {
 
-    private val log = LoggerFactory.getLogger(AnalyticsBigQueryRepository::class.java)
+        private val log = LoggerFactory.getLogger(AnalyticsBigQueryRepository::class.java)
 
-    private val jobsTableName = BigQueryTables.JOBS
-    private val companiesTableName = BigQueryTables.COMPANIES
-    private val searchMissesTableName = BigQueryTables.SEARCH_MISSES
-    private val feedbackTableName = BigQueryTables.USER_FEEDBACK
+        private val jobsTableName = BigQueryTables.JOBS
+        private val companiesTableName = BigQueryTables.COMPANIES
+        private val searchMissesTableName = BigQueryTables.SEARCH_MISSES
+        private val feedbackTableName = BigQueryTables.USER_FEEDBACK
 
-    private fun ensureTables() {
-        // search_misses schema
-        val searchMissesSchema =
-                Schema.of(
-                        Field.of(AnalyticsFields.TERM, StandardSQLTypeName.STRING),
-                        Field.of(AnalyticsFields.TIMESTAMP, StandardSQLTypeName.TIMESTAMP)
-                )
-        bigQuery.ensureTableExists(datasetName, searchMissesTableName, searchMissesSchema)
+        private fun ensureTables() {
+                // search_misses schema
+                val searchMissesSchema =
+                        Schema.of(
+                                Field.of(AnalyticsFields.TERM, StandardSQLTypeName.STRING),
+                                Field.of(AnalyticsFields.TIMESTAMP, StandardSQLTypeName.TIMESTAMP)
+                        )
+                bigQuery.ensureTableExists(datasetName, searchMissesTableName, searchMissesSchema)
 
-        // user_feedback schema
-        val feedbackSchema =
-                Schema.of(
-                        Field.of(AnalyticsFields.CONTEXT, StandardSQLTypeName.STRING),
-                        Field.of(AnalyticsFields.MESSAGE, StandardSQLTypeName.STRING),
-                        Field.of(AnalyticsFields.TIMESTAMP, StandardSQLTypeName.TIMESTAMP)
-                )
-        bigQuery.ensureTableExists(datasetName, feedbackTableName, feedbackSchema)
-    }
-
-    override fun getLandingPageData(): LandingPageDto {
-        val statsSql = AnalyticsQueries.getStatsSql(datasetName, jobsTableName)
-        val topTechSql = AnalyticsQueries.getTopTechSql(datasetName, jobsTableName)
-        val topCompaniesSql =
-                AnalyticsQueries.getTopCompaniesSql(datasetName, jobsTableName, companiesTableName)
-
-        val statsResult = bigQuery.query(QueryJobConfiguration.newBuilder(statsSql).build())
-        val techResult = bigQuery.query(QueryJobConfiguration.newBuilder(topTechSql).build())
-        val companiesResult =
-                bigQuery.query(QueryJobConfiguration.newBuilder(topCompaniesSql).build())
-
-        return AnalyticsMapper.mapLandingPageData(statsResult, techResult, companiesResult)
-    }
-
-    override fun getSearchSuggestions(): SearchSuggestionsResponse {
-        log.info("GCP: Querying search suggestions from BigQuery")
-        val query =
-                AnalyticsQueries.getSearchSuggestionsSql(
-                        datasetName,
-                        companiesTableName,
-                        jobsTableName
-                )
-
-        return try {
-            val result = bigQuery.query(QueryJobConfiguration.newBuilder(query).build())
-            val suggestions = result.values.map { AnalyticsMapper.mapSearchSuggestion(it) }
-            SearchSuggestionsResponse(suggestions.toList())
-        } catch (e: Exception) {
-            log.error("GCP: Failed to fetch search suggestions: \${e.message}", e)
-            SearchSuggestionsResponse(emptyList())
+                // user_feedback schema
+                val feedbackSchema =
+                        Schema.of(
+                                Field.of(AnalyticsFields.CONTEXT, StandardSQLTypeName.STRING),
+                                Field.of(AnalyticsFields.MESSAGE, StandardSQLTypeName.STRING),
+                                Field.of(AnalyticsFields.TIMESTAMP, StandardSQLTypeName.TIMESTAMP)
+                        )
+                bigQuery.ensureTableExists(datasetName, feedbackTableName, feedbackSchema)
         }
-    }
 
-    override fun saveSearchMiss(term: String) {
-        ensureTables()
-        log.info("GCP: Saving search miss to BigQuery: \$term")
-        val record =
-                mapOf(
-                        AnalyticsFields.TERM to term,
-                        AnalyticsFields.TIMESTAMP to Instant.now().toString()
-                )
-        try {
-            bigQueryTemplate
-                    .writeJsonStream(searchMissesTableName, listOf(record).byteInputStream())
-                    .get(30, TimeUnit.SECONDS)
-        } catch (e: Exception) {
-            log.error("GCP: Failed to insert search miss: \${e.message}", e)
+        override fun getLandingPageData(): LandingPageDto {
+                val statsSql = AnalyticsQueries.getStatsSql(datasetName, jobsTableName)
+                val topTechSql = AnalyticsQueries.getTopTechSql(datasetName, jobsTableName)
+                val topCompaniesSql =
+                        AnalyticsQueries.getTopCompaniesSql(
+                                datasetName,
+                                jobsTableName,
+                                companiesTableName
+                        )
+
+                val statsResult = bigQuery.query(QueryJobConfiguration.newBuilder(statsSql).build())
+                val techResult =
+                        bigQuery.query(QueryJobConfiguration.newBuilder(topTechSql).build())
+                val companiesResult =
+                        bigQuery.query(QueryJobConfiguration.newBuilder(topCompaniesSql).build())
+
+                return AnalyticsMapper.mapLandingPageData(statsResult, techResult, companiesResult)
         }
-    }
 
-    override fun saveFeedback(context: String?, message: String) {
-        ensureTables()
-        log.info("GCP: Saving user feedback to BigQuery")
-        val record =
-                mapOf(
-                        AnalyticsFields.CONTEXT to context,
-                        AnalyticsFields.MESSAGE to message,
-                        AnalyticsFields.TIMESTAMP to Instant.now().toString()
-                )
-        try {
-            bigQueryTemplate
-                    .writeJsonStream(feedbackTableName, listOf(record).byteInputStream())
-                    .get(30, TimeUnit.SECONDS)
-        } catch (e: Exception) {
-            log.error("GCP: Failed to insert feedback: \${e.message}", e)
-        }
-    }
+        override fun getSearchSuggestions(): SearchSuggestionsResponse {
+                log.info("GCP: Querying search suggestions from BigQuery")
+                val query =
+                        AnalyticsQueries.getSearchSuggestionsSql(
+                                datasetName,
+                                companiesTableName,
+                                jobsTableName
+                        )
 
-    private fun List<Map<String, Any?>>.byteInputStream(): java.io.InputStream {
-        val jsonString =
-                this.joinToString(separator = "\n") {
-                    com.fasterxml.jackson.module.kotlin.jacksonObjectMapper().writeValueAsString(it)
+                return try {
+                        val result = bigQuery.query(QueryJobConfiguration.newBuilder(query).build())
+                        val suggestions =
+                                result.values.map { AnalyticsMapper.mapSearchSuggestion(it) }
+                        SearchSuggestionsResponse(suggestions.toList())
+                } catch (e: Exception) {
+                        log.error("GCP: Failed to fetch search suggestions: \${e.message}", e)
+                        SearchSuggestionsResponse(emptyList())
                 }
-        return jsonString.byteInputStream()
-    }
+        }
+
+        override fun saveSearchMiss(term: String) {
+                ensureTables()
+                log.info("GCP: Saving search miss to BigQuery: \$term")
+                val record =
+                        mapOf(
+                                AnalyticsFields.TERM to term,
+                                AnalyticsFields.TIMESTAMP to Instant.now().toString()
+                        )
+                try {
+                        bigQueryTemplate
+                                .writeJsonStream(
+                                        searchMissesTableName,
+                                        listOf(record).byteInputStream()
+                                )
+                                .get(30, TimeUnit.SECONDS)
+                } catch (e: Exception) {
+                        log.error("GCP: Failed to insert search miss: \${e.message}", e)
+                }
+        }
+
+        override fun saveFeedback(context: String?, message: String) {
+                ensureTables()
+                log.info("GCP: Saving user feedback to BigQuery")
+                val record =
+                        mapOf(
+                                AnalyticsFields.CONTEXT to context,
+                                AnalyticsFields.MESSAGE to message,
+                                AnalyticsFields.TIMESTAMP to Instant.now().toString()
+                        )
+                try {
+                        bigQueryTemplate
+                                .writeJsonStream(
+                                        feedbackTableName,
+                                        listOf(record).byteInputStream()
+                                )
+                                .get(30, TimeUnit.SECONDS)
+                } catch (e: Exception) {
+                        log.error("GCP: Failed to insert feedback: \${e.message}", e)
+                }
+        }
+
+        override fun getAllFeedback(): List<com.techmarket.api.model.FeedbackDto> {
+                val query = AnalyticsQueries.getFeedbackSql(datasetName, feedbackTableName)
+                return try {
+                        val result = bigQuery.query(QueryJobConfiguration.newBuilder(query).build())
+                        result.values.map { AnalyticsMapper.mapFeedback(it) }
+                } catch (e: Exception) {
+                        log.error("GCP: Failed to fetch user feedback: \${e.message}", e)
+                        emptyList()
+                }
+        }
+
+        private fun List<Map<String, Any?>>.byteInputStream(): java.io.InputStream {
+                val jsonString =
+                        this.joinToString(separator = "\n") {
+                                com.fasterxml
+                                        .jackson
+                                        .module
+                                        .kotlin
+                                        .jacksonObjectMapper()
+                                        .writeValueAsString(it)
+                        }
+                return jsonString.byteInputStream()
+        }
 }

@@ -7,5 +7,3 @@ data class SearchSuggestionDto(
 )
 
 data class SearchSuggestionsResponse(val suggestions: List<SearchSuggestionDto>)
-
-data class FeedbackRequest(val context: String?, val message: String)

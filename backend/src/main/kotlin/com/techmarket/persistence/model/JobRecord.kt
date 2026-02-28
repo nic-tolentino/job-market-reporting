@@ -8,6 +8,7 @@ data class JobRecord(
         // role.
         val jobIds: List<String>, // original LinkedIn job IDs, one per location
         val applyUrls: List<String?>, // apply URLs, one per location (null if unavailable)
+        val links: List<String?>, // source URLs, one per location (null if unavailable)
         val locations: List<String>, // location strings, one per location
         // Shared across all locations (taken from first non-null value in the group)
         val companyId: String,

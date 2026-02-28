@@ -71,6 +71,12 @@ object CompanyMapper {
                                                 r.get(JobFields.APPLY_URLS).repeatedValue.map {
                                                         if (it.isNull) null else it.stringValue
                                                 }
+                                val linkList =
+                                        if (r.get(JobFields.LINKS).isNull) emptyList<String?>()
+                                        else
+                                                r.get(JobFields.LINKS).repeatedValue.map {
+                                                        if (it.isNull) null else it.stringValue
+                                                }
                                 JobRoleDto(
                                         id = jobIdList.firstOrNull() ?: "",
                                         title = r.get(JobFields.TITLE).stringValue,
@@ -79,6 +85,7 @@ object CompanyMapper {
                                         locations = locationList,
                                         jobIds = jobIdList,
                                         applyUrls = applyUrlList,
+                                        links = linkList,
                                         salaryMin =
                                                 if (r.get(JobFields.SALARY_MIN).isNull) null
                                                 else r.get(JobFields.SALARY_MIN).longValue.toInt(),

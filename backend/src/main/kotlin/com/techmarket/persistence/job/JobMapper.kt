@@ -48,6 +48,9 @@ object JobMapper {
                         val applyArr =
                                 if (r.get(JobFields.APPLY_URLS).isNull) emptyList()
                                 else r.get(JobFields.APPLY_URLS).repeatedValue
+                        val linkArr =
+                                if (r.get(JobFields.LINKS).isNull) emptyList()
+                                else r.get(JobFields.LINKS).repeatedValue
 
                         for (i in 0 until min(locArr.size, idArr.size)) {
                                 locations.add(
@@ -58,6 +61,10 @@ object JobMapper {
                                                         if (i < applyArr.size && !applyArr[i].isNull
                                                         )
                                                                 applyArr[i].stringValue
+                                                        else null,
+                                                link =
+                                                        if (i < linkArr.size && !linkArr[i].isNull)
+                                                                linkArr[i].stringValue
                                                         else null
                                         )
                                 )
@@ -117,6 +124,12 @@ object JobMapper {
                                                 sim.get(JobFields.APPLY_URLS).repeatedValue.map {
                                                         if (it.isNull) null else it.stringValue
                                                 }
+                                val simLinkList =
+                                        if (sim.get(JobFields.LINKS).isNull) emptyList<String?>()
+                                        else
+                                                sim.get(JobFields.LINKS).repeatedValue.map {
+                                                        if (it.isNull) null else it.stringValue
+                                                }
 
                                 JobRoleDto(
                                         id = simIdList.firstOrNull() ?: "",
@@ -128,6 +141,7 @@ object JobMapper {
                                         locations = simLocList,
                                         jobIds = simIdList,
                                         applyUrls = simApplyList,
+                                        links = simLinkList,
                                         salaryMin =
                                                 if (sim.get(JobFields.SALARY_MIN).isNull) null
                                                 else

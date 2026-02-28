@@ -9,6 +9,10 @@ import LandingPage from './pages/LandingPage';
 const TechDetailsPage = lazy(() => import('./pages/TechDetailsPage'));
 const CompanyProfilePage = lazy(() => import('./pages/CompanyProfilePage'));
 const JobPage = lazy(() => import('./pages/JobPage'));
+const TransparencyPage = lazy(() => import('./pages/TransparencyPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
+const TermsPage = lazy(() => import('./pages/TermsPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
 
 function App() {
   return (
@@ -20,6 +24,10 @@ function App() {
             <Route path="/tech/:techId" element={<TechDetailsPage />} />
             <Route path="/company/:companyId" element={<CompanyProfilePage />} />
             <Route path="/job/:jobId" element={<JobPage />} />
+            <Route path="/transparency" element={<TransparencyPage />} />
+            <Route path="/privacy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </Suspense>
       </Layout>

@@ -31,6 +31,7 @@ object JobFields {
     const val CITY = "city"
     const val STATE_REGION = "stateRegion"
     const val INGESTED_AT = "ingestedAt"
+    const val LINKS = "links"
 }
 
 object CompanyFields {

@@ -21,7 +21,12 @@ data class JobDetailsDto(
         val benefits: List<String>?
 )
 
-data class JobLocationDto(val location: String, val applyUrl: String?, val jobId: String)
+data class JobLocationDto(
+        val location: String,
+        val applyUrl: String?,
+        val link: String?,
+        val jobId: String
+)
 
 data class JobCompanyDto(
         val companyId: String,

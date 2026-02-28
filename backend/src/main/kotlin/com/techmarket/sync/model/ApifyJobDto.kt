@@ -13,7 +13,7 @@ data class ApifyJobDto(
         val applyUrl: String?,
         val descriptionHtml: String?,
         val descriptionText: String?,
-        val jobPosterName: String?,
+        val link: String?,
         val seniorityLevel: String?,
         val employmentType: String?,
         val jobFunction: String?,

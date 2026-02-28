@@ -1,5 +1,6 @@
 package com.techmarket.persistence.analytics
 
+import com.techmarket.api.model.FeedbackDto
 import com.techmarket.api.model.LandingPageDto
 import com.techmarket.api.model.SearchSuggestionsResponse
 
@@ -8,4 +9,5 @@ interface AnalyticsRepository {
     fun getSearchSuggestions(): SearchSuggestionsResponse
     fun saveSearchMiss(term: String)
     fun saveFeedback(context: String?, message: String)
+    fun getAllFeedback(): List<FeedbackDto>
 }

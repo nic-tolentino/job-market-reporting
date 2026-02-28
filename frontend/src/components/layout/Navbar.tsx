@@ -134,7 +134,7 @@ export default function Navbar() {
                         icon={<span className="text-xl leading-none">{currentCountry?.flag}</span>}
                         className="min-w-0"
                     />
-                    <a href="#" className="hover:text-blue-600 transition-colors hidden sm:block">About</a>
+                    <Link to="/transparency" className="hover:text-blue-600 transition-colors hidden sm:block">About</Link>
                 </div>
             </div>
         </nav>

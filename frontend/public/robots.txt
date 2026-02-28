@@ -1,0 +1,28 @@
+# TechMarket - AU/NZ Engineering Market Pulse
+# A Public Interest Tech Project by Nic Tolentino
+
+# 1. Allow all search engines to index the main site
+User-agent: *
+Allow: /
+Allow: /tech/
+Allow: /company/
+
+# 2. Prevent crawling of search result pages to save server resources
+# (Assumes you use a query parameter like ?q= or ?search=)
+Disallow: /*?s=
+Disallow: /*?search=
+Disallow: /*?q=
+
+# 3. Block aggressive "scraping" bots that don't respect the community mission
+# This list includes common generic scrapers
+User-agent: Scrapy
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# 4. Point to your sitemap (update this URL once your domain is live)
+Sitemap: https://your-vercel-url.vercel.app/sitemap.xml

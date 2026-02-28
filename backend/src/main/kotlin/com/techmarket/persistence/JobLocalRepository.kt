@@ -117,6 +117,11 @@ class JobLocalRepository :
         log.info("LOCAL: Mocking save of feedback [Context: $context]: $message")
     }
 
+    override fun getAllFeedback(): List<com.techmarket.api.model.FeedbackDto> {
+        log.info("LOCAL: Returning empty feedback list")
+        return emptyList()
+    }
+
     override fun getJobDetails(jobId: String): com.techmarket.api.model.JobPageDto? {
         log.info("LOCAL: Mocking get job details for: $jobId")
         return null

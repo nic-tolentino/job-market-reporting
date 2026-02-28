@@ -153,7 +153,7 @@ Later:
 - Tidy up titles, figure out how to handle 'Mid-Senior level', maybe multiple levels are allowed for each job?
 
 - Mobile design is still pretty meh in places especially rows of information like jobs, and page headers.
-
+- Launch to the third party url where the data was obtained instead of the apply url.
 
 Images:
 - Manually search for logo urls for each of the technologies (and companies?). Host the images locally so they are more stable? Maybe use them as backups if the url isn't provided?
@@ -167,11 +167,49 @@ Major:
 - Add user accounts and authentication + saved companies / technologies + email notifications
 - Add interview preparation content
 - Add links to local tech communities (eg meetups) for each technology/city/country
+- look into legality of using scrapped data, also check if there's a better way to get this data, also do i need to add any disclaimers, links, or legal a stuff?
 
 Nice to have:
 - ideally we'd log when a location can't be properly parsed
+- The "Market Sentiment" Feedback: Since you don't have historical data yet, add a simple "Is this salary range accurate for [City]?" button. It crowdsources "The Now" and builds a high-trust relationship with local devs who know the market.
+- The "Remote-from-NZ" Tag: Many AU companies hire NZ-based devs as contractors. Highlighting "Remote (NZ/AU Wide)" is a huge value-add for the local community that larger platforms often miss.
+- generate sitemap.xml for SEO
 
 Meh?:
 - Filters for people lead roles like managers?
 - Add a locations with most jobs, and locations for a given tech. Does this make sense? we have location filters for tech and companies. Maybe total jobs per city, but it's not very useful unless you're a migrant? Even then you can just filter jobs for a technology and location?
 
+Funding ideas:
+- Make the related companies and related roles show sponsored companies and roles first, based on the browsing history of the user (look at the technologies they've visited). Perhaps these 'related' sections need to be separated into their own APIs.
+- Show sponsor companies at the top of the website???
+- Sponsored companies get badges and are listed at the top of lists?
+- 
+
+IMPORTANT:
+- Clean all data of personal information, including descriptions. 
+- Add a transparency page explaining where the data comes from, how it's processed, and how it's used. Also include a link to the privacy policy. Also include any costs and revenues and how excess money will be used.
+- Add an about, terms & condition, robots.txt, and contact page.
+- If you prefer to keep it under your name for your portfolio (especially important for your upcoming move to Spain!), you can frame it as a "Public Interest Tech" project.
+
+📋 Project Launch Checklist: AU/NZ Focus
+1. Data Sanitization & Privacy
+[x] Scrub Personal Identifiers: Ensure your scraping pipeline removes jobPosterName, recruiter emails, and phone numbers from the descriptionText before saving to BigQuery.
+[x] Fact-Only Storage: Verify that the database only contains "Business Facts" (Job Title, Stack, Salary, Location).
+[x] Regulatory Alignment: Ensure data handling aligns with the NZ Privacy Act 2020 and the Australian Privacy Act 1988.
+
+2. Transparency & Mission Page (/about or /transparency)
+[x] Source Disclosure: Clearly state: "Data aggregated from public job listings (e.g., LinkedIn, Seek)."
+[x] Processing Ethics: Explain that personal recruiter/poster data is discarded immediately to protect individual privacy.
+[x] Live Financial Ledger: Add a simple table showing Monthly Hosting Costs vs. Revenue.
+[x] Community Reinvestment Plan: State clearly: "100% of future surplus will fund local GDG scholarships, community events, and LeetCode subscriptions for AU/NZ devs."
+
+3. The "Legal Four" Essential Files
+[x] Privacy Policy: Tailored to the NZ Privacy Act and Australian Privacy Principles (APP). Include a "Right to Removal" contact.
+[x] Terms & Conditions: Include a standard "As-Is" clause (you are a search utility, not a recruitment agency).
+[x] Robots.txt: A standard file to prevent other bots from scraping your aggregated data.
+[x] Contact Page: Provide a simple email or form to ensure you are reachable by the community.
+
+4. Branding & Portfolio Positioning
+[x] Public Interest Tech Framing: Frame the project as a personal contribution to the ANZ tech ecosystem.
+[x] Updated Footer:
+"Built with ❤️ by Nic Tolentino. This is an open-source, non-profit project dedicated to helping the NZ and AU engineering communities. All proceeds are reinvested into local developer scholarships and community events."

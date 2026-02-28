@@ -42,8 +42,19 @@ class JobDataMapper(private val parser: JobDataParser) {
                 val companyDescription: String?,
                 val companyWebsite: String?,
                 val companyEmployeesCount: Int?,
-                val companyIndustries: String?
+                val companyIndustries: String?,
+                val link: String?
         )
+
+        private val EMAIL_REGEX = Regex("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")
+        private val PHONE_REGEX =
+                Regex("(?:\\+?6[14][\\s-]?)?\\(?0?[\\d]{1,4}\\)?[\\s-]?[\\d]{3,4}[\\s-]?[\\d]{3,4}")
+
+        private fun sanitize(text: String?): String? {
+                if (text == null) return null
+                return text.replace(EMAIL_REGEX, "[REDACTED EMAIL]")
+                        .replace(PHONE_REGEX, "[REDACTED PHONE]")
+        }
 
         fun mapSyncData(apifyJobs: List<ApifyJobDto>): MappedSyncData {
                 val ingestedAt = Instant.now()
@@ -97,10 +108,12 @@ class JobDataMapper(private val parser: JobDataParser) {
                                                 rawSeniorityLevel = dto.seniorityLevel,
                                                 ingestedAt = ingestedAt,
                                                 companyLogoUrl = dto.companyLogo,
-                                                companyDescription = dto.companyDescription,
+                                                companyDescription =
+                                                        sanitize(dto.companyDescription),
                                                 companyWebsite = dto.companyWebsite,
                                                 companyEmployeesCount = dto.companyEmployeesCount,
-                                                companyIndustries = dto.industries
+                                                companyIndustries = dto.industries,
+                                                link = dto.link
                                         )
                                 )
                         } catch (e: Exception) {
@@ -183,9 +196,11 @@ class JobDataMapper(private val parser: JobDataParser) {
                                         .addAll(locations)
 
                                 // Description is from the first available entry
-                                val description = group.firstNotNullOfOrNull { it.description }
+                                val description =
+                                        sanitize(group.firstNotNullOfOrNull { it.description })
                                 val jobIds = group.map { it.jobId }
                                 val applyUrls = group.map { it.applyUrl }
+                                val links = group.map { it.link }
 
                                 val (city, stateRegion, country) =
                                         parser.parseLocation(first.rawLocation)
@@ -193,6 +208,7 @@ class JobDataMapper(private val parser: JobDataParser) {
                                 JobRecord(
                                         jobIds = jobIds,
                                         applyUrls = applyUrls,
+                                        links = links,
                                         locations = locations,
                                         companyId = first.companyId,
                                         companyName = first.companyName,

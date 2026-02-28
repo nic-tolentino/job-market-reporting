@@ -1,9 +1,11 @@
 package com.techmarket.api
 
+import com.techmarket.api.model.FeedbackDto
 import com.techmarket.api.model.FeedbackRequest
 import com.techmarket.persistence.analytics.AnalyticsRepository
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -21,5 +23,10 @@ class FeedbackController(private val analyticsRepository: AnalyticsRepository) {
             analyticsRepository.saveFeedback(request.context, request.message)
         }
         return ResponseEntity.accepted().build()
+    }
+
+    @GetMapping
+    fun getAllFeedback(): List<FeedbackDto> {
+        return analyticsRepository.getAllFeedback()
     }
 }

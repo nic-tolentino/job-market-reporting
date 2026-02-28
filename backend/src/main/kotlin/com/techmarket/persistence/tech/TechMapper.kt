@@ -49,6 +49,12 @@ object TechMapper {
                                                 row.get(JobFields.APPLY_URLS).repeatedValue.map {
                                                         if (it.isNull) null else it.stringValue
                                                 }
+                                val linkList =
+                                        if (row.get(JobFields.LINKS).isNull) emptyList<String?>()
+                                        else
+                                                row.get(JobFields.LINKS).repeatedValue.map {
+                                                        if (it.isNull) null else it.stringValue
+                                                }
                                 val techList =
                                         if (row.get(JobFields.TECHNOLOGIES).isNull)
                                                 emptyList<String>()
@@ -79,6 +85,7 @@ object TechMapper {
                                         locations = locList,
                                         jobIds = idList,
                                         applyUrls = applyList,
+                                        links = linkList,
                                         salaryMin =
                                                 if (row.get(JobFields.SALARY_MIN).isNull) null
                                                 else

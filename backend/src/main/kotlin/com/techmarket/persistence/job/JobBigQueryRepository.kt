@@ -49,6 +49,9 @@ class JobBigQueryRepository(
                                 Field.newBuilder(JobFields.APPLY_URLS, StandardSQLTypeName.STRING)
                                         .setMode(Field.Mode.REPEATED)
                                         .build(),
+                                Field.newBuilder(JobFields.LINKS, StandardSQLTypeName.STRING)
+                                        .setMode(Field.Mode.REPEATED)
+                                        .build(),
                                 Field.of(JobFields.SENIORITY_LEVEL, StandardSQLTypeName.STRING),
                                 Field.newBuilder(JobFields.TECHNOLOGIES, StandardSQLTypeName.STRING)
                                         .setMode(Field.Mode.REPEATED)
@@ -111,6 +114,7 @@ class JobBigQueryRepository(
                 return mapOf(
                         JobFields.JOB_IDS to this.jobIds,
                         JobFields.APPLY_URLS to this.applyUrls,
+                        JobFields.LINKS to this.links,
                         JobFields.LOCATIONS to this.locations,
                         JobFields.COMPANY_ID to this.companyId,
                         JobFields.COMPANY_NAME to this.companyName,
