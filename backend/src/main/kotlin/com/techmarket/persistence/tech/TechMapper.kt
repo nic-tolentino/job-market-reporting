@@ -5,10 +5,11 @@ import com.techmarket.api.model.JobRoleDto
 import com.techmarket.api.model.SeniorityDistributionDto
 import com.techmarket.api.model.TechDetailsPageDto
 import com.techmarket.persistence.JobFields
+import com.techmarket.util.TechFormatter
 
 object TechMapper {
         fun mapTechDetails(
-                formattedTechName: String,
+                techName: String,
                 senResult: com.google.cloud.bigquery.TableResult,
                 compResult: com.google.cloud.bigquery.TableResult,
                 rolesResult: com.google.cloud.bigquery.TableResult
@@ -60,7 +61,7 @@ object TechMapper {
                                                 emptyList<String>()
                                         else
                                                 row.get(JobFields.TECHNOLOGIES).repeatedValue.map {
-                                                        it.stringValue
+                                                        TechFormatter.format(it.stringValue)
                                                 }
 
                                 val city =
@@ -111,7 +112,7 @@ object TechMapper {
                 val totalJobs = seniorityDistribution.sumOf { it.value }
 
                 return TechDetailsPageDto(
-                        formattedTechName,
+                        techName = TechFormatter.format(techName),
                         totalJobs,
                         seniorityDistribution,
                         companies,

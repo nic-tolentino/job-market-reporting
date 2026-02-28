@@ -5,6 +5,7 @@ import com.techmarket.api.model.GlobalStatsDto
 import com.techmarket.api.model.LandingPageDto
 import com.techmarket.api.model.SearchSuggestionDto
 import com.techmarket.api.model.TechTrendAggregatedDto
+import com.techmarket.util.TechFormatter
 
 object AnalyticsMapper {
 
@@ -24,7 +25,7 @@ object AnalyticsMapper {
                 val topTechList =
                         techResult.values.map { row ->
                                 TechTrendAggregatedDto(
-                                        name = row.get("name").stringValue,
+                                        name = TechFormatter.format(row.get("name").stringValue),
                                         count = row.get("count").longValue.toInt(),
                                         percentageChange = 0.0
                                 )
@@ -45,7 +46,12 @@ object AnalyticsMapper {
 
                 return LandingPageDto(
                         globalStats =
-                                GlobalStatsDto(totalVacancies, remotePct, hybridPct, topTechName),
+                                GlobalStatsDto(
+                                        totalVacancies,
+                                        remotePct,
+                                        hybridPct,
+                                        TechFormatter.format(topTechName)
+                                ),
                         topTech = topTechList,
                         topCompanies = topCompaniesList
                 )

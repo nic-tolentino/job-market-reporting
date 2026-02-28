@@ -97,7 +97,7 @@ class JobDataMapperTest {
 
                 // Technologies should be unified across duplicates!
                 assertEquals(
-                        listOf("aws", "java", "kotlin", "spring", "spring boot").sorted(),
+                        listOf("AWS", "Java", "Kotlin", "Spring", "Spring Boot").sorted(),
                         seniorJob.technologies.sorted()
                 )
         }

@@ -199,8 +199,8 @@ class JobDataMapper(private val parser: JobDataParser) {
                                 val description =
                                         sanitize(group.firstNotNullOfOrNull { it.description })
                                 val jobIds = group.map { it.jobId }
-                                val applyUrls = group.map { it.applyUrl }
-                                val links = group.map { it.link }
+                                val applyUrls = group.map { it.applyUrl ?: "" }
+                                val links = group.map { it.link ?: "" }
 
                                 val (city, stateRegion, country) =
                                         parser.parseLocation(first.rawLocation)
@@ -225,7 +225,8 @@ class JobDataMapper(private val parser: JobDataParser) {
                                         salaryMin = group.firstNotNullOfOrNull { it.salaryMin },
                                         salaryMax = group.firstNotNullOfOrNull { it.salaryMax },
                                         postedDate = group.firstNotNullOfOrNull { it.postedDate },
-                                        benefits = group.firstNotNullOfOrNull { it.benefits },
+                                        benefits = group.firstNotNullOfOrNull { it.benefits }
+                                                        ?: emptyList(),
                                         employmentType =
                                                 group.firstNotNullOfOrNull { it.employmentType },
                                         workModel = group.firstNotNullOfOrNull { it.workModel }

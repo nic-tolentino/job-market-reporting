@@ -42,7 +42,7 @@ class JobDataParserTest {
     @Test
     fun `extractTechnologies finds matching keywords`() {
         val technologies = parser.extractTechnologies("We use Java, Spring Boot, and PostgreSQL.")
-        assertEquals(listOf("java", "postgresql", "spring", "spring boot").sorted(), technologies)
+        assertEquals(listOf("Java", "PostgreSQL", "Spring", "Spring Boot").sorted(), technologies)
 
         // Edge cases - partial words should not match
         val technologies2 = parser.extractTechnologies("Working with javascripted tools")

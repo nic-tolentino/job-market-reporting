@@ -7,8 +7,8 @@ data class JobRecord(
         // Parallel lists: each index corresponds to one location/posting for this deduplicated
         // role.
         val jobIds: List<String>, // original LinkedIn job IDs, one per location
-        val applyUrls: List<String?>, // apply URLs, one per location (null if unavailable)
-        val links: List<String?>, // source URLs, one per location (null if unavailable)
+        val applyUrls: List<String>, // apply URLs, one per location (empty if unavailable)
+        val links: List<String>, // source URLs, one per location (empty if unavailable)
         val locations: List<String>, // location strings, one per location
         // Shared across all locations (taken from first non-null value in the group)
         val companyId: String,
@@ -23,7 +23,7 @@ data class JobRecord(
         val salaryMin: Int?,
         val salaryMax: Int?,
         val postedDate: LocalDate?,
-        val benefits: List<String>?,
+        val benefits: List<String>,
         val employmentType: String?,
         val workModel: String?,
         val jobFunction: String?,

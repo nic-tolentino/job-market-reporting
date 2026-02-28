@@ -2,6 +2,7 @@ package com.techmarket.persistence.job
 
 import com.techmarket.api.model.JobRoleDto
 import com.techmarket.persistence.JobFields
+import com.techmarket.util.TechFormatter
 import kotlin.math.min
 
 object JobMapper {
@@ -37,7 +38,7 @@ object JobMapper {
                                 jobFunction =
                                         if (r.get(JobFields.JOB_FUNCTION).isNull) null
                                         else r.get(JobFields.JOB_FUNCTION).stringValue,
-                                technologies = techList,
+                                technologies = techList.map { TechFormatter.format(it) },
                                 benefits = benefitList
                         )
 
@@ -65,12 +66,19 @@ object JobMapper {
                                                 location = displayLoc,
                                                 jobId = idArr[i].stringValue,
                                                 applyUrl =
-                                                        if (i < applyArr.size && !applyArr[i].isNull
+                                                        if (i < applyArr.size &&
+                                                                        !applyArr[i].isNull &&
+                                                                        applyArr[i].stringValue
+                                                                                .isNotBlank()
                                                         )
                                                                 applyArr[i].stringValue
                                                         else null,
                                                 link =
-                                                        if (i < linkArr.size && !linkArr[i].isNull)
+                                                        if (i < linkArr.size &&
+                                                                        !linkArr[i].isNull &&
+                                                                        linkArr[i].stringValue
+                                                                                .isNotBlank()
+                                                        )
                                                                 linkArr[i].stringValue
                                                         else null
                                         )

@@ -347,5 +347,28 @@ export const getCompanyById = (id: string | undefined): CompanyLeaderboardDto =>
 
 export const formatTechName = (techId: string | undefined): string => {
     if (!techId) return 'Technology';
-    return techId.charAt(0).toUpperCase() + techId.slice(1);
+
+    const techMap: Record<string, string> = {
+        'aws': 'AWS',
+        'google cloud': 'GCP',
+        'gcp': 'GCP',
+        'azure': 'Azure',
+        'dotnet': '.NET',
+        '.net': '.NET',
+        'react': 'React',
+        'nodejs': 'Node.js',
+        'node.js': 'Node.js',
+        'typescript': 'TypeScript',
+        'javascript': 'JavaScript',
+        'kotlin': 'Kotlin',
+        'ios': 'iOS',
+        'android': 'Android',
+        'sql server': 'SQL Server',
+        'mysql': 'MySQL',
+        'postgresql': 'PostgreSQL',
+        'mongodb': 'MongoDB'
+    };
+
+    const lower = techId.toLowerCase();
+    return techMap[lower] || techId.charAt(0).toUpperCase() + techId.slice(1);
 };

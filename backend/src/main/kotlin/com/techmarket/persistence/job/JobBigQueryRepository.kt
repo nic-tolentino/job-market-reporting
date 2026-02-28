@@ -112,6 +112,7 @@ class JobBigQueryRepository(
 
         private fun JobRecord.toMap(): Map<String, Any?> {
                 return mapOf(
+                        JobFields.JOB_ID to (this.jobIds.firstOrNull() ?: ""),
                         JobFields.JOB_IDS to this.jobIds,
                         JobFields.APPLY_URLS to this.applyUrls,
                         JobFields.LINKS to this.links,

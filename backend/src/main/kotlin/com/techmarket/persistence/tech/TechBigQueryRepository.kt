@@ -21,7 +21,8 @@ class TechBigQueryRepository(
         private val companiesTableName = BigQueryTables.COMPANIES
 
         override fun getTechDetails(techName: String): TechDetailsPageDto {
-                val formattedTechName = techName.replaceFirstChar { it.uppercase() }
+                // val formattedTechName = TechFormatter.format(techName)
+                // We'll let the mapper handle formatting to keep it consistent
 
                 val senResult =
                         bigQuery.query(
@@ -64,11 +65,6 @@ class TechBigQueryRepository(
                                         .build()
                         )
 
-                return TechMapper.mapTechDetails(
-                        formattedTechName,
-                        senResult,
-                        compResult,
-                        rolesResult
-                )
+                return TechMapper.mapTechDetails(techName, senResult, compResult, rolesResult)
         }
 }

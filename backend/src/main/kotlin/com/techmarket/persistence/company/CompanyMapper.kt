@@ -6,6 +6,7 @@ import com.techmarket.api.model.CompanyProfilePageDto
 import com.techmarket.api.model.JobRoleDto
 import com.techmarket.persistence.CompanyFields
 import com.techmarket.persistence.JobFields
+import com.techmarket.util.TechFormatter
 
 object CompanyMapper {
         fun mapCompanyProfile(
@@ -46,7 +47,7 @@ object CompanyMapper {
                                                 emptyList<String>()
                                         else
                                                 r.get(JobFields.TECHNOLOGIES).repeatedValue.map {
-                                                        it.stringValue
+                                                        TechFormatter.format(it.stringValue)
                                                 }
                                 val city =
                                         if (r.get(JobFields.CITY).isNull) "Unknown"
@@ -119,6 +120,8 @@ object CompanyMapper {
                         else emptyList()
 
                 val aggRow = aggResult.values.firstOrNull()
+                val techStack =
+                        aggResult.values.map { TechFormatter.format(it.get("tech").stringValue) }
                 val topModel =
                         if (aggRow?.get("topModel")?.isNull == false)
                                 aggRow.get("topModel").stringValue
