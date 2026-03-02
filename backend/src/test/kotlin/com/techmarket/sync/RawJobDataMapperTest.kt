@@ -171,6 +171,19 @@ class RawJobDataMapperTest {
                         )
 
                 assertEquals(2, result.jobs.size)
+                assertEquals(1, result.companies.size)
+                val google = result.companies[0]
+
+                // CRITICAL: Ensure companyId consistency for BigQuery JOINs
+                assertTrue(
+                        result.jobs.all { it.companyId == google.companyId },
+                        "Job companyIds must match CompanyRecord companyId"
+                )
+                assertFalse(
+                        google.companyId.contains("company/"),
+                        "CompanyId should not have redundant 'company/' prefix"
+                )
+
                 assertTrue(result.jobs.any { it.jobId.contains("2023-01-01") })
                 assertTrue(result.jobs.any { it.jobId.contains("2023-01-30") })
         }

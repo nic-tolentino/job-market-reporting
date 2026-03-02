@@ -14,7 +14,7 @@ object CompanyQueries {
 
     fun getJobsSql(datasetName: String, jobsTableName: String) =
             """
-        SELECT ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.PLATFORM_LINKS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}, ${JobFields.BENEFITS}, ${JobFields.CITY}, ${JobFields.STATE_REGION}, ${JobFields.SENIORITY_LEVEL}
+        SELECT ${JobFields.JOB_ID}, ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.PLATFORM_LINKS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}, ${JobFields.BENEFITS}, ${JobFields.CITY}, ${JobFields.STATE_REGION}, ${JobFields.SENIORITY_LEVEL}
         FROM `$datasetName.$jobsTableName`
         WHERE ${JobFields.COMPANY_ID} = @companyId
         ORDER BY ${JobFields.POSTED_DATE} DESC

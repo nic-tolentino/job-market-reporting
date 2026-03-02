@@ -14,7 +14,7 @@ object JobQueries {
                c.${CompanyFields.HIRING_LOCATIONS} as comp_hiringLocations
         FROM `$datasetName.$jobsTableName` j
         JOIN `$datasetName.$companiesTableName` c ON j.${JobFields.COMPANY_ID} = c.${CompanyFields.COMPANY_ID}
-        WHERE @jobId IN UNNEST(j.${JobFields.JOB_IDS})
+        WHERE j.${JobFields.JOB_ID} = @jobId OR @jobId IN UNNEST(j.${JobFields.JOB_IDS})
         LIMIT 1
     """.trimIndent()
 

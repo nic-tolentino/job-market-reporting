@@ -83,7 +83,7 @@ object CompanyMapper {
                                                         if (it.isNull) null else it.stringValue
                                                 }
                                 JobRoleDto(
-                                        id = jobIdList.firstOrNull() ?: "",
+                                        id = r.get(JobFields.JOB_ID).stringValue,
                                         title = r.get(JobFields.TITLE).stringValue,
                                         companyId = companyId,
                                         companyName = name,

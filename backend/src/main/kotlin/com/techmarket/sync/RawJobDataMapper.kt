@@ -3,6 +3,7 @@ package com.techmarket.sync
 import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.sync.model.ApifyJobDto
+import com.techmarket.util.IdGenerator
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
@@ -67,10 +68,10 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
                 jobs: List<RawJob>
         ): Map<Triple<String, String, String>, List<RawJob>> {
                 return jobs.groupBy { (dto, _) ->
-                        val companySlug = tidyCompanyName(dto.companyName)
+                        val companyId = IdGenerator.buildCompanyId(dto.companyName)
                         val country = parser.determineCountry(dto.location).lowercase()
-                        val title = dto.title?.lowercase()?.trim() ?: "unknown"
-                        Triple(companySlug, country, title)
+                        val titleSlug = IdGenerator.slugify(dto.title ?: "unknown")
+                        Triple(companyId, country, titleSlug)
                 }
         }
 
@@ -160,7 +161,7 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
                                 jobRecords.add(jobRecord)
 
                                 // 2. Map or update company record
-                                val companySlug = tidyCompanyName(jobRecord.companyName)
+                                val companySlug = IdGenerator.buildCompanyId(jobRecord.companyName)
                                 if (!companyRecords.containsKey(companySlug)) {
                                         companyRecords[companySlug] =
                                                 parseCompanyMetadata(group, lastSeenAt)
@@ -195,7 +196,7 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
                 val first = group.first().dto
                 val title = first.title ?: "Unknown Title"
                 val companyName = first.companyName ?: "Unknown Company"
-                val companyId = "company/${tidyCompanyName(companyName)}"
+                val companyId = IdGenerator.buildCompanyId(companyName)
 
                 val platformJobIds = group.mapNotNull { it.dto.id }.distinct()
                 val applyUrls = group.mapNotNull { it.dto.applyUrl }.distinct()
@@ -239,8 +240,7 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
                                         .atZone(ZoneId.systemDefault())
                                         .toLocalDate()
                                         .toString()
-                val titleSlug = title.lowercase().replace(Regex("[^a-z0-9]+"), "-").trim('-')
-                val jobId = "job/$companyId/${country.lowercase()}/$titleSlug/$datePart"
+                val jobId = IdGenerator.buildJobId(companyId, country, title, datePart)
 
                 return JobRecord(
                         jobId = jobId,
@@ -286,8 +286,7 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
         private fun parseCompanyMetadata(group: List<RawJob>, lastSeenAt: Instant): CompanyRecord {
                 val first = group.first().dto
                 val companyName = first.companyName ?: "Unknown Company"
-                val companySlug = tidyCompanyName(companyName)
-                val companyId = "company/$companySlug"
+                val companyId = IdGenerator.buildCompanyId(companyName)
 
                 return CompanyRecord(
                         companyId = companyId,
@@ -320,13 +319,5 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
                 if (text == null) return null
                 return text.replace(EMAIL_REGEX, "[REDACTED EMAIL]")
                         .replace(PHONE_REGEX, "[REDACTED PHONE]")
-        }
-
-        private fun tidyCompanyName(name: String?): String {
-                return (name ?: "Unknown Company")
-                        .lowercase()
-                        .replace(Regex("[^a-z0-9]+"), "-")
-                        .trim('-')
-                        .ifBlank { "unknown" }
         }
 }
