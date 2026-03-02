@@ -3,6 +3,10 @@
         {
             "source": "/api/:path*",
             "destination": "https://tech-market-backend-181692518949.australia-southeast1.run.app/api/:path*"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
     ]
 }

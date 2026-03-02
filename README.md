@@ -129,6 +129,7 @@ Later:
 - The ability to group technologies by category, e.g. cloud, server, database, web, mobile, backend, etc in the landing, and company pages
 
 - Add a soft skills (leadership, communication, etc) and capabilities (agile, devops, etc) leaderboard, also show it on the job page
+- Add pages for high level domains: Web, Mobile, Backend, Full stack (?), security, SRE, etc.
 - Extend appropriate unit tests, both backend and frontend.
 
 - There are jobs from mid-2025 in the database. We should probably do something about them. Remove them???
@@ -149,6 +150,8 @@ Later:
 - Launch to the third party url where the data was obtained instead of the apply url.
 
 - Make it clear what the sources of jobs are, and how often the data is updated so people can make an informed decision on how to use this site.
+
+- Discover tech jobs, insights, and resources: we're here to help you succeed in your tech career 🚀📈❤️
 
 Images:
 - Manually search for logo urls for each of the technologies (and companies?). Host the images locally so they are more stable? Maybe use them as backups if the url isn't provided?
