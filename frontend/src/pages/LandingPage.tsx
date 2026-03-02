@@ -10,6 +10,7 @@ import CompanyLogo from '../components/common/CompanyLogo';
 import { Card, CardHeader } from '../components/ui/Card';
 import { H2 } from '../components/ui/Typography';
 import SimplePager from '../components/ui/SimplePager';
+import SearchBox from '../components/common/SearchBox';
 
 const COMPANIES_PAGE_SIZE = 5;
 const MAX_COMPANIES = 20;
@@ -68,13 +69,20 @@ export default function LandingPage() {
     return (
         <div className="space-y-10">
             {/* Hero Section */}
-            <section className="text-center py-8 md:py-12 relative px-4">
-                <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-                    Engineering Tech Market Insights
+            <section className="text-center py-12 md:py-20 relative px-4 flex flex-col items-center">
+                <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                    Tech Market Insights
                 </h1>
-                <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-                    Discover who's hiring, what tech they use, and how the market is trending.
+                <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-gray-600 leading-relaxed">
+                    Discover tech jobs, insights, and resources: we're here to help you succeed in your tech career 🚀📈❤️
                 </p>
+                <div className="mt-10 w-full max-w-2xl">
+                    <SearchBox
+                        className="shadow-2xl hover:shadow-blue-100 transition-shadow"
+                        inputClassName="py-4 md:py-5 pl-14 text-lg border-2 border-transparent focus:border-blue-500"
+                        placeholder="Search for your next role or technology..."
+                    />
+                </div>
             </section>
 
             {/* High-Level Stats Cards */}
