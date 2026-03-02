@@ -76,10 +76,10 @@ export default function LandingPage() {
                 <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-gray-600 leading-relaxed">
                     Discover tech jobs, insights, and resources: we're here to help you succeed in your tech career 🚀📈❤️
                 </p>
-                <div className="mt-10 w-full max-w-2xl">
+                <div className="mt-10 w-full max-w-2xl px-4 md:px-0">
                     <SearchBox
-                        className="shadow-2xl hover:shadow-blue-100 transition-shadow"
-                        inputClassName="py-4 md:py-5 pl-14 text-lg border-2 border-transparent focus:border-blue-500"
+                        className="shadow-2xl hover:shadow-blue-200/50 transition-all duration-300 transform hover:-translate-y-1"
+                        inputClassName="py-4 md:py-5 pl-14 text-lg"
                         placeholder="Search for your next role or technology..."
                     />
                 </div>
