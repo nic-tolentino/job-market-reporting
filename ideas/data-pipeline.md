@@ -33,52 +33,55 @@ graph LR
 | Transformer | `RawJobDataMapper.kt` | Filter → Group by Role → Group by Opening → Assemble |
 | Parser | `RawJobDataParser.kt` | Location, tech, seniority, salary extraction |
 | Merger | `SilverDataMerger.kt` | Merges new records with existing Silver data |
-| ID Generator | `IdGenerator.kt` | Centralized slug/ID generation (company & job IDs) |
+| ID Generator | `IdGenerator.kt` | Centralized slug/ID generation using `.` segment separators |
+| PII Sanitizer | `PiiSanitizer.kt` | Redacts emails & phone numbers from free-text fields |
 
-### Recent Refactoring (Completed)
+### Completed Refactoring
 - ✅ Centralized ID generation into `IdGenerator` utility
+- ✅ Switched to `.` segment separators: `{company}.{country}.{title}.{date}`
 - ✅ Flattened `companyId` (removed `company/` prefix)
 - ✅ Added dual-key job lookup (canonical slug + platform IDs)
 - ✅ Implemented `SilverDataMerger` for non-destructive data updates
 - ✅ Split mapping pipeline into testable stages (filter → group → assemble)
+- ✅ Extracted PII sanitization into reusable `PiiSanitizer` utility
+- ✅ Fixed stale `JobRecord.jobId` comment
 
 ---
 
 ## 2. Test Coverage
 
-| Test File | Tests | Covers | Gaps |
-|-----------|-------|--------|------|
-| `RawJobDataMapperTest` | 5 | Filter, grouping, lifecycle, assembly, full pipeline | No isolated `parseJobDetails` / `parseCompanyMetadata` tests |
-| `SilverDataMergerTest` | 2 | Job merge, company merge | No edge cases (null salary, identical timestamps) |
-| `JobDataSyncServiceTest` | 1 | Fetch-merge-delete-save cycle | No `reprocessHistoricalData` test |
-| `CompanyMapperTest` | 1 | Canonical job ID mapping | No empty / null field tests |
-| `AnalyticsMapperTest` | 1 | Landing page stats | Only stats, not tech or company mapping |
-| `JobQueriesTest` | 2 | Similar jobs SQL generation | Missing `getDetailsSql`, `getByIdsSql` tests |
-| `SqlSafetyTest` | 7 | SQL injection + backtick wrapping | ✅ Good coverage |
-| `TechFormatterTest` | — | Tech name formatting | — |
-| **`RawJobDataParserTest`** | **0** | — | **🔴 ZERO tests on the riskiest component** |
-| **`IdGeneratorTest`** | **0** | — | **🔴 ZERO tests on the single source of truth for IDs** |
+| Test File | Tests | Covers |
+|-----------|-------|--------|
+| `RawJobDataMapperTest` | 5 | Filter, grouping, lifecycle, assembly, full pipeline |
+| `RawJobDataParserTest` | 20 | All 6 parser functions (country, location, work model, seniority, tech, salary, date) |
+| `SilverDataMergerTest` | 2+ | Job merge, company merge |
+| `JobDataSyncServiceTest` | 3 | Fetch-merge-delete-save, reprocess, malformed Bronze handling |
+| `CompanyMapperTest` | 1 | Canonical job ID mapping |
+| `AnalyticsMapperTest` | 1 | Landing page stats |
+| `JobQueriesTest` | 2 | Similar jobs SQL generation |
+| `SqlSafetyTest` | 7 | SQL injection + backtick wrapping |
+| `TechFormatterTest` | — | Tech name formatting |
+| `IdGeneratorTest` | 8 | Company IDs, job IDs, slugify, edge cases |
+| `PiiSanitizerTest` | 7 | Email/phone redaction, null handling, clean text |
 
-**Total: 8 test files, ~20 test cases. Target: ~52 tests.**
+**Total: 11 test files, ~56+ test cases**
+
+### Remaining Test Expansion
+| Target | Items |
+|--------|-------|
+| `SilverDataMergerTest` | +4: null salary, identical timestamps, salary range merge, no-op merge |
+| `RawJobDataMapperTest` | +2: `parseJobDetails` / `parseCompanyMetadata` isolation |
+| `CompanyMapperTest` | +2: empty results, null company fields |
+| `JobDataSyncServiceTest` | +1: empty dataset abort |
 
 ---
 
 ## 3. Improvements & Roadmap
 
-### 🔴 Priority 1 — Critical Test Gaps
-
-| Item | Why It Matters |
-|------|---------------|
-| **`RawJobDataParserTest`** (~12 tests) | All heuristic parsing (location, seniority, tech). A regex change silently breaks data quality. |
-| **`IdGeneratorTest`** (~8 tests) | Single source of truth for all IDs. Must be bulletproof. |
-| **`reprocessHistoricalData` test** | Used for production schema migrations; failure = data loss. |
-
 ### 🟡 Priority 2 — Code Quality
 
 | Item | Detail |
 |------|--------|
-| Stale `JobRecord.jobId` comment | References old `job/{company}/...` format |
-| `sanitize()` should be `private` | Currently `fun` (public) but only used internally |
 | Non-transactional Delete-then-Insert | Crash between delete and save = data loss. Consider staging table swap. |
 | Incremental reprocessing | `reprocessHistoricalData` wipes Silver tables; add date-range filtering as data grows. |
 

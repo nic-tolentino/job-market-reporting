@@ -48,15 +48,15 @@ class IdGeneratorTest {
     // --- buildJobId ---
 
     @Test
-    fun `buildJobId produces hyphen-separated URL-safe ID`() {
+    fun `buildJobId produces dot-separated URL-safe ID`() {
         val result = IdGenerator.buildJobId("google", "AU", "Software Engineer", "2023-01-15")
-        assertEquals("google-au-software-engineer-2023-01-15", result)
+        assertEquals("google.au.software-engineer.2023-01-15", result)
     }
 
     @Test
     fun `buildJobId handles special characters in title`() {
         val result = IdGenerator.buildJobId("acme", "NZ", "Sr. Engineer (Backend)", "2023-06-01")
-        assertEquals("acme-nz-sr-engineer-backend-2023-06-01", result)
+        assertEquals("acme.nz.sr-engineer-backend.2023-06-01", result)
     }
 
     // --- slugify ---

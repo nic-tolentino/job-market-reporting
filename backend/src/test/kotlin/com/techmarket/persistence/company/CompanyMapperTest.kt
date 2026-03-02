@@ -67,7 +67,7 @@ class CompanyMapperTest {
         val jobRow = mockk<FieldValueList>()
 
         val canonIdVal = mockk<FieldValue>()
-        every { canonIdVal.stringValue } returns "asb-bank-nz-engineer-2023-01-01"
+        every { canonIdVal.stringValue } returns "asb-bank.nz.engineer.2023-01-01"
         every { jobRow.get(JobFields.JOB_ID) } returns canonIdVal
 
         val titleVal = mockk<FieldValue>()
@@ -132,8 +132,61 @@ class CompanyMapperTest {
         // Assertions
         assertEquals("Software Engineer", profile.activeRoles[0].title)
         // CRITICAL CHECK: ensure the canonical jobId slug is mapped, NOT the platform ID
-        assertEquals("asb-bank-nz-engineer-2023-01-01", profile.activeRoles[0].id)
+        assertEquals("asb-bank.nz.engineer.2023-01-01", profile.activeRoles[0].id)
         assertEquals("ASB Bank", profile.companyDetails.name)
         assertEquals("Remote", profile.insights.workModel)
+    }
+
+    @Test
+    fun `mapCompanyProfile handles empty results gracefully`() {
+        val emptyDet = mockk<TableResult>()
+        val emptyJobs = mockk<TableResult>()
+        val emptyAgg = mockk<TableResult>()
+
+        every { emptyDet.values } returns emptyList()
+        every { emptyJobs.values } returns emptyList()
+        every { emptyAgg.values } returns emptyList()
+
+        val profile = CompanyMapper.mapCompanyProfile("unknown", emptyDet, emptyJobs, emptyAgg)
+
+        assertEquals("Unknown Company", profile.companyDetails.name)
+        assertEquals(0, profile.activeRoles.size)
+    }
+
+    @Test
+    fun `mapCompanyProfile handles null optional fields in detail row`() {
+        val detResult = mockk<TableResult>()
+        val jobsResult = mockk<TableResult>()
+        val aggResult = mockk<TableResult>()
+
+        val detRow = mockk<FieldValueList>()
+
+        val nameVal = mockk<FieldValue>()
+        every { nameVal.stringValue } returns "Minimal Corp"
+        every { detRow.get(CompanyFields.NAME) } returns nameVal
+
+        // All optional fields are null
+        val nullField = mockk<FieldValue>()
+        every { nullField.isNull } returns true
+        every { detRow.get(CompanyFields.LOGO_URL) } returns nullField
+        every { detRow.get(CompanyFields.WEBSITE) } returns nullField
+        every { detRow.get(CompanyFields.EMPLOYEES_COUNT) } returns nullField
+        every { detRow.get(CompanyFields.INDUSTRIES) } returns nullField
+        every { detRow.get(CompanyFields.DESCRIPTION) } returns nullField
+        every { detRow.get(CompanyFields.TECHNOLOGIES) } returns nullField
+        every { detRow.get(CompanyFields.HIRING_LOCATIONS) } returns nullField
+
+        every { detResult.values } returns listOf(detRow)
+        every { jobsResult.values } returns emptyList()
+        every { aggResult.values } returns emptyList()
+
+        val profile =
+                CompanyMapper.mapCompanyProfile("minimal-corp", detResult, jobsResult, aggResult)
+
+        assertEquals("Minimal Corp", profile.companyDetails.name)
+        assertEquals("", profile.companyDetails.logo)
+        assertEquals("", profile.companyDetails.website)
+        assertEquals(0, profile.companyDetails.employeesCount)
+        assertEquals(0, profile.activeRoles.size)
     }
 }

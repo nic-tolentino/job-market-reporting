@@ -4,6 +4,7 @@ import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.sync.model.ApifyJobDto
 import com.techmarket.util.IdGenerator
+import com.techmarket.util.PiiSanitizer
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
@@ -34,10 +35,6 @@ data class RawJob(val dto: ApifyJobDto, val lastSeenAt: Instant)
 class RawJobDataMapper(private val parser: RawJobDataParser) {
 
         private val log = LoggerFactory.getLogger(RawJobDataMapper::class.java)
-
-        private val EMAIL_REGEX = Regex("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")
-        private val PHONE_REGEX =
-                Regex("(?:\\+?6[14][\\s-]?)?\\(?0?[\\d]{1,4}\\)?[\\s-]?[\\d]{3,4}[\\s-]?[\\d]{3,4}")
 
         /** Entry point for the mapping pipeline. */
         fun map(syncedJobs: List<RawJob>): MappedSyncData {
@@ -214,7 +211,7 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
                                 .sorted()
 
                 val description =
-                        sanitize(
+                        PiiSanitizer.sanitize(
                                 group.firstNotNullOfOrNull {
                                         it.dto.descriptionHtml?.ifBlank { null }
                                                 ?: it.dto.descriptionText
@@ -293,7 +290,7 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
                         name = companyName,
                         alternateNames = listOf(companyName),
                         logoUrl = first.companyLogo,
-                        description = sanitize(first.companyDescription),
+                        description = PiiSanitizer.sanitize(first.companyDescription),
                         website = first.companyWebsite,
                         employeesCount = first.companyEmployeesCount,
                         industries = first.industries,
@@ -313,11 +310,5 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
                                         .sorted(),
                         lastUpdatedAt = lastSeenAt
                 )
-        }
-
-        private fun sanitize(text: String?): String? {
-                if (text == null) return null
-                return text.replace(EMAIL_REGEX, "[REDACTED EMAIL]")
-                        .replace(PHONE_REGEX, "[REDACTED PHONE]")
         }
 }

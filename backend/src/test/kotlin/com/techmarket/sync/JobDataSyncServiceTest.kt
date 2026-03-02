@@ -81,6 +81,18 @@ class JobDataSyncServiceTest {
     }
 
     @Test
+    fun `runDataSync aborts gracefully when Apify returns empty dataset`() {
+        every { apifyClient.fetchRecentJobs("empty-ds") } returns emptyList()
+
+        service.runDataSync("empty-ds")
+
+        // Should not attempt any persistence
+        verify(exactly = 0) { ingestionRepository.saveRawIngestions(any()) }
+        verify(exactly = 0) { jobRepository.saveJobs(any()) }
+        verify(exactly = 0) { companyRepository.saveCompanies(any()) }
+    }
+
+    @Test
     fun `reprocessHistoricalData wipes Silver and re-inserts from Bronze`() {
         val syncTime = Instant.parse("2023-02-01T00:00:00Z")
         val apifyDto = createApifyDto("p1")
