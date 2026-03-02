@@ -5,12 +5,19 @@ import java.time.LocalDate
 import java.time.format.DateTimeParseException
 import org.springframework.stereotype.Component
 
+/**
+ * Contains core parsing logic to normalize messy, unstructured data from job postings into standard
+ * values.
+ */
 @Component
-class JobDataParser {
+class RawJobDataParser {
 
     private val techKeywords = TechFormatter.getAllOfficialNames()
 
-    // Map of known location substring -> Triple(City, State/Region, CountryCode)
+    /**
+     * Pre-defined mapping of common cities to their full (City, State, Country) tuples. This avoids
+     * brittle comma-splitting for well-known locations.
+     */
     private val knownLocations =
             mapOf(
                     // Australia
@@ -46,6 +53,7 @@ class JobDataParser {
                     "bilbao" to Triple("Bilbao", "Basque Country", "ES")
             )
 
+    /** Determines the ISO Country Code (AU, NZ, ES) from a location string. */
     fun determineCountry(location: String?): String {
         val (c, s, country) = parseLocation(location)
         if (country != "Unknown") return country
@@ -60,6 +68,10 @@ class JobDataParser {
         }
     }
 
+    /**
+     * Normalizes a raw location string (e.g. "Sydney, NSW, Australia") into a Triple of (City,
+     * State/Region, Country).
+     */
     fun parseLocation(location: String?): Triple<String, String, String> {
         if (location == null) return Triple("Unknown", "Unknown", "Unknown")
 
@@ -72,25 +84,18 @@ class JobDataParser {
             }
         }
 
-        // 2. Comma-Splitting Fallback
+        // 2. Comma-Splitting Fallback for less common locations
         val parts = location.split(",").map { it.trim() }
 
-        // TODO: Future enhancement - log when we fallback to comma splitting so we can build up the
-        // knownLocations map.
-
         return when (parts.size) {
-            0 ->
-                    Triple(
-                            "Unknown",
-                            "Unknown",
-                            "Unknown"
-                    ) // Should theoretically not happen with split
+            0 -> Triple("Unknown", "Unknown", "Unknown")
             1 -> Triple(parts[0], "Unknown", "Unknown")
-            2 -> Triple(parts[0], "Unknown", parts[1]) // Usually City, Country
-            else -> Triple(parts[0], parts[1], parts.last()) // Usually City, State, ..., Country
+            2 -> Triple(parts[0], "Unknown", parts[1])
+            else -> Triple(parts[0], parts[1], parts.last())
         }
     }
 
+    /** Detects "Remote", "Hybrid", or "On-site" based on location or title keywords. */
     fun extractWorkModel(location: String?, title: String?): String {
         val locLower = location?.lowercase() ?: ""
         val titleLower = title?.lowercase() ?: ""
@@ -102,6 +107,7 @@ class JobDataParser {
         }
     }
 
+    /** Heuristically determines seniority level from the job title. */
     fun extractSeniority(title: String, existingLevel: String?): String {
         val t = title.lowercase()
         return when {
@@ -113,16 +119,22 @@ class JobDataParser {
         }
     }
 
+    /**
+     * Scans the job description for 100+ known technology keywords. Uses word-boundary regex to
+     * prevent false positives (e.g. "Go" vs "Google").
+     */
     fun extractTechnologies(description: String): List<String> {
         val descLower = description.lowercase()
         return techKeywords
                 .filter { tech ->
                     val keyword = if (tech.startsWith(".")) tech else tech.lowercase()
+                    // Match the keyword as a whole word only
                     descLower.contains(Regex("\\b${Regex.escape(keyword)}\\b"))
                 }
                 .sorted()
     }
 
+    /** Extracts numerical digits from a salary string (e.g. "$120,000" -> 120000). */
     fun parseSalary(salaryStr: String?): Int? {
         if (salaryStr == null) return null
         return try {
@@ -133,6 +145,7 @@ class JobDataParser {
         }
     }
 
+    /** Parses ISO-8601 date strings. */
     fun parseDate(dateStr: String?): LocalDate? {
         if (dateStr == null) return null
         return try {

@@ -16,6 +16,10 @@ import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
 
+/**
+ * Implementation of [JobRepository] for Google BigQuery. Manages the Silver Layer 'jobs' table,
+ * including schema auto-creation and data streaming.
+ */
 @Repository
 class JobBigQueryRepository(
         private val bigQueryTemplate: BigQueryTemplate,
@@ -29,6 +33,11 @@ class JobBigQueryRepository(
         private val jobsTableName = BigQueryTables.JOBS
         private val companiesTableName = BigQueryTables.COMPANIES
 
+        /**
+         * Ensures the BigQuery table exists with the correct schema. This allows the application to
+         * automatically recover or 'self-heal' if the table is dropped (e.g., during a manual
+         * schema change).
+         */
         private fun ensureTable() {
                 val jobsSchema =
                         Schema.of(

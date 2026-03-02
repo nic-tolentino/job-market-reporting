@@ -119,27 +119,19 @@ Since historical job data does not change frequently (ingestion happens daily/we
 
 Now:
 
-- Improve the tech page layout - how can we show companies and jobs, and other insights, without resorting to giant lists? The main challenge is showing long lists of content. Perhaps a locally driven pager approach is suitable?
-- Update the current drop down filters in tech page for jobs to look similar to the country drop down in the navbar. Does it make sense to make this a standard component?
-
-Implement similar paging on the home screen, show 5 per page, but only load the top 20 companies? Maybe also only show a page size of 5 companies in the tech page?
-- Add the ability to see more than just the top 10 technologies and companies on landing screen
-
-- Find out if the Westpac iOS role is in the dataset
 
 Later:
 
 - Locations in company, tech, and job pages appear with city shown twice. Eg Auckland, Auckland. Countries are only shown once. Eg "New Zealand". Please check first whether this is a backend data or frontend display issue.
 
-- Add a location job filter to the company page?
-- Ability to filter companies by seniority in tech page. 
-
-- Technologies need to retain their capitalisation - e.g. AWS, .NET, Go, iOS, etc
+- Add a location job filter to the company page???
 
 - The ability to group technologies by category, e.g. cloud, server, database, web, mobile, backend, etc in the landing, and company pages
 
 - Add a soft skills (leadership, communication, etc) and capabilities (agile, devops, etc) leaderboard, also show it on the job page
 - Extend appropriate unit tests, both backend and frontend.
+
+- There are jobs from mid-2025 in the database. We should probably do something about them. Remove them???
 
 - How to handle when there's no apply to job link?
 - List trending jobs, companies, and technologies (most visited)
@@ -153,14 +145,14 @@ Later:
 - Tidy up titles, figure out how to handle 'Mid-Senior level', maybe multiple levels are allowed for each job?
 
 - Mobile design is still pretty meh in places especially rows of information like jobs, and page headers.
+- Mobile bug: refresh on company page results in 404 Not Found
 - Launch to the third party url where the data was obtained instead of the apply url.
+
+- Make it clear what the sources of jobs are, and how often the data is updated so people can make an informed decision on how to use this site.
 
 Images:
 - Manually search for logo urls for each of the technologies (and companies?). Host the images locally so they are more stable? Maybe use them as backups if the url isn't provided?
 - We should store the company images for when the companies stop advertising roles. Use them as backups if no updated url is available? Because companies may change their url over time
-
-Bugs?:
-- Wait, the landing page is now loading for an instant and then the whole page goes blank. Wait, now when I navigate to the landing page it loads fine, but if I navigate to a compage page the screen goes blank and navigating back doesn't fix the blank screen. Hmm, I wonder if it has to do with the backend taking too long or returning an error. I notice that upon loading a page, after a few seconds if I refresh. I'm struggling to reproduce the issue. Perhaps it has to do with the server cache and spinning up data?
 
 Major:
 - Add support for different countries
@@ -183,33 +175,4 @@ Funding ideas:
 - Make the related companies and related roles show sponsored companies and roles first, based on the browsing history of the user (look at the technologies they've visited). Perhaps these 'related' sections need to be separated into their own APIs.
 - Show sponsor companies at the top of the website???
 - Sponsored companies get badges and are listed at the top of lists?
-- 
-
-IMPORTANT:
-- Clean all data of personal information, including descriptions. 
-- Add a transparency page explaining where the data comes from, how it's processed, and how it's used. Also include a link to the privacy policy. Also include any costs and revenues and how excess money will be used.
-- Add an about, terms & condition, robots.txt, and contact page.
-- If you prefer to keep it under your name for your portfolio (especially important for your upcoming move to Spain!), you can frame it as a "Public Interest Tech" project.
-
-📋 Project Launch Checklist: AU/NZ Focus
-1. Data Sanitization & Privacy
-[x] Scrub Personal Identifiers: Ensure your scraping pipeline removes jobPosterName, recruiter emails, and phone numbers from the descriptionText before saving to BigQuery.
-[x] Fact-Only Storage: Verify that the database only contains "Business Facts" (Job Title, Stack, Salary, Location).
-[x] Regulatory Alignment: Ensure data handling aligns with the NZ Privacy Act 2020 and the Australian Privacy Act 1988.
-
-2. Transparency & Mission Page (/about or /transparency)
-[x] Source Disclosure: Clearly state: "Data aggregated from public job listings (e.g., LinkedIn, Seek)."
-[x] Processing Ethics: Explain that personal recruiter/poster data is discarded immediately to protect individual privacy.
-[x] Live Financial Ledger: Add a simple table showing Monthly Hosting Costs vs. Revenue.
-[x] Community Reinvestment Plan: State clearly: "100% of future surplus will fund local GDG scholarships, community events, and LeetCode subscriptions for AU/NZ devs."
-
-3. The "Legal Four" Essential Files
-[x] Privacy Policy: Tailored to the NZ Privacy Act and Australian Privacy Principles (APP). Include a "Right to Removal" contact.
-[x] Terms & Conditions: Include a standard "As-Is" clause (you are a search utility, not a recruitment agency).
-[x] Robots.txt: A standard file to prevent other bots from scraping your aggregated data.
-[x] Contact Page: Provide a simple email or form to ensure you are reachable by the community.
-
-4. Branding & Portfolio Positioning
-[x] Public Interest Tech Framing: Frame the project as a personal contribution to the ANZ tech ecosystem.
-[x] Updated Footer:
-"Built with ❤️ by Nic Tolentino. This is an open-source, non-profit project dedicated to helping the NZ and AU engineering communities. All proceeds are reinvested into local developer scholarships and community events."
+- donations

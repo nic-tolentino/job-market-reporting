@@ -15,6 +15,10 @@ import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
 
+/**
+ * Implementation of [IngestionRepository] for Google BigQuery. Manages the Bronze Layer
+ * 'raw_ingestions' table, which acts as the immutable source of truth.
+ */
 @Repository
 class IngestionBigQueryRepository(
         private val bigQueryTemplate: BigQueryTemplate,
