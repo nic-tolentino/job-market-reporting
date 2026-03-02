@@ -315,7 +315,7 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
                 )
         }
 
-        fun sanitize(text: String?): String? {
+        private fun sanitize(text: String?): String? {
                 if (text == null) return null
                 return text.replace(EMAIL_REGEX, "[REDACTED EMAIL]")
                         .replace(PHONE_REGEX, "[REDACTED PHONE]")

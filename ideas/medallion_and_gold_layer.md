@@ -1,50 +1,136 @@
-# Idea: Medallion Architecture Shift & Gold Layer monthly Trends
+# Data Pipeline — Architecture, Review & Roadmap
 
-This document outlines a proposal to restructure the data pipeline into a multi-layer Medallion architecture, enabling long-term historical analysis and high-performance monthly trends.
+This document captures the current state of the Tech Market data pipeline, recent refactoring work, test coverage analysis, and the future roadmap for Gold layer development.
 
-## 1. Architecture Overview
+---
+
+## 1. Architecture Overview (Medallion Pattern)
+
+```mermaid
+graph LR
+    A["Apify Scraper"] --> B["ApifyWebhookController"]
+    B --> C["JobDataSyncService"]
+    C --> D["Bronze Layer\n(raw_ingestions)"]
+    C --> E["RawJobDataMapper"]
+    E --> F["SilverDataMerger"]
+    F --> G["Silver Layer\n(raw_jobs, raw_companies)"]
+    G --> H["API Controllers"]
+    H --> I["Frontend"]
+    G -.-> J["Gold Layer\n(trends_*, market_stats)"]
+```
 
 | Layer | Table(s) | Source | Logic |
 | :--- | :--- | :--- | :--- |
-| **Bronze** | `raw_ingestions` | External | Immutable raw JSON. Permanent audit trail. |
-| **Silver** | `raw_jobs`, `raw_companies` | **Bronze** | Structured & cleansed. Holds detail-heavy data until aggregated. |
-| **Gold** | `trends_*`, `market_stats` | **Silver** | **Physical Tables.** Materialized monthly aggregates & company states. |
+| **Bronze** | `raw_ingestions` | External (Apify) | Immutable raw JSON. Permanent audit trail. |
+| **Silver** | `raw_jobs`, `raw_companies` | Bronze | Structured & cleansed. Merged with existing data on each sync. |
+| **Gold** *(planned)* | `trends_*`, `market_stats` | Silver | Materialized monthly aggregates & company states. |
 
-## 2. Key Improvements
+### Key Components
 
-### Enhanced Company Metadata
-- **`last_updated_at`**: Track when company info (logo, description) was last refreshed.
-- **Historical Extraction**: Extract metadata even from "stale" jobs to build 100% complete company profiles.
+| Component | File | Responsibility |
+|-----------|------|---------------|
+| Orchestrator | `JobDataSyncService.kt` | Coordinates fetch → ingest → map → merge → persist |
+| Transformer | `RawJobDataMapper.kt` | Filter → Group by Role → Group by Opening → Assemble |
+| Parser | `RawJobDataParser.kt` | Location, tech, seniority, salary extraction |
+| Merger | `SilverDataMerger.kt` | Merges new records with existing Silver data |
+| ID Generator | `IdGenerator.kt` | Centralized slug/ID generation (company & job IDs) |
 
-### Physical Gold Layer & Monthly Metrics
-Move from virtual queries to physical tables for performance and longer retention:
-- **`monthly_tech_trends`**: Jobs per technology aggregated by month.
-- **`monthly_company_trends`**: Job counts per company by month.
-- **`monthly_geo_trends`**: Jobs per Country/City by month.
-- **`tech_adoption_by_company`**: Track which companies use which tech, based on "active" roles (< 6 months).
+### Recent Refactoring (Completed)
+- ✅ Centralized ID generation into `IdGenerator` utility
+- ✅ Flattened `companyId` (removed `company/` prefix)
+- ✅ Added dual-key job lookup (canonical slug + platform IDs)
+- ✅ Implemented `SilverDataMerger` for non-destructive data updates
+- ✅ Split mapping pipeline into testable stages (filter → group → assemble)
 
-### Job Lifecycle Tracking
-- **`last_seen_at`**: Track how long a job posting remains active.
-- **Metric**: Calculate "Average Job Open Time" as a market health indicator.
+---
 
-## 3. Storage Efficiency (Pruning)
-- **Retention**: Prune roles from the **Silver** layer (e.g., older than 6 months) **only after** they have been aggregated into the **Gold** tables.
-- **Recovery**: Since **Bronze** is permanent, the Silver/Gold layers can always be reconstructed if logic changes.
+## 2. Test Coverage
 
-### Optimized Mapping Pipeline (3-Pass)
-To address processing overhead, the Silver mapping from Bronze will follow a tiered approach:
-- **Pass 1: Metadata Extraction**: Parse only what's needed for deduplication (ID, Company, Title, Seniority, PostedDate, Location). Resolve standardized geography (City, State, Country) upfront.
-- **Pass 2: Deduplication**: Group by Company and Normalized Title. Identify the most recent "Primary Record" for each role.
-- **Pass 3: Full Processing**: Execute "heavy" regex (Technology extraction, Salary parsing, Description sanitization) **ONLY** for the primary record of each unique role.
-- **Modularity**: Split the parsing of **Companies** and **Jobs** into separate, testable functions to keep the mapper clean and maintainable.
+| Test File | Tests | Covers | Gaps |
+|-----------|-------|--------|------|
+| `RawJobDataMapperTest` | 5 | Filter, grouping, lifecycle, assembly, full pipeline | No isolated `parseJobDetails` / `parseCompanyMetadata` tests |
+| `SilverDataMergerTest` | 2 | Job merge, company merge | No edge cases (null salary, identical timestamps) |
+| `JobDataSyncServiceTest` | 1 | Fetch-merge-delete-save cycle | No `reprocessHistoricalData` test |
+| `CompanyMapperTest` | 1 | Canonical job ID mapping | No empty / null field tests |
+| `AnalyticsMapperTest` | 1 | Landing page stats | Only stats, not tech or company mapping |
+| `JobQueriesTest` | 2 | Similar jobs SQL generation | Missing `getDetailsSql`, `getByIdsSql` tests |
+| `SqlSafetyTest` | 7 | SQL injection + backtick wrapping | ✅ Good coverage |
+| `TechFormatterTest` | — | Tech name formatting | — |
+| **`RawJobDataParserTest`** | **0** | — | **🔴 ZERO tests on the riskiest component** |
+| **`IdGeneratorTest`** | **0** | — | **🔴 ZERO tests on the single source of truth for IDs** |
+
+**Total: 8 test files, ~20 test cases. Target: ~52 tests.**
+
+---
+
+## 3. Improvements & Roadmap
+
+### 🔴 Priority 1 — Critical Test Gaps
+
+| Item | Why It Matters |
+|------|---------------|
+| **`RawJobDataParserTest`** (~12 tests) | All heuristic parsing (location, seniority, tech). A regex change silently breaks data quality. |
+| **`IdGeneratorTest`** (~8 tests) | Single source of truth for all IDs. Must be bulletproof. |
+| **`reprocessHistoricalData` test** | Used for production schema migrations; failure = data loss. |
+
+### 🟡 Priority 2 — Code Quality
+
+| Item | Detail |
+|------|--------|
+| Stale `JobRecord.jobId` comment | References old `job/{company}/...` format |
+| `sanitize()` should be `private` | Currently `fun` (public) but only used internally |
+| Non-transactional Delete-then-Insert | Crash between delete and save = data loss. Consider staging table swap. |
+| Incremental reprocessing | `reprocessHistoricalData` wipes Silver tables; add date-range filtering as data grows. |
+
+### 🟢 Priority 3 — Feature Enhancements
+
+#### A. Job Expiry / Staleness Detection
+- Add `status` field (`ACTIVE`, `LIKELY_CLOSED`, `EXPIRED`)
+- Scheduled task marks jobs `LIKELY_CLOSED` if `lastSeenAt` > 30 days
+- Frontend filters or visually differentiates stale listings
+
+#### B. Data Quality Monitoring
+- `/api/admin/health` endpoint returning: total jobs/companies, data quality score, last sync time, Bronze→Silver compression ratio
+
+#### C. Salary Normalization
+- Detect currency (NZD, AUD, EUR, USD)
+- Normalize to annual figures (detect "per hour", "per month")
+- Store currency alongside min/max
+
+#### D. Multi-Source Support
+- Add `source` discriminator to Bronze layer
+- Make `RawJobDataMapper` source-aware for different platform layouts
+
+#### E. Cross-Sync Deduplication
+- Current dedup is within a single sync batch by `(company, country, title)`
+- `SilverDataMerger` handles matching `jobId`s, but a fuzzy-match fallback would catch reopened roles with slightly different date parts
+
+---
+
+## 4. Gold Layer — Future Implementation
+
+### Physical Tables (Monthly Metrics)
+| Table | Content |
+|-------|---------|
+| `monthly_tech_trends` | Jobs per technology aggregated by month |
+| `monthly_company_trends` | Job counts per company by month |
+| `monthly_geo_trends` | Jobs per Country/City by month |
+| `tech_adoption_by_company` | Which companies use which tech, based on active roles (< 6 months) |
+
+### Job Lifecycle Metrics
+- **`last_seen_at`** *(already implemented)*: Tracks how long a posting remains active
+- **Metric**: "Average Job Open Time" as a market health indicator
+
+### Storage Efficiency (Pruning)
+- Prune roles from Silver layer (e.g., older than 6 months) **only after** aggregation into Gold tables
+- Bronze is permanent → Silver/Gold can always be reconstructed
 
 ### Standardization
-- **Seniority**: Map varied industry levels to a standard sealed set (e.g., `INTERN`, `JUNIOR`, `MID`, `SENIOR`, `LEAD`, `PRINCIPAL`, `EXECUTIVE`) for better cross-industry reporting.
+- Map seniority levels to a sealed set: `INTERN`, `JUNIOR`, `MID`, `SENIOR`, `LEAD`, `PRINCIPAL`, `EXECUTIVE`
 
-## 4. Implementation Steps (Tackle Later)
-1. Update BigQuery schemas to include `last_updated_at` (Company) and `last_seen_at` (Job).
-2. Update `RawJobDataParser.kt` with a standardized seniority mapping function.
-3. Refactor `RawJobDataMapper.kt` to move from a "parse-all" approach to the 3-pass optimized pipeline.
-4. Stop filtering 6-month-old jobs during the Bronze->Silver transition.
-5. Create `GoldDataSyncService` for monthly trend materialization.
-6. Add Silver layer pruning to the main sync pipeline.
+### Implementation Steps
+1. Create `GoldDataSyncService` for monthly trend materialization
+2. Build BigQuery schemas for Gold tables
+3. Add Silver layer pruning to the main sync pipeline
+4. Standardize seniority mapping in `RawJobDataParser`
+5. Add incremental reprocessing support (date-range filtering)

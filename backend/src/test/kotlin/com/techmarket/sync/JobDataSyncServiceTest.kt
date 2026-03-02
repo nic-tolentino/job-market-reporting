@@ -80,6 +80,74 @@ class JobDataSyncServiceTest {
         } // "Comp" is from createJobRecord default
     }
 
+    @Test
+    fun `reprocessHistoricalData wipes Silver and re-inserts from Bronze`() {
+        val syncTime = Instant.parse("2023-02-01T00:00:00Z")
+        val apifyDto = createApifyDto("p1")
+        val jsonPayload = objectMapper.writeValueAsString(apifyDto)
+
+        val bronzeRecord =
+                com.techmarket.persistence.model.RawIngestionRecord(
+                        id = "bronze-1",
+                        source = "LinkedIn-Apify",
+                        ingestedAt = syncTime,
+                        rawPayload = jsonPayload
+                )
+
+        // 1. Mock Bronze fetch
+        every { ingestionRepository.getRawIngestions() } returns listOf(bronzeRecord)
+
+        // 2. Mock Mapper (re-mapping from Bronze)
+        val mappedJob = createJobRecord("job1", lastSeenAt = syncTime)
+        val mappedCompany = createCompanyRecord("comp1", lastUpdatedAt = syncTime)
+        every { jobDataMapper.map(any()) } returns
+                MappedSyncData(jobs = listOf(mappedJob), companies = listOf(mappedCompany))
+
+        // Execute
+        service.reprocessHistoricalData()
+
+        // Verify: Silver tables wiped then re-populated
+        verify(exactly = 1) { jobRepository.deleteAllJobs() }
+        verify(exactly = 1) { companyRepository.deleteAllCompanies() }
+        verify(exactly = 1) { companyRepository.saveCompanies(any()) }
+        verify(exactly = 1) { jobRepository.saveJobs(any()) }
+    }
+
+    @Test
+    fun `reprocessHistoricalData skips malformed Bronze records gracefully`() {
+        val syncTime = Instant.parse("2023-02-01T00:00:00Z")
+        val validDto = createApifyDto("p1")
+        val validPayload = objectMapper.writeValueAsString(validDto)
+
+        val validRecord =
+                com.techmarket.persistence.model.RawIngestionRecord(
+                        id = "valid-1",
+                        source = "LinkedIn-Apify",
+                        ingestedAt = syncTime,
+                        rawPayload = validPayload
+                )
+        val malformedRecord =
+                com.techmarket.persistence.model.RawIngestionRecord(
+                        id = "bad-1",
+                        source = "LinkedIn-Apify",
+                        ingestedAt = syncTime,
+                        rawPayload = "THIS IS NOT JSON"
+                )
+
+        every { ingestionRepository.getRawIngestions() } returns
+                listOf(validRecord, malformedRecord)
+
+        val mappedJob = createJobRecord("job1", lastSeenAt = syncTime)
+        val mappedCompany = createCompanyRecord("comp1", lastUpdatedAt = syncTime)
+        every { jobDataMapper.map(any()) } returns
+                MappedSyncData(jobs = listOf(mappedJob), companies = listOf(mappedCompany))
+
+        // Should NOT throw — malformed records are skipped
+        service.reprocessHistoricalData()
+
+        verify(exactly = 1) { jobRepository.saveJobs(any()) }
+    }
+
     private fun createApifyDto(id: String) =
             ApifyJobDto(
                     id = id,

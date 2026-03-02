@@ -4,7 +4,7 @@ import java.time.Instant
 import java.time.LocalDate
 
 data class JobRecord(
-        val jobId: String, // Stable semantic ID: job/{company}/{country}/{title}/{date}
+        val jobId: String, // Stable semantic ID: {company}-{country}-{title}-{date}
         val platformJobIds: List<String>, // original source IDs (e.g. LinkedIn IDs)
         val applyUrls: List<String>,
         val platformLinks: List<String>,
