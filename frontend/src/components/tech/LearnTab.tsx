@@ -10,6 +10,10 @@ interface LearnTabProps {
 
 export const LearnTab = ({ techId, techName }: LearnTabProps) => {
     const resources = LEARN_RESOURCES[techId.toLowerCase()];
+    const isAndroid = techId.toLowerCase() === 'android';
+    const techImage = isAndroid
+        ? '/assets/android-feature.png'
+        : '/assets/ios-feature.png';
 
     if (!resources) {
         return (
@@ -24,13 +28,30 @@ export const LearnTab = ({ techId, techName }: LearnTabProps) => {
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in duration-500">
-            <ResourceCard icon={Youtube} title="YouTube Channels" items={resources.youtube} />
-            <ResourceCard icon={BookOpen} title="Courses" items={resources.courses} />
-            <ResourceCard icon={Radio} title="Podcasts" items={resources.podcasts} />
-            <ResourceCard icon={Globe} title="Websites & Blogs" items={resources.websites} />
-            <ResourceCard icon={Code} title="Open Source Projects" items={resources.projects} />
-            <ResourceCard icon={Users} title="People to Follow" items={resources.people} />
+        <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            {/* Featured Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <ResourceCard
+                    icon={BookOpen}
+                    title="Featured Courses"
+                    items={resources.courses}
+                    featured
+                    image={techImage}
+                />
+                <ResourceCard
+                    icon={Youtube}
+                    title="Top Channels"
+                    items={resources.youtube}
+                />
+            </div>
+
+            {/* Secondary Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <ResourceCard icon={Radio} title="Podcasts" items={resources.podcasts} />
+                <ResourceCard icon={Globe} title="Websites" items={resources.websites} />
+                <ResourceCard icon={Code} title="Projects" items={resources.projects} />
+                <ResourceCard icon={Users} title="People" items={resources.people} />
+            </div>
         </div>
     );
 };
