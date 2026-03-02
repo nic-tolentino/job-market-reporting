@@ -150,8 +150,8 @@ export default function TechDetailsPage() {
                         <H1>{data.techName}</H1>
                         <FeedbackButton variant="icon" context={`${data.techName} Page Overview`} />
                     </div>
-                    <p className="text-gray-600 mt-2 text-lg">
-                        Global market demand breakdown, hiring hotspots, and seniority requirements for {data.techName} experts.
+                    <p className="text-gray-600 mt-2 text-lg leading-relaxed max-w-2xl">
+                        Comprehensive market insights, curated learning paths, and local community connections to help you succeed as a {data.techName} professional.
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
                         <Badge variant="blue">

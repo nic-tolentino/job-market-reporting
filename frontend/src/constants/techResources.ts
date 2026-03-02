@@ -4,6 +4,7 @@ export interface Resource {
     description: string;
     previewImage?: string; // Optional thumbnail/preview image
     imageUrl?: string;     // Direct image link for the resource
+    location?: string;     // e.g. "Global", "Auckland", "Wellington", "Alexandra"
 }
 
 export interface TechResources {
@@ -25,54 +26,53 @@ export interface CommunityResources {
 export const LEARN_RESOURCES: Record<string, TechResources> = {
     android: {
         youtube: [
-            { title: "Android Developers", url: "https://www.youtube.com/@AndroidDevelopers", description: "Official Android developer channel (Global Insights)", previewImage: "https://www.gstatic.com/android/devsite/56d0d5d5a9d4e5d5/android/images/lockup_android_developers.png" },
-            { title: "Philipp Lackner", url: "https://www.youtube.com/@PhilippLackner", description: "Jetpack Compose & Architecture - NZ Developer Favorite", previewImage: "/assets/previews.png" }
+            { title: "Android Developers", url: "https://www.youtube.com/@AndroidDevelopers", description: "Official Android developer channel (Global Insights)", previewImage: "https://www.gstatic.com/android/devsite/56d0d5d5a9d4e5d5/android/images/lockup_android_developers.png", location: "Global" },
+            { title: "Philipp Lackner", url: "https://www.youtube.com/@PhilippLackner", description: "Jetpack Compose & Architecture expert.", previewImage: "/assets/previews.png", location: "Global" }
         ],
         courses: [
-            { title: "Android Basics with Compose", url: "https://developer.android.com/courses/android-basics-compose/course", description: "The definitive guide for modern Android", previewImage: "https://developer.android.com/static/images/courses/android-basics-compose/banner.png" },
-            { title: "Developing Android Apps with Kotlin", url: "https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012", description: "Deep dive into production-ready Kotlin apps", previewImage: "/assets/previews.png" }
+            { title: "Android Basics with Compose", url: "https://developer.android.com/courses/android-basics-compose/course", description: "The definitive guide for modern Android", previewImage: "https://developer.android.com/static/images/courses/android-basics-compose/banner.png", location: "Global" },
+            { title: "Developing Android Apps with Kotlin", url: "https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012", description: "Deep dive into production-ready Kotlin apps", previewImage: "/assets/previews.png", location: "Global" }
         ],
         podcasts: [
-            { title: "Android Faithful", url: "https://androidfaithful.com/", description: "Cutting-edge Android news and banter", previewImage: "/assets/previews.png" },
-            { title: "Fragmented", url: "https://fragmentedpodcast.com/", description: "Architecture and software engineering for Android" }
+            { title: "Android Faithful", url: "https://androidfaithful.com/", description: "Cutting-edge Android news and banter", previewImage: "/assets/previews.png", location: "Global" },
+            { title: "Fragmented", url: "https://fragmentedpodcast.com/", description: "Architecture and software engineering for Android", location: "Global" }
         ],
         websites: [
-            { title: "Android Weekly NZ", url: "https://androidweekly.net/", description: "Curated newsletter followed by many NZ devs", previewImage: "/assets/previews.png" },
-            { title: "Kotlin Documentation", url: "https://kotlinlang.org/docs/home.html", description: "The source of truth for the language", previewImage: "https://kotlinlang.org/assets/images/twitter-card.png" }
+            { title: "Android Weekly", url: "https://androidweekly.net/", description: "Curated newsletter followed by millions", previewImage: "/assets/previews.png", location: "Global" },
+            { title: "Kotlin Documentation", url: "https://kotlinlang.org/docs/home.html", description: "The source of truth for the language", previewImage: "https://kotlinlang.org/assets/images/twitter-card.png", location: "Global" }
         ],
         projects: [
-            { title: "Now in Android", url: "https://github.com/android/nowinandroid", description: "Best-practice sample for modern architectures", previewImage: "https://github.com/android/nowinandroid/raw/main/tools/screenshots/main.png" },
-            { title: "NZ COVID Pass Verifier", url: "https://github.com/minhealthnz/nzcp-android", description: "[NZ-WIDE] Critical open source infrastructure", previewImage: "/assets/previews.png" }
+            { title: "Now in Android", url: "https://github.com/android/nowinandroid", description: "Best-practice sample for modern architectures", previewImage: "https://github.com/android/nowinandroid/raw/main/tools/screenshots/main.png", location: "Global" }
         ],
         people: [
-            { title: "Yahia R. (Auckland)", url: "https://www.upwork.com/freelancers/~017c185e49f874c7e6", description: "Pioneer in NZ mobile engineering over 10 years", previewImage: "/assets/previews.png" },
-            { title: "Leviticus David H. (Te Anau)", url: "https://www.upwork.com/freelancers/~014d8b67f1b297c4f1", description: "Active open source contributor in the South Island", previewImage: "/assets/previews.png" }
+            { title: "Jake Wharton", url: "https://jakewharton.com/", description: "Android legend, creator of Timber and Butterknife.", previewImage: "https://avatars.githubusercontent.com/u/66577?v=4", location: "Global" },
+            { title: "Mark Murphy", url: "https://commonsware.com/", description: "Founder of CommonsWare and author of The Busy Coder's Guide.", previewImage: "https://commonsware.com/images/commonsware_logo.png", location: "Global" }
         ]
     },
     ios: {
         youtube: [
-            { title: "Swift Programming Tutorial", url: "https://www.youtube.com/@SwiftProgrammingTutorial", description: "Concise guides for Swift & SwiftUI" },
-            { title: "Sean Allen", url: "https://www.youtube.com/@seanallen", description: "Career tips & iOS interview prep", previewImage: "/assets/previews.png" }
+            { title: "Swift Programming Tutorial", url: "https://www.youtube.com/@SwiftProgrammingTutorial", description: "Concise guides for Swift & SwiftUI", location: "Global" },
+            { title: "Sean Allen", url: "https://www.youtube.com/@seanallen", description: "Career tips & iOS interview prep", previewImage: "/assets/previews.png", location: "Global" }
         ],
         courses: [
-            { title: "100 Days of SwiftUI", url: "https://www.hackingwithswift.com/100/swiftui", description: "Community-loved free course by Paul Hudson", previewImage: "https://www.hackingwithswift.com/img/100-days-of-swiftui.png" },
-            { title: "iOS & Swift - Bootcamp", url: "https://www.udemy.com/course/ios-13-app-development-bootcamp/", description: "The classic full-stack iOS curriculum", previewImage: "/assets/previews.png" }
+            { title: "100 Days of SwiftUI", url: "https://www.hackingwithswift.com/100/swiftui", description: "Community-loved free course by Paul Hudson", previewImage: "https://www.hackingwithswift.com/img/100-days-of-swiftui.png", location: "Global" },
+            { title: "iOS & Swift - Bootcamp", url: "https://www.udemy.com/course/ios-13-app-development-bootcamp/", description: "The classic full-stack iOS curriculum", previewImage: "/assets/previews.png", location: "Global" }
         ],
         podcasts: [
-            { title: "Swift over Coffee", url: "https://www.hackingwithswift.com/podcast", description: "Relaxed discussion for the Apple ecosystem", previewImage: "/assets/previews.png" },
-            { title: "Under the Radar", url: "https://www.relay.fm/undertheradar", description: "Independent app development and business" }
+            { title: "Swift over Coffee", url: "https://www.hackingwithswift.com/podcast", description: "Relaxed discussion for the Apple ecosystem", previewImage: "/assets/previews.png", location: "Global" },
+            { title: "Under the Radar", url: "https://www.relay.fm/undertheradar", description: "Independent app development and business", location: "Global" }
         ],
         websites: [
-            { title: "Swift.org", url: "https://www.swift.org/", description: "Official source of the Swift revolution", previewImage: "https://www.swift.org/favicon.ico" },
-            { title: "Hacking with Swift", url: "https://www.hackingwithswift.com/", description: "Massive library of tutorials and guides", previewImage: "/assets/previews.png" }
+            { title: "Swift.org", url: "https://www.swift.org/", description: "Official source of the Swift revolution", previewImage: "https://www.swift.org/favicon.ico", location: "Global" },
+            { title: "Hacking with Swift", url: "https://www.hackingwithswift.com/", description: "Massive library of tutorials and guides", previewImage: "/assets/previews.png", location: "Global" }
         ],
         projects: [
-            { title: "Wikipedia iOS", url: "https://github.com/wikimedia/wikipedia-ios", description: "High-quality reference for deep app features", previewImage: "https://github.com/wikimedia/wikipedia-ios/raw/main/Wikipedia/Images/AppIcon.png" },
-            { title: "Kickstarter iOS", url: "https://github.com/kickstarter/ios-oss", description: "Open source functional programming at scale", previewImage: "/assets/previews.png" }
+            { title: "Wikipedia iOS", url: "https://github.com/wikimedia/wikipedia-ios", description: "High-quality reference for deep app features", previewImage: "https://github.com/wikimedia/wikipedia-ios/raw/main/Wikipedia/Images/AppIcon.png", location: "Global" },
+            { title: "Kickstarter iOS", url: "https://github.com/kickstarter/ios-oss", description: "Open source functional programming at scale", previewImage: "/assets/previews.png", location: "Global" }
         ],
         people: [
-            { title: "Sam Jarman", url: "https://samjarman.co.nz/", description: "Leading mobile voice in the NZ community", previewImage: "/assets/previews.png" },
-            { title: "Kier Draven", url: "https://twitter.com/kierdraven", description: "The force behind Auckland's mobile meetups", previewImage: "/assets/previews.png" }
+            { title: "Paul Hudson", url: "https://www.hackingwithswift.com/", description: "The creator of Hacking with Swift.", previewImage: "https://www.hackingwithswift.com/img/paul.jpg", location: "Global" },
+            { title: "Sean Allen", url: "https://www.youtube.com/@seanallen", description: "Prolific iOS teacher and YouTuber.", previewImage: "/assets/previews.png", location: "Global" }
         ]
     }
 };
@@ -80,41 +80,46 @@ export const LEARN_RESOURCES: Record<string, TechResources> = {
 export const COMMUNITY_RESOURCES: Record<string, CommunityResources> = {
     android: {
         meetups: [
-            { title: "Auckland Android Community", url: "https://www.meetup.com/auckland-android-community/", description: "Regular technical talks and social networking (1100+ members)" },
-            { title: "GDG Wellington", url: "https://www.meetup.com/gdg-wellington/", description: "Google Developer Group covering Android, Cloud, and more" },
-            { title: "GDG Christchurch", url: "https://gdg.community.dev/gdg-christchurch/", description: "Google Developer Group in the South Island" }
+            { title: "Auckland Android Community", url: "https://www.meetup.com/android-meetup/", description: "Technical talks and social networking.", location: "Auckland" },
+            { title: "GDG Wellington", url: "https://www.meetup.com/gdg-wellington/", description: "Google Developer Group covering Android & Cloud.", location: "Wellington" },
+            { title: "GDG Auckland", url: "https://www.meetup.com/gdg-auckland/", description: "Monthly meetings for Google tech enthusiasts.", location: "Auckland" }
         ],
         events: [
-            { title: "Android Dev Summit", url: "https://developer.android.com/dev-summit", description: "Official annual technical event for Android developers" },
-            { title: "Google I/O Aotearoa (Extended)", url: "https://gdg.community.dev/", description: "Local 'Extended' events following Google's annual developer conference" }
+            { title: "DevFest Auckland", url: "https://devfest.gdgauckland.nz/", description: "The largest Google technology conference in NZ.", location: "Auckland" },
+            { title: "Google I/O Extended NZ", url: "https://gdg.community.dev/", description: "Local events following Google's annual conference.", location: "NZ-Wide" },
+            { title: "NZ Tech Rally", url: "https://nztechrally.tech/", description: "Community-driven software conference.", location: "Wellington" }
         ],
         localProjects: [
-            { title: "NZ COVID Pass Verifier", url: "https://github.com/minhealthnz/nzcp-android", description: "Open source verification tool for NZ COVID passes" },
-            { title: "Open Source Aotearoa NZ", url: "https://github.com/RichardLitt/open-source-aotearoa-nz", description: "Curated list of NZ-based open source projects" }
+            { title: "Enro", url: "https://github.com/isaac-udy/enro", description: "Powerful navigation library by Isaac Udy.", previewImage: "https://github.com/isaac-udy/enro/raw/main/docs/logo.png", location: "Wellington" },
+            { title: "NZ COVID Pass Verifier", url: "https://github.com/minhealthnz/nzcp-android", description: "Open source verification tool for NZ.", location: "NZ-Wide" },
+            { title: "Open Source NZ", url: "https://github.com/RichardLitt/open-source-aotearoa-nz", description: "List of NZ-based open source projects.", location: "NZ-Wide" }
         ],
         celebrities: [
-            { title: "Yahia R.", url: "https://www.upwork.com/freelancers/~017c185e49f874c7e6", description: "Prominent mobile engineer based in Auckland" },
-            { title: "Leviticus David H.", url: "https://www.upwork.com/freelancers/~014d8b67f1b297c4f1", description: "Active contributor from Te Anau" }
+            { title: "Julius Spencer", url: "https://www.linkedin.com/in/juliusspencer/", description: "Founder of GDG Auckland, Director at JSA.", location: "Auckland" },
+            { title: "Isaac Udy", url: "https://github.com/isaac-udy", description: "Android GDE, Platform Lead at ANZx.", previewImage: "https://avatars.githubusercontent.com/u/18519051?v=4", location: "Wellington" },
+            { title: "Sam Hindmarsh", url: "https://hndmr.sh/", description: "GDG Wellington Organizer, Senior Android Engineer.", previewImage: "https://avatars.githubusercontent.com/u/2135075?v=4", location: "Wellington" },
+            { title: "Dilum De Silva", url: "https://github.com/dilumdesilva", description: "GDG Auckland Organizer, Full-stack Engineer.", previewImage: "https://avatars.githubusercontent.com/u/23308182?v=4", location: "Auckland" },
+            { title: "Matt Ranocchiari", url: "https://www.linkedin.com/in/matthewranocchiari/", description: "GDG Auckland & Wellington Organizer.", location: "Auckland/Wellington" }
         ]
     },
     ios: {
         meetups: [
-            { title: "The Auckland iOS Meetup", url: "https://www.meetup.com/Auckland-iOS-Meetup/", description: "Monthly gatherings for iOS developers and designers" },
-            { title: "CocoaHeads Wellington", url: "https://www.meetup.com/Wellington-CocoaHeads/", description: "Long-running community for Apple platform developers" },
-            { title: "Auckland Mobile Developer Meetup", url: "https://www.meetup.com/auckland-mobile-developer-meetup/", description: "Cross-platform mobile community including iOS" }
+            { title: "The Auckland iOS Meetup", url: "https://www.meetup.com/Auckland-iOS-Meetup/", description: "Monthly gatherings for iOS devs.", location: "Auckland" },
+            { title: "CocoaHeads Auckland", url: "https://www.meetup.com/Auckland-CocoaHeads/", description: "Long-running community for Apple devs.", location: "Auckland" },
+            { title: "CocoaHeads Wellington", url: "https://www.meetup.com/Wellington-CocoaHeads/", description: "Wellington based Apple developer group.", location: "Wellington" }
         ],
         events: [
-            { title: "Dev Day Aotearoa", url: "https://devday.io/", description: "NZ's premier developer conference (Auckland-based, NZ-wide impact)" },
-            { title: "NZGDC", url: "https://nzgdc.com/", description: "NZ Game Developers Conference - includes mobile/iOS dev interest" },
-            { title: "NZ Tech Rally", url: "https://www.nztechrally.tech/", description: "Community-driven software conference in Wellington" }
+            { title: "Dev Day NZ", url: "https://devday.io/", description: "NZ's premier developer conference.", location: "Auckland" },
+            { title: "NZGDC", url: "https://nzgdc.com/", description: "NZ Game Developers Conference.", location: "NZ-Wide" }
         ],
         localProjects: [
-            { title: "Wikipedia iOS (Global/Local)", url: "https://github.com/wikimedia/wikipedia-ios", description: "Used by many NZ devs for reference" },
-            { title: "Open Source Aotearoa NZ", url: "https://github.com/RichardLitt/open-source-aotearoa-nz", description: "List of projects including mobile contributions" }
+            { title: "Open Source NZ", url: "https://github.com/RichardLitt/open-source-aotearoa-nz", description: "List of projects including mobile contributions.", location: "NZ-Wide" }
         ],
         celebrities: [
-            { title: "Sam Jarman", url: "https://samjarman.co.nz/", description: "Prolific iOS speaker and technical writer" },
-            { title: "Kier Draven", url: "https://twitter.com/kierdraven", description: "Organizer of Auckland Mobile Developer Meetup" }
+            { title: "Natalia Panferova", url: "https://nilcoalescing.com/", description: "SwiftUI expert, Co-founder of Nil Coalescing.", previewImage: "https://avatars.githubusercontent.com/u/15342922?v=4", location: "Alexandra" },
+            { title: "Dan Too", url: "https://twitter.com/daniel_too", description: "Organizer of Auckland iOS Meetup.", location: "Auckland" },
+            { title: "Stan Bykov", url: "https://www.linkedin.com/in/stanbykov/", description: "Organizer of CocoaHeads Auckland.", location: "Auckland" },
+            { title: "Mitchell Johnson", url: "https://www.linkedin.com/in/mjohnsonnz/", description: "Organizing CocoaHeads Auckland and lead at ANZ.", location: "Auckland" }
         ]
     }
 };

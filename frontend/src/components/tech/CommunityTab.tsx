@@ -3,6 +3,48 @@ import { H2 } from '../ui/Typography';
 import { Card } from '../ui/Card';
 import { ResourceCard } from './ResourceCard';
 import { COMMUNITY_RESOURCES } from '../../constants/techResources';
+import type { Resource } from '../../constants/techResources';
+import { useState } from 'react';
+
+const SpotlightCard = ({ person }: { person: Resource }) => {
+    const [imageError, setImageError] = useState(false);
+    const initials = person.title.split(' ').map(n => n[0]).join('').slice(0, 2);
+
+    return (
+        <Card className="p-4 hover:shadow-xl hover:-translate-y-1 transition-all group bg-white border-slate-100/60 ring-1 ring-black/5">
+            <div className="flex flex-col items-center text-center gap-3">
+                <div className="relative">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-400 rotate-3 group-hover:rotate-6 transition-transform flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-blue-200/50 overflow-hidden">
+                        {person.previewImage && !imageError ? (
+                            <img
+                                src={person.previewImage}
+                                alt=""
+                                className="w-full h-full object-cover -rotate-3 group-hover:-rotate-6 transition-transform scale-110"
+                                onError={() => setImageError(true)}
+                            />
+                        ) : (
+                            <span>{initials}</span>
+                        )}
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm">
+                        <div className="w-4 h-4 rounded-full bg-green-500 border-2 border-white"></div>
+                    </div>
+                </div>
+                <div className="w-full px-1">
+                    <h4 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-sm md:text-base truncate">
+                        <a href={person.url} target="_blank" rel="noopener noreferrer">{person.title}</a>
+                    </h4>
+                    <div className="flex flex-col gap-0.5 mt-1">
+                        <p className="text-[10px] uppercase font-bold tracking-wider text-slate-400 line-clamp-1">{person.description.split(',')[0] || 'NZ Developer'}</p>
+                        {person.location && (
+                            <p className="text-[9px] font-medium text-blue-500/70">{person.location}</p>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </Card>
+    );
+};
 
 interface CommunityTabProps {
     techId: string;
@@ -31,7 +73,7 @@ export const CommunityTab = ({ techId, techName }: CommunityTabProps) => {
                 <div className="lg:col-span-7 h-full">
                     <ResourceCard
                         icon={Calendar}
-                        title="Major Aotearoa Gatherings"
+                        title="Major Community Events"
                         items={resources.events}
                         featured
                         className="bg-slate-900 border-none relative overflow-hidden h-full"
@@ -49,30 +91,13 @@ export const CommunityTab = ({ techId, techName }: CommunityTabProps) => {
                     <div className="w-full border-t border-slate-100"></div>
                 </div>
                 <div className="relative flex justify-center">
-                    <span className="px-6 bg-slate-50 text-xl font-bold text-slate-800 tracking-tight">Kaitautoko Spotlight</span>
+                    <span className="px-6 bg-slate-50 text-xl font-bold text-slate-800 tracking-tight">Community Spotlight</span>
                 </div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-2">
                 {resources.celebrities.map((person, idx) => (
-                    <Card key={idx} className="p-4 hover:shadow-xl hover:-translate-y-1 transition-all group bg-white border-slate-100/60 ring-1 ring-black/5">
-                        <div className="flex flex-col items-center text-center gap-3">
-                            <div className="relative">
-                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-400 rotate-3 group-hover:rotate-6 transition-transform flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-blue-200/50">
-                                    {person.title.charAt(0)}
-                                </div>
-                                <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm">
-                                    <div className="w-4 h-4 rounded-full bg-green-500 border-2 border-white"></div>
-                                </div>
-                            </div>
-                            <div className="w-full">
-                                <h4 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-sm md:text-base truncate">
-                                    <a href={person.url} target="_blank" rel="noopener noreferrer">{person.title}</a>
-                                </h4>
-                                <p className="text-[10px] uppercase font-bold tracking-wider text-slate-400 mt-1">{person.description.split(',')[0] || 'NZ Developer'}</p>
-                            </div>
-                        </div>
-                    </Card>
+                    <SpotlightCard key={idx} person={person} />
                 ))}
             </div>
 
