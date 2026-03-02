@@ -35,6 +35,12 @@ class CompanyBigQueryRepository(
                         Schema.of(
                                 Field.of(CompanyFields.COMPANY_ID, StandardSQLTypeName.STRING),
                                 Field.of(CompanyFields.NAME, StandardSQLTypeName.STRING),
+                                Field.newBuilder(
+                                                CompanyFields.ALTERNATE_NAMES,
+                                                StandardSQLTypeName.STRING
+                                        )
+                                        .setMode(Field.Mode.REPEATED)
+                                        .build(),
                                 Field.of(CompanyFields.LOGO_URL, StandardSQLTypeName.STRING),
                                 Field.of(CompanyFields.DESCRIPTION, StandardSQLTypeName.STRING),
                                 Field.of(CompanyFields.WEBSITE, StandardSQLTypeName.STRING),
@@ -47,6 +53,10 @@ class CompanyBigQueryRepository(
                                         .setMode(Field.Mode.REPEATED)
                                         .build(),
                                 Field.of(CompanyFields.INGESTED_AT, StandardSQLTypeName.TIMESTAMP),
+                                Field.of(
+                                        CompanyFields.LAST_UPDATED_AT,
+                                        StandardSQLTypeName.TIMESTAMP
+                                ),
                                 Field.newBuilder(
                                                 CompanyFields.HIRING_LOCATIONS,
                                                 StandardSQLTypeName.STRING
@@ -94,6 +104,56 @@ class CompanyBigQueryRepository(
                 }
         }
 
+        override fun getAllCompanies(): List<CompanyRecord> {
+                ensureTable()
+                val sql = "SELECT * FROM `$datasetName.$companiesTableName`"
+                val result = bigQuery.query(QueryJobConfiguration.newBuilder(sql).build())
+                return result.iterateAll().map { row -> CompanyMapper.mapToCompanyRecord(row) }
+        }
+
+        override fun getCompaniesByIds(companyIds: List<String>): List<CompanyRecord> {
+                if (companyIds.isEmpty()) return emptyList()
+                ensureTable()
+                val sql =
+                        "SELECT * FROM `$datasetName.$companiesTableName` WHERE ${CompanyFields.COMPANY_ID} IN UNNEST(?)"
+                val queryConfig =
+                        QueryJobConfiguration.newBuilder(sql)
+                                .addPositionalParameter(
+                                        QueryParameterValue.array(
+                                                companyIds.toTypedArray(),
+                                                StandardSQLTypeName.STRING
+                                        )
+                                )
+                                .build()
+                val result = bigQuery.query(queryConfig)
+                return result.iterateAll().map { row -> CompanyMapper.mapToCompanyRecord(row) }
+        }
+
+        override fun deleteCompaniesByIds(companyIds: List<String>) {
+                if (companyIds.isEmpty()) return
+                ensureTable()
+                val sql =
+                        "DELETE FROM `$datasetName.$companiesTableName` WHERE ${CompanyFields.COMPANY_ID} IN UNNEST(?)"
+                val queryConfig =
+                        QueryJobConfiguration.newBuilder(sql)
+                                .addPositionalParameter(
+                                        QueryParameterValue.array(
+                                                companyIds.toTypedArray(),
+                                                StandardSQLTypeName.STRING
+                                        )
+                                )
+                                .build()
+                try {
+                        bigQuery.query(queryConfig)
+                        log.info(
+                                "GCP: Deleted ${companyIds.size} companies from $companiesTableName"
+                        )
+                } catch (e: Exception) {
+                        log.error("GCP: Failed to delete companies: ${e.message}", e)
+                        throw e
+                }
+        }
+
         override fun getCompanyProfile(companyId: String): CompanyProfilePageDto {
                 val detailsSql = CompanyQueries.getDetailsSql(datasetName, companiesTableName)
                 val jobsSql = CompanyQueries.getJobsSql(datasetName, jobsTableName)
@@ -134,6 +194,7 @@ class CompanyBigQueryRepository(
                 return mapOf(
                         CompanyFields.COMPANY_ID to this.companyId,
                         CompanyFields.NAME to this.name,
+                        CompanyFields.ALTERNATE_NAMES to this.alternateNames,
                         CompanyFields.LOGO_URL to this.logoUrl,
                         CompanyFields.DESCRIPTION to this.description,
                         CompanyFields.WEBSITE to this.website,
@@ -141,7 +202,8 @@ class CompanyBigQueryRepository(
                         CompanyFields.INDUSTRIES to this.industries,
                         CompanyFields.TECHNOLOGIES to this.technologies,
                         CompanyFields.HIRING_LOCATIONS to this.hiringLocations,
-                        CompanyFields.INGESTED_AT to this.ingestedAt.toString()
+                        CompanyFields.INGESTED_AT to this.lastUpdatedAt.toString(),
+                        CompanyFields.LAST_UPDATED_AT to this.lastUpdatedAt.toString()
                 )
         }
 

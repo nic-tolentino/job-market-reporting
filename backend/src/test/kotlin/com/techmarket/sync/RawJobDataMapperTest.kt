@@ -12,87 +12,167 @@ class RawJobDataMapperTest {
 
         private val parser = mockk<RawJobDataParser>()
         private val mapper = RawJobDataMapper(parser)
+        private val now = Instant.now()
 
         @Test
-        fun `map groups by company and title and aggregates metadata`() {
-                val now = Instant.now()
+        fun `filterValidJobs removes null or blank platform IDs`() {
+                val valid = createApifyDto("valid", "2023-01-01")
+                val nullId = createApifyDto(null, "2023-01-01")
+                val blankId = createApifyDto(" ", "2023-01-01")
 
-                // Two postings for the same role in different locations
-                val dto1 = createApifyDto("id1", "2023-01-01").copy(location = "Sydney")
-                val dto2 = createApifyDto("id2", "2023-01-01").copy(location = "Melbourne")
+                val result =
+                        mapper.filterValidJobs(
+                                listOf(
+                                        RawJob(valid, now),
+                                        RawJob(nullId, now),
+                                        RawJob(blankId, now)
+                                )
+                        )
 
-                // A different role at the same company
-                val dto3 =
-                        createApifyDto("id3", "2023-01-01")
-                                .copy(title = "Manager", location = "Brisbane")
+                assertEquals(1, result.size)
+                assertEquals("valid", result[0].dto.id)
+        }
 
-                // MockK: Define general any() first, then specific overrides
-                every { parser.parseLocation(any()) } returns
-                        Triple("DefaultCity", "DefaultState", "DefaultCountry")
+        @Test
+        fun `groupByLogicalRole separates by company country and title`() {
+                val role1 =
+                        createApifyDto("1", "2023-01-01")
+                                .copy(
+                                        companyName = "Google",
+                                        location = "Sydney",
+                                        title = "Engineer"
+                                )
+                val role1Twin =
+                        createApifyDto("2", "2023-01-01")
+                                .copy(
+                                        companyName = "Google",
+                                        location = "Melbourne",
+                                        title = "Engineer"
+                                )
+                val role2 =
+                        createApifyDto("3", "2023-01-01")
+                                .copy(
+                                        companyName = "Atlassian",
+                                        location = "Sydney",
+                                        title = "Engineer"
+                                )
+
+                every { parser.determineCountry("Sydney") } returns "AU"
+                every { parser.determineCountry("Melbourne") } returns "AU"
+
+                val result =
+                        mapper.groupByLogicalRole(
+                                listOf(
+                                        RawJob(role1, now),
+                                        RawJob(role1Twin, now),
+                                        RawJob(role2, now)
+                                )
+                        )
+
+                assertEquals(2, result.size)
+                assertEquals(2, result[Triple("google", "au", "engineer")]?.size)
+        }
+
+        @Test
+        fun `groupByOpening handles lifecycle duration and 14-day buffer`() {
+                // Mock sync time to fixed date: 2023-03-02
+                val syncTime = Instant.parse("2023-03-02T00:00:00Z")
+
+                // Group A:
+                val job1OldStart = createApifyDto("1", "2023-01-01")
+                val job2Middle = createApifyDto("2", "2023-02-01")
+                val job3Boundary =
+                        createApifyDto("3", "2023-03-16") // EXACTLY 14 days after March 2
+
+                // Group B:
+                val job4NewOpening =
+                        createApifyDto("4", "2023-03-17") // 15 days after March 2 -> new opening
+
+                every { parser.parseDate(any()) } returns LocalDate.MIN
+                every { parser.parseDate("2023-01-01") } returns LocalDate.parse("2023-01-01")
+                every { parser.parseDate("2023-02-01") } returns LocalDate.parse("2023-02-01")
+                every { parser.parseDate("2023-03-16") } returns LocalDate.parse("2023-03-16")
+                every { parser.parseDate("2023-03-17") } returns LocalDate.parse("2023-03-17")
+
+                val result =
+                        mapper.groupByOpening(
+                                listOf(
+                                        RawJob(job1OldStart, syncTime),
+                                        RawJob(job2Middle, syncTime),
+                                        RawJob(job3Boundary, syncTime),
+                                        RawJob(job4NewOpening, syncTime)
+                                )
+                        )
+
+                assertEquals(2, result.size)
+                assertEquals(3, result[0].size) // 1, 2, 3 joined by duration and then buffer
+                assertEquals(1, result[1].size) // 4 is too far (15 days)
+        }
+
+        @Test
+        fun `assembleMappedData aggregates company locations and tech`() {
+                val job1 =
+                        createApifyDto("1", "2023-01-01")
+                                .copy(companyName = "Google", location = "Sydney")
+                val job2 =
+                        createApifyDto("2", "2023-01-01")
+                                .copy(companyName = "Google", location = "Melbourne")
+
                 every { parser.parseLocation("Sydney") } returns Triple("Sydney", "NSW", "AU")
                 every { parser.parseLocation("Melbourne") } returns Triple("Melbourne", "VIC", "AU")
-                every { parser.parseLocation("Brisbane") } returns Triple("Brisbane", "QLD", "AU")
+                every { parser.determineCountry(any()) } returns "AU"
+                every { parser.extractTechnologies(any()) } returns listOf("Kotlin", "Java")
+                every { parser.extractSeniority(any(), any()) } returns "Senior"
+                every { parser.parseDate(any()) } returns LocalDate.parse("2023-01-01")
+                every { parser.parseSalary(any()) } returns null
+                every { parser.extractWorkModel(any(), any()) } returns "Remote"
 
+                val result =
+                        mapper.assembleMappedData(
+                                listOf(listOf(RawJob(job1, now), RawJob(job2, now)))
+                        )
+
+                assertEquals(1, result.companies.size)
+                val google = result.companies[0]
+                assertEquals(
+                        listOf("Melbourne, VIC", "Sydney, NSW"),
+                        google.hiringLocations.sorted()
+                )
+                assertEquals(listOf("Java", "Kotlin"), google.technologies.sorted())
+        }
+
+        @Test
+        fun `map pipeline handles the full lifecycle flow correctly`() {
+                val syncTime = Instant.parse("2023-01-10T00:00:00Z")
+                val dto1 = createApifyDto("id1", "2023-01-01").copy(location = "Sydney")
+                val dto2 = createApifyDto("id2", "2023-01-05").copy(location = "Melbourne")
+                val dto3 = createApifyDto("id3", "2023-01-30") // 20 days later -> new
+
+                every { parser.parseLocation(any()) } returns
+                        Triple("DefaultCity", "DefaultState", "AU")
                 every { parser.determineCountry(any()) } returns "AU"
                 every { parser.extractSeniority(any(), any()) } returns "Senior"
                 every { parser.extractTechnologies(any()) } returns listOf("Kotlin")
                 every { parser.extractWorkModel(any(), any()) } returns "Remote"
                 every { parser.parseSalary(any()) } returns null
+
                 every { parser.parseDate(any()) } returns LocalDate.parse("2023-01-01")
+                every { parser.parseDate("2023-01-01") } returns LocalDate.parse("2023-01-01")
+                every { parser.parseDate("2023-01-05") } returns LocalDate.parse("2023-01-05")
+                every { parser.parseDate("2023-01-30") } returns LocalDate.parse("2023-01-30")
 
-                val syncedJobs = listOf(RawJob(dto1, now), RawJob(dto2, now), RawJob(dto3, now))
-
-                val result = mapper.map(syncedJobs)
-
-                // Should result in 2 unique roles (Engineer and Manager)
-                assertEquals(2, result.jobs.size)
-
-                val engineerJob = result.jobs.find { it.title == "Title" }!!
-                assertEquals(listOf("id1", "id2"), engineerJob.jobIds.sorted())
-                assertEquals(
-                        listOf("Melbourne, VIC", "Sydney, NSW"),
-                        engineerJob.locations.sorted()
-                )
-
-                val managerJob = result.jobs.find { it.title == "Manager" }!!
-                assertEquals(listOf("id3"), managerJob.jobIds)
-                assertEquals(listOf("Brisbane, QLD"), managerJob.locations.sorted())
-
-                // Company should aggregate all locations and techs from its roles
-                assertEquals(1, result.companies.size)
-                val company = result.companies[0]
-                assertEquals(
-                        listOf("Brisbane, QLD", "Melbourne, VIC", "Sydney, NSW"),
-                        company.hiringLocations.sorted()
-                )
-        }
-
-        @Test
-        fun `map filters out jobs with null or blank IDs`() {
-                val now = Instant.now()
-                val validDto = createApifyDto("valid-id", "2023-01-01")
-                val nullIdDto = createApifyDto("id-ignored", "2023-01-01").copy(id = null)
-                val blankIdDto = createApifyDto("id-ignored", "2023-01-01").copy(id = "  ")
-
-                every { parser.parseLocation(any()) } returns Triple("Unknown", "Unknown", "AU")
-                every { parser.determineCountry(any()) } returns "AU"
-                every { parser.extractSeniority(any(), any()) } returns "Senior"
-                every { parser.extractTechnologies(any()) } returns emptyList()
-                every { parser.extractWorkModel(any(), any()) } returns "Remote"
-                every { parser.parseSalary(any()) } returns null
-                every { parser.parseDate(any()) } returns null
-
-                val syncedJobs =
-                        listOf(
-                                RawJob(validDto, now),
-                                RawJob(nullIdDto, now),
-                                RawJob(blankIdDto, now)
+                val result =
+                        mapper.map(
+                                listOf(
+                                        RawJob(dto1, syncTime),
+                                        RawJob(dto2, syncTime),
+                                        RawJob(dto3, syncTime)
+                                )
                         )
 
-                val result = mapper.map(syncedJobs)
-
-                assertEquals(1, result.jobs.size)
-                assertEquals("valid-id", result.jobs[0].jobIds[0])
+                assertEquals(2, result.jobs.size)
+                assertTrue(result.jobs.any { it.jobId.contains("2023-01-01") })
+                assertTrue(result.jobs.any { it.jobId.contains("2023-01-30") })
         }
 
         private fun createApifyDto(id: String?, postedAt: String): ApifyJobDto {

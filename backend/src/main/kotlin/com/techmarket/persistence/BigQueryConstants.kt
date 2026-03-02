@@ -10,13 +10,14 @@ object BigQueryTables {
 
 object JobFields {
     const val JOB_ID = "jobId"
+    const val JOB_IDS = "jobIds"
+    const val PLATFORM_JOB_IDS = JOB_IDS
     const val COMPANY_ID = "companyId"
     const val COMPANY_NAME = "companyName"
     const val SOURCE = "source"
     const val COUNTRY = "country"
     const val TITLE = "title"
     const val LOCATIONS = "locations"
-    const val JOB_IDS = "jobIds"
     const val APPLY_URLS = "applyUrls"
     const val SENIORITY_LEVEL = "seniorityLevel"
     const val TECHNOLOGIES = "technologies"
@@ -31,12 +32,14 @@ object JobFields {
     const val CITY = "city"
     const val STATE_REGION = "stateRegion"
     const val INGESTED_AT = "ingestedAt"
-    const val LINKS = "links"
+    const val LAST_SEEN_AT = "lastSeenAt"
+    const val PLATFORM_LINKS = "platformLinks"
 }
 
 object CompanyFields {
     const val COMPANY_ID = "companyId"
     const val NAME = "name"
+    const val ALTERNATE_NAMES = "alternateNames"
     const val LOGO_URL = "logoUrl"
     const val DESCRIPTION = "description"
     const val WEBSITE = "website"
@@ -45,6 +48,7 @@ object CompanyFields {
     const val TECHNOLOGIES = "technologies"
     const val HIRING_LOCATIONS = "hiringLocations"
     const val INGESTED_AT = "ingestedAt"
+    const val LAST_UPDATED_AT = "lastUpdatedAt"
 }
 
 object IngestionFields {

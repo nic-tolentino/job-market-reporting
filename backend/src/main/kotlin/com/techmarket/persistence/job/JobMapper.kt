@@ -2,7 +2,10 @@ package com.techmarket.persistence.job
 
 import com.techmarket.api.model.JobRoleDto
 import com.techmarket.persistence.JobFields
+import com.techmarket.persistence.model.JobRecord
 import com.techmarket.util.TechFormatter
+import java.time.Instant
+import java.time.LocalDate
 import kotlin.math.min
 
 object JobMapper {
@@ -50,8 +53,8 @@ object JobMapper {
                                 if (r.get(JobFields.APPLY_URLS).isNull) emptyList()
                                 else r.get(JobFields.APPLY_URLS).repeatedValue
                         val linkArr =
-                                if (r.get(JobFields.LINKS).isNull) emptyList()
-                                else r.get(JobFields.LINKS).repeatedValue
+                                if (r.get(JobFields.PLATFORM_LINKS).isNull) emptyList()
+                                else r.get(JobFields.PLATFORM_LINKS).repeatedValue
 
                         for (i in 0 until min(locArr.size, idArr.size)) {
                                 val rawLoc = locArr[i].stringValue
@@ -149,11 +152,15 @@ object JobMapper {
                                                         if (it.isNull) null else it.stringValue
                                                 }
                                 val simLinkList =
-                                        if (sim.get(JobFields.LINKS).isNull) emptyList<String?>()
+                                        if (sim.get(JobFields.PLATFORM_LINKS).isNull)
+                                                emptyList<String?>()
                                         else
-                                                sim.get(JobFields.LINKS).repeatedValue.map {
-                                                        if (it.isNull) null else it.stringValue
-                                                }
+                                                sim.get(JobFields.PLATFORM_LINKS)
+                                                        .repeatedValue
+                                                        .map {
+                                                                if (it.isNull) null
+                                                                else it.stringValue
+                                                        }
 
                                 JobRoleDto(
                                         id = simIdList.firstOrNull() ?: "",
@@ -165,7 +172,7 @@ object JobMapper {
                                         locations = simLocList,
                                         jobIds = simIdList,
                                         applyUrls = simApplyList,
-                                        links = simLinkList,
+                                        platformLinks = simLinkList,
                                         salaryMin =
                                                 if (sim.get(JobFields.SALARY_MIN).isNull) null
                                                 else
@@ -192,6 +199,75 @@ object JobMapper {
                         locations = locations,
                         company = company,
                         similarRoles = similarRoles
+                )
+        }
+
+        fun mapToJobRecord(r: com.google.cloud.bigquery.FieldValueList): JobRecord {
+                return JobRecord(
+                        jobId = r.get(JobFields.JOB_ID).stringValue,
+                        platformJobIds =
+                                if (r.get(JobFields.PLATFORM_JOB_IDS).isNull) emptyList()
+                                else
+                                        r.get(JobFields.PLATFORM_JOB_IDS).repeatedValue.map {
+                                                it.stringValue
+                                        },
+                        applyUrls =
+                                if (r.get(JobFields.APPLY_URLS).isNull) emptyList()
+                                else
+                                        r.get(JobFields.APPLY_URLS).repeatedValue.map {
+                                                it.stringValue
+                                        },
+                        platformLinks =
+                                if (r.get(JobFields.PLATFORM_LINKS).isNull) emptyList()
+                                else
+                                        r.get(JobFields.PLATFORM_LINKS).repeatedValue.map {
+                                                it.stringValue
+                                        },
+                        locations =
+                                if (r.get(JobFields.LOCATIONS).isNull) emptyList()
+                                else
+                                        r.get(JobFields.LOCATIONS).repeatedValue.map {
+                                                it.stringValue
+                                        },
+                        companyId = r.get(JobFields.COMPANY_ID).stringValue,
+                        companyName = r.get(JobFields.COMPANY_NAME).stringValue,
+                        source = r.get(JobFields.SOURCE).stringValue,
+                        country = r.get(JobFields.COUNTRY).stringValue,
+                        city = r.get(JobFields.CITY).stringValue,
+                        stateRegion = r.get(JobFields.STATE_REGION).stringValue,
+                        title = r.get(JobFields.TITLE).stringValue,
+                        seniorityLevel = r.get(JobFields.SENIORITY_LEVEL).stringValue,
+                        technologies =
+                                if (r.get(JobFields.TECHNOLOGIES).isNull) emptyList()
+                                else
+                                        r.get(JobFields.TECHNOLOGIES).repeatedValue.map {
+                                                it.stringValue
+                                        },
+                        salaryMin =
+                                if (r.get(JobFields.SALARY_MIN).isNull) null
+                                else r.get(JobFields.SALARY_MIN).longValue.toInt(),
+                        salaryMax =
+                                if (r.get(JobFields.SALARY_MAX).isNull) null
+                                else r.get(JobFields.SALARY_MAX).longValue.toInt(),
+                        postedDate =
+                                if (r.get(JobFields.POSTED_DATE).isNull) null
+                                else LocalDate.parse(r.get(JobFields.POSTED_DATE).stringValue),
+                        benefits =
+                                if (r.get(JobFields.BENEFITS).isNull) emptyList()
+                                else r.get(JobFields.BENEFITS).repeatedValue.map { it.stringValue },
+                        employmentType =
+                                if (r.get(JobFields.EMPLOYMENT_TYPE).isNull) null
+                                else r.get(JobFields.EMPLOYMENT_TYPE).stringValue,
+                        workModel =
+                                if (r.get(JobFields.WORK_MODEL).isNull) null
+                                else r.get(JobFields.WORK_MODEL).stringValue,
+                        jobFunction =
+                                if (r.get(JobFields.JOB_FUNCTION).isNull) null
+                                else r.get(JobFields.JOB_FUNCTION).stringValue,
+                        description =
+                                if (r.get(JobFields.DESCRIPTION).isNull) null
+                                else r.get(JobFields.DESCRIPTION).stringValue,
+                        lastSeenAt = Instant.parse(r.get(JobFields.LAST_SEEN_AT).stringValue)
                 )
         }
 }

@@ -5,6 +5,7 @@ import java.time.Instant
 data class CompanyRecord(
         val companyId: String,
         val name: String,
+        val alternateNames: List<String>,
         val logoUrl: String?,
         val description: String?,
         val website: String?,
@@ -12,5 +13,5 @@ data class CompanyRecord(
         val industries: String?,
         val technologies: List<String>,
         val hiringLocations: List<String>,
-        val ingestedAt: Instant
+        val lastUpdatedAt: Instant
 )

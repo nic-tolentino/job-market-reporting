@@ -4,20 +4,30 @@ import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.sync.model.ApifyJobDto
 import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
+import java.time.temporal.ChronoUnit
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
+/** Result of the mapping process containing structured [CompanyRecord]s and [JobRecord]s. */
 data class MappedSyncData(val companies: List<CompanyRecord>, val jobs: List<JobRecord>)
 
-/** A wrapper for raw job data that includes its original ingestion timestamp. */
-data class RawJob(val dto: ApifyJobDto, val ingestedAt: Instant)
-
-/** Key used to identify logical roles for deduplication. */
-data class DedupKey(val company: String, val title: String)
+/**
+ * A wrapper for raw job data that includes its original ingestion timestamp. This ingestion
+ * timestamp is treated as the 'lastSeenAt' time for the job snapshot.
+ */
+data class RawJob(val dto: ApifyJobDto, val lastSeenAt: Instant)
 
 /**
- * Responsible for transforming raw job DTOs from external sources (Apify/LinkedIn) into structured
- * and deduplicated [JobRecord] and [CompanyRecord] entities.
+ * Responsible for transforming raw job DTOs from external sources (Apify, LinkedIn, etc.) into
+ * structured, deduplicated entities for the Silver Layer.
+ *
+ * The mapping process follows these stages:
+ * 1. **Filter**: Remove records with missing platform IDs.
+ * 2. **Group by Role**: Aggregate postings by Company, Country, and Title.
+ * 3. **Group by Opening**: Segment role postings into "Hiring Events" using lifecycle logic.
+ * 4. **Assemble**: Transform groups into final Records.
  */
 @Service
 class RawJobDataMapper(private val parser: RawJobDataParser) {
@@ -28,86 +38,168 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
         private val PHONE_REGEX =
                 Regex("(?:\\+?6[14][\\s-]?)?\\(?0?[\\d]{1,4}\\)?[\\s-]?[\\d]{3,4}[\\s-]?[\\d]{3,4}")
 
-        /** Removes sensitive contact information from job descriptions. */
-        fun sanitize(text: String?): String? {
-                if (text == null) return null
-                return text.replace(EMAIL_REGEX, "[REDACTED EMAIL]")
-                        .replace(PHONE_REGEX, "[REDACTED PHONE]")
+        /** Entry point for the mapping pipeline. */
+        fun map(syncedJobs: List<RawJob>): MappedSyncData {
+                val validJobs = filterValidJobs(syncedJobs)
+                val roleGroups = groupByLogicalRole(validJobs)
+
+                val allOpenings =
+                        roleGroups.values.flatMap { jobsInRole -> groupByOpening(jobsInRole) }
+
+                val mappedData = assembleMappedData(allOpenings)
+
+                log.info(
+                        "Mapping pipeline complete: ${syncedJobs.size} raw -> ${mappedData.jobs.size} jobs, ${mappedData.companies.size} companies"
+                )
+                return mappedData
+        }
+
+        /** Filters out raw records that are missing essential identification fields. */
+        internal fun filterValidJobs(syncedJobs: List<RawJob>): List<RawJob> {
+                return syncedJobs.filter { !it.dto.id.isNullOrBlank() }
         }
 
         /**
-         * Transforms a list of raw job DTOs into a structured and deduplicated collection of
-         * companies and jobs.
+         * Groups raw postings by their logical role identity. Identity is defined as the
+         * combination of (Company, Country, Title).
          */
-        fun map(syncedJobs: List<RawJob>): MappedSyncData {
-                // Step 1: Filter
-                val validJobs = syncedJobs.filter { !it.dto.id.isNullOrBlank() }
+        internal fun groupByLogicalRole(
+                jobs: List<RawJob>
+        ): Map<Triple<String, String, String>, List<RawJob>> {
+                return jobs.groupBy { (dto, _) ->
+                        val companySlug = tidyCompanyName(dto.companyName)
+                        val country = parser.determineCountry(dto.location).lowercase()
+                        val title = dto.title?.lowercase()?.trim() ?: "unknown"
+                        Triple(companySlug, country, title)
+                }
+        }
 
-                // Step 2: Group by DedupKey
-                val groups =
-                        validJobs.groupBy { (dto, _) ->
-                                DedupKey(
-                                        company = tidyCompanyName(dto.companyName),
-                                        title = dto.title?.lowercase()?.trim() ?: "unknown"
-                                )
+        /**
+         * Clusters postings into "Hiring Events" (Openings) based on job lifecycle.
+         *
+         * Logic: A job belongs to an existing opening if its postedDate falls between the opening's
+         * start and its most recent "last seen" date (plus a small 8-day buffer to account for
+         * platform refreshes).
+         */
+        internal fun groupByOpening(jobs: List<RawJob>): List<List<RawJob>> {
+                if (jobs.isEmpty()) return emptyList()
+
+                // Sort by postedDate to process lifecycle chronologically
+                val sortedJobs =
+                        jobs.sortedBy { parser.parseDate(it.dto.postedAt) ?: LocalDate.MIN }
+
+                val openings = mutableListOf<List<RawJob>>()
+                var currentOpening = mutableListOf<RawJob>()
+
+                // Initial window bounds
+                var openingStartDate: LocalDate? = null
+                var lastSeenBoundary: LocalDate? = null
+
+                sortedJobs.forEach { job ->
+                        val jobDate = parser.parseDate(job.dto.postedAt)
+                        val jobIngestedDate =
+                                job.lastSeenAt.atZone(ZoneId.systemDefault()).toLocalDate()
+
+                        if (currentOpening.isEmpty()) {
+                                currentOpening.add(job)
+                                openingStartDate = jobDate
+                                lastSeenBoundary = jobIngestedDate
+                        } else {
+                                // Rule: Is the new postedDate within 14 days of the previous
+                                // last-seen?
+                                // Or is it between the original postedDate and the lastSeen date?
+                                val isSameOpening =
+                                        when {
+                                                openingStartDate == null || jobDate == null -> true
+                                                lastSeenBoundary == null -> true
+                                                // 1. Between posted and last seen?
+                                                !jobDate.isBefore(openingStartDate) &&
+                                                        !jobDate.isAfter(lastSeenBoundary) -> true
+                                                // 2. Or within 14 days of the last seen date?
+                                                // (Handles "refreshed" postings)
+                                                ChronoUnit.DAYS.between(
+                                                        lastSeenBoundary,
+                                                        jobDate
+                                                ) <= 14 -> true
+                                                else -> false
+                                        }
+
+                                if (isSameOpening) {
+                                        currentOpening.add(job)
+                                        // Extend the boundary if this snapshot is newer
+                                        if (jobIngestedDate.isAfter(lastSeenBoundary)) {
+                                                lastSeenBoundary = jobIngestedDate
+                                        }
+                                } else {
+                                        openings.add(currentOpening)
+                                        currentOpening = mutableListOf(job)
+                                        openingStartDate = jobDate
+                                        lastSeenBoundary = jobIngestedDate
+                                }
                         }
+                }
+                if (currentOpening.isNotEmpty()) openings.add(currentOpening)
 
-                // Step 3: Process Representative & Aggregate
+                return openings
+        }
+
+        /** Transforms clustered openings into final persistence-ready Records. */
+        internal fun assembleMappedData(openingGroups: List<List<RawJob>>): MappedSyncData {
                 val companyRecords = mutableMapOf<String, CompanyRecord>()
                 val jobRecords = mutableListOf<JobRecord>()
 
-                groups.forEach { (key, group) ->
+                openingGroups.forEach { group ->
                         try {
-                                val representative = group.first()
-                                val ingestedAt = representative.ingestedAt
+                                // The last record in a lifecycle group represents the most recent
+                                // state
+                                val latestSnapshot = group.last()
+                                val lastSeenAt = latestSnapshot.lastSeenAt
 
-                                // 3a. Parse Job Details (Heavy parsing happens here)
-                                val jobRecord = parseJobDetails(group, ingestedAt)
+                                // 1. Map individual job record
+                                val jobRecord = parseJobDetails(group, lastSeenAt)
                                 jobRecords.add(jobRecord)
 
-                                // 3b. Parse Company Metadata
-                                if (!companyRecords.containsKey(key.company)) {
-                                        val companyRecord = parseCompanyMetadata(group, ingestedAt)
-                                        companyRecords[key.company] = companyRecord
+                                // 2. Map or update company record
+                                val companySlug = tidyCompanyName(jobRecord.companyName)
+                                if (!companyRecords.containsKey(companySlug)) {
+                                        companyRecords[companySlug] =
+                                                parseCompanyMetadata(group, lastSeenAt)
                                 } else {
-                                        val existing = companyRecords[key.company]!!
-                                        val updatedTechs =
-                                                (existing.technologies + jobRecord.technologies)
-                                                        .distinct()
-                                                        .sorted()
-                                        val updatedLocations =
-                                                (existing.hiringLocations + jobRecord.locations)
-                                                        .distinct()
-                                                        .sorted()
-                                        companyRecords[key.company] =
+                                        val existing = companyRecords[companySlug]!!
+                                        companyRecords[companySlug] =
                                                 existing.copy(
-                                                        technologies = updatedTechs,
-                                                        hiringLocations = updatedLocations
+                                                        technologies =
+                                                                (existing.technologies +
+                                                                                jobRecord
+                                                                                        .technologies)
+                                                                        .distinct()
+                                                                        .sorted(),
+                                                        hiringLocations =
+                                                                (existing.hiringLocations +
+                                                                                jobRecord.locations)
+                                                                        .distinct()
+                                                                        .sorted(),
+                                                        lastUpdatedAt = lastSeenAt
                                                 )
                                 }
                         } catch (e: Exception) {
-                                log.error(
-                                        "Failed to map group for key: $key. Error: ${e.message}",
-                                        e
-                                )
+                                log.error("Failed to assemble record: ${e.message}", e)
                         }
                 }
 
-                log.info(
-                        "Mapping complete: ${syncedJobs.size} raw -> ${jobRecords.size} jobs, ${companyRecords.size} companies"
-                )
                 return MappedSyncData(companyRecords.values.toList(), jobRecords)
         }
 
-        private fun parseJobDetails(group: List<RawJob>, ingestedAt: Instant): JobRecord {
+        /** Parses raw group data into a single [JobRecord]. */
+        private fun parseJobDetails(group: List<RawJob>, lastSeenAt: Instant): JobRecord {
                 val first = group.first().dto
                 val title = first.title ?: "Unknown Title"
                 val companyName = first.companyName ?: "Unknown Company"
-                val companyId = tidyCompanyName(companyName)
+                val companyId = "company/${tidyCompanyName(companyName)}"
 
-                val jobIds = group.mapNotNull { it.dto.id }.distinct()
+                val platformJobIds = group.mapNotNull { it.dto.id }.distinct()
                 val applyUrls = group.mapNotNull { it.dto.applyUrl }.distinct()
-                val links = group.mapNotNull { it.dto.link }.distinct()
+                val platformLinks = group.mapNotNull { it.dto.link }.distinct()
 
                 val locations =
                         group
@@ -131,21 +223,37 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
                         parser.extractTechnologies(
                                 group.firstNotNullOfOrNull { it.dto.descriptionText } ?: ""
                         )
-                val (city, stateRegion, country) = parser.parseLocation(first.location)
+
+                val (_, _, countryCode) = parser.parseLocation(first.location)
+                val country =
+                        if (countryCode != "Unknown") countryCode
+                        else parser.determineCountry(first.location)
+
+                // Find earliest date in the lifecycle for ID stability
+                val allPostedDates = group.mapNotNull { parser.parseDate(it.dto.postedAt) }
+                val earliestPostedDate = allPostedDates.minOrNull()
+
+                val datePart =
+                        earliestPostedDate?.toString()
+                                ?: lastSeenAt
+                                        .atZone(ZoneId.systemDefault())
+                                        .toLocalDate()
+                                        .toString()
+                val titleSlug = title.lowercase().replace(Regex("[^a-z0-9]+"), "-").trim('-')
+                val jobId = "job/$companyId/${country.lowercase()}/$titleSlug/$datePart"
 
                 return JobRecord(
-                        jobIds = jobIds,
+                        jobId = jobId,
+                        platformJobIds = platformJobIds,
                         applyUrls = applyUrls,
-                        links = links,
+                        platformLinks = platformLinks,
                         locations = locations,
                         companyId = companyId,
                         companyName = companyName,
                         source = "LinkedIn",
-                        country =
-                                if (country != "Unknown") country
-                                else parser.determineCountry(first.location),
-                        city = city,
-                        stateRegion = stateRegion,
+                        country = country,
+                        city = first.location ?: "Unknown",
+                        stateRegion = "",
                         title = title,
                         seniorityLevel = parser.extractSeniority(title, first.seniorityLevel),
                         technologies = technologies,
@@ -157,8 +265,7 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
                                 group.firstNotNullOfOrNull {
                                         parser.parseSalary(it.dto.salaryInfo?.lastOrNull())
                                 },
-                        postedDate =
-                                group.firstNotNullOfOrNull { parser.parseDate(it.dto.postedAt) },
+                        postedDate = earliestPostedDate,
                         benefits =
                                 group
                                         .flatMap { it.dto.benefits ?: emptyList() }
@@ -172,42 +279,47 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
                                         ?: "On-site",
                         jobFunction = group.firstNotNullOfOrNull { it.dto.jobFunction },
                         description = description,
-                        ingestedAt = ingestedAt
+                        lastSeenAt = lastSeenAt
                 )
         }
 
-        private fun parseCompanyMetadata(group: List<RawJob>, ingestedAt: Instant): CompanyRecord {
+        private fun parseCompanyMetadata(group: List<RawJob>, lastSeenAt: Instant): CompanyRecord {
                 val first = group.first().dto
                 val companyName = first.companyName ?: "Unknown Company"
-                val companyId = tidyCompanyName(companyName)
-                val description = sanitize(first.companyDescription)
-                val roleTechs =
-                        parser.extractTechnologies(
-                                group.firstNotNullOfOrNull { it.dto.descriptionText } ?: ""
-                        )
-                val roleLocations =
-                        group
-                                .map { raw ->
-                                        val (city, state, _) =
-                                                parser.parseLocation(raw.dto.location)
-                                        if (state == "Unknown" || state == city) city
-                                        else "$city, $state"
-                                }
-                                .distinct()
-                                .sorted()
+                val companySlug = tidyCompanyName(companyName)
+                val companyId = "company/$companySlug"
 
                 return CompanyRecord(
                         companyId = companyId,
                         name = companyName,
+                        alternateNames = listOf(companyName),
                         logoUrl = first.companyLogo,
-                        description = description,
+                        description = sanitize(first.companyDescription),
                         website = first.companyWebsite,
                         employeesCount = first.companyEmployeesCount,
                         industries = first.industries,
-                        technologies = roleTechs,
-                        hiringLocations = roleLocations,
-                        ingestedAt = ingestedAt
+                        technologies =
+                                parser.extractTechnologies(
+                                        group.firstNotNullOfOrNull { it.dto.descriptionText } ?: ""
+                                ),
+                        hiringLocations =
+                                group
+                                        .map { raw ->
+                                                val (city, state, _) =
+                                                        parser.parseLocation(raw.dto.location)
+                                                if (state == "Unknown" || state == city) city
+                                                else "$city, $state"
+                                        }
+                                        .distinct()
+                                        .sorted(),
+                        lastUpdatedAt = lastSeenAt
                 )
+        }
+
+        fun sanitize(text: String?): String? {
+                if (text == null) return null
+                return text.replace(EMAIL_REGEX, "[REDACTED EMAIL]")
+                        .replace(PHONE_REGEX, "[REDACTED PHONE]")
         }
 
         private fun tidyCompanyName(name: String?): String {

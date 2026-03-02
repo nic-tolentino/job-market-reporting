@@ -50,13 +50,19 @@ class JobBigQueryRepository(
                                 Field.newBuilder(JobFields.LOCATIONS, StandardSQLTypeName.STRING)
                                         .setMode(Field.Mode.REPEATED)
                                         .build(),
-                                Field.newBuilder(JobFields.JOB_IDS, StandardSQLTypeName.STRING)
+                                Field.newBuilder(
+                                                JobFields.PLATFORM_JOB_IDS,
+                                                StandardSQLTypeName.STRING
+                                        )
                                         .setMode(Field.Mode.REPEATED)
                                         .build(),
                                 Field.newBuilder(JobFields.APPLY_URLS, StandardSQLTypeName.STRING)
                                         .setMode(Field.Mode.REPEATED)
                                         .build(),
-                                Field.newBuilder(JobFields.LINKS, StandardSQLTypeName.STRING)
+                                Field.newBuilder(
+                                                JobFields.PLATFORM_LINKS,
+                                                StandardSQLTypeName.STRING
+                                        )
                                         .setMode(Field.Mode.REPEATED)
                                         .build(),
                                 Field.of(JobFields.SENIORITY_LEVEL, StandardSQLTypeName.STRING),
@@ -75,7 +81,8 @@ class JobBigQueryRepository(
                                 Field.of(JobFields.DESCRIPTION, StandardSQLTypeName.STRING),
                                 Field.of(JobFields.CITY, StandardSQLTypeName.STRING),
                                 Field.of(JobFields.STATE_REGION, StandardSQLTypeName.STRING),
-                                Field.of(JobFields.INGESTED_AT, StandardSQLTypeName.TIMESTAMP)
+                                Field.of(JobFields.INGESTED_AT, StandardSQLTypeName.TIMESTAMP),
+                                Field.of(JobFields.LAST_SEEN_AT, StandardSQLTypeName.TIMESTAMP)
                         )
                 bigQuery.ensureTableExists(datasetName, jobsTableName, jobsSchema)
         }
@@ -119,10 +126,10 @@ class JobBigQueryRepository(
 
         private fun JobRecord.toMap(): Map<String, Any?> {
                 return mapOf(
-                        JobFields.JOB_ID to (this.jobIds.firstOrNull() ?: ""),
-                        JobFields.JOB_IDS to this.jobIds,
+                        JobFields.JOB_ID to this.jobId,
+                        JobFields.PLATFORM_JOB_IDS to this.platformJobIds,
                         JobFields.APPLY_URLS to this.applyUrls,
-                        JobFields.LINKS to this.links,
+                        JobFields.PLATFORM_LINKS to this.platformLinks,
                         JobFields.LOCATIONS to this.locations,
                         JobFields.COMPANY_ID to this.companyId,
                         JobFields.COMPANY_NAME to this.companyName,
@@ -141,7 +148,8 @@ class JobBigQueryRepository(
                         JobFields.DESCRIPTION to this.description,
                         JobFields.CITY to this.city,
                         JobFields.STATE_REGION to this.stateRegion,
-                        JobFields.INGESTED_AT to this.ingestedAt.toString()
+                        JobFields.INGESTED_AT to this.lastSeenAt.toString(),
+                        JobFields.LAST_SEEN_AT to this.lastSeenAt.toString()
                 )
         }
 
@@ -191,5 +199,46 @@ class JobBigQueryRepository(
                 val similarResult = bigQuery.query(similarQueryBuilder.build())
 
                 return JobMapper.mapJobDetails(r, techList, similarResult)
+        }
+
+        override fun getJobsByIds(jobIds: List<String>): List<JobRecord> {
+                if (jobIds.isEmpty()) return emptyList()
+                ensureTable()
+                val sql =
+                        "SELECT * FROM `$datasetName.$jobsTableName` WHERE ${JobFields.JOB_ID} IN UNNEST(?)"
+                val queryConfig =
+                        QueryJobConfiguration.newBuilder(sql)
+                                .addPositionalParameter(
+                                        QueryParameterValue.array(
+                                                jobIds.toTypedArray(),
+                                                StandardSQLTypeName.STRING
+                                        )
+                                )
+                                .build()
+                val result = bigQuery.query(queryConfig)
+                return result.iterateAll().map { row -> JobMapper.mapToJobRecord(row) }
+        }
+
+        override fun deleteJobsByIds(jobIds: List<String>) {
+                if (jobIds.isEmpty()) return
+                ensureTable()
+                val sql =
+                        "DELETE FROM `$datasetName.$jobsTableName` WHERE ${JobFields.JOB_ID} IN UNNEST(?)"
+                val queryConfig =
+                        QueryJobConfiguration.newBuilder(sql)
+                                .addPositionalParameter(
+                                        QueryParameterValue.array(
+                                                jobIds.toTypedArray(),
+                                                StandardSQLTypeName.STRING
+                                        )
+                                )
+                                .build()
+                try {
+                        bigQuery.query(queryConfig)
+                        log.info("GCP: Deleted ${jobIds.size} jobs from $jobsTableName")
+                } catch (e: Exception) {
+                        log.error("GCP: Failed to delete jobs: ${e.message}", e)
+                        throw e
+                }
         }
 }

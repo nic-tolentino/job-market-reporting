@@ -6,7 +6,9 @@ import com.techmarket.api.model.CompanyProfilePageDto
 import com.techmarket.api.model.JobRoleDto
 import com.techmarket.persistence.CompanyFields
 import com.techmarket.persistence.JobFields
+import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.util.TechFormatter
+import java.time.Instant
 
 object CompanyMapper {
         fun mapCompanyProfile(
@@ -74,9 +76,10 @@ object CompanyMapper {
                                                         if (it.isNull) null else it.stringValue
                                                 }
                                 val linkList =
-                                        if (r.get(JobFields.LINKS).isNull) emptyList<String?>()
+                                        if (r.get(JobFields.PLATFORM_LINKS).isNull)
+                                                emptyList<String?>()
                                         else
-                                                r.get(JobFields.LINKS).repeatedValue.map {
+                                                r.get(JobFields.PLATFORM_LINKS).repeatedValue.map {
                                                         if (it.isNull) null else it.stringValue
                                                 }
                                 JobRoleDto(
@@ -87,7 +90,7 @@ object CompanyMapper {
                                         locations = locationList,
                                         jobIds = jobIdList,
                                         applyUrls = applyUrlList,
-                                        links = linkList,
+                                        platformLinks = linkList,
                                         salaryMin =
                                                 if (r.get(JobFields.SALARY_MIN).isNull) null
                                                 else r.get(JobFields.SALARY_MIN).longValue.toInt(),
@@ -154,5 +157,47 @@ object CompanyMapper {
                 val insights = CompanyInsightsDto(topModel, hiringLocations, allBenefits)
 
                 return CompanyProfilePageDto(details, allTechs, insights, roles)
+        }
+
+        fun mapToCompanyRecord(row: com.google.cloud.bigquery.FieldValueList): CompanyRecord {
+                return CompanyRecord(
+                        companyId = row.get(CompanyFields.COMPANY_ID).stringValue,
+                        name = row.get(CompanyFields.NAME).stringValue,
+                        alternateNames =
+                                if (row.get(CompanyFields.ALTERNATE_NAMES).isNull) emptyList()
+                                else
+                                        row.get(CompanyFields.ALTERNATE_NAMES).repeatedValue.map {
+                                                it.stringValue
+                                        },
+                        logoUrl =
+                                if (row.get(CompanyFields.LOGO_URL).isNull) null
+                                else row.get(CompanyFields.LOGO_URL).stringValue,
+                        description =
+                                if (row.get(CompanyFields.DESCRIPTION).isNull) null
+                                else row.get(CompanyFields.DESCRIPTION).stringValue,
+                        website =
+                                if (row.get(CompanyFields.WEBSITE).isNull) null
+                                else row.get(CompanyFields.WEBSITE).stringValue,
+                        employeesCount =
+                                if (row.get(CompanyFields.EMPLOYEES_COUNT).isNull) null
+                                else row.get(CompanyFields.EMPLOYEES_COUNT).longValue.toInt(),
+                        industries =
+                                if (row.get(CompanyFields.INDUSTRIES).isNull) null
+                                else row.get(CompanyFields.INDUSTRIES).stringValue,
+                        technologies =
+                                if (row.get(CompanyFields.TECHNOLOGIES).isNull) emptyList()
+                                else
+                                        row.get(CompanyFields.TECHNOLOGIES).repeatedValue.map {
+                                                it.stringValue
+                                        },
+                        hiringLocations =
+                                if (row.get(CompanyFields.HIRING_LOCATIONS).isNull) emptyList()
+                                else
+                                        row.get(CompanyFields.HIRING_LOCATIONS).repeatedValue.map {
+                                                it.stringValue
+                                        },
+                        lastUpdatedAt =
+                                Instant.parse(row.get(CompanyFields.LAST_UPDATED_AT).stringValue)
+                )
         }
 }

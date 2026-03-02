@@ -4,13 +4,11 @@ import java.time.Instant
 import java.time.LocalDate
 
 data class JobRecord(
-        // Parallel lists: each index corresponds to one location/posting for this deduplicated
-        // role.
-        val jobIds: List<String>, // original LinkedIn job IDs, one per location
-        val applyUrls: List<String>, // apply URLs, one per location (empty if unavailable)
-        val links: List<String>, // source URLs, one per location (empty if unavailable)
-        val locations: List<String>, // location strings, one per location
-        // Shared across all locations (taken from first non-null value in the group)
+        val jobId: String, // Stable semantic ID: job/{company}/{country}/{title}/{date}
+        val platformJobIds: List<String>, // original source IDs (e.g. LinkedIn IDs)
+        val applyUrls: List<String>,
+        val platformLinks: List<String>,
+        val locations: List<String>,
         val companyId: String,
         val companyName: String,
         val source: String,
@@ -28,5 +26,5 @@ data class JobRecord(
         val workModel: String?,
         val jobFunction: String?,
         val description: String?,
-        val ingestedAt: Instant
+        val lastSeenAt: Instant
 )

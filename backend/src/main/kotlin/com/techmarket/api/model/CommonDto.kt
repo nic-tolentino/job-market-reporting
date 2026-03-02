@@ -15,7 +15,7 @@ data class JobRoleDto(
         val locations: List<String>, // all locations this role is advertised in
         val jobIds: List<String>, // original LinkedIn job IDs per location
         val applyUrls: List<String?>, // apply URLs per location
-        val links: List<String?>, // source URLs per location
+        val platformLinks: List<String?>, // source URLs per location
         val salaryMin: Int?,
         val salaryMax: Int?,
         val postedDate: String,
