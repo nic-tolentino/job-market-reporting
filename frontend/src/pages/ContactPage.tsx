@@ -20,8 +20,8 @@ export default function ContactPage() {
                     </div>
                     <h3 className="font-bold text-slate-900 text-xl">Email Us</h3>
                     <p className="text-gray-500">For general inquiries or data removal requests.</p>
-                    <a href="mailto:hello@nictolentino.com" className="text-blue-600 font-semibold hover:underline">
-                        hello@nictolentino.com
+                    <a href="mailto:support@devassembly.org" className="text-blue-600 font-semibold hover:underline">
+                        support@devassembly.org
                     </a>
                 </Card>
 

@@ -23,7 +23,7 @@ export default function Footer() {
                 </div>
                 <div className="pt-8 border-t border-gray-100 flex flex-col items-center justify-between gap-4 sm:flex-row">
                     <p className="text-sm text-gray-400">
-                        &copy; {new Date().getFullYear()} TechMarket Insights. Data extracted for public interest.
+                        &copy; {new Date().getFullYear()} DevAssembly. Data extracted for public interest.
                     </p>
                     <div className="flex gap-4">
                         <a href="https://github.com/nic-tolentino/job-market-reporting" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-slate-900 transition-colors">

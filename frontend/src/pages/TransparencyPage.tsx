@@ -19,7 +19,7 @@ export default function TransparencyPage() {
                 </CardHeader>
                 <div className="p-6 md:p-8 prose prose-slate max-w-none text-gray-600 leading-relaxed">
                     <p>
-                        TechMarket is a search and discovery utility. We aggregate data from publicly available job listings on major platforms including <strong>LinkedIn</strong> and <strong>Seek</strong>.
+                        DevAssembly is a search and discovery utility. We aggregate data from publicly available job listings on major platforms including <strong>LinkedIn</strong> and <strong>Seek</strong>.
                     </p>
                     <p className="mt-4">
                         We don't "own" the listings; we provide a centralized, insights-driven lens to help developers find high-quality opportunities in the Australia, New Zealand, and Spain regions.
@@ -99,7 +99,7 @@ export default function TransparencyPage() {
                         "100% of future surplus funds go back to the developers."
                     </p>
                     <p>
-                        As TechMarket grows, if we ever generate more revenue than it costs to keep the lights on, that money belongs to the community. Our plan includes:
+                        As DevAssembly grows, if we ever generate more revenue than it costs to keep the lights on, that money belongs to the community. Our plan includes:
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                         <div className="bg-white p-4 rounded-xl border border-blue-100 shadow-sm">

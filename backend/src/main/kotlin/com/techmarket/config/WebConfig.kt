@@ -15,7 +15,7 @@ class WebConfig : WebMvcConfigurer {
         registry.addMapping("/api/**")
                 .allowedOrigins(
                         "http://localhost:5173", // Local frontend
-                        "https://tech-market-insights.vercel.app", // Vercel Production
+                        "https://devassembly.org", // Production
                         *extraOrigins
                 )
                 .allowedOriginPatterns("https://*.vercel.app") // Vercel Preview Deployments

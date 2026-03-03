@@ -18,7 +18,7 @@ export default function TermsPage() {
                     <div>
                         <H2 className="text-slate-900 mb-2">1. Description of Service</H2>
                         <p>
-                            TechMarket is a personal, non-profit, public-interest project. We aggregate publicly available job listings from third-party sources to provide a centralized search utility. We are <strong>not</strong> a recruitment agency or employer.
+                            DevAssembly is a personal, non-profit, public-interest project. We aggregate publicly available job listings from third-party sources to provide a centralized search utility. We are <strong>not</strong> a recruitment agency or employer.
                         </p>
                     </div>
 
@@ -49,7 +49,7 @@ export default function TermsPage() {
                     </div>
 
                     <div className="pt-6 border-t border-gray-100 italic text-sm">
-                        For any questions, please contact Nic Tolentino at hello@nictolentino.com
+                        For any questions, please contact us at support@devassembly.org
                     </div>
                 </div>
             </Card>

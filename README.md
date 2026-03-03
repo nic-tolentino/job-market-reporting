@@ -1,4 +1,4 @@
-# Engineering Tech Market Insights (AU/NZ/ES)
+# DevAssembly (AU/NZ/ES)
 
 ## Objective
 A full-stack data analyzer that tracks engineering job trends (technologies, seniority, and location) across **Australia**, **New Zealand**, and **Spain**. The system periodically ingests data from major job boards, stores it in a data warehouse, and visualizes it on a web dashboard.

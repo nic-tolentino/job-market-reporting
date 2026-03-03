@@ -71,4 +71,4 @@ If you have any questions about this Privacy Policy or wish to exercise your dat
 Nic Tolentino
 Auckland, New Zealand
 
-hello@nictolentino.com
+support@devassembly.org

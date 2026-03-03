@@ -71,4 +71,4 @@ We reserve the right to modify these terms at any time. We will provide notice o
 
 11. Contact Information
 For any questions regarding these Terms and Conditions, please contact:
-Nic Tolentino - hello@nictolentino.com
+support@devassembly.org

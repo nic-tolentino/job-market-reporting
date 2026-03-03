@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
                     <div>
                         <H2 className="text-slate-900 mb-2">1. Introduction</H2>
                         <p>
-                            This Privacy Policy explains how TechMarket ("we", "our", or "the Project") collects, uses, and manages data. This is an open-source, non-profit personal project developed by <strong>Nic Tolentino</strong> to support the engineering communities in Australia and New Zealand. Our mission is to provide market transparency and reinvest any surplus revenue into community initiatives such as developer scholarships and GDG events.
+                            This Privacy Policy explains how DevAssembly ("we", "our", or "the Project") collects, uses, and manages data. This is an open-source, non-profit personal project developed by <strong>Nic Tolentino</strong> to support the engineering communities in Australia and New Zealand. Our mission is to provide market transparency and reinvest any surplus revenue into community initiatives such as developer scholarships and GDG events.
                         </p>
                     </div>
 
@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
                         <p className="font-semibold text-slate-900">Contact Us</p>
                         <p>Nic Tolentino</p>
                         <p>Auckland, New Zealand</p>
-                        <p className="text-blue-600">hello@nictolentino.com</p>
+                        <p className="text-blue-600">support@devassembly.org</p>
                     </div>
                 </div>
             </Card>

@@ -176,7 +176,7 @@ export const ResourceModal = ({ isOpen, onClose, title, items, icon: Icon }: Res
 
                 {/* Footer */}
                 <div className="px-6 py-4 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between">
-                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">TechMarket Index • {items.length} Fully Vetted Resources</p>
+                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">DevAssembly Index • {items.length} Fully Vetted Resources</p>
                     <button
                         onClick={onClose}
                         className="px-4 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold shadow-lg shadow-slate-200 hover:shadow-xl transition-all active:scale-95"
