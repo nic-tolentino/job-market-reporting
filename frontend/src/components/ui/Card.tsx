@@ -1,8 +1,8 @@
 import React from 'react';
 
-export function Card({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+export function Card({ children, className = '', id, ...props }: { children: React.ReactNode; className?: string; id?: string;[key: string]: any }) {
     return (
-        <div className={`bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col ${className}`}>
+        <div id={id} className={`bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col ${className}`} {...props}>
             {children}
         </div>
     );

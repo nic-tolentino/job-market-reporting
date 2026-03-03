@@ -1,7 +1,8 @@
-import { Youtube, BookOpen, Radio, Globe, Code, Users } from 'lucide-react';
+import { Youtube, BookOpen, Radio, Globe, Code, Hash } from 'lucide-react';
 import { H2 } from '../ui/Typography';
-import { ResourceCard } from './ResourceCard';
+import { ResourceCard, WideResourceCard } from './ResourceCard';
 import { LEARN_RESOURCES } from '../../constants/techResources';
+import { SpotlightSection } from './SpotlightSection';
 
 interface LearnTabProps {
     techId: string;
@@ -28,10 +29,24 @@ export const LearnTab = ({ techId, techName }: LearnTabProps) => {
     }
 
     return (
-        <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+        <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            {/* Quick Links */}
+            <div className="flex flex-wrap gap-2 pb-2">
+                {['Courses', 'YouTube', 'Podcasts', 'Websites', 'Communities', 'Projects', 'Experts'].map((item) => (
+                    <a
+                        key={item}
+                        href={`#${item.toLowerCase().replace(' ', '-')}`}
+                        className="px-3 py-1.5 bg-white border border-slate-200 rounded-full text-[10px] font-bold text-slate-500 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-100 transition-all shadow-sm"
+                    >
+                        {item}
+                    </a>
+                ))}
+            </div>
+
             {/* Featured Section */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <ResourceCard
+                    id="courses"
                     icon={BookOpen}
                     title="Featured Courses"
                     items={resources.courses}
@@ -39,19 +54,29 @@ export const LearnTab = ({ techId, techName }: LearnTabProps) => {
                     image={techImage}
                 />
                 <ResourceCard
+                    id="youtube"
                     icon={Youtube}
                     title="Top Channels"
                     items={resources.youtube}
                 />
             </div>
 
+            {/* Wide Projects Section */}
+            <WideResourceCard id="projects" icon={Code} title="Global Open Source Projects" items={resources.projects} subtitle="Global Standards" className="shadow-md border-indigo-50" />
+
             {/* Secondary Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <ResourceCard icon={Radio} title="Podcasts" items={resources.podcasts} />
-                <ResourceCard icon={Globe} title="Websites" items={resources.websites} />
-                <ResourceCard icon={Code} title="Projects" items={resources.projects} />
-                <ResourceCard icon={Users} title="People" items={resources.people} />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <ResourceCard id="podcasts" icon={Radio} title="Tech Podcasts" items={resources.podcasts} />
+                <ResourceCard id="websites" icon={Globe} title="Reference Sites" items={resources.websites} />
+                <ResourceCard id="communities" icon={Hash} title="Global Communities" items={resources.communities} />
             </div>
+
+            {/* Spotlight Section */}
+            <SpotlightSection
+                id="experts"
+                title="Industry Experts & Influencers"
+                items={resources.people}
+            />
         </div>
     );
 };

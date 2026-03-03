@@ -22,6 +22,7 @@ export default function TechDetailsPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
     const [activeTab, setActiveTab] = useState<Tab>('Market');
+    const [iconError, setIconError] = useState(false);
 
     // Filter states
     const [selectedSeniority, setSelectedSeniority] = useState<string>('All');
@@ -142,8 +143,17 @@ export default function TechDetailsPage() {
     return (
         <div className="space-y-8">
             <div className="flex flex-col md:flex-row md:items-start gap-6">
-                <div className="h-24 w-24 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center flex-shrink-0 text-3xl font-bold text-slate-700">
-                    {displayLetter}
+                <div className="h-24 w-24 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center flex-shrink-0 text-3xl font-bold text-slate-700 overflow-hidden">
+                    {!iconError ? (
+                        <img
+                            src={`/icons/tech/${techId?.toLowerCase()}.svg`}
+                            alt={`${data.techName} logo`}
+                            className="w-12 h-12 object-contain"
+                            onError={() => setIconError(true)}
+                        />
+                    ) : (
+                        displayLetter
+                    )}
                 </div>
                 <div className="flex-1">
                     <div className="flex items-center gap-3">
@@ -151,7 +161,7 @@ export default function TechDetailsPage() {
                         <FeedbackButton variant="icon" context={`${data.techName} Page Overview`} />
                     </div>
                     <p className="text-gray-600 mt-2 text-lg leading-relaxed max-w-2xl">
-                        Comprehensive market insights, curated learning paths, and local community connections to help you succeed as a {data.techName} professional.
+                        Comprehensive market insights, curated learning paths, and local community connections to help you succeed as a professional in the {data.techName} ecosystem.
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
                         <Badge variant="blue">
