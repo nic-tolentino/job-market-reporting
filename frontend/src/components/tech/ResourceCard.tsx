@@ -1,4 +1,4 @@
-import { ExternalLink, Star, Users, Calendar } from 'lucide-react';
+import { ExternalLink, Star, Users, Calendar, ChevronUp } from 'lucide-react';
 import { Card, CardHeader, CardContent } from '../ui/Card';
 import { H2 } from '../ui/Typography';
 import { type Resource } from '../../constants/techResources';
@@ -9,32 +9,31 @@ interface ResourceItemProps {
     icon: any;
 }
 
-const ResourceItem = ({ item, icon: Icon }: ResourceItemProps) => {
-    const [imageError, setImageError] = useState(false);
+const ResourceItem = ({ item }: ResourceItemProps) => {
+    const [upvoted, setUpvoted] = useState(false);
+    // Mock random base upvotes between 10 and 340 based on title length or generic random (stable-ish)
+    const baseUpvotes = item.title.length * 3 + 12;
 
     return (
-        <li className="group/item">
+        <li className="group/item flex items-stretch hover:bg-white/60 -mx-3 rounded-xl transition-all border border-transparent hover:border-blue-100 hover:shadow-sm">
+
+            {/* Upvote Column */}
+            <button
+                onClick={(e) => { e.preventDefault(); setUpvoted(!upvoted); }}
+                className={`flex flex-col items-center justify-center px-3 mr-1 rounded-l-xl transition-colors ${upvoted ? 'bg-blue-50/50' : 'hover:bg-slate-100/50'}`}
+            >
+                <ChevronUp className={`h-5 w-5 -mb-1 transition-transform ${upvoted ? 'text-blue-600 scale-110' : 'text-slate-400'}`} />
+                <span className={`text-[10px] font-bold ${upvoted ? 'text-blue-600' : 'text-slate-500'}`}>
+                    {baseUpvotes + (upvoted ? 1 : 0)}
+                </span>
+            </button>
+
             <a
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 hover:bg-white/60 -mx-3 px-3 py-2.5 rounded-xl transition-all border border-transparent hover:border-blue-100 hover:shadow-sm"
+                className="flex-1 flex items-center gap-4 py-2.5 pl-1 pr-3 transition-all"
             >
-                {item.previewImage && !imageError ? (
-                    <div className="w-14 h-11 rounded-lg bg-gray-50 overflow-hidden flex-shrink-0 border border-slate-100 shadow-sm relative">
-                        <img
-                            src={item.previewImage}
-                            alt=""
-                            className="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500"
-                            onError={() => setImageError(true)}
-                        />
-                        <div className="absolute inset-0 bg-black/5 opacity-0 group-hover/item:opacity-100 transition-opacity" />
-                    </div>
-                ) : (
-                    <div className="w-10 h-10 rounded-lg bg-slate-50 flex items-center justify-center flex-shrink-0 text-slate-400 group-hover/item:bg-blue-50 group-hover/item:text-blue-500 transition-colors">
-                        <Icon className="h-5 w-5 opacity-60" />
-                    </div>
-                )}
                 <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
                         <span className="font-semibold text-slate-900 group-hover/item:text-blue-600 transition-colors truncate">
@@ -57,11 +56,6 @@ const ResourceItem = ({ item, icon: Icon }: ResourceItemProps) => {
                                 <span className="flex items-center gap-1 text-[10px] font-bold text-indigo-600 bg-indigo-50 px-1.5 py-0.5 rounded-md border border-indigo-100/50">
                                     <Calendar className="h-2.5 w-2.5" />
                                     {item.date}
-                                </span>
-                            )}
-                            {item.location && !item.date && (
-                                <span className="text-[10px] font-medium px-1.5 py-0.5 bg-slate-100 text-slate-500 rounded-md">
-                                    {item.location}
                                 </span>
                             )}
                             <ExternalLink className="h-3 w-3 text-slate-300 opacity-0 group-hover/item:opacity-100 transition-all -translate-x-1 group-hover/item:translate-x-0" />

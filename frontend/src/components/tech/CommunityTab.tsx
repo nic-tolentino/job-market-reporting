@@ -3,6 +3,8 @@ import { H2 } from '../ui/Typography';
 import { ResourceCard, WideResourceCard } from './ResourceCard';
 import { COMMUNITY_RESOURCES } from '../../constants/techResources';
 import { SpotlightSection } from './SpotlightSection';
+import { SubmitResourceModal } from '../common/SubmitResourceModal';
+import { useState } from 'react';
 
 interface CommunityTabProps {
     techId: string;
@@ -10,6 +12,7 @@ interface CommunityTabProps {
 }
 
 export const CommunityTab = ({ techId, techName }: CommunityTabProps) => {
+    const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
     const resources = COMMUNITY_RESOURCES[techId.toLowerCase()];
 
     if (!resources) {
@@ -80,10 +83,20 @@ export const CommunityTab = ({ techId, techName }: CommunityTabProps) => {
                     <h3 className="text-xl font-bold text-slate-800">Missed a local group?</h3>
                     <p className="text-slate-500 mt-1 text-sm">We're constantly expanding our NZ tech directory. If you know a community in Wellington, Christchurch or Dunedin, let us know!</p>
                 </div>
-                <button className="bg-white text-blue-600 px-6 py-3 rounded-2xl font-bold shadow-sm hover:shadow-md transition-all border border-blue-50 whitespace-nowrap">
+                <button
+                    onClick={() => setIsSubmitModalOpen(true)}
+                    className="bg-white text-blue-600 px-6 py-3 rounded-2xl font-bold shadow-[0_4px_14px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_20px_rgba(59,130,246,0.15)] hover:scale-[1.02] transition-all border border-blue-50 whitespace-nowrap active:scale-95"
+                >
                     Suggest a Resource
                 </button>
             </div>
+
+            <SubmitResourceModal
+                isOpen={isSubmitModalOpen}
+                onClose={() => setIsSubmitModalOpen(false)}
+                techName={techName}
+                contextType="Community"
+            />
         </div>
     );
 };

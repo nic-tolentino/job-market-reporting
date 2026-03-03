@@ -51,13 +51,8 @@ interface SpotlightSectionProps {
 export const SpotlightSection = ({ title, items, id }: SpotlightSectionProps) => {
     return (
         <div className="space-y-6">
-            <div id={id} className="relative">
-                <div className="absolute inset-0 flex items-center" aria-hidden="true">
-                    <div className="w-full border-t border-slate-100"></div>
-                </div>
-                <div className="relative flex justify-center">
-                    <span className="px-6 bg-slate-50 text-xl font-bold text-slate-800 tracking-tight">{title}</span>
-                </div>
+            <div id={id} className="border-b border-slate-200/60 pb-3 mb-2">
+                <h3 className="text-xl font-bold text-slate-900 tracking-tight">{title}</h3>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-2">

@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Search, X, Users, Star, Calendar, ArrowUpDown, Filter } from 'lucide-react';
+import { Search, X, Users, Star, Calendar, ArrowUpDown, Filter, ChevronUp } from 'lucide-react';
 import { type Resource } from '../../constants/techResources';
 
 interface ResourceModalProps {
@@ -10,55 +10,64 @@ interface ResourceModalProps {
     icon: any;
 }
 
-const ResourceModalItem = ({ item, icon: Icon }: { item: Resource; icon: any }) => (
-    <div className="group/item border-b border-slate-100 last:border-0">
-        <a
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-start gap-4 p-4 hover:bg-slate-50 transition-colors"
-        >
-            <div className="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 text-slate-400 group-hover/item:bg-blue-50 group-hover/item:text-blue-500 transition-colors">
-                <Icon className="h-6 w-6 opacity-60" />
-            </div>
-            <div className="flex-1 min-w-0">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h4 className="font-bold text-slate-900 group-hover/item:text-blue-600 transition-colors">
-                        {item.title}
-                    </h4>
-                    <div className="flex items-center gap-2">
-                        {item.subscribers && (
-                            <span className="flex items-center gap-1 text-[10px] font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-full border border-red-100">
-                                <Users className="h-2.5 w-2.5" />
-                                {item.subscribers}
-                            </span>
-                        )}
-                        {item.stars && (
-                            <span className="flex items-center gap-1 text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-100">
-                                <Star className="h-2.5 w-2.5 fill-amber-500" />
-                                {item.stars}
-                            </span>
-                        )}
-                        {item.location && (
-                            <span className="text-[10px] font-medium px-2 py-0.5 bg-slate-100 text-slate-500 rounded-full">
-                                {item.location}
-                            </span>
-                        )}
+const ResourceModalItem = ({ item }: { item: Resource }) => {
+    const [upvoted, setUpvoted] = useState(false);
+    // Same mock logic for stable upvotes
+    const baseUpvotes = item.title.length * 3 + 12;
+
+    return (
+        <div className="group/item border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors flex items-stretch">
+            {/* Upvote Column */}
+            <button
+                onClick={(e) => { e.preventDefault(); setUpvoted(!upvoted); }}
+                className={`flex flex-col items-center justify-start p-4 pr-2 border-r border-transparent transition-colors ${upvoted ? 'bg-blue-50/30 border-r-blue-100' : 'hover:bg-slate-100/50'}`}
+            >
+                <ChevronUp className={`h-6 w-6 -mb-1 transition-transform ${upvoted ? 'text-blue-600 scale-110' : 'text-slate-400'}`} />
+                <span className={`text-xs font-bold ${upvoted ? 'text-blue-600' : 'text-slate-500'}`}>
+                    {baseUpvotes + (upvoted ? 1 : 0)}
+                </span>
+            </button>
+
+            <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-start gap-4 p-4 pl-1"
+            >
+                <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                        <h4 className="font-bold text-slate-900 group-hover/item:text-blue-600 transition-colors">
+                            {item.title}
+                        </h4>
+                        <div className="flex items-center gap-2">
+                            {item.subscribers && (
+                                <span className="flex items-center gap-1 text-[10px] font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-full border border-red-100">
+                                    <Users className="h-2.5 w-2.5" />
+                                    {item.subscribers}
+                                </span>
+                            )}
+                            {item.stars && (
+                                <span className="flex items-center gap-1 text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-100">
+                                    <Star className="h-2.5 w-2.5 fill-amber-500" />
+                                    {item.stars}
+                                </span>
+                            )}
+                        </div>
                     </div>
+                    <p className="text-sm text-slate-500 mt-1 line-clamp-2 md:line-clamp-none leading-relaxed">
+                        {item.description}
+                    </p>
+                    {item.date && (
+                        <div className="mt-2 flex items-center gap-1.5 text-xs text-indigo-600 font-semibold bg-indigo-50/50 w-fit px-2 py-1 rounded-md border border-indigo-100/50">
+                            <Calendar className="h-3 w-3" />
+                            {item.date}
+                        </div>
+                    )}
                 </div>
-                <p className="text-sm text-slate-500 mt-1 line-clamp-2 md:line-clamp-none leading-relaxed">
-                    {item.description}
-                </p>
-                {item.date && (
-                    <div className="mt-2 flex items-center gap-1.5 text-xs text-indigo-600 font-semibold bg-indigo-50/50 w-fit px-2 py-1 rounded-md border border-indigo-100/50">
-                        <Calendar className="h-3 w-3" />
-                        {item.date}
-                    </div>
-                )}
-            </div>
-        </a>
-    </div>
-);
+            </a>
+        </div>
+    );
+};
 
 export const ResourceModal = ({ isOpen, onClose, title, items, icon: Icon }: ResourceModalProps) => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -148,7 +157,7 @@ export const ResourceModal = ({ isOpen, onClose, title, items, icon: Icon }: Res
                     {filteredAndSortedItems.length > 0 ? (
                         <div className="divide-y divide-slate-50">
                             {filteredAndSortedItems.map((item, idx) => (
-                                <ResourceModalItem key={idx} item={item} icon={Icon} />
+                                <ResourceModalItem key={idx} item={item} />
                             ))}
                         </div>
                     ) : (

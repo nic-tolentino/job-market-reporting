@@ -3,6 +3,8 @@ import { H2 } from '../ui/Typography';
 import { ResourceCard, WideResourceCard } from './ResourceCard';
 import { LEARN_RESOURCES } from '../../constants/techResources';
 import { SpotlightSection } from './SpotlightSection';
+import { SubmitResourceModal } from '../common/SubmitResourceModal';
+import { useState } from 'react';
 
 interface LearnTabProps {
     techId: string;
@@ -10,6 +12,7 @@ interface LearnTabProps {
 }
 
 export const LearnTab = ({ techId, techName }: LearnTabProps) => {
+    const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
     const resources = LEARN_RESOURCES[techId.toLowerCase()];
     const isAndroid = techId.toLowerCase() === 'android';
     const techImage = isAndroid
@@ -77,6 +80,27 @@ export const LearnTab = ({ techId, techName }: LearnTabProps) => {
                 title="Industry Experts & Influencers"
                 items={resources.people}
             />
+            {/* Bottom: Submit Resource CTA */}
+            <div className="bg-gradient-to-r from-blue-50/50 to-indigo-50/50 rounded-3xl p-8 border border-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+                <div className="max-w-md text-center md:text-left">
+                    <h3 className="text-xl font-bold text-slate-800">Know a great learning resource?</h3>
+                    <p className="text-slate-500 mt-1 text-sm">Help us grow the most complete directory of developer learning material! Suggest an amazing YouTube channel, a helpful podcast, or a killer guide for {techName}.</p>
+                </div>
+                <button
+                    onClick={() => setIsSubmitModalOpen(true)}
+                    className="bg-white text-blue-600 px-6 py-3 rounded-2xl font-bold shadow-[0_4px_14px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_20px_rgba(59,130,246,0.15)] hover:scale-[1.02] transition-all border border-blue-50 whitespace-nowrap active:scale-95"
+                >
+                    Submit a Resource
+                </button>
+            </div>
+
+            <SubmitResourceModal
+                isOpen={isSubmitModalOpen}
+                onClose={() => setIsSubmitModalOpen(false)}
+                techName={techName}
+                contextType="Learning"
+            />
         </div>
     );
 };
+
