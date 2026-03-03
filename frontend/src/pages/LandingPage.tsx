@@ -69,12 +69,12 @@ export default function LandingPage() {
     return (
         <div className="space-y-10">
             {/* Hero Section */}
-            <section className="text-center py-12 md:py-20 relative px-4 flex flex-col items-center">
+            <section className="text-center py-12 md:py-20 relative px-4 flex flex-col items-center z-20">
                 <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
-                    Tech Market Insights
+                    Discover. Grow. Connect.
                 </h1>
                 <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-gray-600 leading-relaxed">
-                    Discover tech jobs, insights, and resources: we're here to help you succeed in your tech career 🚀📈❤️
+                    We're here to help you succeed in your tech career 🚀📈❤️
                 </p>
                 <div className="mt-10 w-full max-w-2xl px-4 md:px-0">
                     <SearchBox
