@@ -6,6 +6,7 @@ object BigQueryTables {
     const val INGESTIONS = "raw_ingestions"
     const val SEARCH_MISSES = "search_misses"
     const val USER_FEEDBACK = "user_feedback"
+    const val ATS_CONFIGS = "company_ats_configs"
 }
 
 object JobFields {
@@ -63,4 +64,13 @@ object AnalyticsFields {
     const val TIMESTAMP = "timestamp"
     const val CONTEXT = "context"
     const val MESSAGE = "message"
+}
+
+object AtsConfigFields {
+    const val COMPANY_ID = "companyId"
+    const val ATS_PROVIDER = "atsProvider"
+    const val IDENTIFIER = "identifier"
+    const val ENABLED = "enabled"
+    const val LAST_SYNCED_AT = "lastSyncedAt"
+    const val SYNC_STATUS = "syncStatus"
 }

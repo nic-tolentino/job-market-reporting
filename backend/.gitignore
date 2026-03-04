@@ -39,3 +39,5 @@ nbdist/
 ### Operating System ###
 .DS_Store
 Thumbs.db
+bin/
+

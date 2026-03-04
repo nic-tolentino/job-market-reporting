@@ -219,6 +219,14 @@ class JobBigQueryRepository(
                 return result.iterateAll().map { row -> JobMapper.mapToJobRecord(row) }
         }
 
+        override fun getAllJobs(): List<JobRecord> {
+                ensureTable()
+                val sql = "SELECT * FROM `$datasetName.$jobsTableName`"
+                val queryConfig = QueryJobConfiguration.newBuilder(sql).build()
+                val result = bigQuery.query(queryConfig)
+                return result.iterateAll().map { row -> JobMapper.mapToJobRecord(row) }
+        }
+
         override fun deleteJobsByIds(jobIds: List<String>) {
                 if (jobIds.isEmpty()) return
                 ensureTable()

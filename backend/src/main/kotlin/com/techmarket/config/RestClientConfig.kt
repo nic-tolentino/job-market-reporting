@@ -9,9 +9,16 @@ class RestClientConfig {
 
     @Bean
     fun apifyRestClient(builder: RestClient.Builder, apifyProperties: ApifyProperties): RestClient {
-        return builder
-            .baseUrl(apifyProperties.baseUrl)
-            .defaultHeader("Authorization", "Bearer ${apifyProperties.token}")
-            .build()
+        return builder.baseUrl(apifyProperties.baseUrl)
+                .defaultHeader("Authorization", "Bearer ${apifyProperties.token}")
+                .build()
+    }
+
+    @Bean
+    fun greenhouseRestClient(
+            builder: RestClient.Builder,
+            properties: GreenhouseProperties
+    ): RestClient {
+        return builder.baseUrl(properties.baseUrl).build()
     }
 }

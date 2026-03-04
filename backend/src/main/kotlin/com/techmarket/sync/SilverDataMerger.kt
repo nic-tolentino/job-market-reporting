@@ -2,6 +2,7 @@ package com.techmarket.sync
 
 import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.JobRecord
+import com.techmarket.sync.ats.AtsProvider
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
@@ -46,10 +47,21 @@ class SilverDataMerger {
     }
 
     private fun mergeJobRecord(new: JobRecord, existing: JobRecord): JobRecord {
-        // We always assume 'new' is the latest snapshot from the perspective of the current sync
-        val latest = if (new.lastSeenAt.isAfter(existing.lastSeenAt)) new else existing
-        val oldest = if (new.lastSeenAt.isBefore(existing.lastSeenAt)) new else existing
+        // Determine source priority. Direct ATS data (non-LinkedIn) outranks scraped data.
+        val newHasPriority = isHigherPriority(new.source, existing.source)
+        val existingHasPriority = isHigherPriority(existing.source, new.source)
 
+        // If one has higher priority, it acts as the "latest" for metadata fields.
+        // Otherwise, fallback to timestamp comparison.
+        val latest =
+                when {
+                    newHasPriority && !existingHasPriority -> new
+                    existingHasPriority && !newHasPriority -> existing
+                    new.lastSeenAt.isAfter(existing.lastSeenAt) -> new
+                    else -> existing
+                }
+
+        val other = if (latest === new) existing else new
         return latest.copy(
                 // 1. Durations & Lifecycle
                 postedDate = minOfNullable(new.postedDate, existing.postedDate),
@@ -65,7 +77,7 @@ class SilverDataMerger {
 
                 // 3. Metadata: if latest is sparse, maybe some fields from oldest are better?
                 // (Keeping it simple: latest wins for text fields except for the aggregators)
-                description = new.description ?: existing.description,
+                description = latest.description ?: other.description,
                 salaryMin = minOfNullableInt(new.salaryMin, existing.salaryMin),
                 salaryMax = maxOfNullableInt(new.salaryMax, existing.salaryMax)
         )
@@ -114,5 +126,13 @@ class SilverDataMerger {
             b == null -> a
             else -> kotlin.math.max(a, b)
         }
+    }
+
+    /** Direct ATS data is considered higher quality than scraped LinkedIn data. */
+    private fun isHigherPriority(source: String, otherSource: String): Boolean {
+        if (source == otherSource) return false
+        val atsSources = AtsProvider.ATS_SOURCES
+        return source in atsSources &&
+                (otherSource == "LinkedIn-Apify" || otherSource == "LinkedIn")
     }
 }

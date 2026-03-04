@@ -7,5 +7,6 @@ interface JobRepository {
     fun deleteAllJobs()
     fun getJobDetails(jobId: String): com.techmarket.api.model.JobPageDto?
     fun getJobsByIds(jobIds: List<String>): List<JobRecord>
+    fun getAllJobs(): List<JobRecord>
     fun deleteJobsByIds(jobIds: List<String>)
 }

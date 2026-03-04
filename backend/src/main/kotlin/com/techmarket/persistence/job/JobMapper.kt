@@ -267,7 +267,23 @@ object JobMapper {
                         description =
                                 if (r.get(JobFields.DESCRIPTION).isNull) null
                                 else r.get(JobFields.DESCRIPTION).stringValue,
-                        lastSeenAt = Instant.parse(r.get(JobFields.LAST_SEEN_AT).stringValue)
+                        lastSeenAt = parseTimestampSafe(r.get(JobFields.LAST_SEEN_AT))
                 )
+        }
+
+        private fun parseTimestampSafe(field: com.google.cloud.bigquery.FieldValue): Instant {
+                if (field.isNull) return Instant.EPOCH
+                return try {
+                        val stringVal = field.stringValue
+                        // Handle numeric strings like "1.772441037962E9"
+                        val doubleVal = stringVal.toDoubleOrNull()
+                        if (doubleVal != null) {
+                                Instant.ofEpochSecond(doubleVal.toLong())
+                        } else {
+                                Instant.parse(stringVal)
+                        }
+                } catch (e: Exception) {
+                        Instant.EPOCH
+                }
         }
 }

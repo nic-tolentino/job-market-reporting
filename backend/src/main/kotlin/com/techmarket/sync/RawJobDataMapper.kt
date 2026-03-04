@@ -32,7 +32,10 @@ data class RawJob(val dto: ApifyJobDto, val lastSeenAt: Instant)
  * 4. **Assemble**: Transform groups into final Records.
  */
 @Service
-class RawJobDataMapper(private val parser: RawJobDataParser) {
+class RawJobDataMapper(
+        private val parser: RawJobDataParser,
+        private val classifier: TechRoleClassifier
+) {
 
         private val log = LoggerFactory.getLogger(RawJobDataMapper::class.java)
 
@@ -54,7 +57,9 @@ class RawJobDataMapper(private val parser: RawJobDataParser) {
 
         /** Filters out raw records that are missing essential identification fields. */
         internal fun filterValidJobs(syncedJobs: List<RawJob>): List<RawJob> {
-                return syncedJobs.filter { !it.dto.id.isNullOrBlank() }
+                return syncedJobs.filter {
+                        !it.dto.id.isNullOrBlank() && classifier.isTechRole(it.dto)
+                }
         }
 
         /**

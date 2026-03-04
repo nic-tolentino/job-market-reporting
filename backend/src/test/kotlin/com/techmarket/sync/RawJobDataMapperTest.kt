@@ -11,8 +11,13 @@ import org.junit.jupiter.api.Test
 class RawJobDataMapperTest {
 
         private val parser = mockk<RawJobDataParser>()
-        private val mapper = RawJobDataMapper(parser)
+        private val classifier = mockk<TechRoleClassifier>()
+        private val mapper = RawJobDataMapper(parser, classifier)
         private val now = Instant.now()
+
+        init {
+                every { classifier.isTechRole(any<ApifyJobDto>()) } returns true
+        }
 
         @Test
         fun `filterValidJobs removes null or blank platform IDs`() {
