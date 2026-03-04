@@ -74,7 +74,7 @@ export default function LandingPage() {
                     Discover. Grow. Connect.
                 </h1>
                 <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-gray-600 leading-relaxed">
-                    We're here to help you succeed in your tech career 🚀📈❤️
+                    A free open-source community dedicated to helping you succeed in your tech career 🚀📈❤️
                 </p>
                 <div className="mt-10 w-full max-w-2xl px-4 md:px-0">
                     <SearchBox

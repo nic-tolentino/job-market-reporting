@@ -29,18 +29,7 @@ export const CommunityTab = ({ techId, techName }: CommunityTabProps) => {
 
     return (
         <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            {/* Quick Links */}
-            <div className="flex flex-wrap gap-2 pb-2">
-                {['Events', 'Communities', 'Projects', 'Experts'].map((item) => (
-                    <a
-                        key={item}
-                        href={`#local-${item.toLowerCase().replace(' ', '-')}`}
-                        className="px-3 py-1.5 bg-white border border-slate-200 rounded-full text-[10px] font-bold text-slate-500 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-100 transition-all shadow-sm"
-                    >
-                        {item}
-                    </a>
-                ))}
-            </div>
+
 
             {/* Primary Grid: Events & Communities side by side */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

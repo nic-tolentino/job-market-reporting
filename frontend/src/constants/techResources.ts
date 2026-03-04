@@ -182,6 +182,50 @@ export const LEARN_RESOURCES: Record<string, TechResources> = {
             { title: "iOS Dev Directory", url: "https://iosdev.directory/", description: "Comprehensive list of iOS developer blogs and communities.", location: "Global" },
             { title: "Swift Heroes", url: "https://swiftheroes.com/", description: "Global conference and community platform.", location: "Global" }
         ]
+    },
+    flutter: {
+        youtube: [
+            { title: "Flutter", url: "https://www.youtube.com/@flutterdev", description: "Official Google channel for all things Flutter.", location: "Global", subscribers: "1.2M" },
+            { title: "Reso Coder", url: "https://www.youtube.com/@ResoCoder", description: "Deep dives into clean architecture and DDD.", location: "Global", subscribers: "185k" },
+            { title: "FilledStacks", url: "https://www.youtube.com/@filledstacks", description: "Professional-grade Flutter development and architecture.", location: "Global", subscribers: "115k" },
+            { title: "Code with Andrea", url: "https://www.youtube.com/@codewithandrea", description: "Expert Flutter tips and architecture from Andrea Bizzotto.", location: "Global", subscribers: "155k" },
+            { title: "Flutterly", url: "https://www.youtube.com/@Flutterly", description: "Engaging Flutter tutorials and app walkthroughs.", location: "Global", subscribers: "65k" },
+            { title: "Tadas Petra", url: "https://www.youtube.com/@TadasPetra", description: "Rapid Flutter explanations and feature guides.", location: "Global", subscribers: "55k" }
+        ].sort((a, b) => {
+            const getVal = (s?: string) => s ? (s.includes('M') ? parseFloat(s) * 1000 : parseFloat(s)) : 0;
+            return getVal(b.subscribers) - getVal(a.subscribers);
+        }),
+        courses: [
+            { title: "Flutter Boot Camp", url: "https://www.udemy.com/course/flutter-bootcamp-with-dart/", description: "The definitive beginner course by Angela Yu.", location: "Global" },
+            { title: "Flutter Foundations", url: "https://codewithandrea.com/courses/flutter-foundations/", description: "Deep architectural dive into the core of Flutter.", location: "Global" },
+            { title: "Flutter Apprentice", url: "https://www.kodeco.com/books/flutter-apprentice", description: "The Kodeco book for professional Flutter developers.", location: "Global" },
+            { title: "Flutter Foundations Course", url: "https://developer.android.com/courses/flutter-fundamentals", description: "Google's official learning path for Flutter.", location: "Global" }
+        ],
+        podcasts: [
+            { title: "It's All Widgets", url: "https://itsallwidgets.com/podcast", description: "Interviews with top developers in the Flutter world.", location: "Global" },
+            { title: "Flying High with Flutter", url: "https://www.flyinghighwithflutter.com/", description: "Technical discussions on Flutter and Dart ecosystem.", location: "Global" },
+            { title: "Flutter Tap", url: "https://fluttertap.com/", description: "Weekly insights into the latest Flutter news.", location: "Global" }
+        ],
+        websites: [
+            { title: "Flutter.dev", url: "https://docs.flutter.dev/", description: "Official documentation and source of truth.", location: "Global" },
+            { title: "Flutter Community", url: "https://medium.com/flutter", description: "Community-driven technical articles on Medium.", location: "Global" },
+            { title: "It's All Widgets Directory", url: "https://itsallwidgets.com/", description: "The definitive directory of Flutter apps.", location: "Global" },
+            { title: "Awesome Flutter", url: "https://github.com/Solido/awesome-flutter", description: "Curated list of nearly every useful Flutter library.", location: "Global" }
+        ],
+        projects: [
+            { title: "Riverpod", url: "https://github.com/rrousselGit/riverpod", description: "A reactive caching and state management framework.", location: "Global", stars: "15k" },
+            { title: "Provider", url: "https://github.com/rrousselGit/provider", description: "A wrapper around InheritedWidget for state.", location: "Global", stars: "17k" },
+            { title: "Flutter Hooks", url: "https://github.com/rrousselGit/flutter_hooks", description: "A Flutter implementation of React Hooks.", location: "Global", stars: "5k" }
+        ],
+        people: [
+            { title: "Andrea Bizzotto", url: "https://codewithandrea.com/", description: "Expert Flutter educator and author.", location: "Global" },
+            { title: "Remi Rousselet", url: "https://github.com/rrousselGit", description: "Creator of Riverpod, Provider, and Hooks.", location: "Global" },
+            { title: "Eric Seidel", url: "https://twitter.com/eseidel", description: "Co-founder of Flutter and CEO of Shorebird.", location: "Global" }
+        ],
+        communities: [
+            { title: "Flutter Dev Slack", url: "https://flutter.dev/community", description: "Official real-time community chat.", location: "Global" },
+            { title: "r/flutterdev", url: "https://www.reddit.com/r/flutterdev/", description: "Primary hub for Flutter developers on Reddit.", location: "Global" }
+        ]
     }
 };
 
@@ -200,9 +244,9 @@ export const COMMUNITY_RESOURCES: Record<string, CommunityResources> = {
             { title: "Tauranga Tech", url: "https://www.meetup.com/tauranga-tech/", description: "Growing tech community in the Bay of Plenty.", location: "Tauranga" }
         ],
         upcomingEvents: [
-            { title: "DevFest Auckland 2024", url: "https://devfest.gdgauckland.nz/", description: "The largest Google technology conference in NZ.", location: "Auckland", date: "Nov 30, 2024" },
-            { title: "NZ Tech Rally", url: "https://nztechrally.tech/", description: "Community-driven software conference with mobile tracks.", location: "Wellington", date: "May 15, 2025" },
-            { title: "Techweek NZ 2025", url: "https://techweek.co.nz/", description: "Annual festival of tech and innovation.", location: "NZ-Wide", date: "May 19-25, 2025" },
+            { title: "DevFest Auckland 2025", url: "https://devfest.gdgauckland.nz/", description: "The largest Google technology conference in NZ.", location: "Auckland", date: "Nov 9, 2025" },
+            { title: "NZ Tech Rally 2026", url: "https://nztechrally.tech/", description: "Community-driven software conference with mobile tracks.", location: "Wellington", date: "May 15, 2026" },
+            { title: "Techweek NZ 2026", url: "https://techweek.co.nz/", description: "Annual festival of tech and innovation.", location: "NZ-Wide", date: "May 18-24, 2026" },
             { title: "Canterbury Tech Summit", url: "https://canterburytech.nz/summit/", description: "Premier tech event in the South Island.", location: "Christchurch", date: "Aug 20, 2025" },
             { title: "Mobile Dev Day NZ", url: "https://devday.io/", description: "Specialized track for mobile development in NZ.", location: "Auckland", date: "Oct 12, 2025" },
             { title: "AWS Community Day NZ", url: "https://aws-community-day.nz/", description: "Cloud and mobile backend focused event.", location: "NZ-Wide", date: "Sep 5, 2025" }
@@ -220,8 +264,8 @@ export const COMMUNITY_RESOURCES: Record<string, CommunityResources> = {
             { title: "PaperKite OSS", url: "https://github.com/paperkite", description: "Open source components from Wellington agency.", location: "Wellington" }
         ],
         localExperts: [
-            { title: "Julius Spencer", url: "https://www.linkedin.com/in/juliusspencer/", description: "Founder of GDG Auckland, Director at JSA.", location: "Auckland" },
             { title: "Isaac Udy", url: "https://github.com/isaac-udy", description: "Android GDE, Platform Lead at ANZx.", previewImage: "https://avatars.githubusercontent.com/u/18519051?v=4", location: "Wellington" },
+            { title: "Julius Spencer", url: "https://www.linkedin.com/in/juliusspencer/", description: "Founder of GDG Auckland, Director at JSA.", location: "Auckland" },
             { title: "Sam Hindmarsh", url: "https://hndmr.sh/", description: "GDG Wellington Organizer, Senior Android Engineer.", previewImage: "https://avatars.githubusercontent.com/u/2135075?v=4", location: "Wellington" },
             { title: "Dilum De Silva", url: "https://github.com/dilumdesilva", description: "GDG Auckland Organizer, Full-stack Engineer.", previewImage: "https://avatars.githubusercontent.com/u/23308182?v=4", location: "Auckland" },
             { title: "Matt Ranocchiari", url: "https://www.linkedin.com/in/matthewranocchiari/", description: "GDG Auckland & Wellington Organizer.", location: "Auckland/Wellington" },
@@ -268,6 +312,28 @@ export const COMMUNITY_RESOURCES: Record<string, CommunityResources> = {
             { title: "Xi C.", url: "https://github.com/xic", description: "Prominent iOS/SwiftUI expert based in NZ.", location: "NZ-Wide" },
             { title: "Jamie W.", url: "https://github.com/jamie-w", description: "Experienced iOS and Flutter dev in NZ.", location: "NZ-Wide" },
             { title: "Mike Mackenzie", url: "https://github.com/mmackenzie", description: "Code Craft Dunedin organizer and lead engineer.", location: "Dunedin" }
+        ]
+    },
+    flutter: {
+        communities: [
+            { title: "Flutter Auckland", url: "https://www.meetup.com/flutter-auckland/", description: "Specialized group for Flutter enthusiasts and pros.", location: "Auckland" },
+            { title: "GDG Auckland", url: "https://www.meetup.com/gdg-auckland/", description: "Broad Google Tech group with heavy Flutter presence.", location: "Auckland" },
+            { title: "GDG Wellington", url: "https://www.meetup.com/gdg-wellington/", description: "Capital city's Google technology community.", location: "Wellington" },
+            { title: "Digital Bytes WGTN", url: "https://www.meetup.com/digital-bytes-wgtn/", description: "Wellington's mobile and web community group.", location: "Wellington" }
+        ],
+        upcomingEvents: [
+            { title: "DevFest Auckland 2025", url: "https://devfest.gdgauckland.nz/", description: "The premier Google technology event in NZ.", location: "Auckland", date: "Nov 9, 2025" },
+            { title: "NZ Tech Rally 2026", url: "https://nztechrally.tech/", description: "Community software conference with Dart/Flutter tracks.", location: "Wellington", date: "May 15, 2026" },
+            { title: "Techweek NZ 2026", url: "https://techweek.co.nz/", description: "National festival of tech across Aotearoa.", location: "NZ-Wide", date: "May 18-24, 2026" }
+        ],
+        localProjects: [
+            { title: "Enro", url: "https://github.com/isaac-udy/enro", description: "Navigation library from Wellington dev Isaac Udy.", location: "Wellington", stars: "261" },
+            { title: "Alphero Labs", url: "https://github.com/alphero", description: "OSS experiments from Wellington mobile agency.", location: "Wellington" },
+            { title: "Open Source Aotearoa", url: "https://github.com/RichardLitt/open-source-aotearoa-nz", description: "Curated list of Kiwi open source work.", location: "NZ-Wide", stars: "5" }
+        ],
+        localExperts: [
+            { title: "Dilum De Silva", url: "https://github.com/dilumdesilva", description: "GDG Auckland Organizer and Flutter GDE.", location: "Auckland" },
+            { title: "Julius Spencer", url: "https://www.linkedin.com/in/juliusspencer/", description: "Founder of GDG Auckland, Flutter/Android expert.", location: "Auckland" },
         ]
     }
 };
