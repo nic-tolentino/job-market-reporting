@@ -104,7 +104,7 @@ export function SubmitResourceModal({ isOpen, onClose, techName, contextType }: 
                                         value={url}
                                         onChange={(e) => setUrl(e.target.value)}
                                         placeholder="https://..."
-                                        className="w-full px-4 py-2 bg-elevated border border-border rounded-xl text-sm text-primary focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all font-medium placeholder:text-muted"
+                                        className="w-full px-4 py-2 bg-elevated border border-border rounded-xl text-sm text-primary focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all font-medium placeholder:text-muted"
                                     />
                                 </div>
                                 <div className="grid grid-cols-2 gap-3">
@@ -113,7 +113,7 @@ export function SubmitResourceModal({ isOpen, onClose, techName, contextType }: 
                                         <select
                                             value={category}
                                             onChange={(e) => setCategory(e.target.value)}
-                                            className="w-full bg-elevated border border-border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all font-medium text-secondary appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236b7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25em_1.25em] bg-[right_0.5rem_center] bg-no-repeat pr-8"
+                                            className="w-full bg-elevated border border-border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all font-medium text-secondary appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236b7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25em_1.25em] bg-[right_0.5rem_center] bg-no-repeat pr-8 dark:[filter:invert(1)]"
                                         >
                                             {contextType === 'Learning' ? (
                                                 <>
@@ -146,7 +146,7 @@ export function SubmitResourceModal({ isOpen, onClose, techName, contextType }: 
                                         value={notes}
                                         onChange={(e) => setNotes(e.target.value)}
                                         placeholder="Why is it great? Any specific context?"
-                                        className="w-full h-16 px-4 py-2 rounded-xl border border-border bg-elevated focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-all outline-none text-sm text-primary resize-none placeholder:text-muted"
+                                        className="w-full h-16 px-4 py-2 rounded-xl border border-border bg-elevated focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm text-primary resize-none placeholder:text-muted"
                                     />
                                 </div>
                             </div>

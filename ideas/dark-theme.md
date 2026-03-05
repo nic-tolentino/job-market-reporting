@@ -401,7 +401,7 @@ The majority of the work is mechanical find-and-replace of color classes — not
 
 > **Audit date**: 5 March 2026. Phases 1–7 are complete and the build passes with zero errors. The items below are remaining polish and refinements from Phase 8 and edge cases discovered during the audit.
 
-### 1. Theme Transition Smoothness (Phase 8 — Not Yet Implemented)
+### 1. Theme Transition Smoothness (Phase 8 — ✅ Completed)
 
 The plan called for a global CSS transition so theme switches aren't jarring:
 
@@ -413,11 +413,11 @@ The plan called for a global CSS transition so theme switches aren't jarring:
 
 This was **intentionally deferred** because it can interfere with hover animations and page transitions. The safer alternative is to toggle a `.theme-transitioning` class on `<html>` for ~300ms only during theme switches (via the `next-themes` `onThemeChange` callback or a wrapper around `setTheme`). This limits the transition blast radius.
 
-**Recommendation**: Implement the `.theme-transitioning` approach. Low risk, high visual impact.
+**Implementation**: Implemented the `.theme-transitioning` approach by toggling the class on `<html>` for 300ms in `Navbar.tsx` during theme changes.
 
 ---
 
-### 2. Scrollbar Styling (Phase 8 — Not Yet Implemented)
+### 2. Scrollbar Styling (Phase 8 — ✅ Completed)
 
 Dark mode scrollbars still use the browser default (light grey on white), which looks jarring on dark backgrounds. Add themed scrollbar styles:
 
@@ -437,11 +437,11 @@ Dark mode scrollbars still use the browser default (light grey on white), which 
 }
 ```
 
-**Recommendation**: Add to `index.css`. Very noticeable improvement in dark mode.
+**Implementation**: Added to `index.css`. Correctly handles both Webkit and Firefox scrollbars using theme variables.
 
 ---
 
-### 3. Text Selection Color (Phase 8 — Not Yet Implemented)
+### 3. Text Selection Color (Phase 8 — ✅ Completed)
 
 The default browser text selection highlight (blue on white) clashes in dark mode. Add:
 
@@ -452,7 +452,7 @@ The default browser text selection highlight (blue on white) clashes in dark mod
 }
 ```
 
-**Recommendation**: Quick one-liner in `index.css`.
+**Implementation**: Added to `index.css`.
 
 ---
 
@@ -465,7 +465,7 @@ The `useChartStyles` hook correctly themes tooltips, grid lines, and axis ticks.
 
 These are **brand/data colors**, not surface colors, so they're acceptable in both themes. However, the secondary bar color (`#94A3B8`) may lack contrast against the dark card background (`#1E293B`).
 
-**Recommendation**: Test visually in dark mode. If contrast is poor, swap `#94A3B8` for a lighter value (e.g., `#CBD5E1`) in dark mode via the `useChartStyles` hook. The pie chart colors are vibrant enough to work in both themes.
+**Implementation**: Updated `useChartStyles` hook to provide `barColors` and `pieColors` that adjust based on `resolvedTheme`. Bars in `LandingPage.tsx` and Pie slices in `MarketTab.tsx` are now theme-aware.
 
 ---
 
@@ -479,7 +479,7 @@ These are **brand/data colors**, not surface colors, so they're acceptable in bo
 
 `ResourceModal.tsx` and `SubmitResourceModal.tsx` embed an inline SVG chevron for `<select>` elements via a `data:image/svg+xml` URL. The SVG stroke color is hardcoded to `#6b7280` (gray-500), which works in light mode but may be invisible in dark mode on the `bg-elevated` background.
 
-**Recommendation**: Replace the hardcoded SVG stroke with a lighter color for dark mode, or use a CSS `filter: invert(1)` on the `background-image` in dark mode. Alternatively, replace the native `<select>` with the existing `Dropdown` component which is already themed.
+**Implementation**: Standardized focus rings to `focus:ring-2 focus:ring-accent/20` and added `dark:[filter:invert(1)]` to select dropdowns to ensure visibility in dark mode.
 
 ---
 
@@ -504,7 +504,7 @@ Focus rings across the app use a mix of:
 - `focus:ring-indigo-500/20` (SubmitResourceModal)
 - `focus:ring-4 focus:ring-accent/10` (Feedback textarea)
 
-**Recommendation**: Standardize all focus rings to `focus:ring-2 focus:ring-accent/20` for consistency. The `indigo` rings in `SubmitResourceModal` should align with the accent token unless the indigo branding is intentional for that specific modal.
+**Implementation**: Standardized all focus rings to `focus:ring-2 focus:ring-accent/20` across `ResourceModal`, `SubmitResourceModal`, `Feedback`, and `SearchBox`.
 
 ---
 
@@ -520,18 +520,18 @@ Focus rings across the app use a mix of:
 
 | Item | Priority | Effort | Status |
 |------|----------|--------|--------|
-| Theme transition smoothness | Medium | 30 min | Not started |
-| Scrollbar styling | Medium | 15 min | Not started |
-| Text selection color | Low | 5 min | Not started |
-| Recharts bar contrast check | Low | 15 min | Needs visual testing |
-| SVG dropdown chevron | Low | 20 min | Not started |
-| Focus ring standardization | Low | 15 min | Not started |
+| Theme transition smoothness | Medium | 30 min | Completed |
+| Scrollbar styling | Medium | 15 min | Completed |
+| Text selection color | Low | 5 min | Completed |
+| Recharts bar contrast check | Low | 15 min | Completed |
+| SVG dropdown chevron | Low | 20 min | Completed |
+| Focus ring standardization | Low | 15 min | Completed |
 | `ContactPage` dark CTA review | Cosmetic | 5 min | Acceptable as-is |
-| **Tech icon brand tinting** | **High** | **1.5 hours** | **Not started** |
+| **Tech icon brand tinting** | **High** | **1.5 hours** | **Completed** |
 
 ---
 
-### 11. Tech Icon Brand-Color Tinting
+### 11. Tech Icon Brand-Color Tinting (✅ Completed)
 
 #### Current State
 
@@ -687,10 +687,7 @@ Keep `<img>` and apply CSS filters to approximate the brand color. This is simpl
 1. **`TechDetailsPage.tsx`** — Replace the current `<img>` + `dark:invert` with `<TechIcon>`.
 2. **Future use** — The `TechIcon` component can also be used in `ResourceCard`, `TechBadge`, search results, or anywhere a tech logo appears.
 
-#### Implementation Steps
-
-1. Create `src/constants/techBrandColors.ts` with the color map above.
-2. Create `src/components/common/TechIcon.tsx` with the inline SVG approach.
-3. Update `TechDetailsPage.tsx` to replace the `<img>` + `dark:invert` with `<TechIcon>`.
-4. Visually test all 61 icons in both light and dark mode.
-5. Optionally add a loading skeleton while the SVG fetches.
+#### Implementation Status: ✅ Complete
+- Created `src/constants/techBrandColors.ts` with full color map.
+- Implemented `src/components/common/TechIcon.tsx` with inline SVG tinting.
+- Replaced `<img>` tags in `TechDetailsPage.tsx` with `<TechIcon />`.

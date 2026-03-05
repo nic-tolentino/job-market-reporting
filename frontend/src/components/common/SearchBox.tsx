@@ -84,7 +84,7 @@ export default function SearchBox({
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
                 onKeyDown={handleSearchSubmit}
-                className={`block w-full rounded-full border-0 py-3 pl-12 pr-4 text-primary ring-1 ring-inset ring-border placeholder:text-muted focus:ring-2 focus:ring-inset focus:ring-accent bg-transparent hover:bg-card transition-all outline-none ${inputClassName}`}
+                className={`block w-full rounded-full border-0 py-3 pl-12 pr-4 text-primary ring-1 ring-inset ring-border placeholder:text-muted focus:ring-2 focus:ring-inset focus:ring-accent/20 bg-transparent hover:bg-card transition-all outline-none ${inputClassName}`}
                 placeholder={placeholder}
             />
 

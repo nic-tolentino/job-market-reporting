@@ -24,7 +24,7 @@ export default function LandingPage() {
     const [error, setError] = useState(false);
     const [companiesPage, setCompaniesPage] = useState(1);
 
-    const { tooltipStyle, gridStroke, axisTickFill } = useChartStyles();
+    const { tooltipStyle, gridStroke, axisTickFill, barColors } = useChartStyles();
 
     const loadData = useCallback(async () => {
         setIsLoading(true);
@@ -161,7 +161,7 @@ export default function LandingPage() {
                                     style={{ cursor: 'pointer', outline: 'none' }}
                                 >
                                     {topTech.map((_entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={index === 0 ? '#2563EB' : '#94A3B8'} className="hover:opacity-80 transition-opacity" />
+                                        <Cell key={`cell-${index}`} fill={index === 0 ? barColors.primary : barColors.secondary} className="hover:opacity-80 transition-opacity" />
                                     ))}
                                 </Bar>
                             </BarChart>

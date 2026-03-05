@@ -99,7 +99,7 @@ export function FeedbackModal({ isOpen, onClose, context }: FeedbackModalProps) 
                                     value={feedback}
                                     onChange={(e) => setFeedback(e.target.value)}
                                     placeholder="Tell us about incorrect data, missing features, or bugs..."
-                                    className="w-full h-32 px-4 py-3 rounded-xl border border-border bg-card focus:border-accent focus:ring-4 focus:ring-accent/10 transition-all outline-none text-sm text-primary resize-none placeholder:text-muted"
+                                    className="w-full h-32 px-4 py-3 rounded-xl border border-border bg-card focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm text-primary resize-none placeholder:text-muted"
                                 />
                             </div>
 

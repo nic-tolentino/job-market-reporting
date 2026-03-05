@@ -19,6 +19,18 @@ export function useChartStyles() {
             },
             gridStroke: get('--theme-border-subtle'),
             axisTickFill: get('--theme-text-muted'),
+            // Brand-aware chart colors
+            barColors: {
+                primary: resolvedTheme === 'dark' ? '#3B82F6' : '#2563EB',
+                secondary: resolvedTheme === 'dark' ? '#94A3B8' : '#64748B', // Adjusted for contrast
+            },
+            pieColors: [
+                '#6366F1', // Indigo 500
+                '#8B5CF6', // Violet 500
+                '#10B981', // Emerald 500
+                '#F59E0B', // Amber 500
+                '#3B82F6', // Blue 500
+            ],
         };
     }, [resolvedTheme]);
 }

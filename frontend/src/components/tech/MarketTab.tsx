@@ -10,7 +10,6 @@ import { FeedbackButton } from '../common/Feedback';
 import { useChartStyles } from '../../hooks/useChartStyles';
 import { type TechDetailsPageDto } from '../../lib/api';
 
-const COLORS = ['#f563EB', '#4F46E5', '#10B981', '#F59E0B'];
 const JOBS_PAGE_SIZE = 10;
 
 interface MarketTabProps {
@@ -53,7 +52,7 @@ export const MarketTab = ({
     filteredHiringCompanies
 }: MarketTabProps) => {
     const navigate = useNavigate();
-    const { tooltipStyle } = useChartStyles();
+    const { tooltipStyle, pieColors } = useChartStyles();
 
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
@@ -78,7 +77,7 @@ export const MarketTab = ({
                                     stroke="none"
                                 >
                                     {data.seniorityDistribution.map((_entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} style={{ outline: 'none' }} />
+                                        <Cell key={`cell-${index}`} fill={pieColors[index % pieColors.length]} style={{ outline: 'none' }} />
                                     ))}
                                 </Pie>
                                 <Tooltip
@@ -89,7 +88,7 @@ export const MarketTab = ({
                         <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3 text-sm px-2">
                             {data.seniorityDistribution.map((entry, index) => (
                                 <div key={entry.name} className="flex items-center gap-2">
-                                    <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: COLORS[index % COLORS.length] }}></div>
+                                    <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: pieColors[index % pieColors.length] }}></div>
                                     <span className="text-secondary font-medium whitespace-nowrap">{entry.name}</span>
                                 </div>
                             ))}

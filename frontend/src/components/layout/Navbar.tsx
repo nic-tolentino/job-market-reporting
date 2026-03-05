@@ -16,9 +16,17 @@ function ThemeToggle() {
     const next = theme === 'light' ? 'dark' : theme === 'dark' ? 'system' : 'light';
     const Icon = theme === 'dark' ? Moon : theme === 'light' ? Sun : Monitor;
 
+    const handleThemeChange = () => {
+        document.documentElement.classList.add('theme-transitioning');
+        setTheme(next);
+        setTimeout(() => {
+            document.documentElement.classList.remove('theme-transitioning');
+        }, 300);
+    };
+
     return (
         <button
-            onClick={() => setTheme(next)}
+            onClick={handleThemeChange}
             className="p-2 rounded-lg text-secondary hover:bg-surface-hover hover:text-primary transition-colors"
             aria-label={`Switch to ${next} theme`}
         >
