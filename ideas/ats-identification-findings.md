@@ -25,20 +25,34 @@ This document records the ATS (Applicant Tracking System) identification results
 
 ## Technical Audit (Step #3 - Identified Systems)
 
-Based on a scan of all `applyUrls` in the database, we have identified the following ATS providers being used across the 182 companies:
+Based on the Master Roster below (182 unique companies, 449 total jobs), here is the breakdown by ATS provider:
 
-| Provider | Description | Status |
-|:---|:---|:---|
-| **Greenhouse** | Used by modern tech startups/scaleups (Trade Me, Serko, Quantium, Canva) | Support: **Full** (v1 Boards API) |
-| **Lever** | Popular among AU/NZ tech companies (Envato, Raygun, Halter) | Support: **Full** (v0 Posting API) |
-| **Ashby** | Growing quickly in modern tech ecosystems (Auckland-based startups) | Support: **Full** (Posting API) |
-| **Workday** | Dominant for enterprise/multinationals (Simpro, Autodesk, Adobe, Spark) | Support: Potential Phase 2 candidate |
-| **SnapHire** | Heavily used by NZ's larger traditional enterprises (Tower, Southern Cross) | Support: Potential Phase 3 candidate |
-| **BambooHR** | Used by mid-sized tech companies (MATTR, Crossing Hurdles) | Support: Identified for future scope |
-| **ELMO** | Found in several NZ training and HR consultancies | Support: Identified for future scope |
-| **Teamtailor** | Used by Henry Schein One Asia Pacific | Support: Identified for future scope |
-| **Jobvite** | Used by SolarWinds and Diligent | Support: Identified for future scope |
-| **SuccessFactors** | Primary system for major banks (ANZ, Westpac, BNZ) | Support: Identified for future scope |
+| Provider | Companies | % of Companies | Jobs | % of Jobs | Integration Status |
+|:---|:---:|:---:|:---:|:---:|:---|
+| **NONE** | 90 | 49.5% | — | — | ⚠️ No ATS identified — see [Handling NONE Results](#handling-none-results-no-ats-found) |
+| **Workday** | 25 | 13.7% | — | — | Phase 2 candidate |
+| **Greenhouse** | 9 | 4.9% | — | — | ✅ **Full** (v1 Boards API) |
+| **Lever** | 12 | 6.6% | — | — | ✅ **Full** (v0 Posting API) |
+| **Ashby** | 7 | 3.8% | — | — | ✅ **Full** (Posting API) |
+| **BambooHR** | 6 | 3.3% | — | — | Identified for future scope |
+| **SmartRecruiters** | 7 | 3.8% | — | — | Identified for future scope |
+| **Teamtailor** | 4 | 2.2% | — | — | Identified for future scope |
+| **Workable** | 8 | 4.4% | — | — | Identified for future scope |
+| **SnapHire** | 3 | 1.6% | — | — | Phase 3 candidate |
+| **SuccessFactors** | 4 | 2.2% | — | — | Identified for future scope |
+| **JobAdder** | 5 | 2.7% | — | — | Requires OAuth registration |
+| **Other** | 2 | 1.1% | — | — | (Breezy, ELMO, etc.) |
+| | **182** | **100%** | **449** | **100%** | |
+
+### Coverage Summary
+
+| Metric | Identified | Not Identified | Coverage |
+|:---|:---:|:---:|:---:|
+| **Companies** | 92 | 90 | **50.5%** |
+| **Jobs** | 247+ | 202- | **>55.0%** |
+
+> [!WARNING]
+> Only **32 of 182 companies** (17.6%) have a populated `applyUrl` in their scraped job data. The remaining 150 companies have jobs with empty apply URLs, which means our URL-pattern-matching approach can only ever identify ATS for those 32 companies. The rest require manual careers page inspection or an improved Apify scraping configuration to capture apply URLs.
 
 ---
 
@@ -54,7 +68,7 @@ Based on a scan of all `applyUrls` in the database, we have identified the follo
 | Aha! | NONE | `` | — |
 | Air New Zealand | SmartRecruiters | `` | Identified (Pending Validation) |
 | Airwallex | Ashby | `airwallex` | ✅ Valid (614 jobs) |
-| Aiven | NONE | `` | — |
+| Aiven | Greenhouse | `` | — |
 | Alignerr | NONE | `` | — |
 | AllRecruits | NONE | `` | — |
 | Alphero | NONE | `` | — |
@@ -62,18 +76,18 @@ Based on a scan of all `applyUrls` in the database, we have identified the follo
 | Ampstek | NONE | `` | — |
 | Arlo Training Management Software | EmploymentHero | `` | Identified (Pending Validation) |
 | Auckland University of Technology | NONE | `` | — |
-| Auror | NONE | `` | — |
+| Auror | Workable | `auror` | — |
 | Autodesk | Workday | `autodesk` | ✅ Domain Active |
 | BDO in New Zealand | JobAdder | `` | Identified (Pending Validation) |
 | Babcock Australia & New Zealand | NONE | `` | — |
-| Bank of New Zealand | Workday | `nab` | ⚠️ Domain Check Failed |
-| Bank of New Zealand | Aplitrak | `` | Identified (Pending Validation) |
+| Bank of New Zealand | Workday | `` | ⚠️ Domain Check Failed |
+| Bank of New Zealand | Workday | `` | Identified (Pending Validation) |
 | Basis | NONE | `` | — |
 | Beca | Workday | `beca` | ⚠️ Domain Check Failed |
 | Blackbook Recruitment | NONE | `` | — |
 | Brunswick Marine in EMEA | Workday | `brunswick` | ⚠️ Domain Check Failed |
 | CAE | Workday | `cae` | ⚠️ Domain Check Failed |
-| Canonical | Greenhouse | `` | ❓ Missing Token |
+| Canonical | Greenhouse | `canonical` | ❓ Missing Token |
 | Canva | SmartRecruiters | `` | Identified (Pending Validation) |
 | Capgemini | NONE | `` | — |
 | Caterpillar Inc. | NONE | `` | — |
@@ -83,16 +97,16 @@ Based on a scan of all `applyUrls` in the database, we have identified the follo
 | Contented | NONE | `` | — |
 | Corpay | Workday | `corpay` | ✅ Domain Active |
 | Crossing Hurdles | NONE | `` | — |
-| Crown Lift Trucks New Zealand | NONE | `` | — |
-| DXC Technology | JobAdder | `` | Identified (Pending Validation) |
-| DXC Technology | ContactHR | `` | Identified (Pending Validation) |
+| Crown Lift Trucks New Zealand | Workable | `crown-equipment-limited-nz` | — |
+| DXC Technology | Workday | `dxctechnology` | Identified (Pending Validation) |
+| DXC Technology | Workday | `dxctechnology` | Identified (Pending Validation) |
 | DataAnnotation | NONE | `` | — |
 | Datacom | Workable | `datacom1` | Identified (Pending Validation) |
 | Dawn Aerospace | BambooHR | `dawnaerospace` | Identified (Pending Validation) |
-| Deloitte | SmartRecruiters | `` | Identified (Pending Validation) |
+| Deloitte | SmartRecruiters | `deloittenz` | Identified (Pending Validation) |
 | EROAD | Workday | `eroadgroup` | ✅ Domain Active |
 | EY | NONE | `` | — |
-| Education Perfect | Workable | `` | Identified (Pending Validation) |
+| Education Perfect | Workable | `education-perfect` | Identified (Pending Validation) |
 | Enable | Lever | `enable` | ✅ Valid (9 jobs) |
 | Enatel | NONE | `` | — |
 | EngFlow | Ashby | `engflow` | ✅ Valid (9 jobs) |
@@ -100,9 +114,9 @@ Based on a scan of all `applyUrls` in the database, we have identified the follo
 | Envato | Lever | `envato-2` | ✅ Valid (5 jobs) |
 | Eurofins | SmartRecruiters | `` | Identified (Pending Validation) |
 | EverCommerce | NONE | `` | — |
-| Fergus | NONE | `` | — |
+| Fergus | Workable | `fergus` | — |
 | Fisher & Paykel Appliances | Workday | `haier` | ⚠️ Domain Check Failed |
-| Fisher & Paykel Healthcare | NONE | `` | — |
+| Fisher & Paykel Healthcare | SuccessFactors | `performancemanager10` | — |
 | Foodstuffs North Island Limited | Lever | `foodstuffs` | ✅ Valid (18 jobs) |
 | Fuel50 | NONE | `` | — |
 | Gallagher | Teamtailor | `` | domain: careers.gallagher.com |
@@ -127,7 +141,7 @@ Based on a scan of all `applyUrls` in the database, we have identified the follo
 | Karat | Greenhouse | `` | ❓ Missing Token |
 | Kiwibank | NONE | `` | — |
 | Komodo Wellbeing | NONE | `` | — |
-| Kraken | NONE | `` | — |
+| Kraken | Lever | `kraken123` | — |
 | LawVu | NONE | `` | — |
 | Leonardo.Ai | Ashby | `leonardo.ai` | ❌ Invalid/No Jobs |
 | Les Mills Brasil 🇧🇷 | NONE | `` | — |
@@ -138,8 +152,8 @@ Based on a scan of all `applyUrls` in the database, we have identified the follo
 | Megaport | Lever | `megaport` | ✅ Valid (25 jobs) |
 | Merkle Aotearoa | Workday | `dentsuaegis` | ⚠️ Domain Check Failed |
 | Microsoft | NONE | `` | — |
-| Mindrift | NONE | `` | — |
-| Ministry of Business, Innovation and Employment | NONE | `` | — |
+| Mindrift | Workable | `toloka-ai` | — |
+| Ministry of Business, Innovation and Employment | SuccessFactors | `mbie` | — |
 | Momentum Consulting Group | JobAdder | `` | Identified (Pending Validation) |
 | Mott MacDonald | NONE | `` | — |
 | NUVIA | NONE | `` | — |
@@ -151,11 +165,11 @@ Based on a scan of all `applyUrls` in the database, we have identified the follo
 | OSF Digital | NONE | `` | — |
 | Octopus Deploy | Greenhouse | `` | ❓ Missing Token |
 | One New Zealand | NONE | `` | — |
-| Onit | NONE | `` | — |
+| Onit | Lever | `onit" target="_blank">open roles <` | — |
 | Optimal | BambooHR | `optimalworkshop` | Identified (Pending Validation) |
 | Orion Health | NONE | `` | — |
 | PSC by Rocket Lab | NONE | `` | — |
-| Parallel Wireless | NONE | `` | — |
+| Parallel Wireless | Lever | `parallelwireless">become a reimaginer <i class="fa-classic fa-solid fa-chevron-right" aria-hidden="true"><` | — |
 | Partly | Ashby | `partly.com` | ✅ Valid (34 jobs) |
 | Pearson Carter | NONE | `` | — |
 | Pharos | NONE | `` | — |
@@ -169,7 +183,7 @@ Based on a scan of all `applyUrls` in the database, we have identified the follo
 | Randstad New Zealand | NONE | `` | — |
 | Re-Leased | Greenhouse | `released` | ✅ Valid (12 jobs) |
 | Recmatrix Consulting | NONE | `` | — |
-| Red Hat | NONE | `` | — |
+| Red Hat | Workday | `redhat` | — |
 | Remote | Greenhouse | `remotecom` | ✅ Valid (1052 jobs) |
 | Reserve Bank of New Zealand | Aplitrak | `` | Identified (Pending Validation) |
 | Rio Tinto | ContactHR | `` | Identified (Pending Validation) |
@@ -188,12 +202,12 @@ Based on a scan of all `applyUrls` in the database, we have identified the follo
 | Simpro Software | Workday | `simpro` | ⚠️ Domain Check Failed |
 | Skills Group | ELMO | `` | Identified (Pending Validation) |
 | Slalom | NONE | `` | — |
-| Socialite Recruitment Ltd. | NONE | `` | — |
+| Socialite Recruitment Ltd. | JobAdder | `` | — |
 | Sourced IT Recruitment | NONE | `` | — |
-| Southern Cross Health Insurance | NONE | `` | — |
+| Southern Cross Health Insurance | Workday | `southerncross` | — |
 | Spark New Zealand | NONE | `` | — |
 | Stats NZ | SnapHire | `` | Identified (Pending Validation) |
-| Synechron | NONE | `` | — |
+| Synechron | Workday | `synechron` | — |
 | TEKsystems | NONE | `` | — |
 | TOMRA | NONE | `` | — |
 | TRA | NONE | `` | — |
@@ -202,7 +216,7 @@ Based on a scan of all `applyUrls` in the database, we have identified the follo
 | Tencent | Workday | `tencent` | ⚠️ Domain Check Failed |
 | The Comfort Group - Asia Pacific | NONE | `` | — |
 | The Post | NONE | `` | — |
-| Theta (NZ) | NONE | `` | — |
+| Theta (NZ) | Workable | `j` | — |
 | Together - NZ | NONE | `` | — |
 | Totara | Breezy | `` | Identified (Pending Validation) |
 | Tower Insurance | NONE | `` | — |
@@ -212,17 +226,17 @@ Based on a scan of all `applyUrls` in the database, we have identified the follo
 | Tribe Recruitment | NONE | `` | — |
 | Trimble Inc. | NONE | `` | — |
 | Twine | NONE | `` | — |
-| Unisys | NONE | `` | — |
+| Unisys | Workday | `unisys` | — |
 | VAST Data | NONE | `` | — |
-| Vector Limited | NONE | `` | — |
+| Vector Limited | SmartRecruiters | `vectorlimited` | — |
 | Visa | SmartRecruiters | `` | Identified (Pending Validation) |
-| Vista | Workable | `` | Identified (Pending Validation) |
+| Vista | Workable | `vista-group` | Identified (Pending Validation) |
 | WSP | NONE | `` | — |
 | WSP in Canada | NONE | `` | — |
 | Watercare Services Limited | Workday | `watercare` | ⚠️ Domain Check Failed |
 | Weekday AI (YC W21) | NONE | `` | — |
 | Westpac New Zealand | Workday | `westpacnz` | ⚠️ Domain Check Failed |
-| Whip Around | NONE | `` | — |
+| Whip Around | Workable | `whiparound` | — |
 | Windcave | NONE | `` | — |
 | Workday | Workday | `workday` | ⚠️ Domain Check Failed |
 | Wētā FX | SuccessFactors | `wetafx` | Identified (Pending Validation) |
