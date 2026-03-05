@@ -15,15 +15,15 @@ const ResourceItem = ({ item }: ResourceItemProps) => {
     const baseUpvotes = item.title.length * 3 + 12;
 
     return (
-        <li className="group/item flex items-stretch hover:bg-white/60 -mx-3 rounded-xl transition-all border border-transparent hover:border-blue-100 hover:shadow-sm">
+        <li className="group/item flex items-stretch hover:bg-surface-hover -mx-3 rounded-xl transition-all border border-transparent hover:border-accent/10 hover:shadow-theme-sm">
 
             {/* Upvote Column */}
             <button
                 onClick={(e) => { e.preventDefault(); setUpvoted(!upvoted); }}
-                className={`flex flex-col items-center justify-center px-3 mr-1 rounded-l-xl transition-colors ${upvoted ? 'bg-blue-50/50' : 'hover:bg-slate-100/50'}`}
+                className={`flex flex-col items-center justify-center px-3 mr-1 rounded-l-xl transition-colors ${upvoted ? 'bg-accent-subtle' : 'hover:bg-surface-hover'}`}
             >
-                <ChevronUp className={`h-5 w-5 -mb-1 transition-transform ${upvoted ? 'text-blue-600 scale-110' : 'text-slate-400'}`} />
-                <span className={`text-[10px] font-bold ${upvoted ? 'text-blue-600' : 'text-slate-500'}`}>
+                <ChevronUp className={`h-5 w-5 -mb-1 transition-transform ${upvoted ? 'text-accent scale-110' : 'text-muted'}`} />
+                <span className={`text-[10px] font-bold ${upvoted ? 'text-accent' : 'text-muted'}`}>
                     {baseUpvotes + (upvoted ? 1 : 0)}
                 </span>
             </button>
@@ -36,32 +36,32 @@ const ResourceItem = ({ item }: ResourceItemProps) => {
             >
                 <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
-                        <span className="font-semibold text-slate-900 group-hover/item:text-blue-600 transition-colors truncate">
+                        <span className="font-semibold text-primary group-hover/item:text-accent transition-colors truncate">
                             {item.title}
                         </span>
                         <div className="flex items-center gap-2">
                             {item.subscribers && (
-                                <span className="flex items-center gap-1 text-[10px] font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded-md border border-red-100/50">
+                                <span className="flex items-center gap-1 text-[10px] font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 px-1.5 py-0.5 rounded-md border border-red-100/50 dark:border-red-500/20">
                                     <Users className="h-2.5 w-2.5" />
                                     {item.subscribers}
                                 </span>
                             )}
                             {item.stars && (
-                                <span className="flex items-center gap-1 text-[10px] font-bold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded-md border border-amber-100/50">
+                                <span className="flex items-center gap-1 text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 px-1.5 py-0.5 rounded-md border border-amber-100/50 dark:border-amber-500/20">
                                     <Star className="h-2.5 w-2.5 fill-amber-500" />
                                     {item.stars}
                                 </span>
                             )}
                             {item.date && (
-                                <span className="flex items-center gap-1 text-[10px] font-bold text-indigo-600 bg-indigo-50 px-1.5 py-0.5 rounded-md border border-indigo-100/50">
+                                <span className="flex items-center gap-1 text-[10px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 px-1.5 py-0.5 rounded-md border border-indigo-100/50 dark:border-indigo-500/20">
                                     <Calendar className="h-2.5 w-2.5" />
                                     {item.date}
                                 </span>
                             )}
-                            <ExternalLink className="h-3 w-3 text-slate-300 opacity-0 group-hover/item:opacity-100 transition-all -translate-x-1 group-hover/item:translate-x-0" />
+                            <ExternalLink className="h-3 w-3 text-muted opacity-0 group-hover/item:opacity-100 transition-all -translate-x-1 group-hover/item:translate-x-0" />
                         </div>
                     </div>
-                    <p className="text-xs text-slate-500 mt-0.5 line-clamp-1 group-hover/item:text-slate-600">{item.description}</p>
+                    <p className="text-xs text-muted mt-0.5 line-clamp-1 group-hover/item:text-secondary">{item.description}</p>
                 </div>
             </a>
         </li>
@@ -89,7 +89,7 @@ export const ResourceCard = ({ icon: Icon, title, items = [], image, featured, c
 
     return (
         <>
-            <Card id={id} className={`overflow-hidden group flex flex-col h-full transition-all duration-300 hover:shadow-xl scroll-mt-24 ${featured ? 'md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-100' : ''} ${className}`}>
+            <Card id={id} className={`overflow-hidden group flex flex-col h-full transition-all duration-300 hover:shadow-xl scroll-mt-24 ${featured ? 'md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-500/10 dark:to-indigo-500/10 border-blue-100 dark:border-blue-500/20' : ''} ${className}`}>
                 {image && !mainImageError && (
                     <div className="h-48 overflow-hidden relative">
                         <img
@@ -111,7 +111,7 @@ export const ResourceCard = ({ icon: Icon, title, items = [], image, featured, c
 
                 {(!image || mainImageError) && (
                     <CardHeader className={`flex flex-row items-center gap-3 pb-2 ${featured ? 'pt-6 px-6' : ''}`}>
-                        <div className={`p-2 rounded-lg ${featured ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-600'}`}>
+                        <div className={`p-2 rounded-lg ${featured ? 'bg-accent text-inverted' : 'bg-accent-subtle text-accent'}`}>
                             <Icon className="h-5 w-5" />
                         </div>
                         <H2 className={`${featured ? 'text-2xl font-bold' : 'text-lg!'}`}>{title}</H2>
@@ -124,8 +124,8 @@ export const ResourceCard = ({ icon: Icon, title, items = [], image, featured, c
                             <ResourceItem key={idx} item={item} icon={Icon} />
                         ))}
                         {items.length === 0 && (
-                            <div className="py-8 text-center bg-slate-50/50 rounded-xl border border-dashed border-slate-200">
-                                <p className="text-sm text-slate-400 italic">Curating excellence...</p>
+                            <div className="py-8 text-center bg-elevated rounded-xl border border-dashed border-border">
+                                <p className="text-sm text-muted italic">Curating excellence...</p>
                             </div>
                         )}
                     </ul>
@@ -133,7 +133,7 @@ export const ResourceCard = ({ icon: Icon, title, items = [], image, featured, c
                     {hasMore && (
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className="w-full mt-auto py-2 flex items-center justify-center gap-2 text-xs font-bold text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all border border-slate-100 group/btn"
+                            className="w-full mt-auto py-2 flex items-center justify-center gap-2 text-xs font-bold text-muted hover:text-accent hover:bg-accent-subtle rounded-lg transition-all border border-border-subtle group/btn"
                         >
                             Open {title} Directory ({items.length} items) <ExternalLink className="h-3 w-3 group-hover/btn:translate-x-0.5 transition-transform" />
                         </button>
@@ -160,14 +160,14 @@ export const WideResourceCard = ({ icon: Icon, title, items = [], className = ""
 
     return (
         <>
-            <Card id={id} className={`overflow-hidden group flex flex-col transition-all duration-300 hover:shadow-xl scroll-mt-24 border-slate-200/60 bg-white/50 backdrop-blur-sm ${className}`}>
+            <Card id={id} className={`overflow-hidden group flex flex-col transition-all duration-300 hover:shadow-xl scroll-mt-24 border-border bg-card/50 backdrop-blur-sm ${className}`}>
                 <CardHeader className="flex flex-row items-center gap-3 pb-2 border-none">
-                    <div className="p-2 rounded-xl bg-indigo-50 text-indigo-600 shadow-sm ring-1 ring-indigo-100/50">
+                    <div className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shadow-sm ring-1 ring-indigo-100/50 dark:ring-indigo-500/20">
                         <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                        <H2 className="text-lg! font-bold text-slate-900">{title}</H2>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">{subtitle}</p>
+                        <H2 className="text-lg! font-bold">{title}</H2>
+                        <p className="text-[10px] font-bold text-muted uppercase tracking-widest mt-0.5">{subtitle}</p>
                     </div>
                 </CardHeader>
                 <CardContent className="pt-2 pb-6 flex-1 flex flex-col">
@@ -180,7 +180,7 @@ export const WideResourceCard = ({ icon: Icon, title, items = [], className = ""
                     {hasMore && (
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className="w-full mt-auto py-2.5 flex items-center justify-center gap-2 text-xs font-bold text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-xl transition-all border border-slate-100 group/btn bg-white/50"
+                            className="w-full mt-auto py-2.5 flex items-center justify-center gap-2 text-xs font-bold text-muted hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 rounded-xl transition-all border border-border-subtle group/btn bg-card/50"
                         >
                             Open {title} Directory ({items.length} items) <ExternalLink className="h-3 w-3 group-hover/btn:translate-x-0.5 transition-transform" />
                         </button>

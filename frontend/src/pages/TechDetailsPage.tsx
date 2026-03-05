@@ -143,12 +143,12 @@ export default function TechDetailsPage() {
     return (
         <div className="space-y-8">
             <div className="flex flex-col md:flex-row md:items-start gap-6">
-                <div className="h-24 w-24 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center flex-shrink-0 text-3xl font-bold text-slate-700 overflow-hidden">
+                <div className="h-24 w-24 rounded-2xl bg-card border border-border shadow-theme-sm flex items-center justify-center flex-shrink-0 text-3xl font-bold text-secondary overflow-hidden">
                     {!iconError ? (
                         <img
                             src={`/icons/tech/${techId?.toLowerCase()}.svg`}
                             alt={`${data.techName} logo`}
-                            className="w-12 h-12 object-contain"
+                            className="w-12 h-12 object-contain dark:invert"
                             onError={() => setIconError(true)}
                         />
                     ) : (
@@ -160,7 +160,7 @@ export default function TechDetailsPage() {
                         <H1>{data.techName}</H1>
                         <FeedbackButton variant="icon" context={`${data.techName} Page Overview`} />
                     </div>
-                    <p className="text-gray-600 mt-2 text-lg leading-relaxed max-w-2xl">
+                    <p className="text-secondary mt-2 text-lg leading-relaxed max-w-2xl">
                         Comprehensive market insights, curated learning paths, and local community connections to help you succeed as a professional in the {data.techName} ecosystem.
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
@@ -178,19 +178,19 @@ export default function TechDetailsPage() {
             </div>
 
             {/* Tab Navigation */}
-            <div className="flex border-b border-gray-200 relative overflow-x-auto no-scrollbar">
+            <div className="flex border-b border-border relative overflow-x-auto no-scrollbar">
                 {(['Market', 'Learn', 'Community'] as Tab[]).map((tab) => (
                     <button
                         key={tab}
                         onClick={() => setActiveTab(tab)}
                         className={`px-8 py-4 font-semibold text-sm transition-all relative z-10 whitespace-nowrap ${activeTab === tab
-                            ? 'text-blue-600'
-                            : 'text-gray-500 hover:text-gray-700'
+                            ? 'text-accent'
+                            : 'text-muted hover:text-secondary'
                             }`}
                     >
                         {tab}
                         {activeTab === tab && (
-                            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-t-full shadow-[0_0_8px_rgba(37,99,235,0.4)]" />
+                            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent rounded-t-full shadow-[0_0_8px_rgba(37,99,235,0.4)]" />
                         )}
                     </button>
                 ))}

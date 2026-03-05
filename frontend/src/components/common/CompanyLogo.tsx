@@ -15,7 +15,7 @@ export default function CompanyLogo({
     const fallbackText = logoUrl && !isUrl ? logoUrl : companyName.charAt(0);
 
     return (
-        <div className={`flex items-center justify-center bg-white font-bold text-slate-700 overflow-hidden ${className}`}>
+        <div className={`flex items-center justify-center bg-card font-bold text-secondary overflow-hidden ${className}`}>
             {isUrl ? (
                 <img
                     src={logoUrl ?? undefined}

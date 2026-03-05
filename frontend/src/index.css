@@ -1,9 +1,85 @@
 @import "tailwindcss";
 
+@theme {
+  /* Surfaces */
+  --color-page:         var(--theme-page);
+  --color-card:         var(--theme-card);
+  --color-elevated:     var(--theme-elevated);
+  --color-inset:        var(--theme-inset);
+  --color-surface-hover: var(--theme-hover);
+
+  /* Text */
+  --color-primary:   var(--theme-text-primary);
+  --color-secondary: var(--theme-text-secondary);
+  --color-muted:     var(--theme-text-muted);
+  --color-inverted:  var(--theme-text-inverted);
+
+  /* Borders */
+  --color-border:        var(--theme-border);
+  --color-border-subtle: var(--theme-border-subtle);
+
+  /* Accent */
+  --color-accent:        var(--theme-accent);
+  --color-accent-hover:  var(--theme-accent-hover);
+  --color-accent-subtle: var(--theme-accent-subtle);
+
+  /* Shadows */
+  --shadow-theme-sm: var(--theme-shadow-sm);
+  --shadow-theme-md: var(--theme-shadow-md);
+}
+
 @layer base {
+  :root {
+    --theme-page:       #F9FAFB;
+    --theme-card:       #FFFFFF;
+    --theme-elevated:   #F8FAFC;
+    --theme-inset:      #F1F5F9;
+    --theme-hover:      #F1F5F9;
+
+    --theme-text-primary:   #0F172A;
+    --theme-text-secondary: #475569;
+    --theme-text-muted:     #94A3B8;
+    --theme-text-inverted:  #FFFFFF;
+
+    --theme-border:        #E2E8F0;
+    --theme-border-subtle: #F1F5F9;
+
+    --theme-accent:        #2563EB;
+    --theme-accent-hover:  #1D4ED8;
+    --theme-accent-subtle: #EFF6FF;
+
+    --theme-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --theme-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+
+  .dark {
+    --theme-page:       #0F172A;
+    --theme-card:       #1E293B;
+    --theme-elevated:   #1E293B;
+    --theme-inset:      #334155;
+    --theme-hover:      #334155;
+
+    --theme-text-primary:   #F1F5F9;
+    --theme-text-secondary: #94A3B8;
+    --theme-text-muted:     #64748B;
+    --theme-text-inverted:  #0F172A;
+
+    --theme-border:        #334155;
+    --theme-border-subtle: #1E293B;
+
+    --theme-accent:        #3B82F6;
+    --theme-accent-hover:  #60A5FA;
+    --theme-accent-subtle: rgba(59, 130, 246, 0.1);
+
+    --theme-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --theme-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+  }
+
   body {
-    @apply bg-[#F9FAFB] text-slate-900 antialiased;
+    background-color: var(--theme-page);
+    color: var(--theme-text-primary);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 }
 

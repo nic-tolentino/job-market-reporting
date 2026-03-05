@@ -40,9 +40,9 @@ const JobPage: React.FC = () => {
     if (!data) {
         return (
             <div className="flex flex-col items-center justify-center min-h-[50vh]">
-                <h1 className="text-2xl font-bold text-slate-900 mb-4">Job Not Found</h1>
-                <p className="text-gray-500 mb-6">The job you're looking for doesn't exist or has been removed.</p>
-                <Link to="/" className="text-blue-600 hover:text-blue-500 font-medium">Return to Home</Link>
+                <h1 className="text-2xl font-bold text-primary mb-4">Job Not Found</h1>
+                <p className="text-muted mb-6">The job you're looking for doesn't exist or has been removed.</p>
+                <Link to="/" className="text-accent hover:text-accent-hover font-medium">Return to Home</Link>
             </div>
         );
     }
@@ -55,11 +55,11 @@ const JobPage: React.FC = () => {
     return (
         <div className="space-y-8">
             {/* Job Header - Aligned with Company/Tech Pages */}
-            <div className="flex items-start gap-6 border-b border-gray-200 pb-8 mt-2">
+            <div className="flex items-start gap-6 border-b border-border pb-8 mt-2">
                 <CompanyLogo
                     logoUrl={company.logoUrl}
                     companyName={company.name}
-                    className="h-24 w-24 rounded-2xl border border-gray-200 shadow-sm flex-shrink-0 text-3xl"
+                    className="h-24 w-24 rounded-2xl border border-border shadow-theme-sm flex-shrink-0 text-3xl"
                     imageClassName="p-2"
                 />
                 <div className="flex-1">
@@ -67,15 +67,15 @@ const JobPage: React.FC = () => {
                         <H1>{details.title}</H1>
                         <FeedbackButton variant="icon" context={`Job: ${details.title}`} />
                     </div>
-                    <div className="mt-3 flex flex-wrap items-center gap-y-2 gap-x-4 text-gray-600">
+                    <div className="mt-3 flex flex-wrap items-center gap-y-2 gap-x-4 text-secondary">
                         {details.postedDate && (
                             <div className="flex items-center gap-1.5">
-                                <Calendar className="w-4 h-4 text-gray-400" />
+                                <Calendar className="w-4 h-4 text-muted" />
                                 <span>{new Date(details.postedDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                             </div>
                         )}
                         <div className="flex items-center gap-1.5">
-                            <Clock className="w-4 h-4 text-gray-400" />
+                            <Clock className="w-4 h-4 text-muted" />
                             <span>{details.seniorityLevel}</span>
                         </div>
                     </div>
@@ -100,18 +100,18 @@ const JobPage: React.FC = () => {
 
                     {/* Description Section */}
                     <Card>
-                        <CardHeader className="bg-white sticky top-0 z-10">
+                        <CardHeader className="bg-card sticky top-0 z-10">
                             <H2>Job Description</H2>
                             <FeedbackButton variant="icon" context={`Job Description: ${details.title}`} />
                         </CardHeader>
                         <CardContent className="md:p-8">
                             {sanitizedDescription ? (
                                 <div
-                                    className="prose prose-blue max-w-none text-gray-600 prose-headings:text-slate-900 prose-a:text-blue-600 hover:prose-a:text-blue-500 prose-strong:text-slate-900 prose-li:marker:text-blue-400"
+                                    className="prose prose-blue dark:prose-invert max-w-none text-secondary prose-headings:text-primary prose-a:text-accent hover:prose-a:text-accent-hover prose-strong:text-primary prose-li:marker:text-accent"
                                     dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
                                 />
                             ) : (
-                                <div className="text-gray-500 italic py-8 text-center bg-slate-50 rounded-lg border border-dashed border-gray-200">
+                                <div className="text-muted italic py-8 text-center bg-elevated rounded-lg border border-dashed border-border">
                                     No detailed description provided by the employer.
                                 </div>
                             )}
@@ -122,26 +122,26 @@ const JobPage: React.FC = () => {
                     <Card>
                         <CardHeader>
                             <H2 className="flex items-center gap-2">
-                                <MapPin className="w-5 h-5 text-gray-400" />
+                                <MapPin className="w-5 h-5 text-muted" />
                                 Available Locations ({locations.length})
                             </H2>
                         </CardHeader>
                         <div className="p-0">
-                            <ul className="divide-y divide-gray-100">
+                            <ul className="divide-y divide-border-subtle">
                                 {locations.map((loc, idx) => (
-                                    <li key={idx} className="px-6 py-4 flex items-center justify-between group hover:bg-slate-50/50 transition-colors">
-                                        <span className="text-slate-700 font-medium">{loc.location}</span>
+                                    <li key={idx} className="px-6 py-4 flex items-center justify-between group hover:bg-surface-hover transition-colors">
+                                        <span className="text-secondary font-medium">{loc.location}</span>
                                         {loc.applyUrl ? (
                                             <a
                                                 href={loc.applyUrl}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-1.5 px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition-all shadow-sm hover:shadow-md active:scale-95"
+                                                className="inline-flex items-center gap-1.5 px-5 py-2 bg-accent hover:bg-accent-hover text-white text-sm font-semibold rounded-lg transition-all shadow-sm hover:shadow-md active:scale-95"
                                             >
                                                 Apply <ExternalLink className="w-3.5 h-3.5" />
                                             </a>
                                         ) : (
-                                            <span className="text-xs text-gray-400 italic">No direct link available</span>
+                                            <span className="text-xs text-muted italic">No direct link available</span>
                                         )}
                                     </li>
                                 ))}
@@ -154,28 +154,28 @@ const JobPage: React.FC = () => {
                 <div className="space-y-6">
                     {/* Company Info Box */}
                     <Card>
-                        <CardContent className="border-b border-gray-100 p-6">
+                        <CardContent className="border-b border-border-subtle p-6">
                             <SectionSubtitle className="mb-5">Hiring Company</SectionSubtitle>
                             <div className="flex items-center gap-4">
                                 <Link to={`/company/${company.companyId}`} className="group relative block">
-                                    <div className="w-16 h-16 bg-white rounded-xl border border-gray-100 flex items-center justify-center p-2 flex-shrink-0 shadow-sm group-hover:border-blue-200 transition-colors bg-slate-50/50">
+                                    <div className="w-16 h-16 bg-card rounded-xl border border-border-subtle flex items-center justify-center p-2 flex-shrink-0 shadow-theme-sm group-hover:border-accent transition-colors bg-elevated">
                                         {company.logoUrl ? (
                                             <img src={company.logoUrl} alt={`${company.name} logo`} className="max-w-full max-h-full object-contain" />
                                         ) : (
-                                            <Building2 className="w-8 h-8 text-gray-400" />
+                                            <Building2 className="w-8 h-8 text-muted" />
                                         )}
                                     </div>
                                 </Link>
                                 <div>
-                                    <h3 className="text-lg font-bold text-slate-900 leading-snug">{company.name}</h3>
-                                    <Link to={`/company/${company.companyId}`} className="text-blue-600 hover:text-blue-700 text-sm font-semibold flex items-center gap-1 mt-1 transition-colors group">
+                                    <h3 className="text-lg font-bold text-primary leading-snug">{company.name}</h3>
+                                    <Link to={`/company/${company.companyId}`} className="text-accent hover:text-accent-hover text-sm font-semibold flex items-center gap-1 mt-1 transition-colors group">
                                         View Profile <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                                     </Link>
                                 </div>
                             </div>
                         </CardContent>
 
-                        <div className="p-6 bg-slate-50/50">
+                        <div className="p-6 bg-elevated">
                             <SectionSubtitle className="mb-4">Required Stack</SectionSubtitle>
                             {details.technologies && details.technologies.length > 0 ? (
                                 <div className="flex flex-wrap gap-1.5">
@@ -183,19 +183,19 @@ const JobPage: React.FC = () => {
                                         <Link
                                             key={tech}
                                             to={`/tech/${tech.toLowerCase()}`}
-                                            className="inline-flex items-center rounded-full bg-slate-50 border border-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 hover:border-blue-200 hover:text-blue-700 transition-colors"
+                                            className="inline-flex items-center rounded-full bg-inset border border-border-subtle px-2.5 py-1 text-xs font-semibold text-secondary hover:border-accent/40 hover:text-accent transition-colors"
                                         >
                                             {tech}
                                         </Link>
                                     ))}
                                 </div>
                             ) : (
-                                <p className="text-sm text-gray-400 italic">Not specified</p>
+                                <p className="text-sm text-muted italic">Not specified</p>
                             )}
                         </div>
 
                         {details.benefits && details.benefits.length > 0 && (
-                            <div className="p-6 border-t border-gray-100">
+                            <div className="p-6 border-t border-border-subtle">
                                 <SectionSubtitle className="mb-4">Role Benefits</SectionSubtitle>
                                 <div className="flex flex-wrap gap-2">
                                     {details.benefits.map((benefit, i) => (
@@ -213,21 +213,21 @@ const JobPage: React.FC = () => {
                                 <SectionSubtitle>Similar Roles</SectionSubtitle>
                                 <FeedbackButton variant="icon" context="Similar Roles Section" />
                             </CardHeader>
-                            <div className="divide-y divide-gray-50">
+                            <div className="divide-y divide-border-subtle">
                                 {similarRoles.map(role => (
                                     <Link
                                         key={role.id}
                                         to={`/job/${role.id}`}
-                                        className="block p-5 hover:bg-slate-50 transition-all group"
+                                        className="block p-5 hover:bg-surface-hover transition-all group"
                                     >
-                                        <div className="font-bold text-slate-900 group-hover:text-blue-600 mb-1 transition-colors leading-snug">
+                                        <div className="font-bold text-primary group-hover:text-accent mb-1 transition-colors leading-snug">
                                             {role.title}
                                         </div>
-                                        <div className="text-sm text-gray-500 font-medium">
+                                        <div className="text-sm text-muted font-medium">
                                             {role.companyName}
                                         </div>
-                                        <div className="flex items-center gap-3 mt-4 text-xs text-gray-400">
-                                            <span className="flex items-center gap-1.5 bg-slate-100 px-2 py-0.5 rounded text-slate-500">
+                                        <div className="flex items-center gap-3 mt-4 text-xs text-muted">
+                                            <span className="flex items-center gap-1.5 bg-inset px-2 py-0.5 rounded text-secondary">
                                                 <MapPin className="w-3 h-3" /> {role.locations[0]}{role.locations.length > 1 ? ` +${role.locations.length - 1}` : ''}
                                             </span>
                                             {role.postedDate && (

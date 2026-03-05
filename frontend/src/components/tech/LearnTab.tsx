@@ -22,11 +22,11 @@ export const LearnTab = ({ techId, techName }: LearnTabProps) => {
     if (!resources) {
         return (
             <div className="py-20 text-center animate-in fade-in duration-500">
-                <div className="mx-auto w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
-                    <BookOpen className="h-8 w-8 text-gray-400" />
+                <div className="mx-auto w-16 h-16 bg-inset rounded-full flex items-center justify-center mb-4">
+                    <BookOpen className="h-8 w-8 text-muted" />
                 </div>
                 <H2>Learning Resources Coming Soon</H2>
-                <p className="text-gray-500 mt-2">We're currently curating the best learning materials for {techName}.</p>
+                <p className="text-muted mt-2">We're currently curating the best learning materials for {techName}.</p>
             </div>
         );
     }
@@ -54,7 +54,7 @@ export const LearnTab = ({ techId, techName }: LearnTabProps) => {
             </div>
 
             {/* Wide Projects Section */}
-            <WideResourceCard id="projects" icon={Code} title="Global Open Source Projects" items={resources.projects} subtitle="Global Standards" className="shadow-md border-indigo-50" />
+            <WideResourceCard id="projects" icon={Code} title="Global Open Source Projects" items={resources.projects} subtitle="Global Standards" className="shadow-md border-indigo-50 dark:border-indigo-500/20" />
 
             {/* Secondary Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -70,14 +70,14 @@ export const LearnTab = ({ techId, techName }: LearnTabProps) => {
                 items={resources.people}
             />
             {/* Bottom: Submit Resource CTA */}
-            <div className="bg-gradient-to-r from-blue-50/50 to-indigo-50/50 rounded-3xl p-8 border border-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+            <div className="bg-gradient-to-r from-blue-50/50 to-indigo-50/50 dark:from-blue-500/10 dark:to-indigo-500/10 rounded-3xl p-8 border border-border-subtle flex flex-col md:flex-row items-center justify-between gap-6 shadow-theme-sm">
                 <div className="max-w-md text-center md:text-left">
-                    <h3 className="text-xl font-bold text-slate-800">Know a great learning resource?</h3>
-                    <p className="text-slate-500 mt-1 text-sm">Help us grow the most complete directory of developer learning material! Suggest an amazing YouTube channel, a helpful podcast, or a killer guide for {techName}.</p>
+                    <h3 className="text-xl font-bold text-primary">Know a great learning resource?</h3>
+                    <p className="text-muted mt-1 text-sm">Help us grow the most complete directory of developer learning material! Suggest an amazing YouTube channel, a helpful podcast, or a killer guide for {techName}.</p>
                 </div>
                 <button
                     onClick={() => setIsSubmitModalOpen(true)}
-                    className="bg-white text-blue-600 px-6 py-3 rounded-2xl font-bold shadow-[0_4px_14px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_20px_rgba(59,130,246,0.15)] hover:scale-[1.02] transition-all border border-blue-50 whitespace-nowrap active:scale-95"
+                    className="bg-card text-accent px-6 py-3 rounded-2xl font-bold shadow-[0_4px_14px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_20px_rgba(59,130,246,0.15)] hover:scale-[1.02] transition-all border border-accent-subtle whitespace-nowrap active:scale-95"
                 >
                     Submit a Resource
                 </button>

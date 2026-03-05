@@ -7,6 +7,7 @@ import Dropdown from '../ui/Dropdown';
 import SimplePager from '../ui/SimplePager';
 import CompanyLogo from '../common/CompanyLogo';
 import { FeedbackButton } from '../common/Feedback';
+import { useChartStyles } from '../../hooks/useChartStyles';
 import { type TechDetailsPageDto } from '../../lib/api';
 
 const COLORS = ['#f563EB', '#4F46E5', '#10B981', '#F59E0B'];
@@ -52,6 +53,7 @@ export const MarketTab = ({
     filteredHiringCompanies
 }: MarketTabProps) => {
     const navigate = useNavigate();
+    const { tooltipStyle } = useChartStyles();
 
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
@@ -80,7 +82,7 @@ export const MarketTab = ({
                                     ))}
                                 </Pie>
                                 <Tooltip
-                                    contentStyle={{ borderRadius: '8px', border: '1px solid #E5E7EB', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+                                    contentStyle={tooltipStyle}
                                 />
                             </PieChart>
                         </div>
@@ -88,7 +90,7 @@ export const MarketTab = ({
                             {data.seniorityDistribution.map((entry, index) => (
                                 <div key={entry.name} className="flex items-center gap-2">
                                     <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: COLORS[index % COLORS.length] }}></div>
-                                    <span className="text-gray-600 font-medium whitespace-nowrap">{entry.name}</span>
+                                    <span className="text-secondary font-medium whitespace-nowrap">{entry.name}</span>
                                 </div>
                             ))}
                         </div>
@@ -110,29 +112,29 @@ export const MarketTab = ({
                     </CardHeader>
                     <div className="flex-1 overflow-auto">
                         <table className="w-full text-left text-sm">
-                            <thead className="bg-gray-50 text-gray-500 sticky top-0">
+                            <thead className="bg-elevated text-muted sticky top-0">
                                 <tr>
                                     <th className="px-6 py-3 font-medium uppercase tracking-wider">Company</th>
                                     <th className="px-6 py-3 font-medium uppercase tracking-wider text-right">Active {data.techName} Roles</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-100">
+                            <tbody className="divide-y divide-border-subtle">
                                 {paginatedCompanies.map((company) => (
-                                    <tr key={company.id} className="hover:bg-gray-50 transition-colors group">
+                                    <tr key={company.id} className="hover:bg-surface-hover transition-colors group">
                                         <td className="px-6 py-4">
                                             <Link to={"/company/" + company.id} className="flex items-center gap-3">
                                                 <CompanyLogo
                                                     logoUrl={company.logo}
                                                     companyName={company.name}
-                                                    className="h-10 w-10 rounded-lg border border-gray-200 shadow-sm group-hover:border-blue-300 group-hover:text-blue-600 transition-colors"
+                                                    className="h-10 w-10 rounded-lg border border-border shadow-theme-sm group-hover:border-accent group-hover:text-accent transition-colors"
                                                 />
-                                                <span className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors flex-1 truncate" title={company.name}>
+                                                <span className="font-semibold text-primary group-hover:text-accent transition-colors flex-1 truncate" title={company.name}>
                                                     {company.name}
                                                 </span>
                                             </Link>
                                         </td>
                                         <td className="px-6 py-4 text-right">
-                                            <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-2.5 py-1 text-sm font-semibold text-blue-700">
+                                            <div className="inline-flex items-center gap-1.5 rounded-full bg-accent-subtle px-2.5 py-1 text-sm font-semibold text-accent">
                                                 <Briefcase className="h-4 w-4" />
                                                 {company.activeRoles}
                                             </div>
@@ -141,7 +143,7 @@ export const MarketTab = ({
                                 ))}
                                 {filteredHiringCompanies.length === 0 && (
                                     <tr>
-                                        <td colSpan={2} className="px-6 py-12 text-center text-gray-400 italic">
+                                        <td colSpan={2} className="px-6 py-12 text-center text-muted italic">
                                             No companies found for this filter combination.
                                         </td>
                                     </tr>
@@ -182,8 +184,8 @@ export const MarketTab = ({
 
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between">
-                        <div className="text-sm font-medium text-slate-500">
-                            Showing <span className="text-slate-900 font-bold">{filteredRoles.length > 0 ? (jobsPage - 1) * JOBS_PAGE_SIZE + 1 : 0}</span> to <span className="text-slate-900 font-bold">{Math.min(jobsPage * JOBS_PAGE_SIZE, filteredRoles.length)}</span> of <span className="text-slate-900 font-bold">{filteredRoles.length}</span> positions
+                        <div className="text-sm font-medium text-muted">
+                            Showing <span className="text-primary font-bold">{filteredRoles.length > 0 ? (jobsPage - 1) * JOBS_PAGE_SIZE + 1 : 0}</span> to <span className="text-primary font-bold">{Math.min(jobsPage * JOBS_PAGE_SIZE, filteredRoles.length)}</span> of <span className="text-primary font-bold">{filteredRoles.length}</span> positions
                         </div>
                         <div className="flex items-center gap-4">
                             <SimplePager
@@ -196,7 +198,7 @@ export const MarketTab = ({
                     </CardHeader>
                     <div className="overflow-x-auto">
                         <table className="w-full text-left text-sm">
-                            <thead className="bg-gray-50 text-gray-500">
+                            <thead className="bg-elevated text-muted">
                                 <tr>
                                     <th className="px-6 py-4 font-medium uppercase tracking-wider">Role</th>
                                     <th className="px-6 py-4 font-medium uppercase tracking-wider">Company</th>
@@ -204,10 +206,10 @@ export const MarketTab = ({
                                     <th className="px-6 py-4 font-medium uppercase tracking-wider">Posted</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-100">
+                            <tbody className="divide-y divide-border-subtle">
                                 {filteredRoles.length === 0 ? (
                                     <tr>
-                                        <td colSpan={4} className="px-6 py-12 text-center text-gray-400">
+                                        <td colSpan={4} className="px-6 py-12 text-center text-muted">
                                             No {data.techName} roles found matching your criteria.
                                         </td>
                                     </tr>
@@ -216,33 +218,33 @@ export const MarketTab = ({
                                         <tr
                                             key={role.id}
                                             onClick={() => navigate(`/job/${role.id}`)}
-                                            className="hover:bg-gray-50 transition-colors cursor-pointer group/row"
+                                            className="hover:bg-surface-hover transition-colors cursor-pointer group/row"
                                         >
                                             <td className="px-6 py-5">
-                                                <span className="font-semibold text-slate-900 group-hover/row:text-blue-600 transition-colors">
+                                                <span className="font-semibold text-primary group-hover/row:text-accent transition-colors">
                                                     {role.title}
                                                 </span>
-                                                <div className="mt-1 flex items-center gap-1.5 text-gray-500">
+                                                <div className="mt-1 flex items-center gap-1.5 text-muted">
                                                     <MapPin className="h-3.5 w-3.5" />
                                                     <span>{role.locations.join(' · ')}</span>
                                                 </div>
                                             </td>
                                             <td className="px-6 py-5">
                                                 <div className="flex items-center gap-2">
-                                                    <span className="font-medium text-slate-700">{role.companyName}</span>
+                                                    <span className="font-medium text-secondary">{role.companyName}</span>
                                                 </div>
                                             </td>
                                             <td className="px-6 py-5">
                                                 {role.salaryMin && role.salaryMax ? (
-                                                    <div className="flex items-center gap-1 font-medium text-slate-700">
-                                                        <DollarSign className="h-4 w-4 text-gray-400" />
+                                                    <div className="flex items-center gap-1 font-medium text-secondary">
+                                                        <DollarSign className="h-4 w-4 text-muted" />
                                                         ${(role.salaryMin / 1000)}k - ${(role.salaryMax / 1000)}k
                                                     </div>
                                                 ) : (
-                                                    <span className="text-gray-400 italic">Unlisted</span>
+                                                    <span className="text-muted italic">Unlisted</span>
                                                 )}
                                             </td>
-                                            <td className="px-6 py-5 text-gray-500 whitespace-nowrap">
+                                            <td className="px-6 py-5 text-muted whitespace-nowrap">
                                                 <div className="flex items-center gap-1.5">
                                                     <Calendar className="h-4 w-4" />
                                                     {role.postedDate}
@@ -255,7 +257,7 @@ export const MarketTab = ({
                         </table>
                     </div>
                     {totalJobsPages > 1 && (
-                        <div className="flex justify-center border-t border-gray-100 p-4">
+                        <div className="flex justify-center border-t border-border-subtle p-4">
                             <SimplePager
                                 currentPage={jobsPage}
                                 totalPages={totalJobsPages}

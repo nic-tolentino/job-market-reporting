@@ -91,11 +91,11 @@ export default function CompanyProfilePage() {
     return (
         <div className="space-y-8">
             {/* Company Header */}
-            <div className="flex items-start gap-6 border-b border-gray-200 pb-8">
+            <div className="flex items-start gap-6 border-b border-border pb-8">
                 <CompanyLogo
                     logoUrl={data.companyDetails.logo}
                     companyName={data.companyDetails.name}
-                    className="h-24 w-24 rounded-2xl border border-gray-200 shadow-sm flex-shrink-0 text-3xl"
+                    className="h-24 w-24 rounded-2xl border border-border shadow-theme-sm flex-shrink-0 text-3xl"
                     imageClassName="p-2"
                 />
                 <div className="flex-1">
@@ -104,13 +104,13 @@ export default function CompanyProfilePage() {
                         <FeedbackButton variant="icon" context={`${companyName} Profile Info`} />
                     </div>
                     <div>
-                        <p className={`text-gray-600 mt-2 max-w-2xl text-lg ${!isDescriptionExpanded ? 'line-clamp-3' : ''}`}>
+                        <p className={`text-secondary mt-2 max-w-2xl text-lg ${!isDescriptionExpanded ? 'line-clamp-3' : ''}`}>
                             {data.companyDetails.description}
                         </p>
                         {data.companyDetails.description.length > 200 && (
                             <button
                                 onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
-                                className="text-blue-600 font-semibold text-sm mt-1 hover:underline"
+                                className="text-accent font-semibold text-sm mt-1 hover:underline"
                             >
                                 {isDescriptionExpanded ? 'Show less' : 'Show more'}
                             </button>
@@ -124,7 +124,7 @@ export default function CompanyProfilePage() {
                         <Badge variant="slate">
                             ~{data.companyDetails.employeesCount.toLocaleString()} Employees
                         </Badge>
-                        <a href={data.companyDetails.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 hover:bg-blue-100 transition-colors">
+                        <a href={data.companyDetails.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-accent/20 bg-accent-subtle px-3 py-1 text-xs font-semibold text-accent hover:bg-accent/10 transition-colors">
                             Website
                         </a>
                     </div>
@@ -136,11 +136,11 @@ export default function CompanyProfilePage() {
 
                     {/* Active Roles */}
                     <Card>
-                        <div className="border-b border-gray-100 p-6">
+                        <div className="border-b border-border-subtle p-6">
                             <div className="flex items-center justify-between mb-1">
                                 <div className="flex items-center gap-2">
                                     <H2>Active Roles</H2>
-                                    <span className="text-sm text-gray-400 font-normal">
+                                    <span className="text-sm text-muted font-normal">
                                         {selectedTechs.size > 0
                                             ? `(${filteredRoles.length} of ${data.activeRoles.length})`
                                             : `(${data.activeRoles.length})`}
@@ -166,8 +166,8 @@ export default function CompanyProfilePage() {
                                             setRolesPage(1);
                                         }}
                                         className={`inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-semibold transition-colors ${selectedTechs.size === 0
-                                            ? 'border-blue-500 bg-blue-50 text-blue-700'
-                                            : 'border-gray-200 bg-white text-slate-500 hover:border-gray-300'
+                                            ? 'border-accent bg-accent-subtle text-accent'
+                                            : 'border-border bg-card text-muted hover:border-secondary'
                                             }`}
                                     >
                                         All
@@ -179,8 +179,8 @@ export default function CompanyProfilePage() {
                                                 key={tech}
                                                 onClick={() => toggleTech(tech)}
                                                 className={`inline-flex items-center gap-1.5 rounded-full border px-4 py-1.5 text-sm font-semibold transition-colors ${active
-                                                    ? 'border-blue-500 bg-blue-50 text-blue-700'
-                                                    : 'border-gray-200 bg-white text-slate-700 hover:border-blue-300 hover:text-blue-600'
+                                                    ? 'border-accent bg-accent-subtle text-accent'
+                                                    : 'border-border bg-card text-secondary hover:border-accent/40 hover:text-accent'
                                                     }`}
                                             >
                                                 {tech}
@@ -194,17 +194,17 @@ export default function CompanyProfilePage() {
 
                         <div className="overflow-x-auto">
                             <table className="w-full text-left text-sm">
-                                <thead className="bg-gray-50 text-gray-500">
+                                <thead className="bg-elevated text-muted">
                                     <tr>
                                         <th className="px-6 py-4 font-medium uppercase tracking-wider">Role</th>
                                         <th className="px-6 py-4 font-medium uppercase tracking-wider">Compensation</th>
                                         <th className="px-6 py-4 font-medium uppercase tracking-wider">Posted</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-gray-100">
+                                <tbody className="divide-y divide-border-subtle">
                                     {filteredRoles.length === 0 ? (
                                         <tr>
-                                            <td colSpan={3} className="px-6 py-12 text-center text-gray-400">
+                                            <td colSpan={3} className="px-6 py-12 text-center text-muted">
                                                 No roles match the selected filters.
                                             </td>
                                         </tr>
@@ -212,18 +212,18 @@ export default function CompanyProfilePage() {
                                         <tr
                                             key={job.id}
                                             onClick={() => navigate(`/job/${job.id}`)}
-                                            className="hover:bg-gray-50 transition-colors group/row cursor-pointer"
+                                            className="hover:bg-surface-hover transition-colors group/row cursor-pointer"
                                         >
                                             <td className="px-6 py-5">
                                                 <div className="flex items-center gap-2">
-                                                    <Link to={`/job/${job.id}`} className="font-semibold text-slate-900 hover:text-blue-600 hover:underline transition-colors block">
+                                                    <Link to={`/job/${job.id}`} className="font-semibold text-primary hover:text-accent hover:underline transition-colors block">
                                                         {job.title}
                                                     </Link>
                                                     <div className="opacity-0 group-hover/row:opacity-100 transition-opacity">
                                                         <FeedbackButton variant="icon" context={`Job Role: ${job.title} at ${companyName}`} />
                                                     </div>
                                                 </div>
-                                                <div className="mt-1 flex items-center gap-1.5 text-gray-500">
+                                                <div className="mt-1 flex items-center gap-1.5 text-muted">
                                                     <MapPin className="h-3.5 w-3.5 flex-shrink-0" />
                                                     <span>{job.locations.join(' · ')}</span>
                                                 </div>
@@ -232,8 +232,8 @@ export default function CompanyProfilePage() {
                                                         <span
                                                             key={tech}
                                                             className={`inline-flex rounded px-2 text-xs font-medium py-0.5 ${selectedTechs.has(tech)
-                                                                ? 'bg-blue-100 text-blue-700'
-                                                                : 'bg-gray-100 text-gray-600'
+                                                                ? 'bg-accent-subtle text-accent'
+                                                                : 'bg-inset text-secondary'
                                                                 }`}
                                                         >
                                                             {tech}
@@ -243,15 +243,15 @@ export default function CompanyProfilePage() {
                                             </td>
                                             <td className="px-6 py-5 align-top">
                                                 {job.salaryMin && job.salaryMax ? (
-                                                    <div className="flex items-center gap-1 font-medium text-slate-700">
-                                                        <DollarSign className="h-4 w-4 text-gray-400" />
+                                                    <div className="flex items-center gap-1 font-medium text-secondary">
+                                                        <DollarSign className="h-4 w-4 text-muted" />
                                                         ${(job.salaryMin / 1000)}k - ${(job.salaryMax / 1000)}k
                                                     </div>
                                                 ) : (
-                                                    <span className="text-gray-400 italic">Unlisted</span>
+                                                    <span className="text-muted italic">Unlisted</span>
                                                 )}
                                             </td>
-                                            <td className="px-6 py-5 align-top text-gray-500 whitespace-nowrap">
+                                            <td className="px-6 py-5 align-top text-muted whitespace-nowrap">
                                                 <div className="flex items-center gap-1.5">
                                                     <Calendar className="h-4 w-4" />
                                                     {job.postedDate}
@@ -263,7 +263,7 @@ export default function CompanyProfilePage() {
                             </table>
                         </div>
                         {totalPages > 1 && (
-                            <div className="flex justify-center border-t border-gray-100 p-4">
+                            <div className="flex justify-center border-t border-border-subtle p-4">
                                 <SimplePager
                                     currentPage={rolesPage}
                                     totalPages={totalPages}
@@ -281,24 +281,24 @@ export default function CompanyProfilePage() {
                                 <FeedbackButton variant="icon" context={`${companyName} Insights`} />
                             </div>
                             <SectionSubtitle className="mb-5">Insights</SectionSubtitle>
-                            <ul className="space-y-4 text-sm text-gray-600">
-                                <li className="flex justify-between items-center border-b border-gray-50 pb-3">
-                                    <span className="font-medium text-slate-600">Work Model</span>
+                            <ul className="space-y-4 text-sm text-secondary">
+                                <li className="flex justify-between items-center border-b border-border-subtle pb-3">
+                                    <span className="font-medium text-secondary">Work Model</span>
                                     <Badge variant="emerald">{data.insights.workModel}</Badge>
                                 </li>
 
-                                <li className="flex justify-between items-center border-b border-gray-50 pb-3 group cursor-pointer">
-                                    <span className="font-medium text-slate-600">Common Benefits</span>
-                                    <span className="font-semibold text-blue-600 group-hover:underline">View {data.insights.commonBenefits.length} tags</span>
+                                <li className="flex justify-between items-center border-b border-border-subtle pb-3 group cursor-pointer">
+                                    <span className="font-medium text-secondary">Common Benefits</span>
+                                    <span className="font-semibold text-accent group-hover:underline">View {data.insights.commonBenefits.length} tags</span>
                                 </li>
                                 {data.insights.hiringLocations.length > 0 && (
-                                    <li className="pt-2 border-b border-gray-50 pb-4">
-                                        <span className="block font-medium text-slate-600 mb-3">Hiring Locations</span>
+                                    <li className="pt-2 border-b border-border-subtle pb-4">
+                                        <span className="block font-medium text-secondary mb-3">Hiring Locations</span>
                                         <div className="flex flex-wrap gap-1.5 max-h-40 overflow-y-auto">
                                             {[...new Set(data.insights.hiringLocations)].sort().map(loc => (
                                                 <span
                                                     key={loc}
-                                                    className="inline-flex items-center rounded-full bg-slate-50 border border-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600"
+                                                    className="inline-flex items-center rounded-full bg-inset border border-border-subtle px-2.5 py-1 text-xs font-medium text-secondary"
                                                 >
                                                     {loc}
                                                 </span>
@@ -307,13 +307,13 @@ export default function CompanyProfilePage() {
                                     </li>
                                 )}
                                 <li className="pt-2">
-                                    <span className="block font-medium text-slate-600 mb-3">Tech Stacks</span>
+                                    <span className="block font-medium text-secondary mb-3">Tech Stacks</span>
                                     <div className="flex flex-wrap gap-1.5">
                                         {data.techStack.map(tech => (
                                             <Link
                                                 key={tech}
                                                 to={`/tech/${tech.toLowerCase()}`}
-                                                className="inline-flex items-center rounded-full bg-slate-50 border border-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 hover:border-blue-200 hover:text-blue-700 transition-colors"
+                                                className="inline-flex items-center rounded-full bg-inset border border-border-subtle px-2.5 py-1 text-xs font-semibold text-secondary hover:border-accent/40 hover:text-accent transition-colors"
                                             >
                                                 {tech}
                                             </Link>

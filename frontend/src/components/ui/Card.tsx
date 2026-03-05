@@ -2,7 +2,7 @@ import React from 'react';
 
 export function Card({ children, className = '', id, ...props }: { children: React.ReactNode; className?: string; id?: string;[key: string]: any }) {
     return (
-        <div id={id} className={`bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col ${className}`} {...props}>
+        <div id={id} className={`bg-card rounded-xl border border-border shadow-theme-sm overflow-hidden flex flex-col ${className}`} {...props}>
             {children}
         </div>
     );
@@ -10,7 +10,7 @@ export function Card({ children, className = '', id, ...props }: { children: Rea
 
 export function CardHeader({ children, className = '' }: { children: React.ReactNode; className?: string }) {
     return (
-        <div className={`border-b border-gray-100 p-6 flex flex-wrap items-center justify-between gap-4 ${className}`}>
+        <div className={`border-b border-border-subtle p-6 flex flex-wrap items-center justify-between gap-4 ${className}`}>
             {children}
         </div>
     );

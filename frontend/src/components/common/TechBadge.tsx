@@ -22,8 +22,8 @@ const TechBadge: React.FC<TechBadgeProps> = ({
     };
 
     const interactiveClasses = onClick
-        ? 'cursor-pointer transition-colors ' + (selected ? 'bg-blue-600 text-white border-blue-500' : 'bg-neutral-800 text-neutral-300 border-neutral-700 hover:bg-neutral-700 hover:text-white')
-        : 'bg-neutral-800 text-neutral-300 border-neutral-700';
+        ? 'cursor-pointer transition-colors ' + (selected ? 'bg-accent text-inverted border-accent' : 'bg-inset text-secondary border-border hover:bg-surface-hover hover:text-primary')
+        : 'bg-inset text-secondary border-border';
 
     return (
         <span
