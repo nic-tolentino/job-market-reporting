@@ -14,11 +14,11 @@ As of March 2026, our position is:
 | Metric | Count | Coverage |
 |:---|:---:|:---:|
 | Total companies in database | 182 | — |
-| Companies with ATS identified | 74 | 40.7% |
-| Companies with NONE (unidentified) | 108 | 59.3% |
+| Companies with ATS identified | 92 | 50.5% |
+| Companies with NONE (unidentified) | 90 | 49.5% |
 | Total jobs in database | 449 | — |
-| Jobs from identified-ATS companies | 247 | 55.0% |
-| Jobs from NONE companies | 202 | 45.0% |
+| Jobs from identified-ATS companies | 305 | 68.0% |
+| Jobs from NONE companies | 144 | 32.0% |
 
 ### What we've done so far
 
@@ -116,24 +116,32 @@ while IFS=, read -r companyName website; do
 done < /tmp/none_companies.csv
 ```
 
-### Phase B: Manual investigation (remaining companies)
+### Phase B: Advanced Discovery for Remaining Companies (Optional / Low ROI)
 
-Any companies that remain unidentified after Phase A will be manually investigated. This is expected to be a small subset.
+After automated scanning, ~90 companies (49.5%) remain unidentified. These companies almost certainly fall into one of three buckets:
+1. They use **LinkedIn Easy Apply** exclusively and don't maintain a public ATS board.
+2. They use a **custom/proprietary job board** (like EY or Microsoft) that we cannot easily integrate with via a standard API.
+3. They use an ATS that we haven't mapped yet, or their ATS is heavily masked behind a corporate proxy.
 
-**Process per company:**
-1. Google `"{company name}" careers` or check the `website` field
-2. Visit the careers page and inspect:
-   - URL: Does it redirect to a known ATS domain?
-   - Page source: Search for ATS markers
-   - Network requests: Check for API calls to known ATS domains
-   - iframes / script tags: Check for embedded ATS widgets
-3. Record the ATS provider and identifier in the findings file
+**Recommendation:** Do not aggressively pursue identifying these remaining 90 companies right now. The ROI is low because even if we find an ATS, if they force candidates through LinkedIn Easy Apply, their public ATS board might not be populated with the jobs we actually want. We must continue to rely on Apify scraping for these companies.
 
-**Known leads for high-value companies** (from earlier research):
-- Spark New Zealand → likely Workday (`sparknz.wd3.myworkdayjobs.com`)
-- Southern Cross Health Insurance → likely SnapHire (`southerncross.snaphire.com`)
-- Tower Insurance → likely SnapHire (`tower.snaphire.com`)
-- Microsoft → proprietary careers portal
+If we *need* to identify a specific high-value company, we can use these advanced manual methods:
+
+1. **Google Dorking for hidden boards:**
+   - Search: `site:boards.greenhouse.io "{Company Name}"` or `site:jobs.lever.co "{Company Name}"`.
+   - Often, companies have an active public ATS board that just isn't linked from their main careers page because they prefer routing traffic through LinkedIn.
+2. **Wayback Machine / Historical Data:**
+   - Check the company's careers page on the Internet Archive from 1-2 years ago. They may have switched to Easy Apply recently but still use the same ATS internally (which might still have an active API).
+3. **LinkedIn Network Interception (Manual):**
+   - Attempt an "Easy Apply" on LinkedIn with browser dev tools open. Look at network requests — sometimes the LinkedIn integration pings the underlying ATS API directly, revealing the provider.
+
+**Remaining high-value targets** (if we choose to investigate):
+- Spark New Zealand
+- Microsoft (known proprietary)
+- Kiwibank
+- Fisher & Paykel Healthcare
+- IAG
+- Orion Health
 
 ---
 
@@ -248,19 +256,18 @@ A valid response returns JSON with a `jobs` array. Invalid slugs return an error
 1. ✅ ~~Scan all `applyUrls` in BigQuery for known ATS domain patterns~~ — **Done** (identified 74 companies)
 2. ✅ ~~Validate Greenhouse, Lever, Ashby tokens via public APIs~~ — **Done**
 3. ✅ ~~Document findings in Master Roster~~ — **Done** (`ideas/ats-identification-findings.md`)
+4. ✅ ~~Build automated careers page scanner (Phase A)~~ — **Done** (`discover_ats.py`)
+5. ✅ ~~Run scanner against all 108 NONE companies~~ — **Done** (Identified 18 additional companies, bringing total to 92 identified)
 
 ### Next steps
 
-4. ⬜ **Build automated careers page scanner** (Phase A) — Script to visit each NONE company's careers page and identify ATS markers in the HTML/redirects. Add to `scripts/ats/discover_ats.sh`.
-5. ⬜ **Run scanner against all 108 NONE companies** and update findings file with results
-6. ⬜ **Manual investigation** (Phase B) — For any companies that remain unidentified after the scanner, manually inspect their careers pages
-7. ⬜ **Update findings file** with each new identification as it's made
+6. ⬜ **Full Validation Sweep** — Run `validate_ats.sh` across all 92 identified companies to ensure the newly discovered tokens are valid and actively returning jobs.
+7. ⬜ **Seed `company_ats_configs` in BigQuery** — Once identifiers are validated, seed the production database so the sync pipeline can take over.
 
 ### Medium-term
 
-8. ⬜ **Workday integration investigation** — Workday is 9.3% of companies; determine if their job data API is feasible
-9. ⬜ **SmartRecruiters integration investigation** — 2.7% of companies but 4.9% of jobs
-10. ⬜ **Seed `company_ats_configs` in BigQuery** once identifiers are validated
+8. ⬜ **Workday integration investigation** — Workday is now 13.7% of companies; determine if their job data API is feasible.
+9. ⬜ **SmartRecruiters / Workable integration** — Assess the viability of pulling data from these platforms which make up a combined 8.2% of companies.
 
 ---
 
@@ -276,6 +283,46 @@ The codebase already has:
 - `company_ats_configs` BigQuery table definition
 
 Once the roster is built from this discovery process, the identifiers flow directly into `CompanyAtsConfig.identifier` and the sync pipeline can begin polling.
+
+---
+
+## 8. Strategy for Market Reliability (Next Steps)
+
+To ensure we remain the **most reliable and accurate source of job information on the market**, we must shift focus from *discovery* to *data quality and freshness*.
+
+### 1. High-Frequency Real-Time Syncing (The "Moat")
+Traditional job boards lag because they rely on daily XML feeds or slow scrapers. By integrating directly with the ATS APIs (Greenhouse, Lever, Ashby, Workday), we bypass the delay.
+**Action:** Configure the backend `JobSyncTimer` to poll these Tier 1 APIs every 1–2 hours. When a company posts a job, it should appear on our platform before it even hits LinkedIn.
+
+### 2. "Ghost Job" & Dead Link Detection
+One of the biggest frustrations for candidates is applying to a job that was already filled. 
+**Action:** Implement a daily health-check worker that sends a `HEAD` request to every active `applyUrl` in our database. If an ATS returns a 404 (or redirects to a generic careers page), immediately mark the job as `CLOSED` in our system.
+
+### 3. Deep Data Enrichment (AI Classification)
+Simply having the job is not enough; the data must be highly filterable. Many ATS postings lack structured metadata for "Seniority" or "Tech Stack".
+**Action:** Expand the `TechRoleClassifier` (and potentially introduce an LLM pass) to aggressively extract:
+- **Seniority:** Junior, Mid, Senior, Staff, Principal.
+- **Tech Stack:** (e.g., React, Kotlin, AWS) mapping to our internal `tech Resources` tags.
+- **Salary:** Pluck salary bands directly from the job description if the ATS doesn't provide structured fields (like Ashby does).
+
+### 4. Robust Fallback for "NONE" Companies
+For the 49.5% of companies relying on LinkedIn Easy Apply, we cannot use direct APIs.
+**Action:** 
+- Keep the Apify/LinkedIn scraper highly maintained. Set up alerting if the number of scraped jobs drops by >20% in a week, indicating a LinkedIn DOM change.
+- Run the scraper daily to ensure parity with LinkedIn.
+
+### 5. Community Sourcing & Reporting
+No automated system is perfect. Startups appear overnight, and companies change ATS providers.
+**Action:** 
+- Add a "Submit a Job" feature to the UI so users can manually link a careers page we missed.
+- Add a "Report this Job" button on the job details UI so users can flag incorrect formatting, filled roles, or scam postings, triggering a manual review.
+
+### 6. Multi-Channel Sourcing (Seek & Trade Me)
+Relying solely on LinkedIn and direct ATS integrations leaves a significant blind spot. While LinkedIn is highly competitive for tech and corporate roles, **SEEK** completely dominates the overall ANZ job board market (capturing ~90% of job seeker time), and **Trade Me Jobs** holds a massive share of the New Zealand market. 
+*   **Market Share Gap:** We estimate that we are currently missing **50-60%** of the total addressable tech job market. Many government organizations, established domestic enterprises, and non-tech-first companies post *exclusively* to Seek or Trade Me and do not use LinkedIn. If we have ~450 tech jobs now, extending to Seek and Trade Me could rapidly expand our database to 1,000+ active roles.
+**Action:**
+- **Phase C Sourcing:** Develop dedicated Apify scrapers (or direct API integrations if accessible) for both Seek (AU/NZ) and Trade Me Jobs (NZ), filtering strictly for our defined Tech/IT categories.
+- Deduplicate these listings against our existing LinkedIn/ATS data using company name, job title, and location to avoid double-counting.
 
 ---
 

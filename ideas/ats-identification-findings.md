@@ -76,8 +76,8 @@ Based on the Master Roster below (182 unique companies, 449 total jobs), here is
 | Ampstek | NONE | `` | — |
 | Arlo Training Management Software | EmploymentHero | `` | Identified (Pending Validation) |
 | Auckland University of Technology | NONE | `` | — |
-| Auror | Workable | `auror` | — |
-| Autodesk | Workday | `autodesk` | ✅ Domain Active |
+| Auror | Workable | `auror` | Identified (Pending Validation) |
+| Autodesk | Workday | `autodesk` | ⚠️ Domain Check Failed |
 | BDO in New Zealand | JobAdder | `` | Identified (Pending Validation) |
 | Babcock Australia & New Zealand | NONE | `` | — |
 | Bank of New Zealand | Workday | `` | ⚠️ Domain Check Failed |
@@ -95,16 +95,16 @@ Based on the Master Roster below (182 unique companies, 449 total jobs), here is
 | Cognex Corporation | NONE | `` | — |
 | Cognizant | NONE | `` | — |
 | Contented | NONE | `` | — |
-| Corpay | Workday | `corpay` | ✅ Domain Active |
+| Corpay | Workday | `corpay` | ⚠️ Domain Check Failed |
 | Crossing Hurdles | NONE | `` | — |
-| Crown Lift Trucks New Zealand | Workable | `crown-equipment-limited-nz` | — |
-| DXC Technology | Workday | `dxctechnology` | Identified (Pending Validation) |
-| DXC Technology | Workday | `dxctechnology` | Identified (Pending Validation) |
+| Crown Lift Trucks New Zealand | Workable | `crown-equipment-limited-nz` | Identified (Pending Validation) |
+| DXC Technology | Workday | `dxctechnology` | ⚠️ Domain Check Failed |
+| DXC Technology | Workday | `dxctechnology` | ⚠️ Domain Check Failed |
 | DataAnnotation | NONE | `` | — |
 | Datacom | Workable | `datacom1` | Identified (Pending Validation) |
 | Dawn Aerospace | BambooHR | `dawnaerospace` | Identified (Pending Validation) |
 | Deloitte | SmartRecruiters | `deloittenz` | Identified (Pending Validation) |
-| EROAD | Workday | `eroadgroup` | ✅ Domain Active |
+| EROAD | Workday | `eroadgroup` | ⚠️ Domain Check Failed |
 | EY | NONE | `` | — |
 | Education Perfect | Workable | `education-perfect` | Identified (Pending Validation) |
 | Enable | Lever | `enable` | ✅ Valid (9 jobs) |
@@ -114,9 +114,9 @@ Based on the Master Roster below (182 unique companies, 449 total jobs), here is
 | Envato | Lever | `envato-2` | ✅ Valid (5 jobs) |
 | Eurofins | SmartRecruiters | `` | Identified (Pending Validation) |
 | EverCommerce | NONE | `` | — |
-| Fergus | Workable | `fergus` | — |
+| Fergus | Workable | `fergus` | Identified (Pending Validation) |
 | Fisher & Paykel Appliances | Workday | `haier` | ⚠️ Domain Check Failed |
-| Fisher & Paykel Healthcare | SuccessFactors | `performancemanager10` | — |
+| Fisher & Paykel Healthcare | SuccessFactors | `performancemanager10` | Identified (Pending Validation) |
 | Foodstuffs North Island Limited | Lever | `foodstuffs` | ✅ Valid (18 jobs) |
 | Fuel50 | NONE | `` | — |
 | Gallagher | Teamtailor | `` | domain: careers.gallagher.com |
@@ -141,7 +141,7 @@ Based on the Master Roster below (182 unique companies, 449 total jobs), here is
 | Karat | Greenhouse | `` | ❓ Missing Token |
 | Kiwibank | NONE | `` | — |
 | Komodo Wellbeing | NONE | `` | — |
-| Kraken | Lever | `kraken123` | — |
+| Kraken | Lever | `kraken123` | ✅ Valid (85 jobs) |
 | LawVu | NONE | `` | — |
 | Leonardo.Ai | Ashby | `leonardo.ai` | ❌ Invalid/No Jobs |
 | Les Mills Brasil 🇧🇷 | NONE | `` | — |
@@ -152,8 +152,8 @@ Based on the Master Roster below (182 unique companies, 449 total jobs), here is
 | Megaport | Lever | `megaport` | ✅ Valid (25 jobs) |
 | Merkle Aotearoa | Workday | `dentsuaegis` | ⚠️ Domain Check Failed |
 | Microsoft | NONE | `` | — |
-| Mindrift | Workable | `toloka-ai` | — |
-| Ministry of Business, Innovation and Employment | SuccessFactors | `mbie` | — |
+| Mindrift | Workable | `toloka-ai` | Identified (Pending Validation) |
+| Ministry of Business, Innovation and Employment | SuccessFactors | `mbie` | Identified (Pending Validation) |
 | Momentum Consulting Group | JobAdder | `` | Identified (Pending Validation) |
 | Mott MacDonald | NONE | `` | — |
 | NUVIA | NONE | `` | — |
@@ -183,7 +183,7 @@ Based on the Master Roster below (182 unique companies, 449 total jobs), here is
 | Randstad New Zealand | NONE | `` | — |
 | Re-Leased | Greenhouse | `released` | ✅ Valid (12 jobs) |
 | Recmatrix Consulting | NONE | `` | — |
-| Red Hat | Workday | `redhat` | — |
+| Red Hat | Workday | `redhat` | ⚠️ Domain Check Failed |
 | Remote | Greenhouse | `remotecom` | ✅ Valid (1052 jobs) |
 | Reserve Bank of New Zealand | Aplitrak | `` | Identified (Pending Validation) |
 | Rio Tinto | ContactHR | `` | Identified (Pending Validation) |
@@ -204,10 +204,10 @@ Based on the Master Roster below (182 unique companies, 449 total jobs), here is
 | Slalom | NONE | `` | — |
 | Socialite Recruitment Ltd. | JobAdder | `` | — |
 | Sourced IT Recruitment | NONE | `` | — |
-| Southern Cross Health Insurance | Workday | `southerncross` | — |
+| Southern Cross Health Insurance | Workday | `southerncross` | ⚠️ Domain Check Failed |
 | Spark New Zealand | NONE | `` | — |
 | Stats NZ | SnapHire | `` | Identified (Pending Validation) |
-| Synechron | Workday | `synechron` | — |
+| Synechron | Workday | `synechron` | ⚠️ Domain Check Failed |
 | TEKsystems | NONE | `` | — |
 | TOMRA | NONE | `` | — |
 | TRA | NONE | `` | — |
@@ -216,7 +216,7 @@ Based on the Master Roster below (182 unique companies, 449 total jobs), here is
 | Tencent | Workday | `tencent` | ⚠️ Domain Check Failed |
 | The Comfort Group - Asia Pacific | NONE | `` | — |
 | The Post | NONE | `` | — |
-| Theta (NZ) | Workable | `j` | — |
+| Theta (NZ) | Workable | `j` | Identified (Pending Validation) |
 | Together - NZ | NONE | `` | — |
 | Totara | Breezy | `` | Identified (Pending Validation) |
 | Tower Insurance | NONE | `` | — |
@@ -226,9 +226,9 @@ Based on the Master Roster below (182 unique companies, 449 total jobs), here is
 | Tribe Recruitment | NONE | `` | — |
 | Trimble Inc. | NONE | `` | — |
 | Twine | NONE | `` | — |
-| Unisys | Workday | `unisys` | — |
+| Unisys | Workday | `unisys` | ⚠️ Domain Check Failed |
 | VAST Data | NONE | `` | — |
-| Vector Limited | SmartRecruiters | `vectorlimited` | — |
+| Vector Limited | SmartRecruiters | `vectorlimited` | Identified (Pending Validation) |
 | Visa | SmartRecruiters | `` | Identified (Pending Validation) |
 | Vista | Workable | `vista-group` | Identified (Pending Validation) |
 | WSP | NONE | `` | — |
@@ -236,7 +236,7 @@ Based on the Master Roster below (182 unique companies, 449 total jobs), here is
 | Watercare Services Limited | Workday | `watercare` | ⚠️ Domain Check Failed |
 | Weekday AI (YC W21) | NONE | `` | — |
 | Westpac New Zealand | Workday | `westpacnz` | ⚠️ Domain Check Failed |
-| Whip Around | Workable | `whiparound` | — |
+| Whip Around | Workable | `whiparound` | Identified (Pending Validation) |
 | Windcave | NONE | `` | — |
 | Workday | Workday | `workday` | ⚠️ Domain Check Failed |
 | Wētā FX | SuccessFactors | `wetafx` | Identified (Pending Validation) |

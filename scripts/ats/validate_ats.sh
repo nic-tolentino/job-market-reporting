@@ -80,29 +80,30 @@ while IFS= read -r line; do
       identifier=$(echo "$line" | awk -F'|' '{print $4}' | sed 's/`//g' | xargs)
       status=$(echo "$line" | awk -F'|' '{print $5}' | xargs)
       
-      if [[ "$status" == "TODO" ]]; then
-        echo "Validating $provider for $company..."
-        case "$provider" in
-          "Greenhouse")
-            new_status=$(validate_greenhouse "$identifier")
-            ;;
-          "Lever")
-            new_status=$(validate_lever "$identifier")
-            ;;
-          "Ashby")
-            new_status=$(validate_ashby "$identifier")
-            ;;
-          "Workday")
-            new_status=$(validate_workday "$identifier")
-            ;;
-          "NONE")
-            new_status="—"
-            ;;
-          *)
-            new_status="Identified (Pending Validation)"
-            ;;
-        esac
-        echo "| $company | $provider | \`$identifier\` | $new_status |" >> "$TEMP_FILE"
+      if [[ "$status" != *"✅ Valid"* && "$status" != *"❌ Invalid"* && "$status" != "❓ Missing Token" && "$status" != "⚠️ Domain Check Failed" ]]; then
+        if [[ -n "$identifier" && "$identifier" != " " && "$identifier" != "" && "$provider" != "NONE" ]]; then
+          echo "Validating $provider for $company..."
+          case "$provider" in
+            "Greenhouse")
+              new_status=$(validate_greenhouse "$identifier")
+              ;;
+            "Lever")
+              new_status=$(validate_lever "$identifier")
+              ;;
+            "Ashby")
+              new_status=$(validate_ashby "$identifier")
+              ;;
+            "Workday")
+              new_status=$(validate_workday "$identifier")
+              ;;
+            *)
+              new_status="Identified (Pending Validation)"
+              ;;
+          esac
+          echo "| $company | $provider | \`$identifier\` | $new_status |" >> "$TEMP_FILE"
+        else
+          echo "$line" >> "$TEMP_FILE"
+        fi
       else
         echo "$line" >> "$TEMP_FILE"
       fi

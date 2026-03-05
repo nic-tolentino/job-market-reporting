@@ -153,6 +153,10 @@ Later:
 
 - Discover tech jobs, insights, and resources: we're here to help you succeed in your tech career 🚀📈❤️
 
+- jobs per capita comparison
+- salary per job over time
+- overall market job seniority (how many juniors and mids are there)
+
 Images:
 - Manually search for logo urls for each of the technologies (and companies?). Host the images locally so they are more stable? Maybe use them as backups if the url isn't provided?
 - We should store the company images for when the companies stop advertising roles. Use them as backups if no updated url is available? Because companies may change their url over time
