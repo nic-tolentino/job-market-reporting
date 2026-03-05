@@ -157,6 +157,11 @@ Later:
 - salary per job over time
 - overall market job seniority (how many juniors and mids are there)
 
+- other country selector option, to get feedback on demand for other countries
+- label and show the source of the data
+- does our pii filter out "If you would like to find out more about this amazing opportunity, please feel free to call our Head of Talent Acquisitions, Bob Bloblob, mobile 021 999 111, she loves to chat about TVNZ careers."
+- allow users to contribute to the company data by creating a public repo to host that data. The backend will pull the data from the repo and upsert it into the database.
+
 Images:
 - Manually search for logo urls for each of the technologies (and companies?). Host the images locally so they are more stable? Maybe use them as backups if the url isn't provided?
 - We should store the company images for when the companies stop advertising roles. Use them as backups if no updated url is available? Because companies may change their url over time
@@ -174,6 +179,7 @@ Nice to have:
 - The "Remote-from-NZ" Tag: Many AU companies hire NZ-based devs as contractors. Highlighting "Remote (NZ/AU Wide)" is a huge value-add for the local community that larger platforms often miss.
 - generate sitemap.xml for SEO
 
+
 Meh?:
 - Filters for people lead roles like managers?
 - Add a locations with most jobs, and locations for a given tech. Does this make sense? we have location filters for tech and companies. Maybe total jobs per city, but it's not very useful unless you're a migrant? Even then you can just filter jobs for a technology and location?
@@ -183,3 +189,12 @@ Funding ideas:
 - Show sponsor companies at the top of the website???
 - Sponsored companies get badges and are listed at the top of lists?
 - donations
+
+Costs:
+- Apify: USD2.5
+- Domain: USD7
+- Hosting: USD1
+
+Time:
+Estimated time between 23 Feb and Friday 6th March: 40 hours
+Friday 6th March - 5 hours

@@ -6,6 +6,7 @@ import com.techmarket.persistence.model.JobRecord
 import com.techmarket.util.TechFormatter
 import java.time.Instant
 import java.time.LocalDate
+import java.time.ZoneId
 import kotlin.math.min
 
 object JobMapper {
@@ -35,9 +36,8 @@ object JobMapper {
                                 postedDate =
                                         if (r.get(JobFields.POSTED_DATE).isNull) null
                                         else
-                                                java.time.LocalDate.parse(
-                                                        r.get(JobFields.POSTED_DATE).stringValue
-                                                ),
+                                        if (r.get(JobFields.POSTED_DATE).isNull) null
+                                        else parseLocalDateSafe(r.get(JobFields.POSTED_DATE)),
                                 jobFunction =
                                         if (r.get(JobFields.JOB_FUNCTION).isNull) null
                                         else r.get(JobFields.JOB_FUNCTION).stringValue,
@@ -251,7 +251,7 @@ object JobMapper {
                                 else r.get(JobFields.SALARY_MAX).longValue.toInt(),
                         postedDate =
                                 if (r.get(JobFields.POSTED_DATE).isNull) null
-                                else LocalDate.parse(r.get(JobFields.POSTED_DATE).stringValue),
+                                else parseLocalDateSafe(r.get(JobFields.POSTED_DATE)),
                         benefits =
                                 if (r.get(JobFields.BENEFITS).isNull) emptyList()
                                 else r.get(JobFields.BENEFITS).repeatedValue.map { it.stringValue },
@@ -284,6 +284,23 @@ object JobMapper {
                         }
                 } catch (e: Exception) {
                         Instant.EPOCH
+                }
+        }
+
+        private fun parseLocalDateSafe(field: com.google.cloud.bigquery.FieldValue): LocalDate? {
+                if (field.isNull) return null
+                return try {
+                        val stringVal = field.stringValue
+                        val doubleVal = stringVal.toDoubleOrNull()
+                        if (doubleVal != null) {
+                                Instant.ofEpochSecond(doubleVal.toLong())
+                                        .atZone(ZoneId.systemDefault())
+                                        .toLocalDate()
+                        } else {
+                                LocalDate.parse(stringVal)
+                        }
+                } catch (e: Exception) {
+                        null
                 }
         }
 }
