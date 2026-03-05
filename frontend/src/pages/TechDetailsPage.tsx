@@ -10,6 +10,8 @@ import { MarketTab } from '../components/tech/MarketTab';
 import { LearnTab } from '../components/tech/LearnTab';
 import { CommunityTab } from '../components/tech/CommunityTab';
 
+import { TechIcon } from '../components/common/TechIcon';
+
 const COMPANIES_PAGE_SIZE = 5;
 const JOBS_PAGE_SIZE = 10;
 
@@ -22,7 +24,6 @@ export default function TechDetailsPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
     const [activeTab, setActiveTab] = useState<Tab>('Market');
-    const [iconError, setIconError] = useState(false);
 
     // Filter states
     const [selectedSeniority, setSelectedSeniority] = useState<string>('All');
@@ -138,22 +139,12 @@ export default function TechDetailsPage() {
         return <ErrorState title={`Couldn't load ${techId || 'technology'} data`} message="We had trouble fetching details for this technology. Try again shortly." onRetry={loadData} />;
     }
 
-    const displayLetter = data.techName.charAt(0);
 
     return (
         <div className="space-y-8">
             <div className="flex flex-col md:flex-row md:items-start gap-6">
                 <div className="h-24 w-24 rounded-2xl bg-card border border-border shadow-theme-sm flex items-center justify-center flex-shrink-0 text-3xl font-bold text-secondary overflow-hidden">
-                    {!iconError ? (
-                        <img
-                            src={`/icons/tech/${techId?.toLowerCase()}.svg`}
-                            alt={`${data.techName} logo`}
-                            className="w-12 h-12 object-contain dark:invert"
-                            onError={() => setIconError(true)}
-                        />
-                    ) : (
-                        displayLetter
-                    )}
+                    <TechIcon techId={techId || ''} className="w-12 h-12" />
                 </div>
                 <div className="flex-1">
                     <div className="flex items-center gap-3">
