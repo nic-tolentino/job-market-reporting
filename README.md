@@ -119,6 +119,7 @@ Since historical job data does not change frequently (ingestion happens daily/we
 
 Now:
 
+- I need to make ingestion of datasets idempotent. 
 
 Later:
 
@@ -144,6 +145,9 @@ Later:
 - Can we rid of some of the nullable fields on the company and jobs tables?
 - Test error scenarios
 - Tidy up titles, figure out how to handle 'Mid-Senior level', maybe multiple levels are allowed for each job?
+- Add a tooltip to the company verified status explaining what the status means (eg, if it's unverified, explain it's lacking data)
+- Data issue - how we can limit certain jobs from showing up in the wrong technologies? For example, native iOS and Android roles shouldn't show Xamarin or ReactNative jobs. Or perhaps we need a way to optionally filter out or exclude other technologies
+- Also, estimate salary range for a job but provide the confidence level (LOW AI market estimate, vs HIGH job posting range) - always with a disclaimer that it's just an estimate.
 
 - Mobile design is still pretty meh in places especially rows of information like jobs, and page headers.
 - Mobile bug: refresh on company page results in 404 Not Found
@@ -157,20 +161,22 @@ Later:
 - salary per job over time
 - overall market job seniority (how many juniors and mids are there)
 
+- smoothly show/hide the top navbar when scrolling up/down
+- left align section headings in tech page
+
 - other country selector option, to get feedback on demand for other countries
 - label and show the source of the data
 - does our pii filter out "If you would like to find out more about this amazing opportunity, please feel free to call our Head of Talent Acquisitions, Bob Bloblob, mobile 021 999 111, she loves to chat about TVNZ careers."
 - allow users to contribute to the company data by creating a public repo to host that data. The backend will pull the data from the repo and upsert it into the database.
+- rename AnalyticsBigQueryRepository and related classes from Analytics to Insights? To avoid confusion with actual analytics?
 
 Images:
 - Manually search for logo urls for each of the technologies (and companies?). Host the images locally so they are more stable? Maybe use them as backups if the url isn't provided?
 - We should store the company images for when the companies stop advertising roles. Use them as backups if no updated url is available? Because companies may change their url over time
 
 Major:
-- Add support for different countries
 - Add user accounts and authentication + saved companies / technologies + email notifications
 - Add interview preparation content
-- Add links to local tech communities (eg meetups) for each technology/city/country
 - look into legality of using scrapped data, also check if there's a better way to get this data, also do i need to add any disclaimers, links, or legal a stuff?
 
 Nice to have:

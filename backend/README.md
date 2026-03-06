@@ -24,8 +24,9 @@ The system follows a simplified Medallion Architecture to ensure data integrity 
 Triggered via webhook or manual admin call.
 1.  **Fetch**: Pulls recent results from Apify.
 2.  **Bronze Load**: Saves the full JSON to the `raw_ingestions` table.
-3.  **Map & Clean**: Uses `JobDataMapper` and `JobDataParser` to normalize fields.
-4.  **Silver Load**: Updates the `raw_jobs` and `raw_companies` tables.
+3.  **Phase 1 (Company Sync)**: Refreshes the `raw_companies` table from the local `companies.json` Master Manifest.
+4.  **Phase 2 (Job Mapping)**: Uses `RawJobDataMapper` and `RawJobDataParser` to normalize job fields against the verified company data and determine target country (e.g. AU or NZ).
+5.  **Silver Load**: Updates the `raw_jobs` table and upserts any unmapped "Ghost" companies.
 
 ### Reprocessing Pipeline (`JobDataSyncService.reprocessHistoricalData`)
 Triggered when schema or mapping logic changes.
@@ -37,11 +38,11 @@ Triggered when schema or mapping logic changes.
 
 ## 🧩 Key Components
 
-- **`JobDataSyncService`**: The orchestrator. manages the transitions between layers and ensures cache eviction.
-- **`JobDataMapper`**: Handles the heavy lifting of deduplication. It groups jobs by a composite key of `(companyId, title, seniority)` to provide a "canonical" view of a role.
-- **`JobDataParser`**: Contains the regex-heavy logic for:
+- **`JobDataSyncService`**: The orchestrator. manages the transitions between layers, executes the Two-Phase Sync, and ensures cache eviction.
+- **`RawJobDataMapper`**: Handles the heavy lifting of deduplication and company linking. It groups jobs by a composite key of `(companyId, title, seniority)` to provide a "canonical" view of a role.
+- **`RawJobDataParser`**: Contains the regex-heavy logic for:
     - Extracting 100+ technologies from descriptions.
-    - Normalizing messy location strings into `(city, state, country)`.
+    - Normalizing messy location strings into `(city, state, country)` to determine `targetCountry` routing.
     - Extracting seniority levels and work models (Remote/Hybrid/On-site).
 - **`persistence.*Repository`**: Interfaces for BigQuery. These repositories handle the streaming of JSON records into BigQuery tables and manage the SQL queries for the frontend.
 - **`persistence.*Mapper`**: Presentation-layer mappers that transform the database `Records` into `DTOs` optimized for the frontend UI.

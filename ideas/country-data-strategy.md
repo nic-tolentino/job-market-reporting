@@ -57,8 +57,9 @@ To make the application contextually aware of the chosen country, we must lift t
 
 ---
 
-## Next Steps for Execution
-1.  **Frontend:** Implement the Zustand store for the country selector and hook it up to existing API calls and the `techResources.ts` filter.
-2.  **Resources:** Refactor `techResources.ts` to include explicitly tagged AU communities (e.g., Sydney iOS Meetup, Melbourne CocoaHeads).
-3.  **Backend/Ingestion:** Update the Apify worker configs to accept an AU vs NZ target context, ensuring `JobRecord.country` is explicitly set to `"AU"` for the new ingestions.
-4.  **Company Data:** Audit `companies.json` to ensure major AU players are represented and tag their `operating_countries` correctly.
+## Implementation Status (March 2026)
+
+✅ **Frontend:** Implemented the Zustand store (`useAppStore`) for the country selector, syncing to `localStorage`, and hooked it up to existing API calls (`api.ts`).
+✅ **Resources:** Refactored `techResources.ts` to include explicitly tagged AU communities (e.g., Sydney iOS Meetup, Melbourne CocoaHeads) using `countries` arrays.
+✅ **Backend/Ingestion:** Updated the controllers to accept the `country` `@RequestParam`. BigQuery SQL dynamically filters `AND (@country IS NULL OR ${JobFields.COUNTRY} = @country)`. Cache keys use `JobFields.COUNTRY` appropriately to prevent data leakage between country contexts.
+✅ **Company Data:** Tested and resolved ghost company mapping. `AnalyticsQueries` accurately use standard `EXISTS` block to only match and suggest companies actively hiring in the requested `country`. Australian tech jobs are successfully synchronizing into Production BigQuery.
