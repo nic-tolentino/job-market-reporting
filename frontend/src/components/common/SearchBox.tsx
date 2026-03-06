@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchSearchSuggestions, trackSearchMiss } from '../../lib/api';
+import { useAppStore } from '../../store/useAppStore';
 
 interface SearchBoxProps {
     placeholder?: string;
@@ -16,14 +17,15 @@ export default function SearchBox({
     inputClassName = ""
 }: SearchBoxProps) {
     const navigate = useNavigate();
+    const { selectedCountry } = useAppStore();
     const [searchQuery, setSearchQuery] = useState('');
     const [isSearchFocused, setIsSearchFocused] = useState(false);
     const searchRef = useRef<HTMLDivElement>(null);
 
     // Fetch master list of search suggestions globally
     const { data: searchData } = useQuery({
-        queryKey: ['searchSuggestions'],
-        queryFn: fetchSearchSuggestions,
+        queryKey: ['searchSuggestions', selectedCountry],
+        queryFn: () => fetchSearchSuggestions(selectedCountry),
         staleTime: 1000 * 60 * 60 * 24 // 24 hours
     });
 

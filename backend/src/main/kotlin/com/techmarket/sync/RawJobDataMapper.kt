@@ -41,14 +41,18 @@ class RawJobDataMapper(
         private val log = LoggerFactory.getLogger(RawJobDataMapper::class.java)
 
         /** Entry point for the mapping pipeline. */
-        fun map(syncedJobs: List<RawJob>, manifestCompanies: Map<String, CompanyRecord> = emptyMap()): MappedSyncData {
+        fun map(
+                syncedJobs: List<RawJob>,
+                manifestCompanies: Map<String, CompanyRecord> = emptyMap(),
+                targetCountry: String? = null
+        ): MappedSyncData {
                 val validJobs = filterValidJobs(syncedJobs)
-                val roleGroups = groupByLogicalRole(validJobs, manifestCompanies)
+                val roleGroups = groupByLogicalRole(validJobs, manifestCompanies, targetCountry)
 
                 val allOpenings =
                         roleGroups.values.flatMap { jobsInRole -> groupByOpening(jobsInRole) }
 
-                val mappedData = assembleMappedData(allOpenings, manifestCompanies)
+                val mappedData = assembleMappedData(allOpenings, manifestCompanies, targetCountry)
 
                 log.info(
                         "Mapping pipeline complete: ${syncedJobs.size} raw -> ${mappedData.jobs.size} jobs, ${mappedData.companies.size} companies"
@@ -69,11 +73,12 @@ class RawJobDataMapper(
          */
         internal fun groupByLogicalRole(
                 jobs: List<RawJob>,
-                manifestCompanies: Map<String, CompanyRecord> = emptyMap()
+                manifestCompanies: Map<String, CompanyRecord> = emptyMap(),
+                targetCountry: String? = null
         ): Map<Triple<String, String, String>, List<RawJob>> {
                 return jobs.groupBy { (dto, _) ->
                         val companyId = findCompanyId(dto.companyName, manifestCompanies)
-                        val country = parser.determineCountry(dto.location).lowercase()
+                        val country = targetCountry?.lowercase() ?: parser.determineCountry(dto.location).lowercase()
                         val titleSlug = IdGenerator.slugify(dto.title ?: "unknown")
                         Triple(companyId, country, titleSlug)
                 }
@@ -170,7 +175,8 @@ class RawJobDataMapper(
         /** Transforms clustered openings into final persistence-ready Records. */
         internal fun assembleMappedData(
                 openingGroups: List<List<RawJob>>,
-                manifestCompanies: Map<String, CompanyRecord> = emptyMap()
+                manifestCompanies: Map<String, CompanyRecord> = emptyMap(),
+                targetCountry: String? = null
         ): MappedSyncData {
                 val companyRecords = mutableMapOf<String, CompanyRecord>()
                 val jobRecords = mutableListOf<JobRecord>()
@@ -183,7 +189,7 @@ class RawJobDataMapper(
                                 val lastSeenAt = latestSnapshot.lastSeenAt
 
                                 // 1. Map individual job record
-                                val jobRecord = parseJobDetails(group, lastSeenAt, manifestCompanies)
+                                val jobRecord = parseJobDetails(group, lastSeenAt, manifestCompanies, targetCountry)
                                 // 2. Map or update company record
                                 val companyId = jobRecord.companyId
                                 
@@ -235,7 +241,8 @@ class RawJobDataMapper(
         private fun parseJobDetails(
                 lifecycle: List<RawJob>,
                 lastSeenAt: Instant,
-                manifestCompanies: Map<String, CompanyRecord>
+                manifestCompanies: Map<String, CompanyRecord>,
+                targetCountry: String?
         ): JobRecord {
                 val first = lifecycle.first().dto
                 val title = first.title ?: "Unknown Title"
@@ -269,10 +276,11 @@ class RawJobDataMapper(
                                 lifecycle.firstNotNullOfOrNull { it.dto.descriptionText } ?: ""
                         )
 
-                val (_, _, countryCode) = parser.parseLocation(first.location)
-                val country =
-                        if (countryCode != "Unknown") countryCode
+                val country = (targetCountry ?: run {
+                        val (_, _, parsedCountry) = parser.parseLocation(first.location)
+                        if (parsedCountry != "Unknown") parsedCountry
                         else parser.determineCountry(first.location)
+                }).lowercase()
 
                 // Find earliest date in the lifecycle for ID stability
                 val allPostedDates = lifecycle.mapNotNull { parser.parseDate(it.dto.postedAt) }

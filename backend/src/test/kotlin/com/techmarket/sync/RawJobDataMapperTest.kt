@@ -215,6 +215,30 @@ class RawJobDataMapperTest {
                 assertTrue(result.jobs.any { it.jobId.contains("2023-01-30") })
         }
 
+        @Test
+        fun `map honors targetCountry and overrides location parsing`() {
+                val syncTime = Instant.parse("2023-01-10T00:00:00Z")
+                val dto = createApifyDto("id1", "2023-01-01").copy(location = "Sydney") // Parser would say AU
+
+                // Mock parser to say NZ for some reason (to test override)
+                every { parser.parseLocation(any()) } returns
+                        Triple("Auckland", "AKL", "NZ")
+                every { parser.determineCountry(any()) } returns "NZ"
+                every { parser.extractSeniority(any(), any()) } returns "Senior"
+                every { parser.extractTechnologies(any()) } returns listOf("Kotlin")
+                every { parser.extractWorkModel(any(), any()) } returns "Remote"
+                every { parser.parseSalary(any()) } returns null
+                every { parser.parseDate(any()) } returns LocalDate.parse("2023-01-01")
+
+                // Scenario 1: No targetCountry provided -> uses NZ from parser
+                val result1 = mapper.map(listOf(RawJob(dto, syncTime)))
+                assertEquals("nz", result1.jobs[0].country)
+
+                // Scenario 2: targetCountry AU provided -> overrides NZ to AU
+                val result2 = mapper.map(listOf(RawJob(dto, syncTime)), targetCountry = "AU")
+                assertEquals("au", result2.jobs[0].country)
+        }
+
         private fun createApifyDto(id: String?, postedAt: String): ApifyJobDto {
                 return ApifyJobDto(
                         id = id,

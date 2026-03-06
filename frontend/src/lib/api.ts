@@ -127,20 +127,26 @@ export interface SearchSuggestionsResponse {
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
-export const fetchLandingPageData = async (): Promise<LandingPageDto> => {
-    const response = await fetch(`${API_BASE_URL}/landing`);
+export const fetchLandingPageData = async (country?: string): Promise<LandingPageDto> => {
+    const url = new URL(`${API_BASE_URL}/landing`, window.location.origin);
+    if (country) url.searchParams.append('country', country);
+    const response = await fetch(url.toString());
     if (!response.ok) throw new Error(`Failed to fetch landing page: ${response.statusText}`);
     return await response.json();
 };
 
-export const fetchTechDetails = async (techName: string): Promise<TechDetailsPageDto> => {
-    const response = await fetch(`${API_BASE_URL}/tech/${techName}`);
+export const fetchTechDetails = async (techName: string, country?: string): Promise<TechDetailsPageDto> => {
+    const url = new URL(`${API_BASE_URL}/tech/${techName}`, window.location.origin);
+    if (country) url.searchParams.append('country', country);
+    const response = await fetch(url.toString());
     if (!response.ok) throw new Error(`Failed to fetch tech details: ${response.statusText}`);
     return await response.json();
 };
 
-export const fetchCompanyProfile = async (companyId: string): Promise<CompanyProfilePageDto> => {
-    const response = await fetch(`${API_BASE_URL}/company/${companyId}`);
+export const fetchCompanyProfile = async (companyId: string, country?: string): Promise<CompanyProfilePageDto> => {
+    const url = new URL(`${API_BASE_URL}/company/${companyId}`, window.location.origin);
+    if (country) url.searchParams.append('country', country);
+    const response = await fetch(url.toString());
     if (!response.ok) throw new Error(`Failed to fetch company profile: ${response.statusText}`);
     return await response.json();
 };
@@ -152,8 +158,10 @@ export const fetchJobDetails = async (jobId: string): Promise<JobPageDto | null>
     return await response.json();
 };
 
-export const fetchSearchSuggestions = async (): Promise<SearchSuggestionsResponse> => {
-    const response = await fetch(`${API_BASE_URL}/search/suggestions`);
+export const fetchSearchSuggestions = async (country?: string): Promise<SearchSuggestionsResponse> => {
+    const url = new URL(`${API_BASE_URL}/search/suggestions`, window.location.origin);
+    if (country) url.searchParams.append('country', country);
+    const response = await fetch(url.toString());
     if (!response.ok) throw new Error(`Failed to fetch search suggestions: ${response.statusText}`);
     return await response.json();
 };

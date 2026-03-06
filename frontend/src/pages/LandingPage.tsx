@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { Briefcase } from 'lucide-react';
 import { fetchLandingPageData, type LandingPageDto } from '../lib/api';
+import { useAppStore } from '../store/useAppStore';
 import PageLoader from '../components/common/PageLoader';
 import { FeedbackButton } from '../components/common/Feedback';
 import ErrorState from '../components/common/ErrorState';
@@ -19,6 +20,7 @@ const MAX_TECH = 20;
 
 export default function LandingPage() {
     const navigate = useNavigate();
+    const { selectedCountry } = useAppStore();
     const [data, setData] = useState<LandingPageDto | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -30,7 +32,7 @@ export default function LandingPage() {
         setIsLoading(true);
         setError(false);
         try {
-            const apiData = await fetchLandingPageData();
+            const apiData = await fetchLandingPageData(selectedCountry);
             setData(apiData);
         } catch (err) {
             console.error('Failed to load landing page data:', err);
@@ -38,11 +40,11 @@ export default function LandingPage() {
         } finally {
             setIsLoading(false);
         }
-    }, []);
+    }, [selectedCountry]);
 
     useEffect(() => {
         loadData();
-    }, [loadData]);
+    }, [loadData, selectedCountry]);
 
     const topCompanies = useMemo(() => {
         if (!data) return [];

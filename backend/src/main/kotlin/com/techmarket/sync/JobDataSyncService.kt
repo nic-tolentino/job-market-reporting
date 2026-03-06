@@ -37,8 +37,8 @@ class JobDataSyncService(
      * 4. Saves the structured data into the Silver Layer (raw_jobs, raw_companies tables).
      */
     @CacheEvict(value = ["landing", "tech", "company", "search"], allEntries = true)
-    fun runDataSync(datasetId: String) {
-        log.info("Starting Job Data Sync Pipeline for dataset: $datasetId")
+    fun runDataSync(datasetId: String, targetCountry: String? = null) {
+        log.info("Starting Job Data Sync Pipeline for dataset: $datasetId (Target Country: ${targetCountry ?: "Unspecified"})")
 
         // 1. Fetch from source
         val apifyResults = apifyClient.fetchRecentJobs(datasetId)
@@ -76,7 +76,7 @@ class JobDataSyncService(
 
         // 5. Phase 2: Map to Silver Layer (Structured Data)
         val rawJobs = apifyResults.map { RawJob(it.dto, syncTime) }
-        val mappedData = jobDataMapper.map(rawJobs, manifestCompanies)
+        val mappedData = jobDataMapper.map(rawJobs, manifestCompanies, targetCountry)
         log.info(
                 "Silver Layer: Successfully mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies (Ghosts) from ${rawJobs.size} raw records."
         )

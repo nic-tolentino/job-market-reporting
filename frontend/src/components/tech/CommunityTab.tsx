@@ -4,7 +4,8 @@ import { ResourceCard, WideResourceCard } from './ResourceCard';
 import { COMMUNITY_RESOURCES } from '../../constants/techResources';
 import { SpotlightSection } from './SpotlightSection';
 import { SubmitResourceModal } from '../common/SubmitResourceModal';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { useAppStore } from '../../store/useAppStore';
 
 interface CommunityTabProps {
     techId: string;
@@ -13,7 +14,24 @@ interface CommunityTabProps {
 
 export const CommunityTab = ({ techId, techName }: CommunityTabProps) => {
     const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
-    const resources = COMMUNITY_RESOURCES[techId.toLowerCase()];
+    const { selectedCountry } = useAppStore();
+    const rawResources = COMMUNITY_RESOURCES[techId.toLowerCase()];
+
+    const resources = useMemo(() => {
+        if (!rawResources) return null;
+        const filterFn = (items: any[]) => items.filter(item => 
+            !item.countries || 
+            item.countries.includes(selectedCountry) || 
+            item.countries.includes('Global')
+        );
+
+        return {
+            communities: filterFn(rawResources.communities),
+            upcomingEvents: filterFn(rawResources.upcomingEvents),
+            localProjects: filterFn(rawResources.localProjects),
+            localExperts: filterFn(rawResources.localExperts),
+        };
+    }, [rawResources, selectedCountry]);
 
     if (!resources) {
         return (
@@ -53,7 +71,7 @@ export const CommunityTab = ({ techId, techName }: CommunityTabProps) => {
             <WideResourceCard
                 id="local-projects"
                 icon={Terminal}
-                title="NZ Open Source Projects"
+                title={`${selectedCountry} Open Source Projects`}
                 items={resources.localProjects}
                 subtitle="Local Contributions"
                 className="border-accent-subtle shadow-theme-sm"
@@ -70,7 +88,7 @@ export const CommunityTab = ({ techId, techName }: CommunityTabProps) => {
             <div className="bg-gradient-to-r from-blue-50/50 to-indigo-50/50 dark:from-blue-500/10 dark:to-indigo-500/10 rounded-3xl p-8 border border-border-subtle flex flex-col md:flex-row items-center justify-between gap-6 shadow-theme-sm">
                 <div className="max-w-md text-center md:text-left">
                     <h3 className="text-xl font-bold text-primary">Missed a local group?</h3>
-                    <p className="text-muted mt-1 text-sm">We're constantly expanding our NZ tech directory. If you know a community in Wellington, Christchurch or Dunedin, let us know!</p>
+                    <p className="text-muted mt-1 text-sm">We're constantly expanding our {selectedCountry} tech directory. If you know a community you'd like to see here, let us know!</p>
                 </div>
                 <button
                     onClick={() => setIsSubmitModalOpen(true)}

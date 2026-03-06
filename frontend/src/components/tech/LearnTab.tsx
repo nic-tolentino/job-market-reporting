@@ -4,7 +4,8 @@ import { ResourceCard, WideResourceCard } from './ResourceCard';
 import { LEARN_RESOURCES } from '../../constants/techResources';
 import { SpotlightSection } from './SpotlightSection';
 import { SubmitResourceModal } from '../common/SubmitResourceModal';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { useAppStore } from '../../store/useAppStore';
 
 interface LearnTabProps {
     techId: string;
@@ -13,7 +14,28 @@ interface LearnTabProps {
 
 export const LearnTab = ({ techId, techName }: LearnTabProps) => {
     const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
-    const resources = LEARN_RESOURCES[techId.toLowerCase()];
+    const { selectedCountry } = useAppStore();
+    const rawResources = LEARN_RESOURCES[techId.toLowerCase()];
+
+    const resources = useMemo(() => {
+        if (!rawResources) return null;
+        const filterFn = (items: any[]) => items.filter(item => 
+            !item.countries || 
+            item.countries.includes(selectedCountry) || 
+            item.countries.includes('Global')
+        );
+
+        return {
+            youtube: filterFn(rawResources.youtube),
+            courses: filterFn(rawResources.courses),
+            podcasts: filterFn(rawResources.podcasts),
+            websites: filterFn(rawResources.websites),
+            projects: filterFn(rawResources.projects),
+            people: filterFn(rawResources.people),
+            communities: filterFn(rawResources.communities),
+        };
+    }, [rawResources, selectedCountry]);
+
     const isAndroid = techId.toLowerCase() === 'android';
     const techImage = isAndroid
         ? '/assets/android-feature.png'

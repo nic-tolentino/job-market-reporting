@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import PageLoader from '../components/common/PageLoader';
 import { fetchTechDetails, type TechDetailsPageDto } from '../lib/api';
+import { useAppStore } from '../store/useAppStore';
 import { FeedbackButton } from '../components/common/Feedback';
 import ErrorState from '../components/common/ErrorState';
 import { H1 } from '../components/ui/Typography';
@@ -19,6 +20,7 @@ type Tab = 'Market' | 'Learn' | 'Community';
 
 export default function TechDetailsPage() {
     const { techId } = useParams<{ techId: string }>();
+    const { selectedCountry } = useAppStore();
 
     const [data, setData] = useState<TechDetailsPageDto | null>(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -43,7 +45,7 @@ export default function TechDetailsPage() {
         setJobsPage(1);
         setActiveTab('Market');
         try {
-            const apiData = await fetchTechDetails(techId);
+            const apiData = await fetchTechDetails(techId, selectedCountry);
             setData(apiData);
         } catch (err) {
             console.error(`Failed to load tech details for ${techId}:`, err);
@@ -51,11 +53,11 @@ export default function TechDetailsPage() {
         } finally {
             setIsLoading(false);
         }
-    }, [techId]);
+    }, [techId, selectedCountry]);
 
     useEffect(() => {
         loadData();
-    }, [loadData]);
+    }, [loadData, techId, selectedCountry]);
 
     // Derived filter options
     const seniorityOptions = useMemo(() => {

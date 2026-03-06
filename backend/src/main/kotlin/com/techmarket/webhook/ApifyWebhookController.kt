@@ -25,6 +25,24 @@ class ApifyWebhookController(
     fun handleApifyWebhook(
             @RequestBody payload: ApifyWebhookPayload,
             @RequestHeader("X-Apify-Webhook-Secret", required = false) providedSecret: String?
+    ): ResponseEntity<String> = handleWeightedWebhook(payload, providedSecret, null)
+
+    @PostMapping("/nz/data-changed")
+    fun handleApifyWebhookNz(
+            @RequestBody payload: ApifyWebhookPayload,
+            @RequestHeader("X-Apify-Webhook-Secret", required = false) providedSecret: String?
+    ): ResponseEntity<String> = handleWeightedWebhook(payload, providedSecret, "NZ")
+
+    @PostMapping("/au/data-changed")
+    fun handleApifyWebhookAu(
+            @RequestBody payload: ApifyWebhookPayload,
+            @RequestHeader("X-Apify-Webhook-Secret", required = false) providedSecret: String?
+    ): ResponseEntity<String> = handleWeightedWebhook(payload, providedSecret, "AU")
+
+    private fun handleWeightedWebhook(
+            payload: ApifyWebhookPayload,
+            providedSecret: String?,
+            countryCode: String?
     ): ResponseEntity<String> {
         val expectedSecret = apifyProperties.webhookSecret
         if (providedSecret != expectedSecret) {
@@ -32,7 +50,7 @@ class ApifyWebhookController(
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Unauthorized")
         }
 
-        log.info("Received Apify Data Change Notification: ${payload.eventType}")
+        log.info("Received Apify Data Change Notification (${countryCode ?: "Global"}): ${payload.eventType}")
 
         // Handle Test events from Apify UI
         if (payload.eventType == "TEST") {
@@ -40,8 +58,7 @@ class ApifyWebhookController(
             return ResponseEntity.ok("Test received")
         }
 
-        // Extract dynamic dataset ID - look in both defaultDatasetId (Run resource) and id (Dataset
-        // resource)
+        // Extract dynamic dataset ID - look in both defaultDatasetId (Run resource) and id (Dataset resource)
         val resource = payload.resource
         val datasetId =
                 (resource?.get("defaultDatasetId") as? String) ?: (resource?.get("id") as? String)
@@ -54,11 +71,11 @@ class ApifyWebhookController(
         }
 
         log.info(
-                "Extracted dynamic datasetId: $datasetId from webhook payload (${payload.eventType})"
+                "Extracted dynamic datasetId: $datasetId from webhook payload (${payload.eventType}) for country: ${countryCode ?: "Global"}"
         )
 
         // Trigger the asynchronous ingestion process
-        jobDataSyncService.runDataSync(datasetId)
+        jobDataSyncService.runDataSync(datasetId, countryCode)
 
         // Immediately return 202 Accepted so Apify doesn't timeout
         return ResponseEntity.accepted().body("Data sync triggered asynchronously")

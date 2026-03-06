@@ -1,14 +1,13 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Briefcase, Sun, Moon, Monitor } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Dropdown from '../ui/Dropdown';
 import SearchBox from '../common/SearchBox';
+import { useAppStore } from '../../store/useAppStore';
 
 const countries = [
     { code: 'AU', name: 'Australia', flag: '🇦🇺' },
     { code: 'NZ', name: 'New Zealand', flag: '🇳🇿' },
-    { code: 'ES', name: 'Spain', flag: '🇪🇸' },
 ];
 
 function ThemeToggle() {
@@ -36,7 +35,7 @@ function ThemeToggle() {
 }
 
 export default function Navbar() {
-    const [selectedCountry, setSelectedCountry] = useState('NZ');
+    const { selectedCountry, setSelectedCountry } = useAppStore();
     const currentCountry = countries.find(c => c.code === selectedCountry);
 
     return (

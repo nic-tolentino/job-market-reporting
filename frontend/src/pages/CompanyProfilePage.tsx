@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Building2, MapPin, DollarSign, Calendar, X, ShieldCheck, Globe, Ghost } from 'lucide-react';
 import PageLoader from '../components/common/PageLoader';
 import { fetchCompanyProfile, type CompanyProfilePageDto } from '../lib/api';
+import { useAppStore } from '../store/useAppStore';
 import { FeedbackButton } from '../components/common/Feedback';
 import ErrorState from '../components/common/ErrorState';
 import CompanyLogo from '../components/common/CompanyLogo';
@@ -16,6 +17,7 @@ const ROLES_PAGE_SIZE = 10;
 export default function CompanyProfilePage() {
     const navigate = useNavigate();
     const { companyId } = useParams<{ companyId: string }>();
+    const { selectedCountry } = useAppStore();
     const [data, setData] = useState<CompanyProfilePageDto | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -32,7 +34,7 @@ export default function CompanyProfilePage() {
         setIsDescriptionExpanded(false);
         setRolesPage(1);
         try {
-            const apiData = await fetchCompanyProfile(companyId);
+            const apiData = await fetchCompanyProfile(companyId, selectedCountry);
             setData(apiData);
         } catch (err) {
             console.error(`Failed to load company profile for ${companyId}:`, err);
@@ -40,11 +42,11 @@ export default function CompanyProfilePage() {
         } finally {
             setIsLoading(false);
         }
-    }, [companyId]);
+    }, [companyId, selectedCountry]);
 
     useEffect(() => {
         loadData();
-    }, [loadData]);
+    }, [loadData, companyId, selectedCountry]);
 
     const toggleTech = (tech: string) => {
         setSelectedTechs(prev => {

@@ -8,6 +8,7 @@ export interface Resource {
     subscribers?: string;  // YouTube subscriber count
     stars?: string;        // GitHub stars count
     date?: string;         // Concrete date for events
+    countries?: string[];  // e.g. ["NZ"], ["AU"], ["Global"]
 }
 
 export interface TechResources {
@@ -232,108 +233,128 @@ export const LEARN_RESOURCES: Record<string, TechResources> = {
 export const COMMUNITY_RESOURCES: Record<string, CommunityResources> = {
     android: {
         communities: [
-            { title: "Auckland Android Community", url: "https://www.meetup.com/android-meetup/", description: "Technical talks and social networking.", location: "Auckland" },
-            { title: "GDG Wellington", url: "https://www.meetup.com/gdg-wellington/", description: "Google Developer Group covering Android & Cloud.", location: "Wellington" },
-            { title: "GDG Auckland", url: "https://www.meetup.com/gdg-auckland/", description: "Monthly meetings for Google tech enthusiasts.", location: "Auckland" },
-            { title: "CHCH.JS", url: "https://www.meetup.com/chch-js/", description: "JavaScript & Mobile dev community in Christchurch.", location: "Christchurch" },
-            { title: "CoderCamp Hamilton", url: "https://www.meetup.com/codercamp-hamilton/", description: "Hamilton's monthly software developer gathering.", location: "Hamilton" },
-            { title: "Waikato Tech", url: "https://www.meetup.com/tech-waikato/", description: "Tech industry group in the Waikato region.", location: "Hamilton" },
-            { title: "Code Craft Dunedin", url: "https://www.meetup.com/code-craft-dunedin/", description: "Dunedin IT development discussion group.", location: "Dunedin" },
-            { title: "Canterbury Tech", url: "https://canterburytech.nz/", description: "The cluster for tech companies in Canterbury.", location: "Christchurch" },
-            { title: "Nelson Dev Group", url: "https://www.meetup.com/nelson-dev/", description: "Tech community in the Nelson region.", location: "Nelson" },
-            { title: "Tauranga Tech", url: "https://www.meetup.com/tauranga-tech/", description: "Growing tech community in the Bay of Plenty.", location: "Tauranga" }
+            // New Zealand
+            { title: "Auckland Android Community", url: "https://www.meetup.com/android-meetup/", description: "Technical talks and social networking.", location: "Auckland", countries: ["NZ"] },
+            { title: "GDG Wellington", url: "https://www.meetup.com/gdg-wellington/", description: "Google Developer Group covering Android & Cloud.", location: "Wellington", countries: ["NZ"] },
+            { title: "GDG Auckland", url: "https://www.meetup.com/gdg-auckland/", description: "Monthly meetings for Google tech enthusiasts.", location: "Auckland", countries: ["NZ"] },
+            { title: "CoderCamp Hamilton", url: "https://www.meetup.com/codercamp-hamilton/", description: "Hamilton's monthly software developer gathering.", location: "Hamilton", countries: ["NZ"] },
+            
+            // Australia
+            { title: "Sydney Android Developers", url: "https://www.meetup.com/sydney-android-developers/", description: "Australia's largest Android community.", location: "Sydney", countries: ["AU"] },
+            { title: "Melbourne Android", url: "https://www.meetup.com/melbourne-android-developers/", description: "The home for Android pros in Melbourne.", location: "Melbourne", countries: ["AU"] },
+            { title: "GDG Brisbane", url: "https://www.meetup.com/gdg-brisbane/", description: "Google developers in the Sunshine State.", location: "Brisbane", countries: ["AU"] },
+            { title: "Perth Android Developers", url: "https://www.meetup.com/perth-android-developers/", description: "Western Australian mobile engineering group.", location: "Perth", countries: ["AU"] },
+            
+            { title: "CHCH.JS", url: "https://www.meetup.com/chch-js/", description: "JavaScript & Mobile dev community in Christchurch.", location: "Christchurch", countries: ["NZ"] },
+            { title: "Waikato Tech", url: "https://www.meetup.com/tech-waikato/", description: "Tech industry group in the Waikato region.", location: "Hamilton", countries: ["NZ"] },
+            { title: "Code Craft Dunedin", url: "https://www.meetup.com/code-craft-dunedin/", description: "Dunedin IT development discussion group.", location: "Dunedin", countries: ["NZ"] },
+            { title: "Canterbury Tech", url: "https://canterburytech.nz/", description: "The cluster for tech companies in Canterbury.", location: "Christchurch", countries: ["NZ"] },
+            { title: "Nelson Dev Group", url: "https://www.meetup.com/nelson-dev/", description: "Tech community in the Nelson region.", location: "Nelson", countries: ["NZ"] },
+            { title: "Tauranga Tech", url: "https://www.meetup.com/tauranga-tech/", description: "Growing tech community in the Bay of Plenty.", location: "Tauranga", countries: ["NZ"] }
         ],
         upcomingEvents: [
-            { title: "DevFest Auckland 2025", url: "https://devfest.gdgauckland.nz/", description: "The largest Google technology conference in NZ.", location: "Auckland", date: "Nov 9, 2025" },
-            { title: "NZ Tech Rally 2026", url: "https://nztechrally.tech/", description: "Community-driven software conference with mobile tracks.", location: "Wellington", date: "May 15, 2026" },
-            { title: "Techweek NZ 2026", url: "https://techweek.co.nz/", description: "Annual festival of tech and innovation.", location: "NZ-Wide", date: "May 18-24, 2026" },
-            { title: "Canterbury Tech Summit", url: "https://canterburytech.nz/summit/", description: "Premier tech event in the South Island.", location: "Christchurch", date: "Aug 20, 2025" },
-            { title: "Mobile Dev Day NZ", url: "https://devday.io/", description: "Specialized track for mobile development in NZ.", location: "Auckland", date: "Oct 12, 2025" },
-            { title: "AWS Community Day NZ", url: "https://aws-community-day.nz/", description: "Cloud and mobile backend focused event.", location: "NZ-Wide", date: "Sep 5, 2025" }
+            { title: "DevFest Auckland 2025", url: "https://devfest.gdgauckland.nz/", description: "The largest Google technology conference in NZ.", location: "Auckland", date: "Nov 9, 2025", countries: ["NZ"] },
+            { title: "Droidcon Australia 2025", url: "https://droidcon.com.au/", description: "The premium Android conference in Sydney.", location: "Sydney", date: "Sep 2025", countries: ["AU"] },
+            { title: "NZ Tech Rally 2026", url: "https://nztechrally.tech/", description: "Community-driven software conference with mobile tracks.", location: "Wellington", date: "May 15, 2026", countries: ["NZ"] },
+            { title: "Techweek NZ 2026", url: "https://techweek.co.nz/", description: "Annual festival of tech and innovation.", location: "NZ-Wide", date: "May 18-24, 2026", countries: ["NZ"] },
+            { title: "Canterbury Tech Summit", url: "https://canterburytech.nz/summit/", description: "Premier tech event in the South Island.", location: "Christchurch", date: "Aug 20, 2025", countries: ["NZ"] },
+            { title: "Mobile Dev Day NZ", url: "https://devday.io/", description: "Specialized track for mobile development in NZ.", location: "Auckland", date: "Oct 12, 2025", countries: ["NZ"] },
+            { title: "AWS Community Day NZ", url: "https://aws-community-day.nz/", description: "Cloud and mobile backend focused event.", location: "NZ-Wide", date: "Sep 5, 2025", countries: ["NZ"] }
         ],
         localProjects: [
-            { title: "OkHttp", url: "https://github.com/square/okhttp", description: "The underlying HTTP client for almost all apps.", location: "Global", stars: "47k" },
-            { title: "Retrofit", url: "https://github.com/square/retrofit", description: "Industry standard type-safe HTTP client.", location: "Global", stars: "44k" },
-            { title: "ExoPlayer", url: "https://github.com/google/ExoPlayer", description: "Powerful media player for Android.", location: "Global", stars: "22k" },
-            { title: "Enro", url: "https://github.com/isaac-udy/enro", description: "Powerful navigation library by Isaac Udy.", previewImage: "https://github.com/isaac-udy/enro/raw/main/docs/logo.png", location: "Wellington", stars: "261" },
-            { title: "NZ COVID Pass Verifier", url: "https://github.com/minhealthnz/nzcp-android", description: "Open source verification tool for NZers.", location: "NZ-Wide", stars: "433" },
-            { title: "Open Source NZ", url: "https://github.com/RichardLitt/open-source-aotearoa-nz", description: "List of NZ-based open source projects.", location: "NZ-Wide", stars: "5" },
-            { title: "MadeCurious OSS", url: "https://github.com/madecurious", description: "Projects from Christchurch-based tech hub.", location: "Christchurch" },
-            { title: "Papa Reo", url: "https://papareo.nz/", description: "Open source NLP for Māori language revitalization.", location: "NZ-Wide" },
-            { title: "Personic", url: "https://github.com/personic", description: "Mobile web app for collective digital music creation.", location: "Auckland" },
-            { title: "PaperKite OSS", url: "https://github.com/paperkite", description: "Open source components from Wellington agency.", location: "Wellington" }
+            { title: "OkHttp", url: "https://github.com/square/okhttp", description: "The underlying HTTP client for almost all apps.", location: "Global", stars: "47k", countries: ["Global"] },
+            { title: "Retrofit", url: "https://github.com/square/retrofit", description: "Industry standard type-safe HTTP client.", location: "Global", stars: "44k", countries: ["Global"] },
+            { title: "ExoPlayer", url: "https://github.com/google/ExoPlayer", description: "Powerful media player for Android.", location: "Global", stars: "22k", countries: ["Global"] },
+            { title: "Enro", url: "https://github.com/isaac-udy/enro", description: "Powerful navigation library by Isaac Udy.", previewImage: "https://github.com/isaac-udy/enro/raw/main/docs/logo.png", location: "Wellington", stars: "261", countries: ["NZ"] },
+            { title: "NZ COVID Pass Verifier", url: "https://github.com/minhealthnz/nzcp-android", description: "Open source verification tool for NZers.", location: "NZ-Wide", stars: "433", countries: ["NZ"] },
+            { title: "Open Source NZ", url: "https://github.com/RichardLitt/open-source-aotearoa-nz", description: "List of NZ-based open source projects.", location: "NZ-Wide", stars: "5", countries: ["NZ"] },
+            { title: "MadeCurious OSS", url: "https://github.com/madecurious", description: "Projects from Christchurch-based tech hub.", location: "Christchurch", countries: ["NZ"] },
+            { title: "Papa Reo", url: "https://papareo.nz/", description: "Open source NLP for Māori language revitalization.", location: "NZ-Wide", countries: ["NZ"] },
+            { title: "Personic", url: "https://github.com/personic", description: "Mobile web app for collective digital music creation.", location: "Auckland", countries: ["NZ"] },
+            { title: "PaperKite OSS", url: "https://github.com/paperkite", description: "Open source components from Wellington agency.", location: "Wellington", countries: ["NZ"] }
         ],
         localExperts: [
-            { title: "Isaac Udy", url: "https://github.com/isaac-udy", description: "Android GDE, Platform Lead at ANZx.", previewImage: "https://avatars.githubusercontent.com/u/18519051?v=4", location: "Wellington" },
-            { title: "Julius Spencer", url: "https://www.linkedin.com/in/juliusspencer/", description: "Founder of GDG Auckland, Director at JSA.", location: "Auckland" },
-            { title: "Sam Hindmarsh", url: "https://hndmr.sh/", description: "GDG Wellington Organizer, Senior Android Engineer.", previewImage: "https://avatars.githubusercontent.com/u/2135075?v=4", location: "Wellington" },
-            { title: "Dilum De Silva", url: "https://github.com/dilumdesilva", description: "GDG Auckland Organizer, Full-stack Engineer.", previewImage: "https://avatars.githubusercontent.com/u/23308182?v=4", location: "Auckland" },
-            { title: "Matt Ranocchiari", url: "https://www.linkedin.com/in/matthewranocchiari/", description: "GDG Auckland & Wellington Organizer.", location: "Auckland/Wellington" },
-            { title: "Rob Prouse", url: "https://github.com/rprouse", description: "CoderCamp Hamilton Organizer and OSS maintainer.", location: "Hamilton" },
-            { title: "Josh Gaber", url: "https://github.com/joshgaber", description: "Hamilton developer and CoderCamp organizer.", location: "Hamilton" },
-            { title: "Tim Penhey", url: "https://github.com/thp", description: "Contributor to Dunedin's tech community.", location: "Dunedin" },
-            { title: "Ian Rees", url: "https://github.com/irees", description: "Code Craft Dunedin facilitator and expert.", location: "Dunedin" },
-            { title: "AJ Bovaird", url: "https://github.com/ajbovaird", description: "Hamilton community organizer and engineer.", location: "Hamilton" }
+            { title: "Isaac Udy", url: "https://github.com/isaac-udy", description: "Android GDE, Platform Lead at ANZx.", previewImage: "https://avatars.githubusercontent.com/u/18519051?v=4", location: "Wellington", countries: ["NZ"] },
+            { title: "Julius Spencer", url: "https://www.linkedin.com/in/juliusspencer/", description: "Founder of GDG Auckland, Director at JSA.", location: "Auckland", countries: ["NZ"] },
+            { title: "Sam Hindmarsh", url: "https://hndmr.sh/", description: "GDG Wellington Organizer, Senior Android Engineer.", previewImage: "https://avatars.githubusercontent.com/u/2135075?v=4", location: "Wellington", countries: ["NZ"] },
+            { title: "Dilum De Silva", url: "https://github.com/dilumdesilva", description: "GDG Auckland Organizer, Full-stack Engineer.", previewImage: "https://avatars.githubusercontent.com/u/23308182?v=4", location: "Auckland", countries: ["NZ"] },
+            { title: "Matt Ranocchiari", url: "https://www.linkedin.com/in/matthewranocchiari/", description: "GDG Auckland & Wellington Organizer.", location: "Auckland/Wellington", countries: ["NZ"] },
+            { title: "Rob Prouse", url: "https://github.com/rprouse", description: "CoderCamp Hamilton Organizer and OSS maintainer.", location: "Hamilton", countries: ["NZ"] },
+            { title: "Josh Gaber", url: "https://github.com/joshgaber", description: "Hamilton developer and CoderCamp organizer.", location: "Hamilton", countries: ["NZ"] },
+            { title: "Tim Penhey", url: "https://github.com/thp", description: "Contributor to Dunedin's tech community.", location: "Dunedin", countries: ["NZ"] },
+            { title: "Ian Rees", url: "https://github.com/irees", description: "Code Craft Dunedin facilitator and expert.", location: "Dunedin", countries: ["NZ"] },
+            { title: "AJ Bovaird", url: "https://github.com/ajbovaird", description: "Hamilton community organizer and engineer.", location: "Hamilton", countries: ["NZ"] }
         ]
     },
     ios: {
         communities: [
-            { title: "The Auckland iOS Meetup", url: "https://www.meetup.com/Auckland-iOS-Meetup/", description: "Monthly gatherings for iOS devs.", location: "Auckland" },
-            { title: "CocoaHeads Auckland", url: "https://www.meetup.com/Auckland-CocoaHeads/", description: "Long-running community for Apple devs.", location: "Auckland" },
-            { title: "CocoaHeads Wellington", url: "https://www.meetup.com/Wellington-CocoaHeads/", description: "Wellington based Apple developer group.", location: "Wellington" },
-            { title: "Dunedin Gamedev Meetup", url: "https://www.meetup.com/dunedin-gamedev-meetup/", description: "App and game development in Dunedin.", location: "Dunedin" },
-            { title: "Nelson Dev Group", url: "https://www.meetup.com/nelson-dev/", description: "General developer community in Nelson.", location: "Nelson" },
-            { title: "Hamilton Developers", url: "https://techinthetron.com/", description: "Tech industry group in the Tron.", location: "Hamilton" },
-            { title: "Christchurch Game Devs", url: "https://www.meetup.com/christchurch-game-developers/", description: "Game and app workshop group.", location: "Christchurch" },
-            { title: "Wellington CocoaHeads", url: "https://www.meetup.com/Wellington-CocoaHeads/", description: "Passionate iOS community in the capital.", location: "Wellington" }
+            // New Zealand
+            { title: "The Auckland iOS Meetup", url: "https://www.meetup.com/Auckland-iOS-Meetup/", description: "Monthly gatherings for iOS devs.", location: "Auckland", countries: ["NZ"] },
+            { title: "CocoaHeads Auckland", url: "https://www.meetup.com/Auckland-CocoaHeads/", description: "Long-running community for Apple devs.", location: "Auckland", countries: ["NZ"] },
+            { title: "CocoaHeads Wellington", url: "https://www.meetup.com/Wellington-CocoaHeads/", description: "Wellington based Apple developer group.", location: "Wellington", countries: ["NZ"] },
+            
+            // Australia
+            { title: "Melbourne CocoaHeads", url: "https://www.meetup.com/melbourne-cocoahead/", description: "One of the world's oldest iOS communities.", location: "Melbourne", countries: ["AU"] },
+            { title: "Sydney CocoaHeads", url: "https://www.meetup.com/sydney-cocoahead/", description: "Thriving Apple developer group in Sydney.", location: "Sydney", countries: ["AU"] },
+            { title: "Brisbane CocoaHeads", url: "https://www.meetup.com/brisbane-cocoahead/", description: "iOS & macOS engineering in Queensland.", location: "Brisbane", countries: ["AU"] },
+            { title: "Perth iOS", url: "https://www.meetup.com/perth-ios-developers-meetup-group/", description: "Western Australian Apple platform group.", location: "Perth", countries: ["AU"] },
+            
+            { title: "Dunedin Gamedev Meetup", url: "https://www.meetup.com/dunedin-gamedev-meetup/", description: "App and game development in Dunedin.", location: "Dunedin", countries: ["NZ"] },
+            { title: "Nelson Dev Group", url: "https://www.meetup.com/nelson-dev/", description: "General developer community in Nelson.", location: "Nelson", countries: ["NZ"] },
+            { title: "Hamilton Developers", url: "https://techinthetron.com/", description: "Tech industry group in the Tron.", location: "Hamilton", countries: ["NZ"] },
+            { title: "Christchurch Game Devs", url: "https://www.meetup.com/christchurch-game-developers/", description: "Game and app workshop group.", location: "Christchurch", countries: ["NZ"] }
         ],
         upcomingEvents: [
-            { title: "Dev Day NZ 2025", url: "https://devday.io/", description: "NZ's premier developer conference.", location: "Auckland", date: "Oct 12, 2025" },
-            { title: "Webstock 2025", url: "https://www.webstock.org.nz/", description: "Wellington's iconic tech and design event.", location: "Wellington", date: "May 2025" },
-            { title: "Create NZ", url: "https://createnz.io/", description: "Conference focusing on mobile and web craft.", location: "Auckland", date: "July 18, 2025" },
-            { title: "Web Directions Summit", url: "https://www.webdirections.org/", description: "Regional tech and product conference.", location: "Global (AU/NZ)", date: "Nov 15, 2024" },
-            { title: "NZGDC 2025", url: "https://nzgdc.com/", description: "NZ Game Developers Conference with mobile tracks.", location: "NZ-Wide", date: "Sep 2025" }
+            { title: "Dev Day NZ 2025", url: "https://devday.io/", description: "NZ's premier developer conference.", location: "Auckland", date: "Oct 12, 2025", countries: ["NZ"] },
+            { title: "Webstock 2025", url: "https://www.webstock.org.nz/", description: "Wellington's iconic tech and design event.", location: "Wellington", date: "May 2025", countries: ["NZ"] },
+            { title: "/dev/world 2025", url: "https://devworld.com.au/", description: "The definitive AU conference for Apple devs.", location: "Melbourne", date: "Sep 2025", countries: ["AU"] },
+            { title: "Create NZ", url: "https://createnz.io/", description: "Conference focusing on mobile and web craft.", location: "Auckland", date: "July 18, 2025", countries: ["NZ"] },
+            { title: "NZGDC 2025", url: "https://nzgdc.com/", description: "NZ Game Developers Conference with mobile tracks.", location: "NZ-Wide", date: "Sep 2025", countries: ["NZ"] }
         ],
         localProjects: [
-            { title: "Alamofire", url: "https://github.com/Alamofire/Alamofire", description: "Elegant HTTP networking in Swift.", location: "Global", stars: "43k" },
-            { title: "Kickstarter iOS", url: "https://github.com/kickstarter/ios-oss", description: "High-quality functional project reference.", location: "Global", stars: "8.6k" },
-            { title: "NZ COVID Tracer OSS", url: "https://github.com/minhealthnz/nz-covid-tracer-app-ios", description: "The official tracker app for New Zealand.", location: "NZ-Wide", stars: "430" },
-            { title: "Open Source NZ", url: "https://github.com/RichardLitt/open-source-aotearoa-nz", description: "List of projects including mobile contributions.", location: "NZ-Wide", stars: "5" },
-            { title: "Swift NZ Tools", url: "https://github.com/Swift-New-Zealand", description: "Community tools and guides for Kiwi Swift devs.", location: "NZ-Wide" },
-            { title: "Alphero Labs", url: "https://github.com/alphero", description: "OSS from Wellington's leading mobile agency.", location: "Wellington" },
-            { title: "DigitalNZ iOS App", url: "https://github.com/DigitalNZ/digitalnz_iphone_app", description: "Official app for accessing NZ's digital heritage.", location: "NZ-Wide", stars: "2" }
+            { title: "Alamofire", url: "https://github.com/Alamofire/Alamofire", description: "Elegant HTTP networking in Swift.", location: "Global", stars: "43k", countries: ["Global"] },
+            { title: "Kickstarter iOS", url: "https://github.com/kickstarter/ios-oss", description: "High-quality functional project reference.", location: "Global", stars: "8.6k", countries: ["Global"] },
+            { title: "NZ COVID Tracer OSS", url: "https://github.com/minhealthnz/nz-covid-tracer-app-ios", description: "The official tracker app for New Zealand.", location: "NZ-Wide", stars: "430", countries: ["NZ"] },
+            { title: "Open Source NZ", url: "https://github.com/RichardLitt/open-source-aotearoa-nz", description: "List of projects including mobile contributions.", location: "NZ-Wide", stars: "5", countries: ["NZ"] },
+            { title: "Swift NZ Tools", url: "https://github.com/Swift-New-Zealand", description: "Community tools and guides for Kiwi Swift devs.", location: "NZ-Wide", countries: ["NZ"] },
+            { title: "Alphero Labs", url: "https://github.com/alphero", description: "OSS from Wellington's leading mobile agency.", location: "Wellington", countries: ["NZ"] },
+            { title: "DigitalNZ iOS App", url: "https://github.com/DigitalNZ/digitalnz_iphone_app", description: "Official app for accessing NZ's digital heritage.", location: "NZ-Wide", stars: "2", countries: ["NZ"] }
         ],
         localExperts: [
-            { title: "Natalia Panferova", url: "https://nilcoalescing.com/", description: "SwiftUI expert, Co-founder of Nil Coalescing.", previewImage: "https://avatars.githubusercontent.com/u/15342922?v=4", location: "Alexandra" },
-            { title: "Dan Too", url: "https://twitter.com/daniel_too", description: "Organizer of Auckland iOS Meetup.", location: "Auckland" },
-            { title: "Stan Bykov", url: "https://www.linkedin.com/in/stanbykov/", description: "Organizer of CocoaHeads Auckland.", location: "Auckland" },
-            { title: "Mitchell Johnson", url: "https://www.linkedin.com/in/mjohnsonnz/", description: "Organizing CocoaHeads Auckland and lead at ANZ.", location: "Auckland" },
-            { title: "Chris Mein", url: "https://github.com/mein", description: "Dunedin tech community facilitator.", location: "Dunedin" },
-            { title: "Xi C.", url: "https://github.com/xic", description: "Prominent iOS/SwiftUI expert based in NZ.", location: "NZ-Wide" },
-            { title: "Jamie W.", url: "https://github.com/jamie-w", description: "Experienced iOS and Flutter dev in NZ.", location: "NZ-Wide" },
-            { title: "Mike Mackenzie", url: "https://github.com/mmackenzie", description: "Code Craft Dunedin organizer and lead engineer.", location: "Dunedin" }
+            { title: "Natalia Panferova", url: "https://nilcoalescing.com/", description: "SwiftUI expert, Co-founder of Nil Coalescing.", previewImage: "https://avatars.githubusercontent.com/u/15342922?v=4", location: "Alexandra", countries: ["NZ"] },
+            { title: "Dan Too", url: "https://twitter.com/daniel_too", description: "Organizer of Auckland iOS Meetup.", location: "Auckland", countries: ["NZ"] },
+            { title: "Stan Bykov", url: "https://www.linkedin.com/in/stanbykov/", description: "Organizer of CocoaHeads Auckland.", location: "Auckland", countries: ["NZ"] },
+            { title: "Mitchell Johnson", url: "https://www.linkedin.com/in/mjohnsonnz/", description: "Organizing CocoaHeads Auckland and lead at ANZ.", location: "Auckland", countries: ["NZ"] },
+            { title: "Chris Mein", url: "https://github.com/mein", description: "Dunedin tech community facilitator.", location: "Dunedin", countries: ["NZ"] },
+            { title: "Xi C.", url: "https://github.com/xic", description: "Prominent iOS/SwiftUI expert based in NZ.", location: "NZ-Wide", countries: ["NZ"] },
+            { title: "Jamie W.", url: "https://github.com/jamie-w", description: "Experienced iOS and Flutter dev in NZ.", location: "NZ-Wide", countries: ["NZ"] },
+            { title: "Mike Mackenzie", url: "https://github.com/mmackenzie", description: "Code Craft Dunedin organizer and lead engineer.", location: "Dunedin", countries: ["NZ"] }
         ]
     },
     flutter: {
         communities: [
-            { title: "Flutter Auckland", url: "https://www.meetup.com/flutter-auckland/", description: "Specialized group for Flutter enthusiasts and pros.", location: "Auckland" },
-            { title: "GDG Auckland", url: "https://www.meetup.com/gdg-auckland/", description: "Broad Google Tech group with heavy Flutter presence.", location: "Auckland" },
-            { title: "GDG Wellington", url: "https://www.meetup.com/gdg-wellington/", description: "Capital city's Google technology community.", location: "Wellington" },
-            { title: "Digital Bytes WGTN", url: "https://www.meetup.com/digital-bytes-wgtn/", description: "Wellington's mobile and web community group.", location: "Wellington" }
+            { title: "Flutter Auckland", url: "https://www.meetup.com/flutter-auckland/", description: "Specialized group for Flutter enthusiasts and pros.", location: "Auckland", countries: ["NZ"] },
+            { title: "Flutter Sydney", url: "https://www.meetup.com/flutter-sydney/", description: "Thriving Flutter community in Australia's tech hub.", location: "Sydney", countries: ["AU"] },
+            { title: "Flutter Melbourne", url: "https://www.meetup.com/flutter-melbourne/", description: "Melbourne's monthly Flutter developer meetup.", location: "Melbourne", countries: ["AU"] },
+            { title: "GDG Auckland", url: "https://www.meetup.com/gdg-auckland/", description: "Broad Google Tech group with heavy Flutter presence.", location: "Auckland", countries: ["NZ"] },
+            { title: "GDG Wellington", url: "https://www.meetup.com/gdg-wellington/", description: "Capital city's Google technology community.", location: "Wellington", countries: ["NZ"] },
+            { title: "Digital Bytes WGTN", url: "https://www.meetup.com/digital-bytes-wgtn/", description: "Wellington's mobile and web community group.", location: "Wellington", countries: ["NZ"] }
         ],
         upcomingEvents: [
-            { title: "DevFest Auckland 2025", url: "https://devfest.gdgauckland.nz/", description: "The premier Google technology event in NZ.", location: "Auckland", date: "Nov 9, 2025" },
-            { title: "NZ Tech Rally 2026", url: "https://nztechrally.tech/", description: "Community software conference with Dart/Flutter tracks.", location: "Wellington", date: "May 15, 2026" },
-            { title: "Techweek NZ 2026", url: "https://techweek.co.nz/", description: "National festival of tech across Aotearoa.", location: "NZ-Wide", date: "May 18-24, 2026" }
+            { title: "Flutter Sydney DevFest", url: "https://devfest.gdgsydney.au/", description: "Major Flutter presence at Sydney's DevFest.", location: "Sydney", date: "Oct 2025", countries: ["AU"] },
+            { title: "DevFest Auckland 2025", url: "https://devfest.gdgauckland.nz/", description: "The premier Google technology event in NZ.", location: "Auckland", date: "Nov 9, 2025", countries: ["NZ"] },
+            { title: "NZ Tech Rally 2026", url: "https://nztechrally.tech/", description: "Community software conference with Dart/Flutter tracks.", location: "Wellington", date: "May 15, 2026", countries: ["NZ"] },
+            { title: "Techweek NZ 2026", url: "https://techweek.co.nz/", description: "National festival of tech across Aotearoa.", location: "NZ-Wide", date: "May 18-24, 2026", countries: ["NZ"] }
         ],
         localProjects: [
-            { title: "Enro", url: "https://github.com/isaac-udy/enro", description: "Navigation library from Wellington dev Isaac Udy.", location: "Wellington", stars: "261" },
-            { title: "Alphero Labs", url: "https://github.com/alphero", description: "OSS experiments from Wellington mobile agency.", location: "Wellington" },
-            { title: "Open Source Aotearoa", url: "https://github.com/RichardLitt/open-source-aotearoa-nz", description: "Curated list of Kiwi open source work.", location: "NZ-Wide", stars: "5" }
+            { title: "Riverpod", url: "https://github.com/rrousselGit/riverpod", description: "Reactive caching and state management.", location: "Global", stars: "15k", countries: ["Global"] },
+            { title: "Enro", url: "https://github.com/isaac-udy/enro", description: "Navigation library from Wellington dev Isaac Udy.", location: "Wellington", stars: "261", countries: ["NZ"] },
+            { title: "Alphero Labs", url: "https://github.com/alphero", description: "OSS experiments from Wellington mobile agency.", location: "Wellington", countries: ["NZ"] },
+            { title: "Open Source Aotearoa", url: "https://github.com/RichardLitt/open-source-aotearoa-nz", description: "Curated list of Kiwi open source work.", location: "NZ-Wide", stars: "5", countries: ["NZ"] }
         ],
         localExperts: [
-            { title: "Dilum De Silva", url: "https://github.com/dilumdesilva", description: "GDG Auckland Organizer and Flutter GDE.", location: "Auckland" },
-            { title: "Julius Spencer", url: "https://www.linkedin.com/in/juliusspencer/", description: "Founder of GDG Auckland, Flutter/Android expert.", location: "Auckland" },
+            { title: "Dilum De Silva", url: "https://github.com/dilumdesilva", description: "GDG Auckland Organizer and Flutter GDE.", location: "Auckland", countries: ["NZ"] },
+            { title: "Julius Spencer", url: "https://www.linkedin.com/in/juliusspencer/", description: "Founder of GDG Auckland, Flutter/Android expert.", location: "Auckland", countries: ["NZ"] },
         ]
     }
 };
