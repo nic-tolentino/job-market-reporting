@@ -107,15 +107,15 @@ class RawJobDataParser {
         return Triple(result.first, result.second, normalizeCountry(result.third))
     }
 
-    /** Detects "Remote", "Hybrid", or "On-site" based on location or title keywords. */
-    fun extractWorkModel(location: String?, title: String?): String {
+    /** Detects "Remote", "Hybrid" based on location or title keywords. Returns null if no explicit keyword is found. */
+    fun extractWorkModel(location: String?, title: String?): String? {
         val locLower = location?.lowercase() ?: ""
         val titleLower = title?.lowercase() ?: ""
         val combined = "$locLower $titleLower"
         return when {
             combined.contains("remote") -> "Remote"
             combined.contains("hybrid") -> "Hybrid"
-            else -> "On-site"
+            else -> null
         }
     }
 
