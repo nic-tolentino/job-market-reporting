@@ -41,6 +41,13 @@ class JobDataSyncService(
     fun runDataSync(datasetId: String, targetCountry: String? = null) {
         log.info("Starting Job Data Sync Pipeline for dataset: $datasetId (Target Country: ${targetCountry ?: "Unspecified"})")
 
+        // 0. Check if already ingested
+        if (ingestionRepository.isDatasetIngested(datasetId)) {
+            log.warn("Dataset $datasetId has already been ingested. Skipping to avoid duplication. " +
+                    "If you need to re-ingest, manually delete the records from the raw_ingestions table.")
+            return
+        }
+
         // 1. Fetch from source
         val apifyResults = apifyClient.fetchRecentJobs(datasetId)
         log.info("Fetched ${apifyResults.size} raw records from Apify.")
@@ -58,11 +65,12 @@ class JobDataSyncService(
                             id = "${it.dto.id}-${UUID.randomUUID()}",
                             source = "LinkedIn-Apify",
                             ingestedAt = syncTime,
-                            rawPayload = it.rawJson
+                            rawPayload = it.rawJson,
+                            datasetId = datasetId
                     )
                 }
 
-        log.info("Bronze Layer: Ingesting ${rawRecords.size} raw payloads.")
+        log.info("Bronze Layer: Ingesting ${rawRecords.size} raw payloads with datasetId: $datasetId")
         ingestionRepository.saveRawIngestions(rawRecords)
 
         // 3. Phase 1: Refresh Master Manifest Companies from local manifest file

@@ -11,7 +11,8 @@ object IngestionMapper {
                 id = row.get(IngestionFields.ID).stringValue,
                 source = row.get(IngestionFields.SOURCE).stringValue,
                 ingestedAt = java.time.Instant.ofEpochMilli(timestampMicros / 1000),
-                rawPayload = row.get(IngestionFields.RAW_PAYLOAD).stringValue
+                rawPayload = row.get(IngestionFields.RAW_PAYLOAD).stringValue,
+                datasetId = if (!row.get(IngestionFields.DATASET_ID).isNull) row.get(IngestionFields.DATASET_ID).stringValue else null
         )
     }
 }

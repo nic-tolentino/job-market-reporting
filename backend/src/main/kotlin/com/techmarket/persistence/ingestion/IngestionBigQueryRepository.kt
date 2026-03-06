@@ -36,7 +36,8 @@ class IngestionBigQueryRepository(
                         Field.of(IngestionFields.ID, StandardSQLTypeName.STRING),
                         Field.of(IngestionFields.SOURCE, StandardSQLTypeName.STRING),
                         Field.of(IngestionFields.INGESTED_AT, StandardSQLTypeName.TIMESTAMP),
-                        Field.of(IngestionFields.RAW_PAYLOAD, StandardSQLTypeName.STRING)
+                        Field.of(IngestionFields.RAW_PAYLOAD, StandardSQLTypeName.STRING),
+                        Field.of(IngestionFields.DATASET_ID, StandardSQLTypeName.STRING)
                 )
         bigQuery.ensureTableExists(datasetName, ingestionsTableName, schema)
     }
@@ -46,7 +47,7 @@ class IngestionBigQueryRepository(
         ensureTable()
 
         log.info(
-                "GCP: Streaming \${records.size} raw ingestion records to BigQuery table: \$ingestionsTableName"
+                "GCP: Streaming ${records.size} raw ingestion records to BigQuery table: $ingestionsTableName"
         )
         try {
             bigQueryTemplate
@@ -57,7 +58,7 @@ class IngestionBigQueryRepository(
                     .get(120, TimeUnit.SECONDS)
             log.info("GCP: Successfully inserted raw ingestion records to BigQuery.")
         } catch (e: Exception) {
-            log.error("GCP: Failed to insert raw ingestion records: \${e.message}", e)
+            log.error("GCP: Failed to insert raw ingestion records: ${e.message}", e)
             throw e
         }
     }
@@ -72,8 +73,22 @@ class IngestionBigQueryRepository(
             val results = bigQuery.query(queryConfig)
             results.iterateAll().map { IngestionMapper.mapRow(it) }.toList()
         } catch (e: Exception) {
-            log.error("GCP: Failed to fetch raw ingestions: \${e.message}", e)
+            log.error("GCP: Failed to fetch raw ingestions: ${e.message}", e)
             emptyList()
+        }
+    }
+
+    override fun isDatasetIngested(datasetId: String): Boolean {
+        ensureTable()
+        val query = IngestionQueries.getCheckDatasetSql(datasetName, ingestionsTableName, datasetId)
+        val queryConfig = QueryJobConfiguration.newBuilder(query).build()
+
+        return try {
+            val results = bigQuery.query(queryConfig)
+            results.iterateAll().any()
+        } catch (e: Exception) {
+            log.error("GCP: Failed to check if dataset $datasetId is ingested: ${e.message}", e)
+            false
         }
     }
 
@@ -82,7 +97,8 @@ class IngestionBigQueryRepository(
                 IngestionFields.ID to this.id,
                 IngestionFields.SOURCE to this.source,
                 IngestionFields.INGESTED_AT to this.ingestedAt.toString(),
-                IngestionFields.RAW_PAYLOAD to this.rawPayload
+                IngestionFields.RAW_PAYLOAD to this.rawPayload,
+                IngestionFields.DATASET_ID to this.datasetId
         )
     }
 

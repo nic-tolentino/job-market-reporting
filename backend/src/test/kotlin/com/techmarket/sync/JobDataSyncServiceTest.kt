@@ -11,6 +11,7 @@ import com.techmarket.sync.model.ApifyJobResult
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import io.mockk.confirmVerified
 import java.time.Instant
 import java.time.LocalDate
 import org.junit.jupiter.api.Test
@@ -84,6 +85,7 @@ class JobDataSyncServiceTest {
 
     @Test
     fun `runDataSync aborts gracefully when Apify returns empty dataset`() {
+        every { ingestionRepository.isDatasetIngested("empty-ds") } returns false
         every { apifyClient.fetchRecentJobs("empty-ds") } returns emptyList()
 
         service.runDataSync("empty-ds")
@@ -92,6 +94,39 @@ class JobDataSyncServiceTest {
         verify(exactly = 0) { ingestionRepository.saveRawIngestions(any()) }
         verify(exactly = 0) { jobRepository.saveJobs(any()) }
         verify(exactly = 0) { companyRepository.saveCompanies(any()) }
+    }
+
+    @Test
+    fun `runDataSync skips when dataset already ingested`() {
+        every { ingestionRepository.isDatasetIngested("duplicate-ds") } returns true
+
+        service.runDataSync("duplicate-ds")
+
+        // Should abort before fetching or saving
+        verify { ingestionRepository.isDatasetIngested("duplicate-ds") }
+        verify(exactly = 0) { apifyClient.fetchRecentJobs(any()) }
+        verify(exactly = 0) { ingestionRepository.saveRawIngestions(any()) }
+        confirmVerified(apifyClient, ingestionRepository)
+    }
+
+    @Test
+    fun `runDataSync proceeds and saves datasetId when not already ingested`() {
+        val syncTime = Instant.now()
+        val apifyJob = createApifyDto("p1")
+        
+        every { ingestionRepository.isDatasetIngested("new-ds") } returns false
+        every { apifyClient.fetchRecentJobs("new-ds") } returns listOf(ApifyJobResult(apifyJob, "{}"))
+        every { jobDataMapper.map(any(), any()) } returns MappedSyncData(emptyList(), emptyList())
+
+        service.runDataSync("new-ds")
+
+        verify { ingestionRepository.isDatasetIngested("new-ds") }
+        verify { apifyClient.fetchRecentJobs("new-ds") }
+        verify { 
+            ingestionRepository.saveRawIngestions(match { 
+                it.all { record -> record.datasetId == "new-ds" } 
+            }) 
+        }
     }
 
     @Test

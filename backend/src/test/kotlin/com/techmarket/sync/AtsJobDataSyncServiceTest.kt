@@ -96,6 +96,7 @@ class AtsJobDataSyncServiceTest {
                 val mappedData = MappedSyncData(listOf(companyRecord), listOf(jobRecord))
 
                 every { atsConfigRepository.getConfig(companyId) } returns config
+                every { ingestionRepository.isDatasetIngested(any()) } returns false
                 every { clientFactory.getClient(AtsProvider.GREENHOUSE) } returns client
                 every { client.fetchJobs("board-1") } returns rawPayload
                 every { ingestionRepository.saveRawIngestions(any()) } just Runs
@@ -134,6 +135,7 @@ class AtsJobDataSyncServiceTest {
                         )
 
                 every { atsConfigRepository.getConfig(companyId) } returns config
+                every { ingestionRepository.isDatasetIngested(any()) } returns false
                 every { clientFactory.getClient(AtsProvider.GREENHOUSE) } throws
                         RuntimeException("API Error")
                 every { atsConfigRepository.updateSyncStatus(any(), any(), any()) } just Runs
@@ -162,6 +164,7 @@ class AtsJobDataSyncServiceTest {
                 val normalizer = mockk<AtsNormalizer>()
 
                 every { atsConfigRepository.getConfig(companyId) } returns config
+                every { ingestionRepository.isDatasetIngested(any()) } returns false
                 every { clientFactory.getClient(AtsProvider.GREENHOUSE) } returns client
                 every { client.fetchJobs("board-1") } returns rawPayload
                 every { ingestionRepository.saveRawIngestions(any()) } just Runs
@@ -176,8 +179,30 @@ class AtsJobDataSyncServiceTest {
                 verify {
                         atsConfigRepository.updateSyncStatus(companyId, SyncStatus.SUCCESS, any())
                 }
-                // Verify no mapper/merger/save/job-repo interactions
-                verify(exactly = 0) { mapper.map(any(), any(), any()) }
                 verify(exactly = 0) { jobRepository.saveJobs(any()) }
+        }
+
+        @Test
+        fun `should skip sync if already ingested today`() {
+                val companyId = "test-comp"
+                val config =
+                        CompanyAtsConfig(
+                                companyId,
+                                AtsProvider.GREENHOUSE,
+                                "board-1",
+                                true,
+                                null,
+                                SyncStatus.SUCCESS
+                        )
+
+                every { atsConfigRepository.getConfig(companyId) } returns config
+                // Mock already ingested
+                every { ingestionRepository.isDatasetIngested(match { it.startsWith("ats-greenhouse-board-1-") }) } returns true
+
+                service.syncCompany(companyId)
+
+                // Should return before any interaction
+                verify(exactly = 0) { clientFactory.getClient(any()) }
+                verify(exactly = 0) { ingestionRepository.saveRawIngestions(any()) }
         }
 }

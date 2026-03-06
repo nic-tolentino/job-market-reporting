@@ -68,6 +68,7 @@ object IngestionFields {
     const val SOURCE = "source"
     const val RAW_PAYLOAD = "rawPayload"
     const val INGESTED_AT = "ingestedAt"
+    const val DATASET_ID = "datasetId"
 }
 
 object AnalyticsFields {

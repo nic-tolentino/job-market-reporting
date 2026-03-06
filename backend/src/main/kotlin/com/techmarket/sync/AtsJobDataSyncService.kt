@@ -64,9 +64,20 @@ class AtsJobDataSyncService(
                 }
 
                 val syncTime = Instant.now()
+                val dateStr = java.time.format.DateTimeFormatter.ISO_LOCAL_DATE
+                        .withZone(java.time.ZoneOffset.UTC)
+                        .format(syncTime)
+                val datasetId = "ats-${config.atsProvider.name.lowercase()}-${config.identifier}-$dateStr"
+
                 log.info(
-                        "ATS Sync: Starting sync for ${config.atsProvider} board: ${config.identifier} (Company: $companyId)"
+                        "ATS Sync: Starting sync for ${config.atsProvider} board: ${config.identifier} (Company: $companyId, Dataset: $datasetId)"
                 )
+
+                // 0. Guard against multiple syncs per day for the same board
+                if (ingestionRepository.isDatasetIngested(datasetId)) {
+                        log.warn("ATS Sync: Dataset $datasetId has already been ingested today. Skipping.")
+                        return
+                }
 
                 try {
                         // 1. Fetch from ATS API
@@ -79,7 +90,8 @@ class AtsJobDataSyncService(
                                         id = UUID.randomUUID().toString(),
                                         source = config.atsProvider.displayName,
                                         ingestedAt = syncTime,
-                                        rawPayload = rawPayload
+                                        rawPayload = rawPayload,
+                                        datasetId = datasetId
                                 )
                         ingestionRepository.saveRawIngestions(listOf(ingestionRecord))
 
