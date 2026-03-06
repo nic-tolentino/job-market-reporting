@@ -33,6 +33,7 @@ object CompanyQueries {
         SELECT ${JobFields.JOB_ID}, ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.PLATFORM_LINKS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}, ${JobFields.BENEFITS}, ${JobFields.CITY}, ${JobFields.STATE_REGION}, ${JobFields.SENIORITY_LEVEL}
         FROM `$datasetName.$jobsTableName`
         WHERE ${JobFields.COMPANY_ID} = @companyId
+        AND (@country IS NULL OR ${JobFields.COUNTRY} = @country)
         ORDER BY ${JobFields.POSTED_DATE} DESC
     """.trimIndent()
 
@@ -40,7 +41,12 @@ object CompanyQueries {
             """
         SELECT MAX(${JobFields.WORK_MODEL}) as topModel
         FROM (
-            SELECT ${JobFields.WORK_MODEL}, COUNT(*) as c FROM `$datasetName.$jobsTableName` WHERE ${JobFields.COMPANY_ID} = @companyId GROUP BY ${JobFields.WORK_MODEL} ORDER BY c DESC LIMIT 1
+            SELECT ${JobFields.WORK_MODEL}, COUNT(*) as c 
+            FROM `$datasetName.$jobsTableName` 
+            WHERE ${JobFields.COMPANY_ID} = @companyId 
+            AND (@country IS NULL OR ${JobFields.COUNTRY} = @country)
+            GROUP BY ${JobFields.WORK_MODEL} 
+            ORDER BY c DESC LIMIT 1
         ) wm
     """.trimIndent()
 }

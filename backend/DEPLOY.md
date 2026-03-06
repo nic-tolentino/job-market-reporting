@@ -181,3 +181,43 @@ curl -X POST https://tech-market-backend-181692518949.australia-southeast1.run.a
 
 The tables will be auto-created with the correct schema by the application the first time it runs a query after the drop. The reprocess typically completes in a few seconds for current data volumes.
 
+---
+
+## Stage 7: Production Hardening
+
+For production environments, the following configurations are mandatory to ensure security, reliability, and performance.
+
+### 1. Secure Secrets with Google Secret Manager
+Never use `--set-env-vars` for sensitive data in production. Instead, reference secrets stored in Google Secret Manager.
+
+```bash
+gcloud run services update tech-market-backend \
+  --region australia-southeast1 \
+  --set-secrets "\
+    APIFY_TOKEN=APIFY_TOKEN_SECRET_NAME:latest,\
+    APIFY_WEBHOOK_SECRET=APIFY_WEBHOOK_SECRET_NAME:latest"
+```
+
+### 2. Explicit BigQuery Configuration
+To prevent the application from attempting to resolve datasets in the wrong region or project (which causes `NOT_FOUND` errors), explicitly set the project and dataset:
+
+```bash
+gcloud run services update tech-market-backend \
+  --region australia-southeast1 \
+  --update-env-vars "\
+    SPRING_CLOUD_GCP_BIGQUERY_PROJECT_ID=your-project-id,\
+    SPRING_CLOUD_GCP_BIGQUERY_DATASET_NAME=techmarket"
+```
+
+### 3. Resource Allocation for JVM
+Java/Kotlin applications typically require more than the default 512Mi memory for peak processing (like data re-mapping).
+
+- **Recommended Memory**: 2Gi
+- **Why**: Prevents `OutOfMemory` errors during large-scale historical data migrations or complex mapping operations.
+
+```bash
+gcloud run services update tech-market-backend \
+  --region australia-southeast1 \
+  --memory 2Gi
+```
+

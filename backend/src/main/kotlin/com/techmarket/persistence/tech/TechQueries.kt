@@ -10,6 +10,7 @@ object TechQueries {
         FROM `$datasetName.$jobsTableName`, UNNEST(${JobFields.TECHNOLOGIES}) as t
         WHERE LOWER(t) = LOWER(@techName)
         AND DATE(${JobFields.POSTED_DATE}) >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+        AND (@country IS NULL OR ${JobFields.COUNTRY} = @country)
         GROUP BY name
         ORDER BY value DESC
     """.trimIndent()
@@ -22,6 +23,7 @@ object TechQueries {
         UNNEST(j.${JobFields.TECHNOLOGIES}) as t
         WHERE LOWER(t) = LOWER(@techName)
         AND DATE(j.${JobFields.POSTED_DATE}) >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+        AND (@country IS NULL OR j.${JobFields.COUNTRY} = @country)
         GROUP BY c.${CompanyFields.COMPANY_ID}
         ORDER BY activeRoles DESC
     """.trimIndent()
@@ -32,6 +34,7 @@ object TechQueries {
         FROM `$datasetName.$jobsTableName` j, UNNEST(j.${JobFields.TECHNOLOGIES}) as t
         WHERE LOWER(t) = LOWER(@techName)
         AND DATE(j.${JobFields.POSTED_DATE}) >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+        AND (@country IS NULL OR j.${JobFields.COUNTRY} = @country)
         ORDER BY j.${JobFields.POSTED_DATE} DESC
     """.trimIndent()
 }

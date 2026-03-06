@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Building2, MapPin, DollarSign, Calendar, X, ShieldCheck, Globe, Ghost } from 'lucide-react';
+import { Building2, MapPin, DollarSign, Calendar, X, ShieldCheck, Globe, CircleDashed } from 'lucide-react';
 import PageLoader from '../components/common/PageLoader';
 import { fetchCompanyProfile, type CompanyProfilePageDto } from '../lib/api';
 import { useAppStore } from '../store/useAppStore';
@@ -124,8 +124,8 @@ export default function CompanyProfilePage() {
                             <Badge variant="emerald" icon={<ShieldCheck className="h-3.5 w-3.5" />}>
                                 Verified
                             </Badge>
-                        ) : data.companyDetails.verificationLevel === 'ghost' ? (
-                            <Badge variant="slate" icon={<Ghost className="h-3.5 w-3.5" />} className="opacity-70">
+                        ) : data.companyDetails.verificationLevel === 'unverified' ? (
+                            <Badge variant="slate" icon={<CircleDashed className="h-3.5 w-3.5" />} className="opacity-70">
                                 Unverified
                             </Badge>
                         ) : null}

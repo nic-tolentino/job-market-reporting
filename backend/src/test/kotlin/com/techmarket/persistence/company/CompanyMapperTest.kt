@@ -282,9 +282,11 @@ class CompanyMapperTest {
         every { row.get(CompanyFields.OPERATING_COUNTRIES) } returns nullF
         every { row.get(CompanyFields.OFFICE_LOCATIONS) } returns nullF
         every { row.get(CompanyFields.REMOTE_POLICY) } returns nullF
-        every { row.get(CompanyFields.VERIFICATION_LEVEL) } returns strF
         
-        val timeF = mockk<FieldValue>(); every { timeF.stringValue } returns "2023-01-01T10:00:00Z"
+        val verifF = mockk<FieldValue>(); every { verifF.isNull } returns false; every { verifF.stringValue } returns "VERIFIED"
+        every { row.get(CompanyFields.VERIFICATION_LEVEL) } returns verifF
+        
+        val timeF = mockk<FieldValue>(); every { timeF.isNull } returns false; every { timeF.stringValue } returns "2023-01-01T10:00:00Z"
         every { row.get(CompanyFields.LAST_UPDATED_AT) } returns timeF
 
         val record = CompanyMapper.mapToCompanyRecord(row)

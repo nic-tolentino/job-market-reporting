@@ -119,7 +119,7 @@ object JobMapper {
                                         if (r.get("comp_hqCountry").isNull) null
                                         else r.get("comp_hqCountry").stringValue,
                                 verificationLevel = 
-                                        if (r.get("comp_verificationLevel").isNull) "ghost"
+                                        if (r.get("comp_verificationLevel").isNull) "unverified"
                                         else r.get("comp_verificationLevel").stringValue
                         )
 

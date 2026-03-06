@@ -76,7 +76,7 @@ class RawJobDataMapperTest {
                         )
 
                 assertEquals(2, result.size)
-                assertEquals(2, result[Triple("ghost-google", "au", "engineer")]?.size)
+                assertEquals(2, result[Triple("google", "au", "engineer")]?.size)
         }
 
         @Test
@@ -148,7 +148,7 @@ class RawJobDataMapperTest {
         }
 
         @Test
-        fun `findCompanyId correctly matches by name or alias and falls back to ghost`() {
+        fun `findCompanyId correctly matches by name or alias and falls back to unverified`() {
             val manifest = mapOf(
                 "google" to createCompanyRecord("google", "Google", listOf("Google Inc", "Alphabet")),
                 "asb" to createCompanyRecord("asb-bank", "ASB Bank", listOf("ASB"))
@@ -164,8 +164,8 @@ class RawJobDataMapperTest {
             // Case insensitive
             assertEquals("google", mapper.findCompanyId("google inc", manifest))
             
-            // Ghost fallback
-            assertEquals("ghost-microsoft", mapper.findCompanyId("Microsoft", manifest))
+            // Unverified fallback
+            assertEquals("microsoft", mapper.findCompanyId("Microsoft", manifest))
         }
 
         @Test

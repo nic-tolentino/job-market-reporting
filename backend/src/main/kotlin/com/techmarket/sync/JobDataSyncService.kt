@@ -36,6 +36,7 @@ class JobDataSyncService(
      * 3. Maps and cleanses data into structured Job and Company records using [JobDataMapper].
      * 4. Saves the structured data into the Silver Layer (raw_jobs, raw_companies tables).
      */
+    
     @CacheEvict(value = ["landing", "tech", "company", "search"], allEntries = true)
     fun runDataSync(datasetId: String, targetCountry: String? = null) {
         log.info("Starting Job Data Sync Pipeline for dataset: $datasetId (Target Country: ${targetCountry ?: "Unspecified"})")
@@ -78,7 +79,7 @@ class JobDataSyncService(
         val rawJobs = apifyResults.map { RawJob(it.dto, syncTime) }
         val mappedData = jobDataMapper.map(rawJobs, manifestCompanies, targetCountry)
         log.info(
-                "Silver Layer: Successfully mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies (Ghosts) from ${rawJobs.size} raw records."
+                "Silver Layer: Successfully mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} unverified companies from ${rawJobs.size} raw records."
         )
 
         // 4. Merge with existing Silver data
@@ -118,9 +119,14 @@ class JobDataSyncService(
      *
      * This process is safe because it recreates the Silver layer from the immutable Bronze source.
      */
+    
     @CacheEvict(value = ["landing", "tech", "company", "search"], allEntries = true)
     fun reprocessHistoricalData() {
         log.info("Starting Historical Data Reprocessing (Silver Layer Refresh)...")
+
+        log.info("Silver Layer Cleanup: Wiping current tables...")
+        jobRepository.deleteAllJobs()
+        companyRepository.deleteAllCompanies()
 
         // 1. Fetch all raw payloads from Bronze Layer
         val rawRecords = ingestionRepository.getRawIngestions()
@@ -152,7 +158,11 @@ class JobDataSyncService(
         log.info("Parsed ${rawJobs.size} valid jobs from historical records. Remapping...")
 
         // 3. Refresh Master Manifest Companies first
-        companySyncService.syncFromManifest()
+        try {
+            companySyncService.syncFromManifest()
+        } catch (e: Exception) {
+            log.error("Failed to sync company manifest: ${e.message}. Continuing with existing data.")
+        }
         val manifestCompanies = companyRepository.getAllCompanies().associateBy { it.companyId }
 
         // 4. Re-map using latest logic
@@ -160,13 +170,6 @@ class JobDataSyncService(
         log.info(
                 "Silver Layer: Freshly mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies."
         )
-
-        // 4. Wipe Silver tables and re-insert
-        log.info(
-                "Silver Layer Cleanup: Wiping current tables before re-inserting freshly mapped data..."
-        )
-        jobRepository.deleteAllJobs()
-        companyRepository.deleteAllCompanies()
 
         log.info("Silver Layer: Re-inserting data...")
         companyRepository.saveCompanies(mappedData.companies)

@@ -13,12 +13,14 @@ RUN chmod +x ./gradlew
 RUN ./gradlew dependencies --no-daemon
 
 # 3. Now copy the source code and build the JAR
+COPY data data
 COPY src src
 RUN ./gradlew bootJar -x test --no-daemon
 
 # Runtime Stage
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
+COPY --from=builder /workspace/app/data /app/data
 COPY --from=builder /workspace/app/build/libs/*.jar app.jar
 ENTRYPOINT ["java", \
     "-XX:+UseContainerSupport", \

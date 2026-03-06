@@ -26,13 +26,13 @@ if not api_key:
 
 genai_client = genai.Client(api_key=api_key)
 
-def fetch_ghost_companies(limit=5):
-    """Fetches ghost companies that don't have a recent scrape attached."""
-    print(f"Fetching up to {limit} ghost companies...")
+def fetch_unverified_companies(limit=5):
+    """Fetches unverified companies that don't have a recent scrape attached."""
+    print(f"Fetching up to {limit} unverified companies...")
     query = f"""
     SELECT companyId, name, description, website, industries
     FROM `{PROJECT_ID}.{DATASET_ID}.{COMPANIES_TABLE}`
-    WHERE verificationLevel = 'ghost'
+    WHERE verificationLevel = 'unverified'
         AND name != 'Unknown Company'
     ORDER BY companyId ASC
     LIMIT {limit}
@@ -119,11 +119,11 @@ def enrich_company_via_llm(company_row, job_rows):
         return None
 
 def main():
-    print("🚀 Starting Ghost Enrichment Pipeline...")
-    ghosts = fetch_ghost_companies(limit=5)
+    print("🚀 Starting Unverified Enrichment Pipeline...")
+    ghosts = fetch_unverified_companies(limit=5)
     
     if not ghosts:
-        print("No ghost companies found. All caught up!")
+        print("No unverified companies found. All caught up!")
         return
 
     # Load existing manifest
@@ -144,7 +144,7 @@ def main():
         if company_id in existing_ids:
             continue
             
-        print(f"\nProcessing ghost: {company_id} ({ghost.name})")
+        print(f"\nProcessing unverified: {company_id} ({ghost.name})")
         jobs = fetch_recent_jobs_for_company(company_id)
         
         enrichment = enrich_company_via_llm(ghost, jobs)

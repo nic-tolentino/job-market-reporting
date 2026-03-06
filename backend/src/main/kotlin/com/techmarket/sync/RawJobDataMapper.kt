@@ -99,8 +99,8 @@ class RawJobDataMapper(
                         }
                 }
             
-            // 3. Fallback to Ghost creation
-            return "ghost-$slugifiedName"
+            // 3. Fallback to unverified creation
+            return slugifiedName
         }
 
         /**
@@ -199,7 +199,7 @@ class RawJobDataMapper(
                                     return@forEach
                                 }
 
-                                if (!companyId.startsWith("ghost-") && manifestCompanies.containsKey(companyId)) {
+                                if (manifestCompanies.containsKey(companyId)) {
                                     // It's a manifest company, we don't need to re-create it in this mapper's output,
                                     // as they are synced separately from companies.json.
                                     jobRecords.add(jobRecord)
@@ -367,7 +367,7 @@ class RawJobDataMapper(
                                         }
                                         .distinct()
                                         .sorted(),
-                        verificationLevel = VerificationLevel.GHOST,
+                        verificationLevel = VerificationLevel.UNVERIFIED,
                         lastUpdatedAt = lastSeenAt
                 )
         }

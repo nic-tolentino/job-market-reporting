@@ -1,0 +1,1919 @@
+[
+  {
+    "id": "advantive",
+    "name": "Advantive",
+    "alternateNames": [
+      "Advantive Software"
+    ],
+    "description": "Advantive is a global provider of mission-critical software for specialty manufacturing and distribution companies.",
+    "website": "http://www.advantive.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQF9WYMgth2dVw/company-logo_100_100/B4EZkU9h98IUAg-/0/1756993298763/advantive_software_logo?e=1774483200&v=beta&t=SxoDswUm0EVs7bTktBXSwPIDV8zOFZkoTd-VveTb-aE",
+    "industries": [
+      "ERP",
+      "Manufacturing",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "US",
+      "NZ",
+      "AU",
+      "UK"
+    ],
+    "office_locations": [
+      "Nelson"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "air-nz",
+    "name": "Air New Zealand",
+    "alternateNames": [
+      "Air NZ",
+      "Air New Zealand"
+    ],
+    "description": "Air New Zealand is the national airline carrier of New Zealand.",
+    "website": "http://www.airnewzealand.co.nz",
+    "industries": [
+      "Aviation",
+      "Travel",
+      "Logistics"
+    ],
+    "company_type": "Enterprise",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "employees_count": 11000,
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "verification_level": "verified"
+  },
+  {
+    "id": "allrecruits",
+    "name": "AllRecruits",
+    "alternateNames": [],
+    "description": "AllRecruits is a New Zealand-based recruitment agency connecting talent with employers across various industries.",
+    "website": "http://www.allrecruits.nz",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEO8b7Jk1-DFg/company-logo_100_100/company-logo_100_100/0/1680495817186?e=1774483200&v=beta&t=1oqYxJq5J7xWG_VsmMJJk1M1Dey9Fe6rkpWr-oIvyFg",
+    "industries": [
+      "Recruitment",
+      "Staffing"
+    ],
+    "company_type": "Agency",
+    "is_agency": true,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": false,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "asb",
+    "name": "ASB Bank",
+    "alternateNames": [
+      "ASB",
+      "ASB Bank Limited"
+    ],
+    "description": "ASB is one of New Zealand's leading commercial banks, offering personal, business, and rural banking services.",
+    "website": "https://www.asb.co.nz",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE7JzKRvUfCIA/company-logo_100_100/company-logo_100_100/0/1737060676472/asb_bank_logo?e=1774483200&v=beta&t=ub-fzbIN8PTPKEgoDmXeadAJN3qSPw6FFKl6UDJbukw",
+    "industries": [
+      "Banking",
+      "Finance"
+    ],
+    "company_type": "Enterprise",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington",
+      "Christchurch",
+      "Hamilton"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "auror",
+    "name": "Auror",
+    "alternateNames": [
+      "Auror Limited"
+    ],
+    "description": "Auror provides a retail crime intelligence platform to help retailers prevent crime and losses.",
+    "website": "http://www.auror.co",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEhw9sXHDxfyA/company-logo_100_100/B56ZbRp7DLGsAQ-/0/1747274150430/auror_logo?e=1774483200&v=beta&t=7GzMcKK4WlmKavJOw6nY99gghz6-ziwBXpoOM_LZLps",
+    "industries": [
+      "Retail Tech",
+      "Security",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU",
+      "US",
+      "UK"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "bnz",
+    "name": "Bank of New Zealand",
+    "alternateNames": [
+      "BNZ"
+    ],
+    "description": "BNZ is one of New Zealand's largest banks, offering a spread of personal and business banking services.",
+    "website": "http://www.bnz.co.nz",
+    "industries": [
+      "Banking",
+      "Finance"
+    ],
+    "company_type": "Enterprise",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington"
+    ],
+    "remote_policy": "Hybrid",
+    "employees_count": 5000,
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "verification_level": "verified"
+  },
+  {
+    "id": "bdo",
+    "name": "BDO",
+    "alternateNames": [
+      "BDO",
+      "BDO NZ",
+      "BDO in New Zealand"
+    ],
+    "description": "BDO is a world-leading network of public accounting, tax, and advisory firms.",
+    "website": "https://www.bdo.nz",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQG_JDMuyzlHvQ/company-logo_100_100/company-logo_100_100/0/1713819048630/bdo_new_zealand_logo?e=1774483200&v=beta&t=tpbFUDJupoAOSTTmasLoFwpJhc6TZq6L-Xqu5BWs8lg",
+    "industries": [
+      "Accounting",
+      "Advisory",
+      "Tax"
+    ],
+    "company_type": "Consultancy",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "BE",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington",
+      "Christchurch",
+      "Dunedin"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "beca",
+    "name": "Beca",
+    "alternateNames": [
+      "Beca Group"
+    ],
+    "description": "Beca is one of Asia Pacific's largest independent advisory, design, and engineering consultancies.",
+    "website": "http://www.beca.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGVMCtZI47KAw/company-logo_100_100/company-logo_100_100/0/1720744199970/beca_logo?e=1774483200&v=beta&t=TzjKhpfkn_QBOQ_M9F2ZmbfFsKjJYRUVi3exosXpnBw",
+    "industries": [
+      "Engineering",
+      "Consulting"
+    ],
+    "company_type": "Consultancy",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU",
+      "SG"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington",
+      "Christchurch",
+      "Tauranga"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "canonical",
+    "name": "Canonical",
+    "alternateNames": [
+      "Ubuntu"
+    ],
+    "description": "Canonical is the company behind Ubuntu, the world's most popular Linux operating system.",
+    "website": "http://www.canonical.com/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEbIYAkAURcYw/company-logo_100_100/company-logo_100_100/0/1650566107463/canonical_logo?e=1774483200&v=beta&t=Jp45-8XMIaEVfRrmgDkhBHs2ekAU6mppn6tiG8a5XuE",
+    "industries": [
+      "Open Source",
+      "Software Development",
+      "Operating Systems"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "UK",
+    "operating_countries": [
+      "UK",
+      "US",
+      "NZ",
+      "AU"
+    ],
+    "office_locations": [],
+    "remote_policy": "Remote Only",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "canva",
+    "name": "Canva",
+    "alternateNames": [],
+    "description": "Canva is a global graphic design platform that allows users to create social media graphics, presentations, and more.",
+    "website": "http://www.canva.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGO1uzGzmVB-A/company-logo_100_100/company-logo_100_100/0/1656630679668/canva_logo?e=1774483200&v=beta&t=WfoTblRN1LnKVm7UkDTKi7pAklRVnfXvYeddGruPS8U",
+    "industries": [
+      "Design",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "AU",
+    "operating_countries": [
+      "AU",
+      "NZ",
+      "US",
+      "UK",
+      "PH"
+    ],
+    "office_locations": [
+      "Sydney",
+      "Melbourne",
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "capgemini",
+    "name": "Capgemini",
+    "alternateNames": [
+      "Capgemini New Zealand",
+      "Capgemini NZ"
+    ],
+    "description": "Capgemini is a global leader in partnering with companies to transform and manage their business by harnessing the power of technology.",
+    "website": "https://www.capgemini.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHIL3HctxNfvg/company-logo_100_100/B4EZokv7VQIUAQ-/0/1761553135376/capgemini_logo?e=1773878400&v=beta&t=TGklTB-VKjOHiCq9y-rCjw-qbpjc_ZmNa8uwSsQC2_Y",
+    "industries": [
+      "Consulting",
+      "Digital Transformation",
+      "IT Services"
+    ],
+    "company_type": "Consultancy",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "FR",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "cin7",
+    "name": "Cin7",
+    "alternateNames": [
+      "Cin7 Limited"
+    ],
+    "description": "Cin7 is a leading cloud-based inventory management platform for growing brands.",
+    "website": "http://www.cin7.com",
+    "industries": [
+      "SaaS",
+      "Inventory Management"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "NZ",
+      "US",
+      "AU"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Denver"
+    ],
+    "remote_policy": "Hybrid",
+    "employees_count": 300,
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "verification_level": "verified"
+  },
+  {
+    "id": "clover-health",
+    "name": "Clover Health",
+    "alternateNames": [
+      "Clover"
+    ],
+    "description": "Clover Health is a next-generation Medicare Advantage insurer which leverages its flagship software platform.",
+    "website": "http://www.cloverhealth.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHJI6iJFP1iJQ/company-logo_100_100/company-logo_100_100/0/1631304987854?e=1774483200&v=beta&t=SrbTkpVhI3vMkrUGQgZuQSPflLc7HqMsMzGtz9qGcMQ",
+    "industries": [
+      "Healthtech",
+      "Insurance",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "US",
+      "HK"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Remote",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "cognex-corporation",
+    "name": "Cognex Corporation",
+    "alternateNames": [
+      "Cognex",
+      "Cognex Corp"
+    ],
+    "description": "Cognex is a global leader in the machine vision industry, providing systems used in manufacturing automation.",
+    "website": "http://www.cognex.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGhs_LJjvRx4A/company-logo_100_100/company-logo_100_100/0/1674489691410/cognex_corporation_logo?e=1773878400&v=beta&t=GZME0hTEs64tQ5jYnTvG3g-2RMtCelU_fpyWy1TLukg",
+    "industries": [
+      "Automation",
+      "Manufacturing",
+      "Machine Vision"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "US",
+      "NZ",
+      "DE",
+      "CN"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "dataannotation",
+    "name": "DataAnnotation",
+    "alternateNames": [
+      "DataAnnotation.tech"
+    ],
+    "description": "DataAnnotation provides high-quality data for training AI models through a platform of remote workers.",
+    "website": "https://dataannotation.tech",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGKqLvQGwC3zg/company-logo_100_100/B56ZfRMtH6HUAU-/0/1751561458436/dataannotationtech_logo?e=1774483200&v=beta&t=2qvJ-2wH01Q4nqQNAtuG7P-RNoDGyyGse5AUaaffC5c",
+    "industries": [
+      "AI",
+      "Data Science",
+      "Software"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "US",
+      "NZ",
+      "AU",
+      "UK",
+      "CA"
+    ],
+    "office_locations": [],
+    "remote_policy": "Remote Only",
+    "visa_sponsorship": false,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "deloitte",
+    "name": "Deloitte",
+    "alternateNames": [
+      "Deloitte New Zealand",
+      "Deloitte NZ"
+    ],
+    "description": "Deloitte is a global professional services network, providing audit, consulting, financial advisory, risk management, and tax services.",
+    "website": "http://www.deloitte.com/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGNtpblgQpJoQ/company-logo_100_100/company-logo_100_100/0/1662120928214/deloitte_logo?e=1773878400&v=beta&t=hIFyn8FVZLxCMjTxIC6COPMYFEWsbD1vR1NNkkmIrc0",
+    "industries": [
+      "Professional Services",
+      "Consulting",
+      "Audit"
+    ],
+    "company_type": "Consultancy",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "UK",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington",
+      "Christchurch",
+      "Hamilton",
+      "Dunedin"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "enatel",
+    "name": "Enatel",
+    "alternateNames": [
+      "Enatel Limited"
+    ],
+    "description": "Enatel designs and manufactures world-class power conversion products for the global market.",
+    "website": "http://www.enatel.net",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHHtMW9aRa0bw/company-logo_100_100/company-logo_100_100/0/1658273640115/enatel_logo?e=1774483200&v=beta&t=7Y1-Bf3K4lE_w0NExupM0LZ1mFzKmiF7onBO5rOFyS4",
+    "industries": [
+      "Manufacturing",
+      "Energy",
+      "Power Conversion"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU",
+      "US",
+      "UK"
+    ],
+    "office_locations": [
+      "Christchurch"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "eroad",
+    "name": "EROAD",
+    "alternateNames": [
+      "EROAD Limited"
+    ],
+    "description": "EROAD provides electronic tax and fleet management solutions for the transport industry.",
+    "website": "http://www.eroad.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQG--sqL163RZg/company-logo_100_100/company-logo_100_100/0/1630612371817/eroad_logo?e=1774483200&v=beta&t=kbu6icZiA-VhG9Q66gZhmJWo0lwfHLhKeogSc63LBQo",
+    "industries": [
+      "Logistics",
+      "IoT",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU",
+      "US"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "evercommerce",
+    "name": "EverCommerce",
+    "alternateNames": [],
+    "description": "EverCommerce provides an integrated SaaS platform for service-based businesses.",
+    "website": "https://www.evercommerce.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHwH8fGoZ3cgw/company-logo_100_100/company-logo_100_100/0/1630650773411/evercommerce_logo?e=1774483200&v=beta&t=RVAGdFMcA6F8q1ybytqbrurAJrfGxOtETf9E5qxg2F8",
+    "industries": [
+      "SaaS",
+      "Business Management"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "US",
+      "NZ",
+      "AU"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "fergus",
+    "name": "Fergus",
+    "alternateNames": [
+      "Fergus Software"
+    ],
+    "description": "Fergus provides automated job management software for tradespeople (plumbers, electricians, etc.).",
+    "website": "https://fergus.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFPn4YZyUac-w/company-logo_100_100/company-logo_100_100/0/1630581251564/fergus_software_limited_logo?e=1774483200&v=beta&t=j_Do1nruck4j9JAdzZgMstc_ZHtefUTexsF9sSlhfng",
+    "industries": [
+      "Trades",
+      "Job Management",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU",
+      "UK"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "fisher-paykel-healthcare",
+    "name": "Fisher & Paykel Healthcare",
+    "alternateNames": [
+      "F&P Healthcare"
+    ],
+    "description": "Fisher & Paykel Healthcare is a leading designer, manufacturer, and marketer of products and systems for use in respiratory care.",
+    "website": "http://www.fphcare.com",
+    "industries": [
+      "Medtech",
+      "Manufacturing"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "On-site",
+    "employees_count": 6000,
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "verification_level": "verified"
+  },
+  {
+    "id": "foodstuffs",
+    "name": "Foodstuffs",
+    "alternateNames": [
+      "Foodstuffs",
+      "Foodstuffs NI",
+      "Foodstuffs North Island Limited"
+    ],
+    "description": "Foodstuffs North Island is a major New Zealand grocery cooperative, behind brands like New World and PAK'nSAVE.",
+    "website": "https://www.foodstuffs.co.nz/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEKHOPyCW0BMA/company-logo_100_100/company-logo_100_100/0/1683155338928/foodstuffs_aukland_limited_logo?e=1773878400&v=beta&t=0u8BBDYkt1PP9XbZoydYRhuS6ujrWO1aNSwbI40Tly8",
+    "industries": [
+      "Retail",
+      "Logistics",
+      "Grocery"
+    ],
+    "company_type": "Enterprise",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "fuel50",
+    "name": "Fuel50",
+    "alternateNames": [],
+    "description": "Fuel50 provides an AI-driven talent marketplace platform for employee career pathing and skills management.",
+    "website": "https://fuel50.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQERlaDM3KMqDA/company-logo_100_100/company-logo_100_100/0/1727172406627/fuel50_logo?e=1774483200&v=beta&t=u_qI1nZser_LPluXp66Ocj2wM61zyMzY1MfN9IaqYsw",
+    "industries": [
+      "HR Tech",
+      "AI",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "US",
+      "UK"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "garmin",
+    "name": "Garmin",
+    "alternateNames": [
+      "Garmin",
+      "Garmin New Zealand"
+    ],
+    "description": "Garmin is a leading provider of navigation, communication, and information devices and applications.",
+    "website": "https://www.garmin.com/en-NZ/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEKvXBnepJvJg/company-logo_100_100/company-logo_100_100/0/1660172617030?e=1774483200&v=beta&t=kWDWZ8eZnINdBrff-129wQ4bynQhgFfFh1fS_p_afOw",
+    "industries": [
+      "Consumer Electronics",
+      "Navigation",
+      "IoT"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "CH",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "halter",
+    "name": "Halter",
+    "alternateNames": [],
+    "description": "Halter is an agritech company that provides solar-powered smart collars for cows.",
+    "website": "http://www.halter.co.nz",
+    "industries": [
+      "Agritech",
+      "IoT",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU",
+      "US"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "employees_count": 150,
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "verification_level": "verified"
+  },
+  {
+    "id": "hays",
+    "name": "Hays",
+    "alternateNames": [
+      "Hays Specialist Recruitment"
+    ],
+    "description": "Hays is a global leader in specialist recruitment and workforce solutions.",
+    "website": "http://www.haysplc.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQETReujByGYaw/company-logo_100_100/B4EZfKYuQyGwAQ-/0/1751447168431/hays_logo?e=1774483200&v=beta&t=Md5EN8eKRQ6EE-W5rqnCLNPzwyEEADHZFyVm3fn0PXY",
+    "industries": [
+      "Recruitment",
+      "Staffing"
+    ],
+    "company_type": "Agency",
+    "is_agency": true,
+    "is_social_enterprise": false,
+    "hq_country": "UK",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington",
+      "Christchurch"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": false,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "hnry",
+    "name": "Hnry",
+    "alternateNames": [
+      "Hnry Limited"
+    ],
+    "description": "Hnry is an all-in-one tax and financial service for freelancers and contractors.",
+    "website": "http://www.hnry.co.nz",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFyS-69Rj-Vig/company-logo_100_100/0/1630650773411/hnry_logo?e=1774483200&v=beta&t=RVAGdFMcA6F8q1ybytqbrurAJrfGxOtETf9E5qxg2F8",
+    "industries": [
+      "Fintech",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU"
+    ],
+    "office_locations": [
+      "Wellington",
+      "Sydney"
+    ],
+    "remote_policy": "Hybrid",
+    "employees_count": 100,
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "verification_level": "verified"
+  },
+  {
+    "id": "hso",
+    "name": "HSO",
+    "alternateNames": [
+      "HSO International"
+    ],
+    "description": "HSO is a global provider of business applications and platform services geared towards the Microsoft ecosystem.",
+    "website": "https://www.hso.com/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGmYTnKFqmXUA/company-logo_100_100/company-logo_100_100/0/1687938602832/hso_logo?e=1774483200&v=beta&t=5Qgk8addNNqcoz-L_IaRVYstyJpI41CSqojfDfvyH1s",
+    "industries": [
+      "Consulting",
+      "Enterprise Software",
+      "Microsoft"
+    ],
+    "company_type": "Consultancy",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NL",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "idexx",
+    "name": "IDEXX",
+    "alternateNames": [
+      "IDEXX Laboratories"
+    ],
+    "description": "IDEXX is a global leader in veterinary diagnostics, companion animal water testing, and poultry/livestock health.",
+    "website": "http://www.idexx.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHI2TT2WFki8w/company-logo_100_100/company-logo_100_100/0/1689943737288/idexx_laboratories_logo?e=1774483200&v=beta&t=8_4vKiCMD057DL7pKkKyDMe76bbm_oaBQCVrEtMDGik",
+    "industries": [
+      "Veterinary",
+      "Diagnostics",
+      "Biotech"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "imara",
+    "name": "Imara Limited",
+    "alternateNames": [
+      "Imara"
+    ],
+    "description": "Imara is a New Zealand recruitment agency specializing in IT and professional services.",
+    "website": "http://www.imara.co.nz",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHRlixFGjUMxg/company-logo_100_100/company-logo_100_100/0/1631365550915?e=1774483200&v=beta&t=0aL4J2uNXRrrjWgQk7GnRuDqTKyCPlZslcsic0udmEw",
+    "industries": [
+      "Recruitment",
+      "Staffing"
+    ],
+    "company_type": "Agency",
+    "is_agency": true,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": false,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "jobgether",
+    "name": "Jobgether",
+    "alternateNames": [],
+    "description": "Jobgether is a platform focused on remote job opportunities and talent matching.",
+    "website": "https://www.jobgether.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQF0wkBJGVGz4g/company-logo_100_100/B4EZm5iEh.HMAQ-/0/1759754340919/jobgether_logo?e=1774483200&v=beta&t=utRO4Bm7o3mvbUtKeeyyaiKIjLCQrss66hq_2Zruikc",
+    "industries": [
+      "HR Tech",
+      "Recruitment"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "BE",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [],
+    "remote_policy": "Remote Only",
+    "visa_sponsorship": false,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "karat",
+    "name": "Karat",
+    "alternateNames": [
+      "Karat Inc"
+    ],
+    "description": "Karat is the leader in technical interviewing, partnering with organizations to improve the hiring experience.",
+    "website": "http://www.karat.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHTJLGKSUTLNQ/company-logo_100_100/company-logo_100_100/0/1630580760979/karat_logo?e=1774483200&v=beta&t=2V-MmGjBNdndX4OHxOLhtUqvVGA1UVKxaYINRcg_-O0",
+    "industries": [
+      "HR Tech",
+      "Recruitment",
+      "Software"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "US",
+      "AU",
+      "NZ",
+      "IN"
+    ],
+    "office_locations": [],
+    "remote_policy": "Remote Only",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "kraken",
+    "name": "Kraken",
+    "alternateNames": [
+      "Kraken Tech",
+      "Kraken Technologies"
+    ],
+    "description": "Kraken Technologies provides a cloud-native platform for utilities to manage energy and customer data.",
+    "website": "https://kraken.tech",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHD0uhLz28lwg/company-logo_100_100/company-logo_100_100/0/1691424308528/krakentech_logo?e=1774483200&v=beta&t=1rjaGp7vdxqfPtUKGly0wOS0F-dDqc3zdL1uJPH0dXU",
+    "industries": [
+      "Energy",
+      "Utilities",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "UK",
+    "operating_countries": [
+      "UK",
+      "NZ",
+      "AU",
+      "JP"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "microsoft",
+    "name": "Microsoft",
+    "alternateNames": [
+      "Microsoft Corporation",
+      "Microsoft NZ"
+    ],
+    "description": "Microsoft is a global leader in software, services, devices, and solutions.",
+    "website": "https://news.microsoft.com/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH32RJQCl3dDQ/company-logo_100_100/B56ZYQ0mrGGoAU-/0/1744038948046/microsoft_logo?e=1774483200&v=beta&t=2CkLU8QMLBf2NjD2H0kFxFKTUcdwwAwZjzH3PPJOcPU",
+    "industries": [
+      "Software",
+      "Cloud Computing",
+      "AI"
+    ],
+    "company_type": "Enterprise",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "neon-one",
+    "name": "Neon One",
+    "alternateNames": [],
+    "description": "Neon One provides a unified platform of products and services for non-profits to build their community.",
+    "website": "https://neonone.com/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEYdSjsDb_qkQ/company-logo_100_100/company-logo_100_100/0/1638569823371/neonone_logo?e=1774483200&v=beta&t=idQeGHslOLxgsh95A_lyG2PVZHvFqhTnxV0oa3YcJdQ",
+    "industries": [
+      "Non-profit Tech",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "US",
+      "AU",
+      "NZ"
+    ],
+    "office_locations": [],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "nzme",
+    "name": "New Zealand Media & Entertainment (NZME)",
+    "alternateNames": [
+      "NZME",
+      "NZME Limited"
+    ],
+    "description": "NZME is a leading New Zealand media and entertainment business, home to brands like The New Zealand Herald and Newstalk ZB.",
+    "website": "https://nzme.co.nz/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEJWCfJajTOyA/company-logo_100_100/company-logo_100_100/0/1716426751675/nzme_logo?e=1774483200&v=beta&t=gzZ8ZcPclTnH-tycIX5TFlqKlcnR8eizEhqmhj-YZ3o",
+    "industries": [
+      "Media",
+      "Entertainment",
+      "News"
+    ],
+    "company_type": "Enterprise",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington",
+      "Christchurch"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "orion-health",
+    "name": "Orion Health",
+    "alternateNames": [
+      "Orion"
+    ],
+    "description": "Orion Health is a leading global provider of health information technology and connectivity solutions.",
+    "website": "http://orionhealth.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE8L38mxdTOAA/company-logo_100_100/B56ZdRQWCZGsAQ-/0/1749414928963/orion_health_logo?e=1774483200&v=beta&t=Lw0tGS19xzmOycTDCKvk5dArsZC6jqslQ6H_egpTT7U",
+    "industries": [
+      "Healthtech",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU",
+      "US",
+      "UK",
+      "CA"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Christchurch"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "osf-digital",
+    "name": "OSF Digital",
+    "alternateNames": [
+      "OSF Global Services"
+    ],
+    "description": "OSF Digital is a global digital transformation specialist and commerce solutions provider.",
+    "website": "https://osf.digital/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQF1yiiHtnIfyA/company-logo_100_100/B4DZUpCAc3HYAQ-/0/1740150147280/osf_digital_logo?e=1774483200&v=beta&t=vryipLu1amVZvEpgtKFrpzU4wpB5Q2I1ru5bhq2dkSg",
+    "industries": [
+      "Commerce",
+      "Digital Transformation",
+      "Consulting"
+    ],
+    "company_type": "Consultancy",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "CA",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Remote Only",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "pearson-carter",
+    "name": "Pearson Carter",
+    "alternateNames": [],
+    "description": "Pearson Carter is a specialist Microsoft Dynamics and Power Platform recruitment agency.",
+    "website": "http://www.pearsoncarter.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQH4UGUhXg6t_Q/company-logo_100_100/company-logo_100_100/0/1688333928666/pearson_carter_logo?e=1774483200&v=beta&t=9fqovpb6NSVNrahqe1PIHFD52LUARsEtH6K2vk5KJnE",
+    "industries": [
+      "Recruitment",
+      "Staffing"
+    ],
+    "company_type": "Agency",
+    "is_agency": true,
+    "is_social_enterprise": false,
+    "hq_country": "UK",
+    "operating_countries": [
+      "UK",
+      "AU",
+      "NZ",
+      "US"
+    ],
+    "office_locations": [],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": false,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "pharos",
+    "name": "Pharos",
+    "alternateNames": [
+      "Pharos Systems"
+    ],
+    "description": "Pharos provides print management software and services to help organizations reduce waste and improve security.",
+    "website": "https://www.pharos.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFVmnr1UcAuDw/company-logo_100_100/company-logo_100_100/0/1672781675404/pharos_systems_international_logo?e=1774483200&v=beta&t=V2qzCsvDjFvXkWDrSFaFCOG3NEOfP9LRlcfDCbnuBzI",
+    "industries": [
+      "Print Management",
+      "Software"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "US",
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "predicthq",
+    "name": "PredictHQ",
+    "alternateNames": [
+      "PredictHQ Limited"
+    ],
+    "description": "PredictHQ is a demand intelligence platform that helps companies predict and utilize external events.",
+    "website": "http://www.predicthq.com/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGbOtyfco_mnQ/company-logo_100_100/company-logo_100_100/0/1630622928499/predicthq_logo?e=1774483200&v=beta&t=EJt4RTGJKqkPMCZm_-yCDhnC9m1a_lnKgk7-BjlQOac",
+    "industries": [
+      "Data Intelligence",
+      "AI",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "US",
+      "AU",
+      "UK"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "pushpay",
+    "name": "Pushpay",
+    "alternateNames": [
+      "Pushpay Limited"
+    ],
+    "description": "Pushpay provides mobile commerce and engagement solutions for faith-based organizations and non-profits.",
+    "website": "https://pushpay.com/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFL2VIb9-jcRQ/company-logo_100_100/company-logo_100_100/0/1630478616623/pushpay_ltd_logo?e=1774483200&v=beta&t=l-L0RvsMTCk1UVgAq_Jx2JnXPo_10HiG7UjY-CGH6qo",
+    "industries": [
+      "Fintech",
+      "SaaS",
+      "Donations"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "NZ",
+      "US"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "rocket-lab",
+    "name": "Rocket Lab",
+    "alternateNames": [
+      "Rocket Lab Limited",
+      "Rocket Lab USA"
+    ],
+    "description": "Rocket Lab is an aerospace manufacturer and launch service provider, known for its Electron orbital rocket.",
+    "website": "https://rocketlabcorp.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEoxk0rRcE6JA/company-logo_100_100/company-logo_100_100/0/1645135300007/rocket_lab_limited_logo?e=1774483200&v=beta&t=SVMTO5t7cQuO0Tmf3kkOycsGnFZvWaCOTKiDgnucHu4",
+    "industries": [
+      "Aerospace",
+      "Space",
+      "Manufacturing"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "US",
+      "NZ",
+      "CA"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Mahia"
+    ],
+    "remote_policy": "On-site",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "sandfield",
+    "name": "Sandfield",
+    "alternateNames": [
+      "Sandfield Information Systems"
+    ],
+    "description": "Sandfield is a New Zealand software company that specializes in building custom business applications.",
+    "website": "https://www.sandfield.co.nz",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQE0-4XUpZrfZg/company-logo_100_100/company-logo_100_100/0/1631356291146?e=1774483200&v=beta&t=iBIbGM5tshIQn33o5sF9eJoEWR9FpnYJ50yPA2fMFZk",
+    "industries": [
+      "Custom Software",
+      "Consulting"
+    ],
+    "company_type": "Consultancy",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "seequent",
+    "name": "Seequent",
+    "alternateNames": [
+      "Seequent Limited",
+      "ARANZ Geo"
+    ],
+    "description": "Seequent is the world leader in geological modeling software for the mining, environmental, and energy sectors.",
+    "website": "https://www.seequent.com/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQENv3hwNC5ADQ/company-logo_100_100/company-logo_100_100/0/1716343109436/seequent_logo?e=1774483200&v=beta&t=fATpJEaDzeZABwy6WiXGwOpk-HNCCHEg5H_IZe6JNTw",
+    "industries": [
+      "Geoscience",
+      "Mining",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU",
+      "CA",
+      "US",
+      "UK",
+      "ZA"
+    ],
+    "office_locations": [
+      "Christchurch"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "serko",
+    "name": "Serko",
+    "alternateNames": [
+      "Serko Limited"
+    ],
+    "description": "Serko is a leader in online travel booking and expense management for the corporate market.",
+    "website": "http://www.serko.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHOjedTDzpkuA/company-logo_100_100/B4DZXusEUQHIAY-/0/1743466284745/serko_ltd_logo?e=1774483200&v=beta&t=G2H_bFVu8vPjHtgttjVBbkn20qoIqUd4KRhzKb_IN7c",
+    "industries": [
+      "Travel Tech",
+      "Fintech",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU",
+      "US",
+      "CN",
+      "IN"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "sharesies",
+    "name": "Sharesies",
+    "alternateNames": [],
+    "description": "Sharesies is an investment platform with a mission to create financial empowerment for everyone.",
+    "website": "http://www.sharesies.nz",
+    "industries": [
+      "Fintech",
+      "Investment"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": true,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU"
+    ],
+    "office_locations": [
+      "Wellington"
+    ],
+    "remote_policy": "Hybrid",
+    "employees_count": 200,
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "verification_level": "verified"
+  },
+  {
+    "id": "sourced-it-recruitment",
+    "name": "Sourced IT Recruitment",
+    "alternateNames": [
+      "Sourced",
+      "Sourced IT"
+    ],
+    "description": "Sourced IT Recruitment is a specialist technology recruitment agency base in New Zealand.",
+    "website": "http://sourced.nz",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGNweQmTpN6Cw/company-logo_100_100/B56ZVolkgUHQAQ-/0/1741216434781/sourced_it_recruitment_logo?e=1773878400&v=beta&t=mT6rqNmN290is9S-fFR-jQrX0oXjXmH1dEi995_NE6U",
+    "industries": [
+      "Recruitment",
+      "Staffing"
+    ],
+    "company_type": "Agency",
+    "is_agency": true,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Christchurch"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": false,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "spark",
+    "name": "Spark New Zealand",
+    "alternateNames": [
+      "Spark",
+      "Telecom NZ"
+    ],
+    "description": "Spark is New Zealand's largest telecommunications and IT services company.",
+    "website": "http://www.spark.co.nz",
+    "industries": [
+      "Telecommunications",
+      "IT Services",
+      "Cloud"
+    ],
+    "company_type": "Enterprise",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington",
+      "Christchurch"
+    ],
+    "remote_policy": "Hybrid",
+    "employees_count": 5000,
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "verification_level": "verified"
+  },
+  {
+    "id": "tencent",
+    "name": "Tencent",
+    "alternateNames": [
+      "Tencent Global"
+    ],
+    "description": "Tencent is a world-leading internet and technology company that develops innovative products and services.",
+    "website": "https://www.tencent.com/en-us/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGLiulTOZIebQ/company-logo_100_100/company-logo_100_100/0/1630648290063/tencentglobal_logo?e=1774483200&v=beta&t=naG6EUnWvtQSGs2nwJ5hGECSsBVxti-Q3XkQuKk4xRk",
+    "industries": [
+      "Gaming",
+      "Social Media",
+      "Technology"
+    ],
+    "company_type": "Enterprise",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "CN",
+    "operating_countries": [
+      "CN",
+      "US",
+      "SG",
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "the-post",
+    "name": "The Post",
+    "alternateNames": [
+      "The Dominion Post"
+    ],
+    "description": "The Post is a major news and media outlet in New Zealand, providing comprehensive local and national coverage.",
+    "website": "https://www.thepost.co.nz/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH1tgvHAkzmUw/company-logo_100_100/company-logo_100_100/0/1729023316421/the_dominion_post_logo?e=1774483200&v=beta&t=G9EA9lNIx4I2iMMc90cBzSVc7yc-wbmr86TObFZz2TA",
+    "industries": [
+      "Media",
+      "News",
+      "Publishing"
+    ],
+    "company_type": "Enterprise",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ"
+    ],
+    "office_locations": [
+      "Wellington"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "tower-insurance",
+    "name": "Tower Insurance",
+    "alternateNames": [
+      "Tower",
+      "Tower Limited"
+    ],
+    "description": "Tower is a general insurance company in New Zealand and the South Pacific.",
+    "website": "http://www.tower.co.nz",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFl8JhorI6Bzw/company-logo_100_100/B56ZfDBnM9HoAQ-/0/1751323669749/tower_logo?e=1774483200&v=beta&t=h_DMw6QJeDHl79OIlkcVf_YTW50N6a7fo0PPERERfPQ",
+    "industries": [
+      "Insurance",
+      "Finance"
+    ],
+    "company_type": "Enterprise",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "FJ",
+      "WS",
+      "CK",
+      "VU",
+      "TO"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington",
+      "Christchurch"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "tradify",
+    "name": "Tradify",
+    "alternateNames": [],
+    "description": "Tradify is job management software for tradespeople, making it easy to manage leads, quotes, jobs, and invoices.",
+    "website": "http://www.tradifyhq.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFmYz9-99-99/company-logo_100_100/0/1630581251564/tradify_logo?e=1774483200&v=beta&t=j_Do1nruck4j9JAdzZgMstc_ZHtefUTexsF9sSlhfng",
+    "industries": [
+      "SaaS",
+      "Construction Tech"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU",
+      "UK"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "employees_count": 100,
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "verification_level": "verified"
+  },
+  {
+    "id": "tribe",
+    "name": "Tribe Recruitment",
+    "alternateNames": [
+      "Tribe",
+      "Tribe New Zealand"
+    ],
+    "description": "Tribe Recruitment is a specialist recruitment agency in New Zealand focusing on technology and professional roles.",
+    "website": "http://www.tribegroup.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFHx_iGGS6ytQ/company-logo_100_100/company-logo_100_100/0/1630650655412/tribe_new_zealand_limited_logo?e=1774483200&v=beta&t=HQ7prqylVk9u1q2288dus2bGjCmKqywvk_DRin2u6Nw",
+    "industries": [
+      "Recruitment",
+      "Staffing"
+    ],
+    "company_type": "Agency",
+    "is_agency": true,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": false,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "trimble",
+    "name": "Trimble",
+    "alternateNames": [
+      "Trimble",
+      "Trimble Navigation",
+      "Trimble Inc."
+    ],
+    "description": "Trimble is a leading provider of advanced location-based solutions that maximize productivity and enhance profitability.",
+    "website": "https://www.trimble.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHM4R2dJDTWcQ/company-logo_100_100/B56Zat13QIHUAQ-/0/1746673300891/trimble_logo?e=1774483200&v=beta&t=l_AnlwfcC24J61Sxq6cItcC1ixUdjCzz6_2xupRhCsw",
+    "industries": [
+      "Geo-spatial",
+      "Agriculture",
+      "Construction"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Christchurch"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "twine",
+    "name": "Twine",
+    "alternateNames": [
+      "Twine.net"
+    ],
+    "description": "Twine is a marketplace for freelancers in the creative and technology sectors.",
+    "website": "https://www.twine.net",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGSIW1c4J94tA/company-logo_100_100/B4EZrlHXpVHcAQ-/0/1764780506129/twine_net_logo?e=1774483200&v=beta&t=WTq91-_cYzr-NRLtmjVuOkJNEHQsTgL_SX8Espw4LE8",
+    "industries": [
+      "Gig Economy",
+      "Creative Services"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "UK",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [],
+    "remote_policy": "Remote Only",
+    "visa_sponsorship": false,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "visa",
+    "name": "Visa",
+    "alternateNames": [
+      "Visa Inc",
+      "Visa Global"
+    ],
+    "description": "Visa is a global digital payments leader, facilitating transactions between consumers, merchants, and financial institutions.",
+    "website": "https://visa.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHAxoD4chKrgg/company-logo_100_100/B4EZfR2e4JHcAk-/0/1751572410148/visa_logo?e=1774483200&v=beta&t=T3FA6gKc7ov_h0RltzqLZsZtb65jY4BWQufghc31V34",
+    "industries": [
+      "Fintech",
+      "Payments",
+      "Financial Services"
+    ],
+    "company_type": "Enterprise",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "vista",
+    "name": "Vista",
+    "alternateNames": [
+      "Vista Entertainment Solutions",
+      "Vista Group"
+    ],
+    "description": "Vista is the world's leading supplier of software to the global cinema industry.",
+    "website": "http://vista.co",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQE_B0Um5G7g1w/company-logo_100_100/company-logo_100_100/0/1632787158852/vista_entertainment_solutions_logo?e=1774483200&v=beta&t=KF2N0V4JqJ0jcy_YMCOicDvYdg4e8RCs5kDsDy1L8es",
+    "industries": [
+      "Entertainment",
+      "SaaS",
+      "Cinema"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU",
+      "US",
+      "UK",
+      "CN"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "watercare",
+    "name": "Watercare",
+    "alternateNames": [
+      "Watercare",
+      "Watercare Services Limited"
+    ],
+    "description": "Watercare is Auckland's water and wastewater service provider.",
+    "website": "https://www.watercare.co.nz/",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHBFeiFt9mKfQ/company-logo_100_100/B56ZcJ2pJ4H4AQ-/0/1748217009171/watercare_services_limited_logo?e=1774483200&v=beta&t=GTvi84b985fRhv2hdB2gS_9yXwFv1f_bt4eXuzbM1xo",
+    "industries": [
+      "Utilities",
+      "Sustainability"
+    ],
+    "company_type": "Government",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "workday",
+    "name": "Workday",
+    "alternateNames": [
+      "Workday Inc"
+    ],
+    "description": "Workday is a leading provider of enterprise cloud applications for finance and human resources.",
+    "website": "http://www.workday.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGKeNem9seahg/company-logo_100_100/company-logo_100_100/0/1730301071878/workday_logo?e=1774483200&v=beta&t=Kj6iqOMsiR5WqwyUFyRY9b-48TpMisEs6BQvwToD6_w",
+    "industries": [
+      "SaaS",
+      "HR Tech",
+      "Enterprise Software"
+    ],
+    "company_type": "Enterprise",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "US",
+    "operating_countries": [
+      "Worldwide"
+    ],
+    "office_locations": [
+      "Auckland"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "xero",
+    "name": "Xero",
+    "alternateNames": [
+      "Xero Limited",
+      "Xero Inc"
+    ],
+    "description": "Xero is a global small business platform with apps and services that help people manage their finances.",
+    "website": "http://www.xero.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQF_B0Um5G7g1w/company-logo_100_100/0/1632787158852/xero_logo?e=1774483200&v=beta&t=KF2N0V4JqJ0jcy_YMCOicDvYdg4e8RCs5kDsDy1L8es",
+    "industries": [
+      "Fintech",
+      "SaaS",
+      "Accounting"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "NZ",
+    "operating_countries": [
+      "NZ",
+      "AU",
+      "US",
+      "UK",
+      "CA"
+    ],
+    "office_locations": [
+      "Auckland",
+      "Wellington",
+      "Melbourne",
+      "Sydney",
+      "London",
+      "Denver",
+      "Toronto"
+    ],
+    "remote_policy": "Hybrid",
+    "employees_count": 5000,
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-06T10:00:00Z",
+    "verification_level": "verified"
+  }
+]

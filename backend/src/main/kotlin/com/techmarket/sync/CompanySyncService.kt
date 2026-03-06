@@ -19,7 +19,7 @@ import java.time.Instant
 class CompanySyncService(
     private val companyRepository: CompanyRepository,
     private val objectMapper: ObjectMapper,
-    @Value("\${tech-market.data-path:../data/companies.json}")
+    @Value("\${tech-market.data-path:data/companies.json}")
     private val dataPath: String
 ) {
 

@@ -5,8 +5,8 @@ import com.techmarket.api.model.LandingPageDto
 import com.techmarket.api.model.SearchSuggestionsResponse
 
 interface AnalyticsRepository {
-    fun getLandingPageData(): LandingPageDto
-    fun getSearchSuggestions(): SearchSuggestionsResponse
+    fun getLandingPageData(country: String? = null): LandingPageDto
+    fun getSearchSuggestions(country: String? = null): SearchSuggestionsResponse
     fun saveSearchMiss(term: String)
     fun saveFeedback(context: String?, message: String)
     fun getAllFeedback(): List<FeedbackDto>

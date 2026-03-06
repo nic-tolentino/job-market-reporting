@@ -10,6 +10,7 @@ import com.google.cloud.spring.bigquery.core.BigQueryTemplate
 import com.techmarket.api.model.CompanyProfilePageDto
 import com.techmarket.persistence.BigQueryTables
 import com.techmarket.persistence.CompanyFields
+import com.techmarket.persistence.JobFields
 import com.techmarket.persistence.ensureTableExists
 import com.techmarket.persistence.model.CompanyRecord
 import java.util.concurrent.TimeUnit
@@ -109,7 +110,7 @@ class CompanyBigQueryRepository(
                                         companiesTableName,
                                         companies.map { it.toMap() }.byteInputStream()
                                 )
-                                .get(60, TimeUnit.SECONDS)
+                                .get(120, TimeUnit.SECONDS)
                         log.info("GCP: Successfully inserted companies into BigQuery.")
                 } catch (e: Exception) {
                         log.error("GCP: Failed to insert companies into BigQuery: \${e.message}", e)
@@ -119,8 +120,10 @@ class CompanyBigQueryRepository(
 
         override fun getAllCompanies(): List<CompanyRecord> {
                 ensureTable()
-                val sql = "SELECT * FROM `$datasetName.$companiesTableName`"
-                val result = bigQuery.query(QueryJobConfiguration.newBuilder(sql).build())
+                log.info("GCP: Fetching all companies from $companiesTableName")
+                val query = "SELECT * FROM `$datasetName.$companiesTableName`"
+                val queryConfig = QueryJobConfiguration.newBuilder(query).build()
+                val result = bigQuery.query(queryConfig)
                 return result.iterateAll().map { row -> CompanyMapper.mapToCompanyRecord(row) }
         }
 
@@ -167,38 +170,28 @@ class CompanyBigQueryRepository(
                 }
         }
 
-        override fun getCompanyProfile(companyId: String): CompanyProfilePageDto {
+        override fun getCompanyProfile(companyId: String, country: String?): CompanyProfilePageDto {
                 val detailsSql = CompanyQueries.getDetailsSql(datasetName, companiesTableName)
                 val jobsSql = CompanyQueries.getJobsSql(datasetName, jobsTableName)
                 val aggSql = CompanyQueries.getAggSql(datasetName, jobsTableName)
 
-                val detResult =
-                        bigQuery.query(
-                                QueryJobConfiguration.newBuilder(detailsSql)
-                                        .addNamedParameter(
-                                                "companyId",
-                                                QueryParameterValue.string(companyId)
-                                        )
-                                        .build()
-                        )
-                val jobsResult =
-                        bigQuery.query(
-                                QueryJobConfiguration.newBuilder(jobsSql)
-                                        .addNamedParameter(
-                                                "companyId",
-                                                QueryParameterValue.string(companyId)
-                                        )
-                                        .build()
-                        )
-                val aggResult =
-                        bigQuery.query(
-                                QueryJobConfiguration.newBuilder(aggSql)
-                                        .addNamedParameter(
-                                                "companyId",
-                                                QueryParameterValue.string(companyId)
-                                        )
-                                        .build()
-                        )
+                val detConfig = QueryJobConfiguration.newBuilder(detailsSql)
+                        .addNamedParameter("companyId", QueryParameterValue.string(companyId))
+                val jobsConfig = QueryJobConfiguration.newBuilder(jobsSql)
+                        .addNamedParameter("companyId", QueryParameterValue.string(companyId))
+                val aggConfig = QueryJobConfiguration.newBuilder(aggSql)
+                        .addNamedParameter("companyId", QueryParameterValue.string(companyId))
+                
+                if (country != null) {
+                        val c = country.lowercase()
+                        detConfig.addNamedParameter(JobFields.COUNTRY, QueryParameterValue.string(c))
+                        jobsConfig.addNamedParameter(JobFields.COUNTRY, QueryParameterValue.string(c))
+                        aggConfig.addNamedParameter(JobFields.COUNTRY, QueryParameterValue.string(c))
+                }
+
+                val detResult = bigQuery.query(detConfig.build())
+                val jobsResult = bigQuery.query(jobsConfig.build())
+                val aggResult = bigQuery.query(aggConfig.build())
 
                 return CompanyMapper.mapCompanyProfile(companyId, detResult, jobsResult, aggResult)
         }

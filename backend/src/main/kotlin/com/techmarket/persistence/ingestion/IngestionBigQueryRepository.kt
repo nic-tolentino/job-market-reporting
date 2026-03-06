@@ -54,7 +54,7 @@ class IngestionBigQueryRepository(
                             ingestionsTableName,
                             records.map { it.toMap() }.byteInputStream()
                     )
-                    .get(60, TimeUnit.SECONDS)
+                    .get(120, TimeUnit.SECONDS)
             log.info("GCP: Successfully inserted raw ingestion records to BigQuery.")
         } catch (e: Exception) {
             log.error("GCP: Failed to insert raw ingestion records: \${e.message}", e)

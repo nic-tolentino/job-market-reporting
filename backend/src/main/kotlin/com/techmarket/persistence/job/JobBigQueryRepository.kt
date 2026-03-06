@@ -6,6 +6,7 @@ import com.google.cloud.bigquery.QueryJobConfiguration
 import com.google.cloud.bigquery.QueryParameterValue
 import com.google.cloud.bigquery.Schema
 import com.google.cloud.bigquery.StandardSQLTypeName
+import com.google.cloud.bigquery.TableId
 import com.google.cloud.spring.bigquery.core.BigQueryTemplate
 import com.techmarket.persistence.BigQueryTables
 import com.techmarket.persistence.JobFields
@@ -88,20 +89,15 @@ class JobBigQueryRepository(
         }
 
         override fun deleteAllJobs() {
-                ensureTable() // table may have been dropped externally during schema migrations
-                log.info("GCP: Deleting all rows from \$jobsTableName")
-                val query = "DELETE FROM `$datasetName.$jobsTableName` WHERE true"
-                val queryConfig = QueryJobConfiguration.newBuilder(query).build()
+                val tableId = TableId.of(datasetName, jobsTableName)
+                log.info("GCP: Dropping table $jobsTableName to allow schema refresh")
                 try {
-                        bigQuery.query(queryConfig)
-                        log.info("GCP: Successfully deleted all rows from \$jobsTableName")
+                        bigQuery.delete(tableId)
+                        log.info("GCP: Successfully dropped table $jobsTableName")
                 } catch (e: Exception) {
-                        log.error(
-                                "GCP: Failed to delete rows from \$jobsTableName: \${e.message}",
-                                e
-                        )
-                        throw e
+                        log.warn("GCP: Failed to drop table $jobsTableName (might not exist): ${e.message}")
                 }
+                ensureTable()
         }
 
         override fun saveJobs(jobs: List<JobRecord>) {
@@ -116,7 +112,7 @@ class JobBigQueryRepository(
                                         jobsTableName,
                                         jobs.map { it.toMap() }.byteInputStream()
                                 )
-                                .get(60, TimeUnit.SECONDS)
+                                .get(120, TimeUnit.SECONDS)
                         log.info("GCP: Successfully inserted jobs into BigQuery.")
                 } catch (e: Exception) {
                         log.error("GCP: Failed to insert jobs into BigQuery: \${e.message}", e)

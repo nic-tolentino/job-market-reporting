@@ -9,6 +9,7 @@ import com.google.cloud.spring.bigquery.core.BigQueryTemplate
 import com.techmarket.api.model.*
 import com.techmarket.persistence.AnalyticsFields
 import com.techmarket.persistence.BigQueryTables
+import com.techmarket.persistence.JobFields
 import com.techmarket.persistence.ensureTableExists
 import java.time.Instant
 import java.util.concurrent.TimeUnit
@@ -50,7 +51,7 @@ class AnalyticsBigQueryRepository(
                 bigQuery.ensureTableExists(datasetName, feedbackTableName, feedbackSchema)
         }
 
-        override fun getLandingPageData(): LandingPageDto {
+        override fun getLandingPageData(country: String?): LandingPageDto {
                 val statsSql = AnalyticsQueries.getStatsSql(datasetName, jobsTableName)
                 val topTechSql = AnalyticsQueries.getTopTechSql(datasetName, jobsTableName)
                 val topCompaniesSql =
@@ -60,16 +61,25 @@ class AnalyticsBigQueryRepository(
                                 companiesTableName
                         )
 
-                val statsResult = bigQuery.query(QueryJobConfiguration.newBuilder(statsSql).build())
-                val techResult =
-                        bigQuery.query(QueryJobConfiguration.newBuilder(topTechSql).build())
-                val companiesResult =
-                        bigQuery.query(QueryJobConfiguration.newBuilder(topCompaniesSql).build())
+                val statsConfig = QueryJobConfiguration.newBuilder(statsSql)
+                val techConfig = QueryJobConfiguration.newBuilder(topTechSql)
+                val companiesConfig = QueryJobConfiguration.newBuilder(topCompaniesSql)
+
+                if (country != null) {
+                        val c = country.lowercase()
+                        statsConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
+                        techConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
+                        companiesConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
+                }
+
+                val statsResult = bigQuery.query(statsConfig.build())
+                val techResult = bigQuery.query(techConfig.build())
+                val companiesResult = bigQuery.query(companiesConfig.build())
 
                 return AnalyticsMapper.mapLandingPageData(statsResult, techResult, companiesResult)
         }
 
-        override fun getSearchSuggestions(): SearchSuggestionsResponse {
+        override fun getSearchSuggestions(country: String?): SearchSuggestionsResponse {
                 log.info("GCP: Querying search suggestions from BigQuery")
                 val query =
                         AnalyticsQueries.getSearchSuggestionsSql(
@@ -78,8 +88,13 @@ class AnalyticsBigQueryRepository(
                                 jobsTableName
                         )
 
+                val queryConfig = QueryJobConfiguration.newBuilder(query)
+                if (country != null) {
+                        queryConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(country.lowercase()))
+                }
+
                 return try {
-                        val result = bigQuery.query(QueryJobConfiguration.newBuilder(query).build())
+                        val result = bigQuery.query(queryConfig.build())
                         val suggestions =
                                 result.values.map { AnalyticsMapper.mapSearchSuggestion(it) }
                         SearchSuggestionsResponse(suggestions.toList())

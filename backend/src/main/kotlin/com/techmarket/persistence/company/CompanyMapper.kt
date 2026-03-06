@@ -286,8 +286,22 @@ object CompanyMapper {
                         verificationLevel =
                                 if (row.get(CompanyFields.VERIFICATION_LEVEL).isNull) VerificationLevel.VERIFIED
                                 else VerificationLevel.fromString(row.get(CompanyFields.VERIFICATION_LEVEL).stringValue),
-                        lastUpdatedAt =
-                                Instant.parse(row.get(CompanyFields.LAST_UPDATED_AT).stringValue)
+                        lastUpdatedAt = parseTimestampSafe(row.get(CompanyFields.LAST_UPDATED_AT))
                 )
+        }
+
+        private fun parseTimestampSafe(field: com.google.cloud.bigquery.FieldValue): Instant {
+                if (field.isNull) return Instant.EPOCH
+                return try {
+                        val stringVal = field.stringValue
+                        val doubleVal = stringVal.toDoubleOrNull()
+                        if (doubleVal != null) {
+                                Instant.ofEpochSecond(doubleVal.toLong())
+                        } else {
+                                Instant.parse(stringVal)
+                        }
+                } catch (e: Exception) {
+                        Instant.EPOCH
+                }
         }
 }

@@ -1,7 +1,9 @@
 package com.techmarket.sync
 
 import com.techmarket.util.TechFormatter
+import java.time.Instant
 import java.time.LocalDate
+import java.time.ZoneId
 import java.time.format.DateTimeParseException
 import org.springframework.stereotype.Component
 
@@ -55,7 +57,7 @@ class RawJobDataParser {
 
     /** Determines the ISO Country Code (AU, NZ, ES) from a location string. */
     fun determineCountry(location: String?): String {
-        val (c, s, country) = parseLocation(location)
+        val (_, _, country) = parseLocation(location)
         if (country != "Unknown") return country
 
         if (location == null) return "Unknown"
@@ -65,6 +67,15 @@ class RawJobDataParser {
             locUpper.contains("NEW ZEALAND") -> "NZ"
             locUpper.contains("SPAIN") -> "ES"
             else -> "Unknown"
+        }
+    }
+
+    private fun normalizeCountry(country: String): String {
+        return when (country.uppercase()) {
+            "NEW ZEALAND", "NZ" -> "NZ"
+            "AUSTRALIA", "AU" -> "AU"
+            "SPAIN", "ES" -> "ES"
+            else -> country
         }
     }
 
@@ -87,12 +98,13 @@ class RawJobDataParser {
         // 2. Comma-Splitting Fallback for less common locations
         val parts = location.split(",").map { it.trim() }
 
-        return when (parts.size) {
+        val result = when (parts.size) {
             0 -> Triple("Unknown", "Unknown", "Unknown")
             1 -> Triple(parts[0], "Unknown", "Unknown")
             2 -> Triple(parts[0], "Unknown", parts[1])
             else -> Triple(parts[0], parts[1], parts.last())
         }
+        return Triple(result.first, result.second, normalizeCountry(result.third))
     }
 
     /** Detects "Remote", "Hybrid", or "On-site" based on location or title keywords. */
@@ -145,13 +157,21 @@ class RawJobDataParser {
         }
     }
 
-    /** Parses ISO-8601 date strings. */
+    /** Parses ISO-8601 date strings or Unix timestamps. */
     fun parseDate(dateStr: String?): LocalDate? {
-        if (dateStr == null) return null
+        if (dateStr == null || dateStr.isBlank()) return null
         return try {
             LocalDate.parse(dateStr)
         } catch (e: DateTimeParseException) {
-            null
+            // Fallback: Handle numeric or scientific notation timestamps (seconds)
+            try {
+                val timestampSeconds = dateStr.toDouble().toLong()
+                Instant.ofEpochSecond(timestampSeconds)
+                        .atZone(ZoneId.systemDefault())
+                        .toLocalDate()
+            } catch (ex: Exception) {
+                null
+            }
         }
     }
 }

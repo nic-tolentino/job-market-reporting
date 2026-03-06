@@ -15,9 +15,12 @@ class SearchController(private val analyticsRepository: AnalyticsRepository) {
 
     private val log = LoggerFactory.getLogger(SearchController::class.java)
 
-    @Cacheable("search", condition = "#term == null")
+    @Cacheable(value = [CacheConstants.CACHE_SEARCH], key = CacheConstants.SEARCH_KEY, condition = "#term == null")
     @GetMapping("/suggestions")
-    fun getSuggestions(@RequestParam(required = false) term: String?): SearchSuggestionsResponse {
+    fun getSuggestions(
+        @RequestParam(required = false) term: String?,
+        @RequestParam(required = false) country: String?
+    ): SearchSuggestionsResponse {
         if (!term.isNullOrBlank()) {
             log.info("Tracking search miss and returning empty suggestions for term: $term")
             analyticsRepository.saveSearchMiss(term)
@@ -25,6 +28,6 @@ class SearchController(private val analyticsRepository: AnalyticsRepository) {
         }
 
         log.info("Fetching search suggestions from database")
-        return analyticsRepository.getSearchSuggestions()
+        return analyticsRepository.getSearchSuggestions(country)
     }
 }
