@@ -60,12 +60,12 @@
     --theme-hover:      #334155;
 
     --theme-text-primary:   #F1F5F9;
-    --theme-text-secondary: #94A3B8;
-    --theme-text-muted:     #64748B;
+    --theme-text-secondary: #CBD5E1;
+    --theme-text-muted:     #94A3B8;
     --theme-text-inverted:  #0F172A;
 
-    --theme-border:        #334155;
-    --theme-border-subtle: #1E293B;
+    --theme-border:        #475569;
+    --theme-border-subtle: #334155;
 
     --theme-accent:        #3B82F6;
     --theme-accent-hover:  #60A5FA;
@@ -98,6 +98,48 @@
     background-color: var(--theme-accent-subtle);
     color: var(--theme-text-primary);
   }
+
+  /* Robust Banner Utility */
+  .banner-cta {
+    background-color: var(--theme-elevated);
+    border-color: var(--theme-border);
+  }
+
+  .dark .banner-cta {
+    background-color: #020617 !important;
+    border-color: #1E293B !important;
+  }
+
+  /* Soft Muted Dark Header Contrast */
+  .dark .table-header-row {
+    background-color: #172033 !important; /* Very close to card Slate-800, but distinct */
+    color: #64748B !important; /* Subtle Slate-500 */
+    border-bottom: 1px solid #1E293B !important;
+  }
+
+  /* Robust Badge Overrides */
+  .dark .pill-badge {
+    background-color: #0F172A !important; /* Darkest Slate */
+    border-color: #1E293B !important;
+    color: var(--theme-accent) !important;
+  }
+
+  /* Final Recharts Tooltip Text Fix */
+  .dark .recharts-tooltip-item-name,
+  .dark .recharts-tooltip-item-value,
+  .dark .recharts-tooltip-label {
+    color: #F8FAFC !important;
+  }
+
+  /* Stat Chips - Ultra Muted Dark Contrast */
+  .stat-chip-red { background: #FEF2F2; color: #DC2626; border-color: #FEE2E2; }
+  .dark .stat-chip-red { background: rgba(220, 38, 38, 0.08) !important; color: #FCA5A5 !important; border-color: rgba(220, 38, 38, 0.2) !important; }
+
+  .stat-chip-amber { background: #FFFBEB; color: #D97706; border-color: #FEF3C7; }
+  .dark .stat-chip-amber { background: rgba(217, 119, 6, 0.08) !important; color: #FCD34D !important; border-color: rgba(217, 119, 6, 0.2) !important; }
+
+  .stat-chip-indigo { background: #EEF2FF; color: #4F46E5; border-color: #E0E7FF; }
+  .dark .stat-chip-indigo { background: rgba(79, 70, 229, 0.08) !important; color: #A5B4FC !important; border-color: rgba(79, 70, 229, 0.2) !important; }
 }
 
 .theme-transitioning *,

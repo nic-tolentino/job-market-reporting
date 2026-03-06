@@ -26,7 +26,7 @@ export default function LandingPage() {
     const [error, setError] = useState(false);
     const [companiesPage, setCompaniesPage] = useState(1);
 
-    const { tooltipStyle, gridStroke, axisTickFill, barColors } = useChartStyles();
+    const { tooltipStyle, tooltipItemStyle, gridStroke, axisTickFill, barColors } = useChartStyles();
 
     const loadData = useCallback(async () => {
         setIsLoading(true);
@@ -150,6 +150,7 @@ export default function LandingPage() {
                                 <Tooltip
                                     cursor={{ fill: 'var(--theme-hover)' }}
                                     contentStyle={tooltipStyle}
+                                    itemStyle={tooltipItemStyle}
                                 />
                                 <Bar
                                     dataKey="count"
@@ -191,7 +192,7 @@ export default function LandingPage() {
                     </CardHeader>
                     <div className="flex-1 overflow-auto">
                         <table className="w-full text-left text-sm">
-                            <thead className="bg-elevated text-muted sticky top-0">
+                            <thead className="table-header-row bg-elevated text-secondary sticky top-0">
                                 <tr>
                                     <th className="px-6 py-3 font-medium uppercase tracking-wider">Company</th>
                                     <th className="px-6 py-3 font-medium uppercase tracking-wider text-right">Active Roles</th>

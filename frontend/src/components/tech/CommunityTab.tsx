@@ -85,7 +85,7 @@ export const CommunityTab = ({ techId, techName }: CommunityTabProps) => {
             />
 
             {/* Bottom: Regional Connectivity */}
-            <div className="bg-gradient-to-r from-blue-50/50 to-indigo-50/50 dark:from-blue-500/10 dark:to-indigo-500/10 rounded-3xl p-8 border border-border-subtle flex flex-col md:flex-row items-center justify-between gap-6 shadow-theme-sm">
+            <div className="banner-cta rounded-3xl p-8 border flex flex-col md:flex-row items-center justify-between gap-6 shadow-theme-sm">
                 <div className="max-w-md text-center md:text-left">
                     <h3 className="text-xl font-bold text-primary">Missed a local group?</h3>
                     <p className="text-muted mt-1 text-sm">We're constantly expanding our {selectedCountry} tech directory. If you know a community you'd like to see here, let us know!</p>

@@ -10,19 +10,22 @@ export function useChartStyles() {
 
         return {
             tooltipStyle: {
-                backgroundColor: get('--theme-card'),
-                borderColor: get('--theme-border'),
+                backgroundColor: resolvedTheme === 'dark' ? '#1E293B' : '#FFFFFF',
+                borderColor: resolvedTheme === 'dark' ? '#475569' : '#E2E8F0',
                 borderRadius: '8px',
-                border: `1px solid ${get('--theme-border')}`,
+                border: `1px solid ${resolvedTheme === 'dark' ? '#475569' : '#E2E8F0'}`,
                 boxShadow: get('--theme-shadow-md'),
-                color: get('--theme-text-primary'),
+                color: resolvedTheme === 'dark' ? '#F1F5F9' : '#1E293B',
             },
-            gridStroke: get('--theme-border-subtle'),
-            axisTickFill: get('--theme-text-muted'),
+            tooltipItemStyle: {
+                color: resolvedTheme === 'dark' ? '#F1F5F9' : '#1E293B',
+            },
+            gridStroke: resolvedTheme === 'dark' ? '#334155' : '#F1F5F9',
+            axisTickFill: resolvedTheme === 'dark' ? '#94A3B8' : '#94A3B8',
             // Brand-aware chart colors
             barColors: {
                 primary: resolvedTheme === 'dark' ? '#3B82F6' : '#2563EB',
-                secondary: resolvedTheme === 'dark' ? '#94A3B8' : '#64748B', // Adjusted for contrast
+                secondary: resolvedTheme === 'dark' ? '#CBD5E1' : '#64748B', // Adjusted for contrast
             },
             pieColors: [
                 '#6366F1', // Indigo 500

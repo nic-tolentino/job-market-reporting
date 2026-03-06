@@ -76,7 +76,7 @@ export const LearnTab = ({ techId, techName }: LearnTabProps) => {
             </div>
 
             {/* Wide Projects Section */}
-            <WideResourceCard id="projects" icon={Code} title="Global Open Source Projects" items={resources.projects} subtitle="Global Standards" className="shadow-md border-indigo-50 dark:border-indigo-500/20" />
+            <WideResourceCard id="projects" icon={Code} title="Global Open Source Projects" items={resources.projects} subtitle="Global Standards" className="shadow-md border-transparent dark:border-[#1E293B]" />
 
             {/* Secondary Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -92,7 +92,7 @@ export const LearnTab = ({ techId, techName }: LearnTabProps) => {
                 items={resources.people}
             />
             {/* Bottom: Submit Resource CTA */}
-            <div className="bg-gradient-to-r from-blue-50/50 to-indigo-50/50 dark:from-blue-500/10 dark:to-indigo-500/10 rounded-3xl p-8 border border-border-subtle flex flex-col md:flex-row items-center justify-between gap-6 shadow-theme-sm">
+            <div className="banner-cta rounded-3xl p-8 border flex flex-col md:flex-row items-center justify-between gap-6 shadow-theme-sm">
                 <div className="max-w-md text-center md:text-left">
                     <h3 className="text-xl font-bold text-primary">Know a great learning resource?</h3>
                     <p className="text-muted mt-1 text-sm">Help us grow the most complete directory of developer learning material! Suggest an amazing YouTube channel, a helpful podcast, or a killer guide for {techName}.</p>

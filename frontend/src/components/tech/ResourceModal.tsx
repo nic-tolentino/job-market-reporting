@@ -177,12 +177,6 @@ export const ResourceModal = ({ isOpen, onClose, title, items, icon: Icon }: Res
                 {/* Footer */}
                 <div className="px-6 py-4 border-t border-border-subtle bg-elevated flex items-center justify-between">
                     <p className="text-[10px] text-muted font-bold uppercase tracking-widest">DevAssembly Index • {items.length} Fully Vetted Resources</p>
-                    <button
-                        onClick={onClose}
-                        className="px-4 py-2 bg-primary text-inverted rounded-xl text-xs font-bold shadow-lg shadow-black/10 hover:shadow-xl transition-all active:scale-95"
-                    >
-                        Close Directory
-                    </button>
                 </div>
             </div>
         </div>

@@ -52,7 +52,7 @@ export const MarketTab = ({
     filteredHiringCompanies
 }: MarketTabProps) => {
     const navigate = useNavigate();
-    const { tooltipStyle, pieColors } = useChartStyles();
+    const { tooltipStyle, tooltipItemStyle, pieColors } = useChartStyles();
 
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
@@ -82,6 +82,7 @@ export const MarketTab = ({
                                 </Pie>
                                 <Tooltip
                                     contentStyle={tooltipStyle}
+                                    itemStyle={tooltipItemStyle}
                                 />
                             </PieChart>
                         </div>
@@ -111,7 +112,7 @@ export const MarketTab = ({
                     </CardHeader>
                     <div className="flex-1 overflow-auto">
                         <table className="w-full text-left text-sm">
-                            <thead className="bg-elevated text-muted sticky top-0">
+                            <thead className="table-header-row bg-elevated text-secondary sticky top-0 z-20">
                                 <tr>
                                     <th className="px-6 py-3 font-medium uppercase tracking-wider">Company</th>
                                     <th className="px-6 py-3 font-medium uppercase tracking-wider text-right">Active {data.techName} Roles</th>
@@ -197,7 +198,7 @@ export const MarketTab = ({
                     </CardHeader>
                     <div className="overflow-x-auto">
                         <table className="w-full text-left text-sm">
-                            <thead className="bg-elevated text-muted">
+                            <thead className="table-header-row bg-elevated text-secondary sticky top-0 z-20">
                                 <tr>
                                     <th className="px-6 py-4 font-medium uppercase tracking-wider">Role</th>
                                     <th className="px-6 py-4 font-medium uppercase tracking-wider">Company</th>

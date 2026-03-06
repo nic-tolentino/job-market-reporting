@@ -41,19 +41,19 @@ const ResourceItem = ({ item }: ResourceItemProps) => {
                         </span>
                         <div className="flex items-center gap-2">
                             {item.subscribers && (
-                                <span className="flex items-center gap-1 text-[10px] font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 px-1.5 py-0.5 rounded-md border border-red-100/50 dark:border-red-500/20">
+                                <span className="stat-chip-red flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded-md border">
                                     <Users className="h-2.5 w-2.5" />
                                     {item.subscribers}
                                 </span>
                             )}
                             {item.stars && (
-                                <span className="flex items-center gap-1 text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 px-1.5 py-0.5 rounded-md border border-amber-100/50 dark:border-amber-500/20">
-                                    <Star className="h-2.5 w-2.5 fill-amber-500" />
+                                <span className="stat-chip-amber flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded-md border">
+                                    <Star className="h-2.5 w-2.5 fill-current" />
                                     {item.stars}
                                 </span>
                             )}
                             {item.date && (
-                                <span className="flex items-center gap-1 text-[10px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 px-1.5 py-0.5 rounded-md border border-indigo-100/50 dark:border-indigo-500/20">
+                                <span className="stat-chip-indigo flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded-md border">
                                     <Calendar className="h-2.5 w-2.5" />
                                     {item.date}
                                 </span>
@@ -89,7 +89,7 @@ export const ResourceCard = ({ icon: Icon, title, items = [], image, featured, c
 
     return (
         <>
-            <Card id={id} className={`overflow-hidden group flex flex-col h-full transition-all duration-300 hover:shadow-xl scroll-mt-24 ${featured ? 'md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-500/10 dark:to-indigo-500/10 border-blue-100 dark:border-blue-500/20' : ''} ${className}`}>
+            <Card id={id} className={`overflow-hidden group flex flex-col h-full transition-all duration-300 hover:shadow-xl scroll-mt-24 ${featured ? 'md:col-span-2 bg-[#F8FAFC] dark:bg-[#0F172A] border-[#E2E8F0] dark:border-[#334155]' : ''} ${className}`}>
                 {image && !mainImageError && (
                     <div className="h-48 overflow-hidden relative">
                         <img
@@ -160,9 +160,9 @@ export const WideResourceCard = ({ icon: Icon, title, items = [], className = ""
 
     return (
         <>
-            <Card id={id} className={`overflow-hidden group flex flex-col transition-all duration-300 hover:shadow-xl scroll-mt-24 border-border bg-card/50 backdrop-blur-sm ${className}`}>
+            <Card id={id} className={`overflow-hidden group flex flex-col transition-all duration-300 hover:shadow-xl scroll-mt-24 dark:!border-[#1E293B] bg-[#F8FAFC] dark:!bg-[#020617] backdrop-blur-md ${className}`}>
                 <CardHeader className="flex flex-row items-center gap-3 pb-2 border-none">
-                    <div className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shadow-sm ring-1 ring-indigo-100/50 dark:ring-indigo-500/20">
+                    <div className="p-2 rounded-xl bg-indigo-50 dark:bg-elevated text-indigo-600 dark:text-indigo-400 shadow-sm ring-1 ring-indigo-100/50 dark:ring-border">
                         <Icon className="h-5 w-5" />
                     </div>
                     <div>
