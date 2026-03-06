@@ -8,6 +8,7 @@ import com.techmarket.persistence.CompanyFields
 import com.techmarket.persistence.JobFields
 import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.util.TechFormatter
+import com.techmarket.persistence.model.VerificationLevel
 import java.time.Instant
 
 object CompanyMapper {
@@ -35,15 +36,55 @@ object CompanyMapper {
                         if (detRow?.get(CompanyFields.INDUSTRIES)?.isNull == false)
                                 detRow.get(CompanyFields.INDUSTRIES).stringValue
                         else ""
-                val desc =
+                val description =
                         if (detRow?.get(CompanyFields.DESCRIPTION)?.isNull == false)
                                 detRow.get(CompanyFields.DESCRIPTION).stringValue
                         else ""
+                val isAgency =
+                        if (detRow?.get(CompanyFields.IS_AGENCY)?.isNull == false)
+                                detRow.get(CompanyFields.IS_AGENCY).booleanValue
+                        else false
+                val isSocio =
+                        if (detRow?.get(CompanyFields.IS_SOCIAL_ENTERPRISE)?.isNull == false)
+                                detRow.get(CompanyFields.IS_SOCIAL_ENTERPRISE).booleanValue
+                        else false
+                val hq =
+                        if (detRow?.get(CompanyFields.HQ_COUNTRY)?.isNull == false)
+                                detRow.get(CompanyFields.HQ_COUNTRY).stringValue
+                        else null
+                val remotePlc =
+                        if (detRow?.get(CompanyFields.REMOTE_POLICY)?.isNull == false)
+                                detRow.get(CompanyFields.REMOTE_POLICY).stringValue
+                        else null
+                val visaSpons =
+                        if (detRow?.get(CompanyFields.VISA_SPONSORSHIP)?.isNull == false)
+                                detRow.get(CompanyFields.VISA_SPONSORSHIP).booleanValue
+                        else false
+                val verifLevel =
+                        if (detRow?.get(CompanyFields.VERIFICATION_LEVEL)?.isNull == false)
+                                VerificationLevel.fromString(detRow.get(CompanyFields.VERIFICATION_LEVEL).stringValue)
+                        else VerificationLevel.VERIFIED
 
-                val details = CompanyDetailsDto(companyId, name, logo, website, emps, ind, desc)
+                val details =
+                        CompanyDetailsDto(
+                                companyId,
+                                name,
+                                logo,
+                                website,
+                                emps,
+                                ind,
+                                description,
+                                isAgency,
+                                isSocio,
+                                hq,
+                                remotePlc,
+                                visaSpons,
+                                verifLevel
+                        )
 
                 val roles =
                         jobsResult.values.map { r ->
+                                // ... (roles aggregation same as before)
                                 val techList =
                                         if (r.get(JobFields.TECHNOLOGIES).isNull)
                                                 emptyList<String>()
@@ -121,6 +162,18 @@ object CompanyMapper {
                                         else rawLoc
                                 }
                         else emptyList()
+                val operatingCountries =
+                        if (detRow?.get(CompanyFields.OPERATING_COUNTRIES)?.isNull == false)
+                                detRow.get(CompanyFields.OPERATING_COUNTRIES).repeatedValue.map {
+                                        it.stringValue
+                                }
+                        else emptyList()
+                val officeLocations =
+                        if (detRow?.get(CompanyFields.OFFICE_LOCATIONS)?.isNull == false)
+                                detRow.get(CompanyFields.OFFICE_LOCATIONS).repeatedValue.map {
+                                        it.stringValue
+                                }
+                        else emptyList()
 
                 val aggRow = aggResult.values.firstOrNull()
                 val topModel =
@@ -154,7 +207,14 @@ object CompanyMapper {
                                 .map { it.key }
                                 .take(5)
 
-                val insights = CompanyInsightsDto(topModel, hiringLocations, allBenefits)
+                val insights =
+                        CompanyInsightsDto(
+                                topModel,
+                                hiringLocations,
+                                allBenefits,
+                                operatingCountries,
+                                officeLocations
+                        )
 
                 return CompanyProfilePageDto(details, allTechs, insights, roles)
         }
@@ -196,6 +256,36 @@ object CompanyMapper {
                                         row.get(CompanyFields.HIRING_LOCATIONS).repeatedValue.map {
                                                 it.stringValue
                                         },
+                        isAgency =
+                                if (row.get(CompanyFields.IS_AGENCY).isNull) false
+                                else row.get(CompanyFields.IS_AGENCY).booleanValue,
+                        isSocialEnterprise =
+                                if (row.get(CompanyFields.IS_SOCIAL_ENTERPRISE).isNull) false
+                                else row.get(CompanyFields.IS_SOCIAL_ENTERPRISE).booleanValue,
+                        hqCountry =
+                                if (row.get(CompanyFields.HQ_COUNTRY).isNull) null
+                                else row.get(CompanyFields.HQ_COUNTRY).stringValue,
+                        operatingCountries =
+                                if (row.get(CompanyFields.OPERATING_COUNTRIES).isNull) emptyList()
+                                else
+                                        row.get(CompanyFields.OPERATING_COUNTRIES)
+                                                .repeatedValue
+                                                .map { it.stringValue },
+                        officeLocations =
+                                if (row.get(CompanyFields.OFFICE_LOCATIONS).isNull) emptyList()
+                                else
+                                        row.get(CompanyFields.OFFICE_LOCATIONS).repeatedValue.map {
+                                                it.stringValue
+                                        },
+                        remotePolicy =
+                                if (row.get(CompanyFields.REMOTE_POLICY).isNull) null
+                                else row.get(CompanyFields.REMOTE_POLICY).stringValue,
+                        visaSponsorship =
+                                if (row.get(CompanyFields.VISA_SPONSORSHIP).isNull) false
+                                else row.get(CompanyFields.VISA_SPONSORSHIP).booleanValue,
+                        verificationLevel =
+                                if (row.get(CompanyFields.VERIFICATION_LEVEL).isNull) VerificationLevel.VERIFIED
+                                else VerificationLevel.fromString(row.get(CompanyFields.VERIFICATION_LEVEL).stringValue),
                         lastUpdatedAt =
                                 Instant.parse(row.get(CompanyFields.LAST_UPDATED_AT).stringValue)
                 )

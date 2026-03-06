@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Building2, MapPin, DollarSign, Calendar, X } from 'lucide-react';
+import { Building2, MapPin, DollarSign, Calendar, X, ShieldCheck, Globe, Ghost } from 'lucide-react';
 import PageLoader from '../components/common/PageLoader';
 import { fetchCompanyProfile, type CompanyProfilePageDto } from '../lib/api';
 import { FeedbackButton } from '../components/common/Feedback';
@@ -118,6 +118,21 @@ export default function CompanyProfilePage() {
                     </div>
                     {/* Meta pills row */}
                     <div className="mt-4 flex flex-wrap gap-2">
+                        {data.companyDetails.verificationLevel === 'verified' ? (
+                            <Badge variant="emerald" icon={<ShieldCheck className="h-3.5 w-3.5" />}>
+                                Verified
+                            </Badge>
+                        ) : data.companyDetails.verificationLevel === 'ghost' ? (
+                            <Badge variant="slate" icon={<Ghost className="h-3.5 w-3.5" />} className="opacity-70">
+                                Unverified
+                            </Badge>
+                        ) : null}
+
+                        {data.companyDetails.hqCountry && (
+                            <Badge variant={data.companyDetails.hqCountry === 'NZ' ? 'emerald' : 'slate'} icon={data.companyDetails.hqCountry === 'NZ' ? <MapPin className="h-3.5 w-3.5" /> : <Globe className="h-3.5 w-3.5" />}>
+                                {data.companyDetails.hqCountry === 'NZ' ? 'NZ Local' : `HQ: ${data.companyDetails.hqCountry}`}
+                            </Badge>
+                        )}
                         <Badge variant="slate" icon={<Building2 className="h-3.5 w-3.5" />}>
                             {data.companyDetails.industry}
                         </Badge>

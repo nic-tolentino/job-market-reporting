@@ -22,6 +22,7 @@ class JobDataSyncService(
         private val companyRepository: CompanyRepository,
         private val ingestionRepository: IngestionRepository,
         private val silverDataMerger: SilverDataMerger,
+        private val companySyncService: CompanySyncService,
         private val objectMapper: com.fasterxml.jackson.databind.ObjectMapper
 ) {
 
@@ -63,11 +64,21 @@ class JobDataSyncService(
         log.info("Bronze Layer: Ingesting ${rawRecords.size} raw payloads.")
         ingestionRepository.saveRawIngestions(rawRecords)
 
-        // 3. Map to Silver Layer (Structured Data)
+        // 3. Phase 1: Refresh Master Manifest Companies from local manifest file
+        try {
+            companySyncService.syncFromManifest()
+        } catch (e: Exception) {
+            log.error("Failed to sync company manifest: ${e.message}. Continuing with existing data.")
+        }
+
+        // 4. Fetch Manifest Companies for Phase 2 Mapping
+        val manifestCompanies = companyRepository.getAllCompanies().associateBy { it.companyId }
+
+        // 5. Phase 2: Map to Silver Layer (Structured Data)
         val rawJobs = apifyResults.map { RawJob(it.dto, syncTime) }
-        val mappedData = jobDataMapper.map(rawJobs)
+        val mappedData = jobDataMapper.map(rawJobs, manifestCompanies)
         log.info(
-                "Silver Layer: Successfully mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies from ${rawJobs.size} raw records."
+                "Silver Layer: Successfully mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies (Ghosts) from ${rawJobs.size} raw records."
         )
 
         // 4. Merge with existing Silver data
@@ -140,8 +151,12 @@ class JobDataSyncService(
 
         log.info("Parsed ${rawJobs.size} valid jobs from historical records. Remapping...")
 
-        // 3. Re-map using latest logic
-        val mappedData = jobDataMapper.map(rawJobs)
+        // 3. Refresh Master Manifest Companies first
+        companySyncService.syncFromManifest()
+        val manifestCompanies = companyRepository.getAllCompanies().associateBy { it.companyId }
+
+        // 4. Re-map using latest logic
+        val mappedData = jobDataMapper.map(rawJobs, manifestCompanies)
         log.info(
                 "Silver Layer: Freshly mapped ${mappedData.jobs.size} jobs and ${mappedData.companies.size} companies."
         )

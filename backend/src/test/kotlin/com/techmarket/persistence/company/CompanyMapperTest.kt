@@ -61,6 +61,50 @@ class CompanyMapperTest {
         every { compLocField.isNull } returns true
         every { detRow.get(CompanyFields.HIRING_LOCATIONS) } returns compLocField
 
+        val agencyVal = mockk<FieldValue>()
+        every { agencyVal.isNull } returns false
+        every { agencyVal.booleanValue } returns true
+        every { detRow.get(CompanyFields.IS_AGENCY) } returns agencyVal
+
+        val socialVal = mockk<FieldValue>()
+        every { socialVal.isNull } returns false
+        every { socialVal.booleanValue } returns false
+        every { detRow.get(CompanyFields.IS_SOCIAL_ENTERPRISE) } returns socialVal
+
+        val hqVal = mockk<FieldValue>()
+        every { hqVal.isNull } returns false
+        every { hqVal.stringValue } returns "NZ"
+        every { detRow.get(CompanyFields.HQ_COUNTRY) } returns hqVal
+
+        val remoteVal = mockk<FieldValue>()
+        every { remoteVal.isNull } returns false
+        every { remoteVal.stringValue } returns "Remote Only"
+        every { detRow.get(CompanyFields.REMOTE_POLICY) } returns remoteVal
+
+        val visaVal = mockk<FieldValue>()
+        every { visaVal.isNull } returns false
+        every { visaVal.booleanValue } returns true
+        every { detRow.get(CompanyFields.VISA_SPONSORSHIP) } returns visaVal
+
+        val verifVal = mockk<FieldValue>()
+        every { verifVal.isNull } returns false
+        every { verifVal.stringValue } returns "verified"
+        every { detRow.get(CompanyFields.VERIFICATION_LEVEL) } returns verifVal
+
+        val opCountryItem = mockk<FieldValue>()
+        every { opCountryItem.stringValue } returns "AU"
+        val opCountriesField = mockk<FieldValue>()
+        every { opCountriesField.isNull } returns false
+        every { opCountriesField.repeatedValue } returns listOf(opCountryItem)
+        every { detRow.get(CompanyFields.OPERATING_COUNTRIES) } returns opCountriesField
+
+        val offLocItem = mockk<FieldValue>()
+        every { offLocItem.stringValue } returns "Auckland"
+        val offLocsField = mockk<FieldValue>()
+        every { offLocsField.isNull } returns false
+        every { offLocsField.repeatedValue } returns listOf(offLocItem)
+        every { detRow.get(CompanyFields.OFFICE_LOCATIONS) } returns offLocsField
+
         every { detResult.values } returns listOf(detRow)
 
         // Setup Jobs result fields
@@ -135,6 +179,10 @@ class CompanyMapperTest {
         assertEquals("asb-bank.nz.engineer.2023-01-01", profile.activeRoles[0].id)
         assertEquals("ASB Bank", profile.companyDetails.name)
         assertEquals("Remote", profile.insights.workModel)
+        assertEquals(true, profile.companyDetails.isAgency)
+        assertEquals("NZ", profile.companyDetails.hqCountry)
+        assertEquals(listOf("AU"), profile.insights.operatingCountries)
+        assertEquals(listOf("Auckland"), profile.insights.officeLocations)
     }
 
     @Test
@@ -175,6 +223,14 @@ class CompanyMapperTest {
         every { detRow.get(CompanyFields.DESCRIPTION) } returns nullField
         every { detRow.get(CompanyFields.TECHNOLOGIES) } returns nullField
         every { detRow.get(CompanyFields.HIRING_LOCATIONS) } returns nullField
+        every { detRow.get(CompanyFields.IS_AGENCY) } returns nullField
+        every { detRow.get(CompanyFields.IS_SOCIAL_ENTERPRISE) } returns nullField
+        every { detRow.get(CompanyFields.HQ_COUNTRY) } returns nullField
+        every { detRow.get(CompanyFields.OPERATING_COUNTRIES) } returns nullField
+        every { detRow.get(CompanyFields.OFFICE_LOCATIONS) } returns nullField
+        every { detRow.get(CompanyFields.REMOTE_POLICY) } returns nullField
+        every { detRow.get(CompanyFields.VISA_SPONSORSHIP) } returns nullField
+        every { detRow.get(CompanyFields.VERIFICATION_LEVEL) } returns nullField
 
         every { detResult.values } returns listOf(detRow)
         every { jobsResult.values } returns emptyList()
@@ -188,5 +244,56 @@ class CompanyMapperTest {
         assertEquals("", profile.companyDetails.website)
         assertEquals(0, profile.companyDetails.employeesCount)
         assertEquals(0, profile.activeRoles.size)
+        assertEquals(false, profile.companyDetails.isAgency)
+        assertEquals(null, profile.companyDetails.hqCountry)
+    }
+
+    @Test
+    fun `mapToCompanyRecord correctly maps all curative fields from BQ row`() {
+        val row = mockk<FieldValueList>()
+        
+        val idVal = mockk<FieldValue>(); every { idVal.stringValue } returns "comp-1"
+        every { row.get(CompanyFields.COMPANY_ID) } returns idVal
+        
+        val nameVal = mockk<FieldValue>(); every { nameVal.stringValue } returns "Comp 1"
+        every { row.get(CompanyFields.NAME) } returns nameVal
+        
+        val altVal = mockk<FieldValue>(); every { altVal.stringValue } returns "Alt"
+        val altField = mockk<FieldValue>(); every { altField.isNull } returns false; every { altField.repeatedValue } returns listOf(altVal)
+        every { row.get(CompanyFields.ALTERNATE_NAMES) } returns altField
+        
+        val nullF = mockk<FieldValue>(); every { nullF.isNull } returns true
+        every { row.get(CompanyFields.LOGO_URL) } returns nullF
+        every { row.get(CompanyFields.DESCRIPTION) } returns nullF
+        every { row.get(CompanyFields.WEBSITE) } returns nullF
+        every { row.get(CompanyFields.EMPLOYEES_COUNT) } returns nullF
+        every { row.get(CompanyFields.INDUSTRIES) } returns nullF
+        every { row.get(CompanyFields.TECHNOLOGIES) } returns nullF
+        every { row.get(CompanyFields.HIRING_LOCATIONS) } returns nullF
+        
+        val boolF = mockk<FieldValue>(); every { boolF.isNull } returns false; every { boolF.booleanValue } returns true
+        every { row.get(CompanyFields.IS_AGENCY) } returns boolF
+        every { row.get(CompanyFields.IS_SOCIAL_ENTERPRISE) } returns boolF
+        every { row.get(CompanyFields.VISA_SPONSORSHIP) } returns boolF
+        
+        val strF = mockk<FieldValue>(); every { strF.isNull } returns false; every { strF.stringValue } returns "US"
+        every { row.get(CompanyFields.HQ_COUNTRY) } returns strF
+        
+        every { row.get(CompanyFields.OPERATING_COUNTRIES) } returns nullF
+        every { row.get(CompanyFields.OFFICE_LOCATIONS) } returns nullF
+        every { row.get(CompanyFields.REMOTE_POLICY) } returns nullF
+        every { row.get(CompanyFields.VERIFICATION_LEVEL) } returns strF
+        
+        val timeF = mockk<FieldValue>(); every { timeF.stringValue } returns "2023-01-01T10:00:00Z"
+        every { row.get(CompanyFields.LAST_UPDATED_AT) } returns timeF
+
+        val record = CompanyMapper.mapToCompanyRecord(row)
+        
+        assertEquals("comp-1", record.companyId)
+        assertEquals(true, record.isAgency)
+        assertEquals(true, record.isSocialEnterprise)
+        assertEquals(true, record.visaSponsorship)
+        assertEquals("US", record.hqCountry)
+        assertEquals(listOf("Alt"), record.alternateNames)
     }
 }

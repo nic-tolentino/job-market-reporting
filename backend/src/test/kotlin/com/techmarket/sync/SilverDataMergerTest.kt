@@ -87,6 +87,17 @@ class SilverDataMergerTest {
         }
 
         @Test
+        fun `mergeCompanies preserves curated fields from existing if new is default`() {
+                val existing = createCompanyRecord("c1").copy(isAgency = true, hqCountry = "NZ")
+                val new = createCompanyRecord("c1").copy(isAgency = false, hqCountry = null)
+
+                val result = merger.mergeCompanies(listOf(new), listOf(existing))
+                
+                assertEquals(true, result[0].isAgency)
+                assertEquals("NZ", result[0].hqCountry)
+        }
+
+        @Test
         fun `mergeJobs handles null salary fields gracefully`() {
                 val t = Instant.parse("2023-01-01T00:00:00Z")
 

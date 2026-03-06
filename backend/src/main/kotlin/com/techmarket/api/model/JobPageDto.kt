@@ -34,5 +34,7 @@ data class JobCompanyDto(
         val logoUrl: String,
         val description: String,
         val website: String,
-        val hiringLocations: List<String>
+        val hiringLocations: List<String>,
+        val hqCountry: String?,
+        val verificationLevel: String
 )

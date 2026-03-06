@@ -62,6 +62,8 @@ export interface CompanyDetailsDto {
     employeesCount: number;
     industry: string;
     description: string;
+    hqCountry: string | null;
+    verificationLevel: string;
 }
 
 export interface CompanyInsightsDto {

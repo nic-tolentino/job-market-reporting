@@ -13,5 +13,13 @@ data class CompanyRecord(
         val industries: String?,
         val technologies: List<String>,
         val hiringLocations: List<String>,
+        val isAgency: Boolean = false,
+        val isSocialEnterprise: Boolean = false,
+        val hqCountry: String? = null,
+        val operatingCountries: List<String> = emptyList(),
+        val officeLocations: List<String> = emptyList(),
+        val remotePolicy: String? = null,
+        val visaSponsorship: Boolean = false,
+        val verificationLevel: VerificationLevel = VerificationLevel.VERIFIED,
         val lastUpdatedAt: Instant
 )

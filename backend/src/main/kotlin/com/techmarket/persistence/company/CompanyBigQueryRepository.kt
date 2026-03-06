@@ -62,26 +62,39 @@ class CompanyBigQueryRepository(
                                                 StandardSQLTypeName.STRING
                                         )
                                         .setMode(Field.Mode.REPEATED)
-                                        .build()
+                                        .build(),
+                                Field.of(CompanyFields.IS_AGENCY, StandardSQLTypeName.BOOL),
+                                Field.of(CompanyFields.IS_SOCIAL_ENTERPRISE, StandardSQLTypeName.BOOL),
+                                Field.of(CompanyFields.HQ_COUNTRY, StandardSQLTypeName.STRING),
+                                Field.newBuilder(
+                                                CompanyFields.OPERATING_COUNTRIES,
+                                                StandardSQLTypeName.STRING
+                                        )
+                                        .setMode(Field.Mode.REPEATED)
+                                        .build(),
+                                Field.newBuilder(
+                                                CompanyFields.OFFICE_LOCATIONS,
+                                                StandardSQLTypeName.STRING
+                                        )
+                                        .setMode(Field.Mode.REPEATED)
+                                        .build(),
+                                Field.of(CompanyFields.REMOTE_POLICY, StandardSQLTypeName.STRING),
+                                Field.of(CompanyFields.VISA_SPONSORSHIP, StandardSQLTypeName.BOOL),
+                                Field.of(CompanyFields.VERIFICATION_LEVEL, StandardSQLTypeName.STRING)
                         )
                 bigQuery.ensureTableExists(datasetName, companiesTableName, schema)
         }
 
         override fun deleteAllCompanies() {
-                ensureTable() // table may have been dropped externally during schema migrations
-                log.info("GCP: Deleting all rows from \$companiesTableName")
-                val query = "DELETE FROM `$datasetName.$companiesTableName` WHERE true"
-                val queryConfig = QueryJobConfiguration.newBuilder(query).build()
+                val tableId = com.google.cloud.bigquery.TableId.of(datasetName, companiesTableName)
+                log.info("GCP: Dropping table $companiesTableName to allow schema refresh")
                 try {
-                        bigQuery.query(queryConfig)
-                        log.info("GCP: Successfully deleted all rows from \$companiesTableName")
+                        bigQuery.delete(tableId)
+                        log.info("GCP: Successfully dropped table $companiesTableName")
                 } catch (e: Exception) {
-                        log.error(
-                                "GCP: Failed to delete rows from \$companiesTableName: \${e.message}",
-                                e
-                        )
-                        throw e
+                        log.warn("GCP: Failed to drop table $companiesTableName (might not exist): ${e.message}")
                 }
+                ensureTable()
         }
 
         override fun saveCompanies(companies: List<CompanyRecord>) {
@@ -202,9 +215,17 @@ class CompanyBigQueryRepository(
                         CompanyFields.INDUSTRIES to this.industries,
                         CompanyFields.TECHNOLOGIES to this.technologies,
                         CompanyFields.HIRING_LOCATIONS to this.hiringLocations,
+                        CompanyFields.IS_AGENCY to this.isAgency,
+                        CompanyFields.IS_SOCIAL_ENTERPRISE to this.isSocialEnterprise,
+                        CompanyFields.HQ_COUNTRY to this.hqCountry,
+                        CompanyFields.OPERATING_COUNTRIES to this.operatingCountries,
+                        CompanyFields.OFFICE_LOCATIONS to this.officeLocations,
+                        CompanyFields.REMOTE_POLICY to this.remotePolicy,
+                        CompanyFields.VISA_SPONSORSHIP to this.visaSponsorship,
+                        CompanyFields.VERIFICATION_LEVEL to this.verificationLevel,
                         CompanyFields.INGESTED_AT to this.lastUpdatedAt.toString(),
                         CompanyFields.LAST_UPDATED_AT to this.lastUpdatedAt.toString()
-                )
+                ).filterValues { it != null }
         }
 
         private fun List<Map<String, Any?>>.byteInputStream(): java.io.InputStream {

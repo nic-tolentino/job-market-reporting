@@ -48,6 +48,17 @@ object CompanyFields {
     const val INDUSTRIES = "industries"
     const val TECHNOLOGIES = "technologies"
     const val HIRING_LOCATIONS = "hiringLocations"
+    
+    // New curated fields
+    const val IS_AGENCY = "isAgency"
+    const val IS_SOCIAL_ENTERPRISE = "isSocialEnterprise"
+    const val HQ_COUNTRY = "hqCountry"
+    const val OPERATING_COUNTRIES = "operatingCountries"
+    const val OFFICE_LOCATIONS = "officeLocations"
+    const val REMOTE_POLICY = "remotePolicy"
+    const val VISA_SPONSORSHIP = "visa_sponsorship"
+    const val VERIFICATION_LEVEL = "verificationLevel"
+
     const val INGESTED_AT = "ingestedAt"
     const val LAST_UPDATED_AT = "lastUpdatedAt"
 }

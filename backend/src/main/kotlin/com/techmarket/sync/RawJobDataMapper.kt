@@ -1,6 +1,7 @@
 package com.techmarket.sync
 
 import com.techmarket.persistence.model.CompanyRecord
+import com.techmarket.persistence.model.VerificationLevel
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.sync.model.ApifyJobDto
 import com.techmarket.util.IdGenerator
@@ -40,14 +41,14 @@ class RawJobDataMapper(
         private val log = LoggerFactory.getLogger(RawJobDataMapper::class.java)
 
         /** Entry point for the mapping pipeline. */
-        fun map(syncedJobs: List<RawJob>): MappedSyncData {
+        fun map(syncedJobs: List<RawJob>, manifestCompanies: Map<String, CompanyRecord> = emptyMap()): MappedSyncData {
                 val validJobs = filterValidJobs(syncedJobs)
-                val roleGroups = groupByLogicalRole(validJobs)
+                val roleGroups = groupByLogicalRole(validJobs, manifestCompanies)
 
                 val allOpenings =
                         roleGroups.values.flatMap { jobsInRole -> groupByOpening(jobsInRole) }
 
-                val mappedData = assembleMappedData(allOpenings)
+                val mappedData = assembleMappedData(allOpenings, manifestCompanies)
 
                 log.info(
                         "Mapping pipeline complete: ${syncedJobs.size} raw -> ${mappedData.jobs.size} jobs, ${mappedData.companies.size} companies"
@@ -67,14 +68,34 @@ class RawJobDataMapper(
          * combination of (Company, Country, Title).
          */
         internal fun groupByLogicalRole(
-                jobs: List<RawJob>
+                jobs: List<RawJob>,
+                manifestCompanies: Map<String, CompanyRecord> = emptyMap()
         ): Map<Triple<String, String, String>, List<RawJob>> {
                 return jobs.groupBy { (dto, _) ->
-                        val companyId = IdGenerator.buildCompanyId(dto.companyName)
+                        val companyId = findCompanyId(dto.companyName, manifestCompanies)
                         val country = parser.determineCountry(dto.location).lowercase()
                         val titleSlug = IdGenerator.slugify(dto.title ?: "unknown")
                         Triple(companyId, country, titleSlug)
                 }
+        }
+
+        internal fun findCompanyId(scrapedName: String?, manifestCompanies: Map<String, CompanyRecord>): String {
+                if (scrapedName.isNullOrBlank()) return "unknown-company"
+
+                // 1. Exact ID match (unlikely for scraped names)
+                val slugifiedName = IdGenerator.buildCompanyId(scrapedName)
+                if (manifestCompanies.containsKey(slugifiedName)) return manifestCompanies[slugifiedName]!!.companyId
+
+                // 2. Multi-alias search
+                manifestCompanies.values.forEach { company ->
+                        if (company.name.equals(scrapedName, ignoreCase = true) ||
+                                company.alternateNames.any { it.equals(scrapedName, ignoreCase = true) }) {
+                                return company.companyId
+                        }
+                }
+            
+            // 3. Fallback to Ghost creation
+            return "ghost-$slugifiedName"
         }
 
         /**
@@ -147,7 +168,10 @@ class RawJobDataMapper(
         }
 
         /** Transforms clustered openings into final persistence-ready Records. */
-        internal fun assembleMappedData(openingGroups: List<List<RawJob>>): MappedSyncData {
+        internal fun assembleMappedData(
+                openingGroups: List<List<RawJob>>,
+                manifestCompanies: Map<String, CompanyRecord> = emptyMap()
+        ): MappedSyncData {
                 val companyRecords = mutableMapOf<String, CompanyRecord>()
                 val jobRecords = mutableListOf<JobRecord>()
 
@@ -159,32 +183,46 @@ class RawJobDataMapper(
                                 val lastSeenAt = latestSnapshot.lastSeenAt
 
                                 // 1. Map individual job record
-                                val jobRecord = parseJobDetails(group, lastSeenAt)
+                                val jobRecord = parseJobDetails(group, lastSeenAt, manifestCompanies)
+                                // 2. Map or update company record
+                                val companyId = jobRecord.companyId
+                                
+                                // Blocked/Spam Filter
+                                if (manifestCompanies[companyId]?.verificationLevel == VerificationLevel.BLOCKED) {
+                                    log.info("Skipping job ${jobRecord.title} from blocked company: $companyId")
+                                    return@forEach
+                                }
+
+                                if (!companyId.startsWith("ghost-") && manifestCompanies.containsKey(companyId)) {
+                                    // It's a manifest company, we don't need to re-create it in this mapper's output,
+                                    // as they are synced separately from companies.json.
+                                    jobRecords.add(jobRecord)
+                                    return@forEach
+                                }
+                                
                                 jobRecords.add(jobRecord)
 
-                                // 2. Map or update company record
-                                val companySlug = IdGenerator.buildCompanyId(jobRecord.companyName)
-                                if (!companyRecords.containsKey(companySlug)) {
-                                        companyRecords[companySlug] =
-                                                parseCompanyMetadata(group, lastSeenAt)
+                                if (!companyRecords.containsKey(companyId)) {
+                                        companyRecords[companyId] =
+                                                parseCompanyMetadata(group, lastSeenAt, manifestCompanies)
                                 } else {
-                                        val existing = companyRecords[companySlug]!!
-                                        companyRecords[companySlug] =
+                                        val existing = companyRecords[companyId]!!
+                                        companyRecords[companyId] =
                                                 existing.copy(
-                                                        technologies =
-                                                                (existing.technologies +
-                                                                                jobRecord
-                                                                                        .technologies)
-                                                                        .distinct()
-                                                                        .sorted(),
-                                                        hiringLocations =
-                                                                (existing.hiringLocations +
-                                                                                jobRecord.locations)
-                                                                        .distinct()
-                                                                        .sorted(),
-                                                        lastUpdatedAt = lastSeenAt
-                                                )
-                                }
+                                                         technologies =
+                                                                 (existing.technologies +
+                                                                                 jobRecord
+                                                                                         .technologies)
+                                                                         .distinct()
+                                                                         .sorted(),
+                                                         hiringLocations =
+                                                                 (existing.hiringLocations +
+                                                                                 jobRecord.locations)
+                                                                         .distinct()
+                                                                         .sorted(),
+                                                         lastUpdatedAt = lastSeenAt
+                                                 )
+                                 }
                         } catch (e: Exception) {
                                 log.error("Failed to assemble record: ${e.message}", e)
                         }
@@ -194,18 +232,22 @@ class RawJobDataMapper(
         }
 
         /** Parses raw group data into a single [JobRecord]. */
-        private fun parseJobDetails(group: List<RawJob>, lastSeenAt: Instant): JobRecord {
-                val first = group.first().dto
+        private fun parseJobDetails(
+                lifecycle: List<RawJob>,
+                lastSeenAt: Instant,
+                manifestCompanies: Map<String, CompanyRecord>
+        ): JobRecord {
+                val first = lifecycle.first().dto
                 val title = first.title ?: "Unknown Title"
                 val companyName = first.companyName ?: "Unknown Company"
-                val companyId = IdGenerator.buildCompanyId(companyName)
+                val companyId = findCompanyId(companyName, manifestCompanies)
 
-                val platformJobIds = group.mapNotNull { it.dto.id }.distinct()
-                val applyUrls = group.mapNotNull { it.dto.applyUrl }.distinct()
-                val platformLinks = group.mapNotNull { it.dto.link }.distinct()
+                val platformJobIds = lifecycle.mapNotNull { it.dto.id }.distinct()
+                val applyUrls = lifecycle.mapNotNull { it.dto.applyUrl }.distinct()
+                val platformLinks = lifecycle.mapNotNull { it.dto.link }.distinct()
 
                 val locations =
-                        group
+                        lifecycle
                                 .map { raw ->
                                         val (city, state, _) =
                                                 parser.parseLocation(raw.dto.location)
@@ -217,14 +259,14 @@ class RawJobDataMapper(
 
                 val description =
                         PiiSanitizer.sanitize(
-                                group.firstNotNullOfOrNull {
+                                lifecycle.firstNotNullOfOrNull {
                                         it.dto.descriptionHtml?.ifBlank { null }
                                                 ?: it.dto.descriptionText
                                 }
                         )
                 val technologies =
                         parser.extractTechnologies(
-                                group.firstNotNullOfOrNull { it.dto.descriptionText } ?: ""
+                                lifecycle.firstNotNullOfOrNull { it.dto.descriptionText } ?: ""
                         )
 
                 val (_, _, countryCode) = parser.parseLocation(first.location)
@@ -233,7 +275,7 @@ class RawJobDataMapper(
                         else parser.determineCountry(first.location)
 
                 // Find earliest date in the lifecycle for ID stability
-                val allPostedDates = group.mapNotNull { parser.parseDate(it.dto.postedAt) }
+                val allPostedDates = lifecycle.mapNotNull { parser.parseDate(it.dto.postedAt) }
                 val earliestPostedDate = allPostedDates.minOrNull()
 
                 val datePart =
@@ -260,35 +302,39 @@ class RawJobDataMapper(
                         seniorityLevel = parser.extractSeniority(title, first.seniorityLevel),
                         technologies = technologies,
                         salaryMin =
-                                group.firstNotNullOfOrNull {
+                                lifecycle.firstNotNullOfOrNull {
                                         parser.parseSalary(it.dto.salaryInfo?.firstOrNull())
                                 },
                         salaryMax =
-                                group.firstNotNullOfOrNull {
+                                lifecycle.firstNotNullOfOrNull {
                                         parser.parseSalary(it.dto.salaryInfo?.lastOrNull())
                                 },
                         postedDate = earliestPostedDate,
                         benefits =
-                                group
+                                lifecycle
                                         .flatMap { it.dto.benefits ?: emptyList() }
                                         .distinct()
                                         .sorted(),
-                        employmentType = group.firstNotNullOfOrNull { it.dto.employmentType },
+                        employmentType = lifecycle.firstNotNullOfOrNull { it.dto.employmentType },
                         workModel =
-                                group.firstNotNullOfOrNull {
+                                lifecycle.firstNotNullOfOrNull {
                                         parser.extractWorkModel(it.dto.location, it.dto.title)
                                 }
                                         ?: "On-site",
-                        jobFunction = group.firstNotNullOfOrNull { it.dto.jobFunction },
+                        jobFunction = lifecycle.firstNotNullOfOrNull { it.dto.jobFunction },
                         description = description,
                         lastSeenAt = lastSeenAt
                 )
         }
 
-        private fun parseCompanyMetadata(group: List<RawJob>, lastSeenAt: Instant): CompanyRecord {
-                val first = group.first().dto
+        private fun parseCompanyMetadata(
+                lifecycle: List<RawJob>,
+                lastSeenAt: Instant,
+                manifestCompanies: Map<String, CompanyRecord>
+        ): CompanyRecord {
+                val first = lifecycle.first().dto
                 val companyName = first.companyName ?: "Unknown Company"
-                val companyId = IdGenerator.buildCompanyId(companyName)
+                val companyId = findCompanyId(companyName, manifestCompanies)
 
                 return CompanyRecord(
                         companyId = companyId,
@@ -301,10 +347,10 @@ class RawJobDataMapper(
                         industries = first.industries,
                         technologies =
                                 parser.extractTechnologies(
-                                        group.firstNotNullOfOrNull { it.dto.descriptionText } ?: ""
+                                        lifecycle.firstNotNullOfOrNull { it.dto.descriptionText } ?: ""
                                 ),
                         hiringLocations =
-                                group
+                                lifecycle
                                         .map { raw ->
                                                 val (city, state, _) =
                                                         parser.parseLocation(raw.dto.location)
@@ -313,6 +359,7 @@ class RawJobDataMapper(
                                         }
                                         .distinct()
                                         .sorted(),
+                        verificationLevel = VerificationLevel.GHOST,
                         lastUpdatedAt = lastSeenAt
                 )
         }

@@ -114,7 +114,13 @@ object JobMapper {
                                 website =
                                         if (r.get("comp_web").isNull) ""
                                         else r.get("comp_web").stringValue,
-                                hiringLocations = hiringLocations
+                                hiringLocations = hiringLocations,
+                                hqCountry = 
+                                        if (r.get("comp_hqCountry").isNull) null
+                                        else r.get("comp_hqCountry").stringValue,
+                                verificationLevel = 
+                                        if (r.get("comp_verificationLevel").isNull) "ghost"
+                                        else r.get("comp_verificationLevel").stringValue
                         )
 
                 val similarRoles =

@@ -1,5 +1,6 @@
 package com.techmarket.sync
 
+import com.techmarket.persistence.model.VerificationLevel
 import com.techmarket.sync.model.ApifyJobDto
 import io.mockk.every
 import io.mockk.mockk
@@ -75,7 +76,7 @@ class RawJobDataMapperTest {
                         )
 
                 assertEquals(2, result.size)
-                assertEquals(2, result[Triple("google", "au", "engineer")]?.size)
+                assertEquals(2, result[Triple("ghost-google", "au", "engineer")]?.size)
         }
 
         @Test
@@ -144,6 +145,27 @@ class RawJobDataMapperTest {
                         google.hiringLocations.sorted()
                 )
                 assertEquals(listOf("Java", "Kotlin"), google.technologies.sorted())
+        }
+
+        @Test
+        fun `findCompanyId correctly matches by name or alias and falls back to ghost`() {
+            val manifest = mapOf(
+                "google" to createCompanyRecord("google", "Google", listOf("Google Inc", "Alphabet")),
+                "asb" to createCompanyRecord("asb-bank", "ASB Bank", listOf("ASB"))
+            )
+            
+            // Exact ID/Name match
+            assertEquals("google", mapper.findCompanyId("Google", manifest))
+            
+            // Alias match
+            assertEquals("google", mapper.findCompanyId("Alphabet", manifest))
+            assertEquals("asb-bank", mapper.findCompanyId("ASB", manifest))
+            
+            // Case insensitive
+            assertEquals("google", mapper.findCompanyId("google inc", manifest))
+            
+            // Ghost fallback
+            assertEquals("ghost-microsoft", mapper.findCompanyId("Microsoft", manifest))
         }
 
         @Test
@@ -216,5 +238,54 @@ class RawJobDataMapperTest {
                         companyWebsite = "http://company.com",
                         companyEmployeesCount = 100
                 )
+        }
+
+        private fun createCompanyRecord(id: String, name: String, aliases: List<String>) =
+                com.techmarket.persistence.model.CompanyRecord(
+                        companyId = id,
+                        name = name,
+                        alternateNames = aliases,
+                        logoUrl = null,
+                        description = null,
+                        website = null,
+                        employeesCount = null,
+                        industries = null,
+                        technologies = emptyList(),
+                        hiringLocations = emptyList(),
+                        verificationLevel = VerificationLevel.VERIFIED,
+                        lastUpdatedAt = Instant.now()
+                )
+
+        @Test
+        fun `assembleMappedData filters out jobs from blocked companies`() {
+            val blockedCompanyId = "spammer-corp"
+            val manifestCompanies = mapOf(
+                blockedCompanyId to createCompanyRecord(blockedCompanyId, "Spammer Corp", emptyList()).copy(
+                    verificationLevel = VerificationLevel.BLOCKED
+                )
+            )
+
+            val dto = createApifyDto("id1", "2023-01-01").copy(companyName = "Spammer Corp")
+            val group = listOf(RawJob(dto, Instant.now()))
+
+            every { parser.parseLocation(any()) } returns Triple("City", "State", "Country")
+            every { parser.determineCountry(any()) } returns "US"
+            every { parser.extractSeniority(any(), any()) } returns "Entry"
+            every { parser.extractTechnologies(any()) } returns emptyList()
+            every { parser.extractWorkModel(any(), any()) } returns "On-site"
+            every { parser.parseSalary(any()) } returns null
+            every { parser.parseDate(any()) } returns LocalDate.now()
+
+            val result = mapper.assembleMappedData(listOf(group), manifestCompanies)
+
+                assertEquals(0, result.jobs.size, "Blocked company jobs should be filtered out")
+                assertEquals(0, result.companies.size, "Blocked company should not be returned in MappedSyncData")
+        }
+
+        // Helper to invoke private methods for testing matching logic
+        private fun Any.invokePrivate(methodName: String, vararg args: Any?): Any? {
+            val method = this.javaClass.getDeclaredMethod(methodName, *args.map { it?.javaClass ?: String::class.java }.toTypedArray())
+            method.isAccessible = true
+            return method.invoke(this, *args)
         }
 }

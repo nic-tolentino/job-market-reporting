@@ -23,6 +23,7 @@ class JobDataSyncServiceTest {
     private val companyRepository = mockk<CompanyRepository>(relaxed = true)
     private val ingestionRepository = mockk<IngestionRepository>(relaxed = true)
     private val silverDataMerger = SilverDataMerger() // Unit test state: use real merger
+    private val companySyncService = mockk<CompanySyncService>(relaxed = true)
     private val objectMapper = ObjectMapper()
 
     private val service =
@@ -33,6 +34,7 @@ class JobDataSyncServiceTest {
                     companyRepository,
                     ingestionRepository,
                     silverDataMerger,
+                    companySyncService,
                     objectMapper
             )
 
@@ -48,7 +50,7 @@ class JobDataSyncServiceTest {
                 listOf(ApifyJobResult(apifyJob, "{}"))
 
         // 2. Mock Mapper
-        every { jobDataMapper.map(any()) } returns
+        every { jobDataMapper.map(any(), any()) } returns
                 MappedSyncData(jobs = listOf(mappedJob), companies = listOf(mappedCompany))
 
         // 3. Mock Repository Fetch (Returning existing data for comp1 only, none for job1)
@@ -112,7 +114,7 @@ class JobDataSyncServiceTest {
         // 2. Mock Mapper (re-mapping from Bronze)
         val mappedJob = createJobRecord("job1", lastSeenAt = syncTime)
         val mappedCompany = createCompanyRecord("comp1", lastUpdatedAt = syncTime)
-        every { jobDataMapper.map(any()) } returns
+        every { jobDataMapper.map(any(), any()) } returns
                 MappedSyncData(jobs = listOf(mappedJob), companies = listOf(mappedCompany))
 
         // Execute
@@ -151,7 +153,7 @@ class JobDataSyncServiceTest {
 
         val mappedJob = createJobRecord("job1", lastSeenAt = syncTime)
         val mappedCompany = createCompanyRecord("comp1", lastUpdatedAt = syncTime)
-        every { jobDataMapper.map(any()) } returns
+        every { jobDataMapper.map(any(), any()) } returns
                 MappedSyncData(jobs = listOf(mappedJob), companies = listOf(mappedCompany))
 
         // Should NOT throw — malformed records are skipped

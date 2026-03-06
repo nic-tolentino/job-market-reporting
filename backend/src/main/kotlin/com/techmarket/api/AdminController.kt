@@ -18,7 +18,8 @@ class AdminController(
         private val jobDataSyncService: JobDataSyncService,
         private val apifyProperties: ApifyProperties,
         private val jobRepository: JobRepository,
-        private val techRoleClassifier: TechRoleClassifier
+        private val techRoleClassifier: TechRoleClassifier,
+        private val companySyncService: com.techmarket.sync.CompanySyncService
 ) {
     private val log = LoggerFactory.getLogger(AdminController::class.java)
 
@@ -72,6 +73,25 @@ class AdminController(
             return ResponseEntity.ok("Manual Data Sync Pipeline executed for dataset: $effectiveId")
         } catch (e: Exception) {
             log.error("Failed to trigger manual sync", e)
+            return ResponseEntity.internalServerError().body("Error: ${e.message}")
+        }
+    }
+    @PostMapping("/sync-companies")
+    fun syncCompanies(
+            @RequestHeader("x-apify-signature", required = false) providedSecret: String?
+    ): ResponseEntity<String> {
+        val expectedSecret = apifyProperties.webhookSecret
+        if (expectedSecret.isNullOrBlank() || providedSecret != expectedSecret) {
+            log.warn("Unauthorized admin attempt. Invalid or missing secret.")
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Unauthorized")
+        }
+
+        log.info("Admin triggered manual sync for companies manifest.")
+        try {
+            companySyncService.syncFromManifest()
+            return ResponseEntity.ok("Manual Company Manifest Sync executed")
+        } catch (e: Exception) {
+            log.error("Failed to trigger manual companies sync", e)
             return ResponseEntity.internalServerError().body("Error: ${e.message}")
         }
     }

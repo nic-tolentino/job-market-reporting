@@ -6,7 +6,23 @@ import com.techmarket.persistence.JobFields
 object CompanyQueries {
     fun getDetailsSql(datasetName: String, companiesTableName: String) =
             """
-        SELECT ${CompanyFields.NAME}, ${CompanyFields.LOGO_URL}, ${CompanyFields.WEBSITE}, ${CompanyFields.EMPLOYEES_COUNT}, ${CompanyFields.INDUSTRIES}, ${CompanyFields.DESCRIPTION}, ${CompanyFields.TECHNOLOGIES}, ${CompanyFields.HIRING_LOCATIONS}
+        SELECT 
+            ${CompanyFields.NAME}, 
+            ${CompanyFields.LOGO_URL}, 
+            ${CompanyFields.WEBSITE}, 
+            ${CompanyFields.EMPLOYEES_COUNT}, 
+            ${CompanyFields.INDUSTRIES}, 
+            ${CompanyFields.DESCRIPTION}, 
+            ${CompanyFields.TECHNOLOGIES}, 
+            ${CompanyFields.HIRING_LOCATIONS},
+            ${CompanyFields.IS_AGENCY},
+            ${CompanyFields.IS_SOCIAL_ENTERPRISE},
+            ${CompanyFields.HQ_COUNTRY},
+            ${CompanyFields.OPERATING_COUNTRIES},
+            ${CompanyFields.OFFICE_LOCATIONS},
+            ${CompanyFields.REMOTE_POLICY},
+            ${CompanyFields.VISA_SPONSORSHIP},
+            ${CompanyFields.VERIFICATION_LEVEL}
         FROM `$datasetName.$companiesTableName`
         WHERE ${CompanyFields.COMPANY_ID} = @companyId
         LIMIT 1

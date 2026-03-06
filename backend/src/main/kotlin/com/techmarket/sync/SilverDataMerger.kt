@@ -94,7 +94,17 @@ class SilverDataMerger {
                 employeesCount = new.employeesCount ?: existing.employeesCount,
                 industries = new.industries?.ifBlank { null } ?: existing.industries,
 
-                // Aggregators
+                // New Curated Fields: Preserved from existing if present (likely Gold), 
+                // otherwise take from new if it's a newer discovery.
+                isAgency = existing.isAgency || new.isAgency,
+                isSocialEnterprise = existing.isSocialEnterprise || new.isSocialEnterprise,
+                hqCountry = existing.hqCountry ?: new.hqCountry,
+                operatingCountries = (existing.operatingCountries + new.operatingCountries).distinct().sorted(),
+                officeLocations = (existing.officeLocations + new.officeLocations).distinct().sorted(),
+                remotePolicy = existing.remotePolicy ?: new.remotePolicy,
+                visaSponsorship = existing.visaSponsorship || new.visaSponsorship,
+
+                // Dynamic Aggregators
                 technologies = (new.technologies + existing.technologies).distinct().sorted(),
                 hiringLocations =
                         (new.hiringLocations + existing.hiringLocations).distinct().sorted(),

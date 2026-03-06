@@ -11,7 +11,9 @@ object JobQueries {
                c.${CompanyFields.LOGO_URL} as comp_logo, 
                c.${CompanyFields.DESCRIPTION} as comp_desc,
                c.${CompanyFields.WEBSITE} as comp_web, 
-               c.${CompanyFields.HIRING_LOCATIONS} as comp_hiringLocations
+               c.${CompanyFields.HIRING_LOCATIONS} as comp_hiringLocations,
+               c.${CompanyFields.HQ_COUNTRY} as comp_hqCountry,
+               c.${CompanyFields.VERIFICATION_LEVEL} as comp_verificationLevel
         FROM `$datasetName.$jobsTableName` j
         JOIN `$datasetName.$companiesTableName` c ON j.${JobFields.COMPANY_ID} = c.${CompanyFields.COMPANY_ID}
         WHERE j.${JobFields.JOB_ID} = @jobId OR @jobId IN UNNEST(j.${JobFields.JOB_IDS})
