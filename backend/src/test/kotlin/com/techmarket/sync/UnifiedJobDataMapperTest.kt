@@ -22,7 +22,7 @@ class UnifiedJobDataMapperTest {
                                         source = "Greenhouse",
                                         title = "Senior Kotlin Engineer",
                                         companyName = "Test Company",
-                                        location = "Sydney, Australia",
+                                        location = "Sydney, Australia, ",
                                         descriptionHtml = "We use Kotlin and Spring.",
                                         descriptionText = "We use Kotlin and Spring.",
                                         salaryMin = 120000,

@@ -226,7 +226,7 @@ export const MarketTab = ({
                                                 </span>
                                                 <div className="mt-1 flex items-center gap-1.5 text-muted">
                                                     <MapPin className="h-3.5 w-3.5" />
-                                                    <span>{role.locations.join(' · ')}</span>
+                                                    <span>{role.locations.map((loc: string) => loc.replace(/,\s*$/, '')).join(' · ')}</span>
                                                 </div>
                                             </td>
                                             <td className="px-6 py-5">

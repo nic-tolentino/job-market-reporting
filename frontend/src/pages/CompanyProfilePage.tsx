@@ -242,7 +242,7 @@ export default function CompanyProfilePage() {
                                                 </div>
                                                 <div className="mt-1 flex items-center gap-1.5 text-muted">
                                                     <MapPin className="h-3.5 w-3.5 flex-shrink-0" />
-                                                    <span>{job.locations.join(' · ')}</span>
+                                                    <span>{job.locations.map((loc: string) => loc.replace(/,\s*$/, '')).join(' · ')}</span>
                                                 </div>
                                                 <div className="mt-2 flex flex-wrap gap-1.5">
                                                     {job.technologies.map(tech => (

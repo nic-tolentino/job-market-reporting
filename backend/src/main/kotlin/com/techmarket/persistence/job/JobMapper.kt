@@ -3,6 +3,7 @@ package com.techmarket.persistence.job
 import com.techmarket.api.model.JobRoleDto
 import com.techmarket.persistence.JobFields
 import com.techmarket.persistence.model.JobRecord
+import com.techmarket.util.LocationFormatter
 import com.techmarket.util.TechFormatter
 import java.time.Instant
 import java.time.LocalDate
@@ -58,11 +59,7 @@ object JobMapper {
 
                         for (i in 0 until min(locArr.size, idArr.size)) {
                                 val rawLoc = locArr[i].stringValue
-                                val locParts = rawLoc.split(", ")
-                                val displayLoc =
-                                        if (locParts.size == 2 && locParts[0] == locParts[1])
-                                                locParts[0]
-                                        else rawLoc
+                                val displayLoc = LocationFormatter.format(rawLoc)
 
                                 locations.add(
                                         com.techmarket.api.model.JobLocationDto(
@@ -93,10 +90,7 @@ object JobMapper {
                         if (r.get("comp_hiringLocations").isNull) emptyList<String>()
                         else
                                 r.get("comp_hiringLocations").repeatedValue.map {
-                                        val rawLoc = it.stringValue
-                                        val parts = rawLoc.split(", ")
-                                        if (parts.size == 2 && parts[0] == parts[1]) parts[0]
-                                        else rawLoc
+                                        LocationFormatter.format(it.stringValue)
                                 }
 
                 val company =

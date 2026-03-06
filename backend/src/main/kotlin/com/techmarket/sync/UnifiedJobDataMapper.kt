@@ -4,6 +4,7 @@ import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.sync.ats.model.NormalizedJob
 import com.techmarket.util.IdGenerator
+import com.techmarket.util.LocationFormatter
 import com.techmarket.util.PiiSanitizer
 import java.time.Instant
 import java.time.ZoneId
@@ -91,7 +92,11 @@ class UnifiedJobDataMapper(private val parser: RawJobDataParser) {
                         platformJobIds = listOf(job.platformId),
                         applyUrls = listOfNotNull(job.applyUrl).distinct(),
                         platformLinks = listOfNotNull(job.platformUrl).distinct(),
-                        locations = listOfNotNull(job.location).distinct().sorted(),
+                        locations = listOfNotNull(job.location)
+                                .map { LocationFormatter.format(it) }
+                                .filter { it.isNotBlank() }
+                                .distinct()
+                                .sorted(),
                         companyId = companyId,
                         companyName = job.companyName,
                         source = job.source,
@@ -131,7 +136,11 @@ class UnifiedJobDataMapper(private val parser: RawJobDataParser) {
                         employeesCount = null,
                         industries = null,
                         technologies = parser.extractTechnologies(job.descriptionText ?: ""),
-                        hiringLocations = listOfNotNull(job.location).distinct().sorted(),
+                        hiringLocations = listOfNotNull(job.location)
+                                .map { LocationFormatter.format(it) }
+                                .filter { it.isNotBlank() }
+                                .distinct()
+                                .sorted(),
                         lastUpdatedAt = syncTime
                 )
         }
