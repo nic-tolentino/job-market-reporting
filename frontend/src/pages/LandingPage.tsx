@@ -13,6 +13,7 @@ import { H2 } from '../components/ui/Typography';
 import SimplePager from '../components/ui/SimplePager';
 import SearchBox from '../components/common/SearchBox';
 import { useChartStyles } from '../hooks/useChartStyles';
+import Asston from '../assets/Asston.png';
 
 const COMPANIES_PAGE_SIZE = 5;
 const MAX_COMPANIES = 20;
@@ -73,14 +74,23 @@ export default function LandingPage() {
 
     return (
         <div className="space-y-10">
-            {/* Hero Section */}
             <section className="text-center py-12 md:py-20 relative px-4 flex flex-col items-center z-20">
                 <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-primary leading-tight">
                     Discover. Grow. Connect.
                 </h1>
-                <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-secondary leading-relaxed">
-                    A free open-source community dedicated to helping you succeed in your tech career 🚀📈❤️
-                </p>
+                
+                <div className="mx-auto mt-6 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+                    <p className="max-w-2xl text-lg md:text-xl text-secondary leading-relaxed">
+                        A free open-source community dedicated to helping you kick-ass in your tech career 🚀📈❤️
+                    </p>
+                    <div className="transition-all duration-500 hover:scale-110 hover:rotate-3 cursor-pointer group flex-shrink-0">
+                        <img 
+                            src={Asston} 
+                            alt="Asston the friendly donkey mascot" 
+                            className="h-12 w-12 md:h-16 md:w-16 object-contain drop-shadow-lg group-hover:drop-shadow-xl transition-all"
+                        />
+                    </div>
+                </div>
                 <div className="mt-10 w-full max-w-2xl px-4 md:px-0">
                     <SearchBox
                         className="shadow-2xl hover:shadow-blue-200/50 dark:hover:shadow-blue-500/10 transition-all duration-300 transform hover:-translate-y-1"

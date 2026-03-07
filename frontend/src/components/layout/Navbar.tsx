@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
-import { Briefcase, Sun, Moon, Monitor } from 'lucide-react';
+import { Sun, Moon, Monitor } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Dropdown from '../ui/Dropdown';
 import SearchBox from '../common/SearchBox';
 import { useAppStore } from '../../store/useAppStore';
+import Asston from '../../assets/Asston.png';
 
 const countries = [
     { code: 'AU', name: 'Australia', flag: '🇦🇺' },
     { code: 'NZ', name: 'New Zealand', flag: '🇳🇿' },
+    { code: 'ES', name: 'Spain', flag: '🇪🇸' },
 ];
 
 function ThemeToggle() {
@@ -42,8 +44,12 @@ export default function Navbar() {
         <nav className="sticky top-0 z-50 w-full border-b border-border bg-card shadow-theme-sm">
             <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center gap-2">
-                    <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors">
-                        <Briefcase className="h-6 w-6 text-accent flex-shrink-0" />
+                    <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors group">
+                        <img 
+                            src={Asston} 
+                            alt="Asston Mascot" 
+                            className="h-8 w-8 object-contain flex-shrink-0 transition-transform group-hover:scale-110" 
+                        />
                         <span className="hidden sm:inline">DevAssembly</span>
                     </Link>
                 </div>
