@@ -13,7 +13,7 @@ import { H2 } from '../components/ui/Typography';
 import SimplePager from '../components/ui/SimplePager';
 import SearchBox from '../components/common/SearchBox';
 import { useChartStyles } from '../hooks/useChartStyles';
-import Asston from '../assets/Asston.png';
+import AsstonKick from '../assets/asston-kick.png';
 
 const COMPANIES_PAGE_SIZE = 5;
 const MAX_COMPANIES = 20;
@@ -79,16 +79,21 @@ export default function LandingPage() {
                     Discover. Grow. Connect.
                 </h1>
                 
-                <div className="mx-auto mt-6 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
-                    <p className="max-w-2xl text-lg md:text-xl text-secondary leading-relaxed">
-                        A free open-source community dedicated to helping you kick-ass in your tech career 🚀📈❤️
-                    </p>
-                    <div className="transition-all duration-500 hover:scale-110 hover:rotate-3 cursor-pointer group flex-shrink-0">
+                <div className="mx-auto mt-8 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
+                    <div className="transition-all duration-500 hover:scale-110 hover:-rotate-6 cursor-pointer group flex-shrink-0">
                         <img 
-                            src={Asston} 
+                            src={AsstonKick} 
                             alt="Asston the friendly donkey mascot" 
-                            className="h-12 w-12 md:h-16 md:w-16 object-contain drop-shadow-lg group-hover:drop-shadow-xl transition-all"
+                            className="h-20 w-20 md:h-28 md:w-28 lg:h-32 lg:w-32 object-contain drop-shadow-lg group-hover:drop-shadow-xl transition-all"
                         />
+                    </div>
+                    <div className="flex flex-col items-center md:items-start">
+                        <p className="max-w-2xl text-xl md:text-2xl text-secondary font-medium leading-[1.4] text-center md:text-left">
+                            Stop grazing. Start kicking.<br/>
+                            <span className="text-muted text-lg md:text-xl font-normal opacity-90">
+                                The open-source hub for your next big career move 💥🚀📈❤️
+                            </span>
+                        </p>
                     </div>
                 </div>
                 <div className="mt-10 w-full max-w-2xl px-4 md:px-0">

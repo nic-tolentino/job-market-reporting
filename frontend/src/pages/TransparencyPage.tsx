@@ -1,16 +1,16 @@
 import { Card, CardHeader } from '../components/ui/Card';
 import { H2 } from '../components/ui/Typography';
-import Asston from '../assets/Asston.png';
+import AsstonFriends from '../assets/asston-friends.png';
 
 export default function TransparencyPage() {
     return (
-        <div className="max-w-4xl mx-auto space-y-10 py-8 md:py-12">
+        <div className="max-w-4xl mx-auto space-y-10 pb-8 md:pb-12">
             <section className="text-center px-4 flex flex-col items-center">
-                <div className="mb-6 transition-all duration-500 hover:scale-110 hover:-rotate-3 cursor-pointer group">
+                <div className="mb-0 flex justify-center">
                     <img 
-                        src={Asston} 
-                        alt="Asston Mascot" 
-                        className="h-16 w-16 md:h-20 md:w-20 object-contain drop-shadow-lg group-hover:drop-shadow-xl transition-all"
+                        src={AsstonFriends} 
+                        alt="Asston and Friends" 
+                        className="h-auto w-full max-w-2xl md:max-w-4xl drop-shadow-lg"
                     />
                 </div>
                 <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-primary leading-tight">
