@@ -255,9 +255,15 @@ export const COMMUNITY_RESOURCES: Record<string, CommunityResources> = {
             { title: "Code Craft Dunedin", url: "https://www.meetup.com/code-craft-dunedin/", description: "Dunedin IT development discussion group.", location: "Dunedin", countries: ["NZ"] },
             { title: "Canterbury Tech", url: "https://canterburytech.nz/", description: "The cluster for tech companies in Canterbury.", location: "Christchurch", countries: ["NZ"] },
             { title: "Nelson Dev Group", url: "https://www.meetup.com/nelson-dev/", description: "Tech community in the Nelson region.", location: "Nelson", countries: ["NZ"] },
-            { title: "Tauranga Tech", url: "https://www.meetup.com/tauranga-tech/", description: "Growing tech community in the Bay of Plenty.", location: "Tauranga", countries: ["NZ"] }
+            { title: "Tauranga Tech", url: "https://www.meetup.com/tauranga-tech/", description: "Growing tech community in the Bay of Plenty.", location: "Tauranga", countries: ["NZ"] },
+
+            // Spain
+            { title: "GDG Madrid", url: "https://www.meetup.com/gdg-madrid/", description: "Large Google tech community covering Android, Flutter, Cloud, and AI. Very active with 5,500+ members.", location: "Madrid", countries: ["ES"] },
+            { title: "GDG Barcelona", url: "https://www.meetup.com/gdg-barcelona/", description: "Active Google developer community focused on Android, Flutter, Cloud, and AI/ML. 3,200+ members.", location: "Barcelona", countries: ["ES"] }
         ],
         upcomingEvents: [
+            { title: "T3chFest 2026", url: "https://t3chfest.es/", description: "Major tech conference in Madrid with 1,800+ attendees, 70+ talks. Content in English and Spanish.", location: "Madrid", date: "Mar 12-13, 2026", countries: ["ES"] },
+            { title: "JBCNConf 2026", url: "https://www.jbcnconf.com/", description: "Premier Java/JVM conference in Barcelona organized by Barcelona JUG.", location: "Barcelona", date: "TBA 2026", countries: ["ES"] },
             { title: "NZ Tech Rally 2025", url: "https://nztechrally.tech/", description: "Community-driven software conference with mobile tracks.", location: "Wellington", date: "May 16, 2025", countries: ["NZ"] },
             { title: "DevFest Melbourne 2025", url: "https://gdgmelbourne.com/", description: "Large-scale Google technology conference in Victoria.", location: "Melbourne", date: "Oct 4, 2025", countries: ["AU"] },
             { title: "DevFest Sydney 2025", url: "https://gdgsydney.au/", description: "NSW's premier Google developer event.", location: "Sydney", date: "Oct 11, 2025", countries: ["AU"] },
@@ -312,9 +318,14 @@ export const COMMUNITY_RESOURCES: Record<string, CommunityResources> = {
             { title: "Dunedin Gamedev Meetup", url: "https://www.meetup.com/dunedin-gamedev-meetup/", description: "App and game development in Dunedin.", location: "Dunedin", countries: ["NZ"] },
             { title: "Nelson Dev Group", url: "https://www.meetup.com/nelson-dev/", description: "General developer community in Nelson.", location: "Nelson", countries: ["NZ"] },
             { title: "Hamilton Developers", url: "https://techinthetron.com/", description: "Tech industry group in the Tron.", location: "Hamilton", countries: ["NZ"] },
-            { title: "Christchurch Game Devs", url: "https://www.meetup.com/christchurch-game-developers/", description: "Game and app workshop group.", location: "Christchurch", countries: ["NZ"] }
+            { title: "Christchurch Game Devs", url: "https://www.meetup.com/christchurch-game-developers/", description: "Game and app workshop group.", location: "Christchurch", countries: ["NZ"] },
+
+            // Spain
+            { title: "SwiftBarcelona", url: "https://www.meetup.com/swiftbarcelona/", description: "Monthly Swift/iOS meetups in English. Very active with 1,370+ members.", location: "Barcelona", countries: ["ES"] },
+            { title: "NSCoder Night Madrid", url: "https://www.meetup.com/nscoder-night-madrid/", description: "Monthly iOS/macOS developer meetup with technical presentations. 1,000+ members, highly rated.", location: "Madrid", countries: ["ES"] }
         ],
         upcomingEvents: [
+            { title: "T3chFest 2026", url: "https://t3chfest.es/", description: "Major tech conference in Madrid with mobile tracks. Content in English and Spanish.", location: "Madrid", date: "Mar 12-13, 2026", countries: ["ES"] },
             { title: "NZ Tech Rally 2025", url: "https://nztechrally.tech/", description: "NZ's community software conference with mobile tracks.", location: "Wellington", date: "May 16, 2025", countries: ["NZ"] },
             { title: "/dev/world 2025", url: "https://devworld.au/", description: "The definitive AU conference for Apple devs and designers.", location: "Melbourne", date: "Sep 4-5, 2025", countries: ["AU"] },
             { title: "Create NZ", url: "https://createnz.io/", description: "Conference focusing on mobile and web craft.", location: "Auckland", date: "July 18, 2025", countries: ["NZ"] },
@@ -357,9 +368,14 @@ export const COMMUNITY_RESOURCES: Record<string, CommunityResources> = {
             { title: "Flutter Melbourne", url: "https://www.meetup.com/flutter-melbourne/", description: "Melbourne's monthly Flutter developer meetup.", location: "Melbourne", countries: ["AU"] },
             { title: "GDG Auckland", url: "https://www.meetup.com/gdg-auckland/", description: "Broad Google Tech group with heavy Flutter presence.", location: "Auckland", countries: ["NZ"] },
             { title: "GDG Wellington", url: "https://www.meetup.com/gdg-wellington/", description: "Capital city's Google technology community.", location: "Wellington", countries: ["NZ"] },
-            { title: "Digital Bytes WGTN", url: "https://www.meetup.com/digital-bytes-wgtn/", description: "Wellington's mobile and web community group.", location: "Wellington", countries: ["NZ"] }
+            { title: "Digital Bytes WGTN", url: "https://www.meetup.com/digital-bytes-wgtn/", description: "Wellington's mobile and web community group.", location: "Wellington", countries: ["NZ"] },
+
+            // Spain
+            { title: "Flutter Madrid", url: "https://www.meetup.com/flutter-madrid/", description: "Flutter community with 800+ members. Technical talks and networking events.", location: "Madrid", countries: ["ES"] },
+            { title: "Flutter Barcelona", url: "https://www.meetup.com/flutter-barcelona/", description: "Active Flutter meetup group with regular events. 290+ members.", location: "Barcelona", countries: ["ES"] }
         ],
         upcomingEvents: [
+            { title: "T3chFest 2026", url: "https://t3chfest.es/", description: "Major tech conference in Madrid with Flutter/Dart content.", location: "Madrid", date: "Mar 12-13, 2026", countries: ["ES"] },
             { title: "Flutter Sydney DevFest", url: "https://devfest.gdgsydney.au/", description: "Major Flutter presence at Sydney's DevFest.", location: "Sydney", date: "Oct 2025", countries: ["AU"] },
             { title: "DevFest Auckland 2025", url: "https://devfest.gdgauckland.nz/", description: "The premier Google technology event in NZ.", location: "Auckland", date: "Nov 9, 2025", countries: ["NZ"] },
             { title: "NZ Tech Rally 2026", url: "https://nztechrally.tech/", description: "Community software conference with Dart/Flutter tracks.", location: "Wellington", date: "May 15, 2026", countries: ["NZ"] },

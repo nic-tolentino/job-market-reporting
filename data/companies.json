@@ -1915,5 +1915,275 @@
     "visa_sponsorship": true,
     "updated_at": "2026-03-06T10:00:00Z",
     "verification_level": "verified"
+  },
+  {
+    "id": "glovo",
+    "name": "Glovo",
+    "alternateNames": [],
+    "description": "On-demand delivery platform connecting users with local restaurants, shops, and pharmacies across 22 countries.",
+    "website": "https://glovoapp.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGhKvGJ8KqVfA/company-logo_100_100/0/1688469301946/glovoapp_logo?e=1774483200&v=beta&t=placeholder",
+    "industries": [
+      "Delivery",
+      "Marketplace",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "ES",
+    "operating_countries": [
+      "ES",
+      "IT",
+      "UA",
+      "RO",
+      "PT",
+      "PL",
+      "HR",
+      "KE"
+    ],
+    "office_locations": [
+      "Barcelona"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-07T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "cabify",
+    "name": "Cabify",
+    "alternateNames": [
+      "Cabify España"
+    ],
+    "description": "Multi-mobility platform offering ride-hailing, delivery, and corporate transport solutions across 6 countries.",
+    "website": "https://cabify.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFvPqKqKqKqKq/company-logo_100_100/0/1630650773411/cabify_logo?e=1774483200&v=beta&t=placeholder",
+    "industries": [
+      "Transportation",
+      "Mobility",
+      "SaaS"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "ES",
+    "operating_countries": [
+      "ES",
+      "AR",
+      "CL",
+      "CO",
+      "PE",
+      "UY"
+    ],
+    "office_locations": [
+      "Madrid"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-07T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "wallapop",
+    "name": "Wallapop",
+    "alternateNames": [],
+    "description": "Leading second-hand marketplace app for buying and selling items locally across Europe.",
+    "website": "https://wallapop.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHvKqKqKqKqKq/company-logo_100_100/0/1630650773411/wallapop_logo?e=1774483200&v=beta&t=placeholder",
+    "industries": [
+      "Marketplace",
+      "E-commerce",
+      "Consumer"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "ES",
+    "operating_countries": [
+      "ES",
+      "IT",
+      "PT"
+    ],
+    "office_locations": [
+      "Barcelona"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-07T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "idealista",
+    "name": "Idealista",
+    "alternateNames": [],
+    "description": "Largest real estate portal in Spain and Europe, connecting buyers, sellers, and renters.",
+    "website": "https://www.idealista.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGvKqKqKqKqKq/company-logo_100_100/0/1630650773411/idealista_logo?e=1774483200&v=beta&t=placeholder",
+    "industries": [
+      "Real Estate",
+      "PropTech",
+      "Marketplace"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "ES",
+    "operating_countries": [
+      "ES",
+      "IT",
+      "PT"
+    ],
+    "office_locations": [
+      "Madrid"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-07T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "typeform",
+    "name": "Typeform",
+    "alternateNames": [],
+    "description": "AI engagement platform for building forms, surveys, quizzes, and polls. Trusted by 95% of Fortune 500 companies.",
+    "website": "https://www.typeform.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHvKqKqKqKqKq/company-logo_100_100/0/1630650773411/typeform_logo?e=1774483200&v=beta&t=placeholder",
+    "industries": [
+      "SaaS",
+      "Forms",
+      "Data Collection"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "ES",
+    "operating_countries": [
+      "ES",
+      "US",
+      "UK",
+      "DE",
+      "FR"
+    ],
+    "office_locations": [
+      "Barcelona"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-07T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "factorial",
+    "name": "Factorial",
+    "alternateNames": [
+      "Factorial HR"
+    ],
+    "description": "All-in-one business management software unifying HR, finance, payroll, time management, and talent management. Serving 15,000+ companies.",
+    "website": "https://factorialhr.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFvKqKqKqKqKq/company-logo_100_100/0/1630650773411/factorialhr_logo?e=1774483200&v=beta&t=placeholder",
+    "industries": [
+      "HR Tech",
+      "SaaS",
+      "Enterprise"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "ES",
+    "operating_countries": [
+      "ES",
+      "FR",
+      "IT",
+      "PT",
+      "MX",
+      "CL",
+      "CO"
+    ],
+    "office_locations": [
+      "Barcelona"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-07T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "travelperk",
+    "name": "TravelPerk",
+    "alternateNames": [
+      "Perk"
+    ],
+    "description": "AI-powered platform combining travel booking, expense management, and invoice processing. SoftBank-backed, valued at $2.7B.",
+    "website": "https://www.travelperk.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGvKqKqKqKqKq/company-logo_100_100/0/1630650773411/travelperk_logo?e=1774483200&v=beta&t=placeholder",
+    "industries": [
+      "Travel",
+      "SaaS",
+      "Enterprise"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "ES",
+    "operating_countries": [
+      "ES",
+      "US",
+      "UK",
+      "DE",
+      "FR",
+      "IT",
+      "NL"
+    ],
+    "office_locations": [
+      "Barcelona"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-07T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
+  },
+  {
+    "id": "fever",
+    "name": "Fever",
+    "alternateNames": [
+      "Fever Up"
+    ],
+    "description": "Live entertainment platform curating experiences including concerts, sports, culture, and immersive events in 200+ cities across 30+ countries.",
+    "website": "https://feverup.com",
+    "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHvKqKqKqKqKq/company-logo_100_100/0/1630650773411/feverup_logo?e=1774483200&v=beta&t=placeholder",
+    "industries": [
+      "Entertainment",
+      "Events",
+      "Consumer"
+    ],
+    "company_type": "Product",
+    "is_agency": false,
+    "is_social_enterprise": false,
+    "hq_country": "ES",
+    "operating_countries": [
+      "ES",
+      "US",
+      "UK",
+      "FR",
+      "IT",
+      "DE",
+      "PT"
+    ],
+    "office_locations": [
+      "Madrid"
+    ],
+    "remote_policy": "Hybrid",
+    "visa_sponsorship": true,
+    "updated_at": "2026-03-07T10:00:00Z",
+    "employees_count": null,
+    "verification_level": "verified"
   }
 ]

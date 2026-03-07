@@ -119,15 +119,22 @@ Since historical job data does not change frequently (ingestion happens daily/we
 
 Now:
 
-- I need to make ingestion of datasets idempotent. 
+
 
 Later:
+
+- Company level tech stacks is currently broken.
 
 - Locations in company, tech, and job pages appear with city shown twice. Eg Auckland, Auckland. Countries are only shown once. Eg "New Zealand". Please check first whether this is a backend data or frontend display issue.
 
 - Add a location job filter to the company page???
 
 - The ability to group technologies by category, e.g. cloud, server, database, web, mobile, backend, etc in the landing, and company pages
+
+- Add currency detection and support
+- Add salary analysis on a per country basis, comparing industries and seniorities
+- Add details to the job salary indicatig the source of the info (job listing, vs market data, vs AI estimate) so we can make accurate analysis
+- Add language detection for job listings
 
 - Add a soft skills (leadership, communication, etc) and capabilities (agile, devops, etc) leaderboard, also show it on the job page
 - Add pages for high level domains: Web, Mobile, Backend, Full stack (?), security, SRE, etc.

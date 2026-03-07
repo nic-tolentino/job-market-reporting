@@ -44,6 +44,8 @@ class RawJobDataParser {
                     "dunedin" to Triple("Dunedin", "Otago", "NZ"),
 
                     // Spain
+                    "las palmas" to Triple("Las Palmas", "Canary Islands", "ES"),
+                    "santa cruz" to Triple("Santa Cruz", "Canary Islands", "ES"),
                     "madrid" to Triple("Madrid", "Community of Madrid", "ES"),
                     "barcelona" to Triple("Barcelona", "Catalonia", "ES"),
                     "valencia" to Triple("Valencia", "Valencian Community", "ES"),
@@ -52,7 +54,11 @@ class RawJobDataParser {
                     "zaragoza" to Triple("Zaragoza", "Aragon", "ES"),
                     "malaga" to Triple("Málaga", "Andalusia", "ES"),
                     "málaga" to Triple("Málaga", "Andalusia", "ES"),
-                    "bilbao" to Triple("Bilbao", "Basque Country", "ES")
+                    "bilbao" to Triple("Bilbao", "Basque Country", "ES"),
+                    "murcia" to Triple("Murcia", "Region of Murcia", "ES"),
+                    "palma" to Triple("Palma", "Balearic Islands", "ES"),
+                    "alicante" to Triple("Alicante", "Valencian Community", "ES"),
+                    "granada" to Triple("Granada", "Andalusia", "ES")
             )
 
     /** Determines the ISO Country Code (AU, NZ, ES) from a location string. */
@@ -65,7 +71,7 @@ class RawJobDataParser {
         return when {
             locUpper.contains("AUSTRALIA") -> "AU"
             locUpper.contains("NEW ZEALAND") -> "NZ"
-            locUpper.contains("SPAIN") -> "ES"
+            locUpper.contains("SPAIN") || locUpper.contains("ESPAÑA") -> "ES"
             else -> "Unknown"
         }
     }
@@ -107,15 +113,16 @@ class RawJobDataParser {
         return Triple(result.first, result.second, normalizeCountry(result.third))
     }
 
-    /** Detects "Remote", "Hybrid" based on location or title keywords. Returns null if no explicit keyword is found. */
-    fun extractWorkModel(location: String?, title: String?): String? {
+    /** Detects "Remote", "Hybrid" based on location or title keywords. Returns "On-site" if no explicit keyword is found. */
+    fun extractWorkModel(location: String?, title: String?): String {
         val locLower = location?.lowercase() ?: ""
         val titleLower = title?.lowercase() ?: ""
         val combined = "$locLower $titleLower"
         return when {
-            combined.contains("remote") -> "Remote"
-            combined.contains("hybrid") -> "Hybrid"
-            else -> null
+            combined.contains("remote") || combined.contains("teletrabajo") -> "Remote"
+            combined.contains("hybrid") || combined.contains("híbrido") -> "Hybrid"
+            combined.contains("presencial") -> "On-site"
+            else -> "On-site"
         }
     }
 

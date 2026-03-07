@@ -181,4 +181,170 @@ class RawJobDataParserTest {
     fun `parseDate returns null for garbage input`() {
         assertNull(parser.parseDate("not-a-date"))
     }
+
+    // ===== Spain Support Tests =====
+
+    // --- determineCountry ---
+
+    @Test
+    fun `determineCountry returns ES for Barcelona`() {
+        assertEquals("ES", parser.determineCountry("Barcelona"))
+    }
+
+    @Test
+    fun `determineCountry returns ES for Valencia`() {
+        assertEquals("ES", parser.determineCountry("Valencia"))
+    }
+
+    @Test
+    fun `determineCountry returns ES for Sevilla`() {
+        assertEquals("ES", parser.determineCountry("Sevilla"))
+    }
+
+    @Test
+    fun `determineCountry returns ES for España`() {
+        assertEquals("ES", parser.determineCountry("España"))
+    }
+
+    @Test
+    fun `determineCountry returns ES for location with España`() {
+        assertEquals("ES", parser.determineCountry("Madrid, España"))
+    }
+
+    // --- parseLocation ---
+
+    @Test
+    fun `parseLocation resolves Madrid to full tuple`() {
+        val (city, state, country) = parser.parseLocation("Madrid, Spain")
+        assertEquals("Madrid", city)
+        assertEquals("Community of Madrid", state)
+        assertEquals("ES", country)
+    }
+
+    @Test
+    fun `parseLocation resolves Barcelona to full tuple`() {
+        val (city, state, country) = parser.parseLocation("Barcelona, Spain")
+        assertEquals("Barcelona", city)
+        assertEquals("Catalonia", state)
+        assertEquals("ES", country)
+    }
+
+    @Test
+    fun `parseLocation resolves Valencia to full tuple`() {
+        val (city, state, country) = parser.parseLocation("Valencia, Spain")
+        assertEquals("Valencia", city)
+        assertEquals("Valencian Community", state)
+        assertEquals("ES", country)
+    }
+
+    @Test
+    fun `parseLocation resolves Murcia to full tuple`() {
+        val (city, state, country) = parser.parseLocation("Murcia, Spain")
+        assertEquals("Murcia", city)
+        assertEquals("Region of Murcia", state)
+        assertEquals("ES", country)
+    }
+
+    @Test
+    fun `parseLocation resolves Palma to full tuple`() {
+        val (city, state, country) = parser.parseLocation("Palma, Spain")
+        assertEquals("Palma", city)
+        assertEquals("Balearic Islands", state)
+        assertEquals("ES", country)
+    }
+
+    @Test
+    fun `parseLocation resolves Las Palmas to full tuple`() {
+        val (city, state, country) = parser.parseLocation("Las Palmas, Spain")
+        assertEquals("Las Palmas", city)
+        assertEquals("Canary Islands", state)
+        assertEquals("ES", country)
+    }
+
+    @Test
+    fun `parseLocation resolves Santa Cruz to full tuple`() {
+        val (city, state, country) = parser.parseLocation("Santa Cruz, Spain")
+        assertEquals("Santa Cruz", city)
+        assertEquals("Canary Islands", state)
+        assertEquals("ES", country)
+    }
+
+    @Test
+    fun `parseLocation resolves Alicante to full tuple`() {
+        val (city, state, country) = parser.parseLocation("Alicante, Spain")
+        assertEquals("Alicante", city)
+        assertEquals("Valencian Community", state)
+        assertEquals("ES", country)
+    }
+
+    @Test
+    fun `parseLocation resolves Granada to full tuple`() {
+        val (city, state, country) = parser.parseLocation("Granada, Spain")
+        assertEquals("Granada", city)
+        assertEquals("Andalusia", state)
+        assertEquals("ES", country)
+    }
+
+    @Test
+    fun `parseLocation resolves Málaga to full tuple`() {
+        val (city, state, country) = parser.parseLocation("Málaga, Spain")
+        assertEquals("Málaga", city)
+        assertEquals("Andalusia", state)
+        assertEquals("ES", country)
+    }
+
+    @Test
+    fun `parseLocation resolves Bilbao to full tuple`() {
+        val (city, state, country) = parser.parseLocation("Bilbao, Spain")
+        assertEquals("Bilbao", city)
+        assertEquals("Basque Country", state)
+        assertEquals("ES", country)
+    }
+
+    @Test
+    fun `parseLocation resolves Zaragoza to full tuple`() {
+        val (city, state, country) = parser.parseLocation("Zaragoza, Spain")
+        assertEquals("Zaragoza", city)
+        assertEquals("Aragon", state)
+        assertEquals("ES", country)
+    }
+
+    // --- extractWorkModel ---
+
+    @Test
+    fun `extractWorkModel detects Teletrabajo as Remote`() {
+        assertEquals("Remote", parser.extractWorkModel("Madrid, España", "Desarrollador - Teletrabajo"))
+    }
+
+    @Test
+    fun `extractWorkModel detects Híbrido as Hybrid`() {
+        assertEquals("Hybrid", parser.extractWorkModel("Barcelona", "Ingeniero Híbrido"))
+    }
+
+    @Test
+    fun `extractWorkModel detects Presencial as On-site`() {
+        assertEquals("On-site", parser.extractWorkModel("Valencia", "Desarrollador Presencial"))
+    }
+
+    @Test
+    fun `extractWorkModel detects remote in lowercase Spanish`() {
+        assertEquals("Remote", parser.extractWorkModel("teletrabajo", "Desarrollador"))
+    }
+
+    // --- parseSalary ---
+
+    @Test
+    fun `parseSalary handles European format with euro symbol`() {
+        assertEquals(35000, parser.parseSalary("35.000€"))
+    }
+
+    @Test
+    fun `parseSalary handles European format with euro prefix`() {
+        assertEquals(40000, parser.parseSalary("€40.000"))
+    }
+
+    @Test
+    fun `parseSalary handles Spanish salary format with text`() {
+        assertEquals(30000, parser.parseSalary("Salario Bruto Anual 30.000€"))
+    }
 }
