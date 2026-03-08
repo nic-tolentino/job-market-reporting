@@ -640,9 +640,478 @@ class RawJobDataParserTest {
     }
 
     @Test
+    fun `parseSalary handles millions with multiple separators`() {
+        val result = parser.parseSalary("$1,250,000", "US")
+        assertNotNull(result)
+        assertEquals(125000000L, result?.amount) // $1,250,000.00
+    }
+
+    @Test
     fun `parseSalaryRange returns same value for both when no range found`() {
         val (min, max) = parser.parseSalaryRange("$120,000", "NZ")
         assertNotNull(min)
         assertEquals(min?.amount, max?.amount)  // Single value returns (value, value)
+    }
+
+    // ===== Extended International Format Tests =====
+
+    // --- Separator Edge Cases ---
+
+    @Test
+    fun `parseSalary handles US format with cents`() {
+        val result = parser.parseSalary("$120,000.50", "US")
+        assertNotNull(result)
+        assertEquals(12000050L, result?.amount)
+        assertEquals("USD", result?.currency)
+    }
+
+    @Test
+    fun `parseSalary handles EU format with comma decimal`() {
+        val result = parser.parseSalary("35.000,50€", "ES")
+        assertNotNull(result)
+        assertEquals(3500050L, result?.amount)
+        assertEquals("EUR", result?.currency)
+    }
+
+    @Test
+    fun `parseSalary handles EU format with comma decimal and euro prefix`() {
+        val result = parser.parseSalary("€45.000,99", "ES")
+        assertNotNull(result)
+        assertEquals(4500099L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles mixed format with dot thousands and dot decimal`() {
+        val result = parser.parseSalary("€40,000.00", "ES")
+        assertNotNull(result)
+        assertEquals(4000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles no separator thousands`() {
+        val result = parser.parseSalary("$120000", "NZ")
+        assertNotNull(result)
+        assertEquals(12000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles EU no separator`() {
+        val result = parser.parseSalary("€35000", "ES")
+        assertNotNull(result)
+        assertEquals(3500000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles single digit after comma`() {
+        val result = parser.parseSalary("$50,5", "NZ")
+        assertNotNull(result)
+        assertEquals(5050L, result?.amount)  // 50.50
+    }
+
+    @Test
+    fun `parseSalary handles single digit after dot`() {
+        val result = parser.parseSalary("€45.5", "ES")
+        assertNotNull(result)
+        assertEquals(4550L, result?.amount)  // 45.50
+    }
+
+    // --- Complex International Formats ---
+
+    @Test
+    fun `parseSalary handles UK format`() {
+        val result = parser.parseSalary("£75,000", "UK")
+        assertNotNull(result)
+        assertEquals(7500000L, result?.amount)
+        assertEquals("GBP", result?.currency)
+    }
+
+    @Test
+    fun `parseSalary handles UK format with pence`() {
+        val result = parser.parseSalary("£50,000.50", "UK")
+        assertNotNull(result)
+        assertEquals(5000050L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles Canadian format`() {
+        val result = parser.parseSalary("$95,000 CAD", "CA")
+        assertNotNull(result)
+        assertEquals(9500000L, result?.amount)
+        assertEquals("CAD", result?.currency)
+    }
+
+    @Test
+    fun `parseSalary handles German format with comma decimal`() {
+        val result = parser.parseSalary("55.000,00€", "DE")
+        assertNotNull(result)
+        assertEquals(5500000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles French format`() {
+        val result = parser.parseSalary("€42.500", "FR")
+        assertNotNull(result)
+        assertEquals(4250000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles Italian format`() {
+        val result = parser.parseSalary("€38.000,50", "IT")
+        assertNotNull(result)
+        assertEquals(3800050L, result?.amount)
+    }
+
+    // --- Edge Cases with Text ---
+
+    @Test
+    fun `parseSalary handles salary with bruto text`() {
+        val result = parser.parseSalary("€35.000 bruto", "ES")
+        assertNotNull(result)
+        assertEquals(3500000L, result?.amount)
+        assertEquals(true, result?.isGross)
+    }
+
+    @Test
+    fun `parseSalary handles salary with neto text`() {
+        val result = parser.parseSalary("€30.000 neto", "ES")
+        assertNotNull(result)
+        assertEquals(3000000L, result?.amount)
+        assertEquals(false, result?.isGross)
+    }
+
+    @Test
+    fun `parseSalary handles salary with approximately text`() {
+        val result = parser.parseSalary("approximately $80,000", "NZ")
+        assertNotNull(result)
+        assertEquals(8000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles salary with circa text`() {
+        val result = parser.parseSalary("circa €45.000", "DE")
+        assertNotNull(result)
+        assertEquals(4500000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles salary with about text`() {
+        val result = parser.parseSalary("about $120k", "AU")
+        assertNotNull(result)
+        assertEquals(12000000L, result?.amount)
+    }
+
+    // --- Complex Plus/Benefits Cases ---
+
+    @Test
+    fun `parseSalary handles plus with percentage`() {
+        val result = parser.parseSalary("$90,000 + 10% super", "AU")
+        assertNotNull(result)
+        assertEquals(9000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles plus with text only`() {
+        val result = parser.parseSalary("€50.000 + beneficios", "ES")
+        assertNotNull(result)
+        assertEquals(5000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles package text`() {
+        val result = parser.parseSalary("$100k package", "NZ")
+        assertNotNull(result)
+        assertEquals(10000000L, result?.amount)
+    }
+
+    // --- Range Edge Cases ---
+
+    @Test
+    fun `parseSalaryRange handles em-dash separator`() {
+        val (min, max) = parser.parseSalaryRange("$80k—$120k", "NZ")
+        assertNotNull(min)
+        assertNotNull(max)
+        assertEquals(8000000L, min?.amount)
+        assertEquals(12000000L, max?.amount)
+    }
+
+    @Test
+    fun `parseSalaryRange handles EU format range`() {
+        val (min, max) = parser.parseSalaryRange("€35.000 - €45.000", "ES")
+        assertNotNull(min)
+        assertNotNull(max)
+        assertEquals(3500000L, min?.amount)
+        assertEquals(4500000L, max?.amount)
+    }
+
+    @Test
+    fun `parseSalaryRange handles EU format range with comma decimal`() {
+        val (min, max) = parser.parseSalaryRange("€35.000,50 - €45.000,99", "ES")
+        assertNotNull(min)
+        assertNotNull(max)
+        assertEquals(3500050L, min?.amount)
+        assertEquals(4500099L, max?.amount)
+    }
+
+    @Test
+    fun `parseSalaryRange handles ampersand separator`() {
+        val (min, max) = parser.parseSalaryRange("$70k & $90k", "AU")
+        assertNotNull(min)
+        assertNotNull(max)
+        assertEquals(7000000L, min?.amount)
+        assertEquals(9000000L, max?.amount)
+    }
+
+    @Test
+    fun `parseSalaryRange handles single value with range-like text`() {
+        val (min, max) = parser.parseSalaryRange("$100,000 OTE", "NZ")
+        assertNotNull(min)
+        assertNotNull(max)
+        assertEquals(10000000L, min?.amount)
+        assertEquals(10000000L, max?.amount)
+    }
+
+    // --- Non-Salary Indicators ---
+
+    @Test
+    fun `parseSalary returns null for DOE`() {
+        val result = parser.parseSalary("DOE", "NZ")
+        assertNull(result)
+    }
+
+    @Test
+    fun `parseSalary returns null for depending on experience`() {
+        val result = parser.parseSalary("Depending on experience", "NZ")
+        assertNull(result)
+    }
+
+    @Test
+    fun `parseSalary returns null for negotiable`() {
+        val result = parser.parseSalary("Negotiable", "AU")
+        assertNull(result)
+    }
+
+    @Test
+    fun `parseSalary returns null for confidential`() {
+        val result = parser.parseSalary("Confidential", "ES")
+        assertNull(result)
+    }
+
+    @Test
+    fun `parseSalary returns null for TBD`() {
+        val result = parser.parseSalary("TBD", "NZ")
+        assertNull(result)
+    }
+
+    @Test
+    fun `parseSalary returns null for to be discussed`() {
+        val result = parser.parseSalary("To be discussed", "AU")
+        assertNull(result)
+    }
+
+    // --- Period Detection Edge Cases ---
+
+    @Test
+    fun `parseSalary detects per diem as daily`() {
+        val result = parser.parseSalary("$500 per diem", "NZ")
+        assertNotNull(result)
+        assertEquals(50000L, result?.amount)
+        assertEquals("DAY", result?.period)
+    }
+
+    @Test
+    fun `parseSalary detects p a as yearly`() {
+        val result = parser.parseSalary("$120,000 p.a.", "AU")
+        assertNotNull(result)
+        assertEquals(12000000L, result?.amount)
+        assertEquals("YEAR", result?.period)
+    }
+
+    @Test
+    fun `parseSalary detects per month`() {
+        val result = parser.parseSalary("$8,500 per month", "NZ")
+        assertNotNull(result)
+        assertEquals(850000L, result?.amount)
+        assertEquals("MONTH", result?.period)
+    }
+
+    @Test
+    fun `parseSalary detects hourly with p h`() {
+        val result = parser.parseSalary("$55 p/h", "AU")
+        assertNotNull(result)
+        assertEquals(5500L, result?.amount)
+        assertEquals("HOUR", result?.period)
+    }
+
+    // --- Gross/Net Detection ---
+
+    @Test
+    fun `parseSalary detects net in middle of string`() {
+        val result = parser.parseSalary("$80,000 net per year", "NZ")
+        assertNotNull(result)
+        assertEquals(8000000L, result?.amount)
+        assertEquals(false, result?.isGross)
+    }
+
+    @Test
+    fun `parseSalary detects after tax`() {
+        val result = parser.parseSalary("$75,000 after tax", "AU")
+        assertNotNull(result)
+        assertEquals(7500000L, result?.amount)
+        assertEquals(false, result?.isGross)
+    }
+
+    @Test
+    fun `parseSalary detects take home`() {
+        val result = parser.parseSalary("$70,000 take home", "NZ")
+        assertNotNull(result)
+        assertEquals(7000000L, result?.amount)
+        assertEquals(false, result?.isGross)
+    }
+
+    @Test
+    fun `parseSalary defaults to gross when no indicator`() {
+        val result = parser.parseSalary("$90,000", "NZ")
+        assertNotNull(result)
+        assertEquals(9000000L, result?.amount)
+        assertEquals(true, result?.isGross)
+    }
+
+    // --- Source and Disclaimer Tests ---
+
+    @Test
+    fun `parseSalary with ATS_API source has HIGH confidence`() {
+        val salary = parser.parseSalary("$100,000", "NZ", NormalizedSalary.SOURCE_ATS_API)
+        assertNotNull(salary)
+        assertEquals("HIGH", salary?.confidence)
+        assertNull(salary?.disclaimer)
+    }
+
+    @Test
+    fun `parseSalary with MARKET_DATA source has MEDIUM confidence`() {
+        val salary = parser.parseSalary("$100,000", "NZ", NormalizedSalary.SOURCE_MARKET_DATA)
+        assertNotNull(salary)
+        assertEquals("MEDIUM", salary?.confidence)
+        assertNotNull(salary?.disclaimer)
+        assertTrue(salary?.disclaimer?.contains("market data") == true)
+    }
+
+    @Test
+    fun `parseSalary with AI_ESTIMATE source has LOW confidence`() {
+        val salary = parser.parseSalary("$100,000", "NZ", NormalizedSalary.SOURCE_AI_ESTIMATE)
+        assertNotNull(salary)
+        assertEquals("LOW", salary?.confidence)
+        assertNotNull(salary?.disclaimer)
+        assertTrue(salary?.disclaimer?.contains("AI-estimated") == true)
+    }
+
+    // --- Decimal/Cent Handling ---
+
+    @Test
+    fun `parseSalary handles zero cents`() {
+        val result = parser.parseSalary("$50,000.00", "NZ")
+        assertNotNull(result)
+        assertEquals(5000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles single cent digit`() {
+        val result = parser.parseSalary("$50,000.5", "NZ")
+        assertNotNull(result)
+        assertEquals(5000050L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles two cent digits`() {
+        val result = parser.parseSalary("$50,000.99", "NZ")
+        assertNotNull(result)
+        assertEquals(5000099L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary truncates more than two cent digits`() {
+        val result = parser.parseSalary("$50,000.999", "NZ")
+        assertNotNull(result)
+        assertEquals(5000099L, result?.amount)  // Truncated to 99 cents
+    }
+
+    @Test
+    fun `parseSalary handles EU zero cents`() {
+        val result = parser.parseSalary("€35.000,00", "ES")
+        assertNotNull(result)
+        assertEquals(3500000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles EU single cent digit`() {
+        val result = parser.parseSalary("€35.000,5", "ES")
+        assertNotNull(result)
+        assertEquals(3500050L, result?.amount)
+    }
+
+    // --- Large Numbers ---
+
+    @Test
+    fun `parseSalary handles large salary with k`() {
+        val result = parser.parseSalary("$250k", "US")
+        assertNotNull(result)
+        assertEquals(25000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles large salary with commas`() {
+        val result = parser.parseSalary("$250,000", "US")
+        assertNotNull(result)
+        assertEquals(25000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles very large EU salary`() {
+        val result = parser.parseSalary("€150.000", "DE")
+        assertNotNull(result)
+        assertEquals(15000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles million dollar salary with multiple commas`() {
+        val result = parser.parseSalary("$1,250,000", "US")
+        assertNotNull(result)
+        assertEquals(125000000L, result?.amount)  // $1.25M in cents
+    }
+
+    @Test
+    fun `parseSalary handles million dollar salary with cents`() {
+        val result = parser.parseSalary("$1,250,000.50", "US")
+        assertNotNull(result)
+        assertEquals(125000050L, result?.amount)  // $1.25M + 50 cents
+    }
+
+    @Test
+    fun `parseSalary handles EU million with dot thousands and comma decimal`() {
+        val result = parser.parseSalary("€1.250.000,50", "ES")
+        assertNotNull(result)
+        assertEquals(125000050L, result?.amount)
+    }
+
+    // --- Whitespace and Formatting ---
+
+    @Test
+    fun `parseSalary handles extra whitespace`() {
+        val result = parser.parseSalary("  $120,000  ", "NZ")
+        assertNotNull(result)
+        assertEquals(12000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles newline in string`() {
+        val result = parser.parseSalary("$80,000\nper year", "NZ")
+        assertNotNull(result)
+        assertEquals(8000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles tab in string`() {
+        val result = parser.parseSalary("$90,000\tper annum", "AU")
+        assertNotNull(result)
+        assertEquals(9000000L, result?.amount)
     }
 }

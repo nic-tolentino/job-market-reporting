@@ -336,12 +336,6 @@ class RawJobDataParser {
      * Handles decimal points correctly (e.g., "$120,000.00" → 12000000 cents).
      */
     private fun extractAmount(salaryStr: String, currency: String): Long {
-        // Determine thousands separator based on currency
-        val thousandsSeparator = when (currency) {
-            CURRENCY_EUR -> "."  // Most EU uses dot for thousands
-            else -> ","  // AU/NZ/US use comma
-        }
-
         var cleaned = salaryStr
             .replace(Regex("[€\\$£]"), "")
             .replace("EUR", "")
@@ -354,27 +348,50 @@ class RawJobDataParser {
         // Stop at "+" sign FIRST (e.g., "$120k + super" → "$120k")
         cleaned = cleaned.substringBefore("+").trim()
 
+        // Remove common words that might interfere BEFORE handling "k" suffix
+        // This prevents "package" from being mistaken for "k" suffix
+        cleaned = cleaned.replace(Regex("(?i)salario|bruto|neto|about|approximately|circa|package|ote"), "").trim()
+
         // Handle "k" suffix (e.g., 80k → 80000)
-        if (cleaned.endsWith("k", ignoreCase = true)) {
+        // Only apply if the string ends with "k" preceded by digits
+        if (cleaned.matches(Regex(".*\\d+k$"))) {
             cleaned = cleaned.dropLast(1) + "000"
         }
 
-        // Remove common words that might interfere
-        cleaned = cleaned.replace(Regex("(?i)salario|bruto|neto|about|approximately|circa"), "")
-
-        // Replace thousands separator with nothing
-        cleaned = cleaned.replace(thousandsSeparator, "")
-
-        // Handle decimal point: split into whole and fractional parts
-        // Support both '.' (US/UK) and ',' (EU) as decimal separators
-        val decimalIndex = cleaned.lastIndexOfAny(charArrayOf('.', ','))
-        val (wholePart, fractionalPart) = if (decimalIndex >= 0) {
-            val whole = cleaned.substring(0, decimalIndex).replace(Regex("[^0-9]"), "")
-            // Take up to 2 decimal digits (cents)
-            val frac = cleaned.substring(decimalIndex + 1).replace(Regex("[^0-9]"), "").take(2)
-            whole to frac
+        // Determine decimal separator: last occurrence of . or ,
+        // Heuristic: If there are exactly 3 digits after the separator, it's likely a thousands separator
+        // If there are 1-2 digits after, it's likely a decimal separator
+        // Exception: If there's another separator before it, the last one is decimal regardless
+        val separatorIndex = cleaned.lastIndexOfAny(charArrayOf('.', ','))
+        val (wholePart, fractionalPart) = if (separatorIndex >= 0) {
+            val lastSeparator = cleaned[separatorIndex]
+            val afterSeparator = cleaned.substring(separatorIndex + 1)
+            val afterDigits = afterSeparator.replace(Regex("[^0-9]"), "")
+            
+            // Check for previous separators to distinguish between thousands and decimal
+            val beforePart = cleaned.substring(0, separatorIndex)
+            val previousSeparators = beforePart.filter { it == '.' || it == ',' }
+            val hasPreviousSeparator = previousSeparators.isNotEmpty()
+            val isDifferentFromPrevious = previousSeparators.any { it != lastSeparator }
+            
+            // Heuristic:
+            // 1. If it's different from the previous separator (e.g., 1,250.50), it's a decimal point.
+            // 2. If it's the only separator, assume it's a decimal point if it has 1-2 digits (or if it's explicitly 3 but we're in a short string context, though 1-2 is safer).
+            // 3. If it's the same as a previous separator (e.g., 1.100.000), it's a thousands separator.
+            val isDecimalSeparator = isDifferentFromPrevious || (!hasPreviousSeparator && afterDigits.length <= 2)
+            
+            if (isDecimalSeparator) {
+                // Remove all other noise from the whole part (like thousands separators)
+                val whole = beforePart.replace(Regex("[^0-9]"), "")
+                val frac = afterDigits.take(2)
+                whole to frac
+            } else {
+                // Last separator is thousands: "120,000" or "35.000"
+                // No decimal part, just remove all separators
+                cleaned.replace(Regex("[^0-9]"), "") to ""
+            }
         } else {
-            // No decimal point - extract digits only
+            // No separator - extract digits only
             cleaned.replace(Regex("[^0-9]"), "") to ""
         }
 

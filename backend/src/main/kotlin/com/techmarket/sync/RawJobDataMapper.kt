@@ -318,11 +318,11 @@ class RawJobDataMapper(
                                     if (!salaryInfo.isNullOrEmpty()) {
                                         // If there's only one element, it might be a range string like "$80k - $100k"
                                         if (salaryInfo.size == 1) {
-                                            val (min, max) = parser.parseSalaryRange(salaryInfo[0], targetCountry ?: UNKNOWN_COUNTRY)
+                                            val (min, max) = parser.parseSalaryRange(salaryInfo[0], country)
                                             min
                                         } else {
                                             // Multiple elements: first is min, last is max
-                                            parser.parseSalary(salaryInfo.firstOrNull(), targetCountry ?: UNKNOWN_COUNTRY)
+                                            parser.parseSalary(salaryInfo.firstOrNull(), country)
                                         }
                                     } else null
                                 },
@@ -331,10 +331,10 @@ class RawJobDataMapper(
                                     val salaryInfo = raw.dto.salaryInfo
                                     if (!salaryInfo.isNullOrEmpty()) {
                                         if (salaryInfo.size == 1) {
-                                            val (min, max) = parser.parseSalaryRange(salaryInfo[0], targetCountry ?: UNKNOWN_COUNTRY)
+                                            val (min, max) = parser.parseSalaryRange(salaryInfo[0], country)
                                             max
                                         } else {
-                                            parser.parseSalary(salaryInfo.lastOrNull(), targetCountry ?: UNKNOWN_COUNTRY)
+                                            parser.parseSalary(salaryInfo.lastOrNull(), country)
                                         }
                                     } else null
                                 },
