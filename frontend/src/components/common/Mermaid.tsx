@@ -49,7 +49,6 @@ const Mermaid: React.FC<MermaidProps> = ({ chart, id = 'mermaid-chart', classNam
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
   const [selectedNode, setSelectedNode] = useState<string | null>(null);
-  const [collapsedSubgraphs, setCollapsedSubgraphs] = useState<Set<string>>(new Set());
 
   // Node descriptions for tooltips
   const nodeDescriptions: Record<string, string> = {
@@ -91,10 +90,10 @@ const Mermaid: React.FC<MermaidProps> = ({ chart, id = 'mermaid-chart', classNam
           nodes.forEach(node => {
             node.addEventListener('click', (e) => {
               e.stopPropagation();
-              handleNodeClick(e, node);
+              handleNodeClick(e as unknown as MouseEvent, node);
             });
             node.addEventListener('mouseenter', (e) => {
-              handleNodeHover(e, node);
+              handleNodeHover(e as unknown as MouseEvent, node);
             });
             node.addEventListener('mouseleave', () => {
               handleNodeLeave();
@@ -106,7 +105,7 @@ const Mermaid: React.FC<MermaidProps> = ({ chart, id = 'mermaid-chart', classNam
           clusters.forEach(cluster => {
             cluster.addEventListener('dblclick', (e) => {
               e.stopPropagation();
-              handleSubgraphDoubleClick(e, cluster);
+              handleSubgraphDoubleClick(e as unknown as MouseEvent, cluster);
             });
           });
         }
@@ -126,7 +125,7 @@ const Mermaid: React.FC<MermaidProps> = ({ chart, id = 'mermaid-chart', classNam
     renderChart();
   }, [chart, id]);
 
-  const handleNodeClick = (e: React.MouseEvent | MouseEvent, node: Element) => {
+  const handleNodeClick = (_e: React.MouseEvent | MouseEvent, node: Element) => {
     const nodeId = (node as HTMLElement).id || 'unknown';
     const nodeText = node.textContent?.trim() || '';
     
@@ -153,7 +152,7 @@ const Mermaid: React.FC<MermaidProps> = ({ chart, id = 'mermaid-chart', classNam
     }
   };
 
-  const handleNodeHover = (e: React.MouseEvent | MouseEvent, node: Element) => {
+  const handleNodeHover = (_e: React.MouseEvent | MouseEvent, node: Element) => {
     const nodeText = node.textContent?.trim() || '';
     const description = nodeDescriptions[nodeText] || 'Click to highlight this component';
     
@@ -181,18 +180,7 @@ const Mermaid: React.FC<MermaidProps> = ({ chart, id = 'mermaid-chart', classNam
     });
   };
 
-  const handleSubgraphDoubleClick = (e: MouseEvent, cluster: Element) => {
-    const clusterId = (cluster as HTMLElement).id || 'unknown';
-    setCollapsedSubgraphs(prev => {
-      const next = new Set(prev);
-      if (next.has(clusterId)) {
-        next.delete(clusterId);
-      } else {
-        next.add(clusterId);
-      }
-      return next;
-    });
-    
+  const handleSubgraphDoubleClick = (_e: MouseEvent, cluster: Element) => {
     // Toggle visibility
     const isVisible = cluster.getAttribute('data-collapsed') !== 'true';
     cluster.setAttribute('data-collapsed', String(!isVisible));
