@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
-import { Briefcase, MapPin, DollarSign, Calendar, ShieldCheck } from 'lucide-react';
+import { Briefcase, MapPin, Calendar, ShieldCheck } from 'lucide-react';
 import { Card, CardHeader, CardContent } from '../ui/Card';
 import { H2 } from '../ui/Typography';
 import Dropdown from '../ui/Dropdown';
@@ -9,6 +9,7 @@ import CompanyLogo from '../common/CompanyLogo';
 import { FeedbackButton } from '../common/Feedback';
 import { useChartStyles } from '../../hooks/useChartStyles';
 import { type TechDetailsPageDto } from '../../lib/api';
+import { formatSalaryRange, getConfidenceBadgeClasses, getConfidenceLabel } from '../../lib/salaryFormatter';
 
 /**
  * Formats an ISO timestamp into a human-readable relative time string.
@@ -255,9 +256,15 @@ export const MarketTab = ({
                                             </td>
                                             <td className="px-6 py-5">
                                                 {role.salaryMin && role.salaryMax ? (
-                                                    <div className="flex items-center gap-1 font-medium text-secondary">
-                                                        <DollarSign className="h-4 w-4 text-muted" />
-                                                        ${(role.salaryMin / 1000)}k - ${(role.salaryMax / 1000)}k
+                                                    <div className="space-y-1">
+                                                        <div className="font-medium text-secondary">
+                                                            {formatSalaryRange(role.salaryMin, role.salaryMax)}
+                                                        </div>
+                                                        <span className={`inline-flex items-center gap-1 rounded border px-2 py-0.5 text-xs font-medium ${getConfidenceBadgeClasses(role.salaryMin.source)}`}
+                                                              title={role.salaryMin.disclaimer || undefined}>
+                                                            <ShieldCheck className="h-3 w-3" />
+                                                            {getConfidenceLabel(role.salaryMin.source)}
+                                                        </span>
                                                     </div>
                                                 ) : (
                                                     <span className="text-muted italic">Unlisted</span>

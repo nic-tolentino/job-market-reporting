@@ -5,10 +5,10 @@ import java.time.Instant
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-class UnifiedJobDataMapperTest {
+class AtsJobDataMapperTest {
 
         private val parser = RawJobDataParser()
-        private val mapper = UnifiedJobDataMapper(parser)
+        private val mapper = AtsJobDataMapper(parser)
 
         @Test
         fun `should map normalized jobs to records successfully`() {

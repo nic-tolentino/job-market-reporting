@@ -1,8 +1,11 @@
 package com.techmarket.sync
 
+import com.techmarket.model.NormalizedSalary
+import com.techmarket.model.NormalizedSalary.Companion.SOURCE_ATS_API
 import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.sync.ats.model.NormalizedJob
+import com.techmarket.util.Constants.UNKNOWN_COUNTRY
 import com.techmarket.util.IdGenerator
 import com.techmarket.util.LocationFormatter
 import com.techmarket.util.PiiSanitizer
@@ -16,9 +19,9 @@ import org.springframework.stereotype.Service
  * [CompanyRecord] entities for the Silver layer.
  */
 @Service
-class UnifiedJobDataMapper(private val parser: RawJobDataParser) {
+class AtsJobDataMapper(private val parser: RawJobDataParser) {
 
-        private val log = LoggerFactory.getLogger(UnifiedJobDataMapper::class.java)
+        private val log = LoggerFactory.getLogger(AtsJobDataMapper::class.java)
 
         /** Maps a list of normalized job postings to a [MappedSyncData] container. */
         fun map(
@@ -75,7 +78,7 @@ class UnifiedJobDataMapper(private val parser: RawJobDataParser) {
                 val title = job.title ?: "Unknown Title"
                 val (city, state, countryCode) = parser.parseLocation(job.location)
                 val country =
-                        if (countryCode != "Unknown") countryCode
+                        if (countryCode != UNKNOWN_COUNTRY) countryCode
                         else parser.determineCountry(job.location)
 
                 // Generate a stable Job ID based on company, country, title, and posting date part
@@ -102,12 +105,26 @@ class UnifiedJobDataMapper(private val parser: RawJobDataParser) {
                         source = job.source,
                         country = country,
                         city = city,
-                        stateRegion = if (state != "Unknown") state else "",
+                        stateRegion = if (state != UNKNOWN_COUNTRY) state else "",
                         title = title,
                         seniorityLevel = parser.extractSeniority(title, job.seniorityLevel),
                         technologies = technologies,
-                        salaryMin = job.salaryMin,
-                        salaryMax = job.salaryMax,
+                        salaryMin = if (job.salaryMin != null) {
+                            NormalizedSalary(
+                                amount = job.salaryMin.toLong() * 100L,
+                                currency = job.salaryCurrency ?: NormalizedSalary.getDefaultCurrencyForCountry(country),
+                                period = NormalizedSalary.getDefaultPeriodForCountry(country),
+                                source = SOURCE_ATS_API
+                            )
+                        } else null,
+                        salaryMax = if (job.salaryMax != null) {
+                            NormalizedSalary(
+                                amount = job.salaryMax.toLong() * 100L,
+                                currency = job.salaryCurrency ?: NormalizedSalary.getDefaultCurrencyForCountry(country),
+                                period = NormalizedSalary.getDefaultPeriodForCountry(country),
+                                source = SOURCE_ATS_API
+                            )
+                        } else null,
                         postedDate = parser.parseDate(job.postedAt?.take(10)),
                         benefits =
                                 emptyList(), // ATS APIs usually don't have structured benefits in a

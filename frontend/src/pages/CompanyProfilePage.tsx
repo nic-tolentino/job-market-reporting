@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Building2, MapPin, DollarSign, Calendar, X, ShieldCheck, Globe, CircleDashed } from 'lucide-react';
+import { Building2, MapPin, Calendar, X, ShieldCheck, Globe, CircleDashed } from 'lucide-react';
 import PageLoader from '../components/common/PageLoader';
 import { fetchCompanyProfile, type CompanyProfilePageDto } from '../lib/api';
 import { useAppStore } from '../store/useAppStore';
@@ -11,6 +11,7 @@ import { Card, CardContent } from '../components/ui/Card';
 import { H1, H2, SectionSubtitle } from '../components/ui/Typography';
 import { Badge } from '../components/ui/Badge';
 import SimplePager from '../components/ui/SimplePager';
+import { formatSalaryRange, getConfidenceBadgeClasses, getConfidenceLabel } from '../lib/salaryFormatter';
 
 const ROLES_PAGE_SIZE = 10;
 
@@ -279,9 +280,15 @@ export default function CompanyProfilePage() {
                                             </td>
                                             <td className="px-6 py-5 align-top">
                                                 {job.salaryMin && job.salaryMax ? (
-                                                    <div className="flex items-center gap-1 font-medium text-secondary">
-                                                        <DollarSign className="h-4 w-4 text-muted" />
-                                                        ${(job.salaryMin / 1000)}k - ${(job.salaryMax / 1000)}k
+                                                    <div className="space-y-1">
+                                                        <div className="font-medium text-secondary">
+                                                            {formatSalaryRange(job.salaryMin, job.salaryMax)}
+                                                        </div>
+                                                        <span className={`inline-flex items-center gap-1 rounded border px-2 py-0.5 text-xs font-medium ${getConfidenceBadgeClasses(job.salaryMin.source)}`}
+                                                              title={job.salaryMin.disclaimer || undefined}>
+                                                            <ShieldCheck className="h-3 w-3" />
+                                                            {getConfidenceLabel(job.salaryMin.source)}
+                                                        </span>
                                                     </div>
                                                 ) : (
                                                     <span className="text-muted italic">Unlisted</span>

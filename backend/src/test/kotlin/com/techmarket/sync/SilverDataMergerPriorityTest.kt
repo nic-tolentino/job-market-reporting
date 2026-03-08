@@ -1,5 +1,6 @@
 package com.techmarket.sync
 
+import com.techmarket.model.NormalizedSalary
 import com.techmarket.persistence.model.JobRecord
 import java.time.Instant
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -62,8 +63,8 @@ class SilverDataMergerPriorityTest {
                                 platformLinks = listOf("gh-link"),
                                 technologies = listOf("Kotlin"),
                                 seniorityLevel = "Senior",
-                                salaryMin = 150000,
-                                salaryMax = 200000,
+                                salaryMin = NormalizedSalary(15000000L, "NZD", "YEAR", "JOB_POSTING"),
+                                salaryMax = NormalizedSalary(20000000L, "NZD", "YEAR", "JOB_POSTING"),
                                 postedDate = null,
                                 benefits = emptyList(),
                                 employmentType = null,
@@ -77,7 +78,7 @@ class SilverDataMergerPriorityTest {
                 assertEquals("ATS Title", merged.title)
                 assertEquals("ATS Description", merged.description)
                 assertEquals("Remote", merged.workModel)
-                assertEquals(150000, merged.salaryMin)
+                assertEquals(15000000L, merged.salaryMin?.amount)
 
                 // List aggregators should still be unions
                 assertTrue(merged.technologies.contains("Java"))

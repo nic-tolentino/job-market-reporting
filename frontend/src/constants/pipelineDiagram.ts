@@ -43,7 +43,7 @@ export const pipelineDiagram = `flowchart TB
         ApifyClient["ApifyClient<br/>Fetch recent jobs"]
         RawJobMapper["RawJobDataMapper<br/>Map & Deduplicate"]
         RawJobParser["RawJobDataParser<br/>Extract: Tech, Location,<br/>Seniority, Work Model"]
-        UnifiedMapper["UnifiedJobDataMapper<br/>ATS Data Mapping"]
+        UnifiedMapper["AtsJobDataMapper<br/>ATS Data Mapping"]
         AtsNormalizer["AtsNormalizer<br/>ATS-specific parsing"]
         TechClassifier["TechRoleClassifier<br/>Filter tech roles only"]
         SilverMerger["SilverDataMerger<br/>Merge with existing data"]

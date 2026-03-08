@@ -25,7 +25,7 @@ class AtsJobDataSyncService(
         private val clientFactory: AtsClientFactory,
         private val normalizerFactory: AtsNormalizerFactory,
         private val ingestionRepository: IngestionRepository,
-        private val mapper: UnifiedJobDataMapper,
+        private val mapper: AtsJobDataMapper,
         private val merger: SilverDataMerger,
         private val jobRepository: JobRepository,
         private val companyRepository: CompanyRepository,

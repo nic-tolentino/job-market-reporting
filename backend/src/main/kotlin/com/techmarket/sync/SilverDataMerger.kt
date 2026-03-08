@@ -1,5 +1,6 @@
 package com.techmarket.sync
 
+import com.techmarket.model.NormalizedSalary
 import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.sync.ats.AtsProvider
@@ -78,8 +79,8 @@ class SilverDataMerger {
                 // 3. Metadata: if latest is sparse, maybe some fields from oldest are better?
                 // (Keeping it simple: latest wins for text fields except for the aggregators)
                 description = latest.description ?: other.description,
-                salaryMin = minOfNullableInt(new.salaryMin, existing.salaryMin),
-                salaryMax = maxOfNullableInt(new.salaryMax, existing.salaryMax)
+                salaryMin = minOfNullableSalary(new.salaryMin, existing.salaryMin),
+                salaryMax = maxOfNullableSalary(new.salaryMax, existing.salaryMax)
         )
     }
 
@@ -122,19 +123,19 @@ class SilverDataMerger {
         }
     }
 
-    private fun minOfNullableInt(a: Int?, b: Int?): Int? {
+    private fun minOfNullableSalary(a: NormalizedSalary?, b: NormalizedSalary?): NormalizedSalary? {
         return when {
             a == null -> b
             b == null -> a
-            else -> kotlin.math.min(a, b)
+            else -> if (a.amount < b.amount) a else b
         }
     }
 
-    private fun maxOfNullableInt(a: Int?, b: Int?): Int? {
+    private fun maxOfNullableSalary(a: NormalizedSalary?, b: NormalizedSalary?): NormalizedSalary? {
         return when {
             a == null -> b
             b == null -> a
-            else -> kotlin.math.max(a, b)
+            else -> if (a.amount > b.amount) a else b
         }
     }
 

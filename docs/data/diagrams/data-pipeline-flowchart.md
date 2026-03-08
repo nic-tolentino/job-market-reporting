@@ -50,7 +50,7 @@ flowchart TB
         ApifyClient["ApifyClient<br/>Fetch recent jobs"]
         RawJobMapper["RawJobDataMapper<br/>Map & Deduplicate"]
         RawJobParser["RawJobDataParser<br/>Extract: Tech, Location,<br/>Seniority, Work Model"]
-        UnifiedMapper["UnifiedJobDataMapper<br/>ATS Data Mapping"]
+        UnifiedMapper["AtsJobDataMapper<br/>ATS Data Mapping"]
         AtsNormalizer["AtsNormalizer<br/>ATS-specific parsing"]
         TechClassifier["TechRoleClassifier<br/>Filter tech roles only"]
         SilverMerger["SilverDataMerger<br/>Merge with existing data"]
@@ -316,7 +316,7 @@ flowchart TB
 | **TechRoleClassifier** | Filters to include only technology-related roles |
 | **PiiSanitizer** | Removes personal/sensitive information from descriptions |
 | **SilverDataMerger** | Merges new data with existing Silver records |
-| **UnifiedJobDataMapper** | Maps ATS-normalized jobs to Silver schema |
+| **AtsJobDataMapper** | Maps ATS-normalized jobs to Silver schema |
 | **AtsNormalizer** | Provider-specific JSON normalization |
 
 ### 7. 💾 Persistence Layer

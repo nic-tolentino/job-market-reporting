@@ -1,5 +1,6 @@
 package com.techmarket.sync
 
+import com.techmarket.model.NormalizedSalary
 import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.JobRecord
 import java.time.Instant
@@ -106,11 +107,11 @@ class SilverDataMergerTest {
                                 .copy(salaryMin = null, salaryMax = null)
                 val new =
                         createJobRecord(jobId = "j1", lastSeenAt = t.plusSeconds(1))
-                                .copy(salaryMin = 80000, salaryMax = 120000)
+                                .copy(salaryMin = NormalizedSalary(8000000L, "NZD", "YEAR", "JOB_POSTING"), salaryMax = NormalizedSalary(12000000L, "NZD", "YEAR", "JOB_POSTING"))
 
                 val result = merger.mergeJobs(listOf(new), listOf(existing))
-                assertEquals(80000, result[0].salaryMin)
-                assertEquals(120000, result[0].salaryMax)
+                assertEquals(8000000L, result[0].salaryMin?.amount)
+                assertEquals(12000000L, result[0].salaryMax?.amount)
         }
 
         @Test
@@ -119,14 +120,14 @@ class SilverDataMergerTest {
 
                 val existing =
                         createJobRecord(jobId = "j1", lastSeenAt = t)
-                                .copy(salaryMin = 90000, salaryMax = 130000)
+                                .copy(salaryMin = NormalizedSalary(9000000L, "NZD", "YEAR", "JOB_POSTING"), salaryMax = NormalizedSalary(13000000L, "NZD", "YEAR", "JOB_POSTING"))
                 val new =
                         createJobRecord(jobId = "j1", lastSeenAt = t.plusSeconds(1))
-                                .copy(salaryMin = 80000, salaryMax = 120000)
+                                .copy(salaryMin = NormalizedSalary(8000000L, "NZD", "YEAR", "JOB_POSTING"), salaryMax = NormalizedSalary(12000000L, "NZD", "YEAR", "JOB_POSTING"))
 
                 val result = merger.mergeJobs(listOf(new), listOf(existing))
-                assertEquals(80000, result[0].salaryMin) // min of (90000, 80000)
-                assertEquals(130000, result[0].salaryMax) // max of (130000, 120000)
+                assertEquals(8000000L, result[0].salaryMin?.amount) // min of (9000000, 8000000)
+                assertEquals(13000000L, result[0].salaryMax?.amount) // max of (13000000, 12000000)
         }
 
         @Test
@@ -160,7 +161,9 @@ class SilverDataMergerTest {
                 postedDate: LocalDate? = null,
                 technologies: List<String> = emptyList(),
                 locations: List<String> = emptyList(),
-                description: String? = null
+                description: String? = null,
+                salaryMin: NormalizedSalary? = NormalizedSalary(10000L, "NZD", "YEAR", "JOB_POSTING"),
+                salaryMax: NormalizedSalary? = NormalizedSalary(20000L, "NZD", "YEAR", "JOB_POSTING")
         ) =
                 JobRecord(
                         jobId = jobId,
@@ -177,8 +180,8 @@ class SilverDataMergerTest {
                         title = "Dev",
                         seniorityLevel = "Senior",
                         technologies = technologies,
-                        salaryMin = 100,
-                        salaryMax = 200,
+                        salaryMin = salaryMin,
+                        salaryMax = salaryMax,
                         postedDate = postedDate,
                         benefits = emptyList(),
                         employmentType = "Full-time",

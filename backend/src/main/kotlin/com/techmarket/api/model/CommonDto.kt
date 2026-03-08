@@ -1,5 +1,6 @@
 package com.techmarket.api.model
 
+import com.techmarket.model.NormalizedSalary
 import java.time.Instant
 
 data class CompanyLeaderboardDto(
@@ -24,8 +25,8 @@ data class JobRoleDto(
         val jobIds: List<String>, // original LinkedIn job IDs per location
         val applyUrls: List<String?>, // apply URLs per location
         val platformLinks: List<String?>, // source URLs per location
-        val salaryMin: Int?,
-        val salaryMax: Int?,
+        val salaryMin: NormalizedSalary?,
+        val salaryMax: NormalizedSalary?,
         val postedDate: String,
         val seniorityLevel: String,
         val technologies: List<String>,

@@ -36,6 +36,12 @@ object Constants {
     const val UNKNOWN_SOURCE = "Unknown"
 
     /**
+     * Standard placeholder for unknown country codes.
+     * Used when country cannot be determined from location data.
+     */
+    const val UNKNOWN_COUNTRY = "Unknown"
+
+    /**
      * Default work model when not specified.
      */
     const val DEFAULT_WORK_MODEL = "On-site"

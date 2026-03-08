@@ -1,5 +1,6 @@
 package com.techmarket.persistence.model
 
+import com.techmarket.model.NormalizedSalary
 import java.time.Instant
 import java.time.LocalDate
 
@@ -18,8 +19,8 @@ data class JobRecord(
         val title: String,
         val seniorityLevel: String,
         val technologies: List<String>,
-        val salaryMin: Int?,
-        val salaryMax: Int?,
+        val salaryMin: NormalizedSalary?,
+        val salaryMax: NormalizedSalary?,
         val postedDate: LocalDate?,
         val benefits: List<String>,
         val employmentType: String?,

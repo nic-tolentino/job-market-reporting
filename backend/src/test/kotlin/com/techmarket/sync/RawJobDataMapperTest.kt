@@ -130,7 +130,7 @@ class RawJobDataMapperTest {
                 every { parser.extractTechnologies(any()) } returns listOf("Kotlin", "Java")
                 every { parser.extractSeniority(any(), any()) } returns "Senior"
                 every { parser.parseDate(any()) } returns LocalDate.parse("2023-01-01")
-                every { parser.parseSalary(any()) } returns null
+                every { parser.parseSalary(any(), any()) } returns null
                 every { parser.extractWorkModel(any(), any()) } returns "Remote"
 
                 val result =
@@ -181,7 +181,7 @@ class RawJobDataMapperTest {
                 every { parser.extractSeniority(any(), any()) } returns "Senior"
                 every { parser.extractTechnologies(any()) } returns listOf("Kotlin")
                 every { parser.extractWorkModel(any(), any()) } returns "Remote"
-                every { parser.parseSalary(any()) } returns null
+                every { parser.parseSalary(any(), any()) } returns null
 
                 every { parser.parseDate(any()) } returns LocalDate.parse("2023-01-01")
                 every { parser.parseDate("2023-01-01") } returns LocalDate.parse("2023-01-01")
@@ -227,7 +227,7 @@ class RawJobDataMapperTest {
                 every { parser.extractSeniority(any(), any()) } returns "Senior"
                 every { parser.extractTechnologies(any()) } returns listOf("Kotlin")
                 every { parser.extractWorkModel(any(), any()) } returns "Remote"
-                every { parser.parseSalary(any()) } returns null
+                every { parser.parseSalary(any(), any()) } returns null
                 every { parser.parseDate(any()) } returns LocalDate.parse("2023-01-01")
 
                 // Scenario 1: No targetCountry provided -> uses NZ from parser
@@ -297,7 +297,7 @@ class RawJobDataMapperTest {
             every { parser.extractSeniority(any(), any()) } returns "Entry"
             every { parser.extractTechnologies(any()) } returns emptyList()
             every { parser.extractWorkModel(any(), any()) } returns "On-site"
-            every { parser.parseSalary(any()) } returns null
+            every { parser.parseSalary(any(), any()) } returns null
             every { parser.parseDate(any()) } returns LocalDate.now()
 
             val result = mapper.assembleMappedData(listOf(group), manifestCompanies)

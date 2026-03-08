@@ -4,7 +4,9 @@ import com.techmarket.api.model.CompanyLeaderboardDto
 import com.techmarket.api.model.JobRoleDto
 import com.techmarket.api.model.SeniorityDistributionDto
 import com.techmarket.api.model.TechDetailsPageDto
+import com.techmarket.model.NormalizedSalary
 import com.techmarket.persistence.JobFields
+import com.techmarket.persistence.SalaryMapper
 import com.techmarket.util.TechFormatter
 import java.time.Instant
 
@@ -95,18 +97,8 @@ object TechMapper {
                                         jobIds = idList,
                                         applyUrls = applyList,
                                         platformLinks = linkList,
-                                        salaryMin =
-                                                if (row.get(JobFields.SALARY_MIN).isNull) null
-                                                else
-                                                        row.get(JobFields.SALARY_MIN)
-                                                                .longValue
-                                                                .toInt(),
-                                        salaryMax =
-                                                if (row.get(JobFields.SALARY_MAX).isNull) null
-                                                else
-                                                        row.get(JobFields.SALARY_MAX)
-                                                                .longValue
-                                                                .toInt(),
+                                        salaryMin = SalaryMapper.fromFieldValue(row, JobFields.SALARY_MIN),
+                                        salaryMax = SalaryMapper.fromFieldValue(row, JobFields.SALARY_MAX),
                                         postedDate =
                                                 if (row.get(JobFields.POSTED_DATE).isNull) ""
                                                 else row.get(JobFields.POSTED_DATE).stringValue,

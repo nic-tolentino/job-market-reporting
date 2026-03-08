@@ -4,8 +4,10 @@ import com.techmarket.api.model.CompanyDetailsDto
 import com.techmarket.api.model.CompanyInsightsDto
 import com.techmarket.api.model.CompanyProfilePageDto
 import com.techmarket.api.model.JobRoleDto
+import com.techmarket.model.NormalizedSalary
 import com.techmarket.persistence.CompanyFields
 import com.techmarket.persistence.JobFields
+import com.techmarket.persistence.SalaryMapper
 import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.util.TechFormatter
 import com.techmarket.persistence.model.VerificationLevel
@@ -148,12 +150,8 @@ object CompanyMapper {
                                         jobIds = jobIdList,
                                         applyUrls = applyUrlList,
                                         platformLinks = linkList,
-                                        salaryMin =
-                                                if (r.get(JobFields.SALARY_MIN).isNull) null
-                                                else r.get(JobFields.SALARY_MIN).longValue.toInt(),
-                                        salaryMax =
-                                                if (r.get(JobFields.SALARY_MAX).isNull) null
-                                                else r.get(JobFields.SALARY_MAX).longValue.toInt(),
+                                        salaryMin = SalaryMapper.fromFieldValue(r, JobFields.SALARY_MIN),
+                                        salaryMax = SalaryMapper.fromFieldValue(r, JobFields.SALARY_MAX),
                                         postedDate =
                                                 if (r.get(JobFields.POSTED_DATE).isNull) ""
                                                 else r.get(JobFields.POSTED_DATE).stringValue,

@@ -492,7 +492,7 @@ Tasks are tagged with who does the work:
 - [ ] 🤖 Create `CompanyAtsConfig` model and `AtsConfigRepository` (BigQuery table)
 - [ ] 🤖 Build seed data loader to import your company roster into `CompanyAtsConfig`
 - [ ] 🤖 Extend `raw_ingestions` Bronze table to include `source` field
-- [ ] 🤖 Build `UnifiedJobDataMapper` that accepts `NormalizedJob` and reuses `RawJobDataParser`
+- [ ] 🤖 Build `AtsJobDataMapper` that accepts `NormalizedJob` and reuses `RawJobDataParser`
 - [ ] 🤖 Extend `SilverDataMerger` with source priority logic
 - [ ] 🤖 Add `POST /api/internal/ats-sync` endpoint
 - [ ] 🤖 Update `source` field on existing `JobRecord` to distinguish ATS vs Apify data
@@ -572,7 +572,7 @@ Tasks are tagged with who does the work:
 | `SnapHireNormalizer` | `sync/ats/snaphire/SnapHireNormalizer.kt` | SnapHire → NormalizedJob |
 | `AtsClientFactory` | `sync/ats/AtsClientFactory.kt` | Factory to get the right client by provider |
 | `AtsNormalizerFactory` | `sync/ats/AtsNormalizerFactory.kt` | Factory to get the right normalizer by provider |
-| `UnifiedJobDataMapper` | `sync/UnifiedJobDataMapper.kt` | Maps NormalizedJob → JobRecord/CompanyRecord (reuses `RawJobDataParser`) |
+| `AtsJobDataMapper` | `sync/AtsJobDataMapper.kt` | Maps NormalizedJob → JobRecord/CompanyRecord (reuses `RawJobDataParser`) |
 | `CompanyAtsConfig` | `persistence/model/CompanyAtsConfig.kt` | Per-company ATS configuration model |
 | `AtsConfigRepository` | `persistence/ats/AtsConfigRepository.kt` | BigQuery persistence for ATS configs |
 | `CloudTasksDispatcher` | `sync/scheduling/CloudTasksDispatcher.kt` | Creates Cloud Tasks for each company |

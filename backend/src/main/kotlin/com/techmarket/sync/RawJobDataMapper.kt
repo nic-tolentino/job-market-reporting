@@ -4,6 +4,8 @@ import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.VerificationLevel
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.sync.model.ApifyJobDto
+import com.techmarket.util.Constants.UNKNOWN_COUNTRY
+import com.techmarket.util.Constants.UNKNOWN_LOCATION
 import com.techmarket.util.IdGenerator
 import com.techmarket.util.PiiSanitizer
 import java.time.Instant
@@ -258,7 +260,7 @@ class RawJobDataMapper(
                                 .map { raw ->
                                         val (city, state, _) =
                                                 parser.parseLocation(raw.dto.location)
-                                        if (state == "Unknown" || state == city) city
+                                        if (state == UNKNOWN_LOCATION || state == city) city
                                         else "$city, $state"
                                 }
                                 .distinct()
@@ -278,7 +280,7 @@ class RawJobDataMapper(
 
                 val country = (targetCountry ?: run {
                         val (_, _, parsedCountry) = parser.parseLocation(first.location)
-                        if (parsedCountry != "Unknown") parsedCountry
+                        if (parsedCountry != UNKNOWN_COUNTRY) parsedCountry
                         else parser.determineCountry(first.location)
                 }).lowercase()
 
@@ -304,18 +306,37 @@ class RawJobDataMapper(
                         companyName = companyName,
                         source = "LinkedIn",
                         country = country,
-                        city = first.location ?: "Unknown",
+                        city = first.location ?: UNKNOWN_LOCATION,
                         stateRegion = "",
                         title = title,
                         seniorityLevel = parser.extractSeniority(title, first.seniorityLevel),
                         technologies = technologies,
                         salaryMin =
-                                lifecycle.firstNotNullOfOrNull {
-                                        parser.parseSalary(it.dto.salaryInfo?.firstOrNull())
+                                lifecycle.firstNotNullOfOrNull { raw ->
+                                    // First try parsing as a range from the combined salaryInfo
+                                    val salaryInfo = raw.dto.salaryInfo
+                                    if (!salaryInfo.isNullOrEmpty()) {
+                                        // If there's only one element, it might be a range string like "$80k - $100k"
+                                        if (salaryInfo.size == 1) {
+                                            val (min, max) = parser.parseSalaryRange(salaryInfo[0], targetCountry ?: UNKNOWN_COUNTRY)
+                                            min
+                                        } else {
+                                            // Multiple elements: first is min, last is max
+                                            parser.parseSalary(salaryInfo.firstOrNull(), targetCountry ?: UNKNOWN_COUNTRY)
+                                        }
+                                    } else null
                                 },
                         salaryMax =
-                                lifecycle.firstNotNullOfOrNull {
-                                        parser.parseSalary(it.dto.salaryInfo?.lastOrNull())
+                                lifecycle.firstNotNullOfOrNull { raw ->
+                                    val salaryInfo = raw.dto.salaryInfo
+                                    if (!salaryInfo.isNullOrEmpty()) {
+                                        if (salaryInfo.size == 1) {
+                                            val (min, max) = parser.parseSalaryRange(salaryInfo[0], targetCountry ?: UNKNOWN_COUNTRY)
+                                            max
+                                        } else {
+                                            parser.parseSalary(salaryInfo.lastOrNull(), targetCountry ?: UNKNOWN_COUNTRY)
+                                        }
+                                    } else null
                                 },
                         postedDate = earliestPostedDate,
                         benefits =
@@ -363,7 +384,7 @@ class RawJobDataMapper(
                                         .map { raw ->
                                                 val (city, state, _) =
                                                         parser.parseLocation(raw.dto.location)
-                                                if (state == "Unknown" || state == city) city
+                                                if (state == UNKNOWN_LOCATION || state == city) city
                                                 else "$city, $state"
                                         }
                                         .distinct()

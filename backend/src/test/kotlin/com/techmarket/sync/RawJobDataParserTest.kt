@@ -1,5 +1,6 @@
 package com.techmarket.sync
 
+import com.techmarket.model.NormalizedSalary
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
@@ -142,23 +143,6 @@ class RawJobDataParserTest {
     fun `extractTechnologies returns empty for irrelevant description`() {
         val techs = parser.extractTechnologies("We are looking for a passionate team player")
         assertTrue(techs.isEmpty())
-    }
-
-    // ===== parseSalary =====
-
-    @Test
-    fun `parseSalary extracts digits from formatted salary`() {
-        assertEquals(120000, parser.parseSalary("$120,000"))
-    }
-
-    @Test
-    fun `parseSalary returns null for null input`() {
-        assertNull(parser.parseSalary(null))
-    }
-
-    @Test
-    fun `parseSalary returns null for non-numeric input`() {
-        assertNull(parser.parseSalary("Competitive"))
     }
 
     // ===== parseDate =====
@@ -331,20 +315,334 @@ class RawJobDataParserTest {
         assertEquals("Remote", parser.extractWorkModel("teletrabajo", "Desarrollador"))
     }
 
-    // --- parseSalary ---
+    // ===== New NormalizedSalary Tests =====
+
+    // --- NZ/AU Formats ---
 
     @Test
-    fun `parseSalary handles European format with euro symbol`() {
-        assertEquals(35000, parser.parseSalary("35.000€"))
+    fun `parseSalary handles NZ dollar format with comma`() {
+        val result = parser.parseSalary("$120,000", "NZ")
+        assertNotNull(result)
+        assertEquals(12000000L, result?.amount)  // In cents
+        assertEquals("NZD", result?.currency)
+        assertEquals("YEAR", result?.period)
+        assertEquals(true, result?.isGross)
+        assertEquals("JOB_POSTING", result?.source)
+    }
+
+    @Test
+    fun `parseSalary handles AU dollar format`() {
+        val result = parser.parseSalary("$95,000", "AU")
+        assertNotNull(result)
+        assertEquals(9500000L, result?.amount)
+        assertEquals("AUD", result?.currency)
+        assertEquals("YEAR", result?.period)
+    }
+
+    @Test
+    fun `parseSalary handles k suffix`() {
+        val result = parser.parseSalary("$80k", "NZ")
+        assertNotNull(result)
+        assertEquals(8000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles k suffix with range`() {
+        val (min, max) = parser.parseSalaryRange("$80k-$100k", "NZ")
+        assertNotNull(min)
+        assertNotNull(max)
+        assertEquals(8000000L, min?.amount)
+        assertEquals(10000000L, max?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles hourly rate`() {
+        val result = parser.parseSalary("$45/hr", "AU")
+        assertNotNull(result)
+        assertEquals(4500L, result?.amount)
+        assertEquals("HOUR", result?.period)
+    }
+
+    @Test
+    fun `parseSalary handles per annum`() {
+        val result = parser.parseSalary("$120,000 per annum", "NZ")
+        assertNotNull(result)
+        assertEquals(12000000L, result?.amount)
+        assertEquals("YEAR", result?.period)
+    }
+
+    @Test
+    fun `parseSalary handles monthly rate`() {
+        val result = parser.parseSalary("$8,000 pcm", "NZ")
+        assertNotNull(result)
+        assertEquals(800000L, result?.amount)
+        assertEquals("MONTH", result?.period)
+    }
+
+    // --- "Plus" Benefits Logic ---
+
+    @Test
+    fun `parseSalary stops at plus sign for super`() {
+        val result = parser.parseSalary("$120,000 + super", "AU")
+        assertNotNull(result)
+        assertEquals(12000000L, result?.amount)
+        // Should NOT include the 11% super
+    }
+
+    @Test
+    fun `parseSalary stops at plus sign for benefits`() {
+        val result = parser.parseSalary("$150k + benefits", "NZ")
+        assertNotNull(result)
+        assertEquals(15000000L, result?.amount)
+    }
+
+    @Test
+    fun `parseSalary handles package with super percentage`() {
+        val result = parser.parseSalary("$100,000 + 11% super", "AU")
+        assertNotNull(result)
+        assertEquals(10000000L, result?.amount)
+    }
+
+    // --- European Formats ---
+
+    @Test
+    fun `parseSalary handles European format with dot separator`() {
+        val result = parser.parseSalary("35.000€", "ES")
+        assertNotNull(result)
+        assertEquals(3500000L, result?.amount)  // 35,000 not 35!
+        assertEquals("EUR", result?.currency)
+        assertEquals("YEAR", result?.period)
     }
 
     @Test
     fun `parseSalary handles European format with euro prefix`() {
-        assertEquals(40000, parser.parseSalary("€40.000"))
+        val result = parser.parseSalary("€40.000", "ES")
+        assertNotNull(result)
+        assertEquals(4000000L, result?.amount)
     }
 
     @Test
-    fun `parseSalary handles Spanish salary format with text`() {
-        assertEquals(30000, parser.parseSalary("Salario Bruto Anual 30.000€"))
+    fun `parseSalary handles Spanish Bruto gross`() {
+        val result = parser.parseSalary("Salario Bruto 35.000€", "ES")
+        assertNotNull(result)
+        assertEquals(3500000L, result?.amount)
+        assertEquals(true, result?.isGross)
+    }
+
+    @Test
+    fun `parseSalary handles Spanish Neto net`() {
+        val result = parser.parseSalary("Salario Neto 30.000€", "ES")
+        assertNotNull(result)
+        assertEquals(3000000L, result?.amount)
+        assertEquals(false, result?.isGross)  // Net salary
+    }
+
+    @Test
+    fun `parseSalary handles German format`() {
+        val result = parser.parseSalary("45.000€", "DE")
+        assertNotNull(result)
+        assertEquals(4500000L, result?.amount)
+    }
+
+    // --- Edge Cases ---
+
+    @Test
+    fun `parseSalary returns null for competitive`() {
+        val result = parser.parseSalary("Competitive", "NZ")
+        assertNull(result)
+    }
+
+    @Test
+    fun `parseSalary returns null for market rate`() {
+        val result = parser.parseSalary("Market rate", "AU")
+        assertNull(result)
+    }
+
+    @Test
+    fun `parseSalary handles null input`() {
+        val result = parser.parseSalary(null, "NZ")
+        assertNull(result)
+    }
+
+    @Test
+    fun `parseSalary handles empty string`() {
+        val result = parser.parseSalary("", "NZ")
+        assertNull(result)
+    }
+
+    @Test
+    fun `parseSalary handles blank string`() {
+        val result = parser.parseSalary("   ", "NZ")
+        assertNull(result)
+    }
+
+    // --- Country Defaults ---
+
+    @Test
+    fun `getDefaultPeriodForCountry returns YEAR for NZ`() {
+        assertEquals("YEAR", NormalizedSalary.getDefaultPeriodForCountry("NZ"))
+    }
+
+    @Test
+    fun `getDefaultPeriodForCountry returns YEAR for AU`() {
+        assertEquals("YEAR", NormalizedSalary.getDefaultPeriodForCountry("AU"))
+    }
+
+    @Test
+    fun `getDefaultPeriodForCountry returns YEAR for ES`() {
+        assertEquals("YEAR", NormalizedSalary.getDefaultPeriodForCountry("ES"))
+    }
+
+    @Test
+    fun `getDefaultCurrencyForCountry returns NZD for NZ`() {
+        assertEquals("NZD", NormalizedSalary.getDefaultCurrencyForCountry("NZ"))
+    }
+
+    @Test
+    fun `getDefaultCurrencyForCountry returns EUR for ES`() {
+        assertEquals("EUR", NormalizedSalary.getDefaultCurrencyForCountry("ES"))
+    }
+
+    @Test
+    fun `getDefaultCurrencyForCountry returns AUD for AU`() {
+        assertEquals("AUD", NormalizedSalary.getDefaultCurrencyForCountry("AU"))
+    }
+
+    @Test
+    fun `getDefaultCurrencyForCountry returns USD for US`() {
+        assertEquals("USD", NormalizedSalary.getDefaultCurrencyForCountry("US"))
+    }
+
+    @Test
+    fun `getDefaultCurrencyForCountry returns GBP for UK`() {
+        assertEquals("GBP", NormalizedSalary.getDefaultCurrencyForCountry("UK"))
+    }
+
+    // --- Conversion Tests ---
+
+    @Test
+    fun `toAnnualAmount converts hourly to annual`() {
+        val hourly = NormalizedSalary(
+            amount = 5000L,      // $50/hr
+            currency = "NZD",
+            period = "HOUR",
+            source = "JOB_POSTING"
+        )
+        assertEquals(10400000L, hourly.toAnnualAmount())  // $104,000/year
+    }
+
+    @Test
+    fun `toAnnualAmount converts monthly to annual`() {
+        val monthly = NormalizedSalary(
+            amount = 800000L,    // $8,000/month
+            currency = "NZD",
+            period = "MONTH",
+            source = "JOB_POSTING"
+        )
+        assertEquals(9600000L, monthly.toAnnualAmount())  // $96,000/year
+    }
+
+    @Test
+    fun `toAnnualAmount returns same for annual`() {
+        val annual = NormalizedSalary(
+            amount = 12000000L,  // $120,000/year
+            currency = "NZD",
+            period = "YEAR",
+            source = "JOB_POSTING"
+        )
+        assertEquals(12000000L, annual.toAnnualAmount())
+    }
+
+    @Test
+    fun `toAnnualAmount converts daily to annual`() {
+        val daily = NormalizedSalary(
+            amount = 50000L,     // $500/day
+            currency = "NZD",
+            period = "DAY",
+            source = "JOB_POSTING"
+        )
+        assertEquals(13000000L, daily.toAnnualAmount())  // $130,000/year (260 days)
+    }
+
+    // --- Confidence Tests ---
+
+    @Test
+    fun `confidence is HIGH for JOB_POSTING`() {
+        val salary = NormalizedSalary(
+            amount = 10000000L,
+            currency = "NZD",
+            period = "YEAR",
+            source = "JOB_POSTING"
+        )
+        assertEquals("HIGH", salary.confidence)
+    }
+
+    @Test
+    fun `confidence is HIGH for ATS_API`() {
+        val salary = NormalizedSalary(
+            amount = 10000000L,
+            currency = "NZD",
+            period = "YEAR",
+            source = "ATS_API"
+        )
+        assertEquals("HIGH", salary.confidence)
+    }
+
+    @Test
+    fun `confidence is MEDIUM for MARKET_DATA`() {
+        val salary = NormalizedSalary(
+            amount = 10000000L,
+            currency = "NZD",
+            period = "YEAR",
+            source = "MARKET_DATA"
+        )
+        assertEquals("MEDIUM", salary.confidence)
+    }
+
+    @Test
+    fun `confidence is LOW for AI_ESTIMATE`() {
+        val salary = NormalizedSalary(
+            amount = 10000000L,
+            currency = "NZD",
+            period = "YEAR",
+            source = "AI_ESTIMATE"
+        )
+        assertEquals("LOW", salary.confidence)
+    }
+
+    @Test
+    fun `AI_ESTIMATE source includes disclaimer`() {
+        val salary = parser.parseSalary("$120,000", "NZ", NormalizedSalary.SOURCE_AI_ESTIMATE)
+        assertNotNull(salary)
+        // Disclaimer is computed at runtime, not persisted
+        assertNotNull(salary?.disclaimer)
+        assertTrue(salary?.disclaimer?.contains("AI-estimated") == true)
+    }
+
+    // --- Range Parsing Tests ---
+
+    @Test
+    fun `parseSalaryRange handles en-dash separator`() {
+        val (min, max) = parser.parseSalaryRange("$80k – $100k", "NZ")
+        assertNotNull(min)
+        assertNotNull(max)
+        assertEquals(8000000L, min?.amount)
+        assertEquals(10000000L, max?.amount)
+    }
+
+    @Test
+    fun `parseSalaryRange handles 'to' separator`() {
+        val (min, max) = parser.parseSalaryRange("$80k to $100k", "NZ")
+        assertNotNull(min)
+        assertNotNull(max)
+        assertEquals(8000000L, min?.amount)
+        assertEquals(10000000L, max?.amount)
+    }
+
+    @Test
+    fun `parseSalaryRange returns same value for both when no range found`() {
+        val (min, max) = parser.parseSalaryRange("$120,000", "NZ")
+        assertNotNull(min)
+        assertEquals(min?.amount, max?.amount)  // Single value returns (value, value)
     }
 }

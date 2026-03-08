@@ -5,6 +5,7 @@ dist/
 build/
 .env
 Logs.txt
+.qwen
 
 # IDEs
 .idea/

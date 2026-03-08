@@ -2,6 +2,7 @@ package com.techmarket.persistence.job
 
 import com.google.cloud.bigquery.BigQuery
 import com.google.cloud.bigquery.Field
+import com.google.cloud.bigquery.FieldList
 import com.google.cloud.bigquery.QueryJobConfiguration
 import com.google.cloud.bigquery.QueryParameterValue
 import com.google.cloud.bigquery.Schema
@@ -10,6 +11,12 @@ import com.google.cloud.bigquery.TableId
 import com.google.cloud.spring.bigquery.core.BigQueryTemplate
 import com.techmarket.persistence.BigQueryTables
 import com.techmarket.persistence.JobFields
+import com.techmarket.persistence.SalaryFields
+import com.techmarket.persistence.SalaryFields.AMOUNT
+import com.techmarket.persistence.SalaryFields.CURRENCY
+import com.techmarket.persistence.SalaryFields.IS_GROSS
+import com.techmarket.persistence.SalaryFields.PERIOD
+import com.techmarket.persistence.SalaryFields.SOURCE
 import com.techmarket.persistence.ensureTableExists
 import com.techmarket.persistence.model.JobRecord
 import java.util.concurrent.TimeUnit
@@ -33,6 +40,25 @@ class JobBigQueryRepository(
 
         private val jobsTableName = BigQueryTables.JOBS
         private val companiesTableName = BigQueryTables.COMPANIES
+
+        /**
+         * Creates the salary STRUCT field schema with all required fields.
+         * Reused for both salaryMin and salaryMax to avoid duplication.
+         * Note: disclaimer is NOT persisted - it's computed at BFF level from source.
+         */
+        private fun salaryStructField(fieldName: String): Field {
+            return Field.of(
+                fieldName,
+                StandardSQLTypeName.STRUCT,
+                FieldList.of(
+                    Field.of(AMOUNT, StandardSQLTypeName.INT64),
+                    Field.of(CURRENCY, StandardSQLTypeName.STRING),
+                    Field.of(PERIOD, StandardSQLTypeName.STRING),
+                    Field.of(SOURCE, StandardSQLTypeName.STRING),
+                    Field.of(IS_GROSS, StandardSQLTypeName.BOOL)
+                )
+            )
+        }
 
         /**
          * Ensures the BigQuery table exists with the correct schema. This allows the application to
@@ -70,8 +96,8 @@ class JobBigQueryRepository(
                                 Field.newBuilder(JobFields.TECHNOLOGIES, StandardSQLTypeName.STRING)
                                         .setMode(Field.Mode.REPEATED)
                                         .build(),
-                                Field.of(JobFields.SALARY_MIN, StandardSQLTypeName.INT64),
-                                Field.of(JobFields.SALARY_MAX, StandardSQLTypeName.INT64),
+                                salaryStructField(JobFields.SALARY_MIN),
+                                salaryStructField(JobFields.SALARY_MAX),
                                 Field.of(JobFields.POSTED_DATE, StandardSQLTypeName.DATE),
                                 Field.newBuilder(JobFields.BENEFITS, StandardSQLTypeName.STRING)
                                         .setMode(Field.Mode.REPEATED)
@@ -134,8 +160,8 @@ class JobBigQueryRepository(
                         JobFields.TITLE to this.title,
                         JobFields.SENIORITY_LEVEL to this.seniorityLevel,
                         JobFields.TECHNOLOGIES to this.technologies,
-                        JobFields.SALARY_MIN to this.salaryMin,
-                        JobFields.SALARY_MAX to this.salaryMax,
+                        JobFields.SALARY_MIN to this.salaryMin?.toMap(),
+                        JobFields.SALARY_MAX to this.salaryMax?.toMap(),
                         JobFields.POSTED_DATE to this.postedDate?.toString(),
                         JobFields.BENEFITS to this.benefits,
                         JobFields.EMPLOYMENT_TYPE to this.employmentType,

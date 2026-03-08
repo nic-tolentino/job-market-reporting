@@ -36,7 +36,7 @@ class GreenhouseNormalizer : AtsNormalizer {
                                 "Greenhouse job missing required 'id' field"
                         )
         val title = job.get("title")?.asText()
-        val companyName = "" // Will be filled by UnifiedJobDataMapper or during sync flow
+        val companyName = "" // Will be filled by AtsJobDataMapper or during sync flow
 
         // Location prioritization: office location string is usually more precise than board
         // location

@@ -1,4 +1,5 @@
 // --- DTO Types matching Backend BFF ---
+import type { NormalizedSalary } from './salaryFormatter';
 
 export interface GlobalStatsDto {
     totalVacancies: number;
@@ -47,8 +48,8 @@ export interface JobRoleDto {
     locations: string[];
     jobIds: string[];
     applyUrls: (string | null)[];
-    salaryMin: number | null;
-    salaryMax: number | null;
+    salaryMin: NormalizedSalary | null;
+    salaryMax: NormalizedSalary | null;
     postedDate: string;
     seniorityLevel: string;
     technologies: string[];

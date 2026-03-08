@@ -21,7 +21,7 @@ class AtsJobDataSyncServiceTest {
         @MockK lateinit var clientFactory: AtsClientFactory
         @MockK lateinit var normalizerFactory: AtsNormalizerFactory
         @MockK lateinit var ingestionRepository: IngestionRepository
-        @MockK lateinit var mapper: UnifiedJobDataMapper
+        @MockK lateinit var mapper: AtsJobDataMapper
         @MockK lateinit var merger: SilverDataMerger
         @MockK lateinit var jobRepository: JobRepository
         @MockK lateinit var companyRepository: CompanyRepository

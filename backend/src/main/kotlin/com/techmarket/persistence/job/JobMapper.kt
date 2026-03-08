@@ -1,7 +1,9 @@
 package com.techmarket.persistence.job
 
 import com.techmarket.api.model.JobRoleDto
+import com.techmarket.model.NormalizedSalary
 import com.techmarket.persistence.JobFields
+import com.techmarket.persistence.SalaryMapper
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.util.LocationFormatter
 import com.techmarket.util.TechFormatter
@@ -179,18 +181,8 @@ object JobMapper {
                                         jobIds = simIdList,
                                         applyUrls = simApplyList,
                                         platformLinks = simLinkList,
-                                        salaryMin =
-                                                if (sim.get(JobFields.SALARY_MIN).isNull) null
-                                                else
-                                                        sim.get(JobFields.SALARY_MIN)
-                                                                .longValue
-                                                                .toInt(),
-                                        salaryMax =
-                                                if (sim.get(JobFields.SALARY_MAX).isNull) null
-                                                else
-                                                        sim.get(JobFields.SALARY_MAX)
-                                                                .longValue
-                                                                .toInt(),
+                                        salaryMin = SalaryMapper.fromFieldValue(sim, JobFields.SALARY_MIN),
+                                        salaryMax = SalaryMapper.fromFieldValue(sim, JobFields.SALARY_MAX),
                                         postedDate =
                                                 if (sim.get(JobFields.POSTED_DATE).isNull) ""
                                                 else sim.get(JobFields.POSTED_DATE).stringValue,
@@ -251,12 +243,8 @@ object JobMapper {
                                         r.get(JobFields.TECHNOLOGIES).repeatedValue.map {
                                                 it.stringValue
                                         },
-                        salaryMin =
-                                if (r.get(JobFields.SALARY_MIN).isNull) null
-                                else r.get(JobFields.SALARY_MIN).longValue.toInt(),
-                        salaryMax =
-                                if (r.get(JobFields.SALARY_MAX).isNull) null
-                                else r.get(JobFields.SALARY_MAX).longValue.toInt(),
+                        salaryMin = SalaryMapper.fromFieldValue(r, JobFields.SALARY_MIN),
+                        salaryMax = SalaryMapper.fromFieldValue(r, JobFields.SALARY_MAX),
                         postedDate =
                                 if (r.get(JobFields.POSTED_DATE).isNull) null
                                 else parseLocalDateSafe(r.get(JobFields.POSTED_DATE)),

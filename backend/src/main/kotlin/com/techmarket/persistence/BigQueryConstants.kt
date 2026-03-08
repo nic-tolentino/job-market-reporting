@@ -37,6 +37,19 @@ object JobFields {
     const val PLATFORM_LINKS = "platformLinks"
 }
 
+/**
+ * Field names for the salary STRUCT in BigQuery.
+ * Used for schema definition and data extraction.
+ * Note: disclaimer is NOT persisted - it's computed at BFF level from source.
+ */
+object SalaryFields {
+    const val AMOUNT = "amount"
+    const val CURRENCY = "currency"
+    const val PERIOD = "period"
+    const val SOURCE = "source"
+    const val IS_GROSS = "isGross"
+}
+
 object CompanyFields {
     const val COMPANY_ID = "companyId"
     const val NAME = "name"

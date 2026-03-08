@@ -148,10 +148,13 @@ data class NormalizedSalary(
     val amount: Long,
     val currency: String, // NZD, AUD, USD, EUR
     val period: String,   // HOUR, DAY, MONTH, YEAR
-    val confidence: String, // HIGH (explicit), MEDIUM (AI estimate), LOW (market data)
-    val source: String // JOB_POSTING, MARKET_DATA, AI_ESTIMATE
+    val source: String    // JOB_POSTING (explicit), ATS_API (structured), MARKET_DATA (inferred)
 )
 ```
+**Note:** Confidence level is inferred from the `source` field - no separate field needed.
+- `JOB_POSTING`: HIGH confidence (explicitly stated in job description)
+- `ATS_API`: HIGH confidence (structured data from ATS provider)
+- `MARKET_DATA`: MEDIUM confidence (inferred from market benchmarks)
 
 **Effort:** 6-8 hours | **Impact:** Enables salary comparison features
 
@@ -207,7 +210,7 @@ data class NormalizedSalary(
 - Use findings from `docs/data/ats/ats-identification-findings.md`
 - 92 companies (50.5%) have identifiable ATS
 - Start with Greenhouse (9 companies) and Lever (12 companies) - easiest APIs
-- Schedule hourly syncs for active companies
+- Schedule daily syncs for active companies
 
 **Effort:** 12-16 hours | **Impact:** 50%+ more jobs, real-time data
 
