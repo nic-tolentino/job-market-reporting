@@ -298,4 +298,393 @@ class CompanyMapperTest {
         assertEquals("US", record.hqCountry)
         assertEquals(listOf("Alt"), record.alternateNames)
     }
+
+    @Test
+    fun `mapCompanyProfile aggregates technologies from job postings`() {
+        val companyId = "test-company"
+        val detResult = mockk<TableResult>()
+        val jobsResult = mockk<TableResult>()
+        val aggResult = mockk<TableResult>()
+
+        val detRow = mockk<FieldValueList>()
+        val nameVal = mockk<FieldValue>()
+        every { nameVal.stringValue } returns "Test Company"
+        every { detRow.get(CompanyFields.NAME) } returns nameVal
+
+        // Mock all required detail fields
+        val nullField = mockk<FieldValue>()
+        every { nullField.isNull } returns true
+
+        val logoVal = mockk<FieldValue>()
+        every { logoVal.isNull } returns true
+        every { detRow.get(CompanyFields.LOGO_URL) } returns logoVal
+
+        val webVal = mockk<FieldValue>()
+        every { webVal.isNull } returns true
+        every { detRow.get(CompanyFields.WEBSITE) } returns webVal
+
+        val empVal = mockk<FieldValue>()
+        every { empVal.isNull } returns true
+        every { detRow.get(CompanyFields.EMPLOYEES_COUNT) } returns empVal
+
+        val indVal = mockk<FieldValue>()
+        every { indVal.isNull } returns true
+        every { detRow.get(CompanyFields.INDUSTRIES) } returns indVal
+
+        val descVal = mockk<FieldValue>()
+        every { descVal.isNull } returns true
+        every { detRow.get(CompanyFields.DESCRIPTION) } returns descVal
+
+        // Company has no technologies (typical for manifest companies)
+        every { detRow.get(CompanyFields.TECHNOLOGIES) } returns nullField
+
+        val agencyVal = mockk<FieldValue>()
+        every { agencyVal.isNull } returns true
+        every { detRow.get(CompanyFields.IS_AGENCY) } returns agencyVal
+
+        val socialVal = mockk<FieldValue>()
+        every { socialVal.isNull } returns true
+        every { detRow.get(CompanyFields.IS_SOCIAL_ENTERPRISE) } returns socialVal
+
+        val hqVal = mockk<FieldValue>()
+        every { hqVal.isNull } returns true
+        every { detRow.get(CompanyFields.HQ_COUNTRY) } returns hqVal
+
+        val remoteVal = mockk<FieldValue>()
+        every { remoteVal.isNull } returns true
+        every { detRow.get(CompanyFields.REMOTE_POLICY) } returns remoteVal
+
+        val visaVal = mockk<FieldValue>()
+        every { visaVal.isNull } returns true
+        every { detRow.get(CompanyFields.VISA_SPONSORSHIP) } returns visaVal
+
+        val verifVal = mockk<FieldValue>()
+        every { verifVal.isNull } returns true
+        every { detRow.get(CompanyFields.VERIFICATION_LEVEL) } returns verifVal
+
+        every { detRow.get(CompanyFields.HIRING_LOCATIONS) } returns nullField
+        every { detRow.get(CompanyFields.OPERATING_COUNTRIES) } returns nullField
+        every { detRow.get(CompanyFields.OFFICE_LOCATIONS) } returns nullField
+
+        every { detResult.values } returns listOf(detRow)
+
+        // Helper to create a mock job row with given technologies
+        fun mockJobRow(techs: List<String>): FieldValueList {
+            val jobRow = mockk<FieldValueList>()
+            
+            // Required fields for role mapping
+            val jobIdVal = mockk<FieldValue>()
+            every { jobIdVal.stringValue } returns "job-1"
+            every { jobRow.get(JobFields.JOB_ID) } returns jobIdVal
+
+            val titleVal = mockk<FieldValue>()
+            every { titleVal.stringValue } returns "Developer"
+            every { jobRow.get(JobFields.TITLE) } returns titleVal
+
+            val cityVal = mockk<FieldValue>()
+            every { cityVal.isNull } returns false
+            every { cityVal.stringValue } returns "Auckland"
+            every { jobRow.get(JobFields.CITY) } returns cityVal
+
+            val stateVal = mockk<FieldValue>()
+            every { stateVal.isNull } returns false
+            every { stateVal.stringValue } returns "Auckland"
+            every { jobRow.get(JobFields.STATE_REGION) } returns stateVal
+
+            val techItems = techs.map { tech ->
+                val item = mockk<FieldValue>()
+                every { item.stringValue } returns tech
+                item
+            }
+            val techField = mockk<FieldValue>()
+            every { techField.isNull } returns false
+            every { techField.repeatedValue } returns techItems
+            every { jobRow.get(JobFields.TECHNOLOGIES) } returns techField
+
+            // Null optional fields
+            every { jobRow.get(JobFields.JOB_IDS) } returns nullField
+            every { jobRow.get(JobFields.APPLY_URLS) } returns nullField
+            every { jobRow.get(JobFields.PLATFORM_LINKS) } returns nullField
+            every { jobRow.get(JobFields.SALARY_MIN) } returns nullField
+            every { jobRow.get(JobFields.SALARY_MAX) } returns nullField
+            every { jobRow.get(JobFields.BENEFITS) } returns nullField
+
+            val dateVal = mockk<FieldValue>()
+            every { dateVal.isNull } returns false
+            every { dateVal.stringValue } returns "2023-01-01"
+            every { jobRow.get(JobFields.POSTED_DATE) } returns dateVal
+
+            val seniorVal = mockk<FieldValue>()
+            every { seniorVal.isNull } returns false
+            every { seniorVal.stringValue } returns "Mid"
+            every { jobRow.get(JobFields.SENIORITY_LEVEL) } returns seniorVal
+
+            return jobRow
+        }
+
+        every { jobsResult.values } returns listOf(
+            mockJobRow(listOf("kotlin")),
+            mockJobRow(listOf("spring")),
+            mockJobRow(listOf("kotlin")) // Duplicate to test deduplication
+        )
+        every { aggResult.values } returns emptyList()
+
+        val profile = CompanyMapper.mapCompanyProfile(companyId, detResult, jobsResult, aggResult)
+
+        // Should have both technologies, deduplicated and sorted
+        assertEquals(listOf("Kotlin", "Spring"), profile.techStack)
+    }
+
+    @Test
+    fun `mapCompanyProfile merges company and job technologies`() {
+        val companyId = "test-company"
+        val detResult = mockk<TableResult>()
+        val jobsResult = mockk<TableResult>()
+        val aggResult = mockk<TableResult>()
+
+        val detRow = mockk<FieldValueList>()
+        val nameVal = mockk<FieldValue>()
+        every { nameVal.stringValue } returns "Test Company"
+        every { detRow.get(CompanyFields.NAME) } returns nameVal
+
+        // Mock all required detail fields
+        val nullField = mockk<FieldValue>()
+        every { nullField.isNull } returns true
+
+        val logoVal = mockk<FieldValue>()
+        every { logoVal.isNull } returns true
+        every { detRow.get(CompanyFields.LOGO_URL) } returns logoVal
+
+        val webVal = mockk<FieldValue>()
+        every { webVal.isNull } returns true
+        every { detRow.get(CompanyFields.WEBSITE) } returns webVal
+
+        val empVal = mockk<FieldValue>()
+        every { empVal.isNull } returns true
+        every { detRow.get(CompanyFields.EMPLOYEES_COUNT) } returns empVal
+
+        val indVal = mockk<FieldValue>()
+        every { indVal.isNull } returns true
+        every { detRow.get(CompanyFields.INDUSTRIES) } returns indVal
+
+        val descVal = mockk<FieldValue>()
+        every { descVal.isNull } returns true
+        every { detRow.get(CompanyFields.DESCRIPTION) } returns descVal
+
+        // Company has manually curated technologies
+        val compTechItem = mockk<FieldValue>()
+        every { compTechItem.stringValue } returns "aws"
+        val compTechField = mockk<FieldValue>()
+        every { compTechField.isNull } returns false
+        every { compTechField.repeatedValue } returns listOf(compTechItem)
+        every { detRow.get(CompanyFields.TECHNOLOGIES) } returns compTechField
+
+        val agencyVal = mockk<FieldValue>()
+        every { agencyVal.isNull } returns true
+        every { detRow.get(CompanyFields.IS_AGENCY) } returns agencyVal
+
+        val socialVal = mockk<FieldValue>()
+        every { socialVal.isNull } returns true
+        every { detRow.get(CompanyFields.IS_SOCIAL_ENTERPRISE) } returns socialVal
+
+        val hqVal = mockk<FieldValue>()
+        every { hqVal.isNull } returns true
+        every { detRow.get(CompanyFields.HQ_COUNTRY) } returns hqVal
+
+        val remoteVal = mockk<FieldValue>()
+        every { remoteVal.isNull } returns true
+        every { detRow.get(CompanyFields.REMOTE_POLICY) } returns remoteVal
+
+        val visaVal = mockk<FieldValue>()
+        every { visaVal.isNull } returns true
+        every { detRow.get(CompanyFields.VISA_SPONSORSHIP) } returns visaVal
+
+        val verifVal = mockk<FieldValue>()
+        every { verifVal.isNull } returns true
+        every { detRow.get(CompanyFields.VERIFICATION_LEVEL) } returns verifVal
+
+        every { detRow.get(CompanyFields.HIRING_LOCATIONS) } returns nullField
+        every { detRow.get(CompanyFields.OPERATING_COUNTRIES) } returns nullField
+        every { detRow.get(CompanyFields.OFFICE_LOCATIONS) } returns nullField
+
+        every { detResult.values } returns listOf(detRow)
+
+        // Helper to create a mock job row
+        fun mockJobRow(techs: List<String>): FieldValueList {
+            val jobRow = mockk<FieldValueList>()
+            
+            val jobIdVal = mockk<FieldValue>()
+            every { jobIdVal.stringValue } returns "job-1"
+            every { jobRow.get(JobFields.JOB_ID) } returns jobIdVal
+
+            val titleVal = mockk<FieldValue>()
+            every { titleVal.stringValue } returns "Developer"
+            every { jobRow.get(JobFields.TITLE) } returns titleVal
+
+            val cityVal = mockk<FieldValue>()
+            every { cityVal.isNull } returns false
+            every { cityVal.stringValue } returns "Auckland"
+            every { jobRow.get(JobFields.CITY) } returns cityVal
+
+            val stateVal = mockk<FieldValue>()
+            every { stateVal.isNull } returns false
+            every { stateVal.stringValue } returns "Auckland"
+            every { jobRow.get(JobFields.STATE_REGION) } returns stateVal
+
+            val techItems = techs.map { tech ->
+                val item = mockk<FieldValue>()
+                every { item.stringValue } returns tech
+                item
+            }
+            val techField = mockk<FieldValue>()
+            every { techField.isNull } returns false
+            every { techField.repeatedValue } returns techItems
+            every { jobRow.get(JobFields.TECHNOLOGIES) } returns techField
+
+            every { jobRow.get(JobFields.JOB_IDS) } returns nullField
+            every { jobRow.get(JobFields.APPLY_URLS) } returns nullField
+            every { jobRow.get(JobFields.PLATFORM_LINKS) } returns nullField
+            every { jobRow.get(JobFields.SALARY_MIN) } returns nullField
+            every { jobRow.get(JobFields.SALARY_MAX) } returns nullField
+            every { jobRow.get(JobFields.BENEFITS) } returns nullField
+
+            val dateVal = mockk<FieldValue>()
+            every { dateVal.isNull } returns false
+            every { dateVal.stringValue } returns "2023-01-01"
+            every { jobRow.get(JobFields.POSTED_DATE) } returns dateVal
+
+            val seniorVal = mockk<FieldValue>()
+            every { seniorVal.isNull } returns false
+            every { seniorVal.stringValue } returns "Mid"
+            every { jobRow.get(JobFields.SENIORITY_LEVEL) } returns seniorVal
+
+            return jobRow
+        }
+
+        every { jobsResult.values } returns listOf(mockJobRow(listOf("kotlin")))
+        every { aggResult.values } returns emptyList()
+
+        val profile = CompanyMapper.mapCompanyProfile(companyId, detResult, jobsResult, aggResult)
+
+        // Should merge both sources, deduplicated and sorted
+        assertEquals(listOf("AWS", "Kotlin"), profile.techStack)
+    }
+
+    @Test
+    fun `mapCompanyProfile handles jobs with no technologies`() {
+        val companyId = "test-company"
+        val detResult = mockk<TableResult>()
+        val jobsResult = mockk<TableResult>()
+        val aggResult = mockk<TableResult>()
+
+        val detRow = mockk<FieldValueList>()
+        val nameVal = mockk<FieldValue>()
+        every { nameVal.stringValue } returns "Test Company"
+        every { detRow.get(CompanyFields.NAME) } returns nameVal
+
+        val nullField = mockk<FieldValue>()
+        every { nullField.isNull } returns true
+
+        val logoVal = mockk<FieldValue>()
+        every { logoVal.isNull } returns true
+        every { detRow.get(CompanyFields.LOGO_URL) } returns logoVal
+
+        val webVal = mockk<FieldValue>()
+        every { webVal.isNull } returns true
+        every { detRow.get(CompanyFields.WEBSITE) } returns webVal
+
+        val empVal = mockk<FieldValue>()
+        every { empVal.isNull } returns true
+        every { detRow.get(CompanyFields.EMPLOYEES_COUNT) } returns empVal
+
+        val indVal = mockk<FieldValue>()
+        every { indVal.isNull } returns true
+        every { detRow.get(CompanyFields.INDUSTRIES) } returns indVal
+
+        val descVal = mockk<FieldValue>()
+        every { descVal.isNull } returns true
+        every { detRow.get(CompanyFields.DESCRIPTION) } returns descVal
+
+        every { detRow.get(CompanyFields.TECHNOLOGIES) } returns nullField
+
+        val agencyVal = mockk<FieldValue>()
+        every { agencyVal.isNull } returns true
+        every { detRow.get(CompanyFields.IS_AGENCY) } returns agencyVal
+
+        val socialVal = mockk<FieldValue>()
+        every { socialVal.isNull } returns true
+        every { detRow.get(CompanyFields.IS_SOCIAL_ENTERPRISE) } returns socialVal
+
+        val hqVal = mockk<FieldValue>()
+        every { hqVal.isNull } returns true
+        every { detRow.get(CompanyFields.HQ_COUNTRY) } returns hqVal
+
+        val remoteVal = mockk<FieldValue>()
+        every { remoteVal.isNull } returns true
+        every { detRow.get(CompanyFields.REMOTE_POLICY) } returns remoteVal
+
+        val visaVal = mockk<FieldValue>()
+        every { visaVal.isNull } returns true
+        every { detRow.get(CompanyFields.VISA_SPONSORSHIP) } returns visaVal
+
+        val verifVal = mockk<FieldValue>()
+        every { verifVal.isNull } returns true
+        every { detRow.get(CompanyFields.VERIFICATION_LEVEL) } returns verifVal
+
+        every { detRow.get(CompanyFields.HIRING_LOCATIONS) } returns nullField
+        every { detRow.get(CompanyFields.OPERATING_COUNTRIES) } returns nullField
+        every { detRow.get(CompanyFields.OFFICE_LOCATIONS) } returns nullField
+
+        every { detResult.values } returns listOf(detRow)
+
+        // Job with no technologies
+        val jobRow = mockk<FieldValueList>()
+        val nullTechField = mockk<FieldValue>()
+        every { nullTechField.isNull } returns true
+        every { jobRow.get(JobFields.TECHNOLOGIES) } returns nullTechField
+
+        // Required fields for role mapping
+        val jobIdVal = mockk<FieldValue>()
+        every { jobIdVal.stringValue } returns "job-1"
+        every { jobRow.get(JobFields.JOB_ID) } returns jobIdVal
+
+        val titleVal = mockk<FieldValue>()
+        every { titleVal.stringValue } returns "Developer"
+        every { jobRow.get(JobFields.TITLE) } returns titleVal
+
+        val cityVal = mockk<FieldValue>()
+        every { cityVal.isNull } returns false
+        every { cityVal.stringValue } returns "Auckland"
+        every { jobRow.get(JobFields.CITY) } returns cityVal
+
+        val stateVal = mockk<FieldValue>()
+        every { stateVal.isNull } returns false
+        every { stateVal.stringValue } returns "Auckland"
+        every { jobRow.get(JobFields.STATE_REGION) } returns stateVal
+
+        every { jobRow.get(JobFields.JOB_IDS) } returns nullField
+        every { jobRow.get(JobFields.APPLY_URLS) } returns nullField
+        every { jobRow.get(JobFields.PLATFORM_LINKS) } returns nullField
+        every { jobRow.get(JobFields.SALARY_MIN) } returns nullField
+        every { jobRow.get(JobFields.SALARY_MAX) } returns nullField
+        every { jobRow.get(JobFields.BENEFITS) } returns nullField
+
+        val dateVal = mockk<FieldValue>()
+        every { dateVal.isNull } returns false
+        every { dateVal.stringValue } returns "2023-01-01"
+        every { jobRow.get(JobFields.POSTED_DATE) } returns dateVal
+
+        val seniorVal = mockk<FieldValue>()
+        every { seniorVal.isNull } returns false
+        every { seniorVal.stringValue } returns "Mid"
+        every { jobRow.get(JobFields.SENIORITY_LEVEL) } returns seniorVal
+
+        every { jobsResult.values } returns listOf(jobRow)
+        every { aggResult.values } returns emptyList()
+
+        val profile = CompanyMapper.mapCompanyProfile(companyId, detResult, jobsResult, aggResult)
+
+        // Should return empty list when no technologies anywhere
+        assertEquals(emptyList<String>(), profile.techStack)
+    }
 }

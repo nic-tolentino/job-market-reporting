@@ -82,6 +82,16 @@ object CompanyMapper {
                                 verifLevel
                         )
 
+                // Aggregate technologies from all active job postings (query-time aggregation)
+                val techFromJobs = jobsResult.values
+                        .flatMap { r ->
+                                if (r.get(JobFields.TECHNOLOGIES).isNull) emptyList()
+                                else r.get(JobFields.TECHNOLOGIES).repeatedValue.map { it.stringValue }
+                        }
+                        .map { TechFormatter.format(it) }
+                        .distinct()
+                        .sorted()
+
                 val roles =
                         jobsResult.values.map { r ->
                                 // ... (roles aggregation same as before)
@@ -147,12 +157,14 @@ object CompanyMapper {
                                 )
                         }
 
-                val allTechs =
+                // Merge company-level technologies (for manual curation) with job-aggregated technologies
+                val companyTechs =
                         if (detRow?.get(CompanyFields.TECHNOLOGIES)?.isNull == false)
                                 detRow.get(CompanyFields.TECHNOLOGIES).repeatedValue.map {
                                         TechFormatter.format(it.stringValue)
                                 }
                         else emptyList()
+                val allTechs = (companyTechs + techFromJobs).distinct().sorted()
                 val hiringLocations =
                         if (detRow?.get(CompanyFields.HIRING_LOCATIONS)?.isNull == false)
                                 detRow.get(CompanyFields.HIRING_LOCATIONS).repeatedValue.map {
