@@ -14,6 +14,25 @@ import SimplePager from '../components/ui/SimplePager';
 
 const ROLES_PAGE_SIZE = 10;
 
+/**
+ * Formats an ISO timestamp into a human-readable relative time string.
+ */
+function formatLastUpdated(isoString: string): string {
+    if (!isoString || isoString === '1970-01-01T00:00:00Z') return 'today';
+    
+    const lastUpdated = new Date(isoString);
+    const now = new Date();
+    const diffMs = now.getTime() - lastUpdated.getTime();
+    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+    const diffDays = Math.floor(diffHours / 24);
+    
+    if (diffHours < 1) return 'within the last hour';
+    if (diffHours < 24) return `${diffHours}h ago`;
+    if (diffDays === 1) return 'yesterday';
+    if (diffDays < 7) return `${diffDays}d ago`;
+    return lastUpdated.toLocaleDateString();
+}
+
 export default function CompanyProfilePage() {
     const navigate = useNavigate();
     const { companyId } = useParams<{ companyId: string }>();
@@ -272,6 +291,15 @@ export default function CompanyProfilePage() {
                                                 <div className="flex items-center gap-1.5">
                                                     <Calendar className="h-4 w-4" />
                                                     {job.postedDate}
+                                                </div>
+                                                <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                                                    <span className="inline-flex items-center gap-1 rounded bg-accent-subtle px-2 py-0.5 text-xs font-medium text-accent">
+                                                        <ShieldCheck className="h-3 w-3" />
+                                                        {job.source}
+                                                    </span>
+                                                    <span className="text-xs text-muted">
+                                                        Updated {formatLastUpdated(job.lastUpdatedAt)}
+                                                    </span>
                                                 </div>
                                             </td>
                                         </tr>

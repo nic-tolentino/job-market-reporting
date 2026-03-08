@@ -181,13 +181,14 @@ class CompanyBigQueryRepository(
                         .addNamedParameter("companyId", QueryParameterValue.string(companyId))
                 val aggConfig = QueryJobConfiguration.newBuilder(aggSql)
                         .addNamedParameter("companyId", QueryParameterValue.string(companyId))
-                
-                if (country != null) {
-                        val c = country.lowercase()
-                        detConfig.addNamedParameter(JobFields.COUNTRY, QueryParameterValue.string(c))
-                        jobsConfig.addNamedParameter(JobFields.COUNTRY, QueryParameterValue.string(c))
-                        aggConfig.addNamedParameter(JobFields.COUNTRY, QueryParameterValue.string(c))
-                }
+
+                // Always add country parameter (as NULL if not provided) to satisfy BigQuery SQL
+                // The SQL uses: AND (@country IS NULL OR country = @country)
+                // This pattern requires the parameter to always exist, even if NULL
+                val c = country?.lowercase()
+                detConfig.addNamedParameter("country", QueryParameterValue.string(c))
+                jobsConfig.addNamedParameter("country", QueryParameterValue.string(c))
+                aggConfig.addNamedParameter("country", QueryParameterValue.string(c))
 
                 val detResult = bigQuery.query(detConfig.build())
                 val jobsResult = bigQuery.query(jobsConfig.build())

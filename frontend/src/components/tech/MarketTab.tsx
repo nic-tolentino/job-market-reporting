@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
-import { Briefcase, MapPin, DollarSign, Calendar } from 'lucide-react';
+import { Briefcase, MapPin, DollarSign, Calendar, ShieldCheck } from 'lucide-react';
 import { Card, CardHeader, CardContent } from '../ui/Card';
 import { H2 } from '../ui/Typography';
 import Dropdown from '../ui/Dropdown';
@@ -9,6 +9,25 @@ import CompanyLogo from '../common/CompanyLogo';
 import { FeedbackButton } from '../common/Feedback';
 import { useChartStyles } from '../../hooks/useChartStyles';
 import { type TechDetailsPageDto } from '../../lib/api';
+
+/**
+ * Formats an ISO timestamp into a human-readable relative time string.
+ */
+function formatLastUpdated(isoString: string): string {
+    if (!isoString || isoString === '1970-01-01T00:00:00Z') return 'today';
+    
+    const lastUpdated = new Date(isoString);
+    const now = new Date();
+    const diffMs = now.getTime() - lastUpdated.getTime();
+    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+    const diffDays = Math.floor(diffHours / 24);
+    
+    if (diffHours < 1) return 'within the last hour';
+    if (diffHours < 24) return `${diffHours}h ago`;
+    if (diffDays === 1) return 'yesterday';
+    if (diffDays < 7) return `${diffDays}d ago`;
+    return lastUpdated.toLocaleDateString();
+}
 
 const JOBS_PAGE_SIZE = 10;
 
@@ -248,6 +267,15 @@ export const MarketTab = ({
                                                 <div className="flex items-center gap-1.5">
                                                     <Calendar className="h-4 w-4" />
                                                     {role.postedDate}
+                                                </div>
+                                                <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                                                    <span className="inline-flex items-center gap-1 rounded bg-accent-subtle px-2 py-0.5 text-xs font-medium text-accent">
+                                                        <ShieldCheck className="h-3 w-3" />
+                                                        {role.source}
+                                                    </span>
+                                                    <span className="text-xs text-muted">
+                                                        Updated {formatLastUpdated(role.lastUpdatedAt)}
+                                                    </span>
                                                 </div>
                                             </td>
                                         </tr>

@@ -133,6 +133,12 @@ object CompanyMapper {
                                                 r.get(JobFields.PLATFORM_LINKS).repeatedValue.map {
                                                         if (it.isNull) null else it.stringValue
                                                 }
+                                val source =
+                                        if (r.get(JobFields.SOURCE).isNull) "Unknown"
+                                        else r.get(JobFields.SOURCE).stringValue
+                                val lastUpdatedAt =
+                                        if (r.get(JobFields.LAST_SEEN_AT).isNull) Instant.EPOCH
+                                        else parseTimestampSafe(r.get(JobFields.LAST_SEEN_AT))
                                 JobRoleDto(
                                         id = r.get(JobFields.JOB_ID).stringValue,
                                         title = r.get(JobFields.TITLE).stringValue,
@@ -153,7 +159,9 @@ object CompanyMapper {
                                                 else r.get(JobFields.POSTED_DATE).stringValue,
                                         seniorityLevel =
                                                 r.get(JobFields.SENIORITY_LEVEL).stringValue,
-                                        technologies = techList
+                                        technologies = techList,
+                                        source = source,
+                                        lastUpdatedAt = lastUpdatedAt
                                 )
                         }
 

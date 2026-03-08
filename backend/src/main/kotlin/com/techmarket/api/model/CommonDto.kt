@@ -1,5 +1,7 @@
 package com.techmarket.api.model
 
+import java.time.Instant
+
 data class CompanyLeaderboardDto(
         val id: String,
         val name: String,
@@ -7,6 +9,12 @@ data class CompanyLeaderboardDto(
         val activeRoles: Int
 )
 
+/**
+ * Represents a job role in API responses.
+ *
+ * @property source The data source for this job (e.g., "LinkedIn", "Company Website", "SEEK")
+ * @property lastUpdatedAt When this job was last updated/verified as active
+ */
 data class JobRoleDto(
         val id: String, // canonical ID (first jobId in the group)
         val title: String,
@@ -20,7 +28,9 @@ data class JobRoleDto(
         val salaryMax: Int?,
         val postedDate: String,
         val seniorityLevel: String,
-        val technologies: List<String>
+        val technologies: List<String>,
+        val source: String,
+        val lastUpdatedAt: Instant
 )
 
 data class FeedbackRequest(val context: String?, val message: String)

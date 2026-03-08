@@ -52,6 +52,8 @@ export interface JobRoleDto {
     postedDate: string;
     seniorityLevel: string;
     technologies: string[];
+    source: string;
+    lastUpdatedAt: string;
 }
 
 export interface CompanyDetailsDto {

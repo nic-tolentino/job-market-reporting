@@ -6,6 +6,7 @@ import com.techmarket.api.model.SeniorityDistributionDto
 import com.techmarket.api.model.TechDetailsPageDto
 import com.techmarket.persistence.JobFields
 import com.techmarket.util.TechFormatter
+import java.time.Instant
 
 object TechMapper {
         fun mapTechDetails(
@@ -77,6 +78,12 @@ object TechMapper {
                                                 else "$city, $stateRegion"
                                         )
 
+                                val rowSource =
+                                        if (row.get(JobFields.SOURCE).isNull) "Unknown"
+                                        else row.get(JobFields.SOURCE).stringValue
+                                val rowLastUpdatedAt =
+                                        if (row.get(JobFields.LAST_SEEN_AT).isNull) Instant.EPOCH
+                                        else parseTimestampSafe(row.get(JobFields.LAST_SEEN_AT))
                                 JobRoleDto(
                                         id = idList.firstOrNull() ?: "",
                                         title = row.get(JobFields.TITLE).stringValue,
@@ -105,7 +112,9 @@ object TechMapper {
                                                 else row.get(JobFields.POSTED_DATE).stringValue,
                                         seniorityLevel =
                                                 row.get(JobFields.SENIORITY_LEVEL).stringValue,
-                                        technologies = techList
+                                        technologies = techList,
+                                        source = rowSource,
+                                        lastUpdatedAt = rowLastUpdatedAt
                                 )
                         }
 
@@ -118,5 +127,20 @@ object TechMapper {
                         companies,
                         roles
                 )
+        }
+
+        private fun parseTimestampSafe(field: com.google.cloud.bigquery.FieldValue): Instant {
+                if (field.isNull) return Instant.EPOCH
+                return try {
+                        val stringVal = field.stringValue
+                        val doubleVal = stringVal.toDoubleOrNull()
+                        if (doubleVal != null) {
+                                Instant.ofEpochSecond(doubleVal.toLong())
+                        } else {
+                                Instant.parse(stringVal)
+                        }
+                } catch (e: Exception) {
+                        Instant.EPOCH
+                }
         }
 }

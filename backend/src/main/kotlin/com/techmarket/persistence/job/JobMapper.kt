@@ -162,6 +162,12 @@ object JobMapper {
                                                                 else it.stringValue
                                                         }
 
+                                val simSource =
+                                        if (sim.get(JobFields.SOURCE).isNull) "Unknown"
+                                        else sim.get(JobFields.SOURCE).stringValue
+                                val simLastUpdatedAt =
+                                        if (sim.get(JobFields.LAST_SEEN_AT).isNull) Instant.EPOCH
+                                        else parseTimestampSafe(sim.get(JobFields.LAST_SEEN_AT))
                                 JobRoleDto(
                                         id = simIdList.firstOrNull() ?: "",
                                         title = sim.get(JobFields.TITLE).stringValue,
@@ -190,7 +196,9 @@ object JobMapper {
                                                 else sim.get(JobFields.POSTED_DATE).stringValue,
                                         seniorityLevel =
                                                 sim.get(JobFields.SENIORITY_LEVEL).stringValue,
-                                        technologies = simTechList
+                                        technologies = simTechList,
+                                        source = simSource,
+                                        lastUpdatedAt = simLastUpdatedAt
                                 )
                         }
 

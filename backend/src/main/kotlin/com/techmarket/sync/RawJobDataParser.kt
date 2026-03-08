@@ -1,5 +1,6 @@
 package com.techmarket.sync
 
+import com.techmarket.util.Constants
 import com.techmarket.util.TechFormatter
 import java.time.Instant
 import java.time.LocalDate
@@ -66,13 +67,13 @@ class RawJobDataParser {
         val (_, _, country) = parseLocation(location)
         if (country != "Unknown") return country
 
-        if (location == null) return "Unknown"
+        if (location == null) return Constants.UNKNOWN_LOCATION
         val locUpper = location.uppercase()
         return when {
             locUpper.contains("AUSTRALIA") -> "AU"
             locUpper.contains("NEW ZEALAND") -> "NZ"
             locUpper.contains("SPAIN") || locUpper.contains("ESPAÑA") -> "ES"
-            else -> "Unknown"
+            else -> Constants.UNKNOWN_LOCATION
         }
     }
 
@@ -90,7 +91,7 @@ class RawJobDataParser {
      * State/Region, Country).
      */
     fun parseLocation(location: String?): Triple<String, String, String> {
-        if (location == null) return Triple("Unknown", "Unknown", "Unknown")
+        if (location == null) return Triple(Constants.UNKNOWN_LOCATION, Constants.UNKNOWN_LOCATION, Constants.UNKNOWN_LOCATION)
 
         val locLower = location.lowercase()
 
@@ -105,9 +106,9 @@ class RawJobDataParser {
         val parts = location.split(",").map { it.trim() }
 
         val result = when (parts.size) {
-            0 -> Triple("Unknown", "Unknown", "Unknown")
-            1 -> Triple(parts[0], "Unknown", "Unknown")
-            2 -> Triple(parts[0], "Unknown", parts[1])
+            0 -> Triple(Constants.UNKNOWN_LOCATION, Constants.UNKNOWN_LOCATION, Constants.UNKNOWN_LOCATION)
+            1 -> Triple(parts[0], Constants.UNKNOWN_LOCATION, Constants.UNKNOWN_LOCATION)
+            2 -> Triple(parts[0], Constants.UNKNOWN_LOCATION, parts[1])
             else -> Triple(parts[0], parts[1], parts.last())
         }
         return Triple(result.first, result.second, normalizeCountry(result.third))

@@ -10,6 +10,7 @@ import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import java.time.Instant
 
 class CompanyMapperTest {
 
@@ -149,6 +150,18 @@ class CompanyMapperTest {
         every { jobRow.get(JobFields.SALARY_MIN) } returns nullField
         every { jobRow.get(JobFields.SALARY_MAX) } returns nullField
         every { jobRow.get(JobFields.BENEFITS) } returns nullField
+
+        // Source field
+        val sourceVal = mockk<FieldValue>()
+        every { sourceVal.isNull } returns false
+        every { sourceVal.stringValue } returns "LinkedIn"
+        every { jobRow.get(JobFields.SOURCE) } returns sourceVal
+
+        // Last seen at field
+        val lastSeenVal = mockk<FieldValue>()
+        every { lastSeenVal.isNull } returns false
+        every { lastSeenVal.stringValue } returns Instant.now().toString()
+        every { jobRow.get(JobFields.LAST_SEEN_AT) } returns lastSeenVal
 
         val dateVal = mockk<FieldValue>()
         every { dateVal.isNull } returns false
@@ -409,6 +422,18 @@ class CompanyMapperTest {
             every { jobRow.get(JobFields.SALARY_MAX) } returns nullField
             every { jobRow.get(JobFields.BENEFITS) } returns nullField
 
+            // Source field
+            val sourceVal = mockk<FieldValue>()
+            every { sourceVal.isNull } returns false
+            every { sourceVal.stringValue } returns "LinkedIn"
+            every { jobRow.get(JobFields.SOURCE) } returns sourceVal
+
+            // Last seen at field
+            val lastSeenVal = mockk<FieldValue>()
+            every { lastSeenVal.isNull } returns false
+            every { lastSeenVal.stringValue } returns Instant.now().toString()
+            every { jobRow.get(JobFields.LAST_SEEN_AT) } returns lastSeenVal
+
             val dateVal = mockk<FieldValue>()
             every { dateVal.isNull } returns false
             every { dateVal.stringValue } returns "2023-01-01"
@@ -548,6 +573,18 @@ class CompanyMapperTest {
             every { jobRow.get(JobFields.SALARY_MAX) } returns nullField
             every { jobRow.get(JobFields.BENEFITS) } returns nullField
 
+            // Source field
+            val sourceVal = mockk<FieldValue>()
+            every { sourceVal.isNull } returns false
+            every { sourceVal.stringValue } returns "LinkedIn"
+            every { jobRow.get(JobFields.SOURCE) } returns sourceVal
+
+            // Last seen at field
+            val lastSeenVal = mockk<FieldValue>()
+            every { lastSeenVal.isNull } returns false
+            every { lastSeenVal.stringValue } returns Instant.now().toString()
+            every { jobRow.get(JobFields.LAST_SEEN_AT) } returns lastSeenVal
+
             val dateVal = mockk<FieldValue>()
             every { dateVal.isNull } returns false
             every { dateVal.stringValue } returns "2023-01-01"
@@ -668,6 +705,18 @@ class CompanyMapperTest {
         every { jobRow.get(JobFields.SALARY_MIN) } returns nullField
         every { jobRow.get(JobFields.SALARY_MAX) } returns nullField
         every { jobRow.get(JobFields.BENEFITS) } returns nullField
+
+        // Source field
+        val sourceVal = mockk<FieldValue>()
+        every { sourceVal.isNull } returns false
+        every { sourceVal.stringValue } returns "LinkedIn"
+        every { jobRow.get(JobFields.SOURCE) } returns sourceVal
+
+        // Last seen at field
+        val lastSeenVal = mockk<FieldValue>()
+        every { lastSeenVal.isNull } returns false
+        every { lastSeenVal.stringValue } returns Instant.now().toString()
+        every { jobRow.get(JobFields.LAST_SEEN_AT) } returns lastSeenVal
 
         val dateVal = mockk<FieldValue>()
         every { dateVal.isNull } returns false
