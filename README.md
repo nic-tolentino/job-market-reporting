@@ -123,11 +123,13 @@ Now:
 
 Later:
 
-- Company level tech stacks is currently broken.
+- I was thinking: does it make sense to save every ingestion into a separte cold storage file - afterall they shouldn't be accessed often at all, and it also allows us to more easily mamage the data, reduces costs, and we don't need to maintain that table. The cost is performance but does it matter in practice?
 
-- Locations in company, tech, and job pages appear with city shown twice. Eg Auckland, Auckland. Countries are only shown once. Eg "New Zealand". Please check first whether this is a backend data or frontend display issue.
+- Company level tech stack has a lot of potentail for improvement refer to company-tech-stack-fix.md
 
-- Add a location job filter to the company page???
+- Add a location filter to the job table on the company page???
+
+- An admin panel would be very useful, I'm not sure exactly how it would be accessed though. Nor exactly what to add to it. I feel it could get bloated very quickly. It would be good to get suggestions on what would be good to add, and how to structure the functionality.
 
 - The ability to group technologies by category, e.g. cloud, server, database, web, mobile, backend, etc in the landing, and company pages
 

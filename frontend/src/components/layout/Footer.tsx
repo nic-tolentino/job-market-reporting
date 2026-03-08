@@ -15,6 +15,7 @@ export default function Footer() {
                         <p className="text-sm font-bold text-primary mb-0 uppercase tracking-wider">Quick Links</p>
                         <nav className="flex flex-wrap gap-x-6 gap-y-2 md:justify-end">
                             <Link to="/transparency" className="hover:text-accent transition-colors">Transparency</Link>
+                            <Link to="/pipeline" className="hover:text-accent transition-colors">Pipeline</Link>
                             <Link to="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
                             <Link to="/terms" className="hover:text-accent transition-colors">Terms of Service</Link>
                             <Link to="/contact" className="hover:text-accent transition-colors">Contact</Link>

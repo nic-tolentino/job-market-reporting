@@ -2,60 +2,533 @@
 
 Providing a prioritized plan to evolve DevAssembly from a LinkedIn scraper into a high-trust, multi-channel market intelligence platform.
 
+**Last Updated:** March 8, 2026
+
+---
+
 ## Effort vs. Benefit Matrix
 
 This matrix identifies the Return on Investment (ROI) for major categories of tasks identified in the `ideas` files and `README`.
 
 | Benefit \ Effort | Low Effort | Medium Effort | High Effort |
 | :--- | :--- | :--- | :--- |
-| **High Benefit** | **Quick Wins**: <br>• Bug: City naming duplicates <br>• PII filter audit <br>• Sitemap.xml for SEO <br>• Data source transparency | **Strategic Core**: <br>• Salary Normalization <br>• Background Processing (Cloud Tasks) <br>• Stale Job/Dead Link Detection <br>• Visa Sponsorship tags | **Market Moat**: <br>• Tech Domains / Hubs <br>• Multi-channel Integration (Seek/TradeMe) <br>• Mobile UX Overhaul |
-| **Medium Benefit** | **Maintenance**: <br>• Old job (2025) archival <br>• Third-party URL fallbacks | **Operational**: <br>• Trending Lists <br>• Tech record pre-computation <br>• Unit Test expansion | **Future-Proofing**: <br>• Public Company Repo <br>• Resource Data Modeling (DB-driven) |
-| **Low Benefit** | **Polish**: <br>• Class/Package renaming <br>• "Other" country selector | **Cleanup**: <br>• Nullable field reduction | **Experimental**: <br>• User accounts (for saved jobs) <br>• Interview prep content |
+| **High Benefit** | **Quick Wins**: <br>• **FIX**: Company tech stack aggregation (#1 user-facing bug)<br>• **FIX**: City naming duplicates (Auckland, Auckland)<br>• **FIX**: PII filter audit for phone numbers/emails<br>• **NEW**: Data source transparency labels<br>• **NEW**: Sitemap.xml for SEO | **Strategic Core**: <br>• **NEW**: Salary normalization engine (currency, period detection)<br>• **NEW**: Background processing (Cloud Tasks)<br>• **NEW**: Dead link detection worker<br>• **NEW**: ATS direct integrations (Greenhouse/Lever/Ashby) | **Market Moat**: <br>• **NEW**: SEEK & TradeMe integration (50-60% market coverage)<br>• **NEW**: Tech Domain Hubs (Web, Mobile, Cloud, Data)<br>• **NEW**: Mobile UX complete overhaul |
+| **Medium Benefit** | **Maintenance**: <br>• **FIX**: Stale job (mid-2025) archival<br>• **FIX**: Third-party URL fallbacks<br>• **NEW**: Visa sponsorship tags | **Operational**: <br>• **NEW**: Trending jobs/companies/tech lists<br>• **NEW**: Tech record pre-computation<br>• **NEW**: Unit test expansion (critical paths)<br>• **NEW**: Technology exclusion filters (Native-only toggle) | **Future-Proofing**: <br>• **NEW**: Public company data repo (community contributions)<br>• **NEW**: Resource data modeling (DB-driven)<br>• **NEW**: Company logo CDN hosting |
+| **Low Benefit** | **Polish**: <br>• **RENAME**: Analytics → Insights (clarity)<br>• **FIX**: Tooltip for company verification status<br>• **FIX**: Log unparsed locations | **Cleanup**: <br>• **REFACTOR**: Nullable field reduction<br>• **FIX**: Multiple seniority levels per job | **Experimental**: <br>• **NEW**: User accounts (saved jobs)<br>• **NEW**: Interview prep content<br>• **NEW**: "Other" country selector |
 
 ---
 
-## Proposed Implementation Plan
+## Prioritized Implementation Roadmap
 
-### Phase 1: High-ROI "Quick Wins" & Trust Factors
-Focus on visible polish and transparency to build user trust.
-*   **[MODIFY]** `RawJobDataParser.kt`: Fix the "Auckland, Auckland" duplication bug.
-*   **[MODIFY]** UI/Frontend: Explicitly label data sources and sync frequencies.
-*   **[NEW]** `sitemap.xml` generation for search engine visibility.
-*   **[VERIFY]** Audit PII filter for edge cases (e.g., recruiter phone numbers in body).
+### Phase 1: Critical Bug Fixes & Trust Foundation (Week 1-2)
+**Goal:** Fix the most visible user-facing issues and establish data transparency.
 
-### Phase 2: Core Data Engine & Reliability
-Infrastructure changes to ensure the system can scale beyond current volumes.
-*   **[NEW]** `CloudTasksService`: Decouple ingestion from processing to avoid Cloud Run timeouts.
-*   **[MODIFY]** `RawJobParser`: Implement Robust Salary Normalization (detecting "per hour", "per month", and currency).
-*   **[NEW]** "Dead Link" Worker: Daily health checks on `applyUrl` to detect filled roles.
-*   **[MODIFY]** `CompanyDataStrategy`: Automate the AI enrichment loop for "Ghost" companies.
+#### 1.1 Company Tech Stack Aggregation [CRITICAL - HIGH IMPACT]
+**Problem:** Company profile pages show empty or stale tech stacks because technologies are not aggregated from active job postings at query time.
 
-### Phase 3: Market Moat (Multi-Source & Domains)
-Expanding beyond LinkedIn to capture the true ANZ market.
-*   **[NEW]** Seek & TradeMe Scrapers: Integrate via Apify to capture the 50%+ of roles missing from LinkedIn.
-*   **[NEW]** Tech Domains / Hubs: Implement top-level categories (Cloud, Mobile, Web) and dedicated landing pages.
-*   **[NEW]** Visa Sponsorship Matrix: Implement structured tracking for sponsorship availability.
+**Files to Modify:**
+- `backend/src/main/kotlin/com/techmarket/persistence/company/CompanyMapper.kt`
 
-### Phase 4: Platform Maturation & UX
-Refining the experience for high engagement.
-*   **[MODIFY]** Mobile UX: Complete redesign of job rows and headers for smaller screens.
-*   **[MODIFY]** `ResourceDataModeling`: Migrate from static `techResources.ts` to a managed database/JSON structure.
-*   **[NEW]** Advanced Charts: Jobs per capita, salary trends over time, and market seniority distribution.
+**Implementation:**
+```kotlin
+// Aggregate technologies from active jobs at query time
+val techFromJobs = jobsResult.values
+    .flatMap { r -> /* extract technologies */ }
+    .distinct()
+    .sortedByDescending { /* frequency */ }
 
-### Phase 5: Scalability & Premium Features
-*   **[NEW]** User Accounts: Allow users to save companies/technologies and receive email notifications.
-*   **[NEW]** Public Company Repository: Allow the community to contribute to company metadata (B-Corp status, Remote policy).
+val allTechs = (companyTechs + techFromJobs).distinct()
+```
+
+**Effort:** 2-3 hours | **Impact:** Fixes broken feature on all company pages
+
+---
+
+#### 1.2 Location Duplication Bug [HIGH]
+**Problem:** Locations display as "Auckland, Auckland" or "Sydney, New South Wales, New South Wales"
+
+**Files to Modify:**
+- `backend/src/main/kotlin/com/techmarket/sync/RawJobDataParser.kt` - `parseLocation()`
+- `backend/src/main/kotlin/com/techmarket/util/LocationFormatter.kt`
+
+**Implementation:**
+- Add deduplication logic when city equals state/region
+- Add unit tests for all major AU/NZ/ES cities
+
+**Effort:** 1-2 hours | **Impact:** Fixes UX across all location displays
+
+---
+
+#### 1.3 PII Filter Audit [HIGH - Privacy/Compliance]
+**Problem:** PII sanitizer may not catch all edge cases like recruiter phone numbers in job descriptions.
+
+**Test Case:** "If you would like to find out more, call Bob Blob on 021 999 111"
+
+**Files to Modify:**
+- `backend/src/main/kotlin/com/techmarket/util/PiiSanitizer.kt`
+- `backend/src/test/kotlin/com/techmarket/util/PiiSanitizerTest.kt`
+
+**Implementation:**
+- Add regex patterns for AU/NZ phone formats
+- Add email pattern improvements
+- Test against real job descriptions with recruiter contact info
+
+**Effort:** 2-3 hours | **Impact:** Privacy compliance, user trust
+
+---
+
+#### 1.4 Data Source Transparency [MEDIUM - Trust Signal]
+**Problem:** Users don't know where job data comes from or how fresh it is.
+
+**Files to Modify:**
+- Frontend job detail components
+- Backend API DTOs (add `source` and `lastSeenAt` fields)
+
+**Implementation:**
+- Add badge showing "Source: LinkedIn" or "Source: Company Website"
+- Add "Last updated: X hours ago" timestamp
+- Add footer explaining data refresh frequency
+
+**Effort:** 3-4 hours | **Impact:** Significant trust increase
+
+---
+
+#### 1.5 Sitemap Generation [MEDIUM - SEO]
+**Problem:** Search engines can't discover all tech/company pages.
+
+**Files to Create:**
+- `backend/src/main/kotlin/com/techmarket/api/SitemapController.kt`
+- `frontend/public/sitemap.xml` (generated)
+
+**Implementation:**
+- Dynamic sitemap with all tech pages, company pages, and job listings
+- Include lastmod timestamps from BigQuery
+- Submit to Google Search Console
+
+**Effort:** 2-3 hours | **Impact:** Organic traffic growth
+
+---
+
+### Phase 2: Data Quality & Reliability Engine (Week 3-5)
+**Goal:** Make the data pipeline more robust, scalable, and comprehensive.
+
+#### 2.1 Salary Normalization Engine [HIGH - User Value]
+**Problem:** Salary data is messy - different currencies, periods (hourly/monthly/yearly), and formats.
+
+**Files to Modify:**
+- `backend/src/main/kotlin/com/techmarket/sync/RawJobDataParser.kt`
+- `backend/src/main/kotlin/com/techmarket/persistence/model/JobRecord.kt`
+
+**Implementation:**
+```kotlin
+data class NormalizedSalary(
+    val amount: Long,
+    val currency: String, // NZD, AUD, USD, EUR
+    val period: String,   // HOUR, DAY, MONTH, YEAR
+    val confidence: String, // HIGH (explicit), MEDIUM (AI estimate), LOW (market data)
+    val source: String // JOB_POSTING, MARKET_DATA, AI_ESTIMATE
+)
+```
+
+**Effort:** 6-8 hours | **Impact:** Enables salary comparison features
+
+---
+
+#### 2.2 Background Processing with Cloud Tasks [HIGH - Scalability]
+**Problem:** Webhook processing runs synchronously, risking Cloud Run timeouts as data volume grows.
+
+**Files to Create:**
+- `backend/src/main/kotlin/com/techmarket/config/CloudTasksConfig.kt`
+- `backend/src/main/kotlin/com/techmarket/service/CloudTasksService.kt`
+
+**Files to Modify:**
+- `backend/src/main/kotlin/com/techmarket/webhook/ApifyWebhookController.kt`
+- `backend/src/main/kotlin/com/techmarket/api/AdminController.kt`
+
+**Implementation:**
+1. Create Cloud Tasks queue via Terraform/gcloud
+2. Webhook pushes task → responds 202 immediately
+3. Separate internal endpoint processes the task
+4. Add retry policies and dead-letter queue
+
+**Effort:** 8-10 hours | **Impact:** Prevents timeouts, enables scaling
+
+---
+
+#### 2.3 Dead Link Detection Worker [HIGH - Data Freshness]
+**Problem:** "Ghost jobs" - filled roles that remain visible because apply URLs go stale.
+
+**Files to Create:**
+- `backend/src/main/kotlin/com/techmarket/service/JobHealthCheckService.kt`
+- `backend/src/main/kotlin/com/techmarket/scheduler/HealthCheckScheduler.kt`
+
+**Implementation:**
+- Daily scheduled job (Cloud Scheduler)
+- HEAD request to all active `applyUrls`
+- Mark jobs as `CLOSED` if 404/redirect to generic careers page
+- Add `url_last_checked` and `url_status` fields to jobs table
+
+**Effort:** 6-8 hours | **Impact:** Zero ghost jobs, high user trust
+
+---
+
+#### 2.4 ATS Direct Integrations [HIGH - Market Coverage]
+**Problem:** 50.5% of companies use identifiable ATS systems (Greenhouse, Lever, Ashby, Workday) that we can query directly.
+
+**Files to Create:**
+- `backend/src/main/kotlin/com/techmarket/sync/ats/greenhouse/GreenhouseApiClient.kt`
+- `backend/src/main/kotlin/com/techmarket/sync/ats/lever/LeverApiClient.kt`
+- `backend/src/main/kotlin/com/techmarket/sync/ats/ashby/AshbyApiClient.kt`
+
+**Implementation:**
+- Use findings from `docs/data/ats/ats-identification-findings.md`
+- 92 companies (50.5%) have identifiable ATS
+- Start with Greenhouse (9 companies) and Lever (12 companies) - easiest APIs
+- Schedule hourly syncs for active companies
+
+**Effort:** 12-16 hours | **Impact:** 50%+ more jobs, real-time data
+
+---
+
+#### 2.5 Visa Sponsorship Tracking [MEDIUM - High User Value]
+**Problem:** Migrant workers can't filter for companies that sponsor visas.
+
+**Files to Modify:**
+- `data/companies.json` - Add `visa_sponsorship` field (already exists!)
+- `backend/src/main/kotlin/com/techmarket/persistence/model/CompanyRecord.kt`
+- Frontend company filters
+
+**Implementation:**
+- Audit existing `companies.json` for accuracy
+- Add visa sponsorship filter to company search
+- Add badge to company cards
+
+**Effort:** 3-4 hours | **Impact:** Critical for migrant job seekers
+
+---
+
+### Phase 3: Market Expansion & Discovery (Week 6-8)
+**Goal:** Expand beyond LinkedIn and improve content discoverability.
+
+#### 3.1 SEEK & TradeMe Integration [HIGH - Market Coverage]
+**Problem:** LinkedIn-only sourcing misses 50-60% of ANZ tech jobs.
+
+**Approach:** Use Apify Store scrapers (don't build custom)
+- Create separate Apify tasks for each job board
+- Implement deduplication logic (same job on LinkedIn + SEEK)
+- Prefer direct ATS links over job board links
+
+**Files to Modify:**
+- `backend/src/main/kotlin/com/techmarket/sync/JobDataSyncService.kt`
+- `backend/src/main/kotlin/com/techmarket/sync/model/ApifyJobDto.kt`
+
+**Effort:** 10-14 hours | **Impact:** Doubles job coverage
+
+---
+
+#### 3.2 Technology Domain Hubs [HIGH - UX/Discovery]
+**Problem:** Users can't browse jobs by high-level categories (Web, Mobile, Cloud, Data).
+
+**Files to Create:**
+- `backend/src/main/kotlin/com/techmarket/model/TechCategory.kt` (enum)
+- `backend/src/main/kotlin/com/techmarket/api/DomainHubController.kt`
+
+**Files to Modify:**
+- `backend/src/main/kotlin/com/techmarket/util/TechFormatter.kt`
+- Frontend: New `/hubs/{category}` pages
+
+**Implementation:**
+See `docs/features/technology-grouping-plan.md` and `docs/features/hubs-and-career-stages.md`
+
+**Effort:** 12-16 hours | **Impact:** Better discovery, SEO landing pages
+
+---
+
+#### 3.3 Technology Exclusion Filters [MEDIUM - UX]
+**Problem:** Native iOS developers see Xamarin/React Native jobs when filtering for iOS.
+
+**Files to Modify:**
+- `backend/src/main/kotlin/com/techmarket/util/TechFormatter.kt` - Add metadata
+- `backend/src/main/kotlin/com/techmarket/persistence/job/JobQueries.kt`
+
+**Implementation:**
+```kotlin
+// API: GET /api/tech/iOS?exclude=Xamarin,ReactNative,Flutter
+val exclusions = mapOf(
+    "iOS" to listOf("Xamarin", "React Native", "Flutter"),
+    "Android" to listOf("Xamarin", "React Native", "Flutter")
+)
+```
+
+**Effort:** 4-6 hours | **Impact:** Cleaner search results
+
+---
+
+#### 3.4 Trending Lists [MEDIUM - Engagement]
+**Problem:** No visibility into what's hot (most viewed jobs/companies/tech).
+
+**Files to Create:**
+- `backend/src/main/kotlin/com/techmarket/service/TrendingService.kt`
+- BigQuery table: `page_views` (track via Vercel Analytics)
+
+**Implementation:**
+- Track page views via Vercel Analytics API
+- Compute trending (7-day rolling window)
+- Add "Trending This Week" sections to landing page
+
+**Effort:** 6-8 hours | **Impact:** User engagement, FOMO
+
+---
+
+#### 3.5 Stale Job Archival [LOW - Maintenance]
+**Problem:** Jobs from mid-2025 still appear in database.
+
+**Files to Modify:**
+- `backend/src/main/kotlin/com/techmarket/sync/RawJobDataMapper.kt`
+
+**Implementation:**
+- Current cutoff is 6 months - verify this is working
+- Add `archived_at` field instead of hard delete (for audit)
+- Add admin endpoint to view archived jobs
+
+**Effort:** 2-3 hours | **Impact:** Data cleanliness
+
+---
+
+### Phase 4: UX Polish & Mobile Excellence (Week 9-11)
+**Goal:** Deliver a best-in-class mobile experience and visual polish.
+
+#### 4.1 Mobile UX Overhaul [HIGH - User Retention]
+**Problem:** Mobile design is "meh" - job rows, headers, and navigation need work.
+
+**Areas to Address:**
+- Job list cards: Better hierarchy, larger tap targets
+- Page headers: Responsive typography, compact layout
+- Navigation: Smooth scroll show/hide for navbar
+- Company page refresh bug (404 on mobile)
+
+**Files to Modify:**
+- `frontend/src/components/job/JobCard.tsx`
+- `frontend/src/components/layout/PageHeader.tsx`
+- `frontend/src/components/layout/Navbar.tsx`
+
+**Effort:** 16-20 hours | **Impact:** Mobile user retention
+
+---
+
+#### 4.2 Company Logo CDN Hosting [MEDIUM - Reliability]
+**Problem:** LinkedIn logo URLs expire, causing broken images.
+
+**Files to Create:**
+- `backend/src/main/kotlin/com/techmarket/service/LogoFetcherService.kt`
+
+**Implementation:**
+- On company discovery, download logo to Vercel Blob/S3
+- Store stable CDN URL in company record
+- Fallback to placeholder if no logo
+
+**Effort:** 4-6 hours | **Impact:** Professional appearance
+
+---
+
+#### 4.3 Technology Icons & Brand Colors [LOW - Polish]
+**Problem:** Tech icons lack visual consistency.
+
+**Files to Modify:**
+- `frontend/src/constants/techBrandColors.ts` (exists)
+- `frontend/public/icons/` - Download all tech logos
+
+**Implementation:**
+- Use `download_all_icons.mjs` script
+- Apply brand colors consistently
+- Add fallback icons
+
+**Effort:** 3-4 hours | **Impact:** Visual polish
+
+---
+
+#### 4.4 Dark Theme [LOW - User Preference]
+**Status:** Partially implemented via `next-themes`
+
+**Files to Modify:**
+- Frontend Tailwind config
+- Component-level dark mode variants
+
+**Effort:** 8-10 hours | **Impact:** User preference support
+
+---
+
+### Phase 5: Advanced Features & Community (Week 12+)
+**Goal:** Build features that create network effects and community ownership.
+
+#### 5.1 Resource Data Modeling [MEDIUM - Maintainability]
+**Problem:** `techResources.ts` is hard-coded and doesn't scale.
+
+**Files to Modify:**
+- See `docs/data/resources/resource-data-modeling.md`
+
+**Implementation:**
+- Phase 1: Managed JSON in S3/Supabase Storage
+- Phase 2: Supabase PostgreSQL with real-time updates
+- Many-to-many tech-resource mapping
+
+**Effort:** 8-12 hours | **Impact:** Easier content updates
+
+---
+
+#### 5.2 Public Company Data Repository [MEDIUM - Community]
+**Problem:** Company metadata requires manual updates.
+
+**Implementation:**
+- Create public GitHub repo for `companies.json` contributions
+- Add contribution guidelines and schema validation
+- Backend pulls from repo on sync
+
+**Effort:** 6-8 hours | **Impact:** Community-driven data quality
+
+---
+
+#### 5.3 Advanced Analytics Charts [MEDIUM - Insights]
+**Problem:** Limited market insights visualizations.
+
+**Charts to Add:**
+- Jobs per capita comparison (by country)
+- Salary trends over time
+- Seniority distribution (Junior/Mid/Senior split)
+- Company posting frequency timeline
+
+**Files to Modify:**
+- `backend/src/main/kotlin/com/techmarket/persistence/analytics/AnalyticsBigQueryRepository.kt`
+- Frontend chart components
+
+**Effort:** 12-16 hours | **Impact:** Market intelligence value
+
+---
+
+#### 5.4 User Accounts & Saved Items [LOW - Future]
+**Problem:** No way to track favorite companies/tech.
+
+**Implementation:**
+- Add authentication (NextAuth or Clerk)
+- Saved companies/technologies
+- Email notifications for new jobs
+
+**Effort:** 20-30 hours | **Impact:** User retention (but high effort)
+
+---
+
+## Technical Debt & Refactoring
+
+### T1: Rename Analytics to Insights [LOW]
+**Rationale:** Avoid confusion with actual analytics (page views, etc.)
+
+**Files to Rename:**
+- `com.techmarket.persistence.analytics` → `com.techmarket.persistence.insights`
+- `AnalyticsBigQueryRepository` → `InsightsBigQueryRepository`
+- `AnalyticsMapper` → `InsightsMapper`
+
+**Effort:** 2-3 hours (find/replace) | **Impact:** Code clarity
+
+---
+
+### T2: Nullable Field Reduction [MEDIUM]
+**Problem:** Many fields are nullable that could be non-nullable with defaults.
+
+**Files to Modify:**
+- `backend/src/main/kotlin/com/techmarket/persistence/model/JobRecord.kt`
+- `backend/src/main/kotlin/com/techmarket/persistence/model/CompanyRecord.kt`
+
+**Effort:** 4-6 hours | **Impact:** Fewer null checks, cleaner code
+
+---
+
+### T3: Test Coverage Expansion [MEDIUM]
+**Critical Test Gaps:**
+- `RawJobDataParserTest`: Salary parsing, location edge cases
+- `JobDataSyncServiceTest`: Cloud Tasks integration, error scenarios
+- `CompanyMapperTest`: Tech aggregation scenarios
+- `CrawlHealthTest`: Dead link detection
+
+**Effort:** 8-12 hours | **Impact:** Confidence in refactoring
+
+---
+
+## Success Metrics
+
+| Metric | Current | Target (3 months) | Measurement |
+|--------|---------|-------------------|-------------|
+| Job Coverage (ANZ tech market) | ~40% | 90%+ | Compare to SEEK/LinkedIn total |
+| Ghost Jobs (filled but visible) | Unknown | <5% | Dead link detection rate |
+| Company Tech Stack Accuracy | Broken | 100% | Manual audit |
+| Mobile Bounce Rate | Unknown | <40% | Vercel Analytics |
+| Organic Search Traffic | Unknown | +50% | Google Search Console |
+| API Response Time (p95) | Unknown | <500ms | Cloud Run metrics |
 
 ---
 
 ## Verification Plan
 
 ### Automated Tests
-*   `RawJobDataParserTest`: Add cases for salary normalization and city deduplication.
-*   `JobDataSyncServiceTest`: Test Cloud Tasks queuing and error handling.
-*   `CrawlHealthTest`: Verify the dead-link detector correctly flags 404s.
+- `RawJobDataParserTest`: Salary parsing, location deduplication, phone number PII
+- `JobDataSyncServiceTest`: Cloud Tasks queuing, error handling, retry logic
+- `CrawlHealthTest`: Dead link detector flags 404s correctly
+- `CompanyMapperTest`: Tech aggregation from jobs, frequency sorting
 
 ### Manual Verification
-*   **UI Review**: Verify sitemap generation and data source labels in the frontend.
-*   **Mobile Testing**: Physical device/emulator review of the redesigned job list.
-*   **Sync Audit**: Run a Seek/TradeMe ingestion and verify no duplicates appear in BigQuery.
+- **UI Review**: Data source labels, sitemap.xml structure
+- **Mobile Testing**: Physical device review of job cards, headers, navigation
+- **Sync Audit**: Run SEEK/TradeMe ingestion, verify no BigQuery duplicates
+- **Company Pages**: Verify tech stacks match active job postings
+
+### Monitoring Dashboards
+- Cloud Run: Request latency, error rates, CPU utilization
+- BigQuery: Query costs, scan bytes, job duration
+- Vercel Analytics: Page views, bounce rates, core web vitals
+
+---
+
+## Cost Analysis
+
+| Service | Current | Projected (Post-Phase 3) |
+|---------|---------|--------------------------|
+| Apify | $2.50/mo | $10/mo (SEEK + TradeMe scrapers) |
+| Domain | $7/mo | $7/mo |
+| GCP (Cloud Run + BigQuery) | ~$1/mo (free tier) | ~$5/mo |
+| Vercel | $0/mo (hobby) | $0/mo (hobby) |
+| **Total** | **~$10.50/mo** | **~$22/mo** |
+
+**Note:** Still well within budget for the value provided. Consider sponsorship/donations to offset costs.
+
+---
+
+## Risk Assessment
+
+| Risk | Likelihood | Impact | Mitigation |
+|------|------------|--------|------------|
+| Apify scraper breaks (SEEK/TradeMe) | Medium | High | Use store-bought scrapers, monitor runs |
+| BigQuery costs spike | Low | Medium | Set budget alerts, use materialized views |
+| Cloud Run timeouts during sync | Medium | Medium | Implement Cloud Tasks (Phase 2.2) |
+| Legal issues with scraped data | Low | High | Add disclaimers, robots.txt compliance, terms of service |
+| ATS API changes break integration | Medium | Medium | Abstract API clients, add health checks |
+
+---
+
+## Appendix: Quick Reference
+
+### Files Requiring Most Changes
+1. `backend/src/main/kotlin/com/techmarket/sync/RawJobDataParser.kt` - Salary, location, PII
+2. `backend/src/main/kotlin/com/techmarket/persistence/company/CompanyMapper.kt` - Tech aggregation
+3. `backend/src/main/kotlin/com/techmarket/webhook/ApifyWebhookController.kt` - Cloud Tasks
+4. `frontend/src/components/` - Mobile UX, domain hubs
+
+### Key Documentation
+- `docs/data-pipeline-flowchart.md` - Full data flow visualization
+- `docs/data/company-data-strategy.md` - Master manifest system
+- `docs/data/job-data-strategy.md` - Multi-channel sourcing
+- `docs/data/ats/ats-identification-findings.md` - ATS integration targets
+
+### External Dependencies
+- **Apify Store**: SEEK and TradeMe scrapers
+- **Google Cloud Tasks**: Background processing
+- **Vercel Blob/S3**: Logo hosting
+- **Supabase** (optional): Resource database
