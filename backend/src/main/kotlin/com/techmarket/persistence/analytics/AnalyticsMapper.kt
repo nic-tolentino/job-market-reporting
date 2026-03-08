@@ -1,6 +1,7 @@
 package com.techmarket.persistence.analytics
 
 import com.techmarket.api.model.CompanyLeaderboardDto
+import com.techmarket.api.model.FeedbackDto
 import com.techmarket.api.model.GlobalStatsDto
 import com.techmarket.api.model.LandingPageDto
 import com.techmarket.api.model.SearchSuggestionDto
@@ -68,11 +69,11 @@ object AnalyticsMapper {
 
         fun mapFeedback(
                 row: com.google.cloud.bigquery.FieldValueList
-        ): com.techmarket.api.model.FeedbackDto {
+        ): FeedbackDto {
                 val context =
                         if (row.get("context").isNull) null else row.get("context").stringValue
                 val message = row.get("message").stringValue
                 val timestamp = row.get("timestamp").stringValue
-                return com.techmarket.api.model.FeedbackDto(context, message, timestamp)
+                return FeedbackDto(context, message, timestamp)
         }
 }

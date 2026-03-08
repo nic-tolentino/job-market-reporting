@@ -366,7 +366,8 @@ class RawJobDataParser {
         cleaned = cleaned.replace(thousandsSeparator, "")
 
         // Handle decimal point: split into whole and fractional parts
-        val decimalIndex = cleaned.indexOf('.')
+        // Support both '.' (US/UK) and ',' (EU) as decimal separators
+        val decimalIndex = cleaned.lastIndexOfAny(charArrayOf('.', ','))
         val (wholePart, fractionalPart) = if (decimalIndex >= 0) {
             val whole = cleaned.substring(0, decimalIndex).replace(Regex("[^0-9]"), "")
             // Take up to 2 decimal digits (cents)

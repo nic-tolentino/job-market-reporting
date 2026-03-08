@@ -11,14 +11,10 @@ import com.google.cloud.bigquery.TableId
 import com.google.cloud.spring.bigquery.core.BigQueryTemplate
 import com.techmarket.persistence.BigQueryTables
 import com.techmarket.persistence.JobFields
-import com.techmarket.persistence.SalaryFields
-import com.techmarket.persistence.SalaryFields.AMOUNT
-import com.techmarket.persistence.SalaryFields.CURRENCY
-import com.techmarket.persistence.SalaryFields.IS_GROSS
-import com.techmarket.persistence.SalaryFields.PERIOD
-import com.techmarket.persistence.SalaryFields.SOURCE
+import com.techmarket.persistence.SalaryMapper
 import com.techmarket.persistence.ensureTableExists
 import com.techmarket.persistence.model.JobRecord
+import com.techmarket.api.model.JobPageDto
 import java.util.concurrent.TimeUnit
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
@@ -40,25 +36,6 @@ class JobBigQueryRepository(
 
         private val jobsTableName = BigQueryTables.JOBS
         private val companiesTableName = BigQueryTables.COMPANIES
-
-        /**
-         * Creates the salary STRUCT field schema with all required fields.
-         * Reused for both salaryMin and salaryMax to avoid duplication.
-         * Note: disclaimer is NOT persisted - it's computed at BFF level from source.
-         */
-        private fun salaryStructField(fieldName: String): Field {
-            return Field.of(
-                fieldName,
-                StandardSQLTypeName.STRUCT,
-                FieldList.of(
-                    Field.of(AMOUNT, StandardSQLTypeName.INT64),
-                    Field.of(CURRENCY, StandardSQLTypeName.STRING),
-                    Field.of(PERIOD, StandardSQLTypeName.STRING),
-                    Field.of(SOURCE, StandardSQLTypeName.STRING),
-                    Field.of(IS_GROSS, StandardSQLTypeName.BOOL)
-                )
-            )
-        }
 
         /**
          * Ensures the BigQuery table exists with the correct schema. This allows the application to
@@ -96,8 +73,8 @@ class JobBigQueryRepository(
                                 Field.newBuilder(JobFields.TECHNOLOGIES, StandardSQLTypeName.STRING)
                                         .setMode(Field.Mode.REPEATED)
                                         .build(),
-                                salaryStructField(JobFields.SALARY_MIN),
-                                salaryStructField(JobFields.SALARY_MAX),
+                                SalaryMapper.createStructField(JobFields.SALARY_MIN),
+                                SalaryMapper.createStructField(JobFields.SALARY_MAX),
                                 Field.of(JobFields.POSTED_DATE, StandardSQLTypeName.DATE),
                                 Field.newBuilder(JobFields.BENEFITS, StandardSQLTypeName.STRING)
                                         .setMode(Field.Mode.REPEATED)
@@ -188,7 +165,7 @@ class JobBigQueryRepository(
                 return jsonString.byteInputStream()
         }
 
-        override fun getJobDetails(jobId: String): com.techmarket.api.model.JobPageDto? {
+        override fun getJobDetails(jobId: String): JobPageDto? {
                 val detailsSql =
                         JobQueries.getDetailsSql(datasetName, jobsTableName, companiesTableName)
                 val detResult =

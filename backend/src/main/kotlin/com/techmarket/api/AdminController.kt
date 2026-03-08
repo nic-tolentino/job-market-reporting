@@ -2,6 +2,7 @@ package com.techmarket.api
 
 import com.techmarket.config.ApifyProperties
 import com.techmarket.persistence.job.JobRepository
+import com.techmarket.sync.CompanySyncService
 import com.techmarket.sync.JobDataSyncService
 import com.techmarket.sync.TechRoleClassifier
 import org.slf4j.LoggerFactory
@@ -19,7 +20,7 @@ class AdminController(
         private val apifyProperties: ApifyProperties,
         private val jobRepository: JobRepository,
         private val techRoleClassifier: TechRoleClassifier,
-        private val companySyncService: com.techmarket.sync.CompanySyncService
+        private val companySyncService: CompanySyncService
 ) {
     private val log = LoggerFactory.getLogger(AdminController::class.java)
 

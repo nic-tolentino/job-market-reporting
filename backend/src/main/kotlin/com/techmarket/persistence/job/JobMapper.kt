@@ -1,5 +1,6 @@
 package com.techmarket.persistence.job
 
+import com.techmarket.api.model.JobPageDto
 import com.techmarket.api.model.JobRoleDto
 import com.techmarket.model.NormalizedSalary
 import com.techmarket.persistence.JobFields
@@ -17,7 +18,7 @@ object JobMapper {
                 r: com.google.cloud.bigquery.FieldValueList,
                 techList: List<String>,
                 similarResult: com.google.cloud.bigquery.TableResult
-        ): com.techmarket.api.model.JobPageDto {
+        ): JobPageDto {
 
                 val benefitList =
                         if (r.get(JobFields.BENEFITS).isNull) null
