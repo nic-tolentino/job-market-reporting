@@ -36,3 +36,4 @@ npm run dev
 ```bash
 npm run build
 ```
+The production site is typically hosted on Vercel. Ensure `VITE_API_URL` is set in the Vercel environment variables to point to the Cloud Run backend (e.g., `https://tech-market-backend-xxx.a.run.app/api`).

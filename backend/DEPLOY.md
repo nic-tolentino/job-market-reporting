@@ -1,6 +1,26 @@
-# Comprehensive GCP Deployment Guide (From Scratch)
+# Comprehensive GCP Deployment Guide
 
 This guide takes you step-by-step from having **no Google Cloud account** to having your `Tech Market Backend` completely hosted on Google Cloud Run with a serverless BigQuery database.
+
+---
+
+## ⚡ Quick Start: Utility Scripts
+We have provided utility scripts in the `scripts/deployment/` directory to automate common tasks.
+
+### 1. Setup Environment
+First, create your `.env` file from the template:
+```bash
+./scripts/deployment/setup-env.sh
+```
+Then edit the `.env` file in the root directory with your actual GCP and Apify credentials.
+
+### 2. Common Deployment Commands
+| Task | Script |
+|------|--------|
+| **Deploy to Production** | `./scripts/deployment/deploy.sh` |
+| **Drop Silver Tables** | `./scripts/deployment/db-drop-silver.sh` |
+| **Reprocess Data** | `./scripts/deployment/db-reprocess.sh` |
+| **Ingest Specific Dataset** | `./scripts/deployment/ingest-dataset.sh [dataset_id]` |
 
 ---
 

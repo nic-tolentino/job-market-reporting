@@ -63,3 +63,15 @@ To keep the UI responsive and relevant, the system automatically filters out "st
 Unlike a traditional REST API, this backend serves specialized DTOs (e.g., `JobPageDto`) that aggregate data from multiple tables (Jobs, Companies, Similar Roles) in a single round-trip, minimizing frontend complexity.
 
 ---
+
+## 🚀 Deployment
+
+For detailed instructions on deploying to Google Cloud, see **[DEPLOY.md](./DEPLOY.md)**.
+
+We provide several utility scripts in the project root to manage the production environment:
+- **`./scripts/deployment/deploy.sh`**: Deploys the current backend to GCP Cloud Run.
+- **`./scripts/deployment/db-drop-silver.sh`**: Safely drops the Silver layer tables for recreation.
+- **`./scripts/deployment/db-reprocess.sh`**: Triggers a full historical re-parse of all raw data.
+- **`./scripts/deployment/ingest-dataset.sh`**: Manually triggers ingestion for a specific Apify dataset.
+
+See the **[GCP Deployment Guide](./DEPLOY.md)** for more details.

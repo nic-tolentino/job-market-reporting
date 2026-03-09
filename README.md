@@ -17,20 +17,20 @@ A full-stack data analyzer that tracks engineering job trends (technologies, sen
 
 ---
 
-## � Project Structure
+## 📂 Project Structure
 ```text
 .
-├── backend/               # Spring Boot 3.x (Kotlin) API
-│   ├── src/               # Application source code
-│   ├── build.gradle.kts   # Build configuration
-│   └── Dockerfile         # Multi-stage build for Cloud Run
-├── frontend/              # React (Vite/TypeScript) Dashboard (Coming Soon)
-└── README.md              # Project documentation
+├── backend/               # Spring Boot 3.x (Kotlin) API & Business Logic [→ README](backend/README.md)
+│   └── DEPLOY.md          # GCP Deployment Guide [→ DEPLOYMENT](backend/DEPLOY.md)
+├── frontend/              # React (Vite/TypeScript) Dashboard [→ README](frontend/README.md)
+├── scripts/               # Automation & Utility Scripts
+│   └── deployment/        # Production Deployment Helpers
+└── README.md              # Main project documentation
 ```
 
 ---
 
-## �🚀 Component Details
+## 🚀 Component Details
 
 ### 🧠 Backend: The "Brain" (Spring Boot + Kotlin)
 - **Framework**: Spring Boot 3.x with Kotlin.
@@ -105,6 +105,24 @@ Since historical job data does not change frequently (ingestion happens daily/we
 - [ ] **Phase 2: Ingestion Logic** - Implement Apify integration and BigQuery streaming.
 - [ ] **Phase 3: Data Dashboard API** - Build aggregate query endpoints.
 - [ ] **Phase 4: Frontend** - Initialize Vite application and build the 3 core pages (Landing, Tech Details, Company Profile).
+
+---
+
+---
+
+## 🚀 Deployment & Operations
+
+This project is optimized for serverless hosting on **Google Cloud Run** and **Vercel**.
+
+### Backend (GCP)
+For full deployment instructions, see the **[Backend Deployment Guide](backend/DEPLOY.md)**.
+We provide several helper scripts to simplify production tasks:
+- `scripts/deployment/setup-env.sh`: Initialize your local `.env` configuration.
+- `scripts/deployment/deploy.sh`: Push updates to Cloud Run.
+- `scripts/deployment/db-reprocess.sh`: Run historical data migrations.
+
+### Frontend (Vercel)
+The frontend is hosted on Vercel and connects to the GCP backend via the `VITE_API_URL` environment variable.
 
 ---
 
