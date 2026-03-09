@@ -191,11 +191,21 @@ Later:
 - smoothly show/hide the top navbar when scrolling up/down
 - left align section headings in tech page
 
+- does the current system scale to handle different languages - especially as we've now started supporting Spain / Spanish?
+
 - other country selector option, to get feedback on demand for other countries
 - label and show the source of the data
 - does our pii filter out "If you would like to find out more about this amazing opportunity, please feel free to call our Head of Talent Acquisitions, Bob Bloblob, mobile 021 999 111, she loves to chat about TVNZ careers."
 - allow users to contribute to the company data by creating a public repo to host that data. The backend will pull the data from the repo and upsert it into the database.
 - rename AnalyticsBigQueryRepository and related classes from Analytics to Insights? To avoid confusion with actual analytics?
+
+- Filters for people lead roles like managers? Actually I probably need this to help me find a role in Spain
+- Ability to 'follow' a job and mark it 'applied' with a date?
+- Ability to 'hide' a job or company (though perhaps it's more about sorting them to the bottom and visibly marking them in some way?)
+- Ability to 'log in' to view my jobs, and see the success of my suggested resources? Also the ability to show a personal dashboard with the companies and tech that I follow as well as any roles that I saved or applied for which have since closed? Ability to mark applied jobs as rejected so we can show how long it takes to get a rejection on average. 
+- Ability to define job application process for each company (role?)
+- 
+
 
 Images:
 - Manually search for logo urls for each of the technologies (and companies?). Host the images locally so they are more stable? Maybe use them as backups if the url isn't provided?
@@ -227,7 +237,20 @@ Costs:
 - Apify: USD2.5
 - Domain: USD7
 - Hosting: USD1
+- Qwen Code Lite Subscription USD11.5
 
 Time:
 Estimated time between 23 Feb and Friday 6th March: 40 hours
-Friday 6th March - 5 hours
+Friday - 5 hours
+Sat - 3 hours
+Sun - 5 hours
+Mon 9 March - 4 hours
+
+Yeah I think that all makes sense thanks -I guess I'm
+    stuggling with the implementation details. I'll trust you
+    (and Gemini) and learn from what you do. Please consider
+  adding thorough documentation, and extensive tests -
+  otherwise go ahead with the feature. 
+
+
+  ---

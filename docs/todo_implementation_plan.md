@@ -2,7 +2,36 @@
 
 Providing a prioritized plan to evolve DevAssembly from a LinkedIn scraper into a high-trust, multi-channel market intelligence platform.
 
-**Last Updated:** March 8, 2026
+**Last Updated:** March 9, 2026
+
+---
+
+## 📋 Implementation Plans
+
+Detailed implementation plans have been created for all major features. Each plan includes:
+- Executive summary
+- Technical specification
+- Step-by-step implementation guide
+- Testing strategy
+- Success metrics
+- Files to create/modify
+
+**Location:** `docs/implementation-plans/`
+
+| Plan | Priority | Effort | Status |
+|------|----------|--------|--------|
+| [2.1 Salary Normalization](./implementation-plans/2.1-salary-normalization-plan.md) | HIGH | 8-10 hours | ✅ Ready |
+| [2.2 Cloud Tasks](./implementation-plans/2.2-cloud-tasks-plan.md) | HIGH | 8-10 hours | ✅ Ready |
+| [2.3 Dead Link Detection](./implementation-plans/2.3-dead-link-detection-plan.md) | HIGH | 6-8 hours | ✅ Ready |
+| [2.4 ATS Integrations](./implementation-plans/2.4-ats-integrations-plan.md) | HIGH | 12-16 hours | ✅ Ready |
+| [2.5 Visa Sponsorship](./implementation-plans/2.5-visa-sponsorship-plan.md) | MEDIUM | 3-4 hours | ✅ Ready |
+| [3.1 SEEK & TradeMe](./implementation-plans/3.1-seek-trademe-integration-plan.md) | HIGH | 10-14 hours | ✅ Ready |
+| [3.2 Domain Hubs](./implementation-plans/3.2-technology-domain-hubs-plan.md) | HIGH | 12-16 hours | ✅ Ready |
+| [3.3 Tech Exclusion Filters](./implementation-plans/3.3-technology-exclusion-filters-plan.md) | MEDIUM | 4-6 hours | ✅ Ready |
+| [3.4 Trending Lists](./implementation-plans/3.4-trending-lists-plan.md) | MEDIUM | 6-8 hours | ✅ Ready |
+| [4.1 Mobile UX Overhaul](./implementation-plans/4.1-mobile-ux-overhaul-plan.md) | HIGH | 16-20 hours | ✅ Ready |
+
+---
 
 ---
 
@@ -22,6 +51,8 @@ This matrix identifies the Return on Investment (ROI) for major categories of ta
 
 ### Phase 1: Critical Bug Fixes & Trust Foundation (Week 1-2) ✅ COMPLETED
 **Goal:** Fix the most visible user-facing issues and establish data transparency. **Status: All items completed on March 8, 2026.**
+
+> **Note:** All Phase 1 items have been completed. See implementation details in the codebase. Detailed implementation plans for Phase 2+ features are available in `docs/implementation-plans/`.
 
 #### 1.1 Company Tech Stack Aggregation [CRITICAL - HIGH IMPACT] ✅ COMPLETED
 **Problem:** Company profile pages show empty or stale tech stacks because technologies are not aggregated from active job postings at query time.
@@ -135,6 +166,13 @@ val allTechs = (companyTechs + techFromJobs).distinct().sorted()
 ### Phase 2: Data Quality & Reliability Engine (Week 3-5)
 **Goal:** Make the data pipeline more robust, scalable, and comprehensive.
 
+> **📄 Implementation Plans Available:**
+> - [2.1 Salary Normalization](./implementation-plans/2.1-salary-normalization-plan.md) (8-10 hours)
+> - [2.2 Background Processing](./implementation-plans/2.2-cloud-tasks-plan.md) (8-10 hours)
+> - [2.3 Dead Link Detection](./implementation-plans/2.3-dead-link-detection-plan.md) (6-8 hours)
+> - [2.4 ATS Integrations](./implementation-plans/2.4-ats-integrations-plan.md) (12-16 hours)
+> - [2.5 Visa Sponsorship](./implementation-plans/2.5-visa-sponsorship-plan.md) (3-4 hours)
+
 #### 2.1 Salary Normalization Engine [HIGH - User Value]
 **Problem:** Salary data is messy - different currencies, periods (hourly/monthly/yearly), and formats.
 
@@ -236,6 +274,12 @@ data class NormalizedSalary(
 ### Phase 3: Market Expansion & Discovery (Week 6-8)
 **Goal:** Expand beyond LinkedIn and improve content discoverability.
 
+> **📄 Implementation Plans Available:**
+> - [3.1 SEEK & TradeMe Integration](./implementation-plans/3.1-seek-trademe-integration-plan.md) (10-14 hours)
+> - [3.2 Technology Domain Hubs](./implementation-plans/3.2-technology-domain-hubs-plan.md) (12-16 hours)
+> - [3.3 Technology Exclusion Filters](./implementation-plans/3.3-technology-exclusion-filters-plan.md) (4-6 hours)
+> - [3.4 Trending Lists](./implementation-plans/3.4-trending-lists-plan.md) (6-8 hours)
+
 #### 3.1 SEEK & TradeMe Integration [HIGH - Market Coverage]
 **Problem:** LinkedIn-only sourcing misses 50-60% of ANZ tech jobs.
 
@@ -323,6 +367,9 @@ val exclusions = mapOf(
 
 ### Phase 4: UX Polish & Mobile Excellence (Week 9-11)
 **Goal:** Deliver a best-in-class mobile experience and visual polish.
+
+> **📄 Implementation Plans Available:**
+> - [4.1 Mobile UX Overhaul](./implementation-plans/4.1-mobile-ux-overhaul-plan.md) (16-20 hours)
 
 #### 4.1 Mobile UX Overhaul [HIGH - User Retention]
 **Problem:** Mobile design is "meh" - job rows, headers, and navigation need work.
@@ -552,9 +599,68 @@ val exclusions = mapOf(
 - `docs/data/company-data-strategy.md` - Master manifest system
 - `docs/data/job-data-strategy.md` - Multi-channel sourcing
 - `docs/data/ats/ats-identification-findings.md` - ATS integration targets
+- `docs/implementation-plans/` - **Detailed implementation plans for all major features**
 
 ### External Dependencies
 - **Apify Store**: SEEK and TradeMe scrapers
 - **Google Cloud Tasks**: Background processing
 - **Vercel Blob/S3**: Logo hosting
 - **Supabase** (optional): Resource database
+
+---
+
+## 📊 Summary & Next Steps
+
+### Total Implementation Effort
+
+| Phase | Features | Total Effort | Priority Features |
+|-------|----------|--------------|-------------------|
+| **Phase 1** | 5 bug fixes | ✅ COMPLETED | All done |
+| **Phase 2** | 5 features | 38-48 hours | Salary, Cloud Tasks, Dead Links, ATS |
+| **Phase 3** | 4 features | 36-44 hours | SEEK/TradeMe, Domain Hubs |
+| **Phase 4** | 4 features | 20-24 hours | Mobile UX |
+| **Phase 5** | 4 features | TBD | Future enhancements |
+| **Total** | **13 new features** | **~100 hours** | **8 high-priority** |
+
+### Recommended Implementation Order
+
+**Sprint 1 (Week 1-2): Foundation**
+1. **2.2 Cloud Tasks** - Enables all background processing
+2. **2.1 Salary Normalization** - High user value
+3. **2.5 Visa Sponsorship** - Quick win (3-4 hours)
+
+**Sprint 2 (Week 3-4): Data Quality**
+1. **2.3 Dead Link Detection** - Zero ghost jobs
+2. **2.4 ATS Integrations** - 50% more jobs
+
+**Sprint 3 (Week 5-6): Market Expansion**
+1. **3.1 SEEK & TradeMe** - Double job coverage
+2. **3.2 Domain Hubs** - Better discovery
+
+**Sprint 4 (Week 7-8): UX Polish**
+1. **3.3 Tech Exclusion Filters** - Cleaner results
+2. **3.4 Trending Lists** - Engagement
+3. **4.1 Mobile UX** - Retention
+
+### Success Criteria
+
+All implementation plans include specific, measurable success criteria. Key metrics to track:
+
+**Data Quality:**
+- Job coverage: 40% → 90%+ (SEEK + TradeMe + ATS)
+- Ghost jobs: Unknown → <5% (dead link detection)
+- Salary data: Messy → Normalized with confidence indicators
+
+**User Experience:**
+- Mobile bounce rate: Unknown → <40%
+- API response time: Unknown → <500ms (p95)
+- Organic search traffic: Unknown → +50% (sitemap + domain hubs)
+
+**Technical:**
+- Zero timeout errors (Cloud Tasks)
+- 99%+ sync success rate
+- All unit tests passing (90%+ coverage)
+
+---
+
+**Document Status:** ✅ Complete - All major features have detailed implementation plans
