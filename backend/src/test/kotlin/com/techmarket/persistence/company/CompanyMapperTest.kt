@@ -25,7 +25,7 @@ class CompanyMapperTest {
 
         val detRow = mockk<FieldValueList>()
 
-        // Default answer for unmocked fields - allows CompanyRow.from() to hydrate
+        // Default answer for unmocked fields - allows CompanyRow.fromCompanyRow() to hydrate
         val defaultNull = mockk<FieldValue>()
         every { defaultNull.isNull } returns true
         every { defaultNull.stringValue } returns ""
@@ -204,9 +204,9 @@ class CompanyMapperTest {
         every { aggResult.values } returns listOf(aggRow)
 
         // Execution - hydrate typed rows and call new mapper
-        val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.from(it) }
+        val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.fromCompanyRow(it) }
             ?: CompanyRow(companyId = companyId, name = "Unknown Company")
-        val jobRows = jobsResult.values.map { JobRow.from(it) }
+        val jobRows = jobsResult.values.map { JobRow.fromJobRow(it) }
         val topModel = aggResult.values.firstOrNull()?.get("topModel")?.takeIf { !it.isNull }?.stringValue
         val profile = CompanyMapper.mapCompanyProfile(companyId, companyRow, jobRows, topModel)
 
@@ -248,7 +248,7 @@ class CompanyMapperTest {
 
         val detRow = mockk<FieldValueList>()
 
-        // Default answer for unmocked fields - allows CompanyRow.from() to hydrate
+        // Default answer for unmocked fields - allows CompanyRow.fromCompanyRow() to hydrate
         val defaultNull = mockk<FieldValue>()
         every { defaultNull.isNull } returns true
         every { defaultNull.stringValue } returns ""
@@ -284,9 +284,9 @@ class CompanyMapperTest {
         every { jobsResult.values } returns emptyList()
         every { aggResult.values } returns emptyList()
 
-        val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.from(it) }
+        val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.fromCompanyRow(it) }
             ?: CompanyRow(companyId = "minimal-corp", name = "Minimal Corp")
-        val jobRows = jobsResult.values.map { JobRow.from(it) }
+        val jobRows = jobsResult.values.map { JobRow.fromJobRow(it) }
         val topModel = aggResult.values.firstOrNull()?.get("topModel")?.takeIf { !it.isNull }?.stringValue
         val profile = CompanyMapper.mapCompanyProfile("minimal-corp", companyRow, jobRows, topModel)
 
@@ -340,7 +340,7 @@ class CompanyMapperTest {
         val timeF = mockk<FieldValue>(); every { timeF.isNull } returns false; every { timeF.stringValue } returns "2023-01-01T10:00:00Z"
         every { row.get(CompanyFields.LAST_UPDATED_AT) } returns timeF
 
-        val record = CompanyMapper.mapToCompanyRecord(CompanyRow.from(row))
+        val record = CompanyMapper.mapToCompanyRecord(CompanyRow.fromCompanyRow(row))
 
         assertEquals("comp-1", record.companyId)
         assertEquals(true, record.isAgency)
@@ -359,7 +359,7 @@ class CompanyMapperTest {
 
         val detRow = mockk<FieldValueList>()
 
-        // Default answer for unmocked fields - allows CompanyRow.from() to hydrate
+        // Default answer for unmocked fields - allows CompanyRow.fromCompanyRow() to hydrate
         val defaultNull = mockk<FieldValue>()
         every { defaultNull.isNull } returns true
         every { defaultNull.stringValue } returns ""
@@ -511,9 +511,9 @@ class CompanyMapperTest {
         )
         every { aggResult.values } returns emptyList()
 
-        val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.from(it) }
+        val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.fromCompanyRow(it) }
             ?: CompanyRow(companyId = companyId, name = "Test Company")
-        val jobRows = jobsResult.values.map { JobRow.from(it) }
+        val jobRows = jobsResult.values.map { JobRow.fromJobRow(it) }
         val profile = CompanyMapper.mapCompanyProfile(companyId, companyRow, jobRows, null)
 
         // Should have both technologies, deduplicated and sorted
@@ -529,7 +529,7 @@ class CompanyMapperTest {
 
         val detRow = mockk<FieldValueList>()
 
-        // Default answer for unmocked fields - allows CompanyRow.from() to hydrate
+        // Default answer for unmocked fields - allows CompanyRow.fromCompanyRow() to hydrate
         val defaultNull = mockk<FieldValue>()
         every { defaultNull.isNull } returns true
         every { defaultNull.stringValue } returns ""
@@ -680,9 +680,9 @@ class CompanyMapperTest {
         every { jobsResult.values } returns listOf(mockJobRow(listOf("kotlin")))
         every { aggResult.values } returns emptyList()
 
-        val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.from(it) }
+        val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.fromCompanyRow(it) }
             ?: CompanyRow(companyId = companyId, name = "Test Company")
-        val jobRows = jobsResult.values.map { JobRow.from(it) }
+        val jobRows = jobsResult.values.map { JobRow.fromJobRow(it) }
         val profile = CompanyMapper.mapCompanyProfile(companyId, companyRow, jobRows, null)
 
         // Should merge both sources, deduplicated and sorted
@@ -698,7 +698,7 @@ class CompanyMapperTest {
 
         val detRow = mockk<FieldValueList>()
 
-        // Default answer for unmocked fields - allows CompanyRow.from() to hydrate
+        // Default answer for unmocked fields - allows CompanyRow.fromCompanyRow() to hydrate
         val defaultNull = mockk<FieldValue>()
         every { defaultNull.isNull } returns true
         every { defaultNull.stringValue } returns ""
@@ -833,9 +833,9 @@ class CompanyMapperTest {
         every { jobsResult.values } returns listOf(jobRow)
         every { aggResult.values } returns emptyList()
 
-        val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.from(it) }
+        val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.fromCompanyRow(it) }
             ?: CompanyRow(companyId = companyId, name = "Test Company")
-        val jobRows = jobsResult.values.map { JobRow.from(it) }
+        val jobRows = jobsResult.values.map { JobRow.fromJobRow(it) }
         val profile = CompanyMapper.mapCompanyProfile(companyId, companyRow, jobRows, null)
 
         // Should return empty list when no technologies anywhere

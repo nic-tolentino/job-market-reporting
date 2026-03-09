@@ -5,11 +5,7 @@ import com.google.cloud.bigquery.FieldList
 import com.google.cloud.bigquery.FieldValueList
 import com.google.cloud.bigquery.StandardSQLTypeName
 import com.techmarket.model.NormalizedSalary
-import com.techmarket.persistence.SalaryFields.AMOUNT
-import com.techmarket.persistence.SalaryFields.CURRENCY
-import com.techmarket.persistence.SalaryFields.IS_GROSS
-import com.techmarket.persistence.SalaryFields.PERIOD
-import com.techmarket.persistence.SalaryFields.SOURCE
+import com.techmarket.persistence.SalaryFields
 
 /**
  * Helper object for salary-related BigQuery operations.
@@ -25,11 +21,11 @@ object SalaryMapper {
             fieldName,
             StandardSQLTypeName.STRUCT,
             FieldList.of(
-                Field.of(AMOUNT, StandardSQLTypeName.INT64),
-                Field.of(CURRENCY, StandardSQLTypeName.STRING),
-                Field.of(PERIOD, StandardSQLTypeName.STRING),
-                Field.of(SOURCE, StandardSQLTypeName.STRING),
-                Field.of(IS_GROSS, StandardSQLTypeName.BOOL)
+                Field.of(SalaryFields.AMOUNT, StandardSQLTypeName.INT64),
+                Field.of(SalaryFields.CURRENCY, StandardSQLTypeName.STRING),
+                Field.of(SalaryFields.PERIOD, StandardSQLTypeName.STRING),
+                Field.of(SalaryFields.SOURCE, StandardSQLTypeName.STRING),
+                Field.of(SalaryFields.IS_GROSS, StandardSQLTypeName.BOOL)
             )
         )
     }
@@ -61,21 +57,21 @@ object SalaryMapper {
         if (salaryStruct == null) return null
         
         // amount is REQUIRED - a salary without an amount is meaningless
-        val amount = salaryStruct.get(AMOUNT).takeIf { !it.isNull }?.longValue ?: return null
+        val amount = salaryStruct.get(SalaryFields.AMOUNT).takeIf { !it.isNull }?.longValue ?: return null
         
         // currency: use country-based default if missing
-        val currency = salaryStruct.get(CURRENCY).takeIf { !it.isNull }?.stringValue
+        val currency = salaryStruct.get(SalaryFields.CURRENCY).takeIf { !it.isNull }?.stringValue
             ?: jobCountry?.let { NormalizedSalary.getDefaultCurrencyForCountry(it) }
             ?: return null  // Can't determine currency
         
         // period is REQUIRED - too risky to default (YEAR vs HOUR is 2000x difference!)
-        val period = salaryStruct.get(PERIOD).takeIf { !it.isNull }?.stringValue ?: return null
+        val period = salaryStruct.get(SalaryFields.PERIOD).takeIf { !it.isNull }?.stringValue ?: return null
         
         // source is REQUIRED - ingestion pipeline should always provide this
-        val source = salaryStruct.get(SOURCE).takeIf { !it.isNull }?.stringValue ?: return null
+        val source = salaryStruct.get(SalaryFields.SOURCE).takeIf { !it.isNull }?.stringValue ?: return null
         
         // isGross defaults to true (standard convention for most markets)
-        val isGross = salaryStruct.get(IS_GROSS).takeIf { !it.isNull }?.booleanValue ?: true
+        val isGross = salaryStruct.get(SalaryFields.IS_GROSS).takeIf { !it.isNull }?.booleanValue ?: true
         
         return NormalizedSalary(amount, currency, period, source, isGross)
     }

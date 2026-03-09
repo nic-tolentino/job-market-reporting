@@ -84,21 +84,24 @@ class SqlSafetyTest {
 
     @Test
     fun `AnalyticsQueries getStatsSql interpolates values and wraps table in backticks`() {
-        val sql = AnalyticsQueries.getStatsSql(dataset, jobsTable)
+        val query = AnalyticsQueries.getStatsSql(dataset, jobsTable)
+        val sql = query.sql
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
     }
 
     @Test
     fun `AnalyticsQueries getTopTechSql interpolates values and wraps table in backticks`() {
-        val sql = AnalyticsQueries.getTopTechSql(dataset, jobsTable)
+        val query = AnalyticsQueries.getTopTechSql(dataset, jobsTable)
+        val sql = query.sql
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
     }
 
     @Test
     fun `AnalyticsQueries getTopCompaniesSql interpolates values and wraps tables in backticks`() {
-        val sql = AnalyticsQueries.getTopCompaniesSql(dataset, jobsTable, companiesTable)
+        val query = AnalyticsQueries.getTopCompaniesSql(dataset, jobsTable, companiesTable)
+        val sql = query.sql
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
         assertBacktickWrapped(sql, dataset, companiesTable)
@@ -106,7 +109,8 @@ class SqlSafetyTest {
 
     @Test
     fun `AnalyticsQueries getSearchSuggestionsSql interpolates values and wraps tables in backticks`() {
-        val sql = AnalyticsQueries.getSearchSuggestionsSql(dataset, companiesTable, jobsTable)
+        val query = AnalyticsQueries.getSearchSuggestionsSql(dataset, companiesTable, jobsTable)
+        val sql = query.sql
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
         assertBacktickWrapped(sql, dataset, companiesTable)
@@ -116,17 +120,27 @@ class SqlSafetyTest {
 
     @Test
     fun `TechQueries getSenioritySql interpolates values and wraps table in backticks`() {
-        val sql = TechQueries.getSenioritySql(dataset, jobsTable)
+        val query = TechQueries.getSenioritySql(dataset, jobsTable)
+        val sql = query.sql
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
     }
 
     @Test
     fun `TechQueries getCompaniesSql interpolates values and wraps tables in backticks`() {
-        val sql = TechQueries.getCompaniesSql(dataset, jobsTable, companiesTable)
+        val query = TechQueries.getCompaniesSql(dataset, jobsTable, companiesTable)
+        val sql = query.sql
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
         assertBacktickWrapped(sql, dataset, companiesTable)
+    }
+
+    @Test
+    fun `TechQueries getJobsSql interpolates values and wraps table in backticks`() {
+        val query = TechQueries.getJobsSql(dataset, jobsTable)
+        val sql = query.sql
+        assertSqlSafe(sql)
+        assertBacktickWrapped(sql, dataset, jobsTable)
     }
 
     // --- Delete SQL (inline strings in repositories, tested via string helpers) ---

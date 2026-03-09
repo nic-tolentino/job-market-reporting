@@ -1,6 +1,8 @@
 package com.techmarket.webhook
 
 import com.techmarket.config.ApifyProperties
+import com.techmarket.sync.JobDataSyncService
+import com.techmarket.util.Constants.WEBHOOK_EVENT_TEST
 import com.techmarket.service.CloudTasksService
 import com.techmarket.util.CloudTasksConstants
 import com.techmarket.webhook.model.ApifyWebhookPayload
@@ -55,7 +57,7 @@ class ApifyWebhookController(
         log.info("Received Apify Data Change Notification (${countryCode ?: "Global"}): ${payload.eventType}")
 
         // Handle Test events from Apify UI
-        if (payload.eventType == "TEST") {
+        if (payload.eventType == WEBHOOK_EVENT_TEST) {
             log.info("Received test event from Apify. Connectivity verified.")
             return ResponseEntity.ok("Test received")
         }

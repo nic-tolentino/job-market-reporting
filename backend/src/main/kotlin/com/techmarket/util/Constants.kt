@@ -50,4 +50,16 @@ object Constants {
      * Default seniority level when not specified.
      */
     const val DEFAULT_SENIORITY = "Mid-Level"
+
+    /**
+     * Data sources and provider identifiers.
+     */
+    const val SOURCE_APIFY = "LinkedIn-Apify"
+    const val SOURCE_GREENHOUSE = "Greenhouse"
+    const val SOURCE_LEVER = "Lever"
+
+    /**
+     * Webhook event types.
+     */
+    const val WEBHOOK_EVENT_TEST = "TEST"
 }

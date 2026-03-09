@@ -1,10 +1,6 @@
 package com.techmarket.model
 
-import com.techmarket.persistence.SalaryFields.AMOUNT
-import com.techmarket.persistence.SalaryFields.CURRENCY
-import com.techmarket.persistence.SalaryFields.IS_GROSS
-import com.techmarket.persistence.SalaryFields.PERIOD
-import com.techmarket.persistence.SalaryFields.SOURCE
+import com.techmarket.persistence.SalaryFields
 
 /**
  * Represents a normalized salary value with currency, period, and source information.
@@ -79,11 +75,11 @@ data class NormalizedSalary(
          * Creates a NormalizedSalary from a BigQuery STRUCT map.
          */
         fun fromMap(map: Map<String, Any?>): NormalizedSalary? {
-            val amount = (map[AMOUNT] as? Number)?.toLong() ?: return null
-            val currency = map[CURRENCY] as? String ?: return null
-            val period = map[PERIOD] as? String ?: return null
-            val source = map[SOURCE] as? String ?: return null
-            val isGross = map[IS_GROSS] as? Boolean ?: true
+            val amount = (map[SalaryFields.AMOUNT] as? Number)?.toLong() ?: return null
+            val currency = map[SalaryFields.CURRENCY] as? String ?: return null
+            val period = map[SalaryFields.PERIOD] as? String ?: return null
+            val source = map[SalaryFields.SOURCE] as? String ?: return null
+            val isGross = map[SalaryFields.IS_GROSS] as? Boolean ?: true
             return NormalizedSalary(amount, currency, period, source, isGross)
         }
 
@@ -133,10 +129,10 @@ data class NormalizedSalary(
      * Note: disclaimer is NOT persisted - it's computed at BFF level from source.
      */
     fun toMap(): Map<String, Any?> = mapOf(
-        AMOUNT to amount,
-        CURRENCY to currency,
-        PERIOD to period,
-        SOURCE to source,
-        IS_GROSS to isGross
+        SalaryFields.AMOUNT to amount,
+        SalaryFields.CURRENCY to currency,
+        SalaryFields.PERIOD to period,
+        SalaryFields.SOURCE to source,
+        SalaryFields.IS_GROSS to isGross
     )
 }

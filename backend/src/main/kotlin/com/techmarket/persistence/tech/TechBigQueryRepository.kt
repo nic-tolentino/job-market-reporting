@@ -23,25 +23,22 @@ class TechBigQueryRepository(
                 // val formattedTechName = TechFormatter.format(techName)
                 // We'll let the mapper handle formatting to keep it consistent
 
-                val senConfig = QueryJobConfiguration.newBuilder(
-                        TechQueries.getSenioritySql(datasetName, jobsTableName)
-                ).addNamedParameter("techName", QueryParameterValue.string(techName))
+                val senQuery = TechQueries.getSenioritySql(datasetName, jobsTableName)
+                val compQuery = TechQueries.getCompaniesSql(datasetName, jobsTableName, companiesTableName)
+                val rolesQuery = TechQueries.getJobsSql(datasetName, jobsTableName)
 
-                val compConfig = QueryJobConfiguration.newBuilder(
-                        TechQueries.getCompaniesSql(datasetName, jobsTableName, companiesTableName)
-                ).addNamedParameter("techName", QueryParameterValue.string(techName))
+                val senConfig = QueryJobConfiguration.newBuilder(senQuery.sql)
+                        .addNamedParameter("techName", QueryParameterValue.string(techName))
+                        .addNamedParameter("country", QueryParameterValue.string(country?.lowercase()))
 
-                val rolesConfig = QueryJobConfiguration.newBuilder(
-                        TechQueries.getJobsSql(datasetName, jobsTableName)
-                ).addNamedParameter("techName", QueryParameterValue.string(techName))
+                val compConfig = QueryJobConfiguration.newBuilder(compQuery.sql)
+                        .addNamedParameter("techName", QueryParameterValue.string(techName))
+                        .addNamedParameter("country", QueryParameterValue.string(country?.lowercase()))
 
-                if (country != null) {
-                        val c = country.lowercase()
-                        senConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
-                        compConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
-                        rolesConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
-                }
-
+                val rolesConfig = QueryJobConfiguration.newBuilder(rolesQuery.sql)
+                        .addNamedParameter("techName", QueryParameterValue.string(techName))
+                        .addNamedParameter("country", QueryParameterValue.string(country?.lowercase()))
+                
                 val senResult = bigQuery.query(senConfig.build())
                 val compResult = bigQuery.query(compConfig.build())
                 val rolesResult = bigQuery.query(rolesConfig.build())
