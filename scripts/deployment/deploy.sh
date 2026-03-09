@@ -18,14 +18,34 @@ for var in "${REQUIRED_VARS[@]}"; do
     fi
 done
 
-echo "🚀 Deploying $GCP_BACKEND_SERVICE_NAME to $GCP_REGION in project $GCP_PROJECT_ID..."
+echo "🚀 Starting Fast Local Build & Deployment..."
+
+# Construct the image tag
+IMAGE_TAG="${GCP_REGION}-docker.pkg.dev/${GCP_PROJECT_ID}/tech-market-repo/${GCP_BACKEND_SERVICE_NAME}:latest"
 
 cd "$PROJECT_ROOT/backend" || exit
 
-# Use --update-env-vars instead of --set-env-vars to avoid type conflicts with existing secrets
-# and to prevent wiping out other environment variables not managed by this script.
+echo "📦 Building Docker image locally..."
+# --platform linux/amd64 is crucial for Mac M1/M2/M3 compatibility with Cloud Run
+docker build --platform linux/amd64 -t "$IMAGE_TAG" .
+
+if [ $? -ne 0 ]; then
+    echo "❌ Docker build failed. Make sure Docker Desktop is running."
+    exit 1
+fi
+
+echo "📤 Pushing image to Google Artifact Registry..."
+docker push "$IMAGE_TAG"
+
+if [ $? -ne 0 ]; then
+    echo "❌ Docker push failed. You might need to run:"
+    echo "gcloud auth configure-docker ${GCP_REGION}-docker.pkg.dev"
+    exit 1
+fi
+
+echo "🚀 Deploying to Cloud Run from image..."
 gcloud run deploy "$GCP_BACKEND_SERVICE_NAME" \
-    --source . \
+    --image "$IMAGE_TAG" \
     --project "$GCP_PROJECT_ID" \
     --region "$GCP_REGION" \
     --allow-unauthenticated \
@@ -41,6 +61,5 @@ SPRING_CLOUD_GCP_BIGQUERY_PROJECT_ID=$GCP_PROJECT_ID,\
 SPRING_CLOUD_GCP_BIGQUERY_DATASET_NAME=techmarket"
 
 echo ""
-echo "💡 Note: APIFY_TOKEN and APIFY_WEBHOOK_SECRET were not updated Literals."
-echo "If you need to update them, use Secret Manager or run the specific secret update command in DEPLOY.md."
 echo "✅ Deployment complete!"
+echo "💡 Note: APIFY_TOKEN and APIFY_WEBHOOK_SECRET are managed via Secret Manager."
