@@ -1,7 +1,8 @@
 package com.techmarket.webhook
 
 import com.techmarket.config.ApifyProperties
-import com.techmarket.sync.JobDataSyncService
+import com.techmarket.service.CloudTasksService
+import com.techmarket.util.CloudTasksConstants
 import com.techmarket.webhook.model.ApifyWebhookPayload
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
@@ -11,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import java.util.UUID
 
 @RestController
 @RequestMapping("/api/webhook/apify")
 class ApifyWebhookController(
-        private val jobDataSyncService: JobDataSyncService,
+        private val cloudTasksService: CloudTasksService,
         private val apifyProperties: ApifyProperties
 ) {
 
@@ -74,10 +76,21 @@ class ApifyWebhookController(
                 "Extracted dynamic datasetId: $datasetId from webhook payload (${payload.eventType}) for country: ${countryCode ?: "Global"}"
         )
 
-        // Trigger the asynchronous ingestion process
-        jobDataSyncService.runDataSync(datasetId, countryCode)
+        // Generate correlation ID for tracing
+        val correlationId = UUID.randomUUID().toString()
+
+        // Queue task for background processing via Cloud Tasks
+        val taskPayload = CloudTasksService.SyncTaskPayload(
+            datasetId = datasetId,
+            source = CloudTasksConstants.Source.APIFY,
+            country = countryCode,
+            triggeredBy = CloudTasksConstants.TriggeredBy.WEBHOOK,
+            correlationId = correlationId
+        )
+
+        cloudTasksService.queueSyncTask(taskPayload)
 
         // Immediately return 202 Accepted so Apify doesn't timeout
-        return ResponseEntity.accepted().body("Data sync triggered asynchronously")
+        return ResponseEntity.accepted().body("Data sync queued for background processing (correlationId: $correlationId)")
     }
 }

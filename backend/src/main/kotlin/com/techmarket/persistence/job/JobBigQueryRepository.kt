@@ -17,6 +17,11 @@ import com.techmarket.persistence.SalaryMapper
 import com.techmarket.persistence.ensureTableExists
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.api.model.JobPageDto
+import com.techmarket.util.HealthCheckConstants.Config.MAX_FAILURES_BEFORE_UNVERIFIED
+import com.techmarket.util.HealthCheckConstants.Config.SECONDS_IN_DAY
+import com.techmarket.util.HealthCheckConstants.UrlStatus.ACTIVE
+import com.techmarket.util.HealthCheckConstants.UrlStatus.UNKNOWN
+import java.time.Instant
 import java.util.concurrent.TimeUnit
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
@@ -88,7 +93,13 @@ class JobBigQueryRepository(
                                 Field.of(JobFields.CITY, StandardSQLTypeName.STRING),
                                 Field.of(JobFields.STATE_REGION, StandardSQLTypeName.STRING),
                                 Field.of(JobFields.INGESTED_AT, StandardSQLTypeName.TIMESTAMP),
-                                Field.of(JobFields.LAST_SEEN_AT, StandardSQLTypeName.TIMESTAMP)
+                                Field.of(JobFields.LAST_SEEN_AT, StandardSQLTypeName.TIMESTAMP),
+                                // Health check fields
+                                Field.of(JobFields.URL_STATUS, StandardSQLTypeName.STRING),
+                                Field.of(JobFields.URL_LAST_CHECKED, StandardSQLTypeName.TIMESTAMP),
+                                Field.of(JobFields.URL_LAST_KNOWN_ACTIVE, StandardSQLTypeName.TIMESTAMP),
+                                Field.of(JobFields.URL_CHECK_FAILURES, StandardSQLTypeName.INT64),
+                                Field.of(JobFields.HTTP_STATUS_CODE, StandardSQLTypeName.INT64)
                         )
                 bigQuery.ensureTableExists(datasetName, jobsTableName, jobsSchema)
         }
@@ -150,7 +161,13 @@ class JobBigQueryRepository(
                         JobFields.CITY to this.city,
                         JobFields.STATE_REGION to this.stateRegion,
                         JobFields.INGESTED_AT to this.lastSeenAt.toString(),
-                        JobFields.LAST_SEEN_AT to this.lastSeenAt.toString()
+                        JobFields.LAST_SEEN_AT to this.lastSeenAt.toString(),
+                        // Health check fields
+                        JobFields.URL_STATUS to this.urlStatus,
+                        JobFields.URL_LAST_CHECKED to this.urlLastChecked?.toString(),
+                        JobFields.URL_LAST_KNOWN_ACTIVE to this.urlLastKnownActive?.toString(),
+                        JobFields.URL_CHECK_FAILURES to this.urlCheckFailures,
+                        JobFields.HTTP_STATUS_CODE to this.httpStatusCode
                 )
         }
 
@@ -249,5 +266,102 @@ class JobBigQueryRepository(
                         log.error("GCP: Failed to delete jobs: ${e.message}", e)
                         throw e
                 }
+        }
+
+        override fun getJobsNeedingHealthCheck(limit: Int): List<JobRecord> {
+                ensureTable()
+                val twentyFourHoursAgo = Instant.now()
+                    .minusSeconds(SECONDS_IN_DAY)
+                    .toString()
+                val sql = """
+                    SELECT * FROM `$datasetName.$jobsTableName`
+                    WHERE url_status IS NULL
+                       OR url_status = '$UNKNOWN'
+                       OR url_status = '$ACTIVE'
+                       OR (url_status LIKE 'UNVERIFIED_%' AND url_check_failures < $MAX_FAILURES_BEFORE_UNVERIFIED)
+                    AND (url_last_checked IS NULL OR url_last_checked < TIMESTAMP('$twentyFourHoursAgo'))
+                    AND ${JobFields.APPLY_URLS} IS NOT NULL AND ARRAY_LENGTH(${JobFields.APPLY_URLS}) > 0
+                    LIMIT $limit
+                """.trimIndent()
+                val queryConfig = QueryJobConfiguration.newBuilder(sql).build()
+                val result = bigQuery.query(queryConfig)
+                return result.iterateAll().map { row -> JobMapper.mapToJobRecord(row) }
+        }
+
+        override fun updateJobUrlHealth(
+                jobId: String,
+                urlStatus: String,
+                httpStatusCode: Int?,
+                urlLastChecked: Instant,
+                urlCheckFailures: Int,
+                urlLastKnownActive: Instant?
+        ) {
+                ensureTable()
+                val sql = """
+                    UPDATE `$datasetName.$jobsTableName`
+                    SET url_status = ?,
+                        http_status_code = ?,
+                        url_last_checked = ?,
+                        url_check_failures = ?,
+                        url_last_known_active = COALESCE(?, url_last_known_active)
+                    WHERE ${JobFields.JOB_ID} = ?
+                """.trimIndent()
+                val queryConfig =
+                        QueryJobConfiguration.newBuilder(sql)
+                                .addPositionalParameter(QueryParameterValue.string(urlStatus))
+                                .addPositionalParameter(
+                                        if (httpStatusCode != null) QueryParameterValue.int64(httpStatusCode.toLong())
+                                        else QueryParameterValue.of(null, StandardSQLTypeName.INT64)
+                                )
+                                .addPositionalParameter(QueryParameterValue.timestamp(urlLastChecked.epochSecond))
+                                .addPositionalParameter(QueryParameterValue.int64(urlCheckFailures.toLong()))
+                                .addPositionalParameter(
+                                        if (urlLastKnownActive != null) QueryParameterValue.timestamp(urlLastKnownActive.epochSecond)
+                                        else QueryParameterValue.of(null, StandardSQLTypeName.TIMESTAMP)
+                                )
+                                .addPositionalParameter(QueryParameterValue.string(jobId))
+                                .build()
+                try {
+                        bigQuery.query(queryConfig)
+                        log.info("GCP: Updated health status for job $jobId: $urlStatus")
+                } catch (e: Exception) {
+                        log.error("GCP: Failed to update job health for $jobId: ${e.message}", e)
+                        throw e
+                }
+        }
+
+        override fun markJobAsClosed(jobId: String, reason: String, closedAt: Instant) {
+                ensureTable()
+                val sql = """
+                    UPDATE `$datasetName.$jobsTableName`
+                    SET url_status = ?,
+                        url_last_checked = ?,
+                        url_check_failures = 0
+                    WHERE ${JobFields.JOB_ID} = ?
+                """.trimIndent()
+                val queryConfig =
+                        QueryJobConfiguration.newBuilder(sql)
+                                .addPositionalParameter(QueryParameterValue.string(reason))
+                                .addPositionalParameter(QueryParameterValue.timestamp(closedAt.epochSecond))
+                                .addPositionalParameter(QueryParameterValue.string(jobId))
+                                .build()
+                try {
+                        bigQuery.query(queryConfig)
+                        log.info("GCP: Marked job $jobId as closed: $reason")
+                } catch (e: Exception) {
+                        log.error("GCP: Failed to mark job $jobId as closed: ${e.message}", e)
+                        throw e
+                }
+        }
+
+        override fun getJobById(jobId: String): JobRecord? {
+                ensureTable()
+                val sql = "SELECT * FROM `$datasetName.$jobsTableName` WHERE ${JobFields.JOB_ID} = ?"
+                val queryConfig =
+                        QueryJobConfiguration.newBuilder(sql)
+                                .addPositionalParameter(QueryParameterValue.string(jobId))
+                                .build()
+                val result = bigQuery.query(queryConfig)
+                return result.iterateAll().firstOrNull()?.let { row -> JobMapper.mapToJobRecord(row) }
         }
 }

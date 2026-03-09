@@ -18,6 +18,7 @@ Then edit the `.env` file in the root directory with your actual GCP and Apify c
 | Task | Script |
 |------|--------|
 | **Deploy to Production** | `./scripts/deployment/deploy.sh` |
+| **Setup Cloud Tasks** | `./scripts/deployment/setup-cloud-tasks.sh` |
 | **Drop Silver Tables** | `./scripts/deployment/db-drop-silver.sh` |
 | **Reprocess Data** | `./scripts/deployment/db-reprocess.sh` |
 | **Ingest Specific Dataset** | `./scripts/deployment/ingest-dataset.sh [dataset_id]` |
@@ -164,6 +165,91 @@ Once the deployment finishes successfully, the terminal will print out a **Servi
    - **Value**: `your_made_up_secure_password`
 
 You're done! Your completely serverless pipeline is now live.
+
+---
+
+## Stage 5b: Cloud Tasks Setup (Required for Background Processing)
+
+The backend uses **Google Cloud Tasks** for reliable background processing of webhook events and admin sync triggers. This prevents HTTP timeouts during large data syncs.
+
+### Option A: Automated Setup (Recommended)
+
+Run the provided setup script:
+
+```bash
+./scripts/deployment/setup-cloud-tasks.sh
+```
+
+This script will:
+1. Create the Cloud Tasks queue (`tech-market-sync-queue`)
+2. Create the Dead Letter Queue (`tech-market-sync-dlq`)
+3. Grant Cloud Tasks permission to invoke your Cloud Run service
+4. Configure environment variables on Cloud Run
+
+### Option B: Manual Setup
+
+If you prefer to set up Cloud Tasks manually:
+
+**1. Create the Dead Letter Queue:**
+```bash
+gcloud tasks queues create tech-market-sync-dlq \
+  --location=australia-southeast1 \
+  --max-dispatches-per-second=1
+```
+
+**2. Create the primary sync queue:**
+```bash
+gcloud tasks queues create tech-market-sync-queue \
+  --location=australia-southeast1 \
+  --max-dispatches-per-second=10 \
+  --max-concurrent-dispatches=5 \
+  --max-attempts=5 \
+  --min-backoff=60s \
+  --max-backoff=3600s \
+  --dead-letter-queue=tech-market-sync-dlq
+```
+
+**3. Get the Cloud Tasks service account:**
+```bash
+CLOUD_TASKS_SA=$(gcloud tasks queues describe tech-market-sync-queue \
+  --location=australia-southeast1 \
+  --format="value(status.cloudTasksServiceAccount)")
+```
+
+**4. Grant Cloud Tasks permission to invoke Cloud Run:**
+```bash
+gcloud run services add-iam-policy-binding tech-market-backend \
+  --region australia-southeast1 \
+  --member="serviceAccount:$CLOUD_TASKS_SA" \
+  --role="roles/run.invoker"
+```
+
+**5. Update Cloud Run environment variables:**
+```bash
+gcloud run services update tech-market-backend \
+  --region australia-southeast1 \
+  --set-env-vars="\
+GCP_PROJECT_ID=$PROJECT_ID,\
+CLOUD_TASKS_QUEUE_NAME=tech-market-sync-queue,\
+CLOUD_TASKS_LOCATION=australia-southeast1,\
+APP_BASE_URL=https://tech-market-backend-xxx.a.run.app"
+```
+
+### Verify Cloud Tasks is Working
+
+**Test the webhook:**
+```bash
+curl -X POST https://your-backend-url.a.run.app/api/webhook/apify/data-changed \
+  -H "Content-Type: application/json" \
+  -H "X-Apify-Webhook-Secret: your-secret" \
+  -d '{"eventType": "ACTIVITY", "resource": {"defaultDatasetId": "test123"}}'
+```
+
+You should receive a `202 Accepted` response immediately with a correlation ID.
+
+**Monitor Cloud Tasks:**
+- Queue Dashboard: https://console.cloud.google.com/tasks/queues/australia-southeast1/tech-market-sync-queue
+- Cloud Run Logs: https://console.cloud.google.com/run/detail/australia-southeast1/tech-market-backend/logs
 
 ---
 

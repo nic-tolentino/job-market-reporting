@@ -30,3 +30,12 @@ apify:
   dataset-id: ${APIFY_DATASET_ID:xB85bR0v20qXfNH5r}
   token: ${APIFY_TOKEN:''}
   webhook-secret: ${APIFY_WEBHOOK_SECRET:default-local-secret}
+
+gcp:
+  project-id: ${GCP_PROJECT_ID}
+  cloud-tasks:
+    queue-name: ${CLOUD_TASKS_QUEUE_NAME:tech-market-sync-queue}
+    location: ${CLOUD_TASKS_LOCATION:australia-southeast1}
+
+app:
+  base-url: ${APP_BASE_URL:https://devassembly.org}

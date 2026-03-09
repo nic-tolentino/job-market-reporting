@@ -27,5 +27,12 @@ data class JobRecord(
         val workModel: String?,
         val jobFunction: String?,
         val description: String?,
-        val lastSeenAt: Instant
+        val lastSeenAt: Instant,
+
+        // Health check fields for dead link detection
+        val urlStatus: String? = "UNKNOWN",         // ACTIVE, CLOSED_*, UNVERIFIED_*
+        val urlLastChecked: Instant? = null,
+        val urlLastKnownActive: Instant? = null,    // Last time URL returned ACTIVE
+        val urlCheckFailures: Int = 0,              // Consecutive failure count
+        val httpStatusCode: Int? = null             // Last HTTP status code
 )

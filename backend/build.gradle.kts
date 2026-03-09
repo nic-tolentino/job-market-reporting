@@ -26,15 +26,21 @@ repositories {
 }
 
 extra["springCloudGcpVersion"] = "5.1.0"
+extra["gcpCloudTasksVersion"] = "2.41.0"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("com.google.cloud:spring-cloud-gcp-starter-bigquery")
+    implementation("com.google.cloud:google-cloud-tasks:${property("gcpCloudTasksVersion")}")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.springframework.boot:spring-boot-starter-cache")
     implementation("com.github.ben-manes.caffeine:caffeine")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.7.3")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.mockk:mockk:1.13.9")
 }

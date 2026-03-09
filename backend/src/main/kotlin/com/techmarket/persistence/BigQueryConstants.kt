@@ -35,6 +35,13 @@ object JobFields {
     const val INGESTED_AT = "ingestedAt"
     const val LAST_SEEN_AT = "lastSeenAt"
     const val PLATFORM_LINKS = "platformLinks"
+
+    // Health check fields for dead link detection
+    const val URL_STATUS = "url_status"
+    const val URL_LAST_CHECKED = "url_last_checked"
+    const val URL_LAST_KNOWN_ACTIVE = "url_last_known_active"
+    const val URL_CHECK_FAILURES = "url_check_failures"
+    const val HTTP_STATUS_CODE = "http_status_code"
 }
 
 /**
