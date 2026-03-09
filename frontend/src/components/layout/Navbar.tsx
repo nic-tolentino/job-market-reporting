@@ -71,7 +71,6 @@ export default function Navbar() {
                         className="min-w-0"
                     />
                     <ThemeToggle />
-                    <Link to="/pipeline" className="hover:text-accent transition-colors hidden sm:block">Pipeline</Link>
                     <Link to="/transparency" className="hover:text-accent transition-colors hidden sm:block">About</Link>
                 </div>
             </div>
