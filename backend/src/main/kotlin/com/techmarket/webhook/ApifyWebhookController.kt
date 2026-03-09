@@ -2,6 +2,7 @@ package com.techmarket.webhook
 
 import com.techmarket.config.ApifyProperties
 import com.techmarket.sync.JobDataSyncService
+import com.techmarket.util.Constants.WEBHOOK_EVENT_TEST
 import com.techmarket.webhook.model.ApifyWebhookPayload
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
@@ -53,7 +54,7 @@ class ApifyWebhookController(
         log.info("Received Apify Data Change Notification (${countryCode ?: "Global"}): ${payload.eventType}")
 
         // Handle Test events from Apify UI
-        if (payload.eventType == "TEST") {
+        if (payload.eventType == WEBHOOK_EVENT_TEST) {
             log.info("Received test event from Apify. Connectivity verified.")
             return ResponseEntity.ok("Test received")
         }

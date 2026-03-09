@@ -20,76 +20,56 @@ object JobMapper {
                 techList: List<String>,
                 similarResult: com.google.cloud.bigquery.TableResult
         ): JobPageDto {
+                return JobPageDto(
+                        details = mapJobDetailsDto(r, techList),
+                        locations = mapJobLocations(r),
+                        company = mapJobCompanyDto(r),
+                        similarRoles = similarResult.values.map { mapJobRole(it) }
+                )
+        }
 
+        fun mapJobDetailsDto(r: com.google.cloud.bigquery.FieldValueList, techList: List<String>): com.techmarket.api.model.JobDetailsDto {
                 val benefitList =
                         if (r.get(JobFields.BENEFITS).isNull) null
                         else r.get(JobFields.BENEFITS).repeatedValue.map { it.stringValue }
 
-                val details =
-                        com.techmarket.api.model.JobDetailsDto(
-                                title = r.get(JobFields.TITLE).stringValue,
-                                description =
-                                        if (r.get(JobFields.DESCRIPTION).isNull) null
-                                        else r.get(JobFields.DESCRIPTION).stringValue,
-                                seniorityLevel = r.get(JobFields.SENIORITY_LEVEL).stringValue,
-                                employmentType =
-                                        if (r.get(JobFields.EMPLOYMENT_TYPE).isNull) null
-                                        else r.get(JobFields.EMPLOYMENT_TYPE).stringValue,
-                                workModel =
-                                        if (r.get(JobFields.WORK_MODEL).isNull) null
-                                        else r.get(JobFields.WORK_MODEL).stringValue,
-                                postedDate =
-                                        if (r.get(JobFields.POSTED_DATE).isNull) null
-                                        else
-                                        if (r.get(JobFields.POSTED_DATE).isNull) null
-                                        else parseLocalDateSafe(r.get(JobFields.POSTED_DATE)),
-                                jobFunction =
-                                        if (r.get(JobFields.JOB_FUNCTION).isNull) null
-                                        else r.get(JobFields.JOB_FUNCTION).stringValue,
-                                technologies = techList.map { TechFormatter.format(it) },
-                                benefits = benefitList
-                        )
+                return com.techmarket.api.model.JobDetailsDto(
+                        title = r.get(JobFields.TITLE).stringValue,
+                        description = if (r.get(JobFields.DESCRIPTION).isNull) null else r.get(JobFields.DESCRIPTION).stringValue,
+                        seniorityLevel = r.get(JobFields.SENIORITY_LEVEL).stringValue,
+                        employmentType = if (r.get(JobFields.EMPLOYMENT_TYPE).isNull) null else r.get(JobFields.EMPLOYMENT_TYPE).stringValue,
+                        workModel = if (r.get(JobFields.WORK_MODEL).isNull) null else r.get(JobFields.WORK_MODEL).stringValue,
+                        postedDate = if (r.get(JobFields.POSTED_DATE).isNull) null else parseLocalDateSafe(r.get(JobFields.POSTED_DATE)),
+                        jobFunction = if (r.get(JobFields.JOB_FUNCTION).isNull) null else r.get(JobFields.JOB_FUNCTION).stringValue,
+                        technologies = techList.map { TechFormatter.format(it) },
+                        benefits = benefitList
+                )
+        }
 
+        fun mapJobLocations(r: com.google.cloud.bigquery.FieldValueList): List<com.techmarket.api.model.JobLocationDto> {
                 val locations = mutableListOf<com.techmarket.api.model.JobLocationDto>()
                 if (!r.get(JobFields.LOCATIONS).isNull && !r.get(JobFields.JOB_IDS).isNull) {
                         val locArr = r.get(JobFields.LOCATIONS).repeatedValue
                         val idArr = r.get(JobFields.JOB_IDS).repeatedValue
-                        val applyArr =
-                                if (r.get(JobFields.APPLY_URLS).isNull) emptyList()
-                                else r.get(JobFields.APPLY_URLS).repeatedValue
-                        val linkArr =
-                                if (r.get(JobFields.PLATFORM_LINKS).isNull) emptyList()
-                                else r.get(JobFields.PLATFORM_LINKS).repeatedValue
+                        val applyArr = if (r.get(JobFields.APPLY_URLS).isNull) emptyList() else r.get(JobFields.APPLY_URLS).repeatedValue
+                        val linkArr = if (r.get(JobFields.PLATFORM_LINKS).isNull) emptyList() else r.get(JobFields.PLATFORM_LINKS).repeatedValue
 
                         for (i in 0 until min(locArr.size, idArr.size)) {
                                 val rawLoc = locArr[i].stringValue
-                                val displayLoc = LocationFormatter.format(rawLoc)
-
                                 locations.add(
                                         com.techmarket.api.model.JobLocationDto(
-                                                location = displayLoc,
+                                                location = LocationFormatter.format(rawLoc),
                                                 jobId = idArr[i].stringValue,
-                                                applyUrl =
-                                                        if (i < applyArr.size &&
-                                                                        !applyArr[i].isNull &&
-                                                                        applyArr[i].stringValue
-                                                                                .isNotBlank()
-                                                        )
-                                                                applyArr[i].stringValue
-                                                        else null,
-                                                link =
-                                                        if (i < linkArr.size &&
-                                                                        !linkArr[i].isNull &&
-                                                                        linkArr[i].stringValue
-                                                                                .isNotBlank()
-                                                        )
-                                                                linkArr[i].stringValue
-                                                        else null
+                                                applyUrl = if (i < applyArr.size && !applyArr[i].isNull && applyArr[i].stringValue.isNotBlank()) applyArr[i].stringValue else null,
+                                                link = if (i < linkArr.size && !linkArr[i].isNull && linkArr[i].stringValue.isNotBlank()) linkArr[i].stringValue else null
                                         )
                                 )
                         }
                 }
+                return locations
+        }
 
+        fun mapJobCompanyDto(r: com.google.cloud.bigquery.FieldValueList): com.techmarket.api.model.JobCompanyDto {
                 val hiringLocations =
                         if (r.get(CompanyAliases.HIRING_LOCATIONS).isNull) emptyList<String>()
                         else
@@ -97,113 +77,93 @@ object JobMapper {
                                         LocationFormatter.format(it.stringValue)
                                 }
 
-                val company =
-                        com.techmarket.api.model.JobCompanyDto(
-                                companyId = r.get(JobFields.COMPANY_ID).stringValue,
-                                name =
-                                        if (r.get(CompanyAliases.NAME).isNull) "Unknown Company"
-                                        else r.get(CompanyAliases.NAME).stringValue,
-                                logoUrl =
-                                        if (r.get(CompanyAliases.LOGO_URL).isNull) ""
-                                        else r.get(CompanyAliases.LOGO_URL).stringValue,
-                                description =
-                                        if (r.get(CompanyAliases.DESCRIPTION).isNull) ""
-                                        else r.get(CompanyAliases.DESCRIPTION).stringValue,
-                                website =
-                                        if (r.get(CompanyAliases.WEBSITE).isNull) ""
-                                        else r.get(CompanyAliases.WEBSITE).stringValue,
-                                hiringLocations = hiringLocations,
-                                hqCountry =
-                                        if (r.get(CompanyAliases.HQ_COUNTRY).isNull) null
-                                        else r.get(CompanyAliases.HQ_COUNTRY).stringValue,
-                                verificationLevel =
-                                        if (r.get(CompanyAliases.VERIFICATION_LEVEL).isNull) "unverified"
-                                        else r.get(CompanyAliases.VERIFICATION_LEVEL).stringValue
+                return com.techmarket.api.model.JobCompanyDto(
+                        companyId = r.get(JobFields.COMPANY_ID).stringValue,
+                        name = if (r.get(CompanyAliases.NAME).isNull) "Unknown Company" else r.get(CompanyAliases.NAME).stringValue,
+                        logoUrl = if (r.get(CompanyAliases.LOGO_URL).isNull) "" else r.get(CompanyAliases.LOGO_URL).stringValue,
+                        description = if (r.get(CompanyAliases.DESCRIPTION).isNull) "" else r.get(CompanyAliases.DESCRIPTION).stringValue,
+                        website = if (r.get(CompanyAliases.WEBSITE).isNull) "" else r.get(CompanyAliases.WEBSITE).stringValue,
+                        hiringLocations = hiringLocations,
+                        hqCountry = if (r.get(CompanyAliases.HQ_COUNTRY).isNull) null else r.get(CompanyAliases.HQ_COUNTRY).stringValue,
+                        verificationLevel = if (r.get(CompanyAliases.VERIFICATION_LEVEL).isNull) "unverified" else r.get(CompanyAliases.VERIFICATION_LEVEL).stringValue
+                )
+        }
+
+        fun mapJobRole(row: com.google.cloud.bigquery.FieldValueList): JobRoleDto {
+                val techList =
+                        if (row.get(JobFields.TECHNOLOGIES).isNull)
+                                emptyList<String>()
+                        else
+                                row.get(JobFields.TECHNOLOGIES).repeatedValue.map {
+                                        it.stringValue
+                                }
+                val city =
+                        if (row.get(JobFields.CITY).isNull) "Unknown"
+                        else row.get(JobFields.CITY).stringValue
+                val stateRegion =
+                        if (row.get(JobFields.STATE_REGION).isNull) "Unknown"
+                        else row.get(JobFields.STATE_REGION).stringValue
+                val locList =
+                        listOf(
+                                if (stateRegion == "Unknown" || stateRegion == city)
+                                        city
+                                else "$city, $stateRegion"
                         )
+                val idList =
+                        if (row.get(JobFields.JOB_IDS).isNull) emptyList<String>()
+                        else
+                                row.get(JobFields.JOB_IDS).repeatedValue.map {
+                                        it.stringValue
+                                }
+                val applyList =
+                        if (row.get(JobFields.APPLY_URLS).isNull)
+                                emptyList<String?>()
+                        else
+                                row.get(JobFields.APPLY_URLS).repeatedValue.map {
+                                        if (it.isNull) null else it.stringValue
+                                }
+                val linkList =
+                        if (row.get(JobFields.PLATFORM_LINKS).isNull)
+                                emptyList<String?>()
+                        else
+                                row.get(JobFields.PLATFORM_LINKS)
+                                        .repeatedValue
+                                        .map {
+                                                if (it.isNull) null
+                                                else it.stringValue
+                                        }
 
-                val similarRoles =
-                        similarResult.values.map { sim ->
-                                val simTechList =
-                                        if (sim.get(JobFields.TECHNOLOGIES).isNull)
-                                                emptyList<String>()
-                                        else
-                                                sim.get(JobFields.TECHNOLOGIES).repeatedValue.map {
-                                                        it.stringValue
-                                                }
-                                val city =
-                                        if (sim.get(JobFields.CITY).isNull) "Unknown"
-                                        else sim.get(JobFields.CITY).stringValue
-                                val stateRegion =
-                                        if (sim.get(JobFields.STATE_REGION).isNull) "Unknown"
-                                        else sim.get(JobFields.STATE_REGION).stringValue
-                                val simLocList =
-                                        listOf(
-                                                if (stateRegion == "Unknown" || stateRegion == city)
-                                                        city
-                                                else "$city, $stateRegion"
-                                        )
-                                val simIdList =
-                                        if (sim.get(JobFields.JOB_IDS).isNull) emptyList<String>()
-                                        else
-                                                sim.get(JobFields.JOB_IDS).repeatedValue.map {
-                                                        it.stringValue
-                                                }
-                                val simApplyList =
-                                        if (sim.get(JobFields.APPLY_URLS).isNull)
-                                                emptyList<String?>()
-                                        else
-                                                sim.get(JobFields.APPLY_URLS).repeatedValue.map {
-                                                        if (it.isNull) null else it.stringValue
-                                                }
-                                val simLinkList =
-                                        if (sim.get(JobFields.PLATFORM_LINKS).isNull)
-                                                emptyList<String?>()
-                                        else
-                                                sim.get(JobFields.PLATFORM_LINKS)
-                                                        .repeatedValue
-                                                        .map {
-                                                                if (it.isNull) null
-                                                                else it.stringValue
-                                                        }
+                val source =
+                        if (row.get(JobFields.SOURCE).isNull) "Unknown"
+                        else row.get(JobFields.SOURCE).stringValue
+                val country =
+                        if (row.get(JobFields.COUNTRY).isNull) null
+                        else row.get(JobFields.COUNTRY).stringValue
+                val lastUpdatedAt =
+                        if (row.get(JobFields.LAST_SEEN_AT).isNull) Instant.EPOCH
+                        else parseTimestampSafe(row.get(JobFields.LAST_SEEN_AT))
 
-                                val simSource =
-                                        if (sim.get(JobFields.SOURCE).isNull) "Unknown"
-                                        else sim.get(JobFields.SOURCE).stringValue
-                                val simCountry =
-                                        if (sim.get(JobFields.COUNTRY).isNull) null
-                                        else sim.get(JobFields.COUNTRY).stringValue
-                                val simLastUpdatedAt =
-                                        if (sim.get(JobFields.LAST_SEEN_AT).isNull) Instant.EPOCH
-                                        else parseTimestampSafe(sim.get(JobFields.LAST_SEEN_AT))
-                                JobRoleDto(
-                                        id = simIdList.firstOrNull() ?: "",
-                                        title = sim.get(JobFields.TITLE).stringValue,
-                                        companyId = sim.get(JobFields.COMPANY_ID).stringValue,
-                                        companyName =
-                                                if (sim.get(JobFields.COMPANY_NAME).isNull) ""
-                                                else sim.get(JobFields.COMPANY_NAME).stringValue,
-                                        locations = simLocList,
-                                        jobIds = simIdList,
-                                        applyUrls = simApplyList,
-                                        platformLinks = simLinkList,
-                                        salaryMin = SalaryMapper.fromFieldValue(sim, JobFields.SALARY_MIN, simCountry),
-                                        salaryMax = SalaryMapper.fromFieldValue(sim, JobFields.SALARY_MAX, simCountry),
-                                        postedDate =
-                                                if (sim.get(JobFields.POSTED_DATE).isNull) ""
-                                                else sim.get(JobFields.POSTED_DATE).stringValue,
-                                        seniorityLevel =
-                                                sim.get(JobFields.SENIORITY_LEVEL).stringValue,
-                                        technologies = simTechList,
-                                        source = simSource,
-                                        lastUpdatedAt = simLastUpdatedAt
-                                )
-                        }
-
-                return com.techmarket.api.model.JobPageDto(
-                        details = details,
-                        locations = locations,
-                        company = company,
-                        similarRoles = similarRoles
+                return JobRoleDto(
+                        id = idList.firstOrNull() ?: "",
+                        title = row.get(JobFields.TITLE).stringValue,
+                        companyId = row.get(JobFields.COMPANY_ID).stringValue,
+                        companyName =
+                                if (row.get(JobFields.COMPANY_NAME).isNull) ""
+                                else row.get(JobFields.COMPANY_NAME).stringValue,
+                        locations = locList,
+                        jobIds = idList,
+                        applyUrls = applyList,
+                        platformLinks = linkList,
+                        salaryMin = SalaryMapper.fromFieldValue(row, JobFields.SALARY_MIN, country),
+                        salaryMax = SalaryMapper.fromFieldValue(row, JobFields.SALARY_MAX, country),
+                        postedDate =
+                                if (row.get(JobFields.POSTED_DATE).isNull) ""
+                                else row.get(JobFields.POSTED_DATE).stringValue,
+                        seniorityLevel =
+                                row.get(JobFields.SENIORITY_LEVEL).stringValue,
+                        technologies = techList,
+                        source = source,
+                        lastUpdatedAt = lastUpdatedAt
                 )
         }
 

@@ -50,7 +50,7 @@ data class JobRow(
          * Hydrates a JobRow from BigQuery FieldValueList.
          * Handles all null-safety and type conversion in one place.
          */
-        fun from(field: FieldValueList): JobRow {
+        fun fromJobRow(field: FieldValueList): JobRow {
             return JobRow(
                 jobId = field.getString(JobFields.JOB_ID),
                 jobIds = field.getStringList(JobFields.JOB_IDS),
@@ -104,7 +104,7 @@ data class CompanyRow(
     val lastUpdatedAt: Instant = Instant.EPOCH
 ) {
     companion object {
-        fun from(field: FieldValueList): CompanyRow {
+        fun fromCompanyRow(field: FieldValueList): CompanyRow {
             return CompanyRow(
                 companyId = field.getString(CompanyFields.COMPANY_ID),
                 name = field.getString(CompanyFields.NAME),

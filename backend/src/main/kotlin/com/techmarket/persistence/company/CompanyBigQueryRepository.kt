@@ -130,7 +130,7 @@ class CompanyBigQueryRepository(
                 val queryConfig = QueryJobConfiguration.newBuilder(query).build()
                 val result = bigQuery.query(queryConfig)
                 return result.iterateAll().map { row -> 
-                        CompanyMapper.mapToCompanyRecord(CompanyRow.from(row)) 
+                        CompanyMapper.mapToCompanyRecord(CompanyRow.fromCompanyRow(row)) 
                 }
         }
 
@@ -150,7 +150,7 @@ class CompanyBigQueryRepository(
                                 .build()
                 val result = bigQuery.query(queryConfig)
                 return result.iterateAll().map { row -> 
-                        CompanyMapper.mapToCompanyRecord(CompanyRow.from(row)) 
+                        CompanyMapper.mapToCompanyRecord(CompanyRow.fromCompanyRow(row)) 
                 }
         }
 
@@ -204,10 +204,10 @@ class CompanyBigQueryRepository(
                 val aggResult = bigQuery.query(aggConfig.build())
 
                 // Hydrate typed rows from BigQuery results
-                val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.from(it) }
+                val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.fromCompanyRow(it) }
                         ?: throw CompanyNotFoundException(companyId)
                 
-                val jobRows = jobsResult.values.map { JobRow.from(it) }
+                val jobRows = jobsResult.values.map { JobRow.fromJobRow(it) }
                 
                 val topModel = aggResult.values.firstOrNull()?.getString("topModel")
 

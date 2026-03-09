@@ -61,16 +61,14 @@ class AnalyticsBigQueryRepository(
                                 companiesTableName
                         )
 
-                val statsConfig = QueryJobConfiguration.newBuilder(statsSql)
-                val techConfig = QueryJobConfiguration.newBuilder(topTechSql)
-                val companiesConfig = QueryJobConfiguration.newBuilder(topCompaniesSql)
+                val statsConfig = QueryJobConfiguration.newBuilder(statsSql.sql)
+                val techConfig = QueryJobConfiguration.newBuilder(topTechSql.sql)
+                val companiesConfig = QueryJobConfiguration.newBuilder(topCompaniesSql.sql)
 
-                if (country != null) {
-                        val c = country.lowercase()
-                        statsConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
-                        techConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
-                        companiesConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
-                }
+                val c = country?.lowercase()
+                statsConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
+                techConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
+                companiesConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
 
                 val statsResult = bigQuery.query(statsConfig.build())
                 val techResult = bigQuery.query(techConfig.build())
@@ -88,10 +86,9 @@ class AnalyticsBigQueryRepository(
                                 jobsTableName
                         )
 
-                val queryConfig = QueryJobConfiguration.newBuilder(query)
-                if (country != null) {
-                        queryConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(country.lowercase()))
-                }
+                val queryConfig = QueryJobConfiguration.newBuilder(query.sql)
+                val c = country?.lowercase()
+                queryConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
 
                 return try {
                         val result = bigQuery.query(queryConfig.build())
@@ -148,7 +145,7 @@ class AnalyticsBigQueryRepository(
         override fun getAllFeedback(): List<com.techmarket.api.model.FeedbackDto> {
                 val query = AnalyticsQueries.getFeedbackSql(datasetName, feedbackTableName)
                 return try {
-                        val result = bigQuery.query(QueryJobConfiguration.newBuilder(query).build())
+                        val result = bigQuery.query(QueryJobConfiguration.newBuilder(query.sql).build())
                         result.values.map { AnalyticsMapper.mapFeedback(it) }
                 } catch (e: Exception) {
                         log.error("GCP: Failed to fetch user feedback: \${e.message}", e)

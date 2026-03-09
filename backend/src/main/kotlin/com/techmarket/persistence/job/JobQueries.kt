@@ -111,7 +111,7 @@ object JobQueries {
         return if (techList.isEmpty()) {
             JobSimilarQuery(
                 sql = """
-                    SELECT ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.PLATFORM_LINKS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.COMPANY_ID}, ${JobFields.COMPANY_NAME}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}, ${JobFields.CITY}, ${JobFields.STATE_REGION}, ${JobFields.SENIORITY_LEVEL}, ${JobFields.COUNTRY}
+                    SELECT ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.PLATFORM_LINKS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.COMPANY_ID}, ${JobFields.COMPANY_NAME}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}, ${JobFields.CITY}, ${JobFields.STATE_REGION}, ${JobFields.SENIORITY_LEVEL}, ${JobFields.COUNTRY}, ${JobFields.SOURCE}, ${JobFields.LAST_SEEN_AT}
                     FROM `$datasetName.$jobsTableName`
                     WHERE ${JobFields.SENIORITY_LEVEL} = @seniority
                       AND @jobId NOT IN UNNEST(${JobFields.JOB_IDS})
@@ -133,14 +133,16 @@ object JobQueries {
                     JobFields.CITY,
                     JobFields.STATE_REGION,
                     JobFields.SENIORITY_LEVEL,
-                    JobFields.COUNTRY
+                    JobFields.COUNTRY,
+                    JobFields.SOURCE,
+                    JobFields.LAST_SEEN_AT
                 )
             )
         } else {
             val techArrayString = techList.joinToString("','", "'", "'")
             JobSimilarQuery(
                 sql = """
-                    SELECT DISTINCT j.${JobFields.JOB_IDS}, j.${JobFields.APPLY_URLS}, j.${JobFields.PLATFORM_LINKS}, j.${JobFields.LOCATIONS}, j.${JobFields.TITLE}, j.${JobFields.COMPANY_ID}, j.${JobFields.COMPANY_NAME}, j.${JobFields.SALARY_MIN}, j.${JobFields.SALARY_MAX}, j.${JobFields.POSTED_DATE}, j.${JobFields.TECHNOLOGIES}, j.${JobFields.CITY}, j.${JobFields.STATE_REGION}, j.${JobFields.SENIORITY_LEVEL}
+                    SELECT DISTINCT j.${JobFields.JOB_IDS}, j.${JobFields.APPLY_URLS}, j.${JobFields.PLATFORM_LINKS}, j.${JobFields.LOCATIONS}, j.${JobFields.TITLE}, j.${JobFields.COMPANY_ID}, j.${JobFields.COMPANY_NAME}, j.${JobFields.SALARY_MIN}, j.${JobFields.SALARY_MAX}, j.${JobFields.POSTED_DATE}, j.${JobFields.TECHNOLOGIES}, j.${JobFields.CITY}, j.${JobFields.STATE_REGION}, j.${JobFields.SENIORITY_LEVEL}, j.${JobFields.SOURCE}, j.${JobFields.LAST_SEEN_AT}
                     FROM `$datasetName.$jobsTableName` j, UNNEST(j.${JobFields.TECHNOLOGIES}) t
                     WHERE j.${JobFields.SENIORITY_LEVEL} = @seniority
                       AND @jobId NOT IN UNNEST(j.${JobFields.JOB_IDS})
@@ -162,7 +164,9 @@ object JobQueries {
                     JobFields.TECHNOLOGIES,
                     JobFields.CITY,
                     JobFields.STATE_REGION,
-                    JobFields.SENIORITY_LEVEL
+                    JobFields.SENIORITY_LEVEL,
+                    JobFields.SOURCE,
+                    JobFields.LAST_SEEN_AT
                 )
             )
         }

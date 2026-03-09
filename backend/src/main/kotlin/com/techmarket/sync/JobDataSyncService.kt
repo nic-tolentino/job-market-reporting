@@ -4,6 +4,7 @@ import com.techmarket.persistence.company.CompanyRepository
 import com.techmarket.persistence.ingestion.IngestionRepository
 import com.techmarket.persistence.job.JobRepository
 import com.techmarket.persistence.model.RawIngestionRecord
+import com.techmarket.util.Constants.SOURCE_APIFY
 import java.time.Instant
 import java.util.UUID
 import org.slf4j.LoggerFactory
@@ -63,7 +64,7 @@ class JobDataSyncService(
                 apifyResults.map {
                     RawIngestionRecord(
                             id = "${it.dto.id}-${UUID.randomUUID()}",
-                            source = "LinkedIn-Apify",
+                            source = SOURCE_APIFY,
                             ingestedAt = syncTime,
                             rawPayload = it.rawJson,
                             datasetId = datasetId
