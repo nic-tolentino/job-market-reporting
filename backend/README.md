@@ -70,6 +70,7 @@ For detailed instructions on deploying to Google Cloud, see **[DEPLOY.md](./DEPL
 
 We provide several utility scripts in the project root to manage the production environment:
 - **`./scripts/deployment/deploy.sh`**: Deploys the current backend to GCP Cloud Run.
+- **`./scripts/deployment/deploy-local.sh`**: Runs the backend locally for development.
 - **`./scripts/deployment/db-drop-silver.sh`**: Safely drops the Silver layer tables for recreation.
 - **`./scripts/deployment/db-reprocess.sh`**: Triggers a full historical re-parse of all raw data.
 - **`./scripts/deployment/ingest-dataset.sh`**: Manually triggers ingestion for a specific Apify dataset.

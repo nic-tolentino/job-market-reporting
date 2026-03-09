@@ -17,7 +17,9 @@ Then edit the `.env` file in the root directory with your actual GCP and Apify c
 ### 2. Common Deployment Commands
 | Task | Script |
 |------|--------|
-| **Deploy to Production** | `./scripts/deployment/deploy.sh` |
+| **Deploy (Auto-detect)** | `./scripts/deployment/deploy.sh` (Uses local Docker if running, otherwise falls back to Cloud Build) |
+| **Deploy (Force Cloud)** | `./scripts/deployment/deploy.sh --cloud` (No local Docker required) |
+| **Run Locally** | `./scripts/deployment/deploy-local.sh` (Starts the backend for development) |
 | **Setup Cloud Tasks** | `./scripts/deployment/setup-cloud-tasks.sh` |
 | **Drop Silver Tables** | `./scripts/deployment/db-drop-silver.sh` |
 | **Reprocess Data** | `./scripts/deployment/db-reprocess.sh` |
