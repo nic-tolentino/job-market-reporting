@@ -83,7 +83,7 @@ class CloudTasksServiceTest {
         assertEquals(HttpMethod.POST, httpRequest.httpMethod)
         assertEquals("$baseUrl/api/internal/process-sync", httpRequest.url)
         assertEquals("application/json", httpRequest.headersMap["Content-Type"])
-        assertTrue(httpRequest.hasOidcToken())  // Verify OIDC token is set
+        assertEquals("true", httpRequest.headersMap["X-Cloud-Tasks"])
 
         // Verify payload
         val bodyString = httpRequest.body.toStringUtf8()

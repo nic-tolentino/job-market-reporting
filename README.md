@@ -120,6 +120,8 @@ We provide several helper scripts to simplify production tasks:
 - `scripts/deployment/setup-env.sh`: Initialize your local `.env` configuration.
 - `scripts/deployment/deploy.sh`: Push updates to Cloud Run.
 - `scripts/deployment/db-reprocess.sh`: Run historical data migrations.
+- `scripts/deployment/run-tests.sh`: Run all backend unit tests.
+
 
 ### Frontend (Vercel)
 The frontend is hosted on Vercel and connects to the GCP backend via the `VITE_API_URL` environment variable.
@@ -254,3 +256,6 @@ Yeah I think that all makes sense thanks -I guess I'm
 
 
   ---
+
+
+gcloud tasks queues describe tech-market-sync-dlq --location=australia-southeast1

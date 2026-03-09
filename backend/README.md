@@ -74,5 +74,7 @@ We provide several utility scripts in the project root to manage the production 
 - **`./scripts/deployment/db-drop-silver.sh`**: Safely drops the Silver layer tables for recreation.
 - **`./scripts/deployment/db-reprocess.sh`**: Triggers a full historical re-parse of all raw data.
 - **`./scripts/deployment/ingest-dataset.sh`**: Manually triggers ingestion for a specific Apify dataset.
+- **`./scripts/deployment/run-tests.sh`**: Runs all backend unit tests.
+
 
 See the **[GCP Deployment Guide](./DEPLOY.md)** for more details.

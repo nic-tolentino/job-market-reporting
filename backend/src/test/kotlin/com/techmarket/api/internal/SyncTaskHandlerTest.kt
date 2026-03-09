@@ -45,7 +45,7 @@ class SyncTaskHandlerTest {
         // Act
         val response = syncTaskHandler.processSync(
             taskPayload = taskPayload,
-            authorization = "Bearer valid-oidc-token",
+            cloudTasksHeader = "true",
             taskRetryCount = 0,
             taskName = "projects/test-project/locations/australia-southeast1/queues/tech-market-sync-queue/tasks/task-123"
         )
@@ -69,7 +69,7 @@ class SyncTaskHandlerTest {
         // Act
         val response = syncTaskHandler.processSync(
             taskPayload = taskPayload,
-            authorization = "Bearer valid-oidc-token",
+            cloudTasksHeader = "true",
             taskRetryCount = 0,
             taskName = "projects/test-project/locations/australia-southeast1/queues/tech-market-sync-queue/tasks/task-456"
         )
@@ -93,7 +93,7 @@ class SyncTaskHandlerTest {
         // Act
         val response = syncTaskHandler.processSync(
             taskPayload = taskPayload,
-            authorization = "Bearer valid-oidc-token",
+            cloudTasksHeader = "true",
             taskRetryCount = 0,
             taskName = "projects/test-project/locations/australia-southeast1/queues/tech-market-sync-queue/tasks/task-789"
         )
@@ -118,7 +118,7 @@ class SyncTaskHandlerTest {
         assertThrows<AccessDeniedException> {
             syncTaskHandler.processSync(
                 taskPayload = taskPayload,
-                authorization = null,
+                cloudTasksHeader = null,
                 taskRetryCount = 0,
                 taskName = "task-123"
             )
@@ -140,7 +140,7 @@ class SyncTaskHandlerTest {
         assertThrows<AccessDeniedException> {
             syncTaskHandler.processSync(
                 taskPayload = taskPayload,
-                authorization = "InvalidHeader",
+                cloudTasksHeader = "false",
                 taskRetryCount = 0,
                 taskName = "task-123"
             )
@@ -165,7 +165,7 @@ class SyncTaskHandlerTest {
         val exception = assertThrows<RuntimeException> {
             syncTaskHandler.processSync(
                 taskPayload = taskPayload,
-                authorization = "Bearer valid-oidc-token",
+                cloudTasksHeader = "true",
                 taskRetryCount = 2,
                 taskName = "task-123"
             )
@@ -190,7 +190,7 @@ class SyncTaskHandlerTest {
         // Act
         val response = syncTaskHandler.processSync(
             taskPayload = taskPayload,
-            authorization = "Bearer valid-oidc-token",
+            cloudTasksHeader = "true",
             taskRetryCount = 0,
             taskName = "task-123"
         )
@@ -213,7 +213,7 @@ class SyncTaskHandlerTest {
         // Act
         val response = syncTaskHandler.processSync(
             taskPayload = taskPayload,
-            authorization = "Bearer valid-oidc-token",
+            cloudTasksHeader = "true",
             taskRetryCount = 0,
             taskName = "task-123"
         )
