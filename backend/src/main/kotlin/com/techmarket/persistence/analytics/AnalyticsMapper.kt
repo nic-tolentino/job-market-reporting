@@ -6,6 +6,9 @@ import com.techmarket.api.model.GlobalStatsDto
 import com.techmarket.api.model.LandingPageDto
 import com.techmarket.api.model.SearchSuggestionDto
 import com.techmarket.api.model.TechTrendAggregatedDto
+import com.techmarket.persistence.AnalyticsFields.CONTEXT
+import com.techmarket.persistence.AnalyticsFields.MESSAGE
+import com.techmarket.persistence.AnalyticsFields.TIMESTAMP
 import com.techmarket.util.TechFormatter
 
 object AnalyticsMapper {
@@ -71,9 +74,9 @@ object AnalyticsMapper {
                 row: com.google.cloud.bigquery.FieldValueList
         ): FeedbackDto {
                 val context =
-                        if (row.get("context").isNull) null else row.get("context").stringValue
-                val message = row.get("message").stringValue
-                val timestamp = row.get("timestamp").stringValue
+                        if (row.get(CONTEXT).isNull) null else row.get(CONTEXT).stringValue
+                val message = row.get(MESSAGE).stringValue
+                val timestamp = row.get(TIMESTAMP).stringValue
                 return FeedbackDto(context, message, timestamp)
         }
 }

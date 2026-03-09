@@ -1,325 +1,157 @@
 package com.techmarket.persistence.company
 
+import com.google.cloud.bigquery.TableResult
 import com.techmarket.api.model.CompanyDetailsDto
 import com.techmarket.api.model.CompanyInsightsDto
 import com.techmarket.api.model.CompanyProfilePageDto
 import com.techmarket.api.model.JobRoleDto
-import com.techmarket.model.NormalizedSalary
-import com.techmarket.persistence.CompanyFields
-import com.techmarket.persistence.JobFields
-import com.techmarket.persistence.SalaryMapper
+import com.techmarket.models.CompanyRow
+import com.techmarket.models.JobRow
+import com.techmarket.persistence.CommonLiterals.HYBRID_FRIENDLY
+import com.techmarket.persistence.CommonLiterals.UNKNOWN
 import com.techmarket.persistence.model.CompanyRecord
-import com.techmarket.util.TechFormatter
 import com.techmarket.persistence.model.VerificationLevel
-import java.time.Instant
+import com.techmarket.util.TechFormatter
 
+/**
+ * Maps typed row objects to DTOs.
+ * 
+ * Since rows are already hydrated with clean data (nulls handled, defaults applied),
+ * this mapper focuses purely on DTO transformation logic.
+ */
 object CompanyMapper {
-        fun mapCompanyProfile(
-                companyId: String,
-                detResult: com.google.cloud.bigquery.TableResult,
-                jobsResult: com.google.cloud.bigquery.TableResult,
-                aggResult: com.google.cloud.bigquery.TableResult
-        ): CompanyProfilePageDto {
-                val detRow = detResult.values.firstOrNull()
-                val name = detRow?.get(CompanyFields.NAME)?.stringValue ?: "Unknown Company"
-                val logo =
-                        if (detRow?.get(CompanyFields.LOGO_URL)?.isNull == false)
-                                detRow.get(CompanyFields.LOGO_URL).stringValue
-                        else ""
-                val website =
-                        if (detRow?.get(CompanyFields.WEBSITE)?.isNull == false)
-                                detRow.get(CompanyFields.WEBSITE).stringValue
-                        else ""
-                val emps =
-                        if (detRow?.get(CompanyFields.EMPLOYEES_COUNT)?.isNull == false)
-                                detRow.get(CompanyFields.EMPLOYEES_COUNT).longValue.toInt()
-                        else 0
-                val ind =
-                        if (detRow?.get(CompanyFields.INDUSTRIES)?.isNull == false)
-                                detRow.get(CompanyFields.INDUSTRIES).stringValue
-                        else ""
-                val description =
-                        if (detRow?.get(CompanyFields.DESCRIPTION)?.isNull == false)
-                                detRow.get(CompanyFields.DESCRIPTION).stringValue
-                        else ""
-                val isAgency =
-                        if (detRow?.get(CompanyFields.IS_AGENCY)?.isNull == false)
-                                detRow.get(CompanyFields.IS_AGENCY).booleanValue
-                        else false
-                val isSocio =
-                        if (detRow?.get(CompanyFields.IS_SOCIAL_ENTERPRISE)?.isNull == false)
-                                detRow.get(CompanyFields.IS_SOCIAL_ENTERPRISE).booleanValue
-                        else false
-                val hq =
-                        if (detRow?.get(CompanyFields.HQ_COUNTRY)?.isNull == false)
-                                detRow.get(CompanyFields.HQ_COUNTRY).stringValue
-                        else null
-                val remotePlc =
-                        if (detRow?.get(CompanyFields.REMOTE_POLICY)?.isNull == false)
-                                detRow.get(CompanyFields.REMOTE_POLICY).stringValue
-                        else null
-                val visaSpons =
-                        if (detRow?.get(CompanyFields.VISA_SPONSORSHIP)?.isNull == false)
-                                detRow.get(CompanyFields.VISA_SPONSORSHIP).booleanValue
-                        else false
-                val verifLevel =
-                        if (detRow?.get(CompanyFields.VERIFICATION_LEVEL)?.isNull == false)
-                                VerificationLevel.fromString(detRow.get(CompanyFields.VERIFICATION_LEVEL).stringValue)
-                        else VerificationLevel.VERIFIED
-
-                val details =
-                        CompanyDetailsDto(
-                                companyId,
-                                name,
-                                logo,
-                                website,
-                                emps,
-                                ind,
-                                description,
-                                isAgency,
-                                isSocio,
-                                hq,
-                                remotePlc,
-                                visaSpons,
-                                verifLevel
-                        )
-
-                // Aggregate technologies from all active job postings (query-time aggregation)
-                val techFromJobs = jobsResult.values
-                        .flatMap { r ->
-                                if (r.get(JobFields.TECHNOLOGIES).isNull) emptyList()
-                                else r.get(JobFields.TECHNOLOGIES).repeatedValue.map { it.stringValue }
-                        }
-                        .map { TechFormatter.format(it) }
-                        .distinct()
-                        .sorted()
-
-                val roles =
-                        jobsResult.values.map { r ->
-                                // ... (roles aggregation same as before)
-                                val techList =
-                                        if (r.get(JobFields.TECHNOLOGIES).isNull)
-                                                emptyList<String>()
-                                        else
-                                                r.get(JobFields.TECHNOLOGIES).repeatedValue.map {
-                                                        TechFormatter.format(it.stringValue)
-                                                }
-                                val city =
-                                        if (r.get(JobFields.CITY).isNull) "Unknown"
-                                        else r.get(JobFields.CITY).stringValue
-                                val stateRegion =
-                                        if (r.get(JobFields.STATE_REGION).isNull) "Unknown"
-                                        else r.get(JobFields.STATE_REGION).stringValue
-                                val locationList =
-                                        listOf(
-                                                if (stateRegion == "Unknown" || stateRegion == city)
-                                                        city
-                                                else "$city, $stateRegion"
-                                        )
-                                val jobIdList =
-                                        if (r.get(JobFields.JOB_IDS).isNull) emptyList<String>()
-                                        else
-                                                r.get(JobFields.JOB_IDS).repeatedValue.map {
-                                                        it.stringValue
-                                                }
-                                val applyUrlList =
-                                        if (r.get(JobFields.APPLY_URLS).isNull) emptyList<String?>()
-                                        else
-                                                r.get(JobFields.APPLY_URLS).repeatedValue.map {
-                                                        if (it.isNull) null else it.stringValue
-                                                }
-                                val linkList =
-                                        if (r.get(JobFields.PLATFORM_LINKS).isNull)
-                                                emptyList<String?>()
-                                        else
-                                                r.get(JobFields.PLATFORM_LINKS).repeatedValue.map {
-                                                        if (it.isNull) null else it.stringValue
-                                                }
-                                val source =
-                                        if (r.get(JobFields.SOURCE).isNull) "Unknown"
-                                        else r.get(JobFields.SOURCE).stringValue
-                                val lastUpdatedAt =
-                                        if (r.get(JobFields.LAST_SEEN_AT).isNull) Instant.EPOCH
-                                        else parseTimestampSafe(r.get(JobFields.LAST_SEEN_AT))
-                                JobRoleDto(
-                                        id = r.get(JobFields.JOB_ID).stringValue,
-                                        title = r.get(JobFields.TITLE).stringValue,
-                                        companyId = companyId,
-                                        companyName = name,
-                                        locations = locationList,
-                                        jobIds = jobIdList,
-                                        applyUrls = applyUrlList,
-                                        platformLinks = linkList,
-                                        salaryMin = SalaryMapper.fromFieldValue(r, JobFields.SALARY_MIN),
-                                        salaryMax = SalaryMapper.fromFieldValue(r, JobFields.SALARY_MAX),
-                                        postedDate =
-                                                if (r.get(JobFields.POSTED_DATE).isNull) ""
-                                                else r.get(JobFields.POSTED_DATE).stringValue,
-                                        seniorityLevel =
-                                                r.get(JobFields.SENIORITY_LEVEL).stringValue,
-                                        technologies = techList,
-                                        source = source,
-                                        lastUpdatedAt = lastUpdatedAt
-                                )
-                        }
-
-                // Merge company-level technologies (for manual curation) with job-aggregated technologies
-                val companyTechs =
-                        if (detRow?.get(CompanyFields.TECHNOLOGIES)?.isNull == false)
-                                detRow.get(CompanyFields.TECHNOLOGIES).repeatedValue.map {
-                                        TechFormatter.format(it.stringValue)
-                                }
-                        else emptyList()
-                val allTechs = (companyTechs + techFromJobs).distinct().sorted()
-                val hiringLocations =
-                        if (detRow?.get(CompanyFields.HIRING_LOCATIONS)?.isNull == false)
-                                detRow.get(CompanyFields.HIRING_LOCATIONS).repeatedValue.map {
-                                        val rawLoc = it.stringValue
-                                        val parts = rawLoc.split(", ")
-                                        if (parts.size == 2 && parts[0] == parts[1]) parts[0]
-                                        else rawLoc
-                                }
-                        else emptyList()
-                val operatingCountries =
-                        if (detRow?.get(CompanyFields.OPERATING_COUNTRIES)?.isNull == false)
-                                detRow.get(CompanyFields.OPERATING_COUNTRIES).repeatedValue.map {
-                                        it.stringValue
-                                }
-                        else emptyList()
-                val officeLocations =
-                        if (detRow?.get(CompanyFields.OFFICE_LOCATIONS)?.isNull == false)
-                                detRow.get(CompanyFields.OFFICE_LOCATIONS).repeatedValue.map {
-                                        it.stringValue
-                                }
-                        else emptyList()
-
-                val aggRow = aggResult.values.firstOrNull()
-                val topModel =
-                        try {
-                                if (aggRow != null && !aggRow.get("topModel").isNull)
-                                        aggRow.get("topModel").stringValue
-                                else "Hybrid Friendly"
-                        } catch (e: Exception) {
-                                "Hybrid Friendly"
-                        }
-
-                val allBenefits =
-                        jobsResult
-                                .values
-                                .mapNotNull { r ->
-                                        try {
-                                                if (r.get(JobFields.BENEFITS).isNull) null
-                                                else
-                                                        r.get(JobFields.BENEFITS)
-                                                                .repeatedValue
-                                                                .map { it.stringValue }
-                                        } catch (e: Exception) {
-                                                null
-                                        }
-                                }
-                                .flatten()
-                                .groupingBy { it }
-                                .eachCount()
-                                .entries
-                                .sortedByDescending { it.value }
-                                .map { it.key }
-                                .take(5)
-
-                val insights =
-                        CompanyInsightsDto(
-                                topModel,
-                                hiringLocations,
-                                allBenefits,
-                                operatingCountries,
-                                officeLocations
-                        )
-
-                return CompanyProfilePageDto(details, allTechs, insights, roles)
+    
+    /**
+     * Maps typed row objects to CompanyProfilePageDto.
+     * No more string-based field access - compiler verifies all properties exist.
+     */
+    fun mapCompanyProfile(
+        companyId: String,
+        companyRow: CompanyRow,
+        jobRows: List<JobRow>,
+        topModel: String?
+    ): CompanyProfilePageDto {
+        
+        val details = mapCompanyDetails(companyId, companyRow)
+        
+        // Aggregate technologies from all active job postings
+        val techFromJobs = jobRows
+            .flatMap { it.technologies }
+            .map { TechFormatter.format(it) }
+            .distinct()
+            .sorted()
+        
+        val roles = jobRows.map { job ->
+            mapJobRole(job, companyRow.name, companyId)
         }
+        
+        // Merge company-level technologies with job-aggregated technologies
+        val companyTechs = companyRow.technologies.map { TechFormatter.format(it) }
+        val allTechs = (companyTechs + techFromJobs).distinct().sorted()
+        
+        val insights = mapCompanyInsights(companyRow, jobRows, topModel)
+        
+        return CompanyProfilePageDto(details, allTechs, insights, roles)
+    }
+    
+    private fun mapCompanyDetails(
+        companyId: String,
+        row: CompanyRow
+    ): CompanyDetailsDto {
+        return CompanyDetailsDto(
+            id = companyId,
+            name = row.name,
+            logo = row.logoUrl ?: "",
+            website = row.website ?: "",
+            employeesCount = row.employeesCount ?: 0,
+            industry = row.industries ?: "",
+            description = row.description ?: "",
+            isAgency = row.isAgency,
+            isSocialEnterprise = row.isSocialEnterprise,
+            hqCountry = row.hqCountry,
+            remotePolicy = row.remotePolicy,
+            visaSponsorship = row.visaSponsorship,
+            verificationLevel = VerificationLevel.fromString(row.verificationLevel)
+        )
+    }
+    
+    private fun mapJobRole(
+        job: JobRow,
+        companyName: String,
+        companyId: String
+    ): JobRoleDto {
+        val locationList = buildLocationList(job.city, job.stateRegion)
+        
+        return JobRoleDto(
+            id = job.jobId,
+            title = job.title,
+            companyId = companyId,
+            companyName = companyName,
+            locations = locationList,
+            jobIds = job.jobIds,
+            applyUrls = job.applyUrls,
+            platformLinks = job.platformLinks,
+            salaryMin = job.salaryMin,
+            salaryMax = job.salaryMax,
+            postedDate = job.postedDate,
+            seniorityLevel = job.seniorityLevel,
+            technologies = job.technologies.map { TechFormatter.format(it) },
+            source = job.source,
+            lastUpdatedAt = job.lastSeenAt
+        )
+    }
+    
+    private fun buildLocationList(city: String, stateRegion: String): List<String> {
+        return listOf(
+            if (stateRegion == UNKNOWN || stateRegion == city) city
+            else "$city, $stateRegion"
+        )
+    }
 
-        fun mapToCompanyRecord(row: com.google.cloud.bigquery.FieldValueList): CompanyRecord {
-                return CompanyRecord(
-                        companyId = row.get(CompanyFields.COMPANY_ID).stringValue,
-                        name = row.get(CompanyFields.NAME).stringValue,
-                        alternateNames =
-                                if (row.get(CompanyFields.ALTERNATE_NAMES).isNull) emptyList()
-                                else
-                                        row.get(CompanyFields.ALTERNATE_NAMES).repeatedValue.map {
-                                                it.stringValue
-                                        },
-                        logoUrl =
-                                if (row.get(CompanyFields.LOGO_URL).isNull) null
-                                else row.get(CompanyFields.LOGO_URL).stringValue,
-                        description =
-                                if (row.get(CompanyFields.DESCRIPTION).isNull) null
-                                else row.get(CompanyFields.DESCRIPTION).stringValue,
-                        website =
-                                if (row.get(CompanyFields.WEBSITE).isNull) null
-                                else row.get(CompanyFields.WEBSITE).stringValue,
-                        employeesCount =
-                                if (row.get(CompanyFields.EMPLOYEES_COUNT).isNull) null
-                                else row.get(CompanyFields.EMPLOYEES_COUNT).longValue.toInt(),
-                        industries =
-                                if (row.get(CompanyFields.INDUSTRIES).isNull) null
-                                else row.get(CompanyFields.INDUSTRIES).stringValue,
-                        technologies =
-                                if (row.get(CompanyFields.TECHNOLOGIES).isNull) emptyList()
-                                else
-                                        row.get(CompanyFields.TECHNOLOGIES).repeatedValue.map {
-                                                it.stringValue
-                                        },
-                        hiringLocations =
-                                if (row.get(CompanyFields.HIRING_LOCATIONS).isNull) emptyList()
-                                else
-                                        row.get(CompanyFields.HIRING_LOCATIONS).repeatedValue.map {
-                                                it.stringValue
-                                        },
-                        isAgency =
-                                if (row.get(CompanyFields.IS_AGENCY).isNull) false
-                                else row.get(CompanyFields.IS_AGENCY).booleanValue,
-                        isSocialEnterprise =
-                                if (row.get(CompanyFields.IS_SOCIAL_ENTERPRISE).isNull) false
-                                else row.get(CompanyFields.IS_SOCIAL_ENTERPRISE).booleanValue,
-                        hqCountry =
-                                if (row.get(CompanyFields.HQ_COUNTRY).isNull) null
-                                else row.get(CompanyFields.HQ_COUNTRY).stringValue,
-                        operatingCountries =
-                                if (row.get(CompanyFields.OPERATING_COUNTRIES).isNull) emptyList()
-                                else
-                                        row.get(CompanyFields.OPERATING_COUNTRIES)
-                                                .repeatedValue
-                                                .map { it.stringValue },
-                        officeLocations =
-                                if (row.get(CompanyFields.OFFICE_LOCATIONS).isNull) emptyList()
-                                else
-                                        row.get(CompanyFields.OFFICE_LOCATIONS).repeatedValue.map {
-                                                it.stringValue
-                                        },
-                        remotePolicy =
-                                if (row.get(CompanyFields.REMOTE_POLICY).isNull) null
-                                else row.get(CompanyFields.REMOTE_POLICY).stringValue,
-                        visaSponsorship =
-                                if (row.get(CompanyFields.VISA_SPONSORSHIP).isNull) false
-                                else row.get(CompanyFields.VISA_SPONSORSHIP).booleanValue,
-                        verificationLevel =
-                                if (row.get(CompanyFields.VERIFICATION_LEVEL).isNull) VerificationLevel.VERIFIED
-                                else VerificationLevel.fromString(row.get(CompanyFields.VERIFICATION_LEVEL).stringValue),
-                        lastUpdatedAt = parseTimestampSafe(row.get(CompanyFields.LAST_UPDATED_AT))
-                )
-        }
+    private fun mapCompanyInsights(
+        company: CompanyRow,
+        jobs: List<JobRow>,
+        topModel: String?
+    ): CompanyInsightsDto {
+        val commonBenefits = jobs
+            .flatMap { it.benefits }
+            .groupingBy { it }
+            .eachCount()
+            .entries
+            .sortedByDescending { it.value }
+            .map { it.key }
+            .take(5)
 
-        private fun parseTimestampSafe(field: com.google.cloud.bigquery.FieldValue): Instant {
-                if (field.isNull) return Instant.EPOCH
-                return try {
-                        val stringVal = field.stringValue
-                        val doubleVal = stringVal.toDoubleOrNull()
-                        if (doubleVal != null) {
-                                Instant.ofEpochSecond(doubleVal.toLong())
-                        } else {
-                                Instant.parse(stringVal)
-                        }
-                } catch (e: Exception) {
-                        Instant.EPOCH
-                }
-        }
+        return CompanyInsightsDto(
+            workModel = topModel ?: HYBRID_FRIENDLY,
+            hiringLocations = company.hiringLocations,
+            commonBenefits = commonBenefits,
+            operatingCountries = company.operatingCountries,
+            officeLocations = company.officeLocations
+        )
+    }
+    
+    fun mapToCompanyRecord(row: CompanyRow): CompanyRecord {
+        return CompanyRecord(
+            companyId = row.companyId,
+            name = row.name,
+            alternateNames = row.alternateNames,
+            logoUrl = row.logoUrl,
+            description = row.description,
+            website = row.website,
+            employeesCount = row.employeesCount,
+            industries = row.industries,
+            technologies = row.technologies,
+            hiringLocations = row.hiringLocations,
+            isAgency = row.isAgency,
+            isSocialEnterprise = row.isSocialEnterprise,
+            hqCountry = row.hqCountry,
+            operatingCountries = row.operatingCountries,
+            officeLocations = row.officeLocations,
+            remotePolicy = row.remotePolicy,
+            visaSponsorship = row.visaSponsorship,
+            verificationLevel = VerificationLevel.fromString(row.verificationLevel),
+            lastUpdatedAt = row.lastUpdatedAt
+        )
+    }
 }

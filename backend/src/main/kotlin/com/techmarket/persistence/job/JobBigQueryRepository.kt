@@ -11,6 +11,8 @@ import com.google.cloud.bigquery.TableId
 import com.google.cloud.spring.bigquery.core.BigQueryTemplate
 import com.techmarket.persistence.BigQueryTables
 import com.techmarket.persistence.JobFields
+import com.techmarket.persistence.QueryParams.JOB_ID
+import com.techmarket.persistence.QueryParams.SENIORITY
 import com.techmarket.persistence.SalaryMapper
 import com.techmarket.persistence.ensureTableExists
 import com.techmarket.persistence.model.JobRecord
@@ -166,13 +168,13 @@ class JobBigQueryRepository(
         }
 
         override fun getJobDetails(jobId: String): JobPageDto? {
-                val detailsSql =
+                val detailsQuery =
                         JobQueries.getDetailsSql(datasetName, jobsTableName, companiesTableName)
                 val detResult =
                         bigQuery.query(
-                                QueryJobConfiguration.newBuilder(detailsSql)
+                                QueryJobConfiguration.newBuilder(detailsQuery.sql)
                                         .addNamedParameter(
-                                                "jobId",
+                                                JOB_ID,
                                                 QueryParameterValue.string(jobId)
                                         )
                                         .build()
@@ -186,12 +188,12 @@ class JobBigQueryRepository(
 
                 val seniority = r.get(JobFields.SENIORITY_LEVEL).stringValue
 
-                val similarSql = JobQueries.getSimilarSql(datasetName, jobsTableName, techList)
+                val similarQuery = JobQueries.getSimilarSql(datasetName, jobsTableName, techList)
                 val similarQueryBuilder =
-                        QueryJobConfiguration.newBuilder(similarSql)
-                                .addNamedParameter("jobId", QueryParameterValue.string(jobId))
+                        QueryJobConfiguration.newBuilder(similarQuery.sql)
+                                .addNamedParameter(JOB_ID, QueryParameterValue.string(jobId))
                                 .addNamedParameter(
-                                        "seniority",
+                                        SENIORITY,
                                         QueryParameterValue.string(seniority)
                                 )
 

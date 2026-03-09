@@ -8,9 +8,14 @@ import com.google.cloud.bigquery.Schema
 import com.google.cloud.bigquery.StandardSQLTypeName
 import com.google.cloud.spring.bigquery.core.BigQueryTemplate
 import com.techmarket.api.model.CompanyProfilePageDto
+import com.techmarket.models.CompanyRow
+import com.techmarket.models.JobRow
 import com.techmarket.persistence.BigQueryTables
 import com.techmarket.persistence.CompanyFields
 import com.techmarket.persistence.JobFields
+import com.techmarket.persistence.QueryParams.COMPANY_ID
+import com.techmarket.persistence.QueryParams.COUNTRY
+import com.techmarket.persistence.getString
 import com.techmarket.persistence.ensureTableExists
 import com.techmarket.persistence.model.CompanyRecord
 import java.util.concurrent.TimeUnit
@@ -124,7 +129,9 @@ class CompanyBigQueryRepository(
                 val query = "SELECT * FROM `$datasetName.$companiesTableName`"
                 val queryConfig = QueryJobConfiguration.newBuilder(query).build()
                 val result = bigQuery.query(queryConfig)
-                return result.iterateAll().map { row -> CompanyMapper.mapToCompanyRecord(row) }
+                return result.iterateAll().map { row -> 
+                        CompanyMapper.mapToCompanyRecord(CompanyRow.from(row)) 
+                }
         }
 
         override fun getCompaniesByIds(companyIds: List<String>): List<CompanyRecord> {
@@ -142,7 +149,9 @@ class CompanyBigQueryRepository(
                                 )
                                 .build()
                 val result = bigQuery.query(queryConfig)
-                return result.iterateAll().map { row -> CompanyMapper.mapToCompanyRecord(row) }
+                return result.iterateAll().map { row -> 
+                        CompanyMapper.mapToCompanyRecord(CompanyRow.from(row)) 
+                }
         }
 
         override fun deleteCompaniesByIds(companyIds: List<String>) {
@@ -171,30 +180,38 @@ class CompanyBigQueryRepository(
         }
 
         override fun getCompanyProfile(companyId: String, country: String?): CompanyProfilePageDto {
-                val detailsSql = CompanyQueries.getDetailsSql(datasetName, companiesTableName)
-                val jobsSql = CompanyQueries.getJobsSql(datasetName, jobsTableName)
-                val aggSql = CompanyQueries.getAggSql(datasetName, jobsTableName)
+                val detailsQuery = CompanyQueries.getDetailsSql(datasetName, companiesTableName)
+                val jobsQuery = CompanyQueries.getJobsSql(datasetName, jobsTableName)
+                val aggQuery = CompanyQueries.getAggSql(datasetName, jobsTableName)
 
-                val detConfig = QueryJobConfiguration.newBuilder(detailsSql)
-                        .addNamedParameter("companyId", QueryParameterValue.string(companyId))
-                val jobsConfig = QueryJobConfiguration.newBuilder(jobsSql)
-                        .addNamedParameter("companyId", QueryParameterValue.string(companyId))
-                val aggConfig = QueryJobConfiguration.newBuilder(aggSql)
-                        .addNamedParameter("companyId", QueryParameterValue.string(companyId))
+                val detConfig = QueryJobConfiguration.newBuilder(detailsQuery.sql)
+                        .addNamedParameter(COMPANY_ID, QueryParameterValue.string(companyId))
+                val jobsConfig = QueryJobConfiguration.newBuilder(jobsQuery.sql)
+                        .addNamedParameter(COMPANY_ID, QueryParameterValue.string(companyId))
+                val aggConfig = QueryJobConfiguration.newBuilder(aggQuery.sql)
+                        .addNamedParameter(COMPANY_ID, QueryParameterValue.string(companyId))
 
                 // Always add country parameter (as NULL if not provided) to satisfy BigQuery SQL
                 // The SQL uses: AND (@country IS NULL OR country = @country)
                 // This pattern requires the parameter to always exist, even if NULL
                 val c = country?.lowercase()
-                detConfig.addNamedParameter("country", QueryParameterValue.string(c))
-                jobsConfig.addNamedParameter("country", QueryParameterValue.string(c))
-                aggConfig.addNamedParameter("country", QueryParameterValue.string(c))
+                detConfig.addNamedParameter(COUNTRY, QueryParameterValue.string(c))
+                jobsConfig.addNamedParameter(COUNTRY, QueryParameterValue.string(c))
+                aggConfig.addNamedParameter(COUNTRY, QueryParameterValue.string(c))
 
                 val detResult = bigQuery.query(detConfig.build())
                 val jobsResult = bigQuery.query(jobsConfig.build())
                 val aggResult = bigQuery.query(aggConfig.build())
 
-                return CompanyMapper.mapCompanyProfile(companyId, detResult, jobsResult, aggResult)
+                // Hydrate typed rows from BigQuery results
+                val companyRow = detResult.values.firstOrNull()?.let { CompanyRow.from(it) }
+                        ?: throw CompanyNotFoundException(companyId)
+                
+                val jobRows = jobsResult.values.map { JobRow.from(it) }
+                
+                val topModel = aggResult.values.firstOrNull()?.getString("topModel")
+
+                return CompanyMapper.mapCompanyProfile(companyId, companyRow, jobRows, topModel)
         }
 
         private fun CompanyRecord.toMap(): Map<String, Any?> {

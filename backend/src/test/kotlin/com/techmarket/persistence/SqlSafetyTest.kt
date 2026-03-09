@@ -74,7 +74,8 @@ class SqlSafetyTest {
 
     @Test
     fun `CompanyQueries getJobsSql interpolates values and wraps table in backticks`() {
-        val sql = CompanyQueries.getJobsSql(dataset, jobsTable)
+        val query = CompanyQueries.getJobsSql(dataset, jobsTable)
+        val sql = query.sql
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
     }

@@ -36,20 +36,25 @@ object SalaryMapper {
 
     /**
      * Extracts a NormalizedSalary from a BigQuery FieldValueList.
+     * Uses safe null handling for nested STRUCT fields.
+     * 
      * @param fieldValueList The BigQuery result row
      * @param fieldName The name of the salary field (e.g., "salaryMin", "salaryMax")
      * @return NormalizedSalary or null if the field is null
      */
     fun fromFieldValue(fieldValueList: FieldValueList, fieldName: String): NormalizedSalary? {
         if (fieldValueList.get(fieldName).isNull) return null
-        
+
         val salaryStruct = fieldValueList.get(fieldName).recordValue
-        return NormalizedSalary.fromMap(mapOf(
-            AMOUNT to salaryStruct.get(AMOUNT).longValue,
-            CURRENCY to salaryStruct.get(CURRENCY).stringValue,
-            PERIOD to salaryStruct.get(PERIOD).stringValue,
-            SOURCE to salaryStruct.get(SOURCE).stringValue,
-            IS_GROSS to salaryStruct.get(IS_GROSS).booleanValue
-        ))
+        if (salaryStruct == null) return null
+        
+        // Safe extraction with defaults for nullable nested fields
+        val amount = salaryStruct.get(AMOUNT).takeIf { !it.isNull }?.longValue ?: return null
+        val currency = salaryStruct.get(CURRENCY).takeIf { !it.isNull }?.stringValue ?: NormalizedSalary.CURRENCY_NZD
+        val period = salaryStruct.get(PERIOD).takeIf { !it.isNull }?.stringValue ?: NormalizedSalary.PERIOD_YEAR
+        val source = salaryStruct.get(SOURCE).takeIf { !it.isNull }?.stringValue ?: NormalizedSalary.SOURCE_JOB_POSTING
+        val isGross = salaryStruct.get(IS_GROSS).takeIf { !it.isNull }?.booleanValue ?: true
+        
+        return NormalizedSalary(amount, currency, period, source, isGross)
     }
 }

@@ -89,6 +89,17 @@ object AnalyticsFields {
     const val TIMESTAMP = "timestamp"
     const val CONTEXT = "context"
     const val MESSAGE = "message"
+    // Landing page stats
+    const val TOTAL_VACANCIES = "totalVacancies"
+    const val REMOTE_COUNT = "remoteCount"
+    const val HYBRID_COUNT = "hybridCount"
+    // Common fields
+    const val NAME = "name"
+    const val COUNT = "count"
+    const val ID = "id"
+    const val LOGO = "logo"
+    const val ACTIVE_ROLES = "activeRoles"
+    const val TYPE = "type"
 }
 
 object AtsConfigFields {
@@ -98,4 +109,19 @@ object AtsConfigFields {
     const val ENABLED = "enabled"
     const val LAST_SYNCED_AT = "lastSyncedAt"
     const val SYNC_STATUS = "syncStatus"
+}
+
+object CommonLiterals {
+    const val UNKNOWN = "Unknown"
+    const val UNKNOWN_COMPANY = "Unknown Company"
+    const val HYBRID_FRIENDLY = "Hybrid Friendly"
+    const val UNVERIFIED = "unverified"
+    const val VERIFIED = "VERIFIED"
+}
+
+object QueryParams {
+    const val COMPANY_ID = "companyId"
+    const val JOB_ID = "jobId"
+    const val COUNTRY = "country"
+    const val SENIORITY = "seniority"
 }

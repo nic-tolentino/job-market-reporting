@@ -11,7 +11,8 @@ class JobQueriesTest {
         val table = "test_jobs"
         val techList = emptyList<String>()
 
-        val sql = JobQueries.getSimilarSql(dataset, table, techList)
+        val query = JobQueries.getSimilarSql(dataset, table, techList)
+        val sql = query.sql
 
         assertTrue(sql.contains("FROM `test_dataset.test_jobs`"))
         assertTrue(sql.contains("WHERE seniorityLevel = @seniority"))
@@ -28,7 +29,8 @@ class JobQueriesTest {
         val table = "test_jobs"
         val techList = listOf("react", "kotlin")
 
-        val sql = JobQueries.getSimilarSql(dataset, table, techList)
+        val query = JobQueries.getSimilarSql(dataset, table, techList)
+        val sql = query.sql
 
         assertTrue(sql.contains("FROM `test_dataset.test_jobs` j, UNNEST(j.technologies) t"))
         assertTrue(sql.contains("WHERE j.seniorityLevel = @seniority"))
