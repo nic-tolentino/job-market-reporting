@@ -9,19 +9,18 @@ import com.techmarket.persistence.SalaryFields.SOURCE
 /**
  * Represents a normalized salary value with currency, period, and source information.
  *
- * @property amount The salary amount in the smallest currency unit (e.g., cents)
+ * @property amount The salary amount in the smallest currency unit (e.g., cents for USD/NZD/AUD)
  * @property currency ISO 4217 currency code (NZD, AUD, USD, EUR)
- * @property period The time period for the salary (HOUR, DAY, MONTH, YEAR)
+ * @property period The time period for the salary (HOUR, DAY, MONTH, YEAR). Null if unknown.
  * @property source The source of the salary data (determines confidence level)
- * @property isGross Whether this is gross salary (true) or net (false). Defaults to true.
- *                   Persisted to BigQuery as this is meaningful metadata (especially for EU markets).
+ * @property isGross Whether this is gross salary (true) or net (false). Null if unknown.
  */
 data class NormalizedSalary(
-    val amount: Long,
+    val amount: Long,  // In cents/smallest currency unit
     val currency: String,      // NZD, AUD, USD, EUR
-    val period: String,        // HOUR, DAY, MONTH, YEAR
+    val period: String?,       // HOUR, DAY, MONTH, YEAR, or null if unknown
     val source: String,        // JOB_POSTING, ATS_API, MARKET_DATA, AI_ESTIMATE
-    val isGross: Boolean = true
+    val isGross: Boolean? = null  // null if unknown
 ) {
     companion object {
         // Source constants
@@ -106,13 +105,14 @@ data class NormalizedSalary(
      * - Daily: 260 days/year (5 days/week × 52 weeks)
      * - Monthly: 12 months/year
      * - Yearly: already annual
+     * - Null period: returns amount as-is (unknown period)
      */
     fun toAnnualAmount(): Long = when (period) {
         PERIOD_HOUR -> amount * 2080
         PERIOD_DAY -> amount * 260
         PERIOD_MONTH -> amount * 12
         PERIOD_YEAR -> amount
-        else -> amount
+        else -> amount  // Unknown period, return as-is
     }
 
     /**

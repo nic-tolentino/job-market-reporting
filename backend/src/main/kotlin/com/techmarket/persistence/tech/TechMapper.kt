@@ -83,6 +83,9 @@ object TechMapper {
                                 val rowSource =
                                         if (row.get(JobFields.SOURCE).isNull) "Unknown"
                                         else row.get(JobFields.SOURCE).stringValue
+                                val rowCountry =
+                                        if (row.get(JobFields.COUNTRY).isNull) null
+                                        else row.get(JobFields.COUNTRY).stringValue
                                 val rowLastUpdatedAt =
                                         if (row.get(JobFields.LAST_SEEN_AT).isNull) Instant.EPOCH
                                         else parseTimestampSafe(row.get(JobFields.LAST_SEEN_AT))
@@ -97,8 +100,8 @@ object TechMapper {
                                         jobIds = idList,
                                         applyUrls = applyList,
                                         platformLinks = linkList,
-                                        salaryMin = SalaryMapper.fromFieldValue(row, JobFields.SALARY_MIN),
-                                        salaryMax = SalaryMapper.fromFieldValue(row, JobFields.SALARY_MAX),
+                                        salaryMin = SalaryMapper.fromFieldValue(row, JobFields.SALARY_MIN, rowCountry),
+                                        salaryMax = SalaryMapper.fromFieldValue(row, JobFields.SALARY_MAX, rowCountry),
                                         postedDate =
                                                 if (row.get(JobFields.POSTED_DATE).isNull) ""
                                                 else row.get(JobFields.POSTED_DATE).stringValue,

@@ -35,8 +35,43 @@ class JobQueryMapperContractTest {
         val query = JobQueries.getDetailsSql("dataset", "jobs", "companies")
         val sql = query.sql
 
-        // Note: getDetailsSql uses "j.*" which selects all job fields automatically
-        // We only need to verify the company fields (which use aliases) are present
+        // ALL fields that JobMapper.mapJobDetails reads from the result
+        // This catches bugs where the mapper tries to read fields not in the SELECT clause
+        val requiredJobFields = listOf(
+            JobFields.JOB_ID,
+            JobFields.JOB_IDS,
+            JobFields.APPLY_URLS,
+            JobFields.PLATFORM_LINKS,
+            JobFields.LOCATIONS,
+            JobFields.TITLE,
+            JobFields.COMPANY_ID,
+            JobFields.COMPANY_NAME,
+            JobFields.SALARY_MIN,
+            JobFields.SALARY_MAX,
+            JobFields.POSTED_DATE,
+            JobFields.TECHNOLOGIES,
+            JobFields.BENEFITS,
+            JobFields.CITY,
+            JobFields.STATE_REGION,
+            JobFields.SENIORITY_LEVEL,
+            JobFields.DESCRIPTION,
+            JobFields.EMPLOYMENT_TYPE,
+            JobFields.WORK_MODEL,
+            JobFields.JOB_FUNCTION,
+            JobFields.SOURCE,
+            JobFields.LAST_SEEN_AT,
+            JobFields.COUNTRY
+        )
+
+        // Verify each required job field appears in the SELECT clause
+        requiredJobFields.forEach { field ->
+            assertTrue(
+                sql.contains(field, ignoreCase = true),
+                "Job field '$field' is accessed by JobMapper but not found in getDetailsSql SELECT clause."
+            )
+        }
+
+        // Also verify company field aliases (from the JOIN)
         val requiredCompanyFields = mapOf(
             "comp_name" to CompanyFields.NAME,
             "comp_logo" to CompanyFields.LOGO_URL,
@@ -47,7 +82,6 @@ class JobQueryMapperContractTest {
             "comp_verificationLevel" to CompanyFields.VERIFICATION_LEVEL
         )
 
-        // Verify each required company field alias appears in the SELECT clause
         requiredCompanyFields.forEach { (alias, field) ->
             assertTrue(
                 sql.contains(alias, ignoreCase = true),

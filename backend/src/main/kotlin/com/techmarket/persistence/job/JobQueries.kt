@@ -1,12 +1,12 @@
 package com.techmarket.persistence.job
 
-import com.techmarket.persistence.CompanyFields.DESCRIPTION as COMP_DESC
-import com.techmarket.persistence.CompanyFields.HIRING_LOCATIONS as COMP_HIRING_LOCATIONS
-import com.techmarket.persistence.CompanyFields.HQ_COUNTRY as COMP_HQ_COUNTRY
-import com.techmarket.persistence.CompanyFields.LOGO_URL as COMP_LOGO_URL
-import com.techmarket.persistence.CompanyFields.NAME as COMP_NAME
-import com.techmarket.persistence.CompanyFields.VERIFICATION_LEVEL as COMP_VERIFICATION_LEVEL
-import com.techmarket.persistence.CompanyFields.WEBSITE as COMP_WEBSITE
+import com.techmarket.persistence.CompanyAliases.DESCRIPTION as COMP_DESC
+import com.techmarket.persistence.CompanyAliases.HIRING_LOCATIONS as COMP_HIRING_LOCATIONS
+import com.techmarket.persistence.CompanyAliases.HQ_COUNTRY as COMP_HQ_COUNTRY
+import com.techmarket.persistence.CompanyAliases.LOGO_URL as COMP_LOGO_URL
+import com.techmarket.persistence.CompanyAliases.NAME as COMP_NAME
+import com.techmarket.persistence.CompanyAliases.VERIFICATION_LEVEL as COMP_VERIFICATION_LEVEL
+import com.techmarket.persistence.CompanyAliases.WEBSITE as COMP_WEBSITE
 import com.techmarket.persistence.JobFields
 import com.techmarket.persistence.JobFields.APPLY_URLS
 import com.techmarket.persistence.JobFields.BENEFITS
@@ -33,14 +33,37 @@ object JobQueries {
     fun getDetailsSql(datasetName: String, jobsTableName: String, companiesTableName: String): JobDetailsQuery {
         return JobDetailsQuery(
             sql = """
-                SELECT j.*,
-                       c.$COMP_NAME as comp_name,
-                       c.$COMP_LOGO_URL as comp_logo,
-                       c.$COMP_DESC as comp_desc,
-                       c.$COMP_WEBSITE as comp_web,
-                       c.$COMP_HIRING_LOCATIONS as comp_hiringLocations,
-                       c.$COMP_HQ_COUNTRY as comp_hqCountry,
-                       c.$COMP_VERIFICATION_LEVEL as comp_verificationLevel
+                SELECT 
+                    j.${JobFields.JOB_ID},
+                    j.${JobFields.JOB_IDS},
+                    j.${JobFields.APPLY_URLS},
+                    j.${JobFields.PLATFORM_LINKS},
+                    j.${JobFields.LOCATIONS},
+                    j.${JobFields.TITLE},
+                    j.${JobFields.COMPANY_ID},
+                    j.${JobFields.COMPANY_NAME},
+                    j.${JobFields.SALARY_MIN},
+                    j.${JobFields.SALARY_MAX},
+                    j.${JobFields.POSTED_DATE},
+                    j.${JobFields.TECHNOLOGIES},
+                    j.${JobFields.BENEFITS},
+                    j.${JobFields.CITY},
+                    j.${JobFields.STATE_REGION},
+                    j.${JobFields.SENIORITY_LEVEL},
+                    j.${JobFields.DESCRIPTION},
+                    j.${JobFields.EMPLOYMENT_TYPE},
+                    j.${JobFields.WORK_MODEL},
+                    j.${JobFields.JOB_FUNCTION},
+                    j.${JobFields.SOURCE},
+                    j.${JobFields.LAST_SEEN_AT},
+                    j.${JobFields.COUNTRY},
+                    c.$COMP_NAME as $COMP_NAME,
+                    c.$COMP_LOGO_URL as $COMP_LOGO_URL,
+                    c.$COMP_DESC as $COMP_DESC,
+                    c.$COMP_WEBSITE as $COMP_WEBSITE,
+                    c.$COMP_HIRING_LOCATIONS as $COMP_HIRING_LOCATIONS,
+                    c.$COMP_HQ_COUNTRY as $COMP_HQ_COUNTRY,
+                    c.$COMP_VERIFICATION_LEVEL as $COMP_VERIFICATION_LEVEL
                 FROM `$datasetName.$jobsTableName` j
                 JOIN `$datasetName.$companiesTableName` c ON j.${JobFields.COMPANY_ID} = c.$COMPANY_ID
                 WHERE j.${JobFields.JOB_ID} = @jobId OR @jobId IN UNNEST(j.${JobFields.JOB_IDS})
@@ -67,6 +90,9 @@ object JobQueries {
                 JobFields.EMPLOYMENT_TYPE,
                 JobFields.WORK_MODEL,
                 JobFields.JOB_FUNCTION,
+                JobFields.SOURCE,
+                JobFields.LAST_SEEN_AT,
+                JobFields.COUNTRY,
                 "comp_name",
                 "comp_logo",
                 "comp_desc",
@@ -85,7 +111,7 @@ object JobQueries {
         return if (techList.isEmpty()) {
             JobSimilarQuery(
                 sql = """
-                    SELECT ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.PLATFORM_LINKS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.COMPANY_ID}, ${JobFields.COMPANY_NAME}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}, ${JobFields.CITY}, ${JobFields.STATE_REGION}, ${JobFields.SENIORITY_LEVEL}
+                    SELECT ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.PLATFORM_LINKS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.COMPANY_ID}, ${JobFields.COMPANY_NAME}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}, ${JobFields.CITY}, ${JobFields.STATE_REGION}, ${JobFields.SENIORITY_LEVEL}, ${JobFields.COUNTRY}
                     FROM `$datasetName.$jobsTableName`
                     WHERE ${JobFields.SENIORITY_LEVEL} = @seniority
                       AND @jobId NOT IN UNNEST(${JobFields.JOB_IDS})
@@ -106,7 +132,8 @@ object JobQueries {
                     JobFields.TECHNOLOGIES,
                     JobFields.CITY,
                     JobFields.STATE_REGION,
-                    JobFields.SENIORITY_LEVEL
+                    JobFields.SENIORITY_LEVEL,
+                    JobFields.COUNTRY
                 )
             )
         } else {

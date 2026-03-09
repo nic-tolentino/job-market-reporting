@@ -38,21 +38,43 @@ object SalaryMapper {
      * Extracts a NormalizedSalary from a BigQuery FieldValueList.
      * Uses safe null handling for nested STRUCT fields.
      * 
+     * For international job data:
+     * - amount is REQUIRED and must be in cents/smallest currency unit
+     * - currency defaults to the job's country currency if missing
+     * - period is REQUIRED - can't safely default (YEAR vs HOUR is a big difference!)
+     * - source is REQUIRED - should always be provided by the ingestion pipeline
+     * - isGross defaults to true (standard convention)
+     * 
      * @param fieldValueList The BigQuery result row
      * @param fieldName The name of the salary field (e.g., "salaryMin", "salaryMax")
-     * @return NormalizedSalary or null if the field is null
+     * @param jobCountry Optional ISO country code (e.g., "NZ", "AU", "US") for currency default
+     * @return NormalizedSalary or null if the field is null, amount is missing, or period is missing
      */
-    fun fromFieldValue(fieldValueList: FieldValueList, fieldName: String): NormalizedSalary? {
+    fun fromFieldValue(
+        fieldValueList: FieldValueList, 
+        fieldName: String,
+        jobCountry: String? = null
+    ): NormalizedSalary? {
         if (fieldValueList.get(fieldName).isNull) return null
 
         val salaryStruct = fieldValueList.get(fieldName).recordValue
         if (salaryStruct == null) return null
         
-        // Safe extraction with defaults for nullable nested fields
+        // amount is REQUIRED - a salary without an amount is meaningless
         val amount = salaryStruct.get(AMOUNT).takeIf { !it.isNull }?.longValue ?: return null
-        val currency = salaryStruct.get(CURRENCY).takeIf { !it.isNull }?.stringValue ?: NormalizedSalary.CURRENCY_NZD
-        val period = salaryStruct.get(PERIOD).takeIf { !it.isNull }?.stringValue ?: NormalizedSalary.PERIOD_YEAR
-        val source = salaryStruct.get(SOURCE).takeIf { !it.isNull }?.stringValue ?: NormalizedSalary.SOURCE_JOB_POSTING
+        
+        // currency: use country-based default if missing
+        val currency = salaryStruct.get(CURRENCY).takeIf { !it.isNull }?.stringValue
+            ?: jobCountry?.let { NormalizedSalary.getDefaultCurrencyForCountry(it) }
+            ?: return null  // Can't determine currency
+        
+        // period is REQUIRED - too risky to default (YEAR vs HOUR is 2000x difference!)
+        val period = salaryStruct.get(PERIOD).takeIf { !it.isNull }?.stringValue ?: return null
+        
+        // source is REQUIRED - ingestion pipeline should always provide this
+        val source = salaryStruct.get(SOURCE).takeIf { !it.isNull }?.stringValue ?: return null
+        
+        // isGross defaults to true (standard convention for most markets)
         val isGross = salaryStruct.get(IS_GROSS).takeIf { !it.isNull }?.booleanValue ?: true
         
         return NormalizedSalary(amount, currency, period, source, isGross)

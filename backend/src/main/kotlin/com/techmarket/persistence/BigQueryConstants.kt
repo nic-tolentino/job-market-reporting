@@ -125,3 +125,17 @@ object QueryParams {
     const val COUNTRY = "country"
     const val SENIORITY = "seniority"
 }
+
+/**
+ * Aliases for JOINed company fields in queries.
+ * Used when selecting company data alongside job data to avoid column name conflicts.
+ */
+object CompanyAliases {
+    const val NAME = "comp_name"
+    const val LOGO_URL = "comp_logo"
+    const val DESCRIPTION = "comp_desc"
+    const val WEBSITE = "comp_web"
+    const val HIRING_LOCATIONS = "comp_hiringLocations"
+    const val HQ_COUNTRY = "comp_hqCountry"
+    const val VERIFICATION_LEVEL = "comp_verificationLevel"
+}

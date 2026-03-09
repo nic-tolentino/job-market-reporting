@@ -3,6 +3,7 @@ package com.techmarket.persistence.job
 import com.techmarket.api.model.JobPageDto
 import com.techmarket.api.model.JobRoleDto
 import com.techmarket.model.NormalizedSalary
+import com.techmarket.persistence.CompanyAliases
 import com.techmarket.persistence.JobFields
 import com.techmarket.persistence.SalaryMapper
 import com.techmarket.persistence.model.JobRecord
@@ -90,9 +91,9 @@ object JobMapper {
                 }
 
                 val hiringLocations =
-                        if (r.get("comp_hiringLocations").isNull) emptyList<String>()
+                        if (r.get(CompanyAliases.HIRING_LOCATIONS).isNull) emptyList<String>()
                         else
-                                r.get("comp_hiringLocations").repeatedValue.map {
+                                r.get(CompanyAliases.HIRING_LOCATIONS).repeatedValue.map {
                                         LocationFormatter.format(it.stringValue)
                                 }
 
@@ -100,24 +101,24 @@ object JobMapper {
                         com.techmarket.api.model.JobCompanyDto(
                                 companyId = r.get(JobFields.COMPANY_ID).stringValue,
                                 name =
-                                        if (r.get("comp_name").isNull) "Unknown Company"
-                                        else r.get("comp_name").stringValue,
+                                        if (r.get(CompanyAliases.NAME).isNull) "Unknown Company"
+                                        else r.get(CompanyAliases.NAME).stringValue,
                                 logoUrl =
-                                        if (r.get("comp_logo").isNull) ""
-                                        else r.get("comp_logo").stringValue,
+                                        if (r.get(CompanyAliases.LOGO_URL).isNull) ""
+                                        else r.get(CompanyAliases.LOGO_URL).stringValue,
                                 description =
-                                        if (r.get("comp_desc").isNull) ""
-                                        else r.get("comp_desc").stringValue,
+                                        if (r.get(CompanyAliases.DESCRIPTION).isNull) ""
+                                        else r.get(CompanyAliases.DESCRIPTION).stringValue,
                                 website =
-                                        if (r.get("comp_web").isNull) ""
-                                        else r.get("comp_web").stringValue,
+                                        if (r.get(CompanyAliases.WEBSITE).isNull) ""
+                                        else r.get(CompanyAliases.WEBSITE).stringValue,
                                 hiringLocations = hiringLocations,
-                                hqCountry = 
-                                        if (r.get("comp_hqCountry").isNull) null
-                                        else r.get("comp_hqCountry").stringValue,
-                                verificationLevel = 
-                                        if (r.get("comp_verificationLevel").isNull) "unverified"
-                                        else r.get("comp_verificationLevel").stringValue
+                                hqCountry =
+                                        if (r.get(CompanyAliases.HQ_COUNTRY).isNull) null
+                                        else r.get(CompanyAliases.HQ_COUNTRY).stringValue,
+                                verificationLevel =
+                                        if (r.get(CompanyAliases.VERIFICATION_LEVEL).isNull) "unverified"
+                                        else r.get(CompanyAliases.VERIFICATION_LEVEL).stringValue
                         )
 
                 val similarRoles =
@@ -168,6 +169,9 @@ object JobMapper {
                                 val simSource =
                                         if (sim.get(JobFields.SOURCE).isNull) "Unknown"
                                         else sim.get(JobFields.SOURCE).stringValue
+                                val simCountry =
+                                        if (sim.get(JobFields.COUNTRY).isNull) null
+                                        else sim.get(JobFields.COUNTRY).stringValue
                                 val simLastUpdatedAt =
                                         if (sim.get(JobFields.LAST_SEEN_AT).isNull) Instant.EPOCH
                                         else parseTimestampSafe(sim.get(JobFields.LAST_SEEN_AT))
@@ -182,8 +186,8 @@ object JobMapper {
                                         jobIds = simIdList,
                                         applyUrls = simApplyList,
                                         platformLinks = simLinkList,
-                                        salaryMin = SalaryMapper.fromFieldValue(sim, JobFields.SALARY_MIN),
-                                        salaryMax = SalaryMapper.fromFieldValue(sim, JobFields.SALARY_MAX),
+                                        salaryMin = SalaryMapper.fromFieldValue(sim, JobFields.SALARY_MIN, simCountry),
+                                        salaryMax = SalaryMapper.fromFieldValue(sim, JobFields.SALARY_MAX, simCountry),
                                         postedDate =
                                                 if (sim.get(JobFields.POSTED_DATE).isNull) ""
                                                 else sim.get(JobFields.POSTED_DATE).stringValue,
@@ -244,8 +248,8 @@ object JobMapper {
                                         r.get(JobFields.TECHNOLOGIES).repeatedValue.map {
                                                 it.stringValue
                                         },
-                        salaryMin = SalaryMapper.fromFieldValue(r, JobFields.SALARY_MIN),
-                        salaryMax = SalaryMapper.fromFieldValue(r, JobFields.SALARY_MAX),
+                        salaryMin = SalaryMapper.fromFieldValue(r, JobFields.SALARY_MIN, r.get(JobFields.COUNTRY).stringValue),
+                        salaryMax = SalaryMapper.fromFieldValue(r, JobFields.SALARY_MAX, r.get(JobFields.COUNTRY).stringValue),
                         postedDate =
                                 if (r.get(JobFields.POSTED_DATE).isNull) null
                                 else parseLocalDateSafe(r.get(JobFields.POSTED_DATE)),

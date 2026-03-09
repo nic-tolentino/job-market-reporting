@@ -10,9 +10,9 @@ export type ConfidenceLevel = 'HIGH' | 'MEDIUM' | 'LOW';
 export interface NormalizedSalary {
   amount: number; // In cents (e.g., 12000000 = $120,000)
   currency: string; // ISO 4217 code (NZD, AUD, USD, EUR)
-  period: SalaryPeriod;
+  period: SalaryPeriod | null; // Can be null if unknown
   source: SalarySource;
-  isGross?: boolean;
+  isGross?: boolean | null; // Can be null if unknown
   disclaimer?: string | null; // Computed at BFF level based on source
 }
 
@@ -46,7 +46,7 @@ export function formatSalaryAmount(
   locale?: string
 ): string {
   const amount = amountCents / 100; // Convert cents to dollars
-  
+
   return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: currency,
@@ -57,10 +57,14 @@ export function formatSalaryAmount(
 
 /**
  * Format the salary period for display.
- * @param period Salary period code
+ * @param period Salary period code (can be null)
  * @returns Human-readable period string
  */
-export function formatSalaryPeriod(period: SalaryPeriod): string {
+export function formatSalaryPeriod(period: SalaryPeriod | null): string {
+  if (!period) {
+    return '';  // Unknown period, don't display anything
+  }
+  
   switch (period) {
     case 'HOUR':
       return 'per hour';
@@ -87,6 +91,12 @@ export function formatSalary(
 ): string {
   const amount = formatSalaryAmount(salary.amount, salary.currency, locale);
   const period = formatSalaryPeriod(salary.period);
+  
+  // If period is unknown, just show the amount
+  if (!period) {
+    return amount;
+  }
+  
   return `${amount} ${period}`;
 }
 
@@ -107,9 +117,15 @@ export function formatSalaryRange(
     const minAmount = formatSalaryAmount(min.amount, min.currency, locale);
     const maxAmount = formatSalaryAmount(max.amount, max.currency, locale);
     const period = formatSalaryPeriod(min.period);
+    
+    // If period is unknown, just show the range
+    if (!period) {
+      return `${minAmount} - ${maxAmount}`;
+    }
+    
     return `${minAmount} - ${maxAmount} ${period}`;
   }
-  
+
   // Different currencies or periods, show separately
   return `${formatSalary(min, locale)} - ${formatSalary(max, locale)}`;
 }
@@ -159,8 +175,13 @@ export function getConfidenceLabel(source: SalarySource): string {
  * - Daily: 260 days/year (5 days/week × 52 weeks)
  * - Monthly: 12 months/year
  * - Yearly: already annual
+ * - Null period: returns amount as-is (unknown period)
  */
 export function toAnnualAmount(salary: NormalizedSalary): number {
+  if (!salary.period) {
+    return salary.amount;  // Unknown period, return as-is
+  }
+  
   switch (salary.period) {
     case 'HOUR':
       return salary.amount * 2080;
