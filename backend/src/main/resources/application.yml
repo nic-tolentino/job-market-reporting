@@ -32,7 +32,7 @@ apify:
   webhook-secret: ${APIFY_WEBHOOK_SECRET:default-local-secret}
 
 gcp:
-  project-id: ${GCP_PROJECT_ID}
+  project-id: ${GCP_PROJECT_ID:tech-market-insights}
   cloud-tasks:
     queue-name: ${CLOUD_TASKS_QUEUE_NAME:tech-market-sync-queue}
     location: ${CLOUD_TASKS_LOCATION:australia-southeast1}

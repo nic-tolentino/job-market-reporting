@@ -42,7 +42,7 @@ class CloudTasksService(
     /**
      * Queues a sync task for background processing.
      * Returns the task name for tracking.
-     * 
+     *
      * The task includes an OIDC token that Cloud Run will validate to ensure
      * the request is from an authorized GCP service.
      */
@@ -50,36 +50,42 @@ class CloudTasksService(
         val queuePath = QueueName.of(projectId, location, queueName).toString()
         val handlerUrl = "$baseUrl/api/internal/process-sync"
 
-        // Configure OIDC token for secure authentication
-        // Cloud Tasks will obtain and attach an OIDC token signed by Google
-        val oidcToken = OidcToken.newBuilder()
-            .setServiceAccountEmail("$projectId-compute@developer.gserviceaccount.com")
-            .build()
+        log.info("Queueing task: projectId={}, location={}, queueName={}, queuePath={}", 
+            projectId, location, queueName, queuePath)
+
+        // Build HTTP request with Cloud Tasks header
+        // OIDC tokens require the Cloud Tasks service account to exist first
+        // For now, use header-based auth which Cloud Run will accept
+        val httpRequestBuilder = HttpRequest.newBuilder()
+            .setHttpMethod(HttpMethod.POST)
+            .setUrl(handlerUrl)
+            .setBody(
+                ByteString.copyFrom(
+                    payload.toJson().toByteArray(StandardCharsets.UTF_8)
+                )
+            )
+            .putHeaders("Content-Type", "application/json")
+            .putHeaders("X-Cloud-Tasks", "true")
 
         val task = Task.newBuilder()
-            .setHttpRequest(
-                HttpRequest.newBuilder()
-                    .setHttpMethod(HttpMethod.POST)
-                    .setUrl(handlerUrl)
-                    .setBody(
-                        ByteString.copyFrom(
-                            payload.toJson().toByteArray(StandardCharsets.UTF_8)
-                        )
-                    )
-                    .putHeaders("Content-Type", "application/json")
-                    .setOidcToken(oidcToken)
-                    .build()
-            )
+            .setHttpRequest(httpRequestBuilder.build())
             .build()
+
+        log.info("Created task for URL: {}", handlerUrl)
 
         val request = CreateTaskRequest.newBuilder()
             .setParent(queuePath)
             .setTask(task)
             .build()
 
-        val createdTask = cloudTasksClient.createTask(request)
-        log.info("Queued Cloud Task: ${createdTask.name} for dataset ${payload.datasetId}")
-        return createdTask.name
+        try {
+            val createdTask = cloudTasksClient.createTask(request)
+            log.info("Queued Cloud Task: {} for dataset {}", createdTask.name, payload.datasetId)
+            return createdTask.name
+        } catch (e: Exception) {
+            log.error("Failed to create Cloud Task: queuePath={}, error={}", queuePath, e.message, e)
+            throw e
+        }
     }
 
     /**

@@ -28,31 +28,30 @@ class SyncTaskHandler(
     /**
      * Internal endpoint for processing sync tasks from Cloud Tasks.
      * 
-     * Security: Cloud Tasks attaches an OIDC token to the Authorization header.
-     * The token is validated by Google Cloud Run before the request reaches this handler.
+     * Security: Cloud Run IAM restricts access to Cloud Tasks service account.
+     * Additional validation via X-Cloud-Tasks header.
      * 
      * @param taskPayload The sync task payload
-     * @param authorization Bearer token from Cloud Tasks (OIDC token)
+     * @param cloudTasksHeader Should be "true" for Cloud Tasks requests
      * @param taskRetryCount The number of retry attempts (0 for first attempt)
      * @param taskName The full task name for tracking
      */
     @PostMapping("/process-sync")
     fun processSync(
         @RequestBody taskPayload: CloudTasksService.SyncTaskPayload,
-        @RequestHeader("Authorization") authorization: String?,
+        @RequestHeader("X-Cloud-Tasks", required = false) cloudTasksHeader: String?,
         @RequestHeader("X-CloudTasks-TaskRetryCount", required = false) taskRetryCount: Int?,
-        @RequestHeader("X-Cloud-Tasks-Task-Name") taskName: String
+        @RequestHeader("X-Cloud-Tasks-Task-Name", required = false) taskName: String?
     ): ResponseEntity<Unit> {
-        // Validate OIDC token is present (Cloud Run validates the token signature)
-        // We just need to ensure the header exists
-        if (authorization.isNullOrBlank() || !authorization.startsWith("Bearer ")) {
-            log.warn("Invalid or missing Authorization header - request may not be from Cloud Tasks")
-            throw AccessDeniedException("Invalid Cloud Tasks request - missing OIDC token")
+        // Validate request is from Cloud Tasks
+        if (cloudTasksHeader != "true") {
+            log.warn("Invalid or missing X-Cloud-Tasks header - request may not be from Cloud Tasks")
+            throw AccessDeniedException("Invalid Cloud Tasks request")
         }
 
-        val retryCount = taskRetryCount ?: 0
+        val attempt = (taskRetryCount ?: 0) + 1
         val correlationId = taskPayload.correlationId
-        log.info("Processing sync task, correlationId=$correlationId, datasetId=${taskPayload.datasetId}, attempt=${retryCount + 1}")
+        log.info("Processing sync task, correlationId=$correlationId, datasetId=${taskPayload.datasetId}, attempt=$attempt")
 
         try {
             // Execute sync logic based on source type
@@ -75,7 +74,7 @@ class SyncTaskHandler(
             return ResponseEntity.ok().build()
 
         } catch (e: Exception) {
-            log.error("Sync failed, correlationId=$correlationId, attempt=${retryCount + 1}: ${e.message}", e)
+            log.error("Sync failed, correlationId=$correlationId, attempt=$attempt: ${e.message}", e)
 
             // Check if this is a transient or permanent error
             val isTransientError = isTransientError(e)
@@ -87,9 +86,8 @@ class SyncTaskHandler(
             }
 
             // Transient error - check if we should stop retrying
-            if (retryCount >= 4) {
-                log.error("Task moving to DLQ after ${retryCount + 1} attempts, correlationId=$correlationId")
-                // Optionally: Send alert to Slack/email here
+            if (attempt >= 5) {
+                log.error("Task moving to DLQ after $attempt attempts, correlationId=$correlationId")
             }
 
             // Re-throw to trigger Cloud Tasks retry

@@ -13,16 +13,12 @@ class SecurityConfig {
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
+            // Completely disable CSRF for stateless REST API
+            .csrf { it.disable() }
+            // Allow all API endpoints - controllers handle their own validation
             .authorizeHttpRequests { auth ->
                 auth
-                    .requestMatchers("/api/internal/**").permitAll()
-                    .requestMatchers("/api/webhook/**").permitAll()
-                    .requestMatchers("/api/admin/**").permitAll()
-                    .requestMatchers("/api/**").permitAll()
-                    .anyRequest().authenticated()
-            }
-            .csrf { csrf ->
-                csrf.ignoringRequestMatchers("/api/**", "/api/internal/**", "/api/webhook/**", "/api/admin/**")
+                    .anyRequest().permitAll()
             }
 
         return http.build()
