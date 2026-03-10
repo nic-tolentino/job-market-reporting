@@ -3,11 +3,13 @@ package com.techmarket.sync
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.techmarket.persistence.ats.AtsConfigRepository
 import com.techmarket.persistence.company.CompanyRepository
-import com.techmarket.persistence.ingestion.IngestionRepository
+import com.techmarket.persistence.ingestion.BronzeRepository
+import com.techmarket.persistence.ingestion.GcsConfig
 import com.techmarket.persistence.job.JobRepository
 import com.techmarket.persistence.model.CompanyAtsConfig
 import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.JobRecord
+import com.techmarket.persistence.model.ProcessingStatus
 import com.techmarket.sync.ats.*
 import com.techmarket.sync.ats.model.NormalizedJob
 import io.mockk.*
@@ -20,13 +22,18 @@ class AtsJobDataSyncServiceTest {
         @MockK lateinit var atsConfigRepository: AtsConfigRepository
         @MockK lateinit var clientFactory: AtsClientFactory
         @MockK lateinit var normalizerFactory: AtsNormalizerFactory
-        @MockK lateinit var ingestionRepository: IngestionRepository
+        @MockK lateinit var bronzeRepository: BronzeRepository
         @MockK lateinit var mapper: AtsJobDataMapper
         @MockK lateinit var merger: SilverDataMerger
         @MockK lateinit var jobRepository: JobRepository
         @MockK lateinit var companyRepository: CompanyRepository
         @MockK lateinit var classifier: TechRoleClassifier
         private val objectMapper = ObjectMapper()
+        private val gcsConfig = GcsConfig(
+                bucketName = "test-bucket",
+                projectId = "test-project",
+                compressionEnabled = true
+        )
 
         private lateinit var service: AtsJobDataSyncService
 
@@ -38,13 +45,14 @@ class AtsJobDataSyncServiceTest {
                                 atsConfigRepository,
                                 clientFactory,
                                 normalizerFactory,
-                                ingestionRepository,
+                                bronzeRepository,
                                 mapper,
                                 merger,
                                 jobRepository,
                                 companyRepository,
                                 objectMapper,
-                                classifier
+                                classifier,
+                                gcsConfig
                         )
                 every { classifier.isTechRole(any<NormalizedJob>()) } returns true
         }
@@ -96,10 +104,11 @@ class AtsJobDataSyncServiceTest {
                 val mappedData = MappedSyncData(listOf(companyRecord), listOf(jobRecord))
 
                 every { atsConfigRepository.getConfig(companyId) } returns config
-                every { ingestionRepository.isDatasetIngested(any()) } returns false
+                every { bronzeRepository.isDatasetIngested(any()) } returns false
                 every { clientFactory.getClient(AtsProvider.GREENHOUSE) } returns client
                 every { client.fetchJobs("board-1") } returns rawPayload
-                every { ingestionRepository.saveRawIngestions(any()) } just Runs
+                every { bronzeRepository.saveIngestion(any(), any()) } returns mockk()
+                every { bronzeRepository.updateProcessingStatus(any(), any()) } returns true
                 every { normalizerFactory.getNormalizer(AtsProvider.GREENHOUSE) } returns normalizer
                 every { normalizer.normalize(any()) } returns listOf(normalizedJob)
                 every { companyRepository.getCompaniesByIds(any()) } returns emptyList()
@@ -113,12 +122,13 @@ class AtsJobDataSyncServiceTest {
 
                 service.syncCompany(companyId)
 
-                verify { ingestionRepository.saveRawIngestions(any()) }
+                verify { bronzeRepository.saveIngestion(any(), any()) }
                 verify { jobRepository.saveJobs(mappedData.jobs) }
                 verify { companyRepository.saveCompanies(mappedData.companies) }
                 verify {
                         atsConfigRepository.updateSyncStatus(companyId, SyncStatus.SUCCESS, any())
                 }
+                verify { bronzeRepository.updateProcessingStatus(match { it.startsWith("ats-greenhouse-board-1-") }, ProcessingStatus.COMPLETED) }
         }
 
         @Test
@@ -135,7 +145,7 @@ class AtsJobDataSyncServiceTest {
                         )
 
                 every { atsConfigRepository.getConfig(companyId) } returns config
-                every { ingestionRepository.isDatasetIngested(any()) } returns false
+                every { bronzeRepository.isDatasetIngested(any()) } returns false
                 every { clientFactory.getClient(AtsProvider.GREENHOUSE) } throws
                         RuntimeException("API Error")
                 every { atsConfigRepository.updateSyncStatus(any(), any(), any()) } just Runs
@@ -164,10 +174,11 @@ class AtsJobDataSyncServiceTest {
                 val normalizer = mockk<AtsNormalizer>()
 
                 every { atsConfigRepository.getConfig(companyId) } returns config
-                every { ingestionRepository.isDatasetIngested(any()) } returns false
+                every { bronzeRepository.isDatasetIngested(any()) } returns false
                 every { clientFactory.getClient(AtsProvider.GREENHOUSE) } returns client
                 every { client.fetchJobs("board-1") } returns rawPayload
-                every { ingestionRepository.saveRawIngestions(any()) } just Runs
+                every { bronzeRepository.saveIngestion(any(), any()) } returns mockk()
+                every { bronzeRepository.updateProcessingStatus(any(), any()) } returns true
                 every { normalizerFactory.getNormalizer(AtsProvider.GREENHOUSE) } returns normalizer
                 every { normalizer.normalize(any()) } returns emptyList() // EMPTY
                 every { companyRepository.getCompaniesByIds(any()) } returns emptyList()
@@ -175,10 +186,11 @@ class AtsJobDataSyncServiceTest {
 
                 service.syncCompany(companyId)
 
-                verify { ingestionRepository.saveRawIngestions(any()) }
+                verify { bronzeRepository.saveIngestion(any(), any()) }
                 verify {
                         atsConfigRepository.updateSyncStatus(companyId, SyncStatus.SUCCESS, any())
                 }
+                verify { bronzeRepository.updateProcessingStatus(match { it.startsWith("ats-greenhouse-board-1-") }, ProcessingStatus.COMPLETED) }
                 verify(exactly = 0) { jobRepository.saveJobs(any()) }
         }
 
@@ -197,12 +209,12 @@ class AtsJobDataSyncServiceTest {
 
                 every { atsConfigRepository.getConfig(companyId) } returns config
                 // Mock already ingested
-                every { ingestionRepository.isDatasetIngested(match { it.startsWith("ats-greenhouse-board-1-") }) } returns true
+                every { bronzeRepository.isDatasetIngested(match { it.startsWith("ats-greenhouse-board-1-") }) } returns true
 
                 service.syncCompany(companyId)
 
                 // Should return before any interaction
                 verify(exactly = 0) { clientFactory.getClient(any()) }
-                verify(exactly = 0) { ingestionRepository.saveRawIngestions(any()) }
+                verify(exactly = 0) { bronzeRepository.saveIngestion(any(), any()) }
         }
 }

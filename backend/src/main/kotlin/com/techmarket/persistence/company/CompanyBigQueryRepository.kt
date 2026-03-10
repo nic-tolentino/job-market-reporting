@@ -92,15 +92,17 @@ class CompanyBigQueryRepository(
         }
 
         override fun deleteAllCompanies() {
-                val tableId = com.google.cloud.bigquery.TableId.of(datasetName, companiesTableName)
-                log.info("GCP: Dropping table $companiesTableName to allow schema refresh")
-                try {
-                        bigQuery.delete(tableId)
-                        log.info("GCP: Successfully dropped table $companiesTableName")
-                } catch (e: Exception) {
-                        log.warn("GCP: Failed to drop table $companiesTableName (might not exist): ${e.message}")
-                }
                 ensureTable()
+                val sql = "DELETE FROM `$datasetName.$companiesTableName` WHERE true"
+                log.info("GCP: Deleting all rows from $companiesTableName using DML")
+                try {
+                        val queryConfig = com.google.cloud.bigquery.QueryJobConfiguration.newBuilder(sql).build()
+                        bigQuery.query(queryConfig)
+                        log.info("GCP: Deleted all rows from $companiesTableName")
+                } catch (e: Exception) {
+                        log.error("GCP: Failed to delete companies: ${e.message}", e)
+                        throw e
+                }
         }
 
         override fun saveCompanies(companies: List<CompanyRecord>) {
@@ -234,8 +236,8 @@ class CompanyBigQueryRepository(
                         CompanyFields.REMOTE_POLICY to this.remotePolicy,
                         CompanyFields.VISA_SPONSORSHIP to this.visaSponsorship,
                         CompanyFields.VERIFICATION_LEVEL to this.verificationLevel,
-                        CompanyFields.INGESTED_AT to this.lastUpdatedAt.toString(),
-                        CompanyFields.LAST_UPDATED_AT to this.lastUpdatedAt.toString()
+                        CompanyFields.INGESTED_AT to this.lastUpdatedAt.toEpochMilli() * 1000,
+                        CompanyFields.LAST_UPDATED_AT to this.lastUpdatedAt.toEpochMilli() * 1000
                 ).filterValues { it != null }
         }
 
