@@ -1,0 +1,31 @@
+{
+  "id": "southern-cross-health-insurance",
+  "name": "Southern Cross Health Insurance",
+  "alternateNames": [
+    "Southern Cross"
+  ],
+  "description": "Southern Cross is NZ's leading health insurer, dedicated to empowering members to live well for longer through timely access to quality care and digital innovation.",
+  "website": "https://www.southerncross.co.nz",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFtMAB2blOs2Q/company-logo_100_100/company-logo_100_100/0/1679004908722?e=1773878400&v=beta&t=NP9rJHHH8Ex5brRwAfxKOnCYB-NnhGcvjzQEKwD2j7A",
+  "industries": [
+    "Insurance",
+    "Healthtech",
+    "Fintech",
+    "Cloud"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": [
+    "NZ"
+  ],
+  "office_locations": [
+    "Auckland"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 1000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

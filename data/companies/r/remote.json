@@ -1,0 +1,35 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "remotecom"
+  },
+  "company_type": "Product",
+  "description": "Remote is an all-in-one HR and payroll platform enabling global organizations to hire, manage, and pay international teams with enterprise-grade compliance and ease.",
+  "employees_count": 1000,
+  "hq_country": "US",
+  "id": "remote",
+  "industries": [
+    "HR Tech",
+    "Payroll",
+    "Fintech",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFCtWj18e0s1Q/company-logo_100_100/company-logo_100_100/0/1719255404922/remotecom_logo?e=1773878400&v=beta&t=G49sP4cyshJvRI6TQYWCUEiWqX8j3RaeZ-zDQ7epfhg",
+  "name": "Remote",
+  "office_locations": [
+    "San Francisco",
+    "Amsterdam",
+    "Remote"
+  ],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://remote.com"
+}

@@ -1,0 +1,35 @@
+{
+  "alternateNames": [
+    "Cin7 Limited"
+  ],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "cin7"
+  },
+  "company_type": "Product",
+  "description": "Cin7 is a leading cloud-based inventory management platform for growing brands.",
+  "employees_count": 300,
+  "hq_country": "US",
+  "id": "cin7",
+  "industries": [
+    "SaaS",
+    "Inventory Management"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Cin7",
+  "office_locations": [
+    "Auckland",
+    "Denver"
+  ],
+  "operating_countries": [
+    "NZ",
+    "US",
+    "AU"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.cin7.com"
+}

@@ -1,0 +1,41 @@
+{
+  "alternateNames": [
+    "Jade ThirdEye",
+    "Jade Software"
+  ],
+  "ats": {
+    "provider": "BAMBOOHR",
+    "identifier": "jadeworld"
+  },
+  "company_type": "Product",
+  "description": "Jade ThirdEye is a flagship SaaS product helping financial institutions globally detect and prevent money laundering and terrorism financing through advanced AI.",
+  "employees_count": 150,
+  "hq_country": "NZ",
+  "id": "thirdeye",
+  "industries": [
+    "Fintech",
+    "Regtech",
+    "SaaS",
+    "AI"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEvOMm8LwRrcQ/company-logo_100_100/B56ZrX.uXAKAAQ-/0/1764560136539/jade_thirdeye_logo?e=1774483200&v=beta&t=4ugpkXqh2QdNoasLh6LSefzNy0_X_ihIw7aL5M3aX98",
+  "name": "ThirdEye",
+  "office_locations": [
+    "Christchurch",
+    "Sydney",
+    "London"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "GB",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T12:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.jadethirdeye.com"
+}

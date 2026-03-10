@@ -1,0 +1,33 @@
+{
+  "id": "kairos-digital-solutions",
+  "name": "Kairós Digital Solutions",
+  "alternateNames": [
+    "Kairós DS"
+  ],
+  "description": "Kairós Digital Solutions is a leading technology consultancy focusing on digital products, architecture, and personal/professional growth, recognized as a Great Place to Work.",
+  "website": "https://www.kairosds.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHM5oefclDeNw/company-logo_100_100/company-logo_100_100/0/1727424460691/kairosds_logo?e=1774483200&v=beta&t=qUuYCmrtG-qV5-VI6Parh5Nkf7T8RgpQbNSZxU_mGaM",
+  "industries": [
+    "IT Services",
+    "Consulting",
+    "Software Development"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES",
+    "MX",
+    "BR",
+    "CO"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 800,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:20:00Z"
+}

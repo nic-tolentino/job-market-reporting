@@ -1,0 +1,37 @@
+{
+  "alternateNames": [
+    "Foodstuffs",
+    "Foodstuffs NI",
+    "Foodstuffs North Island Limited"
+  ],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "foodstuffs"
+  },
+  "company_type": "Enterprise",
+  "description": "Foodstuffs North Island is a major New Zealand grocery cooperative, behind brands like New World and PAK'nSAVE.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "foodstuffs",
+  "industries": [
+    "Retail",
+    "Logistics",
+    "Grocery"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEKHOPyCW0BMA/company-logo_100_100/company-logo_100_100/0/1683155338928/foodstuffs_aukland_limited_logo?e=1773878400&v=beta&t=0u8BBDYkt1PP9XbZoydYRhuS6ujrWO1aNSwbI40Tly8",
+  "name": "Foodstuffs",
+  "office_locations": [
+    "Auckland",
+    "Wellington"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.foodstuffs.co.nz/"
+}

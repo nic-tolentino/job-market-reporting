@@ -1,0 +1,21 @@
+# Pre-commit hooks for DevAssembly
+
+# Install: pip install pre-commit && pre-commit install
+
+repos:
+  - repo: local
+    hooks:
+      - id: validate-companies
+        name: Validate Company Manifest
+        entry: python3 scripts/companies/validate_all.py
+        language: system
+        files: ^data/companies/.*\.json$
+        pass_filenames: false
+        always_run: true
+      
+      - id: format-companies
+        name: Format Company JSON
+        entry: python3 scripts/companies/format_all.py
+        language: system
+        files: ^data/companies/.*\.json$
+        types: [json]

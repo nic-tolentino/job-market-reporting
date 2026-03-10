@@ -1,0 +1,37 @@
+{
+  "id": "360learning",
+  "name": "360Learning",
+  "alternateNames": [],
+  "description": "360Learning is a global collaborative learning platform that enables companies to upskill from within by turning experts into champions.",
+  "website": "https://360learning.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGfvbrlRIpS2Q/company-logo_100_100/company-logo_100_100/0/1696582493148/360learning_logo?e=1774483200&v=beta&t=jPRIdsFGKc6F39f7VOiLxMM5SIamHbhx09vKUEpR3Aw",
+  "industries": [
+    "Edtech",
+    "SaaS",
+    "LXP"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "FR",
+  "operating_countries": [
+    "FR",
+    "US",
+    "GB",
+    "NZ"
+  ],
+  "office_locations": [
+    "Paris",
+    "London",
+    "New York"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": null,
+  "employees_count": 400,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:50:00Z",
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "360learning"
+  }
+}

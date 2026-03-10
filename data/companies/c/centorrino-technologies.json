@@ -1,0 +1,34 @@
+{
+  "alternateNames": [
+    "CT"
+  ],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "j"
+  },
+  "company_type": "Consultancy",
+  "description": "Centorrino Technologies (CT) is a leading Australian managed IT services provider dedicated to delivering outstanding customer experiences and innovative tech solutions.",
+  "employees_count": 200,
+  "hq_country": "AU",
+  "id": "centorrino-technologies",
+  "industries": [
+    "MSP",
+    "IT Services",
+    "Cloud Computing"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQF90g7r7k7KRw/company-logo_100_100/company-logo_100_100/0/1673928468851/centorrino_technologies_logo?e=1774483200&v=beta&t=Tnf0wBto4QYFFR-N_xHwVCjrh72Lh2VGTe1iugFtQE0",
+  "name": "Centorrino Technologies",
+  "office_locations": [
+    "Melbourne"
+  ],
+  "operating_countries": [
+    "AU"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:05:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.ct.com.au"
+}

@@ -1,0 +1,38 @@
+{
+  "alternateNames": [
+    "Kraken Tech",
+    "Kraken Technologies"
+  ],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "kraken123"
+  },
+  "company_type": "Product",
+  "description": "Kraken Technologies provides a cloud-native platform for utilities to manage energy and customer data.",
+  "employees_count": null,
+  "hq_country": "UK",
+  "id": "kraken",
+  "industries": [
+    "Energy",
+    "Utilities",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHD0uhLz28lwg/company-logo_100_100/company-logo_100_100/0/1691424308528/krakentech_logo?e=1774483200&v=beta&t=1rjaGp7vdxqfPtUKGly0wOS0F-dDqc3zdL1uJPH0dXU",
+  "name": "Kraken",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "UK",
+    "NZ",
+    "AU",
+    "JP"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://kraken.tech"
+}

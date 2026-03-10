@@ -1,0 +1,28 @@
+{
+  "id": "cmv-consultores",
+  "name": "CMV Consultores",
+  "alternateNames": [],
+  "description": "CMV Consultores is a Spanish IT consultancy providing specialized talent and technical solutions in backend development, cybersecurity, and AI for enterprise clients.",
+  "website": "https://www.cmv-consultores.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQE1XxejjclMHQ/company-logo_100_100/company-logo_100_100/0/1631303555914?e=1774483200&v=beta&t=wZ-0Ok5JtbYtZgLlo1BmTHOYfShX8lNmpENqvCd_3pw",
+  "industries": [
+    "IT Services",
+    "Consulting",
+    "Staffing"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 300,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:05:00Z"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "nuix-discover",
+  "name": "Nuix",
+  "alternateNames": [
+    "Nuix Discover"
+  ],
+  "description": "Nuix is a pioneer in investigative analytics and intelligence software, providing IT leaders with proactive insights to see, diagnose, and fix issues at scale.",
+  "website": "https://www.nuix.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQE2CriMmK3lpQ/company-logo_100_100/company-logo_100_100/0/1631398798882/ringtail_logo?e=1774483200&v=beta&t=UZi7gsSwGRA-ZxseD_-2awZtl9wlYgI2BLyKzwYZg7s",
+  "industries": [
+    "Analytics",
+    "Investigative Software",
+    "Cybersecurity",
+    "SaaS"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "US",
+    "GB",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Sydney"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 500,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "techdelivery",
+  "name": "TechDelivery",
+  "alternateNames": [],
+  "description": "TechDelivery is a specialized technology consultancy delivering high-performance AI, cloud-native backend systems, and research-driven software innovations.",
+  "website": "https://www.techdelivery.es",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFyFDn9cLuXZg/company-logo_100_100/B4DZfMRE7jGkAY-/0/1751478718613/techdeliveryar_logo?e=1774483200&v=beta&t=UfiT4QwizPdtEgLP8TLDyQY4q6naaNKkzMLk8ruxvf0",
+  "industries": [
+    "IT Services",
+    "AI",
+    "Cloud",
+    "Consulting"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": false,
+  "employees_count": 100,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T12:00:00Z"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "assembl-talent",
+  "name": "Assembl Talent",
+  "alternateNames": [],
+  "description": "Assembl Talent is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF1jpxwqZv9gQ/company-logo_100_100/B56ZfK97G6HoAQ-/0/1751456920608?e=1774483200&v=beta&t=bHHZAeRwLArtUstsqwm43rQIt9-Ppg9kYT9pBb2OOYk",
+  "industries": [],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T05:48:00.420044Z"
+}

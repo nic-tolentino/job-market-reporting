@@ -1,0 +1,30 @@
+{
+  "alternateNames": [
+    "OSF Global Services"
+  ],
+  "company_type": "Consultancy",
+  "description": "OSF Digital is a global digital transformation specialist and commerce solutions provider.",
+  "employees_count": null,
+  "hq_country": "CA",
+  "id": "osf-digital",
+  "industries": [
+    "Commerce",
+    "Digital Transformation",
+    "Consulting"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQF1yiiHtnIfyA/company-logo_100_100/B4DZUpCAc3HYAQ-/0/1740150147280/osf_digital_logo?e=1774483200&v=beta&t=vryipLu1amVZvEpgtKFrpzU4wpB5Q2I1ru5bhq2dkSg",
+  "name": "OSF Digital",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Remote Only",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://osf.digital/"
+}

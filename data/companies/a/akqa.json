@@ -1,0 +1,20 @@
+{
+  "id": "akqa",
+  "name": "AKQA",
+  "alternateNames": [],
+  "description": "AKQA is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEWavnv54IJgg/company-logo_100_100/company-logo_100_100/0/1630509993172/akqa_logo?e=1774483200&v=beta&t=2SL0zPANTWSlceRgS5rn0tgKmg4F3Hfwc6t2b_ZpzJs",
+  "industries": [],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:57:28.207311Z"
+}

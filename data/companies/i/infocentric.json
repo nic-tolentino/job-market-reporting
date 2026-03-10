@@ -1,0 +1,20 @@
+{
+  "id": "infocentric",
+  "name": "InfoCentric",
+  "alternateNames": [],
+  "description": "InfoCentric is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHDCSI96E8BUA/company-logo_100_100/company-logo_100_100/0/1630567791145/infocentric_logo?e=1774483200&v=beta&t=YlZV3qqtjIgFwTg5XeWoavYMWabD3fHMapJeUwNPxWg",
+  "industries": [],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:52:06.145942Z"
+}

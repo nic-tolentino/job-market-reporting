@@ -1,0 +1,20 @@
+{
+  "id": "hellofresh",
+  "name": "HelloFresh",
+  "alternateNames": [],
+  "description": "HelloFresh is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQF8SiXS1EPqrQ/company-logo_100_100/B4EZoVxFx4HEAQ-/0/1761301782009/hellofresh_logo?e=1774483200&v=beta&t=bcwdp1upztgeRvCkSE61Rr59F_3rdd0v84XjD6x-QpA",
+  "industries": [],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "DE",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:34:10.000729Z"
+}

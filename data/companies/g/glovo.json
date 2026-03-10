@@ -1,0 +1,35 @@
+{
+  "alternateNames": [],
+  "company_type": "Product",
+  "description": "On-demand delivery platform connecting users with local restaurants, shops, and pharmacies across 22 countries.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "glovo",
+  "industries": [
+    "Delivery",
+    "Marketplace",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGhKvGJ8KqVfA/company-logo_100_100/0/1688469301946/glovoapp_logo?e=1774483200&v=beta&t=placeholder",
+  "name": "Glovo",
+  "office_locations": [
+    "Barcelona"
+  ],
+  "operating_countries": [
+    "ES",
+    "IT",
+    "UA",
+    "RO",
+    "PT",
+    "PL",
+    "HR",
+    "KE"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-07T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://glovoapp.com"
+}

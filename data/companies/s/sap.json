@@ -1,0 +1,39 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "SUCCESSFACTORS",
+    "identifier": "rmkcdn"
+  },
+  "company_type": "Enterprise",
+  "description": "SAP is the global leader in enterprise software, helping the world run better by touching over 20 industries and 80% of global commerce through its massive cloud portfolio.",
+  "employees_count": 100000,
+  "hq_country": "DE",
+  "id": "sap",
+  "industries": [
+    "Enterprise Software",
+    "SaaS",
+    "ERP",
+    "Cloud"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGmwwo0aq4jVA/company-logo_100_100/company-logo_100_100/0/1723034255614/sap_logo?e=1774483200&v=beta&t=G0vQWg6J6MLiUTZJuD2XPtM7pkZIpZFdx9oFzVoRDnA",
+  "name": "SAP",
+  "office_locations": [
+    "Walldorf",
+    "Sydney",
+    "Auckland"
+  ],
+  "operating_countries": [
+    "DE",
+    "AU",
+    "NZ",
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T11:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.sap.com"
+}

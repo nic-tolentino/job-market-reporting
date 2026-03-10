@@ -1,0 +1,20 @@
+{
+  "id": "employee-first",
+  "name": "Employee First - Recruitment & Engagement",
+  "alternateNames": [],
+  "description": "Employee First - Recruitment & Engagement is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQGGHrvMCvf66g/company-logo_100_100/company-logo_100_100/0/1630577833509/employeefirst_logo?e=1774483200&v=beta&t=FbiHbVPqg4_3tCGYDVsZzQJOqJ1HFU4HALmbrGQWq38",
+  "industries": [],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:02:30.341504Z"
+}

@@ -1,0 +1,27 @@
+{
+  "alternateNames": [],
+  "company_type": "Consultancy",
+  "description": "A company specializing in IT consulting, high-performance computing, and digital transformation.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "vermont-solutions",
+  "industries": [
+    "IT Consulting",
+    "Cloud Computing",
+    "HPC",
+    "AI/ML"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGHCdVEdQIRqQ/company-logo_100_100/company-logo_100_100/0/1630512813905/vermont_solutions_logo?e=1774483200&v=beta&t=8W6TaMxtAvxllPdY1zKvrxV88CtlZQ-LgGQU-UdFbzg",
+  "name": "Vermont Solutions",
+  "office_locations": [],
+  "operating_countries": [
+    "ES"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:45:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://vermont-solutions.com"
+}

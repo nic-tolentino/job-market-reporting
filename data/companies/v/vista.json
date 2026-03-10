@@ -1,0 +1,39 @@
+{
+  "alternateNames": [
+    "Vista Entertainment Solutions",
+    "Vista Group"
+  ],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "vista-group"
+  },
+  "company_type": "Product",
+  "description": "Vista is the world's leading supplier of software to the global cinema industry.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "vista",
+  "industries": [
+    "Entertainment",
+    "SaaS",
+    "Cinema"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQE_B0Um5G7g1w/company-logo_100_100/company-logo_100_100/0/1632787158852/vista_entertainment_solutions_logo?e=1774483200&v=beta&t=KF2N0V4JqJ0jcy_YMCOicDvYdg4e8RCs5kDsDy1L8es",
+  "name": "Vista",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "US",
+    "UK",
+    "CN"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://vista.co"
+}

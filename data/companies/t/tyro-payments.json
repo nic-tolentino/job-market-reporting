@@ -1,0 +1,35 @@
+{
+  "alternateNames": [
+    "Tyro"
+  ],
+  "ats": {
+    "provider": "TEAMTAILOR",
+    "identifier": "www"
+  },
+  "company_type": "Product",
+  "description": "Tyro is a major Australian fintech providing integrated payments, banking, and lending solutions to over 76,000 businesses across the country.",
+  "employees_count": 600,
+  "hq_country": "AU",
+  "id": "tyro-payments",
+  "industries": [
+    "Fintech",
+    "Banking",
+    "Payments",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEVageeeGy8eQ/company-logo_100_100/company-logo_100_100/0/1712813540354/tyro_payments_logo?e=1774483200&v=beta&t=jgQuZPDRqSXXD5ftW4U30Iddg5Ae5MZa5gebo9cSJ8E",
+  "name": "Tyro Payments",
+  "office_locations": [
+    "Sydney"
+  ],
+  "operating_countries": [
+    "AU"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T13:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.tyro.com"
+}

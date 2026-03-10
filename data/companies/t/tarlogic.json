@@ -1,0 +1,33 @@
+{
+  "id": "tarlogic",
+  "name": "Tarlogic",
+  "alternateNames": [
+    "Tarlogic Security"
+  ],
+  "description": "Tarlogic is a specialized cybersecurity firm developing innovative products for communications analysis and SaaS platforms for global security monitoring.",
+  "website": "https://www.tarlogic.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHCIp65GqDD1A/company-logo_100_100/company-logo_100_100/0/1631334732497?e=1774483200&v=beta&t=g4q2ZQicYkdRZSHeiFjDk9AICxBgwqbQrvcqIMUXuJw",
+  "industries": [
+    "Cybersecurity",
+    "SaaS",
+    "Software Development",
+    "IT Services"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Madrid",
+    "Santiago de Compostela"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": true,
+  "employees_count": 150,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T12:00:00Z"
+}

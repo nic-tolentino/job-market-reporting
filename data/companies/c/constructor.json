@@ -1,0 +1,35 @@
+{
+  "alternateNames": [
+    "Constructor.io"
+  ],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "constructor-1"
+  },
+  "company_type": "Product",
+  "description": "Constructor is an AI-powered search and discovery platform for e-commerce, explicitly optimizing for metrics like revenue and conversion using LLMs.",
+  "employees_count": 200,
+  "hq_country": "US",
+  "id": "constructor",
+  "industries": [
+    "E-commerce Tech",
+    "AI",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFAqrIMIFeYKA/company-logo_100_100/company-logo_100_100/0/1718379588135/constructor_io_logo?e=1774483200&v=beta&t=8XocCVCkGi7T54gOaC8Q7zEXm_u9v4ueO1tYFfYTxBA",
+  "name": "Constructor",
+  "office_locations": [
+    "San Francisco"
+  ],
+  "operating_countries": [
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T09:05:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://constructor.io"
+}

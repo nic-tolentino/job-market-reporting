@@ -1,0 +1,38 @@
+{
+  "alternateNames": [
+    "Hello Stake"
+  ],
+  "ats": {
+    "provider": "BREEZY",
+    "identifier": "stake"
+  },
+  "company_type": "Product",
+  "description": "Stake is an Australian investing platform on a mission to break barriers between ambition and financial progress through seamless, immersive access to global share markets.",
+  "employees_count": 150,
+  "hq_country": "AU",
+  "id": "stake",
+  "industries": [
+    "Fintech",
+    "Investing",
+    "SaaS",
+    "Finance"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQELAHYmjHnjPA/company-logo_100_100-alternative/company-logo_100_100-alternative/0/1630643213932/stake___shop_for_shares_logo?e=1774483200&v=beta&t=3ifniyyMJud9vGgXCH-Un1ZdC8WuKUYOxRbMs-32iVk",
+  "name": "Stake",
+  "office_locations": [
+    "Sydney"
+  ],
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "GB",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T11:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://hellostake.com"
+}

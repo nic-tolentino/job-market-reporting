@@ -1,0 +1,29 @@
+{
+  "alternateNames": [
+    "Profile Software S.L.",
+    "Second Window"
+  ],
+  "company_type": "Consultancy",
+  "description": "An IT consulting activity company specializing in software programming, strategic architecture, and cloud computing.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "profile-software-services",
+  "industries": [
+    "IT Consulting",
+    "Software Development",
+    "Cloud Computing"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGrs5HNApPKQw/company-logo_100_100/B4DZfo8gG.GUAQ-/0/1751959864395/profile_software_services_logo?e=1774483200&v=beta&t=K9xcpftVtkHd_7zVlDSxYyxsBgod6vxkHG8Qy0trNIc",
+  "name": "Profile Software Services",
+  "office_locations": [],
+  "operating_countries": [
+    "ES"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:45:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://profile.es"
+}

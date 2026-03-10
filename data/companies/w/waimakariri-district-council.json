@@ -1,0 +1,32 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "TEAMTAILOR",
+    "identifier": "www"
+  },
+  "company_type": "Government",
+  "description": "The Waimakariri District Council is a local government body serving one of NZ's fastest-growing regions, committed to professional excellence and community service.",
+  "employees_count": 400,
+  "hq_country": "NZ",
+  "id": "waimakariri-district-council",
+  "industries": [
+    "Public Sector",
+    "Government",
+    "Community Service"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQG-Fse8JOIJkQ/company-logo_100_100/company-logo_100_100/0/1631391381429?e=1774483200&v=beta&t=8cFcxaaGQwkO4lP_SOzqIApWyQOvR58KxKP2pvTb7U0",
+  "name": "Waimakariri District Council",
+  "office_locations": [
+    "Rangiora"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "On-site",
+  "updated_at": "2026-03-10T13:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://www.waimakariri.govt.nz"
+}

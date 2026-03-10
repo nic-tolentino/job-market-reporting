@@ -1,0 +1,39 @@
+{
+  "alternateNames": [
+    "Certus Recruitment"
+  ],
+  "ats": {
+    "provider": "JOBADDER",
+    "identifier": "eu1"
+  },
+  "company_type": "Agency",
+  "description": "Certus Recruitment Group is a global specialist recruitment agency focused on the technology, sales, and digital sectors across APAC, EMEA, and North America.",
+  "employees_count": 100,
+  "hq_country": "GB",
+  "id": "certus-recruitment-group",
+  "industries": [
+    "Recruitment",
+    "Staffing",
+    "Tech Recruitment"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGdU6vWWT2hiw/company-logo_100_100/B4EZv640CKG0AQ-/0/1769440756265/certusrecruitmentgroup_logo?e=1774483200&v=beta&t=M7eZczUWHIYaQR7_Um3xazkIRLIoJSCRHP-5F7Wk2Ic",
+  "name": "Certus Recruitment Group",
+  "office_locations": [
+    "London",
+    "Melbourne",
+    "Sydney"
+  ],
+  "operating_countries": [
+    "GB",
+    "AU",
+    "US",
+    "NZ"
+  ],
+  "remote_policy": "On-site",
+  "updated_at": "2026-03-10T09:05:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://www.certusrecruitment.com"
+}

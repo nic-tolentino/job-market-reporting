@@ -1,0 +1,40 @@
+name: Validate Company Manifest
+
+on:
+  push:
+    paths:
+      - 'data/companies/**/*.json'
+  pull_request:
+    paths:
+      - 'data/companies/**/*.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install jsonschema
+      
+      - name: Validate company manifest
+        run: python3 scripts/companies/validate_all.py
+      
+      - name: Check formatting
+        run: |
+          python3 scripts/companies/format_all.py
+          git diff --exit-code -- data/companies/
+      
+      - name: Check for duplicates
+        run: python3 scripts/companies/check_duplicates.py
+      
+      - name: Validate ATS configs
+        run: python3 scripts/ats/validate_ats_configs.py
+        continue-on-error: true  # ATS validation is optional for now

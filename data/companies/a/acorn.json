@@ -1,0 +1,20 @@
+{
+  "id": "acorn",
+  "name": "Acorn",
+  "alternateNames": [],
+  "description": "Acorn is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH0iXdKzRIdYg/company-logo_100_100/B56Zi_1OYdHMAg-/0/1755565062602/acorn_plms_logo?e=1774483200&v=beta&t=qGAgdVLwR3lbMP6FKwg3eGB_drX5MiztdF6byjm6FTc",
+  "industries": [],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:57:28.207311Z"
+}

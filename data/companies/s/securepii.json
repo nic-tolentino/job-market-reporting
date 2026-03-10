@@ -1,0 +1,20 @@
+{
+  "id": "securepii",
+  "name": "SecurePII",
+  "alternateNames": [],
+  "description": "SecurePII is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEZh_NBDHCXqw/company-logo_100_100/B56ZxBjL9sK4AQ-/0/1770626269465/securepii_logo?e=1774483200&v=beta&t=STXQWHR5j-VTPkFLkGfFngSV3c-uiWw1qF4yyfA87j4",
+  "industries": [],
+  "company_type": "Startup",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:28:37.674085Z"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "talent",
+  "name": "Talent International",
+  "alternateNames": [
+    "Talent"
+  ],
+  "description": "Talent International is a premier global tech recruitment firm partnering with major banks and professional services to deliver elite engineering and AI talent.",
+  "website": "https://www.talentinternational.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEmUkJ4adld3Q/company-logo_100_100/company-logo_100_100/0/1686266745827/talent_international_logo?e=1774483200&v=beta&t=g5Q5n-7rCIrMScEE7qq8R5YnFYh1HuBlg0StnS0NL7g",
+  "industries": [
+    "Recruitment",
+    "IT Staffing",
+    "Consulting",
+    "AI"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "GB",
+    "DE",
+    "US",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Sydney",
+    "Melbourne",
+    "London",
+    "Auckland"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 500,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T12:00:00Z"
+}

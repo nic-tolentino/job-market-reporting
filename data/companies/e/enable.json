@@ -1,0 +1,41 @@
+{
+  "alternateNames": [
+    "Enable.com",
+    "Flintfox"
+  ],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "enable"
+  },
+  "company_type": "Product",
+  "description": "Enable is an AI-driven rebate management platform that helps manufacturers, distributors, and retailers unlock profitability by transforming complex rebate programs into strategic levers.",
+  "employees_count": 500,
+  "hq_country": "GB",
+  "id": "enable",
+  "industries": [
+    "SaaS",
+    "Fintech",
+    "Supply Chain"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFTnFzqpuu1yw/company-logo_100_100/company-logo_100_100/0/1720193247330/enable_software_logo?e=1773878400&v=beta&t=gmohz-XMaUcTh-fgKbjbXefmnnISvvJAwL3Gv2pyD5I",
+  "name": "Enable",
+  "office_locations": [
+    "Stratford-upon-Avon",
+    "San Francisco",
+    "Sydney"
+  ],
+  "operating_countries": [
+    "GB",
+    "US",
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "remote_policy": "Flexible",
+  "updated_at": "2026-03-10T09:10:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://enable.com"
+}

@@ -1,0 +1,30 @@
+{
+  "alternateNames": [],
+  "company_type": "Product",
+  "description": "Largest real estate portal in Spain and Europe, connecting buyers, sellers, and renters.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "idealista",
+  "industries": [
+    "Real Estate",
+    "PropTech",
+    "Marketplace"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGvKqKqKqKqKq/company-logo_100_100/0/1630650773411/idealista_logo?e=1774483200&v=beta&t=placeholder",
+  "name": "Idealista",
+  "office_locations": [
+    "Madrid"
+  ],
+  "operating_countries": [
+    "ES",
+    "IT",
+    "PT"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-07T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.idealista.com"
+}

@@ -1,0 +1,45 @@
+{
+  "alternateNames": [
+    "Xero Limited",
+    "Xero Inc"
+  ],
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "xero"
+  },
+  "company_type": "Product",
+  "description": "Xero is a global small business platform with apps and services that help people manage their finances.",
+  "employees_count": 5000,
+  "hq_country": "NZ",
+  "id": "xero",
+  "industries": [
+    "Fintech",
+    "SaaS",
+    "Accounting"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQF_B0Um5G7g1w/company-logo_100_100/0/1632787158852/xero_logo?e=1774483200&v=beta&t=KF2N0V4JqJ0jcy_YMCOicDvYdg4e8RCs5kDsDy1L8es",
+  "name": "Xero",
+  "office_locations": [
+    "Auckland",
+    "Wellington",
+    "Melbourne",
+    "Sydney",
+    "London",
+    "Denver",
+    "Toronto"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "US",
+    "UK",
+    "CA"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.xero.com"
+}

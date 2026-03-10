@@ -1,0 +1,33 @@
+{
+  "id": "serem-consultor-a-empresarial",
+  "name": "Serem",
+  "alternateNames": [
+    "Serem Consultoría"
+  ],
+  "description": "Serem is a specialized recruitment and IT consultancy providing advanced solutions in Outsystems, Java backend development, and insurance sector transformation.",
+  "website": "https://www.serem.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQH1DeNldBCeOw/company-logo_100_100/company-logo_100_100/0/1716308553407/serem_consultoria_empresarial_logo?e=1774483200&v=beta&t=SoD_QJzftGi024W6WQHbLy5cG4vw5Gwr0c0Lbb7UYB8",
+  "industries": [
+    "Recruitment",
+    "IT Staffing",
+    "Consulting",
+    "Software Development"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Madrid",
+    "Barcelona"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 250,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T11:00:00Z"
+}

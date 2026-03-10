@@ -1,0 +1,37 @@
+{
+  "alternateNames": [
+    "Weekday"
+  ],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "weekday-1"
+  },
+  "company_type": "Product",
+  "description": "Weekday is a YC-backed recruitment startup providing a hand-curated platform for premium tech jobs at VC-backed startups and research labs.",
+  "employees_count": 20,
+  "hq_country": "US",
+  "id": "weekday-ai-yc-w21",
+  "industries": [
+    "Recruitment",
+    "IT Staffing",
+    "AI",
+    "SaaS"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFMGKC-EvAWpg/company-logo_100_100/company-logo_100_100/0/1737539347361/weekdayjobs_logo?e=1773878400&v=beta&t=X293SNlmOIXWt4zPrbfUt3J2fCGHEO5o4PUx8bFqers",
+  "name": "Weekday AI (YC W21)",
+  "office_locations": [
+    "San Francisco"
+  ],
+  "operating_countries": [
+    "US",
+    "IN",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T14:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.weekday.works"
+}

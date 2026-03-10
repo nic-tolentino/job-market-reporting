@@ -255,23 +255,93 @@ A valid response returns JSON with a `jobs` array. Invalid slugs return an error
 
 1. ✅ ~~Scan all `applyUrls` in BigQuery for known ATS domain patterns~~ — **Done** (identified 74 companies)
 2. ✅ ~~Validate Greenhouse, Lever, Ashby tokens via public APIs~~ — **Done**
-3. ✅ ~~Document findings in Master Roster~~ — **Done** (`ideas/ats-identification-findings.md`)
+3. ✅ ~~Document findings in Master Roster~~ — **Done** (`docs/data/ats/ats-identification-findings.md`)
 4. ✅ ~~Build automated careers page scanner (Phase A)~~ — **Done** (`discover_ats.py`)
 5. ✅ ~~Run scanner against all 108 NONE companies~~ — **Done** (Identified 18 additional companies, bringing total to 92 identified)
 
 ### Next steps
 
-6. ⬜ **Full Validation Sweep** — Run `validate_ats.sh` across all 92 identified companies to ensure the newly discovered tokens are valid and actively returning jobs.
-7. ⬜ **Seed `company_ats_configs` in BigQuery** — Once identifiers are validated, seed the production database so the sync pipeline can take over.
+6. ⬜ **Migrate ATS configs to manifest** — Run migration script to add ATS configs to company JSON files:
+   ```bash
+   # Option A: From BigQuery (if configs already in BQ)
+   python3 scripts/ats/migrate_to_declarative.py
+   
+   # Option B: From findings document (hardcoded data)
+   python3 scripts/ats/add_from_findings.py
+   ```
+7. ⬜ **Validate migrated configs** — Run validation script:
+   ```bash
+   python3 scripts/ats/validate_ats_configs.py
+   ```
+8. ⬜ **Commit and deploy** — Commit changes and deploy:
+   ```bash
+   git diff data/companies/
+   git commit -m "Add ATS configs from identification findings"
+   # Deploy - CompanySyncService will sync to BigQuery on next run
+   ```
+9. ⬜ **Full Validation Sweep** — Run `validate_ats.sh` across all identified companies to ensure tokens are valid and actively returning jobs.
+10. ⬜ **Enable ATS polling** — Update backend to poll ATS APIs directly for companies with configs.
 
 ### Medium-term
 
-8. ⬜ **Workday integration investigation** — Workday is now 13.7% of companies; determine if their job data API is feasible.
-9. ⬜ **SmartRecruiters / Workable integration** — Assess the viability of pulling data from these platforms which make up a combined 8.2% of companies.
+11. ⬜ **Workday integration investigation** — Workday is now 13.7% of companies; determine if their job data API is feasible.
+12. ⬜ **SmartRecruiters / Workable integration** — Assess the viability of pulling data from these platforms which make up a combined 8.2% of companies.
 
 ---
 
-## 8. Relationship to Existing Infrastructure
+## 8. Migration Scripts
+
+### Script 1: Migrate from BigQuery
+
+**File:** `scripts/ats/migrate_to_declarative.py`
+
+Use this if ATS configs are already in BigQuery `ats_configs` table.
+
+```bash
+# Prerequisites
+export GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json
+
+# Run migration
+python3 scripts/ats/migrate_to_declarative.py
+
+# Validate
+python3 scripts/ats/validate_ats_configs.py
+```
+
+**What it does:**
+1. Exports all `ats_configs` from BigQuery
+2. Updates corresponding company JSON files
+3. Preserves operational state (`enabled`, `last_synced_at`) in BigQuery
+4. After deploy, `CompanySyncService` syncs manifest definitions to BigQuery
+
+### Script 2: Add from Findings Document
+
+**File:** `scripts/ats/add_from_findings.py`
+
+Use this to add ATS data from the identification findings document.
+
+```bash
+# Run migration
+python3 scripts/ats/add_from_findings.py
+
+# Validate
+python3 scripts/ats/validate_ats_configs.py
+```
+
+**What it does:**
+1. Reads hardcoded ATS identification data from findings
+2. Adds ATS configs to company JSON files
+3. Skips companies without identifiers
+4. Validates provider/identifier format
+
+**Data included:**
+- 21 companies with verified API tokens (Greenhouse, Lever, Ashby)
+- 30+ companies with identified ATS (Workday, BambooHR, etc.)
+- Total: ~50 companies with ATS configs
+
+---
+
+## 9. Relationship to Existing Infrastructure
 
 The codebase already has:
 - `CompanyAtsConfig` model (`persistence/model/CompanyAtsConfig.kt`)
@@ -286,7 +356,7 @@ Once the roster is built from this discovery process, the identifiers flow direc
 
 ---
 
-## 8. Strategy for Market Reliability (Next Steps)
+## 10. Strategy for Market Reliability (Next Steps)
 
 To ensure we remain the **most reliable and accurate source of job information on the market**, we must shift focus from *discovery* to *data quality and freshness*.
 
@@ -326,7 +396,214 @@ Relying solely on LinkedIn and direct ATS integrations leaves a significant blin
 
 ---
 
-## 9. Documents & References
+## 11. Declarative ATS Configuration (New Strategy)
+
+With the migration to a directory-based manifest (`data/companies/*.json`), we are moving ATS technical configuration into the company manifest files. This allows us to track "Definition" in version control while keeping "Operational State" in the database.
+
+### Data Architecture
+
+1.  **Definition (in `data/companies/{id}.json`)**:
+    Store the immutable technical identifier and provider.
+    ```json
+    "ats": {
+      "provider": "GREENHOUSE",
+      "identifier": "xero"
+    }
+    ```
+    
+    **Note:** The `enabled` field is intentionally NOT stored in the manifest. This allows operational control (e.g., disabling a broken integration) without requiring a code commit.
+
+2.  **Operational State (in BigQuery `ats_configs`)**:
+    The database remains the source of truth for dynamic metadata:
+    - `provider`: Synced from manifest (immutable)
+    - `identifier`: Synced from manifest (immutable)
+    - `enabled`: Operational control (DB only)
+    - `last_synced_at`: When the last API poll occurred
+    - `sync_status`: Current health of the integration (`SUCCESS`, `FAILED`)
+    - `error_message`: Track why disabled (if applicable)
+
+### The Sync Flow
+
+The `CompanySyncService` performs "Declarative Provisioning". Every time it syncs a company from the manifest:
+
+```kotlin
+fun syncFromManifest() {
+    manifestCompanies.forEach { company ->
+        val existingConfig = repository.getConfig(company.id)
+        
+        if (company.ats != null) {
+            if (existingConfig == null) {
+                // NEW integration - create enabled by default
+                repository.insert(company.ats.copy(enabled = true))
+            } else {
+                // EXISTING integration - update config, preserve DB enabled state
+                repository.update(
+                    company.ats.copy(
+                        enabled = existingConfig.enabled,  // Preserve operational state
+                        lastSyncedAt = existingConfig.lastSyncedAt,
+                        syncStatus = existingConfig.syncStatus
+                    )
+                )
+            }
+        }
+    }
+}
+```
+
+This ensures that:
+- Adding a new ATS integration is as simple as adding the `ats` block to a company's JSON file
+- Disabling a broken integration in the DB persists across manifest syncs
+- Git provides the audit trail for who added/changed configurations
+
+### JSON Schema Validation
+
+To prevent invalid configurations from being merged, add ATS validation to `data/companies/schema.json`:
+
+```json
+"ats": {
+  "type": "object",
+  "description": "ATS integration configuration",
+  "required": ["provider", "identifier"],
+  "properties": {
+    "provider": {
+      "type": "string",
+      "enum": [
+        "GREENHOUSE",
+        "LEVER",
+        "ASHBY",
+        "WORKDAY",
+        "SNAPHIRE",
+        "BAMBOOHR",
+        "TEAMTAILOR",
+        "WORKABLE",
+        "SMARTRECRUITERS",
+        "JOBADDER",
+        "EMPLOYMENT_HERO",
+        "SUCCESSFACTORS"
+      ]
+    },
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "pattern": "^[a-zA-Z0-9_-]+$"
+    }
+  },
+  "additionalProperties": false
+}
+```
+
+### Validation Script
+
+Create `scripts/ats/validate_ats_configs.py` to validate ATS configurations before merging:
+
+```python
+#!/usr/bin/env python3
+"""
+Validate ATS configurations in company manifest files.
+
+Checks:
+- Provider is from allowed list
+- Identifier matches expected pattern
+- Provider/identifier combination is valid (via API for public endpoints)
+"""
+
+import json
+from pathlib import Path
+import requests
+
+MANIFEST_DIR = Path('data/companies')
+
+PROVIDER_API_ENDPOINTS = {
+    'GREENHOUSE': 'https://boards-api.greenhouse.io/v1/boards/{id}/jobs',
+    'LEVER': 'https://api.lever.co/v0/postings/{id}?limit=1',
+    'ASHBY': 'https://api.ashbyhq.com/posting-api/job-board/{id}'
+}
+
+def validate_ats_config(company_file: Path) -> list[str]:
+    """Validate ATS config for a single company."""
+    errors = []
+    
+    with open(company_file, 'r') as f:
+        company = json.load(f)
+    
+    ats = company.get('ats')
+    if not ats:
+        return errors  # ATS config is optional
+    
+    # Validate provider
+    provider = ats.get('provider')
+    if provider not in PROVIDER_API_ENDPOINTS:
+        errors.append(f"{company_file.name}: Unknown ATS provider '{provider}'")
+    
+    # Validate identifier format
+    identifier = ats.get('identifier')
+    if not identifier or len(identifier) > 100:
+        errors.append(f"{company_file.name}: Invalid identifier '{identifier}'")
+    
+    # Test API (for providers with public APIs)
+    if provider in PROVIDER_API_ENDPOINTS:
+        url = PROVIDER_API_ENDPOINTS[provider].format(id=identifier)
+        try:
+            response = requests.get(url, timeout=5)
+            if response.status_code == 404:
+                errors.append(f"{company_file.name}: Invalid {provider} identifier '{identifier}' (404)")
+            elif response.status_code != 200:
+                errors.append(f"{company_file.name}: API error for {provider} '{identifier}': {response.status_code}")
+        except requests.Timeout:
+            errors.append(f"{company_file.name}: Timeout testing {provider} identifier '{identifier}'")
+    
+    return errors
+```
+
+**Usage:**
+```bash
+# Validate all ATS configs
+python3 scripts/ats/validate_ats_configs.py
+
+# Add to CI/CD (GitHub Actions)
+- name: Validate ATS configs
+  run: python3 scripts/ats/validate_ats_configs.py
+```
+
+### Migration from Existing Data
+
+For existing ATS configurations in BigQuery, migrate them to the manifest:
+
+```bash
+# Run migration script
+python3 scripts/ats/migrate_to_declarative.py
+
+# Review git diff
+git diff data/companies/
+
+# Validate migrated configs
+python3 scripts/ats/validate_ats_configs.py
+
+# Commit and deploy
+git commit -m "Migrate ATS configs to declarative manifest"
+```
+
+The migration script:
+1. Exports all `ats_configs` from BigQuery
+2. Updates corresponding company JSON files
+3. Preserves operational state (`enabled`, `last_synced_at`) in BigQuery
+4. After deploy, `CompanySyncService` syncs manifest definitions to BigQuery
+
+### Security Note: API Credentials
+
+Some ATS providers (JobAdder, Employment Hero, SnapHire) require OAuth credentials. These must **NEVER** be stored in Git.
+
+**Recommended approach (future enhancement):**
+- Store credentials in GCP Secret Manager
+- Backend loads credentials at runtime based on provider/company
+- Manifest contains only public identifier (safe for Git)
+
+For now, focus on providers with public APIs (Greenhouse, Lever, Ashby) that don't require credentials.
+
+---
+
+## 12. Documents & References
 
 | Document | Purpose |
 |:---|:---|

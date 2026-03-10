@@ -1,0 +1,20 @@
+{
+  "id": "randstad-new-zealand",
+  "name": "Randstad New Zealand",
+  "alternateNames": ["Randstad"],
+  "description": "Randstad is a global leader in talent solutions, helping NZ organizations build agile workforces through specialized IT recruitment and strategic consulting.",
+  "website": "http://www.randstad.co.nz",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEt4-bVNjCnsQ/company-logo_100_100/company-logo_100_100/0/1678670050981/randstad_new_zealand_logo?e=1773878400&v=beta&t=...",
+  "industries": ["Recruitment", "IT Staffing", "Consulting"],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "NL",
+  "operating_countries": ["NZ", "AU", "Worldwide"],
+  "office_locations": ["Auckland", "Wellington"],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 46000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

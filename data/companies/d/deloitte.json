@@ -1,0 +1,39 @@
+{
+  "alternateNames": [
+    "Deloitte New Zealand",
+    "Deloitte NZ"
+  ],
+  "ats": {
+    "provider": "SMARTRECRUITERS",
+    "identifier": "deloittenz"
+  },
+  "company_type": "Consultancy",
+  "description": "Deloitte is a global professional services network, providing audit, consulting, financial advisory, risk management, and tax services.",
+  "employees_count": null,
+  "hq_country": "UK",
+  "id": "deloitte",
+  "industries": [
+    "Professional Services",
+    "Consulting",
+    "Audit"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGNtpblgQpJoQ/company-logo_100_100/company-logo_100_100/0/1662120928214/deloitte_logo?e=1773878400&v=beta&t=hIFyn8FVZLxCMjTxIC6COPMYFEWsbD1vR1NNkkmIrc0",
+  "name": "Deloitte",
+  "office_locations": [
+    "Auckland",
+    "Wellington",
+    "Christchurch",
+    "Hamilton",
+    "Dunedin"
+  ],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.deloitte.com/"
+}

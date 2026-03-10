@@ -1,0 +1,20 @@
+{
+  "id": "joko",
+  "name": "Joko",
+  "alternateNames": [],
+  "description": "Joko is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFf0w_DLGLgIw/company-logo_100_100/B4EZoqCnT.IIAQ-/0/1761641920100/jokoapp_logo?e=1774483200&v=beta&t=FsZj5o2QPYwwIlXzX6epOPeNYgUzP2d1CI3LlKSx8R8",
+  "industries": [],
+  "company_type": "Startup",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "FR",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:34:10.000729Z"
+}

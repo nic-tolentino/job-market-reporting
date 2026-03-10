@@ -1,0 +1,33 @@
+{
+  "alternateNames": [
+    "Absolute IT Limited"
+  ],
+  "company_type": "Agency",
+  "description": "Leading New Zealand specialist IT recruitment agency with a nationwide presence.",
+  "employees_count": 100,
+  "hq_country": "NZ",
+  "id": "absolute-it",
+  "industries": [
+    "Recruitment",
+    "Staffing",
+    "Technology"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHc2_9iLfTwLQ/company-logo_100_100/company-logo_100_100/0/1680668701068/absolute_it_logo?e=1773878400&v=beta&t=tsc5x5AEtAW9k4b0Fi3_uK8Cj-d9NPzGqFiLJ1g8sUM",
+  "name": "Absolute IT",
+  "office_locations": [
+    "Auckland",
+    "Wellington",
+    "Hamilton",
+    "Christchurch"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T05:30:58.400147Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://www.absoluteit.co.nz"
+}

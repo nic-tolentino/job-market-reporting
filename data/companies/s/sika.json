@@ -1,0 +1,20 @@
+{
+  "id": "sika",
+  "name": "Sika",
+  "alternateNames": [],
+  "description": "Sika is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHLb11dz4mjIw/company-logo_100_100/company-logo_100_100/0/1630636626339/sika_logo?e=1774483200&v=beta&t=DzAv3o2eq42bYsryt9emK2fX8EqaODN3tU6dz1ZIb4k",
+  "industries": [],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "CH",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:34:10.000729Z"
+}

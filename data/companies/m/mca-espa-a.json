@@ -1,0 +1,35 @@
+{
+  "id": "mca-espa-a",
+  "name": "MCA España",
+  "alternateNames": [
+    "MCA"
+  ],
+  "description": "MCA is an international engineering and high-tech consultancy specializing in large-scale industrial projects across diverse sectors including energy and manufacturing.",
+  "website": "https://www.mca-groupe.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF6QWU6zekEfA/company-logo_100_100/B56ZUS8BLcHoAQ-/0/1739779478632/mca_engineering_spain_logo?e=1774483200&v=beta&t=6VymXCuOuxGehw_3S9GH-4gth-ylMkppQAxeD7S4sLw",
+  "industries": [
+    "Engineering",
+    "Industrial Tech",
+    "Consulting"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "FR",
+  "operating_countries": [
+    "ES",
+    "FR",
+    "BE",
+    "DE",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Madrid",
+    "Barcelona"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 1450,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:40:00Z"
+}

@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "Capgemini New Zealand",
+    "Capgemini NZ"
+  ],
+  "ats": {
+    "provider": "SUCCESSFACTORS",
+    "identifier": "rmkcdn"
+  },
+  "company_type": "Consultancy",
+  "description": "Capgemini is a global leader in partnering with companies to transform and manage their business by harnessing the power of technology.",
+  "employees_count": null,
+  "hq_country": "FR",
+  "id": "capgemini",
+  "industries": [
+    "Consulting",
+    "Digital Transformation",
+    "IT Services"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHIL3HctxNfvg/company-logo_100_100/B4EZokv7VQIUAQ-/0/1761553135376/capgemini_logo?e=1773878400&v=beta&t=TGklTB-VKjOHiCq9y-rCjw-qbpjc_ZmNa8uwSsQC2_Y",
+  "name": "Capgemini",
+  "office_locations": [
+    "Auckland",
+    "Wellington"
+  ],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.capgemini.com"
+}

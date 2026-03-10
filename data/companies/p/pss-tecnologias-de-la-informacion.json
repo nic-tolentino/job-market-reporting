@@ -1,0 +1,37 @@
+{
+  "alternateNames": [
+    "PSS"
+  ],
+  "ats": {
+    "provider": "JOIN",
+    "identifier": "pss-ti"
+  },
+  "company_type": "Consultancy",
+  "description": "PSS is an IT services provider specializing in software development, banking platform evolution, and cloud integrations for major international clients.",
+  "employees_count": 1000,
+  "hq_country": "ES",
+  "id": "pss-tecnologias-de-la-informacion",
+  "industries": [
+    "IT Services",
+    "Software Development",
+    "Consulting",
+    "Fintech"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHYaQTFKGzGuw/company-logo_100_100/B4DZkaTnhBIcAU-/0/1757082975146/pss_global_logo?e=1774483200&v=beta&t=MGNud2JGFFAm-Z6zrl6fiW0j1MVtmZs0xNYsPbNcyKo",
+  "name": "PSS Técnologías",
+  "office_locations": [
+    "Madrid",
+    "Barcelona"
+  ],
+  "operating_countries": [
+    "ES",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://www.pss-ti.com"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "robert-walters",
+  "name": "Robert Walters",
+  "alternateNames": [],
+  "description": "Robert Walters is a global talent solutions business providing specialist recruitment and advisory services to high-growth firms and enterprises worldwide.",
+  "website": "https://www.robertwalters.co.nz",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQG7fuCEWaSKRA/company-logo_100_100/company-logo_100_100/0/1720445443255/robert_walters_logo?e=1773878400&v=beta&t=hAoCiXC7HOQ0IkqfJgZwruHZzerZTvQY9DwiUbas42k",
+  "industries": [
+    "Recruitment",
+    "IT Staffing",
+    "Consulting"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "GB",
+  "operating_countries": [
+    "GB",
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "London",
+    "Auckland",
+    "Wellington"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 4000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

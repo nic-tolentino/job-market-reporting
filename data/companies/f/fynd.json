@@ -1,0 +1,20 @@
+{
+  "id": "fynd",
+  "name": "Fynd",
+  "alternateNames": [],
+  "description": "Fynd is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQESQqugAsvwhQ/company-logo_100_100/B56ZczQxyHHgAY-/0/1748911726220/fyndco_logo?e=1774483200&v=beta&t=a2EibF8afTItg3s4aM-Y6jKIqQTd2706dyAdehpUBKI",
+  "industries": [],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:28:37.674085Z"
+}

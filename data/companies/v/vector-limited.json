@@ -1,0 +1,37 @@
+{
+  "alternateNames": [
+    "Vector Limited"
+  ],
+  "ats": {
+    "provider": "SMARTRECRUITERS",
+    "identifier": "VectorLimited"
+  },
+  "company_type": "Enterprise",
+  "description": "Vector is NZ's largest electricity and gas distributor, pioneering a new energy future through global technology partnerships and digital transformation.",
+  "employees_count": 1000,
+  "hq_country": "NZ",
+  "id": "vector-limited",
+  "industries": [
+    "Utilities",
+    "Energy",
+    "Digital Transformation",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGhwVu5_Yo16g/company-logo_100_100/B56ZVpF0LXHsAQ-/0/1741224887527/vector_limited_logo?e=1773878400&v=beta&t=K8TY5zbDNoIK8serxXa-P6kBLnXGBHkYOx1PtFVHi3I",
+  "name": "Vector",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T13:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.vector.co.nz"
+}

@@ -1,0 +1,37 @@
+{
+  "alternateNames": [
+    "KPMG"
+  ],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "kpmgnz"
+  },
+  "company_type": "Enterprise",
+  "description": "KPMG NZ is a leading professional services firm providing audit, tax, and advisory services, with a strong focus on digital consulting and technology-driven transformation for prosperity in Aotearoa.",
+  "employees_count": 1000,
+  "hq_country": "NZ",
+  "id": "kpmg-new-zealand",
+  "industries": [
+    "Consulting",
+    "Professional Services",
+    "IT Services"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH3Hx_arOLS4A/company-logo_100_100/company-logo_100_100/0/1705273401870/kpmg_new_zealand_logo?e=1774483200&v=beta&t=YxK6JYcEKHg56pUcA125Qf4RKd2JVbE00LHbwEcTqnE",
+  "name": "KPMG New Zealand",
+  "office_locations": [
+    "Auckland",
+    "Wellington",
+    "Christchurch"
+  ],
+  "operating_countries": [
+    "NZ",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.kpmg.com/nz"
+}

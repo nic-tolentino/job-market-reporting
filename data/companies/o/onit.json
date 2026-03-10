@@ -1,0 +1,36 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "onit"
+  },
+  "company_type": "Product",
+  "description": "Onit is the global leader in AI-native legal operations solutions, helping legal teams optimize contract management and matter workflows via proactive automation.",
+  "employees_count": 600,
+  "hq_country": "US",
+  "id": "onit",
+  "industries": [
+    "Legal Tech",
+    "AI",
+    "SaaS",
+    "Software Development"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFAGspiHXlllQ/company-logo_100_100/B56ZW4.FWKGoAU-/0/1742565037973/onit_logo?e=1773878400&v=beta&t=iAw-BqVHXTw9l8UZTEH4uznqw-M8ryDKclRu43gHas4",
+  "name": "Onit",
+  "office_locations": [
+    "Atlanta",
+    "Auckland"
+  ],
+  "operating_countries": [
+    "US",
+    "NZ",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T14:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "http://www.onit.com"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "meetup",
+  "name": "Meetup",
+  "alternateNames": [
+    "Bending Spoons"
+  ],
+  "description": "Meetup is a world-leading community platform used by millions to discover events and build real-world connections, now part of the Bending Spoons digital portfolio.",
+  "website": "https://www.meetup.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEfQmXkrMBZWA/company-logo_100_100/B4EZmaycEPKgAQ-/0/1759238537854/meetup_logo?e=1774483200&v=beta&t=eRWCf42ng4-Y1DczPlgZDixLb5EziVAru0aXY-T3nrM",
+  "industries": [
+    "Social Media",
+    "SaaS",
+    "Tech"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [
+    "US",
+    "IT",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "New York",
+    "Milan"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 150,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:40:00Z"
+}

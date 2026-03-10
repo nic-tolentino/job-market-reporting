@@ -1,0 +1,20 @@
+{
+  "id": "winable-recruitment",
+  "name": "Winable Recruitment",
+  "alternateNames": [],
+  "description": "Winable Recruitment is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHkhyGdpzmBTg/company-logo_100_100/company-logo_100_100/0/1679545887474?e=1774483200&v=beta&t=MTMbfbvfiwvMdxFBOBo71i9bgQSD6ldyH0FSzbsfZUg",
+  "industries": [],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:39:05.140070Z"
+}

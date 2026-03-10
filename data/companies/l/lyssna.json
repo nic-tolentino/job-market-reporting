@@ -1,0 +1,33 @@
+{
+  "ats": {
+    "provider": "BAMBOOHR",
+    "identifier": "lyssna"
+  },
+  "company_type": "Product",
+  "description": "Lyssna is a comprehensive user research platform that provides on-demand access to panelists for surveys, usability tests, and interviews to help product teams move in the right direction.",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "lyssna",
+  "industries": [
+    "HR Tech",
+    "Research Tech",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQH-T-zBrwZx8Q/company-logo_100_100/B4DZaj75u4HwAQ-/0/1746507111833/wearelyssna_logo?e=1773878400&v=beta&t=hxowZwk2k7ac3Hymy-8-B9eC26n8yUtuo0ceMoermLo",
+  "name": "Lyssna",
+  "office_locations": [
+    "Melbourne"
+  ],
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T09:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.lyssna.com"
+}

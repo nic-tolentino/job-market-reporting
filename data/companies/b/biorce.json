@@ -1,0 +1,29 @@
+{
+  "id": "biorce",
+  "name": "Biorce",
+  "alternateNames": [],
+  "description": "Biorce is a healthtech company dedicated to revolutionizing clinical research and drug development through the power of Artificial Intelligence.",
+  "website": "https://biorce.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGh4dudC7u2tQ/company-logo_100_100/B4DZzDy60EIgAQ-/0/1772811431544/biorce_logo?e=1774483200&v=beta&t=FZnEZ59xrlgT9hVou9ab4YUhgBXxfNROA6Sjvwjb5bs",
+  "industries": [
+    "Healthtech",
+    "AI",
+    "Clinical Research"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Barcelona"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:00:00Z"
+}

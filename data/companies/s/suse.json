@@ -1,0 +1,20 @@
+{
+  "id": "suse",
+  "name": "SUSE",
+  "alternateNames": [],
+  "description": "SUSE is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFIv6v06z2GIA/company-logo_100_100/B4EZkBQkqdHEAY-/0/1756662746488/suse_logo?e=1774483200&v=beta&t=Uo87-JYSY4W4EtWndwZpwyj_PdXWpo9Rcre0S-mlTUo",
+  "industries": [],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "DE",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:39:05.140070Z"
+}

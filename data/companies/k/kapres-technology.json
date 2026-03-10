@@ -1,0 +1,34 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "TEAMTAILOR",
+    "identifier": "kapres"
+  },
+  "company_type": "Consultancy",
+  "description": "Kapres Technology is a tech consulting firm specializing in high-impact software development, GenAI solutions, and IT staffing for large enterprises in telecommunications and finance.",
+  "employees_count": 100,
+  "hq_country": "ES",
+  "id": "kapres-technology",
+  "industries": [
+    "IT Services",
+    "Consulting",
+    "Software Development",
+    "AI"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFiqY_ieeAfiA/company-logo_100_100/company-logo_100_100/0/1662120619698/kapres_logo?e=1774483200&v=beta&t=26XZFs38SDqTlZlWVFkhjYVnixeXWGCaRLza5sTD3xw",
+  "name": "Kapres Technology",
+  "office_locations": [
+    "Madrid"
+  ],
+  "operating_countries": [
+    "ES",
+    "US"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T09:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.kapres.com"
+}

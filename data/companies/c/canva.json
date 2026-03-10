@@ -1,0 +1,37 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "SMARTRECRUITERS",
+    "identifier": "Canva"
+  },
+  "company_type": "Product",
+  "description": "Canva is a global graphic design platform that allows users to create social media graphics, presentations, and more.",
+  "employees_count": null,
+  "hq_country": "AU",
+  "id": "canva",
+  "industries": [
+    "Design",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGO1uzGzmVB-A/company-logo_100_100/company-logo_100_100/0/1656630679668/canva_logo?e=1774483200&v=beta&t=WfoTblRN1LnKVm7UkDTKi7pAklRVnfXvYeddGruPS8U",
+  "name": "Canva",
+  "office_locations": [
+    "Sydney",
+    "Melbourne",
+    "Auckland"
+  ],
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "US",
+    "UK",
+    "PH"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.canva.com"
+}

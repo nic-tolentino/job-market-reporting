@@ -1,0 +1,20 @@
+{
+  "id": "reclut",
+  "name": "Reclut",
+  "alternateNames": [],
+  "description": "Reclut is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFOG327q2Dfiw/company-logo_100_100/B4EZtnJODTJwAQ-/0/1766962029110/reclut1_logo?e=1774483200&v=beta&t=QCR5ZEjPY3PZ5wlRZ9kZQxUP35R1rQ2fP5qEpnFMlL4",
+  "industries": [],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:38:11.418737Z"
+}

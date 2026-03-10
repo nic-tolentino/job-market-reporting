@@ -1,0 +1,23 @@
+{
+  "id": "mindrift",
+  "name": "Mindrift",
+  "alternateNames": [],
+  "description": "Welcome to Mindrift — a space where innovation meets opportunity. We’re a pioneering platform dedicated to advancing the field of artificial intelligence through collaborative online projects. Our focus lies in creating data for generative AI, offering a unique chance for freelancers to contribute to AI development from anywhere, at any time.\n\nAt Mindrift, we believe in the power of collective intelligence to shape the future of AI. Our platform allows users to dive into a variety of tasks — ranging from creating training prompts for AI models to refining AI responses for greater relevance.\n\nLet’s build the future of AI together, one task at a time.\n",
+  "website": "https://mindrift.ai",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQG9ySVGr5NQzQ/company-logo_100_100/company-logo_100_100/0/1725448348201/mindrift_ai_logo?e=1774483200&v=beta&t=8MmDSi16rDBukC4eDDhYjaiki0VV9PA8viJcazRBG8U",
+  "industries": [
+    "IT Services",
+    "IT Consulting"
+  ],
+  "company_type": "Platform",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T03:36:42.903748Z"
+}

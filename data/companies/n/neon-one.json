@@ -1,0 +1,31 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "ASHBY",
+    "identifier": "HighlightTA"
+  },
+  "company_type": "Product",
+  "description": "Neon One provides a unified platform of products and services for non-profits to build their community.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "neon-one",
+  "industries": [
+    "Non-profit Tech",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEYdSjsDb_qkQ/company-logo_100_100/company-logo_100_100/0/1638569823371/neonone_logo?e=1774483200&v=beta&t=idQeGHslOLxgsh95A_lyG2PVZHvFqhTnxV0oa3YcJdQ",
+  "name": "Neon One",
+  "office_locations": [],
+  "operating_countries": [
+    "US",
+    "AU",
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://neonone.com/"
+}

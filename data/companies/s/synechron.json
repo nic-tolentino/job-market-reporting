@@ -1,0 +1,39 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "synechron"
+  },
+  "company_type": "Consultancy",
+  "description": "Synechron is a global digital transformation consultancy combining creativity and innovative technology to deliver AI and cloud solutions for major financial firms.",
+  "employees_count": 14000,
+  "hq_country": "US",
+  "id": "synechron",
+  "industries": [
+    "IT Services",
+    "Fintech",
+    "AI",
+    "Cloud",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGU3XDmI-XtZg/company-logo_100_100/B4EZbozLqWHcAU-/0/1747662453848/synechron_logo?e=1773878400&v=beta&t=M_zlN1BXLfOt5Dk3EDbY8N4IIa4ts0PvLV4Yi6j6EYY",
+  "name": "Synechron",
+  "office_locations": [
+    "New York",
+    "Auckland",
+    "Sydney"
+  ],
+  "operating_countries": [
+    "US",
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T14:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "http://www.synechron.com"
+}

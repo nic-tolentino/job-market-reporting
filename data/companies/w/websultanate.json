@@ -1,0 +1,32 @@
+{
+  "id": "websultanate",
+  "name": "Websultanate",
+  "alternateNames": [
+    "Websultanate Software Technologies"
+  ],
+  "description": "Websultanate is a collaborative technology company building intuitive mobile and web applications using React Native and modern frontend frameworks for global clients.",
+  "website": "https://www.websultanate.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEzk3eg77iJSg/company-logo_100_100/company-logo_100_100/0/1630569940705/websultanate_logo?e=1774483200&v=beta&t=5i0JZovJRH6CPrAtCWEmyC7I4ANvnZMR-SjnMldp1e8",
+  "industries": [
+    "Software Development",
+    "IT Services",
+    "Mobile Development",
+    "Consulting"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "IN",
+  "operating_countries": [
+    "IN",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Lucknow"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": true,
+  "employees_count": 100,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T13:00:00Z"
+}

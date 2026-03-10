@@ -1,0 +1,29 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "jobgether"
+  },
+  "company_type": "Product",
+  "description": "Jobgether is a platform focused on remote job opportunities and talent matching.",
+  "employees_count": null,
+  "hq_country": "BE",
+  "id": "jobgether",
+  "industries": [
+    "HR Tech",
+    "Recruitment"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQF0wkBJGVGz4g/company-logo_100_100/B4EZm5iEh.HMAQ-/0/1759754340919/jobgether_logo?e=1774483200&v=beta&t=utRO4Bm7o3mvbUtKeeyyaiKIjLCQrss66hq_2Zruikc",
+  "name": "Jobgether",
+  "office_locations": [],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Remote Only",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": false,
+  "website": "https://www.jobgether.com"
+}

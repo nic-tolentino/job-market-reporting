@@ -1,0 +1,36 @@
+{
+  "id": "westpac",
+  "name": "Westpac",
+  "alternateNames": [
+    "Westpac Group"
+  ],
+  "description": "Westpac is a major Australian financial institution driving digital banking transformation through cloud-native Java and Python services and AI-driven initiatives.",
+  "website": "https://www.westpac.com.au",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHvhPjh_QGVEw/company-logo_100_100/company-logo_100_100/0/1630583808407/westpac_logo?e=1774483200&v=beta&t=oeY7nU4slb4Jt77BiFzUoS7RdHDAbpneED5NhJLEeM4",
+  "industries": [
+    "Banking",
+    "Fintech",
+    "Cloud",
+    "SaaS",
+    "AI"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Sydney",
+    "Melbourne",
+    "Auckland"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 35000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

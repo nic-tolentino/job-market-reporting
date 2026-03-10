@@ -1,0 +1,37 @@
+{
+  "alternateNames": [
+    "Tencent Global"
+  ],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "tencent"
+  },
+  "company_type": "Enterprise",
+  "description": "Tencent is a world-leading internet and technology company that develops innovative products and services.",
+  "employees_count": null,
+  "hq_country": "CN",
+  "id": "tencent",
+  "industries": [
+    "Gaming",
+    "Social Media",
+    "Technology"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGLiulTOZIebQ/company-logo_100_100/company-logo_100_100/0/1630648290063/tencentglobal_logo?e=1774483200&v=beta&t=naG6EUnWvtQSGs2nwJ5hGECSsBVxti-Q3XkQuKk4xRk",
+  "name": "Tencent",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "CN",
+    "US",
+    "SG",
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.tencent.com/en-us/"
+}

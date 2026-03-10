@@ -1,0 +1,20 @@
+{
+  "id": "globant",
+  "name": "Globant",
+  "alternateNames": [],
+  "description": "Globant is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHupr1U3gIQKA/company-logo_100_100/company-logo_100_100/0/1719839010650/globant_logo?e=1774483200&v=beta&t=3AovvLOuR56JC-PWABa3-mO7-rtlWlU7ZkXxGUnvPnA",
+  "industries": [],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AR",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:38:11.418737Z"
+}

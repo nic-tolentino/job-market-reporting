@@ -1,0 +1,40 @@
+{
+  "alternateNames": [
+    "Solera Holdings"
+  ],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "solera"
+  },
+  "company_type": "Enterprise",
+  "description": "Solera is a global leader in vehicle lifecycle management and software services, processing 300 million transactions annually for over 235,000 partners worldwide.",
+  "employees_count": 6500,
+  "hq_country": "US",
+  "id": "solera-holdings-llc",
+  "industries": [
+    "Automotive Tech",
+    "Data Engineering",
+    "SaaS",
+    "Insurtech"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHbxKQIuq_ysw/company-logo_100_100/company-logo_100_100/0/1641389737388/solera_logo?e=1774483200&v=beta&t=Y5yl1GCMweK1myxRm-FuCKev8c3t0sLERQEfGnXts28",
+  "name": "Solera",
+  "office_locations": [
+    "Westlake",
+    "Madrid",
+    "Sydney"
+  ],
+  "operating_countries": [
+    "US",
+    "AU",
+    "ES",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T11:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.solera.com"
+}

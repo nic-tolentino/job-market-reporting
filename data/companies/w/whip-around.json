@@ -1,0 +1,20 @@
+{
+  "id": "whip-around",
+  "name": "Whip Around",
+  "alternateNames": [],
+  "description": "Whip Around is a leading fleet maintenance software company helping drivers and managers improve vehicle uptime through easy-to-use digital compliance tools.",
+  "website": "https://whiparound.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHFsRA6T1jtTg/company-logo_100_100/company-logo_100_100/0/1630640774750/whip_around_logo?e=1773878400&v=beta&t=...",
+  "industries": ["SaaS", "Logistics Tech", "Software Development"],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": ["NZ", "US", "Worldwide"],
+  "office_locations": ["Auckland", "Charlotte"],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 100,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

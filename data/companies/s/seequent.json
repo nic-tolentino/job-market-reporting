@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "Seequent Limited",
+    "ARANZ Geo"
+  ],
+  "company_type": "Product",
+  "description": "Seequent is the world leader in geological modeling software for the mining, environmental, and energy sectors.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "seequent",
+  "industries": [
+    "Geoscience",
+    "Mining",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQENv3hwNC5ADQ/company-logo_100_100/company-logo_100_100/0/1716343109436/seequent_logo?e=1774483200&v=beta&t=fATpJEaDzeZABwy6WiXGwOpk-HNCCHEg5H_IZe6JNTw",
+  "name": "Seequent",
+  "office_locations": [
+    "Christchurch"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "CA",
+    "US",
+    "UK",
+    "ZA"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.seequent.com/"
+}

@@ -1,0 +1,35 @@
+{
+  "alternateNames": [
+    "Clover"
+  ],
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "cloverhealth"
+  },
+  "company_type": "Product",
+  "description": "Clover Health is a next-generation Medicare Advantage insurer which leverages its flagship software platform.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "clover-health",
+  "industries": [
+    "Healthtech",
+    "Insurance",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHJI6iJFP1iJQ/company-logo_100_100/company-logo_100_100/0/1631304987854?e=1774483200&v=beta&t=SrbTkpVhI3vMkrUGQgZuQSPflLc7HqMsMzGtz9qGcMQ",
+  "name": "Clover Health",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "US",
+    "HK"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.cloverhealth.com"
+}

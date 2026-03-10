@@ -1,0 +1,35 @@
+{
+  "alternateNames": [
+    "AECOM New Zealand"
+  ],
+  "company_type": "Consultancy",
+  "description": "Global infrastructure leader providing design, consulting, and management services.",
+  "employees_count": 50000,
+  "hq_country": "US",
+  "id": "aecom",
+  "industries": [
+    "Engineering",
+    "Construction",
+    "Design"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHkmXNBvtMbig/company-logo_100_100/company-logo_100_100/0/1630580122305/aecom_logo?e=1773878400&v=beta&t=x84m9UnQkSbiN7ZM6cqpWNfPV_8Ndx26AJ8kOzGEGJQ",
+  "name": "AECOM",
+  "office_locations": [
+    "Auckland",
+    "Wellington",
+    "Sydney",
+    "Melbourne"
+  ],
+  "operating_countries": [
+    "Worldwide",
+    "NZ",
+    "AU"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T05:30:58.400153Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://aecom.com"
+}

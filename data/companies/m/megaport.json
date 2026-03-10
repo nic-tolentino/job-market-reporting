@@ -1,0 +1,38 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "megaport"
+  },
+  "company_type": "Product",
+  "description": "Megaport is a global leader in Network as a Service (NaaS), providing an on-demand SDN that interconnects thousands of data centers and cloud providers globally.",
+  "employees_count": 300,
+  "hq_country": "AU",
+  "id": "megaport",
+  "industries": [
+    "Connectivity",
+    "Networking",
+    "DevOps",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEfmfX7chgfSQ/company-logo_100_100/B56Zc.Ih08GsAQ-/0/1749094112993/megaport_logo?e=1773878400&v=beta&t=Kgb282T2Y6HpHciI_Fs2qSfj3OaYaCjIUpqQJD9efWA",
+  "name": "Megaport",
+  "office_locations": [
+    "Brisbane",
+    "Sydney"
+  ],
+  "operating_countries": [
+    "AU",
+    "US",
+    "DE",
+    "GB",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:40:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.megaport.com"
+}

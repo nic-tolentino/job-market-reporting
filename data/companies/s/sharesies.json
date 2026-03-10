@@ -1,0 +1,31 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "BAMBOOHR",
+    "identifier": "sharesies"
+  },
+  "company_type": "Product",
+  "description": "Sharesies is an investment platform with a mission to create financial empowerment for everyone.",
+  "employees_count": 200,
+  "hq_country": "NZ",
+  "id": "sharesies",
+  "industries": [
+    "Fintech",
+    "Investment"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": true,
+  "name": "Sharesies",
+  "office_locations": [
+    "Wellington"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.sharesies.nz"
+}

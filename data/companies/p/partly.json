@@ -1,0 +1,38 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "ASHBY",
+    "identifier": "partly"
+  },
+  "company_type": "Product",
+  "description": "Partly is building the first foundational AI model for the auto parts industry, connecting the global parts supply chain from procurement to order management.",
+  "employees_count": 100,
+  "hq_country": "GB",
+  "id": "partly",
+  "industries": [
+    "Automotive Tech",
+    "AI",
+    "SaaS",
+    "Supply Chain"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFb3cW2OBKbTw/company-logo_100_100/company-logo_100_100/0/1698877429108/partly_logo?e=1773878400&v=beta&t=yvJhlNc9O0eslwm73kKcCmYx1r8sQ_ZgVKG5PdBRQKs",
+  "name": "Partly",
+  "office_locations": [
+    "Christchurch",
+    "London",
+    "San Francisco"
+  ],
+  "operating_countries": [
+    "NZ",
+    "GB",
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.partly.com"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "vivanti-consulting",
+  "name": "Vivanti",
+  "alternateNames": [
+    "Vivanti Consulting"
+  ],
+  "description": "Vivanti is a high-growth global tech consultancy helping the world's biggest businesses bring their data, AI, cloud, and digital solutions to life.",
+  "website": "https://www.vivanti.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEM_gnmLdI3Gw/company-logo_100_100/company-logo_100_100/0/1716081368628/vivanti_consulting_logo?e=1774483200&v=beta&t=AUdr8eB7DS7d4kkXveQt1Quh5gAc5iLZPy5x_Er3Qs8",
+  "industries": [
+    "IT Services",
+    "AI",
+    "Cloud",
+    "Data Science",
+    "Consulting"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "US",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Sydney",
+    "Canberra",
+    "New York"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 150,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T13:00:00Z"
+}

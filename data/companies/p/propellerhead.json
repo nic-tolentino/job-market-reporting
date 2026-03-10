@@ -1,0 +1,28 @@
+{
+  "id": "propellerhead",
+  "name": "Propellerhead",
+  "alternateNames": [],
+  "description": "Propellerhead is a New Zealand-based technology partner crafting complex software solutions for major organizations, driven by principles of design excellence and user sovereignty.",
+  "website": "https://www.propellerhead.co.nz",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEogzvnlqhX_A/company-logo_100_100/B56ZatabyfGoAQ-/0/1746666110500/propellerhead_logo?e=1773878400&v=beta&t=hDySJkXonzxAV6oTJLn6UPM9z5x1QZVJnHSuxGoYaRo",
+  "industries": [
+    "Software Development",
+    "Consulting",
+    "Enterprise Solutions"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": [
+    "NZ"
+  ],
+  "office_locations": [
+    "Auckland"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 100,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

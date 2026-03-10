@@ -1,0 +1,20 @@
+{
+  "id": "soltel-group",
+  "name": "SOLTEL Group",
+  "alternateNames": [],
+  "description": "SOLTEL Group is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGBbY87T7efJQ/company-logo_100_100/company-logo_100_100/0/1631371657882?e=1774483200&v=beta&t=TlVz4SFR4D4v9fiEjGowJS0BpcY2ekQJJxH1ZHbnNOc",
+  "industries": [],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:27:03.818991Z"
+}

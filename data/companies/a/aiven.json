@@ -1,0 +1,32 @@
+{
+  "alternateNames": [
+    "Aiven.io"
+  ],
+  "company_type": "Product",
+  "description": "A managed open source data platform that simplifies data management in the cloud.",
+  "employees_count": 500,
+  "hq_country": "FI",
+  "id": "aiven",
+  "industries": [
+    "SaaS",
+    "Cloud Computing",
+    "Data Platforms"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFFDxNih2OBSw/company-logo_100_100/B56ZfA0FabGoAQ-/0/1751286569231/aiven_logo?e=1773878400&v=beta&t=2So5jvdqMlrRW3u6Qxlv56kNGgRsdW5PjFN4wVfVrsY",
+  "name": "Aiven",
+  "office_locations": [
+    "Helsinki",
+    "Sydney",
+    "Auckland"
+  ],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T05:30:58.400160Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://aiven.io"
+}

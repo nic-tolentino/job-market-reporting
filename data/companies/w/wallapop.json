@@ -1,0 +1,30 @@
+{
+  "alternateNames": [],
+  "company_type": "Product",
+  "description": "Leading second-hand marketplace app for buying and selling items locally across Europe.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "wallapop",
+  "industries": [
+    "Marketplace",
+    "E-commerce",
+    "Consumer"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHvKqKqKqKqKq/company-logo_100_100/0/1630650773411/wallapop_logo?e=1774483200&v=beta&t=placeholder",
+  "name": "Wallapop",
+  "office_locations": [
+    "Barcelona"
+  ],
+  "operating_countries": [
+    "ES",
+    "IT",
+    "PT"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-07T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://wallapop.com"
+}

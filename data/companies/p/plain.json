@@ -1,0 +1,34 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "ASHBY",
+    "identifier": "plain"
+  },
+  "company_type": "Product",
+  "description": "Plain is building the next-gen customer support platform for B2B companies, unifying interactions and leveraging AI to help teams build better customer relationships.",
+  "employees_count": 50,
+  "hq_country": "GB",
+  "id": "plain",
+  "industries": [
+    "SaaS",
+    "Customer Support",
+    "AI",
+    "Productivity"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQE0gUIAx7DaRA/company-logo_100_100/B4EZwmSlIRJ4AQ-/0/1770168931117/plainsupport_logo?e=1774483200&v=beta&t=KvVfPwE7GV2dHHS5CdOrga-fk6DR6o9ktmZli4wX75U",
+  "name": "Plain",
+  "office_locations": [
+    "London"
+  ],
+  "operating_countries": [
+    "GB",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.plain.com"
+}

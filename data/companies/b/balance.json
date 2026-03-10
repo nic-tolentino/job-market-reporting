@@ -1,0 +1,28 @@
+{
+  "id": "balance",
+  "name": "Balance",
+  "alternateNames": [],
+  "description": "Balance is a healthtech company building a clinical operating system for obesity treatment, combining medical rigor with AI-driven personalized care.",
+  "website": "https://findbalance.app",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQE6ZjQeMov5VA/company-logo_100_100/company-logo_100_100/0/1732210126169/find_balance_app_logo?e=1774483200&v=beta&t=BhnAm7map0jt0hHKAD3sNKlk36fjvYX-gVvG3FXP2DQ",
+  "industries": [
+    "Healthtech",
+    "AI",
+    "Mobile Apps"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 20,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:00:00Z"
+}

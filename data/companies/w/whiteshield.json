@@ -1,0 +1,36 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "whiteshield"
+  },
+  "company_type": "Consultancy",
+  "description": "Whiteshield is a global policy advisory and AI economics firm transforming complex data into actionable insights for governments and businesses worldwide.",
+  "employees_count": 100,
+  "hq_country": "AE",
+  "id": "whiteshield",
+  "industries": [
+    "Consulting",
+    "AI",
+    "Data Science",
+    "Economics"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFveYMLMJFihw/company-logo_100_100/company-logo_100_100/0/1653455869869/whiteshield_partners_limited_logo?e=1774483200&v=beta&t=hxW-suPa2nv1CKvznObDbH9F-9DAdKWhDfn9fwew20U",
+  "name": "Whiteshield",
+  "office_locations": [
+    "Dubai",
+    "Barcelona"
+  ],
+  "operating_countries": [
+    "AE",
+    "ES",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T14:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.whiteshield.com"
+}

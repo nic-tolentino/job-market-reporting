@@ -1,0 +1,39 @@
+{
+  "id": "apple",
+  "name": "Apple",
+  "alternateNames": [
+    "Apple Inc.",
+    "Apple Spain",
+    "Apple NZ"
+  ],
+  "description": "Apple is a global leader in consumer electronics, software, and online services, known for its innovation in hardware products and environmental efforts.",
+  "website": "https://www.apple.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHdAaarsO-eyA/company-logo_100_100/company-logo_100_100/0/1630637844948/apple_logo?e=1774483200&v=beta&t=hn366UlbYwsZPYNfEe6tco1oY6ogkvQqmHgFNvoNTpY",
+  "industries": [
+    "Consumer Electronics",
+    "Software Development",
+    "Retail"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [
+    "US",
+    "ES",
+    "NZ",
+    "AU",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Cupertino",
+    "Madrid",
+    "Barcelona",
+    "Auckland"
+  ],
+  "remote_policy": "On-site",
+  "visa_sponsorship": true,
+  "employees_count": 160000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:55:00Z"
+}

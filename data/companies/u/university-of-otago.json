@@ -1,0 +1,31 @@
+{
+  "id": "university-of-otago",
+  "name": "University of Otago",
+  "alternateNames": [
+    "Ratonga Matihiko"
+  ],
+  "description": "The University of Otago is New Zealand's oldest university, rapidly scaling its digital capabilities and eResearch solutions to position for a future-focused mission.",
+  "website": "https://www.otago.ac.nz",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEnMm0JXh_RuA/company-logo_100_100/company-logo_100_100/0/1714511856153/university_of_otago_logo?e=1774483200&v=beta&t=bjJlnM3t_8ZnzEWWPEziAlCX6s_F8yeE7YWxta5Lovc",
+  "industries": [
+    "Education",
+    "Research",
+    "Public Sector",
+    "Digital Services"
+  ],
+  "company_type": "Government",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": [
+    "NZ"
+  ],
+  "office_locations": [
+    "Dunedin"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 4000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T13:00:00Z"
+}

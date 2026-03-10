@@ -1,0 +1,37 @@
+{
+  "alternateNames": [
+    "Ole"
+  ],
+  "ats": {
+    "provider": "PERSONIO",
+    "identifier": "jobs"
+  },
+  "company_type": "Consultancy",
+  "description": "Ole Tecnología specializes in full-stack web development, cloud services, and specialized SDK development for modern interactive devices such as Roku.",
+  "employees_count": 100,
+  "hq_country": "MX",
+  "id": "ole-tecnolog-a",
+  "industries": [
+    "IT Services",
+    "Software Development",
+    "Consulting"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGkyZ1sCzav8g/company-logo_100_100/company-logo_100_100/0/1630650170428?e=1774483200&v=beta&t=V0An97cQuNd6A_Gjf7r4qQbtfdlTtRfBvACPbePqfzQ",
+  "name": "Ole Tecnología",
+  "office_locations": [
+    "Mexico City"
+  ],
+  "operating_countries": [
+    "MX",
+    "US",
+    "GB",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.ole.mx"
+}

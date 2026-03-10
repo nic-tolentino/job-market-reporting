@@ -1,0 +1,37 @@
+{
+  "alternateNames": [
+    "TripleTen"
+  ],
+  "ats": {
+    "provider": "COMEET",
+    "identifier": "tripleten"
+  },
+  "company_type": "Product",
+  "description": "TripleTen is an innovative Edtech platform empower people to master IT professions like software engineering and data science through AI-driven skill building.",
+  "employees_count": 250,
+  "hq_country": "US",
+  "id": "tripleten-indonesia",
+  "industries": [
+    "Edtech",
+    "AI",
+    "IT Training",
+    "E-learning"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEval8_yenQxQ/company-logo_100_100/company-logo_100_100/0/1686632393999/practicum_indonesia_logo?e=1774483200&v=beta&t=M1_3BPweGbfvThz04KEMxwggnEIsD5RhpJoXSkdxe3A",
+  "name": "TripleTen Indonesia",
+  "office_locations": [
+    "Jakarta"
+  ],
+  "operating_countries": [
+    "ID",
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T13:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://tripleten.com"
+}

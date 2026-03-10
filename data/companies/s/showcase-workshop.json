@@ -1,0 +1,31 @@
+{
+  "id": "showcase-workshop",
+  "name": "Showcase Workshop",
+  "alternateNames": [
+    "Showcase"
+  ],
+  "description": "Showcase Workshop is a NZ-based software company providing a powerful digital sales and presentation toolkit for remote and face-to-face marketing.",
+  "website": "https://showcaseworkshop.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEsNCgk_ZzaFA/company-logo_100_100/company-logo_100_100/0/1630591635293/showcase_software_ltd_logo?e=1773878400&v=beta&t=MQ6aIPdjKj67H6kNd0-i4o2VkWOgQ-1S6H3qQl1NNkg",
+  "industries": [
+    "SaaS",
+    "Martech",
+    "Software Development"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": [
+    "NZ",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Wellington"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": false,
+  "employees_count": 20,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

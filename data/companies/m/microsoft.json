@@ -1,0 +1,32 @@
+{
+  "alternateNames": [
+    "Microsoft Corporation",
+    "Microsoft NZ"
+  ],
+  "company_type": "Enterprise",
+  "description": "Microsoft is a global leader in software, services, devices, and solutions.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "microsoft",
+  "industries": [
+    "Software",
+    "Cloud Computing",
+    "AI"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH32RJQCl3dDQ/company-logo_100_100/B56ZYQ0mrGGoAU-/0/1744038948046/microsoft_logo?e=1774483200&v=beta&t=2CkLU8QMLBf2NjD2H0kFxFKTUcdwwAwZjzH3PPJOcPU",
+  "name": "Microsoft",
+  "office_locations": [
+    "Auckland",
+    "Wellington"
+  ],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://news.microsoft.com/"
+}

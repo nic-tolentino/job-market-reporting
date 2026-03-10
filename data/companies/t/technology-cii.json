@@ -1,0 +1,22 @@
+{
+  "id": "technology-cii",
+  "name": "Technology CII",
+  "alternateNames": [],
+  "description": "Technology CII is a company profile created during backlog processing.",
+  "website": "http://www.ciitechknow.com/technology-summit.php",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEBqlOFCf9chg/company-logo_100_100/company-logo_100_100/0/1631300826147?e=1774483200&v=beta&t=SYEc0r1ObP_6BPny4sZAjvCLrOafqI_qd40tdThCKKE",
+  "industries": [
+    "Government Relations Services"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T03:36:42.903748Z"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "momentum-consulting-group",
+  "name": "Momentum Consulting Group",
+  "alternateNames": ["Momentum"],
+  "description": "Momentum is a premier NZ recruitment consultancy, providing specialized permanent and contracting services across IT, Finance, and Legal sectors.",
+  "website": "http://www.momentum.co.nz",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGGj9L1CPy5yQ/company-logo_100_100/company-logo_100_100/0/1678218452310/transpower_logo?e=1773878400&v=beta&t=...",
+  "industries": ["Recruitment", "IT Staffing", "Consulting"],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": ["NZ"],
+  "office_locations": ["Auckland", "Wellington"],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 60,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

@@ -1,0 +1,33 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "mrapplecareers"
+  },
+  "company_type": "Enterprise",
+  "description": "Mr Apple is New Zealand's largest integrated apple grower and exporter, leading the industry in the adoption of advanced agricultural and packing technology.",
+  "employees_count": 2000,
+  "hq_country": "NZ",
+  "id": "mr-apple-new-zealand-ltd",
+  "industries": [
+    "Agtech",
+    "Agriculture",
+    "Food & Beverage"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEqiJPuJxk3Fg/company-logo_100_100/company-logo_100_100/0/1652926526766/mr_apple_new_zealand_ltd_logo?e=1774483200&v=beta&t=aFvkLdUgZ5tOr0DHQHoLnNhA8qJ392k8sqO25HexmiU",
+  "name": "Mr Apple",
+  "office_locations": [
+    "Hastings"
+  ],
+  "operating_countries": [
+    "NZ",
+    "Worldwide"
+  ],
+  "remote_policy": "On-site",
+  "updated_at": "2026-03-10T09:40:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://www.mrapple.com"
+}

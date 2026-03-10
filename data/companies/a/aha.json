@@ -1,0 +1,28 @@
+{
+  "alternateNames": [
+    "Aha! Labs"
+  ],
+  "company_type": "Product",
+  "description": "The world's #1 product development software, empowering teams to build strategic roadmaps.",
+  "employees_count": 100,
+  "hq_country": "US",
+  "id": "aha",
+  "industries": [
+    "SaaS",
+    "Software",
+    "Product Management"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGmQeDE2Ud8rg/company-logo_100_100/company-logo_100_100/0/1710270946343/aha_labs_inc__logo?e=1773878400&v=beta&t=OH1PTeYnXG_nqPcyIE05bR92qinMZhrzQF12Nn5_wCI",
+  "name": "Aha!",
+  "office_locations": [],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Remote Only",
+  "updated_at": "2026-03-10T05:30:58.400155Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://www.aha.io"
+}

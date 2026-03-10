@@ -1,0 +1,33 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "ASHBY",
+    "identifier": "engflow"
+  },
+  "company_type": "Product",
+  "description": "EngFlow provides a secure remote execution, caching, and observability platform that accelerates developer productivity by Reducing build and test times by up to 10x.",
+  "employees_count": 50,
+  "hq_country": "US",
+  "id": "engflow",
+  "industries": [
+    "DevOps",
+    "SaaS",
+    "Developer Tools"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQETebyp_Tsnqw/company-logo_100_100/company-logo_100_100/0/1632984883176/engflow_logo?e=1773878400&v=beta&t=XSO6qfBMNRBzj0shsS6JJws8Af2Oikhib78jjv51xDM",
+  "name": "EngFlow",
+  "office_locations": [
+    "San Francisco"
+  ],
+  "operating_countries": [
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T09:10:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.engflow.com"
+}

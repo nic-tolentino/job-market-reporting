@@ -1,0 +1,34 @@
+{
+  "alternateNames": [
+    "Serko Limited"
+  ],
+  "company_type": "Product",
+  "description": "Serko is a leader in online travel booking and expense management for the corporate market.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "serko",
+  "industries": [
+    "Travel Tech",
+    "Fintech",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHOjedTDzpkuA/company-logo_100_100/B4DZXusEUQHIAY-/0/1743466284745/serko_ltd_logo?e=1774483200&v=beta&t=G2H_bFVu8vPjHtgttjVBbkn20qoIqUd4KRhzKb_IN7c",
+  "name": "Serko",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "US",
+    "CN",
+    "IN"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.serko.com"
+}

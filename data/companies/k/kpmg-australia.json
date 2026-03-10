@@ -1,0 +1,30 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "SMARTRECRUITERS",
+    "identifier": "KPMGAustralia1"
+  },
+  "company_type": "Enterprise",
+  "description": "A leading professional services firm providing audit, tax, and advisory services in Australia.",
+  "employees_count": null,
+  "hq_country": "AU",
+  "id": "kpmg-australia",
+  "industries": [
+    "Professional Services",
+    "Accounting",
+    "Consulting"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEtphGnPUaSTA/company-logo_100_100/company-logo_100_100/0/1678251699252/kpmg_australia_logo?e=1774483200&v=beta&t=ErYMFRyYMmhZDbjidY3iV4L-IZPWTnk7R3jcXAB4XUA",
+  "name": "KPMG Australia",
+  "office_locations": [],
+  "operating_countries": [
+    "AU"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://kpmg.com/au"
+}

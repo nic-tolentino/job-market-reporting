@@ -1,0 +1,20 @@
+{
+  "id": "devo",
+  "name": "Devo",
+  "alternateNames": [],
+  "description": "Devo is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHEz3QURPDk3w/company-logo_100_100/company-logo_100_100/0/1722356669836/devoinc_logo?e=1774483200&v=beta&t=MT586EIULYBspDhVTB4IMDNDAZPIHZOlM3OQuCDRB1M",
+  "industries": [],
+  "company_type": "Startup",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:39:05.140070Z"
+}

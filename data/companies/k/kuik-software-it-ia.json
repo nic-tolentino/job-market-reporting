@@ -1,0 +1,30 @@
+{
+  "id": "kuik-software-it-ia",
+  "name": "Kuik Software",
+  "alternateNames": [
+    "Kuik"
+  ],
+  "description": "Kuik Software is a tech services company that designs and builds solid, scalable software solutions with a focus on clean code and reliable architecture.",
+  "website": "https://www.kuik.es",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQH8K4KjuO8jtg/company-logo_100_100/company-logo_100_100/0/1719813750037/kuikdigitalsolutions_logo?e=1774483200&v=beta&t=EFRwesvSDGpF8lukBpnyePho4hkgYUsIrjvldEamIyE",
+  "industries": [
+    "IT Services",
+    "Software Development",
+    "Consulting"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:30:00Z"
+}

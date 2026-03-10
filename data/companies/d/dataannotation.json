@@ -1,0 +1,32 @@
+{
+  "alternateNames": [
+    "DataAnnotation.tech"
+  ],
+  "company_type": "Product",
+  "description": "DataAnnotation provides high-quality data for training AI models through a platform of remote workers.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "dataannotation",
+  "industries": [
+    "AI",
+    "Data Science",
+    "Software"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGKqLvQGwC3zg/company-logo_100_100/B56ZfRMtH6HUAU-/0/1751561458436/dataannotationtech_logo?e=1774483200&v=beta&t=2qvJ-2wH01Q4nqQNAtuG7P-RNoDGyyGse5AUaaffC5c",
+  "name": "DataAnnotation",
+  "office_locations": [],
+  "operating_countries": [
+    "US",
+    "NZ",
+    "AU",
+    "UK",
+    "CA"
+  ],
+  "remote_policy": "Remote Only",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": false,
+  "website": "https://dataannotation.tech"
+}

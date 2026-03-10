@@ -1,0 +1,31 @@
+{
+  "id": "traild",
+  "name": "Traild",
+  "alternateNames": [],
+  "description": "Traild is a dynamic SaaS company streamlining and protecting Accounts Payable functions for organizations, providing always-on risk protection for B2B payments.",
+  "website": "https://traild.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGu31a3tSw1NA/company-logo_100_100/B56ZoszhJoIsAU-/0/1761688294625/traild_logo?e=1774483200&v=beta&t=pv-sEDMKyVdh7-GHEb4AbRuvGz_F09Yx29_MxHMaykw",
+  "industries": [
+    "Fintech",
+    "SaaS",
+    "Cybersecurity",
+    "Accounting Tech"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "US",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Melbourne"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T12:00:00Z"
+}

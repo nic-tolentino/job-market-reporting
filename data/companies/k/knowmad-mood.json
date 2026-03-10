@@ -1,0 +1,30 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "TEAMTAILOR",
+    "identifier": "knowmadmood"
+  },
+  "company_type": "Consultancy",
+  "description": "An IT service and software development company focused on digital transformation and IT consulting.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "knowmad-mood",
+  "industries": [
+    "IT Consulting",
+    "Software Development",
+    "Digital Transformation"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQH2R4EXcP4lbg/company-logo_100_100/B4DZV_Hb79HwAQ-/0/1741594411108/knowmad_mood_logo?e=1774483200&v=beta&t=PPLqR2YP66tk2s32JmhqgSut1nWgoQeKyQN3KT_QV74",
+  "name": "knowmad mood",
+  "office_locations": [],
+  "operating_countries": [
+    "ES"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://www.knowmadmood.com"
+}

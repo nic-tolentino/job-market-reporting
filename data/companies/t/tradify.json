@@ -1,0 +1,29 @@
+{
+  "alternateNames": [],
+  "company_type": "Product",
+  "description": "Tradify is job management software for tradespeople, making it easy to manage leads, quotes, jobs, and invoices.",
+  "employees_count": 100,
+  "hq_country": "NZ",
+  "id": "tradify",
+  "industries": [
+    "SaaS",
+    "Construction Tech"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFmYz9-99-99/company-logo_100_100/0/1630581251564/tradify_logo?e=1774483200&v=beta&t=j_Do1nruck4j9JAdzZgMstc_ZHtefUTexsF9sSlhfng",
+  "name": "Tradify",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "UK"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.tradifyhq.com"
+}

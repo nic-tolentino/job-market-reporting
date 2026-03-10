@@ -1,0 +1,33 @@
+{
+  "id": "noloco",
+  "name": "Noloco",
+  "alternateNames": [],
+  "description": "Noloco is a Y Combinator-backed no-code platform that empowers SMBs to turn their data into custom, AI-powered internal tools, client portals, and CRMs.",
+  "website": "https://www.noloco.io",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFmC_p6BGNdQg/company-logo_100_100/B4EZaqdo4VHcAQ-/0/1746616618974/nolocohq_logo?e=1774483200&v=beta&t=fEVxG3jukwXU4umeoSB3whvEExoCjwyLvWxPRCkL_uM",
+  "industries": [
+    "SaaS",
+    "No-code",
+    "AI",
+    "App Development"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "IE",
+  "operating_countries": [
+    "IE",
+    "ES",
+    "US",
+    "CA",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Dublin"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": true,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

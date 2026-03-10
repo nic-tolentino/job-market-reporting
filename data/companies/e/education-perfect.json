@@ -1,0 +1,38 @@
+{
+  "alternateNames": [
+    "EP"
+  ],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "education-perfect"
+  },
+  "company_type": "Product",
+  "description": "Education Perfect is a world-class EdTech platform that empowers educators to personalize learning at scale through powerful assessment, insights, and interactive learning tools.",
+  "employees_count": 250,
+  "hq_country": "NZ",
+  "id": "education-perfect",
+  "industries": [
+    "Edtech",
+    "SaaS",
+    "Education"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH2pnS3Vt7H6Q/company-logo_100_100/company-logo_100_100/0/1720300045280/educationperfect_logo?e=1773878400&v=beta&t=TVArLj0Fnum6VfGW4Z5jwSo0bLaqX9RqwC7gJ_M_gd8",
+  "name": "Education Perfect",
+  "office_locations": [
+    "Dunedin",
+    "Auckland",
+    "Sydney"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "Worldwide"
+  ],
+  "remote_policy": "Flexible",
+  "updated_at": "2026-03-10T09:10:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.educationperfect.com"
+}

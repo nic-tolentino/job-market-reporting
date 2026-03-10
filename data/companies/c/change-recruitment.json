@@ -1,0 +1,20 @@
+{
+  "id": "change-recruitment",
+  "name": "Change Recruitment",
+  "alternateNames": [],
+  "description": "Change Recruitment is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEOuklbedBAHA/company-logo_100_100/company-logo_100_100/0/1732857589704/change_recruitment_logo?e=1774483200&v=beta&t=FTQhg3mlqySj2d_zUMM8aNww5L76Kxd7q-EX8BWOA40",
+  "industries": [],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:28:37.674085Z"
+}

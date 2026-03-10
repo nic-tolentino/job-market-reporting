@@ -1,0 +1,38 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "PERSONIO",
+    "identifier": "jobs"
+  },
+  "company_type": "Product",
+  "description": "Fadata is a global provider of core software solutions for the insurance industry, helping companies automate and transform their business through specialized digital platforms.",
+  "employees_count": 500,
+  "hq_country": "DE",
+  "id": "fadata",
+  "industries": [
+    "Insurtech",
+    "SaaS",
+    "Enterprise Software"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHuQ-B990qVdQ/company-logo_100_100/company-logo_100_100/0/1630572766183/fadata_group_logo?e=1774483200&v=beta&t=ae495vhMdAU3FH0CSTKc_JdW_y-jRNsQ_X_0lO3pC2U",
+  "name": "Fadata",
+  "office_locations": [
+    "Munich",
+    "Sofia",
+    "Madrid"
+  ],
+  "operating_countries": [
+    "DE",
+    "BG",
+    "ES",
+    "GB",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:10:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.fadata.eu"
+}

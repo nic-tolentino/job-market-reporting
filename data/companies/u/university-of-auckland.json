@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "Waipapa Taumata Rau"
+  ],
+  "ats": {
+    "provider": "SMARTRECRUITERS",
+    "identifier": "TheUniversityOfAuckland"
+  },
+  "company_type": "Government",
+  "description": "The University of Auckland is Aotearoa New Zealand's leading research institution, fostering innovation across Science, Data Science, and AI for a global impact.",
+  "employees_count": 6000,
+  "hq_country": "NZ",
+  "id": "university-of-auckland",
+  "industries": [
+    "Education",
+    "Research",
+    "Public Sector",
+    "AI",
+    "Data Science"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH3ZvEbE3_Ghw/company-logo_100_100/B56ZcKNJjEHwAQ-/0/1748222909136/the_university_of_auckland_logo?e=1774483200&v=beta&t=3PxNCeG_OaEHcsGYlWkNjBCDAQkz8rC6wlIesNEYDo0",
+  "name": "University of Auckland",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T13:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.auckland.ac.nz"
+}

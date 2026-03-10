@@ -1,0 +1,32 @@
+{
+  "id": "acento",
+  "name": "Acento",
+  "alternateNames": [
+    "Acento Recruitment"
+  ],
+  "description": "Acento is an international recruitment and staffing agency specializing in connecting tech talent with European institutions and global enterprises.",
+  "website": "https://acento.be",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGbsGLQe2aosQ/company-logo_100_100/company-logo_100_100/0/1630649934645/acentocat_logo?e=1774483200&v=beta&t=-M9VoEVVt3MalpRcAfqfI5GWGkYna36uDIxIA2zWueM",
+  "industries": [
+    "Recruitment",
+    "Staffing",
+    "IT Services"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "BE",
+  "operating_countries": [
+    "BE",
+    "ES",
+    "EU"
+  ],
+  "office_locations": [
+    "Brussels"
+  ],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": false,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:50:00Z"
+}

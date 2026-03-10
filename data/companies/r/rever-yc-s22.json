@@ -1,0 +1,33 @@
+{
+  "id": "rever-yc-s22",
+  "name": "REVER",
+  "alternateNames": [
+    "REVER (YC S22)"
+  ],
+  "description": "REVER is a Y Combinator-backed startup building a seamless return experience platform for e-commerce, empowering shoppers and brands with AI-driven superpowers.",
+  "website": "https://www.rever.me",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGrGdArwEeEiw/company-logo_100_100/company-logo_100_100/0/1710869413593/itsrever_logo?e=1774483200&v=beta&t=HVavkdfiL0leJY-w5ALZPw-52VmxuKo2xW9g8SNr4H8",
+  "industries": [
+    "E-commerce Tech",
+    "Fintech",
+    "Logistics Tech",
+    "SaaS"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES",
+    "US",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Barcelona"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

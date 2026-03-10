@@ -1,0 +1,37 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "cae"
+  },
+  "company_type": "Enterprise",
+  "description": "CAE is a global leader in high-tech training and simulation solutions for civil aviation, defense, security, and healthcare.",
+  "employees_count": 13000,
+  "hq_country": "CA",
+  "id": "cae",
+  "industries": [
+    "Aerospace",
+    "Simulation",
+    "Aviation",
+    "Software Development"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGyxpIB-rWe4Q/company-logo_100_100/company-logo_100_100/0/1719806773713/cae_logo?e=1773878400&v=beta&t=3Q_t6R7yXMx9Oyzruq7nw8wKtc3g1UE4XWJzayucz14",
+  "name": "CAE",
+  "office_locations": [
+    "Montreal",
+    "Sydney"
+  ],
+  "operating_countries": [
+    "CA",
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T14:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.cae.com"
+}

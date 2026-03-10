@@ -1,0 +1,30 @@
+{
+  "alternateNames": [
+    "Tribe",
+    "Tribe New Zealand"
+  ],
+  "company_type": "Agency",
+  "description": "Tribe Recruitment is a specialist recruitment agency in New Zealand focusing on technology and professional roles.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "tribe",
+  "industries": [
+    "Recruitment",
+    "Staffing"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFHx_iGGS6ytQ/company-logo_100_100/company-logo_100_100/0/1630650655412/tribe_new_zealand_limited_logo?e=1774483200&v=beta&t=HQ7prqylVk9u1q2288dus2bGjCmKqywvk_DRin2u6Nw",
+  "name": "Tribe Recruitment",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": false,
+  "website": "http://www.tribegroup.com"
+}

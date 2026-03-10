@@ -1,0 +1,31 @@
+{
+  "alternateNames": [
+    "Karat Inc"
+  ],
+  "company_type": "Product",
+  "description": "Karat is the leader in technical interviewing, partnering with organizations to improve the hiring experience.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "karat",
+  "industries": [
+    "HR Tech",
+    "Recruitment",
+    "Software"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHTJLGKSUTLNQ/company-logo_100_100/company-logo_100_100/0/1630580760979/karat_logo?e=1774483200&v=beta&t=2V-MmGjBNdndX4OHxOLhtUqvVGA1UVKxaYINRcg_-O0",
+  "name": "Karat",
+  "office_locations": [],
+  "operating_countries": [
+    "US",
+    "AU",
+    "NZ",
+    "IN"
+  ],
+  "remote_policy": "Remote Only",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.karat.com"
+}

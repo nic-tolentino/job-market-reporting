@@ -1,0 +1,36 @@
+{
+  "id": "total-specific-solutions",
+  "name": "Total Specific Solutions",
+  "alternateNames": [
+    "TSS"
+  ],
+  "description": "Total Specific Solutions is a global leader in vertical market software, acquiring and managing specialized companies to deliver mission-critical local solutions.",
+  "website": "https://www.totalspecificsolutions.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQG6KUrIpdnQpw/company-logo_100_100/company-logo_100_100/0/1631329552112?e=1774483200&v=beta&t=Ptwvvx_qHEGAzi4sS7e6UC-CkDH6qfLCZ14I_M0CxvE",
+  "industries": [
+    "Vertical Market Software",
+    "SaaS",
+    "IT Services",
+    "Finance"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NL",
+  "operating_countries": [
+    "NL",
+    "ES",
+    "BR",
+    "MX",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Utrecht",
+    "Madrid"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 5000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T12:00:00Z"
+}

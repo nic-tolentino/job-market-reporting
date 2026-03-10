@@ -1,0 +1,30 @@
+{
+  "id": "autograb",
+  "name": "AutoGrab",
+  "alternateNames": [],
+  "description": "AutoGrab is a data-driven automotive technology company that builds intelligent infrastructure for vehicle trading, used by OEMs, marketplaces, and dealers.",
+  "website": "https://autograb.com.au",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH1Icp6YjBB4w/company-logo_100_100/B56Zq9g2jwHIAQ-/0/1764116097675/autograb_logo?e=1774483200&v=beta&t=ZJuAQExhJjMk3Qup8wlvk15tVjjjGLHESCoybzKEoaE",
+  "industries": [
+    "Automotive",
+    "Data Analytics",
+    "SaaS"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "GB"
+  ],
+  "office_locations": [
+    "Melbourne"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 60,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:55:00Z"
+}

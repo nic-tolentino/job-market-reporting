@@ -1,0 +1,20 @@
+{
+  "id": "yuno",
+  "name": "Yuno",
+  "alternateNames": [],
+  "description": "Yuno is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGe-nlKrCnIpg/company-logo_100_100/B56Zcy8UdyHoAU-/0/1748906363071/yunopay_logo?e=1774483200&v=beta&t=ugQ27IF49v4hEbFomlIxce8cC6IJ8P9zXbkUz_q3Pf8",
+  "industries": [],
+  "company_type": "Startup",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "CO",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:34:10.000729Z"
+}

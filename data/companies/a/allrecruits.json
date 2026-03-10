@@ -1,0 +1,27 @@
+{
+  "alternateNames": [],
+  "company_type": "Agency",
+  "description": "AllRecruits is a New Zealand-based recruitment agency connecting talent with employers across various industries.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "allrecruits",
+  "industries": [
+    "Recruitment",
+    "Staffing"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEO8b7Jk1-DFg/company-logo_100_100/company-logo_100_100/0/1680495817186?e=1774483200&v=beta&t=1oqYxJq5J7xWG_VsmMJJk1M1Dey9Fe6rkpWr-oIvyFg",
+  "name": "AllRecruits",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": false,
+  "website": "http://www.allrecruits.nz"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "hume-city-council",
+  "name": "Hume City Council",
+  "description": "Hume City Council is one of Australia's fastest-growing local government authorities, serving a diverse community in Melbourne's northern suburbs with a focus on digital transformation and infrastructure.",
+  "website": "https://www.hume.vic.gov.au",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFaXNy9DItxGA/company-logo_100_100/company-logo_100_100/0/1630504635198/hume_city_council_logo?e=1774483200&v=beta&t=AQUY3oCAUAm3txnGqpBEoOmH293cnwlMPXKgi13i4bo",
+  "industries": [
+    "Government",
+    "Public Sector"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU"
+  ],
+  "office_locations": [
+    "Melbourne"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 1500,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:20:00Z"
+}

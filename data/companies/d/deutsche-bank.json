@@ -1,0 +1,20 @@
+{
+  "id": "deutsche-bank",
+  "name": "Deutsche Bank",
+  "alternateNames": [],
+  "description": "Deutsche Bank is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHPxOQjSTf63Q/company-logo_100_100/company-logo_100_100/0/1733126326977?e=1774483200&v=beta&t=2XWePxogHGq3acCbA9WK2_dq16bb34vTxxc7LVpgzsA",
+  "industries": [],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "DE",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:02:30.341504Z"
+}

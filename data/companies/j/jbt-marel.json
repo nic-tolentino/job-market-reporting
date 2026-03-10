@@ -1,0 +1,41 @@
+{
+  "alternateNames": [
+    "Marel"
+  ],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "jbtm"
+  },
+  "company_type": "Enterprise",
+  "description": "JBT Marel is a global leader in integrated food and beverage technology, delivering transformative software and automated machinery for sustainable food processing.",
+  "employees_count": 15000,
+  "hq_country": "US",
+  "id": "jbt-marel",
+  "industries": [
+    "Agtech",
+    "Machinery",
+    "SaaS",
+    "Software Development"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGptuQ1S7Jx9g/company-logo_100_100/company-logo_100_100/0/1736163017847/jbtmarel_logo?e=1773878400&v=beta&t=57Xr7MbVzNNbKhYd4IzmkZiwoKmoMz8jD1PONrL1RDI",
+  "name": "JBT Marel",
+  "office_locations": [
+    "Chicago",
+    "Gardabaer",
+    "Auckland"
+  ],
+  "operating_countries": [
+    "US",
+    "IS",
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T14:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://welcome.jbtmarel.com"
+}

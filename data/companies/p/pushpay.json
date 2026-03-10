@@ -1,0 +1,35 @@
+{
+  "alternateNames": [
+    "Pushpay Limited"
+  ],
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "pushpay"
+  },
+  "company_type": "Product",
+  "description": "Pushpay provides mobile commerce and engagement solutions for faith-based organizations and non-profits.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "pushpay",
+  "industries": [
+    "Fintech",
+    "SaaS",
+    "Donations"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFL2VIb9-jcRQ/company-logo_100_100/company-logo_100_100/0/1630478616623/pushpay_ltd_logo?e=1774483200&v=beta&t=l-L0RvsMTCk1UVgAq_Jx2JnXPo_10HiG7UjY-CGH6qo",
+  "name": "Pushpay",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "US"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://pushpay.com/"
+}

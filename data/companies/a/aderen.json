@@ -1,0 +1,31 @@
+{
+  "id": "aderen",
+  "name": "Aderen",
+  "alternateNames": [
+    "Aderen People"
+  ],
+  "description": "Aderen is a recruitment and consultancy firm based in Spain providing specialized engineering and software development talent to diverse tech sectors.",
+  "website": "https://aderen.es",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQF-SB99vW81tg/company-logo_100_100/company-logo_100_100/0/1630617907004/aderen_consulting_sl_logo?e=1774483200&v=beta&t=fiC76u089ddKjmBWQUPyC9KJcqGvkLdIpGKVDA1q8LY",
+  "industries": [
+    "Recruitment",
+    "Consulting",
+    "IT Services"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Madrid",
+    "Barcelona"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": false,
+  "employees_count": 30,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:50:00Z"
+}

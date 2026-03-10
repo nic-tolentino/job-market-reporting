@@ -1,0 +1,29 @@
+{
+  "id": "preacta",
+  "name": "Preacta",
+  "alternateNames": [],
+  "description": "Preacta is a specialized tech recruitment and talent consultancy partnering with Australia's leading financial institutions and enterprise software providers.",
+  "website": "https://www.preacta.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHRCjREzAE6vA/company-logo_100_100/company-logo_100_100/0/1668122167988/preactarecruitment_logo?e=1774483200&v=beta&t=HmUaQwiN8PCdu3tlhJ8haYr1LvpDaodms0wxTSIxRaM",
+  "industries": [
+    "Recruitment",
+    "IT Staffing",
+    "Consulting"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU"
+  ],
+  "office_locations": [
+    "Sydney",
+    "Melbourne"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

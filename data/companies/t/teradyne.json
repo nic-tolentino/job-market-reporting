@@ -1,0 +1,38 @@
+{
+  "alternateNames": [
+    "Quantifi Photonics"
+  ],
+  "ats": {
+    "provider": "SUCCESSFACTORS",
+    "identifier": "rmkcdn"
+  },
+  "company_type": "Enterprise",
+  "description": "Teradyne is a global leader in test and industrial automation, driving excellence in photonics engineering and high-performance hardware connections.",
+  "employees_count": 6500,
+  "hq_country": "US",
+  "id": "teradyne",
+  "industries": [
+    "Industrial Automation",
+    "Photonics",
+    "Semiconductors",
+    "Engineering"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHENz9VS3G-kA/company-logo_100_100/company-logo_100_100/0/1631434670707/teradyne_logo?e=1774483200&v=beta&t=tgUjzuupy1AXWwX6xunXT3Uuj6559LVVbRg7eATOM6c",
+  "name": "Teradyne",
+  "office_locations": [
+    "North Reading",
+    "Auckland"
+  ],
+  "operating_countries": [
+    "US",
+    "NZ",
+    "Worldwide"
+  ],
+  "remote_policy": "On-site",
+  "updated_at": "2026-03-10T12:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.teradyne.com"
+}

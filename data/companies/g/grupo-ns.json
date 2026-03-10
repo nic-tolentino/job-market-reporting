@@ -1,0 +1,30 @@
+{
+  "id": "grupo-ns",
+  "name": "Grupo NS",
+  "alternateNames": [
+    "NS"
+  ],
+  "description": "Grupo NS is a technology firm providing specialized services in AI-native API development and trading systems for the banking industry.",
+  "website": "https://www.grupons.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGHu6eHRBDQVg/company-logo_100_100/company-logo_100_100/0/1631336107468?e=1774483200&v=beta&t=ysOUhtmqMD0myEf9IVOJp8e6D9a8K41x9WO-iDR88so",
+  "industries": [
+    "IT Services",
+    "Fintech",
+    "Banking Tech"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 200,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:10:00Z"
+}

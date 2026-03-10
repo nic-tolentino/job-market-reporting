@@ -1,0 +1,32 @@
+{
+  "id": "xpt-software-australia",
+  "name": "XPT Software",
+  "alternateNames": [],
+  "description": "XPT Software is a specialized technology partner delivering high-scale Java, Spring Boot, and Cloud-native microservices for the Banking and Insurance domains.",
+  "website": "https://xptsoftware.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQFraaz0dzyCYQ/company-logo_100_100/company-logo_100_100/0/1630574395990/xpt_software_australia_logo?e=1774483200&v=beta&t=U3Uyb-FniKbbqOO8qZIMsVggAjzRHx5VyMDKPgsaM88",
+  "industries": [
+    "Software Development",
+    "IT Services",
+    "Fintech",
+    "Consulting"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Sydney",
+    "Melbourne",
+    "Brisbane"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 100,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "hopla-software",
+  "name": "HOPLA! Software",
+  "alternateNames": [
+    "HOPLA"
+  ],
+  "description": "HOPLA! Software specializes in modernizing applications and infrastructure using Open Source technologies, microservices, and cloud solutions.",
+  "website": "https://www.hoplasoftware.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHP5ZnkDSEnQg/company-logo_100_100/company-logo_100_100/0/1736247676461/hopla_software_logo?e=1774483200&v=beta&t=_9YDbu8HbrUmKqZMvNPq8GxlDnkS3AoVNpNKAhFaTm4",
+  "industries": [
+    "IT Services",
+    "Cloud Computing",
+    "Open Source"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES",
+    "MX",
+    "CO"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": false,
+  "employees_count": 100,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:20:00Z"
+}

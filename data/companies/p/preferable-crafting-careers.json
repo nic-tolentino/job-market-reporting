@@ -1,0 +1,33 @@
+{
+  "id": "preferable-crafting-careers",
+  "name": "EIL Global",
+  "alternateNames": [
+    "Preferable",
+    "Preferable Crafting Careers"
+  ],
+  "description": "EIL Global is an IT services company provide managed services across APAC and EMEA, specializing in desktop support, networking, and data center technologies.",
+  "website": "https://www.eilglobal.com.au",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH0WPM6IJ3lig/company-logo_100_100/company-logo_100_100/0/1714721713565/preferable_crafting_careers_logo?e=1774483200&v=beta&t=sAMO6EEer7Vgxn5ub24uvlgFqbk3FSWxQStxB1QP4-o",
+  "industries": [
+    "IT Managed Services",
+    "Networking",
+    "Consulting"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Adelaide"
+  ],
+  "remote_policy": "On-site",
+  "visa_sponsorship": false,
+  "employees_count": 100,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

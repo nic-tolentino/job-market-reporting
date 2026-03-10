@@ -1,0 +1,40 @@
+{
+  "alternateNames": [
+    "MSXI"
+  ],
+  "ats": {
+    "provider": "SMARTRECRUITERS",
+    "identifier": "MSXInternational"
+  },
+  "company_type": "Consultancy",
+  "description": "MSX International is a global leader in automotive business solutions, helping manufacturers and dealers improve performance through specialized retail and training services.",
+  "employees_count": 6000,
+  "hq_country": "US",
+  "id": "msx-international",
+  "industries": [
+    "Automotive",
+    "Consulting",
+    "Training"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEsI7oqZ-TLFw/company-logo_100_100/company-logo_100_100/0/1688638229966/msx_international_logo?e=1774483200&v=beta&t=WXG1Sx6sSCu12YByJzXMOAGEljUHSjtp8Ddp9NQPZYg",
+  "name": "MSX International",
+  "office_locations": [
+    "Detroit",
+    "Melbourne",
+    "Madrid"
+  ],
+  "operating_countries": [
+    "US",
+    "AU",
+    "ES",
+    "GB",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:40:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.msxi.com"
+}

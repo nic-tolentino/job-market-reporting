@@ -1,0 +1,28 @@
+{
+  "alternateNames": [],
+  "company_type": "Agency",
+  "description": "Pearson Carter is a specialist Microsoft Dynamics and Power Platform recruitment agency.",
+  "employees_count": null,
+  "hq_country": "UK",
+  "id": "pearson-carter",
+  "industries": [
+    "Recruitment",
+    "Staffing"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQH4UGUhXg6t_Q/company-logo_100_100/company-logo_100_100/0/1688333928666/pearson_carter_logo?e=1774483200&v=beta&t=9fqovpb6NSVNrahqe1PIHFD52LUARsEtH6K2vk5KJnE",
+  "name": "Pearson Carter",
+  "office_locations": [],
+  "operating_countries": [
+    "UK",
+    "AU",
+    "NZ",
+    "US"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": false,
+  "website": "http://www.pearsoncarter.com"
+}

@@ -1,0 +1,38 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "unisys"
+  },
+  "company_type": "Enterprise",
+  "description": "Unisys is a global technology solutions firm powerhouse, powering breakthroughs in cloud, AI, and digital workplace security for the world's leading organizations.",
+  "employees_count": 16000,
+  "hq_country": "US",
+  "id": "unisys",
+  "industries": [
+    "IT Services",
+    "Cloud",
+    "AI",
+    "Software Development"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGP5PO--smhpQ/company-logo_100_100/company-logo_100_100/0/1669644012632/unisys_logo?e=1773878400&v=beta&t=jHP_Rn6QKTl7WWj65QcU-51lLbi77fdRz5eGvRK58XQ",
+  "name": "Unisys",
+  "office_locations": [
+    "Blue Bell",
+    "Sydney",
+    "Auckland"
+  ],
+  "operating_countries": [
+    "US",
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T14:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "http://www.unisys.com"
+}

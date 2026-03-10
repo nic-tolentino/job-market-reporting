@@ -1,0 +1,35 @@
+{
+  "alternateNames": [
+    "Clue"
+  ],
+  "ats": {
+    "provider": "TEAMTAILOR",
+    "identifier": "app"
+  },
+  "company_type": "Product",
+  "description": "Clue Technologies manufactures high-performance computing technologies and modular avionics for next-generation intelligent systems in aerospace and defence.",
+  "employees_count": 50,
+  "hq_country": "ES",
+  "id": "clue-technologies",
+  "industries": [
+    "Aerospace",
+    "Defence",
+    "Embedded Systems"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEJ5AObixClkw/company-logo_100_100/company-logo_100_100/0/1631304994492?e=1774483200&v=beta&t=_e-6qmV7I7lbhavh3vz3GOAR8-93OIug0mUhxumHtfU",
+  "name": "Clue Technologies",
+  "office_locations": [
+    "Malaga"
+  ],
+  "operating_countries": [
+    "ES",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:05:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://clue.aero"
+}

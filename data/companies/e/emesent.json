@@ -1,0 +1,20 @@
+{
+  "id": "emesent",
+  "name": "Emesent",
+  "alternateNames": [],
+  "description": "Emesent is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHj6MPk5EfLrA/company-logo_100_100/B56ZVaSwq_HoAQ-/0/1740976622693/emesent_logo?e=1774483200&v=beta&t=aWQkqlHOUfdiKdHeqebPi-vRpVnkh17VZccOAWW-1ZI",
+  "industries": [],
+  "company_type": "Startup",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:28:37.674085Z"
+}

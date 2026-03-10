@@ -1,0 +1,20 @@
+{
+  "id": "netcarreiras",
+  "name": "NetCarreiras",
+  "alternateNames": [],
+  "description": "NetCarreiras is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHoJ8uaTknMog/company-logo_100_100/company-logo_100_100/0/1630570916430?e=1774483200&v=beta&t=yw667sMjCBHZi0ph_958egzy2ubcQW6dFsqrPMxfNYo",
+  "industries": [],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "BR",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:52:06.145942Z"
+}

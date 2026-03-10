@@ -1,0 +1,33 @@
+{
+  "alternateNames": [
+    "Advantive Software"
+  ],
+  "company_type": "Product",
+  "description": "Advantive is a global provider of mission-critical software for specialty manufacturing and distribution companies.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "advantive",
+  "industries": [
+    "ERP",
+    "Manufacturing",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQF9WYMgth2dVw/company-logo_100_100/B4EZkU9h98IUAg-/0/1756993298763/advantive_software_logo?e=1774483200&v=beta&t=SxoDswUm0EVs7bTktBXSwPIDV8zOFZkoTd-VveTb-aE",
+  "name": "Advantive",
+  "office_locations": [
+    "Nelson"
+  ],
+  "operating_countries": [
+    "US",
+    "NZ",
+    "AU",
+    "UK"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.advantive.com"
+}

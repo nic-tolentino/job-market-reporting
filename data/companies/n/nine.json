@@ -1,0 +1,40 @@
+{
+  "alternateNames": [
+    "Nine Entertainment Co.",
+    "Channel 9"
+  ],
+  "ats": {
+    "provider": "SMARTRECRUITERS",
+    "identifier": "Nine"
+  },
+  "company_type": "Enterprise",
+  "description": "Nine is Australia's largest locally owned media company, driving the success of the country's most trusted television, radio, digital, and publishing brands.",
+  "employees_count": 5000,
+  "hq_country": "AU",
+  "id": "nine",
+  "industries": [
+    "Media",
+    "Entertainment",
+    "Broadcasting",
+    "Publishing"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGJ-0QF1EgkxA/company-logo_100_100/company-logo_100_100/0/1725856779999/nine_entertainment_co_logo?e=1774483200&v=beta&t=V2JZhTaxfItmZbRoMRnxr0e0ZwoQW-PKahNS-my_MnM",
+  "name": "Nine",
+  "office_locations": [
+    "Sydney",
+    "Melbourne",
+    "Brisbane",
+    "Perth",
+    "Adelaide"
+  ],
+  "operating_countries": [
+    "AU"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.nineforbrands.com.au"
+}

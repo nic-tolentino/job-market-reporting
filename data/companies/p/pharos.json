@@ -1,0 +1,30 @@
+{
+  "alternateNames": [
+    "Pharos Systems"
+  ],
+  "company_type": "Product",
+  "description": "Pharos provides print management software and services to help organizations reduce waste and improve security.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "pharos",
+  "industries": [
+    "Print Management",
+    "Software"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFVmnr1UcAuDw/company-logo_100_100/company-logo_100_100/0/1672781675404/pharos_systems_international_logo?e=1774483200&v=beta&t=V2qzCsvDjFvXkWDrSFaFCOG3NEOfP9LRlcfDCbnuBzI",
+  "name": "Pharos",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "US",
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.pharos.com"
+}

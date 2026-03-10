@@ -1,0 +1,31 @@
+{
+  "id": "n2s-global",
+  "name": "N2S Global",
+  "alternateNames": [],
+  "description": "N2S Global is a specialized tech services and staffing firm focused on high-performance web development and scalable backend microservices for enterprise clients.",
+  "website": "https://www.n2s-global.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEY3k4RKRSFIQ/company-logo_100_100/company-logo_100_100/0/1720449812799/n2sglobal_logo?e=1774483200&v=beta&t=iAwfK8AO5gNGk2c45Vb98wQ77A38YxRDPgyPHdvfBrs",
+  "industries": [
+    "IT Services",
+    "Staffing",
+    "Consulting"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "IN",
+  "operating_countries": [
+    "AU",
+    "IN",
+    "US"
+  ],
+  "office_locations": [
+    "Sydney",
+    "Bangalore"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": true,
+  "employees_count": 500,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:40:00Z"
+}

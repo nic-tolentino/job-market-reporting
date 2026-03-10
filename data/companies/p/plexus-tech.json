@@ -1,0 +1,27 @@
+{
+  "alternateNames": [],
+  "company_type": "Consultancy",
+  "description": "An IT consulting company providing technology services and solutions with a focus on banking, healthcare, and tourism.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "plexus-tech",
+  "industries": [
+    "IT Consulting",
+    "Banking",
+    "Healthcare",
+    "Tourism"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGFihT1pPce0g/company-logo_100_100/B4EZu3JIfIKIAQ-/0/1768304184032/plexus_tech_logo?e=1774483200&v=beta&t=9OYqToxiw5se1NmzpVcMMtxsqs8BRs25j5tmvss5pD0",
+  "name": "Plexus Tech",
+  "office_locations": [],
+  "operating_countries": [
+    "ES"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://www.plexus.es"
+}

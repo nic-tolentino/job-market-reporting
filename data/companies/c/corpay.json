@@ -1,0 +1,20 @@
+{
+  "id": "corpay",
+  "name": "Corpay",
+  "alternateNames": [],
+  "description": "Corpay is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQENrubQSmTghA/company-logo_100_100/B4EZwzUyWmHcAQ-/0/1770387613677/corpay_logo?e=1773878400&v=beta&t=5n-c7v7UiXJebm4YQbjHc6d1BMQMdqCmi1IZT7ZPX6w",
+  "industries": [],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:02:30.341504Z"
+}

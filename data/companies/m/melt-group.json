@@ -1,0 +1,20 @@
+{
+  "id": "melt-group",
+  "name": "Melt Group",
+  "alternateNames": [],
+  "description": "Melt Group is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGeT8IfoWZtaQ/company-logo_100_100/company-logo_100_100/0/1736239299130/melt_consulting_s_l__logo?e=1774483200&v=beta&t=rSW9_xAkU6421a9V5yZA6ood30M6dQ6eZ7pm-fQSYco",
+  "industries": [],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:02:30.341504Z"
+}

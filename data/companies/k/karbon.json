@@ -1,0 +1,37 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "karbon"
+  },
+  "company_type": "Product",
+  "description": "Karbon is a global leader in AI-powered practice management software for accounting firms, providing a collaborative platform to help professionals work more efficiently.",
+  "employees_count": 200,
+  "hq_country": "AU",
+  "id": "karbon",
+  "industries": [
+    "Fintech",
+    "SaaS",
+    "Accounting Tech",
+    "AI"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEa-NFpPRH2Bw/company-logo_100_100/company-logo_100_100/0/1630633777332/karbonhq_logo?e=1774483200&v=beta&t=DHirHPmdIcP3v3zQZrSqt7pTMQqwxayaR2w6jzFdFxg",
+  "name": "Karbon",
+  "office_locations": [
+    "Sydney"
+  ],
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "US",
+    "CA",
+    "GB"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T09:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.karbonhq.com"
+}

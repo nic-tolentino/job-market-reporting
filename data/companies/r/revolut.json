@@ -1,0 +1,36 @@
+{
+  "id": "revolut",
+  "name": "Revolut",
+  "alternateNames": [],
+  "description": "Revolut is a global financial powerhouse on a mission to deliver total financial freedom through its unified powerhouse of spending, saving, investing, and AI-driven banking products.",
+  "website": "https://www.revolut.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFBudSGoYdD9g/company-logo_100_100/company-logo_100_100/0/1736441557682/revolut_logo?e=1774483200&v=beta&t=g1ogB706z9WicX9uaY4x1RNsa0icRkYymTHmzmMVCD8",
+  "industries": [
+    "Fintech",
+    "Banking",
+    "SaaS",
+    "AI"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "GB",
+  "operating_countries": [
+    "GB",
+    "AU",
+    "US",
+    "LT",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "London",
+    "Sydney",
+    "Barcelona",
+    "Vilnius"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": true,
+  "employees_count": 10000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

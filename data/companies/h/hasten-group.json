@@ -1,0 +1,20 @@
+{
+  "id": "hasten-group",
+  "name": "Hasten Group",
+  "alternateNames": [],
+  "description": "Hasten Group is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGvV7YQ0eczUg/company-logo_100_100/company-logo_100_100/0/1631355605620?e=1774483200&v=beta&t=5gYg-aR4gdRnBMgSEzXnSe_K_Zu3cYjwicVk89vFQ5w",
+  "industries": [],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:34:10.000729Z"
+}

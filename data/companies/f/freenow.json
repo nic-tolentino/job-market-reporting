@@ -1,0 +1,20 @@
+{
+  "id": "freenow",
+  "name": "Freenow",
+  "alternateNames": [],
+  "description": "Freenow is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGa8iZtGIZRLw/company-logo_100_100/B4EZjrHxzZGcAY-/0/1756291341930/freenow_logo?e=1774483200&v=beta&t=j2OlvK-tpaN1SfnZeb3mDIhpOZ_CiPof_w7xU3r17Qw",
+  "industries": [],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "DE",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:02:30.341504Z"
+}

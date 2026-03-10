@@ -1,0 +1,20 @@
+{
+  "id": "localstack",
+  "name": "LocalStack",
+  "alternateNames": [],
+  "description": "LocalStack is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFafwPOH_O19w/company-logo_100_100/company-logo_100_100/0/1709124073280/localstack_cloud_logo?e=1774483200&v=beta&t=FI-nhC0j-0CR8XEzCxthlANJIMzr7BtAGTaK2GGM2HA",
+  "industries": [],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "DE",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:38:11.418737Z"
+}

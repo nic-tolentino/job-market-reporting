@@ -1,0 +1,29 @@
+{
+  "id": "grupo-digital",
+  "name": "Grupo Digital",
+  "alternateNames": [],
+  "description": "Grupo Digital is a Spanish technology services company specializing in embedded software for critical systems in the space and satellite sectors.",
+  "website": "https://www.grupodigital.eu",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFj4ubYbOhxxQ/company-logo_100_100/company-logo_100_100/0/1630571828580/grupo_digital_logo?e=1774483200&v=beta&t=QmyYe3BTeuEPqSzBltWwIPntl11YMUYcCQIFE5hm_n0",
+  "industries": [
+    "Aerospace",
+    "Embedded Systems",
+    "IT Services"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Madrid",
+    "Malaga"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 500,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:10:00Z"
+}

@@ -1,0 +1,36 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "FACTORIAL",
+    "identifier": "assets"
+  },
+  "company_type": "Consultancy",
+  "description": "Excelia is a multinational consultancy specializing in data-driven solutions, cybersecurity, and professional services across 50+ countries with over 25 years of experience.",
+  "employees_count": 500,
+  "hq_country": "ES",
+  "id": "excelia",
+  "industries": [
+    "IT Services",
+    "Consulting",
+    "Cybersecurity"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGQmDAsb5_xzQ/company-logo_100_100/B4DZerLHzXH4AQ-/0/1750923509413/excelia_logo?e=1774483200&v=beta&t=Xa6izm5YzKWi0nTHgd1yKPRg6tKgocLvsaScGusyprw",
+  "name": "Excelia",
+  "office_locations": [
+    "Madrid"
+  ],
+  "operating_countries": [
+    "ES",
+    "MX",
+    "BR",
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:10:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://www.excelia.com"
+}

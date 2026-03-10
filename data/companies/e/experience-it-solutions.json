@@ -1,0 +1,30 @@
+{
+  "id": "experience-it-solutions",
+  "name": "Experience IT Solutions",
+  "alternateNames": [
+    "eXperience IT"
+  ],
+  "description": "Experience IT Solutions specializes in digital transformation, process automation, and intelligent conversational interfaces for enterprise clients using AI.",
+  "website": "https://www.experience-it.es",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGHlf0QNWQAhw/company-logo_100_100/company-logo_100_100/0/1639649451185/experience_is_logo?e=1774483200&v=beta&t=lU3ki_TDJ36r2oybXiiYMl5URQsYIaBz8UFNo6jV5fU",
+  "industries": [
+    "IT Services",
+    "Software Development",
+    "AI"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": false,
+  "employees_count": 100,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:10:00Z"
+}

@@ -1,0 +1,37 @@
+{
+  "alternateNames": [
+    "Theta"
+  ],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "j"
+  },
+  "company_type": "Consultancy",
+  "description": "Theta is a proudly NZ owned and operated technology consultancy, delivering smart, pragmatic digital solutions to leading Aotearoa organizations.",
+  "employees_count": 300,
+  "hq_country": "NZ",
+  "id": "theta-nz",
+  "industries": [
+    "IT Services",
+    "Consulting",
+    "Cloud",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHA82737dbJbQ/company-logo_100_100/B56Zjo71GPG4AQ-/0/1756254655343/theta_nz_logo?e=1773878400&v=beta&t=t7cGsbVaMUK7R-PKJA5wVDg025R6-gva3JIkOXuHyao",
+  "name": "Theta (NZ)",
+  "office_locations": [
+    "Auckland",
+    "Wellington",
+    "Christchurch"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T14:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "http://www.theta.co.nz"
+}

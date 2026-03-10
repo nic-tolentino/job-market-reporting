@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "Altus Group Limited"
+  ],
+  "company_type": "Product",
+  "description": "Global provider of commercial real estate software and data analytics solutions.",
+  "employees_count": 2000,
+  "hq_country": "CA",
+  "id": "altus-group",
+  "industries": [
+    "PropTech",
+    "SaaS",
+    "Real Estate"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGYulMQrTmpfw/company-logo_100_100/company-logo_100_100/0/1720017252573/altus_group_logo?e=1773878400&v=beta&t=ypmVXKoESPXvf-HB4u4oPp2AWFpbtvyz-3G6BFvBOZE",
+  "name": "Altus Group",
+  "office_locations": [
+    "Toronto",
+    "Auckland",
+    "Sydney"
+  ],
+  "operating_countries": [
+    "Worldwide",
+    "NZ",
+    "AU",
+    "US",
+    "UK"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T05:30:58.400170Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.altusgroup.com"
+}

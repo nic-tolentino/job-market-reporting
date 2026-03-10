@@ -1,0 +1,30 @@
+{
+  "id": "uptech-sensing",
+  "name": "Uptech Sensing",
+  "alternateNames": [],
+  "description": "Uptech Sensing is a high-tech engineering firm specializing in software development for hardware sensing, data analysis, and advanced backend systems.",
+  "website": "https://uptechsensing.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHcoan_SsU9-Q/company-logo_100_100/company-logo_100_100/0/1630566172927?e=1774483200&v=beta&t=7nkvCZyCxXJC62ALn8Is0iAEwQi4ifQHg8TR1aeiTWg",
+  "industries": [
+    "Sensors",
+    "Engineering",
+    "Data Science",
+    "Software Development"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T13:00:00Z"
+}

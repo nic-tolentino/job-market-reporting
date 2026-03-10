@@ -1,0 +1,20 @@
+{
+  "id": "pratt-whitney",
+  "name": "Pratt & Whitney",
+  "alternateNames": [],
+  "description": "Pratt & Whitney is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEgMINglVU8IQ/company-logo_100_100/company-logo_100_100/0/1709297500868/pratt__whitney_logo?e=1774483200&v=beta&t=jNR1o7HwjDsivtLdNn53fsHsCawQomd5e3US6Ai0pI8",
+  "industries": [],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:52:06.145942Z"
+}

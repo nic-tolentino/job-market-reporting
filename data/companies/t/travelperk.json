@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "Perk"
+  ],
+  "company_type": "Product",
+  "description": "AI-powered platform combining travel booking, expense management, and invoice processing. SoftBank-backed, valued at $2.7B.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "travelperk",
+  "industries": [
+    "Travel",
+    "SaaS",
+    "Enterprise"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGvKqKqKqKqKq/company-logo_100_100/0/1630650773411/travelperk_logo?e=1774483200&v=beta&t=placeholder",
+  "name": "TravelPerk",
+  "office_locations": [
+    "Barcelona"
+  ],
+  "operating_countries": [
+    "ES",
+    "US",
+    "UK",
+    "DE",
+    "FR",
+    "IT",
+    "NL"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-07T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.travelperk.com"
+}

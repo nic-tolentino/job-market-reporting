@@ -1,0 +1,34 @@
+{
+  "alternateNames": [
+    "Watercare",
+    "Watercare Services Limited"
+  ],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "watercare"
+  },
+  "company_type": "Government",
+  "description": "Watercare is Auckland's water and wastewater service provider.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "watercare",
+  "industries": [
+    "Utilities",
+    "Sustainability"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHBFeiFt9mKfQ/company-logo_100_100/B56ZcJ2pJ4H4AQ-/0/1748217009171/watercare_services_limited_logo?e=1774483200&v=beta&t=GTvi84b985fRhv2hdB2gS_9yXwFv1f_bt4eXuzbM1xo",
+  "name": "Watercare",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.watercare.co.nz/"
+}

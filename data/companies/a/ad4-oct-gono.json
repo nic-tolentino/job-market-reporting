@@ -1,0 +1,26 @@
+{
+  "alternateNames": [],
+  "company_type": "Consultancy",
+  "description": "An IT consulting and services company specializing in the utilities sector, providing outsourcing and cloud services.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "ad4-oct-gono",
+  "industries": [
+    "IT Consulting",
+    "Utilities",
+    "Outsourcing"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHa1wFdWtqSRw/company-logo_100_100/B4EZuYlA6vGYAQ-/0/1767791398981/ad4_octogono_logo?e=1774483200&v=beta&t=EZ-Rg_P2B5p9c6t7hK614F7ZJO8FeeAsGtzYnTqqcaQ",
+  "name": "AD4 Octógono",
+  "office_locations": [],
+  "operating_countries": [
+    "ES"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://www.ad4octogono.es"
+}

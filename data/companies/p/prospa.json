@@ -1,0 +1,20 @@
+{
+  "id": "prospa",
+  "name": "Prospa",
+  "alternateNames": [],
+  "description": "Prospa is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFEHp9gVzh7nA/company-logo_100_100/company-logo_100_100/0/1675717945592/prospa_logo?e=1774483200&v=beta&t=X-k07SF_ezNZWaSTTy27MuSQN7DyvHwVSn0LWDgpwxQ",
+  "industries": [],
+  "company_type": "Startup",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:52:06.145942Z"
+}

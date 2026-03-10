@@ -1,0 +1,33 @@
+{
+  "id": "azertium-it",
+  "name": "Azertium IT",
+  "alternateNames": [],
+  "description": "Azertium IT is a technology services company providing specialized software development, systems analysis, and IT outsourcing solutions.",
+  "website": "https://azertium.es",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGqZTmFC9r2PA/company-logo_100_100/company-logo_100_100/0/1688460470874/azertium_it_logo?e=1774483200&v=beta&t=ZBgyShQCLBsEKffA3UwVqadMrulZr8NSFYzgyD4PxZQ",
+  "industries": [
+    "IT Services",
+    "Software Development",
+    "Outsourcing"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Barcelona",
+    "Madrid"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 200,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:00:00Z",
+  "ats": {
+    "provider": "TEAMTAILOR",
+    "identifier": "app"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "the-trade-desk",
+  "name": "The Trade Desk",
+  "alternateNames": [],
+  "description": "The Trade Desk is a company profile created during backlog processing.",
+  "website": "http://www.thetradedesk.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEiipi1eIta9A/company-logo_100_100/company-logo_100_100/0/1712686752136/the_trade_desk_logo?e=1774483200&v=beta&t=rdTkNuzPG_8BO5khh4fjglVwWeIK7g7hhmRvJ6e4CrA",
+  "industries": [
+    "IT Services and IT Consulting, Technology, Information and Internet, and Financial Services"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T03:36:42.903748Z"
+}

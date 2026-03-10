@@ -1,0 +1,36 @@
+{
+  "id": "prima",
+  "name": "Prima",
+  "alternateNames": [
+    "Prima Assicurazioni"
+  ],
+  "description": "Prima is a tech-driven motor insurance provider using data and tech to rethink insurance for millions of drivers across the UK, Italy, and Spain.",
+  "website": "https://www.prima.it",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEKHjN4KrO5KQ/company-logo_100_100/B4DZjQhn_tGQAQ-/0/1755845132686/prima_assicurazioni_logo?e=1774483200&v=beta&t=6slY2V0NZaKwthPe-9rLfZ66gFE0jTHiZwaB9-T14p4",
+  "industries": [
+    "Insurtech",
+    "Fintech",
+    "SaaS",
+    "Insurance"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "IT",
+  "operating_countries": [
+    "IT",
+    "GB",
+    "ES",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Milan",
+    "London",
+    "Madrid"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 1000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

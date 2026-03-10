@@ -1,0 +1,39 @@
+{
+  "alternateNames": [
+    "BDO",
+    "BDO NZ",
+    "BDO in New Zealand"
+  ],
+  "ats": {
+    "provider": "JOBADDER",
+    "identifier": "au3"
+  },
+  "company_type": "Consultancy",
+  "description": "BDO is a world-leading network of public accounting, tax, and advisory firms.",
+  "employees_count": null,
+  "hq_country": "BE",
+  "id": "bdo",
+  "industries": [
+    "Accounting",
+    "Advisory",
+    "Tax"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQG_JDMuyzlHvQ/company-logo_100_100/company-logo_100_100/0/1713819048630/bdo_new_zealand_logo?e=1774483200&v=beta&t=tpbFUDJupoAOSTTmasLoFwpJhc6TZq6L-Xqu5BWs8lg",
+  "name": "BDO",
+  "office_locations": [
+    "Auckland",
+    "Wellington",
+    "Christchurch",
+    "Dunedin"
+  ],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.bdo.nz"
+}

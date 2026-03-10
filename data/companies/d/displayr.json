@@ -1,0 +1,33 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "displayr"
+  },
+  "company_type": "Product",
+  "description": "Displayr is a data science and reporting platform that makes it easy to find and share stories in data, from simple tables and dashboards to advanced machine learning and PowerPoint automation.",
+  "employees_count": 80,
+  "hq_country": "AU",
+  "id": "displayr",
+  "industries": [
+    "Data Analytics",
+    "SaaS",
+    "Business Intelligence"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFtJP0U6XRUuQ/company-logo_100_100/company-logo_100_100/0/1721694692868/display_r_logo?e=1774483200&v=beta&t=9VSyyitVxhLxTlu2wFd7mPqz0WNRHaaSYO4x6mKcCgs",
+  "name": "Displayr",
+  "office_locations": [
+    "Sydney"
+  ],
+  "operating_countries": [
+    "AU",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:10:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.displayr.com"
+}

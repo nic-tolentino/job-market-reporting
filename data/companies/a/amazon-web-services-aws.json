@@ -1,0 +1,20 @@
+{
+  "id": "amazon-web-services-aws",
+  "name": "Amazon Web Services (AWS)",
+  "alternateNames": [],
+  "description": "Amazon Web Services (AWS) is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFqdm1TZ-RZKQ/company-logo_100_100/B4EZgOay6gHEAY-/0/1752588562343/amazon_web_services_logo?e=1774483200&v=beta&t=ZgHAdcNFdFZC-cUtz79JiILKlm4PJzrnSoQJXv7Xdsc",
+  "industries": [],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:34:10.000729Z"
+}

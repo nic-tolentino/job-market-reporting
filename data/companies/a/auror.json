@@ -1,0 +1,37 @@
+{
+  "alternateNames": [
+    "Auror Limited"
+  ],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "auror"
+  },
+  "company_type": "Product",
+  "description": "Auror provides a retail crime intelligence platform to help retailers prevent crime and losses.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "auror",
+  "industries": [
+    "Retail Tech",
+    "Security",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEhw9sXHDxfyA/company-logo_100_100/B56ZbRp7DLGsAQ-/0/1747274150430/auror_logo?e=1774483200&v=beta&t=7GzMcKK4WlmKavJOw6nY99gghz6-ziwBXpoOM_LZLps",
+  "name": "Auror",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "US",
+    "UK"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.auror.co"
+}

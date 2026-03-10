@@ -1,0 +1,20 @@
+{
+  "id": "civica",
+  "name": "Civica",
+  "alternateNames": [],
+  "description": "Civica is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFRBPN-8NrmRQ/company-logo_100_100/company-logo_100_100/0/1719921416264/civica_logo?e=1774483200&v=beta&t=RLu03rYiaE_gV0zVllPBdW8JBEXVPuoo_KVowJLdG1A",
+  "industries": [],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "UK",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:27:03.818991Z"
+}

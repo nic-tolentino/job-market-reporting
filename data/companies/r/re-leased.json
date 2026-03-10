@@ -1,0 +1,39 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "released"
+  },
+  "company_type": "Product",
+  "description": "Re-Leased is a specialized property management platform helping real estate businesses run smarter and more efficiently through automated workflows and deep industry experience.",
+  "employees_count": 150,
+  "hq_country": "NZ",
+  "id": "re-leased",
+  "industries": [
+    "Proptech",
+    "Real Estate",
+    "SaaS",
+    "Fintech"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEVDSCOao4dgg/company-logo_100_100/B56ZXo9U3BHoAQ-/0/1743370145588/re_leased_logo?e=1773878400&v=beta&t=p9PMjirYAGa0V-6DBkigorpjGDGmN7C0YvLMWKALJqQ",
+  "name": "Re-Leased",
+  "office_locations": [
+    "Auckland",
+    "London",
+    "Sydney"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "GB",
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.re-leased.com"
+}

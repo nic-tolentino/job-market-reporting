@@ -1,0 +1,46 @@
+{
+  "alternateNames": [
+    "Vente-Privee"
+  ],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "veepee"
+  },
+  "company_type": "Product",
+  "description": "Veepee is a pioneer of European e-commerce and flash sales, collaborating with 7,000 brands to deliver high-performing digital shopping experiences.",
+  "employees_count": 5000,
+  "hq_country": "FR",
+  "id": "veepee",
+  "industries": [
+    "E-commerce",
+    "Retail Tech",
+    "Software Development",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQE-L8HBv3pQeg/company-logo_100_100/company-logo_100_100/0/1630513258950/veepee_logo?e=1774483200&v=beta&t=MLrdntA4rTIAThWf3YFodwjK_teo_8If4RJSh3ThJts",
+  "name": "Veepee",
+  "office_locations": [
+    "Paris",
+    "Barcelona",
+    "Madrid"
+  ],
+  "operating_countries": [
+    "FR",
+    "ES",
+    "IT",
+    "DE",
+    "BE",
+    "NL",
+    "CH",
+    "AT",
+    "BR",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T13:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.veepee.com"
+}

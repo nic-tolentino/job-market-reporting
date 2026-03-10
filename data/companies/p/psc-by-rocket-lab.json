@@ -1,0 +1,20 @@
+{
+  "id": "psc-by-rocket-lab",
+  "name": "PSC by Rocket Lab",
+  "alternateNames": ["Planetary Systems Corporation"],
+  "description": "PSC, a Rocket Lab company, provides world-renowned satellite separation systems and high-reliability aerospace hardware with 100% mission success.",
+  "website": "https://www.rocketlabusa.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHeAAnu1boZYw/company-logo_100_100/company-logo_100_100/0/1642619403917/planetary_systems_corp_logo?e=1773878400&v=beta&t=...",
+  "industries": ["Aerospace", "Engineering", "Software Development", "Manufacturing"],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": ["US", "NZ", "Worldwide"],
+  "office_locations": ["Silver Spring", "Auckland"],
+  "remote_policy": "On-site",
+  "visa_sponsorship": true,
+  "employees_count": 100,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

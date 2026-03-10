@@ -1,0 +1,32 @@
+{
+  "alternateNames": [
+    "880 Productions",
+    "Lightstorm Entertainment"
+  ],
+  "company_type": "Product",
+  "description": "The production company responsible for the Avatar film sequels, based in New Zealand and operated by James Cameron and Jon Landau.",
+  "employees_count": 500,
+  "hq_country": "NZ",
+  "id": "880-productions-nz-lp",
+  "industries": [
+    "Entertainment",
+    "Film Production"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEPAPfY2J4RQw/company-logo_100_100/company-logo_100_100/0/1709005021487/880_productions_nzlp_logo?e=1773878400&v=beta&t=lAlbEDB8QxkfCLhHVNbGjrsD2JQktsYZnrCObH1-ggM",
+  "name": "880 Productions NZ LP",
+  "office_locations": [
+    "Wellington",
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "US"
+  ],
+  "remote_policy": "On-site",
+  "updated_at": "2026-03-10T05:30:58.400129Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://www.avatar.com"
+}

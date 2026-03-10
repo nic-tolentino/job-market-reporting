@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://devassembly.org/companies/schema.json",
+  "title": "Company Manifest",
+  "description": "Schema for company data in DevAssembly",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "verification_level",
+    "hq_country",
+    "updated_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique company identifier (slugified)",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 1,
+      "maxLength": 100,
+      "examples": ["xero", "canva", "rocket-lab"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Official company name",
+      "minLength": 1,
+      "maxLength": 200,
+      "examples": ["Xero", "Canva", "Rocket Lab"]
+    },
+    "alternateNames": {
+      "type": "array",
+      "description": "Alternative company names for matching",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": []
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief company description",
+      "maxLength": 2000
+    },
+    "website": {
+      "type": ["string", "null"],
+      "description": "Company website URL",
+      "format": "uri"
+    },
+    "logoUrl": {
+      "type": ["string", "null"],
+      "description": "Company logo URL",
+      "format": "uri"
+    },
+    "industries": {
+      "type": "array",
+      "description": "Industry categories",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "default": []
+    },
+    "company_type": {
+      "type": "string",
+      "description": "Type of company",
+      "enum": [
+        "Product",
+        "Agency",
+        "Consultancy",
+        "Government",
+        "Non-profit",
+        "Startup",
+        "Enterprise",
+        "Social Enterprise",
+        "Platform",
+        "Unknown"
+      ]
+    },
+    "is_agency": {
+      "type": "boolean",
+      "description": "Whether this is a recruitment agency"
+    },
+    "is_social_enterprise": {
+      "type": "boolean",
+      "description": "Whether this is a social enterprise/B-Corp"
+    },
+    "hq_country": {
+      "type": "string",
+      "description": "Headquarters country (ISO 3166-1 alpha-2)",
+      "pattern": "^[A-Z]{2}$",
+      "examples": ["NZ", "AU", "US", "GB"]
+    },
+    "operating_countries": {
+      "type": "array",
+      "description": "Countries where company operates",
+      "items": {
+        "type": "string",
+        "pattern": "^([A-Z]{2}|Worldwide)$"
+      },
+      "default": []
+    },
+    "office_locations": {
+      "type": "array",
+      "description": "Cities with company offices",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "default": []
+    },
+    "remote_policy": {
+      "type": "string",
+      "description": "Remote work policy",
+      "enum": [
+        "Remote Only",
+        "Remote",
+        "Hybrid",
+        "On-site",
+        "Flexible",
+        "Unknown"
+      ]
+    },
+    "visa_sponsorship": {
+      "type": ["boolean", "null"],
+      "description": "Whether company sponsors work visas"
+    },
+    "employees_count": {
+      "type": ["integer", "null"],
+      "description": "Number of employees",
+      "minimum": 0,
+      "maximum": 2000000
+    },
+    "verification_level": {
+      "type": "string",
+      "description": "Data verification status",
+      "enum": [
+        "verified",
+        "community_verified",
+        "silver",
+        "unverified",
+        "needs_review",
+        "blocked",
+        "ghost",
+        "stale"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "Last update timestamp (ISO 8601)",
+      "format": "date-time"
+    },
+    "blocked_reason": {
+      "type": "string",
+      "description": "Reason if company is blocked (required when blocked)",
+      "maxLength": 500
+    },
+    "ats": {
+      "type": "object",
+      "description": "ATS configuration for direct integration",
+      "properties": {
+        "provider": {
+          "type": "string",
+          "description": "ATS Provider name",
+          "enum": [
+            "GREENHOUSE",
+            "LEVER",
+            "ASHBY",
+            "JOBADDER",
+            "EMPLOYMENT_HERO",
+            "SNAPHIRE",
+            "WORKDAY",
+            "BAMBOOHR",
+            "TEAMTAILOR",
+            "SMARTRECRUITERS",
+            "WORKABLE",
+            "SUCCESSFACTORS",
+            "FACTORIAL",
+            "PERSONIO",
+            "MYRECRUITMENTPLUS",
+            "COMEET",
+            "RECRUITEE",
+            "BREEZY",
+            "FOUNTAIN",
+            "LIVEHIRE",
+            "APPLICANTSTACK",
+            "JOIN",
+            "RECRUITERBOX",
+            "ZOHO"
+          ]
+        },
+        "identifier": {
+          "type": "string",
+          "description": "ATS identifier (slug, token, or board ID)",
+          "minLength": 1
+        }
+      },
+      "required": ["provider", "identifier"],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "if": {
+    "properties": {
+      "verification_level": {
+        "const": "blocked"
+      }
+    }
+  },
+  "then": {
+    "required": ["blocked_reason"]
+  }
+}

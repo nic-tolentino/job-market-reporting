@@ -1,0 +1,36 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "ASHBY",
+    "identifier": "notion"
+  },
+  "company_type": "Product",
+  "description": "Notion is an all-in-one workspace that seamlessly connects docs, projects, and notes with built-in AI, used by millions from individuals to large global organizations.",
+  "employees_count": 500,
+  "hq_country": "US",
+  "id": "notion",
+  "industries": [
+    "SaaS",
+    "Productivity",
+    "Collaboration",
+    "AI"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGwvcv_1tHZ4w/company-logo_100_100/B4EZW25gE2GgAQ-/0/1742530282185/notionhq_logo?e=1774483200&v=beta&t=hlF2xyuTrnV2yM2ICO-qZWmN-SvdckuldmNPbI75W0w",
+  "name": "Notion",
+  "office_locations": [
+    "San Francisco",
+    "Sydney"
+  ],
+  "operating_countries": [
+    "US",
+    "AU",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.notion.so"
+}

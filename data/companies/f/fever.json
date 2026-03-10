@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "Fever Up"
+  ],
+  "company_type": "Product",
+  "description": "Live entertainment platform curating experiences including concerts, sports, culture, and immersive events in 200+ cities across 30+ countries.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "fever",
+  "industries": [
+    "Entertainment",
+    "Events",
+    "Consumer"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHvKqKqKqKqKq/company-logo_100_100/0/1630650773411/feverup_logo?e=1774483200&v=beta&t=placeholder",
+  "name": "Fever",
+  "office_locations": [
+    "Madrid"
+  ],
+  "operating_countries": [
+    "ES",
+    "US",
+    "UK",
+    "FR",
+    "IT",
+    "DE",
+    "PT"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-07T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://feverup.com"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "tait-communications",
+  "name": "Tait Communications",
+  "alternateNames": ["Tait"],
+  "description": "Tait is a global leader in critical communication solutions, delivering robust wireless networks and bespoke hardware for public safety and utility organizations.",
+  "website": "https://taitcommunications.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGdlF1z_o-T7A/company-logo_100_100/company-logo_100_100/0/1630549325048/tait_communications_logo?e=1773878400&v=beta&t=...",
+  "industries": ["Telecommunications", "Engineering", "Hardware", "IoT"],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": ["NZ", "US", "Worldwide"],
+  "office_locations": ["Christchurch"],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 600,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

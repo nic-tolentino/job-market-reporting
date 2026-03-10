@@ -1,0 +1,34 @@
+{
+  "alternateNames": [
+    "Hatch.team"
+  ],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "q-ctrl"
+  },
+  "company_type": "Product",
+  "description": "Hatch is a next-generation career platform that uses AI and video to match students and graduates with meaningful work opportunities at leading companies.",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "hatch",
+  "industries": [
+    "HR Tech",
+    "SaaS",
+    "Marketplace"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGSBMHOC-7lHg/company-logo_100_100/B56ZbCUlqhHUAU-/0/1747016899664/hatch_team_logo?e=1774483200&v=beta&t=2WkX5QBZnM3G8ez4V9LYDEADH8F0O_T7Nm28Q0lgEeA",
+  "name": "Hatch",
+  "office_locations": [
+    "Sydney"
+  ],
+  "operating_countries": [
+    "AU"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:20:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.hatch.team"
+}

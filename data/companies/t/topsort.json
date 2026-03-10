@@ -1,0 +1,34 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "topsort"
+  },
+  "company_type": "Product",
+  "description": "Topsort is a privacy-first, cookie-free advertising platform democratizing advanced AI technologies to make advertising intuitive and intelligent for modern marketplaces.",
+  "employees_count": 50,
+  "hq_country": "US",
+  "id": "topsort",
+  "industries": [
+    "Ad-tech",
+    "AI",
+    "SaaS",
+    "E-commerce Tech"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHRvac9Q6igzA/company-logo_100_100/B4EZZoZvJfHkAQ-/0/1745508299722/topsort_logo?e=1774483200&v=beta&t=tLg6w14MARuryLJSjl00AO0-puChJ5Hz2Hw_7OcSscc",
+  "name": "Topsort",
+  "office_locations": [
+    "San Francisco"
+  ],
+  "operating_countries": [
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T12:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.topsort.com"
+}

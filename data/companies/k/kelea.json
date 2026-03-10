@@ -1,0 +1,28 @@
+{
+  "id": "kelea",
+  "name": "Kelea",
+  "alternateNames": [],
+  "description": "Kelea is a technology consultancy specializing in organizational transformation, data engineering, and production-ready AI solutions for large enterprises.",
+  "website": "https://www.kelea.io",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGRW2mTQKDnhg/company-logo_100_100/company-logo_100_100/0/1630556149353?e=1774483200&v=beta&t=D3sSyxkssHpqfUAf4k39MZjVYM0yytWmtVagm_6V4Qo",
+  "industries": [
+    "IT Services",
+    "Consulting",
+    "Data & AI"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 100,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:30:00Z"
+}

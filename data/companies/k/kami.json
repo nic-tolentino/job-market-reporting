@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "kamiapp.com"
+  ],
+  "ats": {
+    "provider": "BAMBOOHR",
+    "identifier": "kami"
+  },
+  "company_type": "Product",
+  "description": "Kami is a leading EdTech platform providing digital classroom tools used by over 70 million teachers and students globally to enhance engagement and learning outcomes.",
+  "employees_count": 170,
+  "hq_country": "NZ",
+  "id": "kami",
+  "industries": [
+    "Edtech",
+    "SaaS",
+    "Education"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFJMn2UnV8IDQ/company-logo_100_100/B56ZelGgqCH8AU-/0/1750821637121/usekamiapp_logo?e=1773878400&v=beta&t=8v-VMEWIfFRPhhUKd2Het5zJgdbdZKRTsuQPUMz8zBk",
+  "name": "Kami",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:20:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.kamiapp.com"
+}

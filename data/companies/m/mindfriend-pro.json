@@ -1,0 +1,30 @@
+{
+  "id": "mindfriend-pro",
+  "name": "MindFriend Pro",
+  "alternateNames": [],
+  "description": "MindFriend Pro is an AI-driven digital mental health platform providing scalable, cloud-native solutions and features to enhance emotional well-being.",
+  "website": "https://mindfriendpro.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFXIMJHITqJCg/company-logo_100_100/B4EZqrSLgBGUAU-/0/1763810261460/thecognitiveexchange_logo?e=1774483200&v=beta&t=rch7nboNKCRxl_e3nDaxX82O4KXdbs834Xf9Rd4Jh20",
+  "industries": [
+    "Healthtech",
+    "AI",
+    "Mobile Apps",
+    "SaaS"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": true,
+  "hq_country": "US",
+  "operating_countries": [
+    "US",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "San Francisco"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": true,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:40:00Z"
+}

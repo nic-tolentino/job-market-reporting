@@ -1,0 +1,37 @@
+{
+  "alternateNames": [
+    "ASB",
+    "ASB Bank Limited"
+  ],
+  "ats": {
+    "provider": "SNAPHIRE",
+    "identifier": "asb"
+  },
+  "company_type": "Enterprise",
+  "description": "ASB is one of New Zealand's leading commercial banks, offering personal, business, and rural banking services.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "asb",
+  "industries": [
+    "Banking",
+    "Finance"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE7JzKRvUfCIA/company-logo_100_100/company-logo_100_100/0/1737060676472/asb_bank_logo?e=1774483200&v=beta&t=ub-fzbIN8PTPKEgoDmXeadAJN3qSPw6FFKl6UDJbukw",
+  "name": "ASB Bank",
+  "office_locations": [
+    "Auckland",
+    "Wellington",
+    "Christchurch",
+    "Hamilton"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.asb.co.nz"
+}

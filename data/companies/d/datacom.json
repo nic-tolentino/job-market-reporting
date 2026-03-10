@@ -1,0 +1,40 @@
+{
+  "alternateNames": [
+    "Datacom Group"
+  ],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "datacom1"
+  },
+  "company_type": "Enterprise",
+  "description": "Datacom is Australasia's largest home-grown tech company, providing a broad range of services from cloud and cybersecurity to digital platforms and payroll.",
+  "employees_count": 6500,
+  "hq_country": "NZ",
+  "id": "datacom",
+  "industries": [
+    "IT Services",
+    "Cloud Computing",
+    "Cybersecurity"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQENZC0JdWhdPA/company-logo_100_100/B56ZfORSi5H8AY-/0/1751512328772/datacom_logo?e=1773878400&v=beta&t=L1SaE4iqLriR1YMzsrT5AI4pFsl6DwP0_JNkChRRrbA",
+  "name": "Datacom",
+  "office_locations": [
+    "Auckland",
+    "Wellington",
+    "Christchurch",
+    "Sydney",
+    "Melbourne"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:05:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://datacom.com"
+}

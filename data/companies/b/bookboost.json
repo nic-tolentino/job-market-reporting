@@ -1,0 +1,35 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "PERSONIO",
+    "identifier": "jobs"
+  },
+  "company_type": "Product",
+  "description": "Bookboost is a Customer Experience Platform (CXP) designed for the hospitality industry, enabling hotels to build stronger guest relationships through data-driven communication.",
+  "employees_count": 50,
+  "hq_country": "SE",
+  "id": "bookboost",
+  "industries": [
+    "Hospitality Tech",
+    "SaaS",
+    "CRM"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQF4mmE8eQirSA/company-logo_100_100/B4DZb730zhIEAU-/0/1747982437945/bookboost_logo?e=1774483200&v=beta&t=V1EVJvpIMuASUZJgMo8ysEwzbZ5JV6UEEEe0EQqIP28",
+  "name": "Bookboost",
+  "office_locations": [
+    "Ljungby",
+    "Stockholm"
+  ],
+  "operating_countries": [
+    "SE",
+    "EU",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T09:05:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.bookboost.io"
+}

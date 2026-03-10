@@ -1,0 +1,40 @@
+{
+  "alternateNames": [
+    "Factorial HR"
+  ],
+  "ats": {
+    "provider": "FACTORIAL",
+    "identifier": "apidoc"
+  },
+  "company_type": "Product",
+  "description": "All-in-one business management software unifying HR, finance, payroll, time management, and talent management. Serving 15,000+ companies.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "factorial",
+  "industries": [
+    "HR Tech",
+    "SaaS",
+    "Enterprise"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFvKqKqKqKqKq/company-logo_100_100/0/1630650773411/factorialhr_logo?e=1774483200&v=beta&t=placeholder",
+  "name": "Factorial",
+  "office_locations": [
+    "Barcelona"
+  ],
+  "operating_countries": [
+    "ES",
+    "FR",
+    "IT",
+    "PT",
+    "MX",
+    "CL",
+    "CO"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-07T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://factorialhr.com"
+}

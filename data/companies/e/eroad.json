@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "EROAD Limited"
+  ],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "eroadgroup"
+  },
+  "company_type": "Product",
+  "description": "EROAD provides electronic tax and fleet management solutions for the transport industry.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "eroad",
+  "industries": [
+    "Logistics",
+    "IoT",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQG--sqL163RZg/company-logo_100_100/company-logo_100_100/0/1630612371817/eroad_logo?e=1774483200&v=beta&t=kbu6icZiA-VhG9Q66gZhmJWo0lwfHLhKeogSc63LBQo",
+  "name": "EROAD",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "US"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.eroad.com"
+}

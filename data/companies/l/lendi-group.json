@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "Lendi",
+    "Aussie"
+  ],
+  "ats": {
+    "provider": "SMARTRECRUITERS",
+    "identifier": "LendiGroup1"
+  },
+  "company_type": "Product",
+  "description": "Lendi Group is a leading AU fintech operating the #1 digital mortgage brand and Aussie home loans, leveraging AI-driven platforms to revolutionize the property journey.",
+  "employees_count": 500,
+  "hq_country": "AU",
+  "id": "lendi-group",
+  "industries": [
+    "Fintech",
+    "Real Estate Tech",
+    "SaaS",
+    "AI"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGckMO2r3mmhA/company-logo_100_100/company-logo_100_100/0/1707352054218/lendi_group_logo?e=1774483200&v=beta&t=JsQdtS_hRxpTzOOJ51VueFH3Et0f8ZjuS33pqtlmUFM",
+  "name": "Lendi Group",
+  "office_locations": [
+    "Sydney"
+  ],
+  "operating_countries": [
+    "AU"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.lendigroup.com.au"
+}

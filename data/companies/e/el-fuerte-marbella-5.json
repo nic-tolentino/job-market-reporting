@@ -1,0 +1,30 @@
+{
+  "id": "el-fuerte-marbella-5",
+  "name": "Hotel El Fuerte Marbella 5*",
+  "alternateNames": [
+    "El Fuerte Marbella",
+    "Fuerte Group Hotels"
+  ],
+  "description": "Hotel El Fuerte Marbella is a historic 5-star luxury hotel in Marbella, Spain, part of Fuerte Group Hotels, known for its excellence in hospitality and customer service.",
+  "website": "https://www.fuertehoteles.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQH7J24wY5KXIg/company-logo_100_100/company-logo_100_100/0/1669973997679/el_fuerte_marbella_logo?e=1774483200&v=beta&t=gFbB3_9C3DJvx-NWOKkhUh1qHf8xU77LhU_hg-fK6xw",
+  "industries": [
+    "Hospitality",
+    "Tourism"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Marbella"
+  ],
+  "remote_policy": "On-site",
+  "visa_sponsorship": false,
+  "employees_count": 200,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:10:00Z"
+}

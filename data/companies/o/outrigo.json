@@ -1,0 +1,28 @@
+{
+  "id": "outrigo",
+  "name": "Outrigo",
+  "alternateNames": [],
+  "description": "Outrigo is a technology firm specializing in AI/ML engineering and the development of digital solutions for complex engineering and simulation workflows.",
+  "website": "https://www.outrigo.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHaPfcrlrBfTg/company-logo_100_100/company-logo_100_100/0/1727936104578/outrigo_logo?e=1774483200&v=beta&t=NeXnEghX67ssen99kO_Z9HJOiA3iDZKf5DCWrI-C8sk",
+  "industries": [
+    "Engineering Tech",
+    "AI",
+    "Software Development"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

@@ -1,0 +1,32 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "ZOHO",
+    "identifier": "pinchaaqui"
+  },
+  "company_type": "Agency",
+  "description": "Pinchaaqui.es is a digital strategy agency that connects brands and people through memorable experiences, driving growth through e-commerce and web development.",
+  "employees_count": 50,
+  "hq_country": "ES",
+  "id": "pinchaaqui-es",
+  "industries": [
+    "Digital Marketing",
+    "Software Development",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHKoLaLS8GBWg/company-logo_100_100/B4EZuZAwj2HEAQ-/0/1767798671985/pinchaaqui_es_logo?e=1774483200&v=beta&t=Xa79ObsGH_EPo63KNVeX1T7w2ggzak4zZrN9VY2ilaw",
+  "name": "Pinchaaqui.es",
+  "office_locations": [
+    "Castellón"
+  ],
+  "operating_countries": [
+    "ES"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://www.pinchaaqui.es"
+}

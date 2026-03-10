@@ -1,0 +1,22 @@
+{
+  "id": "method-recruitment-group",
+  "name": "Method Recruitment Group",
+  "alternateNames": [],
+  "description": "Method Recruitment Group is a company profile created during backlog processing.",
+  "website": "http://www.methodrecruitment.com.au",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQH5lt4LV4L1iw/company-logo_100_100/company-logo_100_100/0/1630667378278/method_recruitment_group_logo?e=1774483200&v=beta&t=darLCl58FBBcaVnRrH5yNeBrt1PvhKYUx5BSVgNQd_U",
+  "industries": [
+    "Technology, Information and Media"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T03:36:42.903748Z"
+}

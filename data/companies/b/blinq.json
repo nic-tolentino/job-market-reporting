@@ -1,0 +1,33 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "blinq"
+  },
+  "company_type": "Product",
+  "description": "Blinq is the world's leading digital business card platform, building an intelligence layer for professional relationships to help people connect and stay in play.",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "blinq",
+  "industries": [
+    "SaaS",
+    "Digital Networking",
+    "Mobile Apps"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEMPZ4tDQ9RIw/company-logo_100_100/company-logo_100_100/0/1630668387527/blinq_technologies_logo?e=1774483200&v=beta&t=SF6sm1KrzyNMV5otMAKvIZyFBNIv2azKJ-BwiWYO7BA",
+  "name": "Blinq",
+  "office_locations": [
+    "Melbourne"
+  ],
+  "operating_countries": [
+    "AU",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:05:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://blinq.me"
+}

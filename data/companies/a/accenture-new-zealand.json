@@ -1,0 +1,37 @@
+{
+  "alternateNames": [
+    "Accenture NZ",
+    "Accenture New Zealand"
+  ],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "accenture"
+  },
+  "company_type": "Consultancy",
+  "description": "A global professional services company with leading capabilities in digital, cloud, and security.",
+  "employees_count": 700000,
+  "hq_country": "IE",
+  "id": "accenture-new-zealand",
+  "industries": [
+    "Consulting",
+    "IT Services",
+    "Strategy"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEKlNxVhGPwiA/company-logo_100_100/company-logo_100_100/0/1692237243018/accenture_new_zealand_logo?e=1773878400&v=beta&t=c7QHBMaCFAYRnxQV9U4tG7I4frtcap3CmKa3okEsPE4",
+  "name": "Accenture",
+  "office_locations": [
+    "Auckland",
+    "Wellington"
+  ],
+  "operating_countries": [
+    "Worldwide",
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T05:30:58.400150Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.accenture.co.nz"
+}

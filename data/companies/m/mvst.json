@@ -1,0 +1,34 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "FACTORIAL",
+    "identifier": "mvst"
+  },
+  "company_type": "Consultancy",
+  "description": "MVST is a full-cycle product delivery studio that collaborates with high-growth businesses to strategy, design, and build impactful digital experiences.",
+  "employees_count": 50,
+  "hq_country": "DE",
+  "id": "mvst",
+  "industries": [
+    "IT Services",
+    "Software Development",
+    "Design"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFoHOcYxeLMJg/company-logo_100_100/company-logo_100_100/0/1738311523476/mvst_logo?e=1774483200&v=beta&t=JPrm1db6SYfWelYa8YUgLtKPjKZwkwtzkuxapJDw8EM",
+  "name": "MVST",
+  "office_locations": [
+    "Munich",
+    "Barcelona"
+  ],
+  "operating_countries": [
+    "DE",
+    "ES"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:40:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.mvst.co"
+}

@@ -206,7 +206,9 @@ Later:
 - Ability to 'hide' a job or company (though perhaps it's more about sorting them to the bottom and visibly marking them in some way?)
 - Ability to 'log in' to view my jobs, and see the success of my suggested resources? Also the ability to show a personal dashboard with the companies and tech that I follow as well as any roles that I saved or applied for which have since closed? Ability to mark applied jobs as rejected so we can show how long it takes to get a rejection on average. 
 - Ability to define job application process for each company (role?)
-- 
+
+- for company IDs, how do we deal with international companies having the same name? I imagine we could end up with many conflicts - or worse, if we're not careful we may end up with multiple companies merged into one! Perhaps we can use the company home page and countries which a company operates in as part of the identification? Hmm. Likewise, how do we distinguish the companies during search? eg: Company Name (NZ)?
+- Also, how do we store more semi-dynamic information like what technologies a company uses, or how many jobs they've had for a particular role? Perhaps we can use the job data to inform what technologies are most commonly asked for at a company - how could that be setup? And how do we backup that data (or do we back it up?) or do we just re-calculate it every so often based on historic data?
 
 
 Images:
@@ -246,16 +248,5 @@ Estimated time between 23 Feb and Friday 6th March: 40 hours
 Friday - 5 hours
 Sat - 3 hours
 Sun - 5 hours
-Mon 9 March - 4 hours
-
-Yeah I think that all makes sense thanks -I guess I'm
-    stuggling with the implementation details. I'll trust you
-    (and Gemini) and learn from what you do. Please consider
-  adding thorough documentation, and extensive tests -
-  otherwise go ahead with the feature. 
-
-
-  ---
-
-
-gcloud tasks queues describe tech-market-sync-dlq --location=australia-southeast1
+Mon 9 March - 10 hours
+Tue - 5 hrs

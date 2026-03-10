@@ -1,0 +1,22 @@
+{
+  "id": "sitemate",
+  "name": "Sitemate",
+  "alternateNames": [],
+  "description": "Sitemate is a company profile created during backlog processing.",
+  "website": "https://sitemate.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHu6tRma5JtHg/company-logo_100_100/company-logo_100_100/0/1630667954956/sitemate_technologies_logo?e=1774483200&v=beta&t=kUtPliW5xHE7Bg13F6NsSmo2FntMNSEKER3uulj7y4E",
+  "industries": [
+    "Technology, Information and Internet"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T03:36:42.903748Z"
+}

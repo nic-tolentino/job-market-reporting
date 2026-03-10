@@ -1,0 +1,30 @@
+{
+  "id": "novus-recruitment-solutions",
+  "name": "Novus Recruitment Solutions",
+  "alternateNames": [
+    "Novus"
+  ],
+  "description": "Novus is a specialized tech recruitment and executive search firm focusing on senior-level engineering and leadership roles within the AU fintech sector.",
+  "website": "https://www.novus-recruitment.com.au",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHf2K28TjnAiQ/company-logo_100_100/company-logo_100_100/0/1630656749381/novus_recruitment_solutions_logo?e=1774483200&v=beta&t=ZO0Yt0MzrYI6uLXEKNyQxmNS0ZZIWGw58EtIXDPCA3k",
+  "industries": [
+    "Recruitment",
+    "IT Staffing",
+    "Consulting"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU"
+  ],
+  "office_locations": [
+    "Sydney"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 20,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

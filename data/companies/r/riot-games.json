@@ -1,0 +1,37 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "embed"
+  },
+  "company_type": "Product",
+  "description": "Riot Games is a premier gaming studio and entertainment company, legendary for VALORANT and League of Legends, with a strong engineering and creative presence globally.",
+  "employees_count": 5000,
+  "hq_country": "US",
+  "id": "riot-games",
+  "industries": [
+    "Gaming",
+    "Entertainment",
+    "Software Development"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGJCu2U_L9CNQ/company-logo_100_100/company-logo_100_100/0/1725898995592/riot_games_logo?e=1774483200&v=beta&t=CfG838JIBh9-H-hggViBnPXE3uKKAa4KfSSaeSU9KO8",
+  "name": "Riot Games",
+  "office_locations": [
+    "Los Angeles",
+    "Sydney",
+    "Shanghai"
+  ],
+  "operating_countries": [
+    "US",
+    "AU",
+    "CN",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.riotgames.com"
+}

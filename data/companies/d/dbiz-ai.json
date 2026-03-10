@@ -1,0 +1,33 @@
+{
+  "id": "dbiz-ai",
+  "name": "Digital Biz Solutions",
+  "alternateNames": [
+    "dbiz.ai",
+    "Digital Biz Solutions Pty Ltd"
+  ],
+  "description": "Digital Biz Solutions is a technology firm helping clients with digital transformation, software testing, and expert developer augmentation.",
+  "website": "https://dbiz.ai",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQG7iUTYv0Sugw/company-logo_100_100/company-logo_100_100/0/1690760747145/dbizsolutions_logo?e=1774483200&v=beta&t=TKstEx71zyTQWCawLnJ20qD2aY6mrk5aP4wFYaUCEJ4",
+  "industries": [
+    "IT Services",
+    "Digital Transformation",
+    "Consulting"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU"
+  ],
+  "office_locations": [
+    "Sydney",
+    "Melbourne",
+    "Brisbane"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:05:00Z"
+}

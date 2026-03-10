@@ -1,0 +1,37 @@
+{
+  "id": "coforge",
+  "name": "Coforge",
+  "alternateNames": [
+    "NIIT Technologies"
+  ],
+  "description": "Coforge is a global digital services and solutions provider that leverages emerging technologies and domain expertise to deliver real-world business impact.",
+  "website": "https://www.coforge.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFCnpNRw6_ETA/company-logo_100_100/company-logo_100_100/0/1722915715886/coforge_tech_logo?e=1774483200&v=beta&t=IfjHpuyMgXCpsb0Bn7sNjr26iyi8KrKpUafK5Igfbs4",
+  "industries": [
+    "IT Services",
+    "Digital Transformation",
+    "Consulting"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "IN",
+  "operating_countries": [
+    "IN",
+    "US",
+    "GB",
+    "ES",
+    "AU",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Noida",
+    "Madrid",
+    "Melbourne"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 25000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:05:00Z"
+}

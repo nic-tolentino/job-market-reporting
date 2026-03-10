@@ -1,0 +1,20 @@
+{
+  "id": "autoform-group",
+  "name": "AutoForm Group",
+  "alternateNames": [],
+  "description": "AutoForm Group is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQE51YVSvhgBRQ/company-logo_100_100/company-logo_100_100/0/1668770284939/autoform_engineering_logo?e=1774483200&v=beta&t=FvlOe9AxBrAg5iEATEgggIUsfkPkUwimL5CmalLQAM4",
+  "industries": [],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "CH",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:27:03.818991Z"
+}

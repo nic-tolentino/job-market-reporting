@@ -1,0 +1,29 @@
+{
+  "id": "vale-partners",
+  "name": "VALE Partners",
+  "alternateNames": [],
+  "description": "VALE Partners is a specialized tech recruitment consultancy partnering with high-performing Australian product companies to find elite engineering talent.",
+  "website": "https://valepartners.com.au",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGwcF_EvTiiyw/company-logo_100_100/company-logo_100_100/0/1731634175451/vale_partners_logo?e=1774483200&v=beta&t=S2sAnphBhi5zm6kcQ56BvP6MTeSgrWwI8BysMdxyl78",
+  "industries": [
+    "Recruitment",
+    "IT Staffing",
+    "Consulting"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU"
+  ],
+  "office_locations": [
+    "Brisbane",
+    "Sydney"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 20,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T13:00:00Z"
+}

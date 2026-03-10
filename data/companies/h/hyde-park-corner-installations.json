@@ -1,0 +1,35 @@
+{
+  "id": "hyde-park-corner-installations",
+  "name": "Hyde Park Corner Installations",
+  "alternateNames": [
+    "Hyde Park Corner",
+    "HPC"
+  ],
+  "description": "HPC is an international leader in specialized vehicle telematics, accessory installation, and fleet management technology services.",
+  "website": "http://www.hydeparkcorner.net",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQH5GJPznbo28A/company-logo_100_100/company-logo_100_100/0/1645095443007/hyde_park_corner_installations_logo?e=1773878400&v=beta&t=gdHeMeoLV3X8CM01Cn8hiz8k5GAyWmj-iRsVficjVu4",
+  "industries": [
+    "Automotive",
+    "Telematics",
+    "Logistics Tech",
+    "IoT"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "GB",
+  "operating_countries": [
+    "GB",
+    "IE",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "London",
+    "Warrington"
+  ],
+  "remote_policy": "On-site",
+  "visa_sponsorship": false,
+  "employees_count": 150,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

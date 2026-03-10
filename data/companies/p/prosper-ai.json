@@ -1,0 +1,33 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "ASHBY",
+    "identifier": "prosper-ai"
+  },
+  "company_type": "Product",
+  "description": "Prosper AI specializes in human-like AI phone agents for healthcare, automating administrative tasks like claims verification and patient scheduling to reduce waste.",
+  "employees_count": 20,
+  "hq_country": "US",
+  "id": "prosper-ai",
+  "industries": [
+    "Healthtech",
+    "AI",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHwJac-gt8L9g/company-logo_100_100/B4DZluEd70GsAU-/0/1758488289260/prospertechnologies_logo?e=1774483200&v=beta&t=A1ESTY8-cpWMm4diY3BYPEpIp7m1mxsxsNiCHhwbLFQ",
+  "name": "Prosper AI",
+  "office_locations": [
+    "San Francisco"
+  ],
+  "operating_countries": [
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.prosper-ai.com"
+}

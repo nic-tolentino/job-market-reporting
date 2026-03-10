@@ -1,0 +1,20 @@
+{
+  "id": "dius",
+  "name": "DiUS",
+  "alternateNames": [],
+  "description": "DiUS is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEK-U5D_79arg/company-logo_100_100/company-logo_100_100/0/1725260203947/dius_anz_logo?e=1774483200&v=beta&t=c-q2tfDym454h5y6wuP7QKVR1uXc8BCTWJpJTngqO5w",
+  "industries": [],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T05:48:00.420044Z"
+}

@@ -1,0 +1,35 @@
+{
+  "alternateNames": [
+    "NTT DATA"
+  ],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "nttlimited"
+  },
+  "company_type": "Enterprise",
+  "description": "A prominent information technology service and consulting company offering a broad spectrum of IT and digital services.",
+  "employees_count": null,
+  "hq_country": "JP",
+  "id": "ntt-data-inc",
+  "industries": [
+    "IT Services",
+    "Consulting",
+    "Cloud Computing"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHNV1DPBFCCEw/company-logo_100_100/company-logo_100_100/0/1719587181974/ntt_data_inc_logo?e=1774483200&v=beta&t=X1oFGIRRljzQfZniOt0mWqJvwrnJtd2-50q53AobElU",
+  "name": "NTT DATA, Inc.",
+  "office_locations": [],
+  "operating_countries": [
+    "JP",
+    "US",
+    "AU",
+    "NZ"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:45:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://www.nttdata.com"
+}

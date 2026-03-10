@@ -1,0 +1,36 @@
+{
+  "id": "the-boundary",
+  "name": "The Boundary",
+  "alternateNames": [],
+  "description": "The Boundary is a global leader in architectural visualization and digital twin infrastructure, pioneering the use of real-time technology and AI for prestigious brands.",
+  "website": "https://www.the-boundary.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFsn0Pddiqu3w/company-logo_100_100/company-logo_100_100/0/1663937306236/the_boundary_london_logo?e=1774483200&v=beta&t=w58DZXVCJ5mLWCn1DQtbKvfVOiydHBMQfasj1oB0dRw",
+  "industries": [
+    "Architectural Visualization",
+    "Digital Twin",
+    "Creative Tech",
+    "AI"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "GB",
+  "operating_countries": [
+    "GB",
+    "NZ",
+    "US",
+    "AE",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "London",
+    "Auckland",
+    "New York",
+    "Dubai"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 150,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T12:00:00Z"
+}

@@ -1,0 +1,39 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "plainconcepts"
+  },
+  "company_type": "Consultancy",
+  "description": "Plain Concepts is an international technology firm specializing in innovative solutions across AI, computer vision, and mobile development for global clients.",
+  "employees_count": 500,
+  "hq_country": "ES",
+  "id": "plain-concepts",
+  "industries": [
+    "IT Services",
+    "AI",
+    "Mobile Development",
+    "Consulting"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGW3Er2S6hejw/company-logo_100_100/B4DZVIFDXlHwAc-/0/1740671039509/plainconcepts_logo?e=1774483200&v=beta&t=dX9Ev54gWBXA5wzVoAuMmzvRZS2ahzRSQJD0lAkQfnE",
+  "name": "Plain Concepts",
+  "office_locations": [
+    "Madrid",
+    "Barcelona",
+    "London",
+    "Seattle"
+  ],
+  "operating_countries": [
+    "ES",
+    "US",
+    "GB",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.plainconcepts.com"
+}

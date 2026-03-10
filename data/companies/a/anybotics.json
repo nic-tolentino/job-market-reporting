@@ -1,0 +1,34 @@
+{
+  "id": "anybotics",
+  "name": "ANYbotics",
+  "alternateNames": [],
+  "description": "ANYbotics is a leading developer of autonomous mobile robots for industrial inspection and monitoring in challenging environments.",
+  "website": "https://www.anybotics.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFNxQfx2YcpRA/company-logo_100_100/company-logo_100_100/0/1630598797202/anybotics_logo?e=1774483200&v=beta&t=1i6A2lERL9S07V1fxZ0fxKRx7eiL7jP3EWuNqn0cUVE",
+  "industries": [
+    "Robotics",
+    "AI",
+    "Industrial Automation"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "CH",
+  "operating_countries": [
+    "CH",
+    "DE",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Zurich"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 250,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:52:00Z",
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "anybotics"
+  }
+}

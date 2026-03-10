@@ -1,0 +1,33 @@
+{
+  "id": "recmatrix-consulting",
+  "name": "Recmatrix Consulting",
+  "alternateNames": [
+    "Recmatrix"
+  ],
+  "description": "Recmatrix is a specialized recruitment consultancy focused on Digital, Data, Cloud, and AI talent across NZ, Australia, and India.",
+  "website": "http://www.recmatrix.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFNgWlV9PowzQ/company-logo_100_100/company-logo_100_100/0/1695015582176/recmatrix_consulting_ltd_logo?e=1773878400&v=beta&t=tINago2mFyD0HbMRi7rFB0DQ8AAEaVBIG9kFpf2C9b4",
+  "industries": [
+    "Recruitment",
+    "IT Staffing",
+    "Consulting",
+    "Software Development"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "IN"
+  ],
+  "office_locations": [
+    "Auckland"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 20,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

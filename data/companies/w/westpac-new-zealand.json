@@ -1,0 +1,32 @@
+{
+  "id": "westpac-new-zealand",
+  "name": "Westpac New Zealand",
+  "alternateNames": [
+    "Westpac NZ"
+  ],
+  "description": "Westpac NZ is a major financial institution helping Kiwis find modern wealth solutions through digital transformation, Java/Python services, and strategic AI projects.",
+  "website": "http://www.westpac.co.nz",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHKzQ60Sv1xhQ/company-logo_100_100/company-logo_100_100/0/1631347565937?e=1773878400&v=beta&t=KTOhgonNU7KG074djm6okB2B3Mbfc1jEfTpC9W90YlA",
+  "industries": [
+    "Banking",
+    "Fintech",
+    "AI",
+    "Software Development"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "NZ"
+  ],
+  "office_locations": [
+    "Auckland",
+    "Wellington"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 5000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

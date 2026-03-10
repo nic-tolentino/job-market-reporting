@@ -1,0 +1,35 @@
+{
+  "id": "seisma-group",
+  "name": "SEISMA GROUP",
+  "alternateNames": [
+    "Seisma"
+  ],
+  "description": "Seisma Group is an AU/NZ owned IT professional services firm helping enterprises navigate digital complexities through architecture and software engineering.",
+  "website": "https://www.seismagroup.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGlfmaijYj5Zw/company-logo_100_100/company-logo_100_100/0/1631950841857/seisma_group_logo?e=1773878400&v=beta&t=c0CdIPFJok5MWl-Q_DC4EmWo2muyWxLTAoERJsAZLtw",
+  "industries": [
+    "IT Services",
+    "Consulting",
+    "Cloud",
+    "SaaS"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "NZ"
+  ],
+  "office_locations": [
+    "Melbourne",
+    "Sydney",
+    "Auckland",
+    "Wellington"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 500,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "micromine",
+  "name": "Micromine",
+  "alternateNames": [],
+  "description": "Micromine is a premier mining software company providing cutting-edge technology solutions for exploration and mining operations in every corner of the globe.",
+  "website": "https://www.micromine.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE4E9FzNVdTEg/company-logo_100_100/B56ZwDL7EzK4AQ-/0/1769579983619/micromine_logo?e=1774483200&v=beta&t=r7_QWT_-la3eYxUdWs15tXAdeKHGxJoND2Bm9eEJVNc",
+  "industries": [
+    "Mining Tech",
+    "Agtech",
+    "SaaS"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "CA",
+    "ZA",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Perth"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 300,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:40:00Z"
+}

@@ -1,0 +1,33 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "ASHBY",
+    "identifier": "halter"
+  },
+  "company_type": "Product",
+  "description": "Halter is an agritech company that provides solar-powered smart collars for cows.",
+  "employees_count": 150,
+  "hq_country": "NZ",
+  "id": "halter",
+  "industries": [
+    "Agritech",
+    "IoT",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Halter",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "US"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.halter.co.nz"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "twirll",
+  "name": "Twirll",
+  "alternateNames": [],
+  "description": "Twirll is an Australian technology company building simple, intuitive interfaces for navigating complex cloud applications and navigating information-rich digital experiences.",
+  "website": "https://twirll.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGZFqJMaqx8ow/company-logo_100_100/company-logo_100_100/0/1631330241961?e=1774483200&v=beta&t=k_OgGNKE-ZdgigNEP8DpiH3gJ0oYosm-hCJXzYacUy0",
+  "industries": [
+    "Software Development",
+    "SaaS",
+    "UX Design"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Sydney"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T13:00:00Z"
+}

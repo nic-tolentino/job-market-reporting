@@ -1,0 +1,20 @@
+{
+  "id": "geeks-on-site",
+  "name": "Geeks on Site",
+  "alternateNames": [],
+  "description": "Geeks on Site is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHobOt5zrH3xw/company-logo_100_100/B4EZZE_Uf1GYAQ-/0/1744914172331/geeksonsite_logo?e=1774483200&v=beta&t=l0kX2kKTxBrMewEnsFFMgRbMKmIF9VES64IcvenFCKc",
+  "industries": [],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:02:30.341504Z"
+}

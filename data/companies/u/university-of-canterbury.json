@@ -1,0 +1,35 @@
+{
+  "alternateNames": [
+    "Te Whare Wānanga o Waitaha"
+  ],
+  "ats": {
+    "provider": "SNAPHIRE",
+    "identifier": "www"
+  },
+  "company_type": "Government",
+  "description": "The University of Canterbury is a premier NZ educational institution focusing on digital services, software engineering, and community-driven research.",
+  "employees_count": 2500,
+  "hq_country": "NZ",
+  "id": "university-of-canterbury",
+  "industries": [
+    "Education",
+    "Research",
+    "Public Sector",
+    "Digital Services"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQGFJzgTBJHPSA/company-logo_100_100/company-logo_100_100/0/1631388705729?e=1774483200&v=beta&t=3xAx_QUWJV4CAFbV4gY1ahquPz2MOqdAq9hEq3TYv3k",
+  "name": "University of Canterbury",
+  "office_locations": [
+    "Christchurch"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T13:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.canterbury.ac.nz"
+}

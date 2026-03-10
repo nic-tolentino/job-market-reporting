@@ -1,0 +1,36 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "okendo"
+  },
+  "company_type": "Product",
+  "description": "Okendo is a leading customer marketing platform for Shopify brands, helping 16,000+ merchants grow through reviews, referrals, quizzes, and loyalty programs.",
+  "employees_count": 100,
+  "hq_country": "AU",
+  "id": "okendo",
+  "industries": [
+    "E-commerce Tech",
+    "Marketing Tech",
+    "SaaS",
+    "Shopify"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHMz4th8fqBJw/company-logo_100_100/company-logo_100_100/0/1664285652658/okendo_logo?e=1774483200&v=beta&t=tGQC9H0Ig7V6Be9OMYivr4rqdzA4QMZcqb-283zhB8w",
+  "name": "Okendo",
+  "office_locations": [
+    "Sydney",
+    "Miami"
+  ],
+  "operating_countries": [
+    "AU",
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.okendo.io"
+}

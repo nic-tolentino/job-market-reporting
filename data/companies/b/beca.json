@@ -1,0 +1,38 @@
+{
+  "alternateNames": [
+    "Beca Group"
+  ],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "beca"
+  },
+  "company_type": "Consultancy",
+  "description": "Beca is one of Asia Pacific's largest independent advisory, design, and engineering consultancies.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "beca",
+  "industries": [
+    "Engineering",
+    "Consulting"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGVMCtZI47KAw/company-logo_100_100/company-logo_100_100/0/1720744199970/beca_logo?e=1774483200&v=beta&t=TzjKhpfkn_QBOQ_M9F2ZmbfFsKjJYRUVi3exosXpnBw",
+  "name": "Beca",
+  "office_locations": [
+    "Auckland",
+    "Wellington",
+    "Christchurch",
+    "Tauranga"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "SG"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.beca.com"
+}

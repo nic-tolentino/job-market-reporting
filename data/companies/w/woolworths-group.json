@@ -1,0 +1,22 @@
+{
+  "id": "woolworths-group",
+  "name": "Woolworths Group",
+  "alternateNames": [],
+  "description": "Woolworths Group is a company profile created during backlog processing.",
+  "website": "http://www.woolworthsgroup.com.au",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEAH4-f31tDvQ/company-logo_100_100/B56ZxJ6q4YHIAQ-/0/1770766643356/woolworths_group_logo?e=1774483200&v=beta&t=kndD69bHm4hB8X3Yq0Z5bH07nVFepizCdmnAIT89UP0",
+  "industries": [
+    "Retail"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T03:36:42.903748Z"
+}

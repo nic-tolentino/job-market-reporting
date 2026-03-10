@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "Alphero Limited"
+  ],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "alphero-limited"
+  },
+  "company_type": "Consultancy",
+  "description": "New Zealand's leading digital product agency specialising in mobile and web experiences.",
+  "employees_count": 50,
+  "hq_country": "NZ",
+  "id": "alphero",
+  "industries": [
+    "Digital Agency",
+    "App Development",
+    "UX Design"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEiEy3F6_gasQ/company-logo_100_100/B56Zhdms49HUAY-/0/1753917083600/alphero_logo?e=1773878400&v=beta&t=5c4Sos0ZAsq_jzFnEGLs5f-NaQORW8h_yiIGJyqrM90",
+  "name": "Alphero",
+  "office_locations": [
+    "Auckland",
+    "Wellington"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T05:30:58.400167Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://www.alphero.com"
+}

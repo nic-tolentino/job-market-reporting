@@ -1,0 +1,45 @@
+{
+  "alternateNames": [
+    "Telefónica Tech",
+    "TSA"
+  ],
+  "ats": {
+    "provider": "SUCCESSFACTORS",
+    "identifier": "rmkcdn"
+  },
+  "company_type": "Enterprise",
+  "description": "Telefónica is a global telecom giant and leader in digital transformation, providing mission-critical solutions in cybersecurity, AI, cloud, and broadcast technologies.",
+  "employees_count": 100000,
+  "hq_country": "ES",
+  "id": "telef-nica",
+  "industries": [
+    "Telecoms",
+    "Cybersecurity",
+    "Cloud",
+    "AI",
+    "Big Data"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFQ1OjwQ2rVbw/company-logo_100_100/company-logo_100_100/0/1727681140503/telefonica_logo?e=1774483200&v=beta&t=0_ZHvq076SnsOtdiXFV3maOl1tEljsIwPwQz4tNWg_I",
+  "name": "Telefónica",
+  "office_locations": [
+    "Madrid",
+    "Sao Paulo",
+    "London"
+  ],
+  "operating_countries": [
+    "ES",
+    "BR",
+    "DE",
+    "GB",
+    "US",
+    "AR",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T12:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.telefonica.com"
+}

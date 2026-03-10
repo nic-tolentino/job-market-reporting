@@ -1,0 +1,20 @@
+{
+  "id": "babcock-australia-new-zealand",
+  "name": "Babcock Australia & New Zealand",
+  "alternateNames": ["Babcock"],
+  "description": "Babcock is a leading global defense company providing critical engineering services for national security, maritime sustainment, and aviation missions.",
+  "website": "http://www.babcock.com.au",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF5m8bBJR5ACg/company-logo_100_100/B56Zp537otJQAQ-/0/1762981297155/babcock_pty_logo?e=1773878400&v=beta&t=...",
+  "industries": ["Defense", "Aerospace", "Engineering", "Maritime"],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "GB",
+  "operating_countries": ["AU", "NZ", "GB", "Worldwide"],
+  "office_locations": ["Sydney", "Auckland"],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 3000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

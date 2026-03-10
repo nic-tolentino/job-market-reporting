@@ -1,0 +1,34 @@
+{
+  "id": "mst-global",
+  "name": "MST Global",
+  "alternateNames": [
+    "MST"
+  ],
+  "description": "MST Global designs and delivers mission-critical communications and tracking solutions for the global mining and industrial sectors using advanced IoT and SDN technology.",
+  "website": "https://www.mstglobal.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGif7gfRf_Ckw/company-logo_100_100/company-logo_100_100/0/1724899821113/mstglobal_logo?e=1774483200&v=beta&t=KvUUWap4m58z4qAOSOrL4u_4xZfAxUwcfw-6tGXBIrA",
+  "industries": [
+    "Mining Tech",
+    "IoT",
+    "Networking"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "CA",
+    "US",
+    "ZA",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Sydney"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 200,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:40:00Z"
+}

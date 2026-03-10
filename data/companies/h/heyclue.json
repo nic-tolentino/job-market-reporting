@@ -1,0 +1,26 @@
+{
+  "alternateNames": [],
+  "company_type": "Agency",
+  "description": "An AI-powered recruitment and human resources company providing job search assistance and staffing solutions.",
+  "employees_count": null,
+  "hq_country": "CL",
+  "id": "heyclue",
+  "industries": [
+    "Recruitment",
+    "Staffing",
+    "Human Resources"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHtiF9XeR_Fag/company-logo_100_100/B4DZVnSZ1uHIAU-/0/1741194632961/heyclue_logo?e=1774483200&v=beta&t=WHrBdvU7te0ZRSxHh-4Zhzh8DqTa3IjtGnG96sc0Z-c",
+  "name": "HeyClue",
+  "office_locations": [],
+  "operating_countries": [
+    "CL"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:45:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://jobadvisor.cl"
+}

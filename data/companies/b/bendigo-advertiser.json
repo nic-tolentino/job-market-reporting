@@ -1,0 +1,29 @@
+{
+  "id": "bendigo-advertiser",
+  "name": "Bendigo Advertiser",
+  "alternateNames": [],
+  "description": "The Bendigo Advertiser is a regional daily newspaper serving the Bendigo area in Victoria, Australia. Part of Australian Community Media.",
+  "website": "https://www.bendigoadvertiser.com.au",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQH9cP7y-Qmufg/company-logo_100_100/company-logo_100_100/0/1631388401759?e=1774483200&v=beta&t=ekKI7Van8C8pRrj7ZRTGmTwNDxrgdLIQD8NpBweQzJY",
+  "industries": [
+    "Media",
+    "Journalism",
+    "Publishing"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU"
+  ],
+  "office_locations": [
+    "Bendigo"
+  ],
+  "remote_policy": "On-site",
+  "visa_sponsorship": false,
+  "employees_count": 100,
+  "verification_level": "needs_review",
+  "blocked_reason": "Data collision: Scraper likely misattributed external tech jobs to this media outlet.",
+  "updated_at": "2026-03-10T09:00:00Z"
+}

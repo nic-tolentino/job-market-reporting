@@ -1,0 +1,33 @@
+{
+  "alternateNames": [
+    "BNZ"
+  ],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "nab"
+  },
+  "company_type": "Enterprise",
+  "description": "BNZ is one of New Zealand's largest banks, offering a spread of personal and business banking services.",
+  "employees_count": 5000,
+  "hq_country": "NZ",
+  "id": "bnz",
+  "industries": [
+    "Banking",
+    "Finance"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Bank of New Zealand",
+  "office_locations": [
+    "Auckland",
+    "Wellington"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.bnz.co.nz"
+}

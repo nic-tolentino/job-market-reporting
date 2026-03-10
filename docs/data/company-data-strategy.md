@@ -1,3 +1,5 @@
+# Company Data Strategy
+
 Our goal is to decouple **Company Identity** from **Job Postings**. We will treat companies as first-class citizens with a single, highly-curated source of truth.
 
 ---
@@ -6,26 +8,317 @@ Our goal is to decouple **Company Identity** from **Job Postings**. We will trea
 
 | Feature | Status | Implementation Details |
 | :--- | :--- | :--- |
-| **Master JSON Manifest** | ✅ Implemented | `data/companies.json` contains curated "Gold" and "Silver" companies. |
-| **Two-Phase Sync** | ✅ Implemented | `JobDataSyncService` refreshes companies from Master Manifest before processing jobs. |
-| **Ghost Fallback** | ✅ Implemented | `RawJobDataMapper` creates `ghost-` IDs for unmapped companies. |
-| **Curated Metadata** | ✅ Implemented | Fields like `isAgency`, `hqCountry`, and `visaSponsorship` are live. |
-| **Alias Resolution** | ✅ Implemented | `findCompanyId` matches against `alternateNames` in the manifest. |
-| **Stable Asset Hosting** | 🟡 In Progress | Basic BQ persistence is live; local CDN fetcher is pending. |
-| **AI Enrichment Loop** | 🟡 In Progress | Bootstrapping script exists; automated ghost enrichment is next. |
+| **Directory-Based Manifest** | ✅ **COMPLETE** | `data/companies/*.json` - 80+ individual company files |
+| **JSON Schema Validation** | ✅ **COMPLETE** | `data/companies/schema.json` with full validation |
+| **Validation Scripts** | ✅ **COMPLETE** | `validate_all.py`, `format_all.py`, `check_duplicates.py` |
+| **Backend Directory Reader** | ✅ **COMPLETE** | `CompanySyncService` reads from directory |
+| **AI Enrichment Loop** | ✅ **COMPLETE** | `enrich_unverified_companies.py` writes individual files |
+| **Pre-commit Hooks** | ✅ **COMPLETE** | `.pre-commit-config.yaml` with validation |
+| **GitHub Actions CI** | ✅ **COMPLETE** | Validates on every PR |
+| **Contributor Guidelines** | ✅ **COMPLETE** | `.github/CONTRIBUTING.md` |
+| **Two-Phase Sync** | ✅ **COMPLETE** | `JobDataSyncService` refreshes companies before jobs |
+| **Unverified Fallback** | ✅ **COMPLETE** | `RawJobDataMapper` creates `unverified` records |
+| **Curated Metadata** | ✅ **COMPLETE** | Fields like `isAgency`, `hqCountry`, `visaSponsorship` |
+| **Alias Resolution** | ✅ **COMPLETE** | `findCompanyId` matches against `alternateNames` |
+| **Stable Asset Hosting** | 🟡 In Progress | Basic BQ persistence; CDN fetcher pending |
+| **ATS Configuration** | 🟡 In Progress | Declarative ATS config in company files |
 
 ---
 
+## 1. Current Architecture
+
+### Directory-Based Manifest (Implemented March 2026)
+
+The company manifest uses a **directory-based structure** where each company has its own JSON file:
+
+```
+data/companies/
+├── schema.json              # JSON Schema for validation
+├── README.md                # Documentation
+├── xero.json               # Individual company file
+├── canva.json
+├── rocket-lab.json
+└── ... (80+ files)
+```
+
+**Benefits:**
+- Zero merge conflicts for parallel work
+- Safer edits (one file = one company)
+- Clean, reviewable diffs
+- Easier to maintain and extend
+
+### Validation System
+
+**Multi-layer validation:**
+
+1. **JSON Schema** (`schema.json`) - Enforces structure at file level
+2. **Pre-commit hooks** - Catch errors before commit
+3. **GitHub Actions CI** - Blocks invalid PRs
+4. **Validation scripts** - Manual validation anytime
+
+**Validation checks:**
+- Required fields present
+- ID matches filename (case-sensitive)
+- Lowercase enforcement (cross-platform compatibility)
+- Valid country codes (ISO 3166-1 alpha-2)
+- Valid verification levels
+- No duplicate companies
+- Proper formatting (2-space indent, trailing newline)
+
+### Sync Flow
+
+```
+┌─────────────────────┐
+│  data/companies/    │
+│  (*.json files)     │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ CompanySyncService  │
+│  - Reads directory  │
+│  - Parses JSON      │
+│  - Validates        │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ BigQuery            │
+│ raw_companies table │
+└─────────────────────┘
+```
+
+**Backend Implementation:**
+- `CompanySyncService.syncFromManifest()` - Reads all JSON files from directory
+- Parallel parsing with coroutines (5-7x faster than sequential)
+- Graceful error handling (logs filename if JSON parse fails)
+- ID/filename parity validation
+
 ---
 
-## 1. Ensuring Completeness and High Quality
+## 2. Company Data Model
+
+### Canonical Schema
+
+Each company JSON file follows this schema:
+
+```json
+{
+  "id": "xero",
+  "name": "Xero",
+  "alternateNames": ["Xero Limited", "Xero Inc"],
+  "description": "Xero is a global small business platform...",
+  "website": "https://www.xero.com",
+  "logoUrl": "https://...",
+  
+  "industries": ["Fintech", "SaaS", "Accounting"],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  
+  "hq_country": "NZ",
+  "operating_countries": ["NZ", "AU", "US", "UK"],
+  "office_locations": ["Auckland", "Wellington", "Sydney", "London"],
+  
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 5000,
+  
+  "verification_level": "verified",
+  "updated_at": "2026-03-10T00:00:00Z",
+  
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "xero"
+  }
+}
+```
+
+### Field Rationale
+
+- **`id`**: Immutable primary key (slug format). **Must match filename exactly.**
+- **`alternateNames`**: Crucial for matching dirty job board data
+- **`hq_country`**: ISO 3166-1 alpha-2 code (e.g., `NZ`, `AU`)
+- **`verification_level`**: Trust tier (verified, silver, unverified, etc.)
+- **`ats`**: Optional ATS integration config (provider + identifier)
+
+---
+
+## 3. Verification Levels (Medallion Architecture)
+
+| Level | Description | Source |
+|-------|-------------|--------|
+| **verified** | Manually reviewed by core team | Human curation |
+| **community_verified** | Validated by trusted community member | Community PR |
+| **silver** | AI-enriched data | `enrich_unverified_companies.py` |
+| **unverified** | Auto-discovered from job postings | Job ingestion |
+| **needs_review** | Flagged for manual audit | Validation/flags |
+| **blocked** | Spam/scam (filters out jobs) | Manual block |
+
+---
+
+## 4. Handling Unmapped Discoveries
+
+When a new company is discovered (not in manifest):
+
+1. **Unverified Company Creation**: `RawJobDataMapper` creates `unverified` record
+2. **Sparse Data**: Auto-generated slug ID, scraped name, logo URL
+3. **Jobs Linked Immediately**: Job postings visible even without full company profile
+4. **AI Enrichment Queue**: Added to queue for `enrich_unverified_companies.py`
+
+### AI Enrichment Workflow
+
+```bash
+# 1. Setup environment
+export GEMINI_API_KEY="your-key-here"
+
+# 2. Run enrichment script
+cd scripts/companies
+python3 enrich_unverified_companies.py
+
+# 3. Review changes
+git diff data/companies/
+
+# 4. Validate
+python3 validate_all.py
+
+# 5. Commit and sync
+git commit -m "Enrich 5 unverified companies"
+curl -X POST https://api.devassembly.org/api/admin/sync-companies
+```
+
+**What the script does:**
+- Queries BigQuery for `unverified` companies
+- Pulls recent job descriptions for context
+- Uses Gemini to generate structured metadata
+- Saves individual JSON files with `silver` verification
+
+---
+
+## 5. Handling Multi-National Companies
+
+### Data Modeling
+
+Separate `hq_country` from `operating_countries`:
+
+```json
+{
+  "hq_country": "US",
+  "operating_countries": ["US", "NZ", "AU"],
+  "office_locations": ["San Francisco", "Auckland", "Sydney"]
+}
+```
+
+### UI/UX Implications
+
+- **Local Company**: `hq_country === selectedCountry`
+- **International**: `hq_country !== selectedCountry` but `selectedCountry in operating_countries`
+
+### The ".nz" Litmus Test
+
+Companies without `.nz` domains often have non-NZ HQ despite NZ presence:
+- **Cin7**: US-headquartered (despite NZ origin)
+- **Rocket Lab**: US-headquartered (despite NZ operations)
+
+---
+
+## 6. ATS Integration (Declarative Configuration)
+
+### Data Architecture
+
+**Definition (in Git):**
+```json
+"ats": {
+  "provider": "GREENHOUSE",
+  "identifier": "xero"
+}
+```
+
+**Operational State (in BigQuery):**
+- `enabled`: Operational control (DB only)
+- `last_synced_at`: Last API poll
+- `sync_status`: `SUCCESS`, `FAILED`
+- `error_message`: Why disabled (if applicable)
+
+### Sync Flow
+
+```kotlin
+fun syncFromManifest() {
+    manifestCompanies.forEach { company ->
+        val existingConfig = repository.getConfig(company.id)
+        
+        if (company.ats != null) {
+            if (existingConfig == null) {
+                // NEW integration - enable by default
+                repository.insert(company.ats.copy(enabled = true))
+            } else {
+                // EXISTING - preserve DB enabled state
+                repository.update(
+                    company.ats.copy(
+                        enabled = existingConfig.enabled
+                    )
+                )
+            }
+        }
+    }
+}
+```
+
+### Validation
+
+```bash
+# Validate ATS configs
+python3 scripts/ats/validate_ats_configs.py
+
+# Tests public APIs (Greenhouse, Lever, Ashby)
+# Validates provider/identifier format
+```
+
+---
+
+## 7. Further Enhancements
+
+### Implemented ✅
+- Directory-based manifest
+- JSON Schema validation
+- Pre-commit hooks
+- GitHub Actions CI
+- Contributor guidelines
+- AI enrichment loop
+- Backend directory reader
+
+### In Progress 🟡
+- Stable asset hosting (CDN for logos)
+- ATS integration rollout
+
+### Future Enhancements 💡
+- **Per-company supplemental files**: `xero.logo.svg`, `xero.bio.md`
+- **Automated company discovery**: Clearbit/Apollo API integration
+- **Community reviews**: Glassdoor/Blind links
+- **Verified badges**: Blue checkmark for curated companies
+- **Remote-from-NZ tag**: AU companies hiring remote in NZ
+
+---
+
+## 8. Contributing
+
+See [CONTRIBUTING.md](../../.github/CONTRIBUTING.md) for:
+- Quick start guide
+- Company file structure
+- Validation instructions
+- Common issues
+- Review process
+
+---
+
+**Last Updated:** March 10, 2026
 
 ### The "Master Manifest" vs. The "Scraped" Layer
-Currently, our `RawJobDataMapper` creates company records based on whatever data it can extract from a job posting. While this is great for discovery, it is noisy and represents the **Bronze Layer**.
+Currently, our `RawJobDataMapper` creates company records based on whatever data it can extract from a job posting. While this is great for discovery, it is noisy and represents the **Bronze Layer** (Unverified).
 We have introduced a **Master Manifest** (`companies.json`) that provides structured metadata which overrides scraped data, moving companies into the **Silver** or **Gold** layers.
 
-*   **Bronze Layer (Scraped):** Discovers new companies ("Ghosts") and provides temporary data (name, logo, description) to get them on the board immediately.
-*   **Silver Layer (AI Enriched):** AI-enriched data (via `enrich_ghosts.py`) that adds depth to Ghost records. These records live in the Master Manifest but pending human audit.
+*   **Bronze Layer (Scraped):** Discovers new companies ("Unverified") and provides temporary data (name, logo, description) to get them on the board immediately.
+*   **Silver Layer (AI Enriched):** AI-enriched data (via `enrich_unverified_companies.py`) that adds depth to Unverified records. These records live in the Master Manifest but are pending final human audit.
 *   **Gold Layer (Human Curated):** Definitive data that locks in official names, high-res logos, and specific tags. These are the "Verified" records in the Master Manifest.
 
 ### Verification Levels (Medallion Mapping)
@@ -33,7 +326,7 @@ To manage trust at scale, we assign every company a `verification_level`:
 1.  **`verified` (Gold):** Manually reviewed by the core team. Clean, perfect data.
 2.  **`community_verified` (Gold):** Validated by a trusted community member.
 3.  **`silver` (Silver):** AI-enriched data based on job descriptions and external APIs.
-4.  **`ghost` (Bronze):** Minimal data extracted directly from a job board or ATS. Low confidence.
+4.  **`unverified` (Bronze):** Automatically discovered companies from a job board or ATS. Low confidence.
 5.  **`stale` / `needs_review`:** Previously verified/silver, but flagged for manual audit.
 6.  **`blocked` (Spam Filter):** Specifically for recruitment holding companies or scam listings. A `blocked` status forces the pipeline to filter out any associated jobs.
 
@@ -105,29 +398,45 @@ Here is the proposed canonical schema and the rationale for each field:
 
 To transition to the Master JSON system, we need a reliable way to seed the initial data and seamlessly add newly discovered companies without slowing down the real-time job ingestion pipeline.
 
-#### 1. Seeding the Initial Master List (One-Off Process)
-We already have hundreds of unique companies residing in the BigQuery `jobs` data. We will extract them to establish our baseline:
-*   **The BigQuery Extract:** We will run a one-off query (e.g., `SELECT DISTINCT companyName, logoUrl FROM techmarket.jobs`) to dump every company we've encountered so far.
-*   **The Bootstrapping Script:** We will build a temporary local script (`scripts/companies/bootstrap-companies.ts` or a Kotlin equivalent). This script will loop through the CSV extract and frame it into our new JSON schema. It will slugify the name for the `id` and seed the `alternateNames` array.
-*   **LLM First-Pass Enrichment:** To save hours of manual data entry, the bootstrapping script will ping a local LLM or API (like Gemini or Claude) with each company name, prompting it to intelligently guess the `industries`, `company_type`, `is_agency` flag, and `hq_country`.
-*   **Manual Review:** We will manually review the generated `data/companies.json` file, correct any LLM hallucinations, and commit it to the repository as part of the Master Manifest.
+#### 1. Seeding the Initial Master List (Complete)
+The initial manifest was seeded by extracting unique companies from historical job data. This one-off process established our baseline of ~2,000 companies. New companies are now added via the automated enrichment loop described below.
 
 #### 2. Handling Unmapped Discoveries (The Real-Time Fallback)
-Once the system is live, the Apify scrapers will eventually ingest a job from a brand new startup that does not yet exist in `data/companies.json`. The pipeline must gracefully handle this without crashing or dropping the job:
-1.  **The "Ghost" Company Creation:** During Phase 2 (Job Processing) of the sync, if `JobMapper` cannot find a match for the scraped company name in the BigQuery `companies` table (which represents our master JSON), it will automatically generate a transitional "Ghost" company record.
-2.  **Ghost Characteristics:** A Ghost record is sparse. It has an auto-generated ID (e.g., `ghost-scraped-name`), the scraped name, and whatever `logoUrl` was present in the API payload. These are inserted into BigQuery on the fly.
-3.  **Job Linking:** The new jobs are immediately linked to this Ghost company. This ensures that job postings are instantly visible to candidates, even if the parent company lacks an industry classification.
+Once the system is live, the scrapers will eventually ingest a job from a brand new company that does not yet exist in `data/companies.json`. The pipeline must gracefully handle this:
+1.  **Unverified Company Creation:** During Phase 2 (Job Processing) of the sync, if `RawJobDataMapper` cannot find a match for the scraped company name in the Master Manifest, it will automatically generate a transitional `unverified` company record in BigQuery.
+2.  **Unverified Characteristics:** An unverified record is sparse. It has an auto-generated slug ID, the scraped name, and whatever `logoUrl` was present in the API payload. 
+3.  **Job Linking:** The new jobs are immediately linked to this unverified company record. This ensures that job postings are instantly visible, even if the parent company lacks metadata.
 
-#### 3. The Continuous Enhancement Loop (Ongoing Updates)
-We do not want to hand-write JSON entries every time a new startup appears. We will automate the curation loop.
-*   **The Discovery Worker:** We have created a local utility script `scripts/companies/enrich_ghosts.py` that runs asynchronously from the core application. You can execute this script on an ad-hoc basis whenever there are many ghost companies.
-*   **Execution Requires API Key:** Running the script locally requires you to provide the `GEMINI_API_KEY` environment variable. (e.g. `export GEMINI_API_KEY="your-key" && python3 scripts/companies/enrich_ghosts.py`).
-*   **The Workflow:**
-    1.  **Query:** The script queries our BigQuery production database for all "Ghost" companies (`verificationLevel = 'ghost'`).
-    2.  **Context Building:** The script pulls recent job descriptions associated with each Ghost company to provide context to the LLM.
-    3.  **AI Enrichment:** It prompts the Google Gemini API to analyze the company metadata, explicitly extracting: `name`, `alternateNames`, `description`, `company_type`, `is_agency`, `hq_country`, `industries`, and `employees_count`.
-    4.  **Append:** The script appends completed structured `silver` tier JSON objects for these new companies to the local `data/companies.json` manifest and automatically sorts the file alphabetically.
-*   **The Merge:** A developer opens a Pull Request with the updated JSON file. Because it's just JSON, it's incredibly easy to review the diff to catch LLM mistakes. Once merged, the backend loads the new file on startup (or via sync payload), and the sparse "Ghost" records in production are overwritten with definitive "Silver" records.
+#### 3. The Continuous Enhancement Loop (AI Enrichment)
+We do not want to hand-write JSON entries every time a new startup appears. We automate the curation loop using Gemini.
+
+### 🤖 Guide: Processing Unverified Companies
+When the "New Discovery" count grows (viewable in the Admin Dashboard), follow these steps to promote companies to the Silver/Gold tiers:
+
+1.  **Setup Environment**: Ensure you have a valid Google Gemini API Key.
+    ```bash
+    export GEMINI_API_KEY="your-key-here"
+    ```
+2.  **Run Enrichment Script**: Execute the Python enrichment utility from the scripts directory.
+    ```bash
+    # From project root
+    cd scripts/companies
+    python3 enrich_unverified_companies.py
+    ```
+3.  **What the Script Does**:
+    - Queries BigQuery for all companies with `verificationLevel = 'unverified'`.
+    - Pulls recent job descriptions for context.
+    - Prompts Gemini to generate structured metadata (Type, Industries, HQ, etc.).
+    - Appends the new records to `data/companies.json` with `verification_level: "silver"`.
+4.  **Review and Commit**:
+    - Open `data/companies.json` to verify the AI's work (especially `hq_country` and `is_agency`).
+    - Commit the updated manifest file to the repository.
+5.  **Sync to Production**:
+    - Once merged/pushed, trigger the manual sync via the Admin API:
+    ```bash
+    curl -X POST http://api.devassembly.org/api/admin/sync-companies \
+         -H "x-apify-signature: your-secret"
+    ```
 
 ### The Server Sync Pipeline
 Rather than the backend trying to decipher company metadata dynamically while parsing jobs, the backend will treat the `companies.json` file as Gold.
@@ -167,3 +476,42 @@ During audit passes, special attention is paid to companies without a `.nz` doma
 *   **"Verified" Badges:** Companies whose JSON profiles have been manually reviewed and merged in the open-source repo get a blue checkmark or "Verified" badge on the platform, increasing candidate trust.
 *   **Community Reviews (External Links):** In the JSON files, allow contributors to link to Glassdoor, Blind, or local forum discussions about the company's engineering culture.
 *   **Company Merging (Alias Resolution):** Job boards are notorious for duplicate names (e.g., "ASB", "ASB Bank", "ASB Bank Limited"). Our backend must have a robust alias resolution system. The open-source JSON `alternateNames` array will be the primary mechanism for the backend to know that these three distinct scraped names should all roll up into the single `asb-bank` company ID.
+
+---
+
+## 5. Migration Plan: Directory-Based Manifest (Q2 2026)
+
+As the number of curated companies grows beyond 300, maintaining a single `companies.json` file becomes a bottleneck for collaboration and increases the risk of merge conflicts.
+
+### The Objective
+Move from `data/companies.json` to a directory structure where each company has its own file: `data/companies/{company-id}.json`.
+
+### Advantages
+1.  **Zero Merge Conflicts**: Multiple agents/contributors can work on different companies simultaneously.
+2.  **Safety**: A syntax error in one file only affects one company, not the entire manifest.
+3.  **Clean Diffs**: PRs will show exactly which companies were added or modified.
+4.  **Extensibility**: Allows attaching supplemental metadata (like local markdown bios) in the same directory.
+
+### Migration Steps
+
+#### Phase 1: Infrastructure Preparation
+*   Update `CompanySyncService` in the backend to scan the `data/companies/` directory. It should recursively find all `.json` files and aggregate them into the sync list.
+*   Update `enrich_unverified_companies.py` script to identify the target directory and write individual files.
+
+#### Phase 2: Content Migration
+*   Run a one-off migration script to split the existing `companies.json` into 180+ individual files.
+*   Verify the count and integrity of the records in the new directory.
+
+#### Phase 3: Cutover
+*   Delete the legacy `data/companies.json` file.
+*   Update project documentation and CI checks (if any) to point to the new directory structure.
+
+### New Directory Structure
+```text
+data/
+  companies/
+    xero.json
+    canva.json
+    rocket-lab.json
+    ...
+```

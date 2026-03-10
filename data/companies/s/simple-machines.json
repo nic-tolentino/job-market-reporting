@@ -1,0 +1,36 @@
+{
+  "id": "simple-machines",
+  "name": "Simple Machines",
+  "alternateNames": [],
+  "description": "Simple Machines is an independent boutique technology firm specializing in architecting scalable data platforms and software systems designed for an AI-driven world.",
+  "website": "https://www.simplemachines.com.au",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFABvUDD7egEg/company-logo_100_100/company-logo_100_100/0/1705398364689/simplemachinesau_logo?e=1774483200&v=beta&t=9DSr8eRFpP-OH8ovKXkBjoL3_sLNbPG7_VRhiUzMjsQ",
+  "industries": [
+    "Data Engineering",
+    "AI",
+    "Software Development",
+    "Consulting"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "GB",
+    "US",
+    "PL",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Sydney",
+    "London",
+    "San Francisco"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T11:00:00Z"
+}

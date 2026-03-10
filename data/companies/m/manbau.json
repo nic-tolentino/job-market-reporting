@@ -1,0 +1,32 @@
+{
+  "id": "manbau",
+  "name": "Manbau",
+  "alternateNames": [
+    "Manbau Consulting & Advisory"
+  ],
+  "description": "Manbau is a private equity consulting firm specializing in impactful transformation strategies, blending M&A, turnarounds, and technological precision for global portfolio companies.",
+  "website": "https://www.manbau.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHU4cJCk--iVg/company-logo_100_100/B4EZvasSZ5HkAQ-/0/1768900601837/manbau_logo?e=1774483200&v=beta&t=R-HDiV4y6uDPInaozKCUW314SeV5ht5pVxFL00CRmXg",
+  "industries": [
+    "Consulting",
+    "Private Equity",
+    "IT Services"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES",
+    "US",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Valencia"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:30:00Z"
+}

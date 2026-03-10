@@ -1,0 +1,31 @@
+{
+  "id": "iteration-mobile-s-l",
+  "name": "Iteration Mobile",
+  "alternateNames": [
+    "Radarbot"
+  ],
+  "description": "Iteration Mobile is a pioneer in automotive software and mobile app development, creators of Radarbot, a leading global GPS navigation and radar warning app.",
+  "website": "https://www.iteration-mobile.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQH--nC3hJ14aA/company-logo_100_100/company-logo_100_100/0/1630643465301/iteration_mobile_s_l_logo?e=1774483200&v=beta&t=OmYd3UPncNGDmq0UNfgaTfVfMNSL_UK9VHQYfBD6W5A",
+  "industries": [
+    "Mobile Apps",
+    "Automotive Tech",
+    "Navigation"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:20:00Z"
+}

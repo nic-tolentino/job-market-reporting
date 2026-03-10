@@ -1,0 +1,30 @@
+{
+  "alternateNames": [
+    "HSO International"
+  ],
+  "company_type": "Consultancy",
+  "description": "HSO is a global provider of business applications and platform services geared towards the Microsoft ecosystem.",
+  "employees_count": null,
+  "hq_country": "NL",
+  "id": "hso",
+  "industries": [
+    "Consulting",
+    "Enterprise Software",
+    "Microsoft"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGmYTnKFqmXUA/company-logo_100_100/company-logo_100_100/0/1687938602832/hso_logo?e=1774483200&v=beta&t=5Qgk8addNNqcoz-L_IaRVYstyJpI41CSqojfDfvyH1s",
+  "name": "HSO",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.hso.com/"
+}

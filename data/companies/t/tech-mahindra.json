@@ -1,0 +1,38 @@
+{
+  "id": "tech-mahindra",
+  "name": "Tech Mahindra",
+  "alternateNames": [
+    "TechM"
+  ],
+  "description": "Tech Mahindra is a global digital consulting giant enabling transformative scale through AI, analytics, and end-to-end IT infrastructure services.",
+  "website": "www.techmahindra.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFMdgkjmsLgLw/company-logo_100_100/B56ZoVGk2tHIAQ-/0/1761290641122/tech_mahindra_logo?e=1773878400&v=beta&t=drgLYDRz8yVMx9csiFGU10rqv4W7y_QTmc4R2Gc_Q1c",
+  "industries": [
+    "IT Services",
+    "Consulting",
+    "AI",
+    "Cloud",
+    "Software Development"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "IN",
+  "operating_countries": [
+    "IN",
+    "US",
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Pune",
+    "Sydney",
+    "Auckland"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 149000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

@@ -1,0 +1,34 @@
+{
+  "alternateNames": [
+    "Orion"
+  ],
+  "company_type": "Product",
+  "description": "Orion Health is a leading global provider of health information technology and connectivity solutions.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "orion-health",
+  "industries": [
+    "Healthtech",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE8L38mxdTOAA/company-logo_100_100/B56ZdRQWCZGsAQ-/0/1749414928963/orion_health_logo?e=1774483200&v=beta&t=Lw0tGS19xzmOycTDCKvk5dArsZC6jqslQ6H_egpTT7U",
+  "name": "Orion Health",
+  "office_locations": [
+    "Auckland",
+    "Christchurch"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "US",
+    "UK",
+    "CA"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://orionhealth.com"
+}

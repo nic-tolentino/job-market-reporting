@@ -1,0 +1,39 @@
+{
+  "alternateNames": [
+    "Henry Schein One"
+  ],
+  "ats": {
+    "provider": "TEAMTAILOR",
+    "identifier": "henryscheinone"
+  },
+  "company_type": "Product",
+  "description": "Henry Schein One is a leading dental technology company providing AI-driven treatment planning and practice management software to empower dental practices in the APAC region.",
+  "employees_count": 500,
+  "hq_country": "US",
+  "id": "henry-schein-one-asia-pacific",
+  "industries": [
+    "Healthtech",
+    "Dental Tech",
+    "SaaS",
+    "AI"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGeKtlVh1YB-Q/company-logo_100_100/company-logo_100_100/0/1630638300778/henryscheinoneanz_logo?e=1773878400&v=beta&t=rTtYI-Y_ycgGOVIvD2O_TwT3QOE8QhuhdvZsMIORTA8",
+  "name": "Henry Schein One (Asia Pacific)",
+  "office_locations": [
+    "Sydney",
+    "Auckland"
+  ],
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "SG",
+    "MY"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:20:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.henryscheinone.com.au"
+}

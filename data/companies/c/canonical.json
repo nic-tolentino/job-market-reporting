@@ -1,0 +1,35 @@
+{
+  "alternateNames": [
+    "Ubuntu"
+  ],
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "canonical"
+  },
+  "company_type": "Product",
+  "description": "Canonical is the company behind Ubuntu, the world's most popular Linux operating system.",
+  "employees_count": null,
+  "hq_country": "UK",
+  "id": "canonical",
+  "industries": [
+    "Open Source",
+    "Software Development",
+    "Operating Systems"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEbIYAkAURcYw/company-logo_100_100/company-logo_100_100/0/1650566107463/canonical_logo?e=1774483200&v=beta&t=Jp45-8XMIaEVfRrmgDkhBHs2ekAU6mppn6tiG8a5XuE",
+  "name": "Canonical",
+  "office_locations": [],
+  "operating_countries": [
+    "UK",
+    "US",
+    "NZ",
+    "AU"
+  ],
+  "remote_policy": "Remote Only",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.canonical.com/"
+}

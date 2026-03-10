@@ -1,0 +1,20 @@
+{
+  "id": "apd-global",
+  "name": "APD Global",
+  "alternateNames": [],
+  "description": "APD Global is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHZX_oiVmFzHg/company-logo_100_100/company-logo_100_100/0/1734323159804/apdglobal_logo?e=1774483200&v=beta&t=ZRD0QfToJ7DHUIKm6dQvJVD3-UMXLQt7zmNbcEyYp58",
+  "industries": [],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "PH",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:38:11.418737Z"
+}

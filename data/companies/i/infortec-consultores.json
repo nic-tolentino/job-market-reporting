@@ -1,0 +1,30 @@
+{
+  "id": "infortec-consultores",
+  "name": "Infortec Consultores",
+  "alternateNames": [
+    "Infortec"
+  ],
+  "description": "Infortec Consultores provides high-impact IT staffing and consulting services specializing in modern backend architectures and cloud environments.",
+  "website": "https://www.infortec.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEnLg61yEAv-g/company-logo_100_100/B4DZfBVwQkGgAQ-/0/1751295395192/infortec_consultores_logo?e=1774483200&v=beta&t=bkxO2cQGv6KckncJYEnXJZ-Xqx_k4Yctbflz38gKF-4",
+  "industries": [
+    "IT Services",
+    "Staffing",
+    "Consulting"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": false,
+  "employees_count": 200,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:20:00Z"
+}

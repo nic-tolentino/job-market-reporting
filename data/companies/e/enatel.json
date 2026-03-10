@@ -1,0 +1,33 @@
+{
+  "alternateNames": [
+    "Enatel Limited"
+  ],
+  "company_type": "Product",
+  "description": "Enatel designs and manufactures world-class power conversion products for the global market.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "enatel",
+  "industries": [
+    "Manufacturing",
+    "Energy",
+    "Power Conversion"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHHtMW9aRa0bw/company-logo_100_100/company-logo_100_100/0/1658273640115/enatel_logo?e=1774483200&v=beta&t=7Y1-Bf3K4lE_w0NExupM0LZ1mFzKmiF7onBO5rOFyS4",
+  "name": "Enatel",
+  "office_locations": [
+    "Christchurch"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "US",
+    "UK"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.enatel.net"
+}

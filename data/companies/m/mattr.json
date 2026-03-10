@@ -1,0 +1,35 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "BAMBOOHR",
+    "identifier": "mattr"
+  },
+  "company_type": "Product",
+  "description": "MATTR provides standards-based infrastructure for digital trust, developing interoperable and secure solutions for verifiable data and decentralized identity.",
+  "employees_count": 100,
+  "hq_country": "NZ",
+  "id": "mattr",
+  "industries": [
+    "Cybersecurity",
+    "Blockchain",
+    "SaaS",
+    "Digital ID"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFRmAfkVrlLKg/company-logo_100_100/company-logo_100_100/0/1630634713306/mattrglobal_logo?e=1773878400&v=beta&t=zRYljGgLSXNrJBBnccMHOBtCbbhev3JKDPdfBz1NK54",
+  "name": "MATTR",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:40:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://mattr.global"
+}

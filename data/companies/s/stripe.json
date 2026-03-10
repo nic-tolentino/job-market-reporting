@@ -1,0 +1,20 @@
+{
+  "id": "stripe",
+  "name": "Stripe",
+  "alternateNames": [],
+  "description": "Stripe is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE2ZfJyfn-VCg/company-logo_100_100/B56ZlyKwpUKIAQ-/0/1758557047806/stripe_logo?e=1774483200&v=beta&t=JcTdlu0G-UDXWtfnMLOrsHGq24Ss9RpBXZXTIoGosAs",
+  "industries": [],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:34:10.000729Z"
+}

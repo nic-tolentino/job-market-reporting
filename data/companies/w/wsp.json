@@ -1,0 +1,37 @@
+{
+  "id": "wsp",
+  "name": "WSP",
+  "alternateNames": [],
+  "description": "WSP is a leading global professional services firm future-proofing cities and environments through engineering, urban planning, and digital innovation.",
+  "website": "https://www.wsp.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEoUMHQE0Gytg/company-logo_100_100/company-logo_100_100/0/1719867936717/wsp_logo?e=1774483200&v=beta&t=eH7lG343cNGSP3FNXQPOuEqxjMF06kb0WxPndc3RZpA",
+  "industries": [
+    "Engineering",
+    "Professional Services",
+    "Environmental Services",
+    "Public Sector"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "CA",
+  "operating_countries": [
+    "CA",
+    "NZ",
+    "AU",
+    "US",
+    "GB",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Montreal",
+    "Auckland",
+    "Sydney",
+    "London"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 65000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

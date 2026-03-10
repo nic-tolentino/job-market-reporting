@@ -1,0 +1,30 @@
+{
+  "alternateNames": [],
+  "company_type": "Product",
+  "description": "Fuel50 provides an AI-driven talent marketplace platform for employee career pathing and skills management.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "fuel50",
+  "industries": [
+    "HR Tech",
+    "AI",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQERlaDM3KMqDA/company-logo_100_100/company-logo_100_100/0/1727172406627/fuel50_logo?e=1774483200&v=beta&t=u_qI1nZser_LPluXp66Ocj2wM61zyMzY1MfN9IaqYsw",
+  "name": "Fuel50",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "US",
+    "UK"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://fuel50.com"
+}

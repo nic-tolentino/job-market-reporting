@@ -1,0 +1,22 @@
+{
+  "id": "eftsure",
+  "name": "Eftsure",
+  "alternateNames": [],
+  "description": "Eftsure is a company profile created during backlog processing.",
+  "website": "http://www.eftsure.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFOvdz2pU693A/company-logo_100_100/B4DZh4zX9GH8AQ-/0/1754373390613/eftsure_logo?e=1774483200&v=beta&t=dMlSZ3YI62PdZ1-ykP03heI_fPmP0F_oY2OpXb5ZXaA",
+  "industries": [
+    "Information Technology & Services"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T03:36:42.903748Z"
+}

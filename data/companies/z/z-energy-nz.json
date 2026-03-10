@@ -1,0 +1,32 @@
+{
+  "id": "z-energy-nz",
+  "name": "Z Energy NZ",
+  "alternateNames": [
+    "Z Energy"
+  ],
+  "description": "Z Energy is Aotearoa's largest transport energy provider, committed to decarbonizing NZ's transport network through fuel today and EV solutions tomorrow.",
+  "website": "http://www.z.co.nz",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQH9oNG_EcpVEg/company-logo_100_100/company-logo_100_100/0/1631347021725?e=1773878400&v=beta&t=-kxtK3lOAY_REZc-b6IayfW0PliBqNxnDxz3JBfF0lo",
+  "industries": [
+    "Energy",
+    "Oil and Gas",
+    "Software Development",
+    "Sustainability"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": [
+    "NZ"
+  ],
+  "office_locations": [
+    "Wellington",
+    "Auckland"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 1000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

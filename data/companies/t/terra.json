@@ -1,0 +1,20 @@
+{
+  "id": "terra",
+  "name": "Terra",
+  "alternateNames": [],
+  "description": "Terra is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGzvLtWmb-Jaw/company-logo_100_100/company-logo_100_100/0/1695282346933/teamthunderfoot_logo?e=1774483200&v=beta&t=hD5qzfwyZlOZGiqEyMqxRK-ctocfmKmEy3_BDIC4RMU",
+  "industries": [],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:57:28.207311Z"
+}

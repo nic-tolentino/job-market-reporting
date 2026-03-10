@@ -1,0 +1,42 @@
+{
+  "alternateNames": [
+    "Thales Group"
+  ],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "thales"
+  },
+  "company_type": "Enterprise",
+  "description": "Thales is a global leader in advanced technologies, delivering secure, sustainable solutions across aerospace, defense, cybersecurity, and digital identity.",
+  "employees_count": 80000,
+  "hq_country": "FR",
+  "id": "thales",
+  "industries": [
+    "Aerospace",
+    "Defense",
+    "Cybersecurity",
+    "Deep Tech",
+    "IT Services"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEmnUAXTuLkJQ/company-logo_100_100/company-logo_100_100/0/1631366051478/thales_logo?e=1774483200&v=beta&t=xGSEQ-1PH66cYEckGmsnqDESBiokMPJH5mjcbk6Jxew",
+  "name": "Thales",
+  "office_locations": [
+    "Paris",
+    "Sydney",
+    "Melbourne"
+  ],
+  "operating_countries": [
+    "FR",
+    "AU",
+    "US",
+    "GB",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T12:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.thalesgroup.com"
+}

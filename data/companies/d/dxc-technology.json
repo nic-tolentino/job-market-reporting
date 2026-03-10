@@ -1,0 +1,40 @@
+{
+  "alternateNames": [
+    "DXC"
+  ],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "dxctechnology"
+  },
+  "company_type": "Enterprise",
+  "description": "DXC Technology is a global Fortune 500 IT services leader, delivering mission-critical infrastructure, cloud solutions, and digital transformation.",
+  "employees_count": 130000,
+  "hq_country": "US",
+  "id": "dxc-technology",
+  "industries": [
+    "IT Services",
+    "Cloud",
+    "Software Development",
+    "Consulting"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQG64dSXK4S4aw/company-logo_100_100/B4EZsIpKlaGoAQ-/0/1765376568001/dxctechnology_logo?e=1773878400&v=beta&t=TXRud0GoxNqDYU8FU4AdCHGj6n_VBFfoGPthNAqqcW8",
+  "name": "DXC Technology",
+  "office_locations": [
+    "Ashburn",
+    "Sydney",
+    "Auckland"
+  ],
+  "operating_countries": [
+    "US",
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T14:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "http://www.dxc.com"
+}

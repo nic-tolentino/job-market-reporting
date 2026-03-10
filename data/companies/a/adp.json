@@ -1,0 +1,20 @@
+{
+  "id": "adp",
+  "name": "ADP",
+  "alternateNames": [],
+  "description": "ADP is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQE2ALnzsL9mlw/company-logo_100_100/B4EZXS9EdvHMAU-/0/1743000979692/adp_logo?e=1774483200&v=beta&t=sy9QlGLPvJt-d-K4-c2Bmr6JlMk5SFNedDiN9VFxAKA",
+  "industries": [],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T07:27:03.818991Z"
+}

@@ -1,0 +1,35 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "myob-2"
+  },
+  "company_type": "Product",
+  "description": "MYOB is a leading provider of business management solutions in Australia and New Zealand, offering integrated tools locally tailored to help businesses thrive.",
+  "employees_count": 2000,
+  "hq_country": "AU",
+  "id": "myob",
+  "industries": [
+    "Fintech",
+    "SaaS",
+    "Accounting Tech"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF0JyFp1BN70A/company-logo_100_100/B56ZWgvKzLHEAc-/0/1742158474878/myob_logo?e=1774483200&v=beta&t=jWzhTpN7rsTk926iYBcIaJuFhCYx8TK6I8Ljb0uYIbw",
+  "name": "MYOB",
+  "office_locations": [
+    "Melbourne",
+    "Sydney",
+    "Auckland"
+  ],
+  "operating_countries": [
+    "AU",
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:40:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.myob.com"
+}

@@ -1,0 +1,36 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "roller"
+  },
+  "company_type": "Product",
+  "description": "ROLLER is a leading SaaS platform for the leisure and attractions industry, helping operators run better businesses while creating great guest experiences globally.",
+  "employees_count": 150,
+  "hq_country": "AU",
+  "id": "roller",
+  "industries": [
+    "Leisure Tech",
+    "SaaS",
+    "E-commerce",
+    "Fintech"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHJ9BhhJNCNHQ/company-logo_100_100/company-logo_100_100/0/1721195650177/roller_logo?e=1774483200&v=beta&t=kCynB5H1U5U3-alKpzh0kf4wmJSBYqi5C_wED9G5h-Y",
+  "name": "ROLLER",
+  "office_locations": [
+    "Melbourne"
+  ],
+  "operating_countries": [
+    "AU",
+    "US",
+    "GB",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T11:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.roller.software"
+}

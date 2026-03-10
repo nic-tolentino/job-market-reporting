@@ -1,0 +1,35 @@
+{
+  "id": "luxury-escapes",
+  "name": "Luxury Escapes",
+  "alternateNames": [],
+  "description": "Luxury Escapes is one of the world's fastest-growing luxury travel platforms, providing exclusive deals on incredible holidays to over 8 million members globally through advanced travel tech.",
+  "website": "https://www.luxuryescapes.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQE3LJdozq0q-w/company-logo_100_100/company-logo_100_100/0/1660806684736/luxury_escapes_logo?e=1774483200&v=beta&t=u6BoOfsM0DDDnW8RjcnfhI4vF3is47j6JJQBt0WvzSY",
+  "industries": [
+    "Travel Tech",
+    "E-commerce",
+    "SaaS"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "SG",
+    "GB",
+    "US",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Melbourne",
+    "Sydney",
+    "Singapore"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 400,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:30:00Z"
+}

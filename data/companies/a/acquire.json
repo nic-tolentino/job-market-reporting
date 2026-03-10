@@ -1,0 +1,22 @@
+{
+  "id": "acquire",
+  "name": "acQuire",
+  "alternateNames": [],
+  "description": "acQuire is a company profile created during backlog processing.",
+  "website": "http://www.acquire.com.au",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHg-2JHf8Euww/company-logo_100_100/company-logo_100_100/0/1641776239722/acquire_technology_solutions_logo?e=1774483200&v=beta&t=WCR-UnAwS87YrSLSuWnS7o_naPSzCFR-H6a97fRF2-I",
+  "industries": [
+    "Software Development"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T03:36:42.903748Z"
+}

@@ -1,0 +1,26 @@
+{
+  "alternateNames": [],
+  "company_type": "Agency",
+  "description": "A leading job board and recruitment platform for the iGaming and Online Gambling industries.",
+  "employees_count": null,
+  "hq_country": "GB",
+  "id": "gamblingcareers-com",
+  "industries": [
+    "iGaming",
+    "Online Gambling",
+    "Recruitment"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQE8SddPSYyZBw/company-logo_100_100/company-logo_100_100/0/1688671839432/gamblingcareers_logo?e=1774483200&v=beta&t=ZH_YMcVoc4JGriNeTp-H-l6t3lPUA_oduNyV4ysN0Hw",
+  "name": "GamblingCareers.com",
+  "office_locations": [],
+  "operating_countries": [
+    "GB"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://www.gamblingcareers.com"
+}

@@ -1,0 +1,32 @@
+{
+  "alternateNames": [
+    "The Whiteam"
+  ],
+  "ats": {
+    "provider": "TEAMTAILOR",
+    "identifier": "app"
+  },
+  "company_type": "Consultancy",
+  "description": "A technology consultancy firm helping companies optimize profitability through information technologies and digital transformation.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "thewhiteam",
+  "industries": [
+    "IT Consulting",
+    "Software Development",
+    "Digital Transformation"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEDjwLUWy3W_g/company-logo_100_100/company-logo_100_100/0/1651575521640/the_white_team_consulting_logo?e=1774483200&v=beta&t=CLlhRLRZVMj5kwv-FZSOemK08h8OtprqXdPVrHlbgcE",
+  "name": "TheWhiteam",
+  "office_locations": [],
+  "operating_countries": [
+    "ES"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://www.thewhiteam.com"
+}

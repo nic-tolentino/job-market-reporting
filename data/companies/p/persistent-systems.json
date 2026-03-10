@@ -1,0 +1,36 @@
+{
+  "id": "persistent-systems",
+  "name": "Persistent Systems",
+  "alternateNames": [
+    "Persistent"
+  ],
+  "description": "Persistent Systems is a trusted digital engineering provider helping global organizations modernize through specialized technical expertise and enterprise-grade solutions.",
+  "website": "https://www.persistent.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQH5EcH5fkKmSg/company-logo_100_100/company-logo_100_100/0/1731934962856/persistent_systems_logo?e=1774483200&v=beta&t=LdEO6G2TNRQDJwbNI2GsmGeegmORcybLN2YwBi93hLw",
+  "industries": [
+    "IT Services",
+    "Data Engineering",
+    "Consulting",
+    "Cloud"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "IN",
+  "operating_countries": [
+    "IN",
+    "AU",
+    "US",
+    "GB",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Pune",
+    "Sydney"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 22000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

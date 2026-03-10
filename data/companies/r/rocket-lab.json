@@ -1,0 +1,38 @@
+{
+  "alternateNames": [
+    "Rocket Lab Limited",
+    "Rocket Lab USA"
+  ],
+  "ats": {
+    "provider": "GREENHOUSE",
+    "identifier": "rocketlab"
+  },
+  "company_type": "Product",
+  "description": "Rocket Lab is an aerospace manufacturer and launch service provider, known for its Electron orbital rocket.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "rocket-lab",
+  "industries": [
+    "Aerospace",
+    "Space",
+    "Manufacturing"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEoxk0rRcE6JA/company-logo_100_100/company-logo_100_100/0/1645135300007/rocket_lab_limited_logo?e=1774483200&v=beta&t=SVMTO5t7cQuO0Tmf3kkOycsGnFZvWaCOTKiDgnucHu4",
+  "name": "Rocket Lab",
+  "office_locations": [
+    "Auckland",
+    "Mahia"
+  ],
+  "operating_countries": [
+    "US",
+    "NZ",
+    "CA"
+  ],
+  "remote_policy": "On-site",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://rocketlabcorp.com"
+}

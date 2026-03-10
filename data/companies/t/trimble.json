@@ -1,0 +1,32 @@
+{
+  "alternateNames": [
+    "Trimble",
+    "Trimble Navigation",
+    "Trimble Inc."
+  ],
+  "company_type": "Product",
+  "description": "Trimble is a leading provider of advanced location-based solutions that maximize productivity and enhance profitability.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "trimble",
+  "industries": [
+    "Geo-spatial",
+    "Agriculture",
+    "Construction"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHM4R2dJDTWcQ/company-logo_100_100/B56Zat13QIHUAQ-/0/1746673300891/trimble_logo?e=1774483200&v=beta&t=l_AnlwfcC24J61Sxq6cItcC1ixUdjCzz6_2xupRhCsw",
+  "name": "Trimble",
+  "office_locations": [
+    "Christchurch"
+  ],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.trimble.com"
+}

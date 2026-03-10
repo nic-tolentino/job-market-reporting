@@ -1,0 +1,32 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "FACTORIAL",
+    "identifier": "assets"
+  },
+  "company_type": "Consultancy",
+  "description": "North is a digital product studio based in Barcelona that collaborates with ambitious companies to innovate and build advanced interactive digital products.",
+  "employees_count": 50,
+  "hq_country": "ES",
+  "id": "north",
+  "industries": [
+    "Design",
+    "Software Development",
+    "Consulting"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQF_K87rfCaUJw/company-logo_100_100/B4DZrpMfJkJAAU-/0/1764848956567/thenorthstudiocom_logo?e=1774483200&v=beta&t=rlRKPs-KQtOzZueCj92T2Zh01BVVqN3eQs0Mb0am45s",
+  "name": "North",
+  "office_locations": [
+    "Barcelona"
+  ],
+  "operating_countries": [
+    "ES"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://www.north.studio"
+}

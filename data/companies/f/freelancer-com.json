@@ -1,0 +1,39 @@
+{
+  "alternateNames": [
+    "Freelancer Limited",
+    "Escrow.com"
+  ],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "freelancer"
+  },
+  "company_type": "Product",
+  "description": "Freelancer.com is the world's largest freelancing and crowdsourcing marketplace, connecting over 70 million users and projects globally.",
+  "employees_count": 500,
+  "hq_country": "AU",
+  "id": "freelancer-com",
+  "industries": [
+    "Marketplace",
+    "Tech",
+    "Gig Economy"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEY4SP4Wyuj0A/company-logo_100_100/company-logo_100_100/0/1726106390553/freelancer_com_logo?e=1774483200&v=beta&t=Xh4T_9D6ONoSnm7XZe243HxecAEAiFdnwSPLDPHZNhY",
+  "name": "Freelancer.com",
+  "office_locations": [
+    "Sydney",
+    "Melbourne",
+    "London",
+    "Vancouver"
+  ],
+  "operating_countries": [
+    "AU",
+    "Worldwide"
+  ],
+  "remote_policy": "Flexible",
+  "updated_at": "2026-03-10T09:10:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.freelancer.com"
+}

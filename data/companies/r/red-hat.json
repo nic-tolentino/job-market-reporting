@@ -1,0 +1,24 @@
+{
+  "id": "red-hat",
+  "name": "Red Hat",
+  "alternateNames": [],
+  "description": "Red Hat is the world’s leading provider of enterprise open source solutions, using a community-powered approach to deliver high-performing Linux, hybrid cloud, edge, and Kubernetes technologies.\n\nWe hire creative, passionate people who are ready to contribute their ideas, help solve complex problems, and make an impact. Opportunities are open. Join us. ",
+  "website": "http://www.redhat.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEto-TydTTIfQ/company-logo_100_100/company-logo_100_100/0/1630583759577/red_hat_logo?e=1774483200&v=beta&t=jU_TBcKLmU7ExOfAM0hlnENLBROCmUdeTW33LW5keOk",
+  "industries": [
+    "IT Services",
+    "IT Consulting",
+    "Software Development"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T03:36:42.903748Z"
+}

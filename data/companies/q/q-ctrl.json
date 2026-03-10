@@ -1,0 +1,38 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "LEVER",
+    "identifier": "q-ctrl"
+  },
+  "company_type": "Product",
+  "description": "Q-CTRL is a global leader in quantum control, building infrastructure software and sensing technologies to make quantum computers and sensors useful for real-world applications.",
+  "employees_count": 100,
+  "hq_country": "AU",
+  "id": "q-ctrl",
+  "industries": [
+    "Quantum Tech",
+    "Deep Tech",
+    "Software Development",
+    "Sensors"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHbdlAVOeJXPg/company-logo_100_100/company-logo_100_100/0/1630585272501/q_ctrl_logo?e=1774483200&v=beta&t=BEPFhRrzYpPSxQ0hAwXsMAEgM7Dx1irCKnKyNxQf-qU",
+  "name": "Q-CTRL",
+  "office_locations": [
+    "Sydney",
+    "Los Angeles",
+    "London"
+  ],
+  "operating_countries": [
+    "AU",
+    "US",
+    "GB",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://q-ctrl.com"
+}

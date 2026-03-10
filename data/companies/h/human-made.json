@@ -1,0 +1,20 @@
+{
+  "id": "human-made",
+  "name": "Human Made",
+  "alternateNames": [],
+  "description": "Human Made is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEOlmiuZ7YINA/company-logo_100_100/B4EZhlF_vAGYAU-/0/1754042728738/human_made_limited_logo?e=1774483200&v=beta&t=h2NZDccYSWl7t3Qt5xmI1oCbXaExxClMGtJWVxY_H2w",
+  "industries": [],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "UK",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:38:11.418737Z"
+}

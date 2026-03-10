@@ -1,0 +1,20 @@
+{
+  "id": "novahiring",
+  "name": "NovaHiring",
+  "alternateNames": [],
+  "description": "NovaHiring is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHdvHszIgPHyw/company-logo_100_100/B4DZrpEhdsHsAQ-/0/1764846868887/novahiringcom_logo?e=1774483200&v=beta&t=tC04ZG82pkXmK4p-B1DLSo12_geENlf70iTboG3C4GA",
+  "industries": [],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "DE",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:52:06.145942Z"
+}

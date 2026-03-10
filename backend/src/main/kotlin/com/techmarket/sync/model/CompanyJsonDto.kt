@@ -28,11 +28,18 @@ data class CompanyJsonDto(
     @JsonProperty("remote_policy")
     val remotePolicy: String? = null,
     @JsonProperty("visa_sponsorship")
-    val visaSponsorship: Boolean = false,
+    val visaSponsorship: Boolean? = null,
     @JsonProperty("employees_count")
     val employeesCount: Int? = null,
     @JsonProperty("verification_level")
     val verificationLevel: VerificationLevel = VerificationLevel.VERIFIED,
     @JsonProperty("updated_at")
-    val updatedAt: String? = null
+    val updatedAt: String? = null,
+    @JsonProperty("ats")
+    val atsConfig: AtsConfigDto? = null
+)
+
+data class AtsConfigDto(
+    val provider: String,
+    val identifier: String
 )

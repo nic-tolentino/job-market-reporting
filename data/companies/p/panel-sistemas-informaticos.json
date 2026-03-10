@@ -1,0 +1,32 @@
+{
+  "id": "panel-sistemas-informaticos",
+  "name": "Panel Sistemas",
+  "alternateNames": [
+    "Panel"
+  ],
+  "description": "Panel Sistemas is a technology services provider specializing in software development for critical environments, including fintech and AI-driven cloud services.",
+  "website": "https://www.panel.es",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQG56KRk__sJ4A/company-logo_100_100/company-logo_100_100/0/1728468001835/panel_sistemas_inform_ticos_logo?e=1774483200&v=beta&t=SwRgLvYDPIYMz8lEE5FLHZg2GFkxbe0JrIVIzQv0PZA",
+  "industries": [
+    "IT Services",
+    "Fintech",
+    "Consulting",
+    "Software Development"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": false,
+  "employees_count": 500,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

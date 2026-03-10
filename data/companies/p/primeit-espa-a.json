@@ -1,0 +1,41 @@
+{
+  "id": "primeit-espa-a",
+  "name": "PrimeIT",
+  "alternateNames": [
+    "PrimeIT España"
+  ],
+  "description": "PrimeIT is an international technology and engineering consultancy with over 18 years of experience in IT, telecoms, energy, and infrastructure sectors globally.",
+  "website": "https://primeit.es",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFHKOWhVeLq1g/company-logo_100_100/B4DZfqRXJFGsAY-/0/1751982109741/primeit_espaa_logo?e=1774483200&v=beta&t=JsspOlap4cJ1S8Ow0B6f2yHGItasOhFfXwZa3WcCxOE",
+  "industries": [
+    "IT Services",
+    "Engineering",
+    "Consulting",
+    "Telecoms"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "PT",
+  "operating_countries": [
+    "ES",
+    "PT",
+    "FR",
+    "GB",
+    "IT",
+    "CH",
+    "PL",
+    "BR",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Madrid",
+    "Lisbon",
+    "Paris"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": true,
+  "employees_count": 3000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T10:00:00Z"
+}

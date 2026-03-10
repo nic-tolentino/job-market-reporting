@@ -1,0 +1,20 @@
+{
+  "id": "southern-cross",
+  "name": "Southern Cross",
+  "alternateNames": ["Southern Cross Health Society"],
+  "description": "Southern Cross is New Zealand's leading provider of health insurance and healthcare services, helping more than 900,000 Kiwis with their wellbeing.",
+  "website": "https://www.southerncross.co.nz",
+  "logoUrl": null,
+  "industries": ["Insurance", "Health", "Non-profit"],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": ["NZ"],
+  "office_locations": ["Auckland"],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 1000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T11:00:00Z"
+}

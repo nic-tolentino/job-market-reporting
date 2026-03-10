@@ -1,0 +1,43 @@
+{
+  "alternateNames": [
+    "Airwallex Pty Ltd"
+  ],
+  "ats": {
+    "provider": "ASHBY",
+    "identifier": "airwallex"
+  },
+  "company_type": "Product",
+  "description": "A fintech unicorn providing global payments and financial platform for modern businesses.",
+  "employees_count": 1500,
+  "hq_country": "AU",
+  "id": "airwallex",
+  "industries": [
+    "Fintech",
+    "Payments",
+    "Financial Services"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQE0x1xIVWaQgw/company-logo_100_100/company-logo_100_100/0/1630593999400/airwallex_logo?e=1773878400&v=beta&t=NgKnVAZHrrkPd2a1hYlzezNjhFZmi5LDBfZmQYON3eA",
+  "name": "Airwallex",
+  "office_locations": [
+    "Melbourne",
+    "Sydney",
+    "Auckland",
+    "London",
+    "San Francisco"
+  ],
+  "operating_countries": [
+    "Worldwide",
+    "AU",
+    "NZ",
+    "UK",
+    "US",
+    "HK"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T05:30:58.400158Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.airwallex.com"
+}

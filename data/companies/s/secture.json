@@ -1,0 +1,28 @@
+{
+  "id": "secture",
+  "name": "Secture",
+  "alternateNames": [],
+  "description": "Secture is a technology development team committed to software quality and innovation, building specialized digital products and services for various industries.",
+  "website": "https://secture.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEDD2fcT0eBwg/company-logo_100_100/B4EZwEYcx.KYAQ-/0/1769600044982/secture_logo?e=1774483200&v=beta&t=-qRTuKj2ZmDWJMrIxISxqOdLqE7K7PenmpX-8B45U3c",
+  "industries": [
+    "Software Development",
+    "IT Services",
+    "Consulting"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [
+    "ES"
+  ],
+  "office_locations": [
+    "Madrid"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": false,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T11:00:00Z"
+}

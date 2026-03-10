@@ -1,0 +1,20 @@
+{
+  "id": "rio-tinto",
+  "name": "Rio Tinto",
+  "alternateNames": [],
+  "description": "Rio Tinto is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFBmNPHgN7h1A/company-logo_100_100/company-logo_100_100/0/1719791037771/rio_tinto_logo?e=1774483200&v=beta&t=6Kx5FXn-waHzWhUCakyvnIMSvgIpfVkjm7kXwHGLQsA",
+  "industries": [],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "GB",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T03:36:42.903748Z"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "maxvy-technologies-pvt-ltd",
+  "name": "Maxvy Technologies",
+  "alternateNames": [
+    "Maxvy"
+  ],
+  "description": "Maxvy Technologies is a specialized tech services firm focusing on embedded systems, IoT, and full-stack web development for diverse industrial applications.",
+  "website": "https://www.maxvy.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEBMTBudRm24g/company-logo_100_100/company-logo_100_100/0/1630646691052/maxvytech_logo?e=1774483200&v=beta&t=CW1hQf9irG5nuFp8vRs0Qt4y5J44jbpE-CR8QwW6d5k",
+  "industries": [
+    "Embedded Systems",
+    "IoT",
+    "IT Services"
+  ],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "IN",
+  "operating_countries": [
+    "IN"
+  ],
+  "office_locations": [
+    "Bangalore"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": false,
+  "employees_count": 50,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:40:00Z"
+}

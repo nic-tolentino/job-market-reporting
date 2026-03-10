@@ -1,0 +1,31 @@
+{
+  "alternateNames": [
+    "Sourced",
+    "Sourced IT"
+  ],
+  "company_type": "Agency",
+  "description": "Sourced IT Recruitment is a specialist technology recruitment agency base in New Zealand.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "sourced-it-recruitment",
+  "industries": [
+    "Recruitment",
+    "Staffing"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGNweQmTpN6Cw/company-logo_100_100/B56ZVolkgUHQAQ-/0/1741216434781/sourced_it_recruitment_logo?e=1773878400&v=beta&t=mT6rqNmN290is9S-fFR-jQrX0oXjXmH1dEi995_NE6U",
+  "name": "Sourced IT Recruitment",
+  "office_locations": [
+    "Auckland",
+    "Christchurch"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": false,
+  "website": "http://sourced.nz"
+}

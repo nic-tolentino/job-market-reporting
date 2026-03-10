@@ -1,0 +1,20 @@
+{
+  "id": "komodo-wellbeing",
+  "name": "Komodo Wellbeing",
+  "alternateNames": ["Komodo"],
+  "description": "Komodo is a NZ-based high-impact wellbeing technology startup, providing school-wide solutions to monitor student mental health and holistic development.",
+  "website": "http://www.komodowellbeing.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFeIUDtBNKmrw/company-logo_100_100/company-logo_100_100/0/1651008478851/komodowellbeing_logo?e=1773878400&v=beta&t=...",
+  "industries": ["Edtech", "Healthtech", "Data Science", "SaaS"],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": ["NZ", "AU", "Worldwide"],
+  "office_locations": ["Christchurch"],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 30,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

@@ -1,0 +1,29 @@
+{
+  "alternateNames": [
+    "QuikHire"
+  ],
+  "company_type": "Agency",
+  "description": "A staffing and recruitment company providing human resources and staffing solutions.",
+  "employees_count": null,
+  "hq_country": "CA",
+  "id": "quik-hire-staffing",
+  "industries": [
+    "Staffing",
+    "Recruitment",
+    "Human Resources"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFYxxMZnepyAw/company-logo_100_100/B56ZsDhgBgI0AQ-/0/1765290672906/quik_hire_staffing_logo?e=1774483200&v=beta&t=m2crOBxLG_e9ckK6ZKfTFUoe_fbZzMNgJj1UOgaltQw",
+  "name": "Quik Hire Staffing",
+  "office_locations": [],
+  "operating_countries": [
+    "CA",
+    "US"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://quikhire.ca"
+}

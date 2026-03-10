@@ -1,0 +1,41 @@
+{
+  "alternateNames": [
+    "Tower",
+    "Tower Limited"
+  ],
+  "ats": {
+    "provider": "SNAPHIRE",
+    "identifier": "tower"
+  },
+  "company_type": "Enterprise",
+  "description": "Tower is a general insurance company in New Zealand and the South Pacific.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "tower-insurance",
+  "industries": [
+    "Insurance",
+    "Finance"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFl8JhorI6Bzw/company-logo_100_100/B56ZfDBnM9HoAQ-/0/1751323669749/tower_logo?e=1774483200&v=beta&t=h_DMw6QJeDHl79OIlkcVf_YTW50N6a7fo0PPERERfPQ",
+  "name": "Tower Insurance",
+  "office_locations": [
+    "Auckland",
+    "Wellington",
+    "Christchurch"
+  ],
+  "operating_countries": [
+    "NZ",
+    "FJ",
+    "WS",
+    "CK",
+    "VU",
+    "TO"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.tower.co.nz"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "salient-group",
+  "name": "Salient",
+  "alternateNames": [
+    "Salient Group"
+  ],
+  "description": "Salient is building a category-defining technology platform at the intersection of health and digital product innovation, focused on delightful consumer experiences.",
+  "website": "https://www.salient.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEY2gHJJTJlBQ/company-logo_100_100/B4DZh4jHX1G8AQ-/0/1754369128503/salient_group_logo?e=1774483200&v=beta&t=Sq-QhAT271U80TqiRQkVNH2wYTYqwgbLz1ThbVJ-Z-c",
+  "industries": [
+    "Healthtech",
+    "Software Development",
+    "Consulting"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU"
+  ],
+  "office_locations": [
+    "Sydney"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 20,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T11:00:00Z"
+}

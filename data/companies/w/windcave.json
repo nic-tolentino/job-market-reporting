@@ -1,0 +1,35 @@
+{
+  "id": "windcave",
+  "name": "Windcave",
+  "alternateNames": [],
+  "description": "Windcave is a global leader in payment technology, providing fault-tolerant secure solutions across e-commerce, retail, and unattended environments.",
+  "website": "https://www.windcave.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQGBnVTQZILxoA/company-logo_100_100/company-logo_100_100/0/1630620554596/windcave_logo?e=1773878400&v=beta&t=9WfxLh6c6l2i6av7lST0AFoEo3d_hUE9P_0NfzRh7RU",
+  "industries": [
+    "Fintech",
+    "Payments",
+    "SaaS",
+    "Software Development"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "US",
+    "GB",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Auckland",
+    "Sydney",
+    "London"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 300,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

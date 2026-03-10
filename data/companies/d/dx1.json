@@ -1,0 +1,20 @@
+{
+  "id": "dx1",
+  "name": "DX1",
+  "alternateNames": [],
+  "description": "DX1 is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHALht8GQj_Dw/company-logo_100_100/B56ZxMoQtAH0AU-/0/1770812148950/devops1_au_logo?e=1774483200&v=beta&t=vi7r_OlwiYrkPCIEc7FCGXDLzYsLO5Ltxn0rKsKpv4Q",
+  "industries": [],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:52:06.145942Z"
+}

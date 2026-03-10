@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "Fergus Software"
+  ],
+  "ats": {
+    "provider": "WORKABLE",
+    "identifier": "fergus"
+  },
+  "company_type": "Product",
+  "description": "Fergus provides automated job management software for tradespeople (plumbers, electricians, etc.).",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "fergus",
+  "industries": [
+    "Trades",
+    "Job Management",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFPn4YZyUac-w/company-logo_100_100/company-logo_100_100/0/1630581251564/fergus_software_limited_logo?e=1774483200&v=beta&t=j_Do1nruck4j9JAdzZgMstc_ZHtefUTexsF9sSlhfng",
+  "name": "Fergus",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "UK"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://fergus.com"
+}

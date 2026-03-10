@@ -1,0 +1,32 @@
+{
+  "id": "reserve-bank-of-new-zealand",
+  "name": "Reserve Bank of New Zealand",
+  "alternateNames": [
+    "RBNZ"
+  ],
+  "description": "Te Pūtea Matua is NZ's central bank, maintaining low inflation and promoting a sound financial system to enable economic wellbeing for all New Zealanders.",
+  "website": "http://www.rbnz.govt.nz",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGl_62-KAIy1g/company-logo_100_100/company-logo_100_100/0/1630557940705/reserve_bank_of_new_zealand_logo?e=1773878400&v=beta&t=pqqoD0FIVRILZx5M-hp8eKzXj9st2W5RKTeW53nPpqA",
+  "industries": [
+    "Central Banking",
+    "Finance",
+    "Public Sector",
+    "IT Services"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": [
+    "NZ"
+  ],
+  "office_locations": [
+    "Wellington",
+    "Auckland"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 500,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

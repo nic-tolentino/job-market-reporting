@@ -1,0 +1,34 @@
+{
+  "alternateNames": [
+    "Workday Inc"
+  ],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "workday"
+  },
+  "company_type": "Enterprise",
+  "description": "Workday is a leading provider of enterprise cloud applications for finance and human resources.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "workday",
+  "industries": [
+    "SaaS",
+    "HR Tech",
+    "Enterprise Software"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGKeNem9seahg/company-logo_100_100/company-logo_100_100/0/1730301071878/workday_logo?e=1774483200&v=beta&t=Kj6iqOMsiR5WqwyUFyRY9b-48TpMisEs6BQvwToD6_w",
+  "name": "Workday",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "http://www.workday.com"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "sector-alarm-group",
+  "name": "Sector Alarm Group",
+  "alternateNames": [
+    "Sector Alarm"
+  ],
+  "description": "Sector Alarm Group is one of Europe's leading safety providers, protecting over 650,000 households through advanced security systems and IoT-enabled technologies.",
+  "website": "https://www.sectoralarm.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHHAxXvsRbBGA/company-logo_100_100/company-logo_100_100/0/1736243267059/sector_alarm_holding_logo?e=1774483200&v=beta&t=b30JvbpZLdFZ2orrD8oJ8XdIMBl4lK9HHN2FPe7NTPw",
+  "industries": [
+    "Security",
+    "IoT",
+    "SaaS",
+    "IT Services"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NO",
+  "operating_countries": [
+    "NO",
+    "SE",
+    "FI",
+    "IE",
+    "FR",
+    "ES",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Oslo"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 3000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T11:00:00Z"
+}

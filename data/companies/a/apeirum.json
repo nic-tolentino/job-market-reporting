@@ -1,0 +1,36 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "JOIN",
+    "identifier": "apeirum"
+  },
+  "company_type": "Consultancy",
+  "description": "apeirum is a digital product design and nearshore engineering firm that builds high-performing teams for startups and enterprises.",
+  "employees_count": 100,
+  "hq_country": "ES",
+  "id": "apeirum",
+  "industries": [
+    "IT Services",
+    "Software Development",
+    "UX/UI Design"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFJs-vyEg4HSQ/company-logo_100_100/company-logo_100_100/0/1724218411105/apeirum_logo?e=1774483200&v=beta&t=8leQx2Iby9IvGS7_urnDVfQLIBTSphhNflJrJRXrYrY",
+  "name": "apeirum",
+  "office_locations": [
+    "Madrid",
+    "Barcelona",
+    "London"
+  ],
+  "operating_countries": [
+    "ES",
+    "GB",
+    "EU"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T08:52:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://apeirum.com"
+}

@@ -1,0 +1,26 @@
+{
+  "alternateNames": [],
+  "company_type": "Agency",
+  "description": "A specialist technology recruitment and talent acquisition agency connecting people with businesses in the tech sector.",
+  "employees_count": null,
+  "hq_country": "AU",
+  "id": "thedrivegroup",
+  "industries": [
+    "Recruitment",
+    "Technology",
+    "Staffing"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE2fTDBvTy-Hw/company-logo_100_100/B56ZuLJYxvHgAU-/0/1767566053041/thedrivegroup_logo?e=1774483200&v=beta&t=Ro6iOlRtzfC-HBGvs27_4IqR2VxqjzetndltIlx9vGw",
+  "name": "TheDriveGroup",
+  "office_locations": [],
+  "operating_countries": [
+    "AU"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:45:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://www.thedrivegroup.com.au"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "dawnaerospace",
+  "name": "Dawn Aerospace",
+  "alternateNames": [],
+  "description": "Dawn Aerospace is a space transportation company building reusable spaceplanes and satellite propulsion systems for sustainable access to space.",
+  "website": "https://www.dawnaerospace.com",
+  "logoUrl": null,
+  "industries": ["Aerospace", "Space Tech", "Manufacturing"],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": ["NZ", "NL", "US"],
+  "office_locations": ["Christchurch", "Delft"],
+  "remote_policy": "On-site",
+  "visa_sponsorship": true,
+  "employees_count": 150,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:05:00Z"
+}

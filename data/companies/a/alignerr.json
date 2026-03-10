@@ -1,0 +1,28 @@
+{
+  "alternateNames": [
+    "Alignerr AI"
+  ],
+  "company_type": "Platform",
+  "description": "A platform connecting subject matter experts with AI companies to train and refine advanced models.",
+  "employees_count": 50,
+  "hq_country": "US",
+  "id": "alignerr",
+  "industries": [
+    "AI",
+    "Technology",
+    "Gig Economy"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHD7jKpwp33DA/company-logo_100_100/B56ZsP32kCG4AQ-/0/1765497858824/alignerr_logo?e=1773878400&v=beta&t=2jE43DD6P3IJDul3tItxnHF4X5uIeT1WW7RcirKspbA",
+  "name": "Alignerr",
+  "office_locations": [],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Remote Only",
+  "updated_at": "2026-03-10T05:30:58.400163Z",
+  "verification_level": "silver",
+  "visa_sponsorship": false,
+  "website": "https://www.alignerr.com"
+}

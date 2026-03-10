@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "Transpower"
+  ],
+  "ats": {
+    "provider": "SNAPHIRE",
+    "identifier": "www"
+  },
+  "company_type": "Enterprise",
+  "description": "Transpower is the State-Owned Enterprise that owns and operates NZ's National Grid, empowering the nation's energy future through robust infrastructure.",
+  "employees_count": 800,
+  "hq_country": "NZ",
+  "id": "transpower-new-zealand",
+  "industries": [
+    "Utilities",
+    "Energy",
+    "Engineering",
+    "Software Development"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGGj9L1CPy5yQ/company-logo_100_100/company-logo_100_100/0/1678218452310/transpower_logo?e=1773878400&v=beta&t=...",
+  "name": "Transpower New Zealand",
+  "office_locations": [
+    "Wellington",
+    "Auckland"
+  ],
+  "operating_countries": [
+    "NZ"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T14:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "http://www.transpower.co.nz"
+}

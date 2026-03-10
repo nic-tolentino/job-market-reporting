@@ -1,0 +1,44 @@
+{
+  "id": "airbus-defence-and-space",
+  "name": "Airbus Defence and Space",
+  "alternateNames": [
+    "Airbus DS",
+    "Airbus Defence & Space"
+  ],
+  "description": "Airbus Defence and Space is a division of Airbus responsible for military aircraft, space systems, and connected intelligence solutions.",
+  "website": "https://www.airbus.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHiVUv4_8Usqw/company-logo_100_100/company-logo_100_100/0/1631362043684/airbus_defence_and_space_logo?e=1774483200&v=beta&t=yXHu0bSUS2buqb0hAPw4k6D52KYNR2UE94lHn8Bi9VM",
+  "industries": [
+    "Aerospace",
+    "Defence",
+    "Space"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "DE",
+  "operating_countries": [
+    "DE",
+    "FR",
+    "ES",
+    "GB",
+    "US",
+    "NZ",
+    "AU"
+  ],
+  "office_locations": [
+    "Getafe",
+    "Munich",
+    "Toulouse",
+    "Stevenage"
+  ],
+  "remote_policy": "Hybrid",
+  "visa_sponsorship": true,
+  "employees_count": 35000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:50:00Z",
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "2Fag"
+  }
+}

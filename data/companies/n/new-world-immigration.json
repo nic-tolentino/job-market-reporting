@@ -1,0 +1,20 @@
+{
+  "id": "new-world-immigration",
+  "name": "New World Immigration",
+  "alternateNames": [],
+  "description": "New World Immigration is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQF6103xCnS4og/company-logo_100_100/company-logo_100_100/0/1714034083253/nwivisas_logo?e=1774483200&v=beta&t=tNfQyrKb0VpPBie8C131Ib15MPcs68sHISgMnnscpIc",
+  "industries": [],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "ZA",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:38:11.418737Z"
+}

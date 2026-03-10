@@ -1,0 +1,39 @@
+{
+  "alternateNames": [
+    "HCL Technologies"
+  ],
+  "ats": {
+    "provider": "SUCCESSFACTORS",
+    "identifier": "rmkcdn"
+  },
+  "company_type": "Enterprise",
+  "description": "HCLTech is a global technology company supercharging progress through industry-leading capabilities in Digital, Engineering, and Cloud for major enterprises in AU/NZ.",
+  "employees_count": 220000,
+  "hq_country": "IN",
+  "id": "hcltech-australia-and-new-zealand",
+  "industries": [
+    "IT Services",
+    "Consulting",
+    "Engineering"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHH60-ddpqvjA/company-logo_100_100/company-logo_100_100/0/1694754039388/hcl_australia_services_pty_limited_logo?e=1774483200&v=beta&t=0q3QgBKkc-CUf2VybpbQBHN6GFAVQyQyb5C4OJI3cog",
+  "name": "HCLTech (Australia & New Zealand)",
+  "office_locations": [
+    "Sydney",
+    "Melbourne",
+    "Auckland",
+    "Wellington"
+  ],
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:20:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.hcltech.com"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "first-page",
+  "name": "First Page",
+  "alternateNames": [
+    "First Page Digital"
+  ],
+  "description": "First Page is an award-winning digital marketing agency specializing in high-performance SEO, SEM, and performance media strategies.",
+  "website": "https://www.firstpage.co.nz",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEoFua5WOAZCg/company-logo_100_100/company-logo_100_100/0/1630668664049/firstpage_digital_logo?e=1774483200&v=beta&t=yUtZqnGVm4LPA38dEHnl840vA63AE_49xrPSOjyVljs",
+  "industries": [
+    "Digital Marketing",
+    "SEO",
+    "Advertising"
+  ],
+  "company_type": "Agency",
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "hq_country": "HK",
+  "operating_countries": [
+    "HK",
+    "NZ",
+    "AU",
+    "SG",
+    "TH"
+  ],
+  "office_locations": [
+    "Auckland",
+    "Sydney",
+    "Bangkok"
+  ],
+  "remote_policy": "Flexible",
+  "visa_sponsorship": false,
+  "employees_count": 100,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T09:10:00Z"
+}

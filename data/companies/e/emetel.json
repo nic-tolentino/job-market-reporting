@@ -1,0 +1,20 @@
+{
+  "id": "emetel",
+  "name": "EMETEL",
+  "alternateNames": [],
+  "description": "EMETEL is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHqDtulXUUemA/company-logo_100_100/company-logo_100_100/0/1726643605586/emetel_logo?e=1774483200&v=beta&t=B2uvAy9bB70LhSO1X_qULD7uqUSgrYtkoBFcyAHsO94",
+  "industries": [],
+  "company_type": "Consultancy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "ES",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:38:11.418737Z"
+}

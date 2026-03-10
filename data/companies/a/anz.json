@@ -1,0 +1,42 @@
+{
+  "id": "anz",
+  "name": "ANZ",
+  "alternateNames": [
+    "ANZ Bank",
+    "ANZ NZ",
+    "Australia and New Zealand Banking Group"
+  ],
+  "description": "ANZ is one of the largest banking and financial services groups in Australia and New Zealand, committed to helping customers improve their financial wellbeing.",
+  "website": "https://www.anz.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEECWx-aseqAw/company-logo_100_100/company-logo_100_100/0/1713248286913/anz_logo?e=1774483200&v=beta&t=CY1_BP2a0Peu5s-UXdZ038ePfbMNZdffHcy27RtPqsY",
+  "industries": [
+    "Banking",
+    "Financial Services",
+    "Fintech"
+  ],
+  "company_type": "Enterprise",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "SG",
+    "GB",
+    "US"
+  ],
+  "office_locations": [
+    "Melbourne",
+    "Auckland",
+    "Wellington"
+  ],
+  "remote_policy": "Flexible",
+  "visa_sponsorship": true,
+  "employees_count": 50000,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T08:52:00Z",
+  "ats": {
+    "provider": "SUCCESSFACTORS",
+    "identifier": "performancemanager10"
+  }
+}

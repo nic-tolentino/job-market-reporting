@@ -1,0 +1,36 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "MYRECRUITMENTPLUS",
+    "identifier": "9704635"
+  },
+  "company_type": "Product",
+  "description": "Martian Logic is a leading HR SaaS provider offering an enterprise-grade HRIS platform for HR teams globally, specializing in recruitment and people management.",
+  "employees_count": 100,
+  "hq_country": "AU",
+  "id": "martian-logic",
+  "industries": [
+    "HR Tech",
+    "SaaS",
+    "Enterprise Software"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFLMyc4enw0-g/company-logo_100_100/company-logo_100_100/0/1715734200600/martianlogic_logo?e=1774483200&v=beta&t=hGMoElpyKasiOC6kgyomw5SVgwbXP_Tk7qGtIX-6n4U",
+  "name": "Martian Logic",
+  "office_locations": [
+    "Sydney"
+  ],
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "US",
+    "CA",
+    "GB"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:40:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.martianlogic.com"
+}

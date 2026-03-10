@@ -1,0 +1,32 @@
+{
+  "alternateNames": [
+    "Alphabet"
+  ],
+  "company_type": "Enterprise",
+  "description": "A global technology leader specializing in Internet-related services and products, including search, cloud computing, and AI.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "google",
+  "industries": [
+    "Technology",
+    "Internet",
+    "Software",
+    "AI",
+    "Cloud Computing"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGv3cqOuUMY7g/company-logo_100_100/B4EZmhegXHGcAU-/0/1759350753990/google_logo?e=1774483200&v=beta&t=lrkWa0CO1UwsfRGZRu3QCeJifCPumvKtlJxngZOIuK8",
+  "name": "Google",
+  "office_locations": [],
+  "operating_countries": [
+    "US",
+    "NZ",
+    "AU"
+  ],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://www.google.com"
+}

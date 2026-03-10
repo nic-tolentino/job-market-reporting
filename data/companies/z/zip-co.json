@@ -1,0 +1,33 @@
+{
+  "id": "zip-co",
+  "name": "Zip",
+  "alternateNames": [
+    "Zip Co"
+  ],
+  "description": "Zip is a leading global fintech providing seamless, secure payments through high-scale event-driven microservices and modern .NET and Java architectures.",
+  "website": "https://zip.co",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGJ0_mrbmMASg/company-logo_100_100-alternative/company-logo_100_100-alternative/0/1630643296478/zip_co_limited_logo?e=1774483200&v=beta&t=yHNNfw13PaVqoAehXPyp6B_ySWtaqtDSt4DVCdMYO_o",
+  "industries": [
+    "Fintech",
+    "Payments",
+    "SaaS",
+    "E-commerce"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "AU",
+  "operating_countries": [
+    "AU",
+    "US",
+    "NZ",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Sydney",
+    "New York"
+  ],
+  "remote_policy": "Hybrid",
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T14:00:00Z"
+}

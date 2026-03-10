@@ -1,0 +1,37 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "JOIN",
+    "identifier": "goodweekcom"
+  },
+  "company_type": "Product",
+  "description": "goodweek is building a next-generation AI tool designed to revolutionize business productivity, backed by international investment.",
+  "employees_count": 40,
+  "hq_country": "FR",
+  "id": "goodweek",
+  "industries": [
+    "AI",
+    "SaaS",
+    "Productivity"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEvbgbr0gzHkA/company-logo_100_100/B4EZwJL38MJ8AQ-/0/1769680634053/goodweek_aim_logo?e=1774483200&v=beta&t=rz5SkJP-CiJX2tmoNrkhvUcFJ5O-hzwRcg0gZpdGvgg",
+  "name": "goodweek",
+  "office_locations": [
+    "Paris",
+    "Madrid",
+    "New York"
+  ],
+  "operating_countries": [
+    "FR",
+    "ES",
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T09:10:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://goodweek.io"
+}

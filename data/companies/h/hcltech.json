@@ -1,0 +1,40 @@
+{
+  "alternateNames": [
+    "HCL Technologies Spain"
+  ],
+  "ats": {
+    "provider": "SUCCESSFACTORS",
+    "identifier": "rmkcdn"
+  },
+  "company_type": "Enterprise",
+  "description": "HCLTech's European division provides high-end digital, engineering, and cloud services to organizations across the continent, focusing on transformational technology solutions.",
+  "employees_count": 220000,
+  "hq_country": "IN",
+  "id": "hcltech",
+  "industries": [
+    "IT Services",
+    "Consulting",
+    "Engineering"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQF-RIoeeMTMKQ/company-logo_100_100/company-logo_100_100/0/1664197008220/hcltech_logo?e=1774483200&v=beta&t=Jt3RFlhKk-ZOD6OkhmVF67xqntPZlxEePulyNSP08_U",
+  "name": "HCLTech (Europe)",
+  "office_locations": [
+    "Madrid",
+    "Barcelona",
+    "London"
+  ],
+  "operating_countries": [
+    "ES",
+    "GB",
+    "FR",
+    "DE",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T09:20:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.hcltech.com"
+}

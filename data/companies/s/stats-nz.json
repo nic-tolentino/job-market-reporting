@@ -1,0 +1,20 @@
+{
+  "id": "stats-nz",
+  "name": "Stats NZ",
+  "alternateNames": [],
+  "description": "Stats NZ is a company profile created during backlog processing.",
+  "website": null,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQE-94ZTXEUjMw/company-logo_100_100/B4EZvnt8aNGkAQ-/0/1769119141184?e=1773878400&v=beta&t=c_2pzq7Uws3rWuQZuMyDDLPFtcSIYrNziAFMTYMgdcg",
+  "industries": [],
+  "company_type": "Government",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": [],
+  "office_locations": [],
+  "remote_policy": "Unknown",
+  "visa_sponsorship": null,
+  "employees_count": null,
+  "verification_level": "silver",
+  "updated_at": "2026-03-10T06:57:28.207311Z"
+}

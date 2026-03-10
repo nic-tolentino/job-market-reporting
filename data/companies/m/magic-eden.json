@@ -1,0 +1,35 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "ASHBY",
+    "identifier": "magiceden"
+  },
+  "company_type": "Product",
+  "description": "Magic Eden is a leading global crypto entertainment platform providing immersive on-chain experiences culture, trading, gaming, and entertainment for the next generation of users.",
+  "employees_count": 150,
+  "hq_country": "US",
+  "id": "magic-eden",
+  "industries": [
+    "Web3",
+    "Crypto",
+    "Marketplace",
+    "Gaming"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFo5psza5KV6Q/company-logo_100_100/company-logo_100_100/0/1721938763946/magic_eden_logo?e=1774483200&v=beta&t=0aS5cBcfpvREbrZYmaO-vL-sW2wXLPHmAUgbatBDL5U",
+  "name": "Magic Eden",
+  "office_locations": [
+    "San Francisco"
+  ],
+  "operating_countries": [
+    "AU",
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-10T09:30:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.magiceden.io"
+}

@@ -1,0 +1,35 @@
+{
+  "alternateNames": [
+    "Visa Inc",
+    "Visa Global"
+  ],
+  "ats": {
+    "provider": "SMARTRECRUITERS",
+    "identifier": "Visa"
+  },
+  "company_type": "Enterprise",
+  "description": "Visa is a global digital payments leader, facilitating transactions between consumers, merchants, and financial institutions.",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "visa",
+  "industries": [
+    "Fintech",
+    "Payments",
+    "Financial Services"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHAxoD4chKrgg/company-logo_100_100/B4EZfR2e4JHcAk-/0/1751572410148/visa_logo?e=1774483200&v=beta&t=T3FA6gKc7ov_h0RltzqLZsZtb65jY4BWQufghc31V34",
+  "name": "Visa",
+  "office_locations": [
+    "Auckland"
+  ],
+  "operating_countries": [
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-06T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://visa.com"
+}

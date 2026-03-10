@@ -1,0 +1,32 @@
+{
+  "alternateNames": [],
+  "company_type": "Product",
+  "description": "AI engagement platform for building forms, surveys, quizzes, and polls. Trusted by 95% of Fortune 500 companies.",
+  "employees_count": null,
+  "hq_country": "ES",
+  "id": "typeform",
+  "industries": [
+    "SaaS",
+    "Forms",
+    "Data Collection"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHvKqKqKqKqKq/company-logo_100_100/0/1630650773411/typeform_logo?e=1774483200&v=beta&t=placeholder",
+  "name": "Typeform",
+  "office_locations": [
+    "Barcelona"
+  ],
+  "operating_countries": [
+    "ES",
+    "US",
+    "UK",
+    "DE",
+    "FR"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-07T10:00:00Z",
+  "verification_level": "verified",
+  "visa_sponsorship": true,
+  "website": "https://www.typeform.com"
+}

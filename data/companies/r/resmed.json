@@ -1,0 +1,36 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "resmed"
+  },
+  "company_type": "Enterprise",
+  "description": "ResMed is a global leader in digital health and cloud-connected medical devices, delivering life-changing solutions to help people with sleep apnea and chronic respiratory diseases.",
+  "employees_count": 10000,
+  "hq_country": "US",
+  "id": "resmed",
+  "industries": [
+    "Healthtech",
+    "Medical Devices",
+    "Cloud",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHQn2mIzEBL3w/company-logo_100_100/B4EZWq1v43HUAc-/0/1742327971764/resmed_logo?e=1774483200&v=beta&t=IWC65WT3__kLnITUN23_60gKYlIYXdJirtwkRan6Jlo",
+  "name": "ResMed",
+  "office_locations": [
+    "Sydney",
+    "San Diego"
+  ],
+  "operating_countries": [
+    "AU",
+    "US",
+    "Worldwide"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-10T10:00:00Z",
+  "verification_level": "silver",
+  "visa_sponsorship": true,
+  "website": "https://www.resmed.com"
+}
