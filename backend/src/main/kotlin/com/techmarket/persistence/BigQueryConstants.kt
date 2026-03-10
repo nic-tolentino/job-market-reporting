@@ -4,6 +4,7 @@ object BigQueryTables {
     const val JOBS = "raw_jobs"
     const val COMPANIES = "raw_companies"
     const val INGESTIONS = "raw_ingestions"
+    const val INGESTION_METADATA = "ingestion_metadata"
     const val SEARCH_MISSES = "search_misses"
     const val USER_FEEDBACK = "user_feedback"
     const val ATS_CONFIGS = "company_ats_configs"
@@ -89,6 +90,26 @@ object IngestionFields {
     const val RAW_PAYLOAD = "rawPayload"
     const val INGESTED_AT = "ingestedAt"
     const val DATASET_ID = "datasetId"
+}
+
+/**
+ * Field names for the ingestion_metadata table (Bronze layer file-based storage).
+ * This table stores metadata about GCS files containing raw ingestion data.
+ */
+object IngestionMetadataFields {
+    const val DATASET_ID = "dataset_id"
+    const val SOURCE = "source"
+    const val INGESTED_AT = "ingested_at"
+    const val TARGET_COUNTRY = "target_country"
+    const val SCHEMA_VERSION = "schema_version"
+    const val RECORD_COUNT = "record_count"
+    const val FILE_COUNT = "file_count"
+    const val UNCOMPRESSED_SIZE_BYTES = "uncompressed_size_bytes"
+    const val COMPRESSED_SIZE_BYTES = "compressed_size_bytes"
+    const val COMPRESSION_RATIO = "compression_ratio"
+    const val PROCESSING_STATUS = "processing_status"
+    const val FILES = "files"
+    const val METADATA_ID = "metadata_id"
 }
 
 object AnalyticsFields {

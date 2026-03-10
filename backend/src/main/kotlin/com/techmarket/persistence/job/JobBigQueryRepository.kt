@@ -160,12 +160,12 @@ class JobBigQueryRepository(
                         JobFields.DESCRIPTION to this.description,
                         JobFields.CITY to this.city,
                         JobFields.STATE_REGION to this.stateRegion,
-                        JobFields.INGESTED_AT to this.lastSeenAt.toString(),
-                        JobFields.LAST_SEEN_AT to this.lastSeenAt.toString(),
+                        JobFields.INGESTED_AT to this.lastSeenAt.toEpochMilli() * 1000,
+                        JobFields.LAST_SEEN_AT to this.lastSeenAt.toEpochMilli() * 1000,
                         // Health check fields
                         JobFields.URL_STATUS to this.urlStatus,
-                        JobFields.URL_LAST_CHECKED to this.urlLastChecked?.toString(),
-                        JobFields.URL_LAST_KNOWN_ACTIVE to this.urlLastKnownActive?.toString(),
+                        JobFields.URL_LAST_CHECKED to this.urlLastChecked?.let { it.toEpochMilli() * 1000 },
+                        JobFields.URL_LAST_KNOWN_ACTIVE to this.urlLastKnownActive?.let { it.toEpochMilli() * 1000 },
                         JobFields.URL_CHECK_FAILURES to this.urlCheckFailures,
                         JobFields.HTTP_STATUS_CODE to this.httpStatusCode
                 )

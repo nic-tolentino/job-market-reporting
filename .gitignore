@@ -21,3 +21,12 @@ frontend/.next/
 frontend/out/
 frontend/node_modules/
 
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+*.tfplan
+*.lock.hcl
+.terraform.lock.hcl
+

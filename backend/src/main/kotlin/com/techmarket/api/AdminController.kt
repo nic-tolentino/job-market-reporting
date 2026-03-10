@@ -13,6 +13,7 @@ import com.techmarket.util.HealthCheckConstants.Endpoints.ADMIN_HEALTH_CHECK_STA
 import com.techmarket.util.HealthCheckConstants.UrlStatus.ACTIVE
 import com.techmarket.util.HealthCheckConstants.UrlStatus.UNKNOWN
 import com.techmarket.util.HealthCheckConstants.UrlStatus.isClosed
+import java.time.Instant
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -61,8 +62,10 @@ class AdminController(
 
     @PostMapping("/trigger-sync")
     fun triggerSync(
-            @org.springframework.web.bind.annotation.RequestParam(required = false)
+            @org.springframework.web.bind.annotation.RequestParam("datasetId", required = false)
             datasetId: String?,
+            @org.springframework.web.bind.annotation.RequestParam("ingestedAt", required = false)
+            ingestedAt: String?,
             @RequestHeader("x-apify-signature", required = false) providedSecret: String?
     ): ResponseEntity<Any> {
         val expectedSecret = apifyProperties.webhookSecret
@@ -80,8 +83,18 @@ class AdminController(
                     )
         }
 
-        log.info("Admin triggered manual sync for dataset: $effectiveId")
-        
+        // Parse custom ingestion time if provided (ISO-8601 format)
+        val customIngestionTime = ingestedAt?.let {
+            try {
+                Instant.parse(it)
+            } catch (e: Exception) {
+                log.warn("Invalid ingestedAt format: $it. Expected ISO-8601 format (e.g., 2026-03-10T10:30:00Z)")
+                null
+            }
+        }
+
+        log.info("Admin triggered manual sync for dataset: $effectiveId${customIngestionTime?.let { " with custom ingestion time: $it" } ?: ""}")
+
         // Queue task for background processing via Cloud Tasks
         val correlationId = UUID.randomUUID().toString()
         val taskPayload = CloudTasksService.SyncTaskPayload(
@@ -89,7 +102,8 @@ class AdminController(
             source = CloudTasksConstants.Source.MANUAL,
             country = null,
             triggeredBy = CloudTasksConstants.TriggeredBy.ADMIN,
-            correlationId = correlationId
+            correlationId = correlationId,
+            ingestedAt = customIngestionTime?.toString()
         )
 
         val taskName = cloudTasksService.queueSyncTask(taskPayload)
@@ -98,7 +112,7 @@ class AdminController(
             "status" to "queued",
             "taskName" to taskName,
             "correlationId" to correlationId,
-            "message" to "Sync task queued for background processing"
+            "message" to "Sync task queued for background processing${customIngestionTime?.let { " with custom ingestion time" } ?: ""}"
         ))
     }
     @PostMapping("/sync-companies")

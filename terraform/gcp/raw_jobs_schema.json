@@ -1,0 +1,176 @@
+{
+  "creationTime": "1773026738126",
+  "etag": "+0Q112KOf324PmQFb4VlHg==",
+  "id": "tech-market-insights:techmarket.raw_jobs",
+  "kind": "bigquery#table",
+  "lastModifiedTime": "1773100575856",
+  "location": "australia-southeast1",
+  "numActiveLogicalBytes": "0",
+  "numActivePhysicalBytes": "6910145",
+  "numBytes": "0",
+  "numCurrentPhysicalBytes": "3211336",
+  "numLongTermBytes": "0",
+  "numLongTermLogicalBytes": "0",
+  "numLongTermPhysicalBytes": "0",
+  "numRows": "0",
+  "numTimeTravelPhysicalBytes": "3698809",
+  "numTotalLogicalBytes": "0",
+  "numTotalPhysicalBytes": "6910145",
+  "schema": {
+    "fields": [
+      {
+        "name": "jobId",
+        "type": "STRING"
+      },
+      {
+        "name": "companyId",
+        "type": "STRING"
+      },
+      {
+        "name": "companyName",
+        "type": "STRING"
+      },
+      {
+        "name": "source",
+        "type": "STRING"
+      },
+      {
+        "name": "country",
+        "type": "STRING"
+      },
+      {
+        "name": "title",
+        "type": "STRING"
+      },
+      {
+        "mode": "REPEATED",
+        "name": "locations",
+        "type": "STRING"
+      },
+      {
+        "mode": "REPEATED",
+        "name": "jobIds",
+        "type": "STRING"
+      },
+      {
+        "mode": "REPEATED",
+        "name": "applyUrls",
+        "type": "STRING"
+      },
+      {
+        "mode": "REPEATED",
+        "name": "platformLinks",
+        "type": "STRING"
+      },
+      {
+        "name": "seniorityLevel",
+        "type": "STRING"
+      },
+      {
+        "mode": "REPEATED",
+        "name": "technologies",
+        "type": "STRING"
+      },
+      {
+        "fields": [
+          {
+            "name": "amount",
+            "type": "INTEGER"
+          },
+          {
+            "name": "currency",
+            "type": "STRING"
+          },
+          {
+            "name": "period",
+            "type": "STRING"
+          },
+          {
+            "name": "source",
+            "type": "STRING"
+          },
+          {
+            "name": "isGross",
+            "type": "BOOLEAN"
+          }
+        ],
+        "name": "salaryMin",
+        "type": "RECORD"
+      },
+      {
+        "fields": [
+          {
+            "name": "amount",
+            "type": "INTEGER"
+          },
+          {
+            "name": "currency",
+            "type": "STRING"
+          },
+          {
+            "name": "period",
+            "type": "STRING"
+          },
+          {
+            "name": "source",
+            "type": "STRING"
+          },
+          {
+            "name": "isGross",
+            "type": "BOOLEAN"
+          }
+        ],
+        "name": "salaryMax",
+        "type": "RECORD"
+      },
+      {
+        "name": "postedDate",
+        "type": "DATE"
+      },
+      {
+        "mode": "REPEATED",
+        "name": "benefits",
+        "type": "STRING"
+      },
+      {
+        "name": "employmentType",
+        "type": "STRING"
+      },
+      {
+        "name": "workModel",
+        "type": "STRING"
+      },
+      {
+        "name": "jobFunction",
+        "type": "STRING"
+      },
+      {
+        "name": "description",
+        "type": "STRING"
+      },
+      {
+        "name": "city",
+        "type": "STRING"
+      },
+      {
+        "name": "stateRegion",
+        "type": "STRING"
+      },
+      {
+        "name": "ingestedAt",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "lastSeenAt",
+        "type": "TIMESTAMP"
+      }
+    ]
+  },
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/tech-market-insights/datasets/techmarket/tables/raw_jobs",
+  "tableReference": {
+    "datasetId": "techmarket",
+    "projectId": "tech-market-insights",
+    "tableId": "raw_jobs"
+  },
+  "type": "TABLE"
+}

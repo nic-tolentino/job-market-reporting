@@ -37,5 +37,11 @@ gcp:
     queue-name: ${CLOUD_TASKS_QUEUE_NAME:tech-market-sync-queue}
     location: ${CLOUD_TASKS_LOCATION:australia-southeast1}
 
+gcs:
+  bronze:
+    bucket-name: ${GCS_BRONZE_BUCKET:techmarket-bronze-ingestions}
+    project-id: ${GCP_PROJECT_ID:tech-market-insights}
+    compression-enabled: true
+
 app:
   base-url: ${APP_BASE_URL:https://devassembly.org}

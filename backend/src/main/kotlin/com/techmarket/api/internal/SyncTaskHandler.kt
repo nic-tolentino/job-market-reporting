@@ -4,6 +4,7 @@ import com.techmarket.service.CloudTasksService
 import com.techmarket.sync.JobDataSyncService
 import com.techmarket.util.CloudTasksConstants
 import com.techmarket.util.HealthCheckConstants.UrlStatus.isClosed
+import java.time.Instant
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.security.access.AccessDeniedException
@@ -54,13 +55,23 @@ class SyncTaskHandler(
         log.info("Processing sync task, correlationId=$correlationId, datasetId=${taskPayload.datasetId}, attempt=$attempt")
 
         try {
+            // Parse custom ingestion time if provided (ISO-8601 format)
+            val customIngestionTime = taskPayload.ingestedAt?.let {
+                try {
+                    Instant.parse(it)
+                } catch (e: Exception) {
+                    log.warn("Invalid ingestedAt format in task payload: $it")
+                    null
+                }
+            }
+
             // Execute sync logic based on source type
             when (taskPayload.source) {
                 CloudTasksConstants.Source.APIFY -> {
-                    jobDataSyncService.runDataSync(taskPayload.datasetId, taskPayload.country)
+                    jobDataSyncService.runDataSync(taskPayload.datasetId, taskPayload.country, customIngestionTime)
                 }
                 CloudTasksConstants.Source.MANUAL, CloudTasksConstants.Source.SCHEDULED -> {
-                    jobDataSyncService.runDataSync(taskPayload.datasetId, taskPayload.country)
+                    jobDataSyncService.runDataSync(taskPayload.datasetId, taskPayload.country, customIngestionTime)
                 }
                 else -> {
                     log.warn("Unknown source type: ${taskPayload.source}, correlationId=$correlationId")

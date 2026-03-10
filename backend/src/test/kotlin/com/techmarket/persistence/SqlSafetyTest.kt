@@ -2,7 +2,6 @@ package com.techmarket.persistence
 
 import com.techmarket.persistence.analytics.AnalyticsQueries
 import com.techmarket.persistence.company.CompanyQueries
-import com.techmarket.persistence.ingestion.IngestionQueries
 import com.techmarket.persistence.tech.TechQueries
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -30,7 +29,6 @@ class SqlSafetyTest {
     private val dataset = "my_dataset"
     private val jobsTable = "raw_jobs"
     private val companiesTable = "raw_companies"
-    private val ingestionsTable = "raw_ingestions"
 
     // --- Shared helpers ---
 
@@ -48,10 +46,6 @@ class SqlSafetyTest {
                 sql.contains("\$companiesTableName"),
                 "SQL must not contain literal \$companiesTableName"
         )
-        assertFalse(
-                sql.contains("\$ingestionsTableName"),
-                "SQL must not contain literal \$ingestionsTableName"
-        )
     }
 
     private fun assertBacktickWrapped(sql: String, dataset: String, table: String) {
@@ -59,15 +53,6 @@ class SqlSafetyTest {
                 sql.contains("`$dataset.$table`"),
                 "SQL must reference table as `$dataset.$table` (backtick-wrapped), got: $sql"
         )
-    }
-
-    // --- IngestionQueries ---
-
-    @Test
-    fun `IngestionQueries getSelectAllSql interpolates values and wraps table in backticks`() {
-        val sql = IngestionQueries.getSelectAllSql(dataset, ingestionsTable)
-        assertSqlSafe(sql)
-        assertBacktickWrapped(sql, dataset, ingestionsTable)
     }
 
     // --- CompanyQueries ---

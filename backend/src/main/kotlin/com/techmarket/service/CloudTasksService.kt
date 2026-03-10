@@ -96,7 +96,8 @@ class CloudTasksService(
         val source: String,           // APIFY, ATS, MANUAL
         val country: String?,
         val triggeredBy: String,      // WEBHOOK, SCHEDULED, ADMIN
-        val correlationId: String     // For tracing/debugging
+        val correlationId: String,    // For tracing/debugging
+        val ingestedAt: String? = null  // Optional custom ingestion time (ISO-8601)
     ) {
         fun toJson(): String {
             return JsonMapper.toJson(this)

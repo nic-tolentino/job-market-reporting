@@ -34,6 +34,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("com.google.cloud:spring-cloud-gcp-starter-bigquery")
+    implementation("com.google.cloud:spring-cloud-gcp-starter-storage")
     implementation("com.google.cloud:google-cloud-tasks:${property("gcpCloudTasksVersion")}")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.springframework.boot:spring-boot-starter-cache")

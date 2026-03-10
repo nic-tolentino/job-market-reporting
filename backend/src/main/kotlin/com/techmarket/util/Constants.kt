@@ -55,6 +55,7 @@ object Constants {
      * Data sources and provider identifiers.
      */
     const val SOURCE_APIFY = "LinkedIn-Apify"
+    const val SOURCE_ATS = "ATS"
     const val SOURCE_GREENHOUSE = "Greenhouse"
     const val SOURCE_LEVER = "Lever"
 

@@ -5,7 +5,9 @@ import com.techmarket.config.ApifyProperties
 import com.techmarket.sync.model.ApifyJobDto
 import com.techmarket.sync.model.ApifyJobResult
 import org.slf4j.LoggerFactory
+import org.springframework.http.client.ClientHttpResponse
 import org.springframework.stereotype.Service
+import org.springframework.web.client.HttpClientErrorException
 import org.springframework.web.client.RestClient
 
 @Service
@@ -47,7 +49,12 @@ class ApifyClient(
 
             log.info("Successfully fetched {} jobs from Apify.", results.size)
             results
+        } catch (e: org.springframework.web.client.HttpClientErrorException) {
+            // HTTP 4xx errors (e.g., 404 Not Found) are permanent errors
+            log.error("HTTP {} error fetching dataset {}: {}", e.statusCode.value(), datasetId, e.message)
+            throw e  // Re-throw to mark dataset as FAILED
         } catch (e: Exception) {
+            // Transient errors (network, timeout) return empty list
             log.error("Failed to fetch jobs from Apify: {}", e.message, e)
             emptyList()
         }
