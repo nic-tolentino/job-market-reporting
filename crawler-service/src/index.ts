@@ -7,15 +7,12 @@ const GCP_REGION = process.env.GCP_REGION || 'us-central1';
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
 
 async function main() {
-  console.log('Starting Crawler Service...');
+  console.log('Starting Crawler Service (Vertex AI)...');
 
-  // Check Vertex AI configuration
   if (GCP_PROJECT_ID) {
-    console.log(`Vertex AI configured: Project=${GCP_PROJECT_ID}, Region=${GCP_REGION}, Model=${GEMINI_MODEL}`);
+    console.log(`✓ Vertex AI: Project=${GCP_PROJECT_ID}, Region=${GCP_REGION}`);
   } else {
-    console.warn('WARNING: GCP_PROJECT_ID environment variable not set');
-    console.warn('The crawler will not be able to extract jobs from career pages');
-    console.warn('Set GCP_PROJECT_ID to enable Vertex AI');
+    console.warn('⚠️  WARNING: GCP_PROJECT_ID not set - Vertex AI disabled');
   }
 
   // Initialize crawler service with Vertex AI
@@ -27,8 +24,8 @@ async function main() {
   // Start server
   app.listen(PORT, () => {
     console.log(`Crawler Service listening on port ${PORT}`);
-    console.log(`Health check: http://localhost:${PORT}/health`);
-    console.log(`Crawl endpoint: POST http://localhost:${PORT}/crawl`);
+    console.log(`Health: http://localhost:${PORT}/health`);
+    console.log(`Crawl: POST http://localhost:${PORT}/crawl`);
   });
 
   // Graceful shutdown
