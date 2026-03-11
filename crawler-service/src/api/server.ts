@@ -33,9 +33,17 @@ export function createApp(crawlerService: CrawlerService): express.Application {
   app.use(cors());
   app.use(express.json({ limit: '10mb' }));
   
-  // Health check endpoint
-  app.get('/health', (req: Request, res: Response) => {
-    res.json({ status: 'ok', timestamp: new Date().toISOString() });
+  // Health check endpoint with API key validation
+  app.get('/health', async (req: Request, res: Response) => {
+    // Validate Gemini API key
+    const apiKeyValidation = await crawlerService.validateGeminiApiKey();
+    
+    res.json({ 
+      status: apiKeyValidation.valid ? 'ok' : 'degraded',
+      timestamp: new Date().toISOString(),
+      geminiApiKey: apiKeyValidation.valid ? 'valid' : 'invalid',
+      geminiApiError: apiKeyValidation.error || undefined
+    });
   });
   
   // Main crawl endpoint

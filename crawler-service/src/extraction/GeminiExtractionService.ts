@@ -80,26 +80,74 @@ export class GeminiExtractionService {
     if (!this.geminiModel) {
       throw new Error('Gemini client not initialized. Check GEMINI_API_KEY.');
     }
-    
+
     const prompt = this.buildPrompt(content, config);
-    
-    const result = await this.geminiModel.generateContent(prompt);
-    const response = await result.response;
-    
-    const text = response.text();
-    const llmJobs = this.parseJobsFromResponse(text);
-    
-    // Convert LLM jobs to NormalizedJob with service-set fields
-    const jobs = llmJobs.map(job => this.toNormalizedJob(job, config.companyName));
-    
-    return {
-      jobs,
-      model: this.model,
-      tokenUsage: {
-        input: response.usageMetadata?.promptTokenCount || 0,
-        output: response.usageMetadata?.candidatesTokenCount || 0
+
+    try {
+      const result = await this.geminiModel.generateContent(prompt);
+      const response = await result.response;
+
+      // Check for API errors (quota, billing, invalid key)
+      if (response.promptFeedback?.blockReason) {
+        throw new Error(
+          `Gemini API blocked request: ${response.promptFeedback.blockReason}. ` +
+          `This usually means the API key is invalid, billing is not enabled, or quota is exceeded. ` +
+          `Check: https://console.cloud.google.com/billing`
+        );
       }
-    };
+
+      const text = response.text();
+      
+      // Check if response is empty (possible API error)
+      if (!text || text.trim().length === 0) {
+        throw new Error(
+          'Gemini API returned empty response. ' +
+          'This may indicate API key issues, quota exceeded, or billing not enabled. ' +
+          'Check: https://console.cloud.google.com/billing'
+        );
+      }
+
+      const llmJobs = this.parseJobsFromResponse(text);
+
+      // Convert LLM jobs to NormalizedJob with service-set fields
+      const jobs = llmJobs.map(job => this.toNormalizedJob(job, config.companyName));
+
+      return {
+        jobs,
+        model: this.model,
+        tokenUsage: {
+          input: response.usageMetadata?.promptTokenCount || 0,
+          output: response.usageMetadata?.candidatesTokenCount || 0
+        }
+      };
+    } catch (error) {
+      // Enhance Gemini API error messages
+      if (error.message?.includes('API key not valid')) {
+        throw new Error(
+          `Gemini API Error: Invalid or expired API key. ` +
+          `Details: ${error.message}. ` +
+          `Solutions: 1) Check API key is correct, 2) Ensure billing is enabled at https://console.cloud.google.com/billing, ` +
+          `3) Verify API key has Gemini API permissions`
+        );
+      }
+      if (error.message?.includes('quota') || error.message?.includes('Quota exceeded')) {
+        throw new Error(
+          `Gemini API Error: Quota exceeded. ` +
+          `Details: ${error.message}. ` +
+          `Solutions: 1) Wait for quota to reset (usually 1 minute), 2) Enable billing at https://console.cloud.google.com/billing, ` +
+          `3) Request quota increase at https://cloud.google.com/vertex-ai/docs/quotas`
+        );
+      }
+      if (error.message?.includes('billing')) {
+        throw new Error(
+          `Gemini API Error: Billing not enabled. ` +
+          `Details: ${error.message}. ` +
+          `Solution: Enable billing at https://console.cloud.google.com/billing to continue using Gemini API`
+        );
+      }
+      // Re-throw other errors
+      throw error;
+    }
   }
 
   /**

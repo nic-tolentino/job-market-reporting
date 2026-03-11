@@ -8,17 +8,64 @@ import { CrawlRequest, CrawlResponse, CrawlMeta, NormalizedJob } from '../api/ty
 
 /**
  * Main crawler service that orchestrates the crawl pipeline
- * 
+ *
  * Creates a new PlaywrightCrawler instance per crawl request to avoid
  * concurrency issues and allow proper request isolation.
  */
 export class CrawlerService {
   private extractionService: GeminiExtractionService;
   private robotsChecker: RobotsChecker;
+  private geminiApiKey: string | undefined;
 
   constructor(geminiApiKey?: string) {
+    this.geminiApiKey = geminiApiKey;
     this.extractionService = new GeminiExtractionService(geminiApiKey);
     this.robotsChecker = new RobotsChecker('DevAssemblyBot', 60, 500);
+  }
+
+  /**
+   * Validates Gemini API key and returns detailed error if invalid
+   */
+  async validateGeminiApiKey(): Promise<{ valid: boolean; error?: string }> {
+    if (!this.geminiApiKey) {
+      return {
+        valid: false,
+        error: 'GEMINI_API_KEY not set. Please set the environment variable or pass it to the constructor.'
+      };
+    }
+
+    // Quick validation by making a test request
+    try {
+      const testResult = await this.extractionService.extractJobs('Test', { companyName: 'Test' });
+      return { valid: true };
+    } catch (error) {
+      const errorMessage = error.message || 'Unknown error';
+      
+      // Provide actionable error messages
+      if (errorMessage.includes('API key not valid')) {
+        return {
+          valid: false,
+          error: `Invalid Gemini API key. Solutions: 1) Check key is correct, 2) Ensure billing is enabled at https://console.cloud.google.com/billing, 3) Verify API key has Gemini API permissions`
+        };
+      }
+      if (errorMessage.includes('quota') || errorMessage.includes('Quota exceeded')) {
+        return {
+          valid: false,
+          error: `Gemini API quota exceeded. Solutions: 1) Wait for quota reset (~1 minute), 2) Enable billing at https://console.cloud.google.com/billing, 3) Request quota increase`
+        };
+      }
+      if (errorMessage.includes('billing')) {
+        return {
+          valid: false,
+          error: `Billing not enabled for Gemini API. Solution: Enable billing at https://console.cloud.google.com/billing`
+        };
+      }
+      
+      return {
+        valid: false,
+        error: `Gemini API error: ${errorMessage}`
+      };
+    }
   }
 
   /**
