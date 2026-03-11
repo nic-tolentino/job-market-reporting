@@ -1,9 +1,0 @@
-{
-	"id": "0fFYWIFG79D9R9n",
-	"json": "{\"id\":\"0fFYWIFG79D9R9n\",\"url\":\"https://example.com/careers\",\"uniqueKey\":\"https://example.com/careers\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{}}",
-	"method": "GET",
-	"orderNo": 1773214146924,
-	"retryCount": 0,
-	"uniqueKey": "https://example.com/careers",
-	"url": "https://example.com/careers"
-}
