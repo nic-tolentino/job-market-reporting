@@ -1,7 +1,28 @@
-# Build stage
-FROM node:20-alpine AS builder
+# Use Node.js LTS
+FROM node:20-slim
 
 WORKDIR /app
+
+# Install system dependencies for Chromium/Playwright
+RUN apt-get update && apt-get install -y \
+    chromium \
+    libnss3 \
+    libnspr4 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libcups2 \
+    libdrm2 \
+    libdbus-1-3 \
+    libxkbcommon0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxfixes3 \
+    libxrandr2 \
+    libgbm1 \
+    libasound2 \
+    libpango-1.0-0 \
+    libcairo2 \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy package files
 COPY package*.json ./
@@ -16,37 +37,15 @@ COPY src ./src
 # Build TypeScript
 RUN npm run build
 
-# Production stage
-FROM node:20-alpine
-
-WORKDIR /app
-
-# Install system dependencies for Playwright/Chromium
-RUN apk add --no-cache \
-    chromium \
-    nss \
-    freetype \
-    harfbuzz \
-    ca-certificates \
-    ttf-freefont \
-    libstdc++ \
-    && rm -rf /var/cache/apk/*
-
-# Copy built files from builder
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./
-
 # Install Playwright browsers (Chromium only)
 ENV PLAYWRIGHT_BROWSERS_PATH=/app/node_modules/playwright-core/.local-browsers
-# Install browsers without system dependencies (we already installed them above)
 RUN npx --yes playwright install chromium
 
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=8080
 ENV PLAYWRIGHT_BROWSERS_PATH=/app/node_modules/playwright-core/.local-browsers
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
 # Expose port
 EXPOSE 8080
