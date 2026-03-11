@@ -2,22 +2,24 @@ import { createApp } from './api/server';
 import { CrawlerService } from './api/CrawlerService';
 
 const PORT = process.env.PORT || 8080;
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GCP_PROJECT_ID = process.env.GCP_PROJECT_ID;
+const GCP_REGION = process.env.GCP_REGION || 'us-central1';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
 
 async function main() {
   console.log('Starting Crawler Service...');
 
-  // Log API key status (not the actual key for security)
-  if (GEMINI_API_KEY) {
-    console.log(`Gemini API key: Configured (key starts with ${GEMINI_API_KEY.substring(0, 8)}...)`);
+  // Check Vertex AI configuration
+  if (GCP_PROJECT_ID) {
+    console.log(`Vertex AI configured: Project=${GCP_PROJECT_ID}, Region=${GCP_REGION}, Model=${GEMINI_MODEL}`);
   } else {
-    console.warn('WARNING: GEMINI_API_KEY environment variable not set');
+    console.warn('WARNING: GCP_PROJECT_ID environment variable not set');
     console.warn('The crawler will not be able to extract jobs from career pages');
-    console.warn('Check health endpoint for details: /health');
+    console.warn('Set GCP_PROJECT_ID to enable Vertex AI');
   }
 
-  // Initialize crawler service
-  const crawlerService = new CrawlerService(GEMINI_API_KEY);
+  // Initialize crawler service with Vertex AI
+  const crawlerService = new CrawlerService(GCP_PROJECT_ID, GCP_REGION, GEMINI_MODEL);
 
   // Create Express app
   const app = createApp(crawlerService);

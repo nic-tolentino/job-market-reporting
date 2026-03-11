@@ -1,44 +1,20 @@
-import { GoogleGenerativeAI, GenerativeModel } from '@google/generative-ai';
+import { VertexAIClient } from './VertexAIClient';
 import { NormalizedJob } from '../api/types';
 
-/**
- * Default extraction prompt for job listings
- */
-const DEFAULT_EXTRACTION_PROMPT = `You are a job listing extraction assistant. Extract all job postings from the following career page content.
-
-Company: {{companyName}}
-Industry: {{industries}}
-Known locations: {{officeLocations}}
-
-For each job, return a JSON object with these fields:
-- title (string, required)
-- location (string — city, state/region, country)
-- department (string or null)
-- employmentType ("Full-time" | "Part-time" | "Contract" | "Internship" | null)
-- seniorityLevel ("Junior" | "Mid" | "Senior" | "Lead" | "Principal" | "Director" | "VP" | null)
-- workModel ("Remote" | "Hybrid" | "On-site" | null)
-- salaryMin (integer, annual, or null)
-- salaryMax (integer, annual, or null)
-- salaryCurrency (ISO 4217 code, or null)
-- description (first 500 characters of the job description)
-- postedAt (ISO date string, or null)
-- applyUrl (direct application URL, or null)
-
-Rules:
-- Only include CURRENT, OPEN job postings. Ignore expired or example listings.
-- If salary is given as hourly/daily, convert to annual estimate.
-- If location is ambiguous, use the company's known locations as context.
-- Return a JSON array. If no jobs found, return [].
-
-Career page content:
-{{pageContent}}`;
-
-export interface ExtractionConfig {
-  prompt?: string;
-  companyName?: string;
-  industries?: string[];
-  officeLocations?: string[];
-  extractionHints?: Record<string, string>;
+export interface LlmJobData {
+  title: string;
+  location?: string;
+  description?: string;
+  salaryMin?: number;
+  salaryMax?: number;
+  salaryCurrency?: string;
+  employmentType?: string;
+  seniorityLevel?: string;
+  workModel?: string;
+  department?: string;
+  postedAt?: string;
+  applyUrl?: string;
+  [key: string]: unknown;
 }
 
 export interface ExtractionResult {
@@ -50,64 +26,45 @@ export interface ExtractionResult {
   };
 }
 
+export interface ExtractionConfig {
+  companyName?: string;
+  industries?: string[];
+  officeLocations?: string[];
+  prompt?: string;
+  extractionHints?: Record<string, string>;
+}
+
 /**
- * Service for extracting job data using Gemini Flash
- * 
- * Creates Gemini client once in constructor for efficiency.
+ * Service for extracting job data using Vertex AI (Gemini)
  */
 export class GeminiExtractionService {
-  private apiKey: string;
+  private vertexClient: VertexAIClient;
   private model: string;
-  private geminiModel: GenerativeModel | null = null;
 
-  constructor(apiKey?: string, model: string = 'gemini-2.0-flash') {
-    this.apiKey = apiKey || process.env.GEMINI_API_KEY || '';
+  constructor(project: string, location: string = 'us-central1', model: string = 'gemini-2.0-flash') {
     this.model = model;
-    
-    if (!this.apiKey) {
-      console.warn('GEMINI_API_KEY not set. Extraction will fail.');
-    } else {
-      // Initialize Gemini client once
-      const genAI = new GoogleGenerativeAI(this.apiKey);
-      this.geminiModel = genAI.getGenerativeModel({ model: this.model });
-    }
+    this.vertexClient = new VertexAIClient(project, location, model);
   }
 
   /**
-   * Extracts jobs from page content using Gemini Flash
+   * Extracts jobs from page content using Vertex AI
    */
   async extractJobs(content: string, config: ExtractionConfig = {}): Promise<ExtractionResult> {
-    if (!this.geminiModel) {
-      throw new Error('Gemini client not initialized. Check GEMINI_API_KEY.');
-    }
-
     const prompt = this.buildPrompt(content, config);
 
     try {
-      const result = await this.geminiModel.generateContent(prompt);
-      const response = await result.response;
+      const response = await this.vertexClient.generateContent(prompt);
 
-      // Check for API errors (quota, billing, invalid key)
-      if (response.promptFeedback?.blockReason) {
+      // Check if response is empty
+      if (!response.text || response.text.trim().length === 0) {
         throw new Error(
-          `Gemini API blocked request: ${response.promptFeedback.blockReason}. ` +
-          `This usually means the API key is invalid, billing is not enabled, or quota is exceeded. ` +
-          `Check: https://console.cloud.google.com/billing`
+          'Vertex AI returned empty response. ' +
+          'This may indicate API issues or quota exceeded. ' +
+          'Check: https://console.cloud.google.com/vertex-ai'
         );
       }
 
-      const text = response.text();
-      
-      // Check if response is empty (possible API error)
-      if (!text || text.trim().length === 0) {
-        throw new Error(
-          'Gemini API returned empty response. ' +
-          'This may indicate API key issues, quota exceeded, or billing not enabled. ' +
-          'Check: https://console.cloud.google.com/billing'
-        );
-      }
-
-      const llmJobs = this.parseJobsFromResponse(text);
+      const llmJobs = this.parseJobsFromResponse(response.text);
 
       // Convert LLM jobs to NormalizedJob with service-set fields
       const jobs = llmJobs.map(job => this.toNormalizedJob(job, config.companyName));
@@ -116,35 +73,31 @@ export class GeminiExtractionService {
         jobs,
         model: this.model,
         tokenUsage: {
-          input: response.usageMetadata?.promptTokenCount || 0,
-          output: response.usageMetadata?.candidatesTokenCount || 0
+          input: response.usageMetadata.promptTokenCount || 0,
+          output: response.usageMetadata.candidatesTokenCount || 0
         }
       };
     } catch (error) {
-      // Enhance Gemini API error messages
+      // Enhance Vertex AI error messages
       const errorMessage = (error as Error).message || 'Unknown error';
       
-      if (errorMessage.includes('API key not valid')) {
+      if (errorMessage.includes('Permission Denied')) {
         throw new Error(
-          `Gemini API Error: Invalid or expired API key. ` +
-          `Details: ${errorMessage}. ` +
-          `Solutions: 1) Check API key is correct, 2) Ensure billing is enabled at https://console.cloud.google.com/billing, ` +
-          `3) Verify API key has Gemini API permissions`
+          `Vertex AI Error: Service account lacks permissions. ` +
+          `Solutions: 1) Grant "Vertex AI User" role to service account, 2) Verify service account has access to project, ` +
+          `3) Enable Vertex AI API at https://console.cloud.google.com/vertex-ai`
         );
       }
-      if (errorMessage.includes('quota') || errorMessage.includes('Quota exceeded')) {
+      if (errorMessage.includes('Quota Exceeded')) {
         throw new Error(
-          `Gemini API Error: Quota exceeded. ` +
-          `Details: ${errorMessage}. ` +
-          `Solutions: 1) Wait for quota to reset (usually 1 minute), 2) Enable billing at https://console.cloud.google.com/billing, ` +
-          `3) Request quota increase at https://cloud.google.com/vertex-ai/docs/quotas`
+          `Vertex AI Error: Quota exceeded. ` +
+          `Solutions: 1) Wait for quota reset, 2) Request quota increase at https://console.cloud.google.com/vertex-ai/quotas`
         );
       }
-      if (errorMessage.includes('billing')) {
+      if (errorMessage.includes('API not enabled')) {
         throw new Error(
-          `Gemini API Error: Billing not enabled. ` +
-          `Details: ${errorMessage}. ` +
-          `Solution: Enable billing at https://console.cloud.google.com/billing to continue using Gemini API`
+          `Vertex AI Error: API not enabled. ` +
+          `Solution: Enable Vertex AI API at https://console.cloud.google.com/vertex-ai`
         );
       }
       // Re-throw other errors
@@ -157,100 +110,75 @@ export class GeminiExtractionService {
    */
   private buildPrompt(content: string, config: ExtractionConfig): string {
     let prompt = config.prompt || DEFAULT_EXTRACTION_PROMPT;
-    
+
     // Replace template variables
     prompt = prompt
       .replace('{{companyName}}', config.companyName || 'Unknown')
       .replace('{{industries}}', config.industries?.join(', ') || 'Unknown')
       .replace('{{officeLocations}}', config.officeLocations?.join(', ') || 'Unknown')
       .replace('{{pageContent}}', content);
-    
+
     // Append extraction hints if provided
     if (config.extractionHints && Object.keys(config.extractionHints).length > 0) {
       const hintsText = Object.entries(config.extractionHints)
         .map(([key, value]) => `- ${key}: ${value}`)
         .join('\n');
-      
+
       prompt += `\n\nAdditional context for this company:\n${hintsText}`;
     }
-    
+
     return prompt;
   }
 
   /**
-   * Parses job array from LLM response
-   * Handles various JSON formatting issues
+   * Parses job data from LLM response
    */
   private parseJobsFromResponse(text: string): LlmJobData[] {
     try {
-      // Try to parse as-is first
-      const parsed = JSON.parse(text);
-      if (Array.isArray(parsed)) {
-        return parsed;
-      }
-      // Check if jobs are nested
-      if (parsed.jobs && Array.isArray(parsed.jobs)) {
-        return parsed.jobs;
-      }
-      return [];
-    } catch {
-      // Try to extract JSON from markdown code blocks
-      const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
-      if (jsonMatch) {
-        try {
-          const parsed = JSON.parse(jsonMatch[1]);
-          if (Array.isArray(parsed)) {
-            return parsed;
-          }
-          if (parsed.jobs && Array.isArray(parsed.jobs)) {
-            return parsed.jobs;
-          }
-        } catch {
-          // Fall through to empty
-        }
-      }
+      // Remove markdown code blocks if present
+      const cleanText = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
       
-      // Try to find array in text
-      const arrayMatch = text.match(/\[[\s\S]*\]/);
-      if (arrayMatch) {
-        try {
-          const parsed = JSON.parse(arrayMatch[0]);
-          if (Array.isArray(parsed)) {
-            return parsed;
-          }
-          if (parsed.jobs && Array.isArray(parsed.jobs)) {
-            return parsed.jobs;
-          }
-        } catch {
-          // Ignore parse errors
-        }
+      // Try parsing as array
+      let jobs: LlmJobData[];
+      try {
+        jobs = JSON.parse(cleanText) as LlmJobData[];
+      } catch {
+        // Try parsing as object with jobs array
+        const obj = JSON.parse(cleanText) as { jobs?: LlmJobData[] };
+        jobs = obj.jobs || [];
       }
-      
-      console.warn('Failed to parse LLM response as JSON');
+
+      // Ensure array
+      if (!Array.isArray(jobs)) {
+        jobs = [jobs];
+      }
+
+      return jobs;
+    } catch (error) {
+      console.error('Failed to parse LLM response:', error);
+      console.error('Response text:', text);
       return [];
     }
   }
 
   /**
-   * Converts LLM-extracted job data to NormalizedJob
-   * Service sets fields that LLM cannot infer (platformId, source, companyName)
+   * Converts LLM job data to NormalizedJob format
    */
   private toNormalizedJob(llmJob: LlmJobData, companyName?: string): NormalizedJob {
-    // Generate platformId from job title and date
-    const dateStr = llmJob.postedAt 
-      ? llmJob.postedAt.replace(/-/g, '').slice(0, 8)  // "2024-03-10" → "20240310"
-      : new Date().toISOString().split('T')[0].replace(/-/g, '');
-    
+    // Generate platformId from title and date
     const slug = llmJob.title.toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '')
       .slice(0, 50);
     
+    const dateStr = (llmJob.postedAt as string || new Date().toISOString()).replace(/-/g, '').slice(0, 8);
+    const platformId = llmJob.platformId as string || `${slug}-${dateStr}`;
+
     return {
-      platformId: llmJob.platformId || `crawl-${slug}-${dateStr}`,
+      platformId,
       source: 'Crawler',
-      title: llmJob.title || '',
-      companyName: llmJob.companyName || companyName || '',
+      title: llmJob.title,
+      companyName: llmJob.companyName || companyName || 'Unknown',
       location: llmJob.location || null,
       descriptionHtml: null,
       descriptionText: llmJob.description || null,
@@ -261,31 +189,32 @@ export class GeminiExtractionService {
       seniorityLevel: llmJob.seniorityLevel || null,
       workModel: llmJob.workModel || null,
       department: llmJob.department || null,
-      postedAt: llmJob.postedAt || null,
+      postedAt: llmJob.postedAt ? (llmJob.postedAt as string).replace(/-/g, '').slice(0, 8) : null,
       applyUrl: llmJob.applyUrl || null,
-      platformUrl: llmJob.platformUrl || null
+      platformUrl: null
     };
   }
 }
 
-/**
- * Intermediate type for LLM-extracted job data
- * More flexible than NormalizedJob to accommodate LLM output variations
- */
-export interface LlmJobData {
-  platformId?: string;
-  title: string;
-  location?: string | null;
-  department?: string | null;
-  employmentType?: string | null;
-  seniorityLevel?: string | null;
-  workModel?: string | null;
-  salaryMin?: number | null;
-  salaryMax?: number | null;
-  salaryCurrency?: string | null;
-  description?: string | null;
-  postedAt?: string | null;
-  applyUrl?: string | null;
-  platformUrl?: string | null;
-  companyName?: string;  // Optional - service will fill if not provided
-}
+const DEFAULT_EXTRACTION_PROMPT = `You are a job data extraction expert. Extract all job listings from the following career page content.
+
+Company: {{companyName}}
+Industries: {{industries}}
+Office Locations: {{officeLocations}}
+
+Page Content:
+{{pageContent}}
+
+Extract these fields for each job:
+- title (required)
+- location (city, country)
+- description
+- salaryMin, salaryMax, salaryCurrency (if mentioned)
+- employmentType (Full-time, Part-time, Contract, Internship)
+- seniorityLevel (Junior, Mid, Senior, Lead, Principal, Director, VP)
+- workModel (Remote, Hybrid, On-site)
+- department
+- postedAt (ISO date if mentioned)
+- applyUrl
+
+Return as JSON array. If no jobs found, return empty array [].`;
