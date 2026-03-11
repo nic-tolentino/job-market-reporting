@@ -3,6 +3,9 @@ package com.techmarket.persistence.tech
 import com.google.cloud.bigquery.BigQuery
 import com.google.cloud.bigquery.QueryJobConfiguration
 import com.google.cloud.bigquery.QueryParameterValue
+import com.techmarket.models.CompanyLeaderboardRow
+import com.techmarket.models.JobRow
+import com.techmarket.models.SeniorityRow
 import com.techmarket.api.model.TechDetailsPageDto
 import com.techmarket.persistence.BigQueryTables
 import com.techmarket.persistence.JobFields
@@ -38,11 +41,16 @@ class TechBigQueryRepository(
                 val rolesConfig = QueryJobConfiguration.newBuilder(rolesQuery.sql)
                         .addNamedParameter("techName", QueryParameterValue.string(techName))
                         .addNamedParameter("country", QueryParameterValue.string(country?.lowercase()))
-                
+
                 val senResult = bigQuery.query(senConfig.build())
                 val compResult = bigQuery.query(compConfig.build())
                 val rolesResult = bigQuery.query(rolesConfig.build())
 
-                return TechMapper.mapTechDetails(techName, senResult, compResult, rolesResult)
+                // Hydrate typed rows - all null-safety handled in QueryRows.kt
+                val seniorityRows = senResult.values.map { SeniorityRow.fromAggregationRow(it) }
+                val companyRows = compResult.values.map { CompanyLeaderboardRow.fromAggregationRow(it) }
+                val jobRows = rolesResult.values.map { JobRow.fromJobRow(it) }
+
+                return TechMapper.mapTechDetails(techName, seniorityRows, companyRows, jobRows)
         }
 }

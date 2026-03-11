@@ -1,8 +1,8 @@
 package com.techmarket.persistence.company
  
+import com.techmarket.persistence.CompanyFields
 import com.techmarket.persistence.CompanyFields.ALTERNATE_NAMES
 import com.techmarket.persistence.CompanyFields.COMPANY_ID
-import com.techmarket.persistence.CompanyFields.DESCRIPTION
 import com.techmarket.persistence.CompanyFields.EMPLOYEES_COUNT
 import com.techmarket.persistence.CompanyFields.HIRING_LOCATIONS
 import com.techmarket.persistence.CompanyFields.HQ_COUNTRY
@@ -19,10 +19,16 @@ import com.techmarket.persistence.CompanyFields.TECHNOLOGIES
 import com.techmarket.persistence.CompanyFields.VERIFICATION_LEVEL
 import com.techmarket.persistence.CompanyFields.VISA_SPONSORSHIP
 import com.techmarket.persistence.CompanyFields.WEBSITE
+import com.techmarket.persistence.JobFields
 import com.techmarket.persistence.JobFields.APPLY_URLS
 import com.techmarket.persistence.JobFields.BENEFITS
 import com.techmarket.persistence.JobFields.CITY
+import com.techmarket.persistence.JobFields.COMPANY_ID as JOB_COMPANY_ID
+import com.techmarket.persistence.JobFields.COMPANY_NAME
 import com.techmarket.persistence.JobFields.COUNTRY
+import com.techmarket.persistence.JobFields.DESCRIPTION
+import com.techmarket.persistence.JobFields.EMPLOYMENT_TYPE
+import com.techmarket.persistence.JobFields.JOB_FUNCTION
 import com.techmarket.persistence.JobFields.JOB_ID
 import com.techmarket.persistence.JobFields.JOB_IDS
 import com.techmarket.persistence.JobFields.LAST_SEEN_AT
@@ -37,7 +43,6 @@ import com.techmarket.persistence.JobFields.STATE_REGION
 import com.techmarket.persistence.JobFields.TITLE
 import com.techmarket.persistence.JobFields.WORK_MODEL
 import com.techmarket.persistence.QueryParams
-import com.techmarket.persistence.JobFields.COMPANY_ID as JOB_COMPANY_ID
  
 object CompanyQueries {
     
@@ -49,49 +54,49 @@ object CompanyQueries {
         return CompanyDetailsQuery(
             sql = """
                 SELECT
-                    $COMPANY_ID,
-                    $NAME,
+                    ${CompanyFields.COMPANY_ID},
+                    ${CompanyFields.NAME},
                     $ALTERNATE_NAMES,
-                    $LOGO_URL,
-                    $WEBSITE,
+                    ${CompanyFields.LOGO_URL},
+                    ${CompanyFields.WEBSITE},
                     $EMPLOYEES_COUNT,
-                    $INDUSTRIES,
-                    $DESCRIPTION,
-                    $TECHNOLOGIES,
+                    ${CompanyFields.INDUSTRIES},
+                    ${CompanyFields.DESCRIPTION},
+                    ${CompanyFields.TECHNOLOGIES},
                     $HIRING_LOCATIONS,
                     $IS_AGENCY,
                     $IS_SOCIAL_ENTERPRISE,
-                    $HQ_COUNTRY,
+                    ${CompanyFields.HQ_COUNTRY},
                     $OPERATING_COUNTRIES,
                     $OFFICE_LOCATIONS,
                     $REMOTE_POLICY,
-                    $VISA_SPONSORSHIP,
-                    $VERIFICATION_LEVEL,
-                    $LAST_UPDATED_AT
+                    ${CompanyFields.VISA_SPONSORSHIP},
+                    ${CompanyFields.VERIFICATION_LEVEL},
+                    ${CompanyFields.LAST_UPDATED_AT}
                 FROM `$datasetName.$companiesTableName`
-                WHERE $COMPANY_ID = @${QueryParams.COMPANY_ID}
+                WHERE ${CompanyFields.COMPANY_ID} = @${QueryParams.COMPANY_ID}
                 LIMIT 1
             """.trimIndent(),
             requiredFields = listOf(
-                COMPANY_ID,
-                NAME,
+                CompanyFields.COMPANY_ID,
+                CompanyFields.NAME,
                 ALTERNATE_NAMES,
-                LOGO_URL,
-                WEBSITE,
+                CompanyFields.LOGO_URL,
+                CompanyFields.WEBSITE,
                 EMPLOYEES_COUNT,
-                INDUSTRIES,
-                DESCRIPTION,
-                TECHNOLOGIES,
+                CompanyFields.INDUSTRIES,
+                CompanyFields.DESCRIPTION,
+                CompanyFields.TECHNOLOGIES,
                 HIRING_LOCATIONS,
                 IS_AGENCY,
                 IS_SOCIAL_ENTERPRISE,
-                HQ_COUNTRY,
+                CompanyFields.HQ_COUNTRY,
                 OPERATING_COUNTRIES,
                 OFFICE_LOCATIONS,
                 REMOTE_POLICY,
-                VISA_SPONSORSHIP,
-                VERIFICATION_LEVEL,
-                LAST_UPDATED_AT
+                CompanyFields.VISA_SPONSORSHIP,
+                CompanyFields.VERIFICATION_LEVEL,
+                CompanyFields.LAST_UPDATED_AT
             )
         )
     }
@@ -118,25 +123,30 @@ object CompanyQueries {
     fun getJobsSql(datasetName: String, jobsTableName: String): CompanyJobsQuery {
         return CompanyJobsQuery(
             sql = """
-                SELECT 
-                    $JOB_ID, 
-                    $JOB_IDS, 
-                    $APPLY_URLS, 
-                    $PLATFORM_LINKS, 
-                    $LOCATIONS, 
-                    $TITLE, 
-                    $SALARY_MIN, 
-                    $SALARY_MAX, 
-                    $POSTED_DATE, 
-                    $TECHNOLOGIES, 
-                    $BENEFITS, 
-                    $CITY, 
-                    $STATE_REGION, 
-                    $SENIORITY_LEVEL, 
-                    $SOURCE, 
+                SELECT
+                    $JOB_ID,
+                    $JOB_IDS,
+                    $APPLY_URLS,
+                    $PLATFORM_LINKS,
+                    $LOCATIONS,
+                    $TITLE,
+                    $JOB_COMPANY_ID,
+                    $COMPANY_NAME,
+                    $SALARY_MIN,
+                    $SALARY_MAX,
+                    $POSTED_DATE,
+                    $TECHNOLOGIES,
+                    $BENEFITS,
+                    $CITY,
+                    $STATE_REGION,
+                    $SENIORITY_LEVEL,
+                    $SOURCE,
                     $LAST_SEEN_AT,
                     $COUNTRY,
-                    $WORK_MODEL
+                    $WORK_MODEL,
+                    $DESCRIPTION,
+                    $EMPLOYMENT_TYPE,
+                    $JOB_FUNCTION
                 FROM `$datasetName.$jobsTableName`
                 WHERE $JOB_COMPANY_ID = @${QueryParams.COMPANY_ID}
                 AND (@${QueryParams.COUNTRY} IS NULL OR $COUNTRY = @${QueryParams.COUNTRY})
@@ -149,6 +159,8 @@ object CompanyQueries {
                 PLATFORM_LINKS,
                 LOCATIONS,
                 TITLE,
+                JOB_COMPANY_ID,
+                COMPANY_NAME,
                 SALARY_MIN,
                 SALARY_MAX,
                 POSTED_DATE,
@@ -160,7 +172,10 @@ object CompanyQueries {
                 SOURCE,
                 LAST_SEEN_AT,
                 COUNTRY,
-                WORK_MODEL
+                WORK_MODEL,
+                DESCRIPTION,
+                EMPLOYMENT_TYPE,
+                JOB_FUNCTION
             )
         )
     }

@@ -9,11 +9,14 @@ import com.google.cloud.bigquery.Schema
 import com.google.cloud.bigquery.StandardSQLTypeName
 import com.google.cloud.bigquery.TableId
 import com.google.cloud.spring.bigquery.core.BigQueryTemplate
+import com.techmarket.models.JobDetailsRow
+import com.techmarket.models.JobRow
 import com.techmarket.persistence.BigQueryTables
 import com.techmarket.persistence.JobFields
 import com.techmarket.persistence.QueryParams.JOB_ID
 import com.techmarket.persistence.QueryParams.SENIORITY
 import com.techmarket.persistence.SalaryMapper
+import com.techmarket.persistence.getStringOrDefault
 import com.techmarket.persistence.ensureTableExists
 import com.techmarket.persistence.model.JobRecord
 import com.techmarket.api.model.JobPageDto
@@ -199,13 +202,12 @@ class JobBigQueryRepository(
 
                 val r = detResult.values.firstOrNull() ?: return null
 
-                val techList =
-                        if (r.get(JobFields.TECHNOLOGIES).isNull) emptyList<String>()
-                        else r.get(JobFields.TECHNOLOGIES).repeatedValue.map { it.stringValue }
+                // Hydrate typed row - all null-safety handled in QueryRows.kt
+                val detailsRow = JobDetailsRow.fromJoinedRow(r)
 
-                val seniority = r.get(JobFields.SENIORITY_LEVEL).stringValue
+                val seniority = detailsRow.job.seniorityLevel
 
-                val similarQuery = JobQueries.getSimilarSql(datasetName, jobsTableName, techList)
+                val similarQuery = JobQueries.getSimilarSql(datasetName, jobsTableName, detailsRow.job.technologies)
                 val similarQueryBuilder =
                         QueryJobConfiguration.newBuilder(similarQuery.sql)
                                 .addNamedParameter(JOB_ID, QueryParameterValue.string(jobId))
@@ -215,8 +217,10 @@ class JobBigQueryRepository(
                                 )
 
                 val similarResult = bigQuery.query(similarQueryBuilder.build())
+                // Hydrate typed rows for similar jobs
+                val similarJobRows = similarResult.values.map { JobRow.fromJobRow(it) }
 
-                return JobMapper.mapJobDetails(r, techList, similarResult)
+                return JobMapper.mapJobDetails(detailsRow, similarJobRows)
         }
 
         override fun getJobsByIds(jobIds: List<String>): List<JobRecord> {
@@ -234,7 +238,7 @@ class JobBigQueryRepository(
                                 )
                                 .build()
                 val result = bigQuery.query(queryConfig)
-                return result.iterateAll().map { row -> JobMapper.mapToJobRecord(row) }
+                return result.iterateAll().map { row -> JobRow.fromJobRow(row).let { JobMapper.mapToJobRecord(it) } }
         }
 
         override fun getAllJobs(): List<JobRecord> {
@@ -242,7 +246,7 @@ class JobBigQueryRepository(
                 val sql = "SELECT * FROM `$datasetName.$jobsTableName`"
                 val queryConfig = QueryJobConfiguration.newBuilder(sql).build()
                 val result = bigQuery.query(queryConfig)
-                return result.iterateAll().map { row -> JobMapper.mapToJobRecord(row) }
+                return result.iterateAll().map { row -> JobRow.fromJobRow(row).let { JobMapper.mapToJobRecord(it) } }
         }
 
         override fun deleteJobsByIds(jobIds: List<String>) {
@@ -285,7 +289,7 @@ class JobBigQueryRepository(
                 """.trimIndent()
                 val queryConfig = QueryJobConfiguration.newBuilder(sql).build()
                 val result = bigQuery.query(queryConfig)
-                return result.iterateAll().map { row -> JobMapper.mapToJobRecord(row) }
+                return result.iterateAll().map { row -> JobRow.fromJobRow(row).let { JobMapper.mapToJobRecord(it) } }
         }
 
         override fun updateJobUrlHealth(
@@ -362,6 +366,6 @@ class JobBigQueryRepository(
                                 .addPositionalParameter(QueryParameterValue.string(jobId))
                                 .build()
                 val result = bigQuery.query(queryConfig)
-                return result.iterateAll().firstOrNull()?.let { row -> JobMapper.mapToJobRecord(row) }
+                return result.iterateAll().firstOrNull()?.let { row -> JobRow.fromJobRow(row).let { JobMapper.mapToJobRecord(it) } }
         }
 }

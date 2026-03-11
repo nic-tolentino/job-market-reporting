@@ -1,137 +1,240 @@
 package com.techmarket.persistence.job
 
-import com.google.cloud.bigquery.FieldValue
-import com.google.cloud.bigquery.FieldValueList
-import com.techmarket.persistence.JobFields
+import com.techmarket.model.NormalizedSalary
+import com.techmarket.models.JobRow
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
 import java.time.Instant
 import java.time.LocalDate
-import java.time.ZoneId
 
 class JobMapperTest {
 
     @Test
     fun `mapToJobRecord should handle ISO date strings`() {
-        val row = mock(FieldValueList::class.java)
-        
-        // Mocking behavior for a successful ISO date parse
-        setupMockRow(row, mapOf(
-            JobFields.JOB_ID to "test-job-id",
-            JobFields.COMPANY_ID to "test-company-id",
-            JobFields.COMPANY_NAME to "Test Company",
-            JobFields.SOURCE to "LinkedIn",
-            JobFields.COUNTRY to "NZ",
-            JobFields.CITY to "Auckland",
-            JobFields.STATE_REGION to "Auckland",
-            JobFields.TITLE to "Software Engineer",
-            JobFields.SENIORITY_LEVEL to "Senior",
-            JobFields.POSTED_DATE to "2026-03-05", // ISO Format
-            JobFields.LAST_SEEN_AT to "2026-03-05T18:00:00Z"
-        ))
+        val jobRow = JobRow(
+            jobId = "test-job-id",
+            jobIds = listOf("test-job-id"),
+            applyUrls = listOf("https://example.com/apply"),
+            platformLinks = listOf("https://example.com/link"),
+            locations = listOf("Auckland, New Zealand"),
+            title = "Software Engineer",
+            companyId = "test-company-id",
+            companyName = "Test Company",
+            description = "Test description",
+            employmentType = "Full-time",
+            jobFunction = "Engineering",
+            salaryMin = null,
+            salaryMax = null,
+            postedDate = "2026-03-05",
+            technologies = listOf("Kotlin", "Spring"),
+            benefits = listOf("Health insurance"),
+            city = "Auckland",
+            stateRegion = "Auckland",
+            seniorityLevel = "Senior",
+            source = "LinkedIn",
+            lastSeenAt = Instant.now(),
+            country = "NZ",
+            workModel = "Hybrid"
+        )
 
-        val record = JobMapper.mapToJobRecord(row)
-        
+        val record = JobMapper.mapToJobRecord(jobRow)
+
         assertEquals(LocalDate.of(2026, 3, 5), record.postedDate)
+        assertEquals("test-job-id", record.jobId)
+        assertEquals("Software Engineer", record.title)
+    }
+
+    @Test
+    fun `mapToJobRecord should handle empty postedDate`() {
+        val jobRow = JobRow(
+            jobId = "test-job-id",
+            jobIds = listOf("test-job-id"),
+            applyUrls = emptyList(),
+            platformLinks = emptyList(),
+            locations = listOf("Auckland"),
+            title = "Software Engineer",
+            companyId = "test-company-id",
+            companyName = "Test Company",
+            description = null,
+            employmentType = null,
+            jobFunction = null,
+            salaryMin = null,
+            salaryMax = null,
+            postedDate = "",
+            technologies = emptyList(),
+            benefits = emptyList(),
+            city = "Auckland",
+            stateRegion = "Auckland",
+            seniorityLevel = "Mid-Level",
+            source = "Manual",
+            lastSeenAt = Instant.EPOCH,
+            country = "NZ",
+            workModel = null
+        )
+
+        val record = JobMapper.mapToJobRecord(jobRow)
+
+        assertNull(record.postedDate)
         assertEquals("test-job-id", record.jobId)
     }
 
     @Test
-    fun `mapToJobRecord should handle numeric scientific timestamp strings`() {
-        val row = mock(FieldValueList::class.java)
-        
-        // This simulates what BigQuery returns: a scientific notation string for an epoch timestamp
-        val scientificTimestamp = "1.772441037962E9"
-        val expectedDate = Instant.ofEpochSecond(1772441037L)
-            .atZone(ZoneId.systemDefault())
-            .toLocalDate()
+    fun `mapToJobRecord should apply defaults for missing required fields`() {
+        val jobRow = JobRow(
+            jobId = "",
+            jobIds = emptyList(),
+            applyUrls = emptyList(),
+            platformLinks = emptyList(),
+            locations = emptyList(),
+            title = "",
+            companyId = "",
+            companyName = "",
+            description = null,
+            employmentType = null,
+            jobFunction = null,
+            salaryMin = null,
+            salaryMax = null,
+            postedDate = "",
+            technologies = emptyList(),
+            benefits = emptyList(),
+            city = "",
+            stateRegion = "",
+            seniorityLevel = "",
+            source = "",
+            lastSeenAt = Instant.EPOCH,
+            country = null,
+            workModel = null
+        )
 
-        setupMockRow(row, mapOf(
-            JobFields.POSTED_DATE to scientificTimestamp,
-            JobFields.LAST_SEEN_AT to scientificTimestamp
-        ))
+        val record = JobMapper.mapToJobRecord(jobRow)
 
-        val record = JobMapper.mapToJobRecord(row)
-        
-        assertEquals(expectedDate, record.postedDate)
-        assertEquals(Instant.ofEpochSecond(1772441037L), record.lastSeenAt)
+        assertEquals("", record.jobId)
+        assertEquals("", record.title)  // Title is passed through as-is from JobRow (defaults applied in fromJobRow)
+        assertEquals("", record.companyId)
+        assertEquals("", record.companyName)  // Name is passed through as-is from JobRow
+        assertEquals("", record.seniorityLevel)
+        assertEquals("", record.source)  // Source is passed through as-is from JobRow
     }
 
     @Test
-    fun `mapToJobRecord should handle null dates gracefully`() {
-        val row = mock(FieldValueList::class.java)
-        
-        val field = mock(FieldValue::class.java)
-        `when`(field.isNull).thenReturn(true)
-        `when`(row.get(JobFields.POSTED_DATE)).thenReturn(field)
-        
-        // Setup other required fields as non-null dummy values
-        setupMockRow(row, mapOf(
-            JobFields.JOB_ID to "id",
-            JobFields.COMPANY_ID to "comp",
-            JobFields.COMPANY_NAME to "Name",
-            JobFields.SOURCE to "Src",
-            JobFields.COUNTRY to "NZ",
-            JobFields.TITLE to "Title",
-            JobFields.SENIORITY_LEVEL to "Mid",
-            JobFields.CITY to "City",
-            JobFields.STATE_REGION to "Reg",
-            JobFields.LAST_SEEN_AT to "2026-01-01T00:00:00Z"
-        ), skipFields = setOf(JobFields.POSTED_DATE))
+    fun `mapJobRole should format technologies`() {
+        val jobRow = JobRow(
+            jobId = "test-job-id",
+            jobIds = listOf("test-job-id"),
+            applyUrls = emptyList(),
+            platformLinks = emptyList(),
+            locations = listOf("Remote"),
+            title = "Backend Developer",
+            companyId = "test-company-id",
+            companyName = "Tech Corp",
+            description = null,
+            employmentType = "Full-time",
+            jobFunction = "Engineering",
+            salaryMin = NormalizedSalary(100000, "USD", "YEAR", "Glassdoor", true),
+            salaryMax = NormalizedSalary(150000, "USD", "YEAR", "Glassdoor", true),
+            postedDate = "2026-03-01",
+            technologies = listOf("kotlin", "spring", "postgresql"),
+            benefits = emptyList(),
+            city = "San Francisco",
+            stateRegion = "CA",
+            seniorityLevel = "Senior",
+            source = "Company Website",
+            lastSeenAt = Instant.now(),
+            country = "US",
+            workModel = "Remote"
+        )
 
-        val record = JobMapper.mapToJobRecord(row)
-        assertNull(record.postedDate)
+        val role = JobMapper.mapJobRole(jobRow)
+
+        assertEquals("Backend Developer", role.title)
+        assertEquals(listOf("Kotlin", "Spring", "PostgreSQL"), role.technologies)
+        assertEquals("Senior", role.seniorityLevel)
     }
 
-    private fun setupMockRow(row: FieldValueList, values: Map<String, String>, skipFields: Set<String> = emptySet()) {
-        // Defaults for required fields if not provided
-        val defaults = mapOf(
-            JobFields.JOB_ID to "default-id",
-            JobFields.COMPANY_ID to "default-company",
-            JobFields.COMPANY_NAME to "Default Co",
-            JobFields.SOURCE to "Manual",
-            JobFields.COUNTRY to "NZ",
-            JobFields.TITLE to "Dev",
-            JobFields.SENIORITY_LEVEL to "Junior",
-            JobFields.CITY to "Auckland",
-            JobFields.STATE_REGION to "",
-            JobFields.LAST_SEEN_AT to Instant.now().toString()
+    @Test
+    fun `mapJobDetailsDto should handle null benefits`() {
+        val jobRow = JobRow(
+            jobId = "test-job-id",
+            jobIds = listOf("test-job-id"),
+            applyUrls = emptyList(),
+            platformLinks = emptyList(),
+            locations = emptyList(),
+            title = "Frontend Developer",
+            companyId = "test-company-id",
+            companyName = "Web Co",
+            description = "Build amazing UIs",
+            employmentType = "Contract",
+            jobFunction = "Engineering",
+            salaryMin = null,
+            salaryMax = null,
+            postedDate = "2026-03-07",
+            technologies = listOf("react", "typescript"),
+            benefits = emptyList(),
+            city = "London",
+            stateRegion = "England",
+            seniorityLevel = "Mid-Level",
+            source = "LinkedIn",
+            lastSeenAt = Instant.now(),
+            country = "GB",
+            workModel = "Hybrid"
         )
 
-        val finalValues = defaults + values
+        val details = JobMapper.mapJobDetailsDto(jobRow)
 
-        // List of all fields the mapper touches
-        val allFields = listOf(
-            JobFields.JOB_ID, JobFields.PLATFORM_JOB_IDS, JobFields.APPLY_URLS, 
-            JobFields.PLATFORM_LINKS, JobFields.LOCATIONS, JobFields.COMPANY_ID,
-            JobFields.COMPANY_NAME, JobFields.SOURCE, JobFields.COUNTRY, JobFields.CITY,
-            JobFields.STATE_REGION, JobFields.TITLE, JobFields.SENIORITY_LEVEL,
-            JobFields.TECHNOLOGIES, JobFields.SALARY_MIN, JobFields.SALARY_MAX,
-            JobFields.POSTED_DATE, JobFields.BENEFITS, JobFields.EMPLOYMENT_TYPE,
-            JobFields.WORK_MODEL, JobFields.JOB_FUNCTION, JobFields.DESCRIPTION, 
-            JobFields.LAST_SEEN_AT
+        assertEquals("Frontend Developer", details.title)
+        assertNull(details.benefits)
+        assertEquals("Build amazing UIs", details.description)
+    }
+
+    @Test
+    fun `mapJobCompanyDto formats hiring locations correctly`() {
+        val company = com.techmarket.models.CompanyInfoRow(
+            companyId = "test-company",
+            name = "Test Corp",
+            logoUrl = "https://logo.png",
+            description = "Test description",
+            website = "https://test.com",
+            hiringLocations = listOf("auckland, nz", "remote", "london, uk"),
+            hqCountry = "NZ",
+            verificationLevel = "VERIFIED"
         )
 
-        allFields.forEach { fieldName ->
-            if (skipFields.contains(fieldName)) return@forEach
-            
-            val field = mock(FieldValue::class.java)
-            val value = finalValues[fieldName]
-            
-            if (value == null) {
-                `when`(field.isNull).thenReturn(true)
-            } else {
-                `when`(field.isNull).thenReturn(false)
-                `when`(field.stringValue).thenReturn(value)
-                // Handle cases where longValue is called (salary)
-                if (fieldName == JobFields.SALARY_MIN || fieldName == JobFields.SALARY_MAX) {
-                    `when`(field.longValue).thenReturn(value.toLong())
-                }
-            }
-            `when`(row.get(fieldName)).thenReturn(field)
-        }
+        val companyDto = JobMapper.mapJobCompanyDto(company)
+
+        assertEquals("test-company", companyDto.companyId)
+        assertEquals("Test Corp", companyDto.name)
+        assertEquals("https://logo.png", companyDto.logoUrl)
+        assertEquals("Test description", companyDto.description)
+        assertEquals("https://test.com", companyDto.website)
+        // LocationFormatter.format() passes through as-is for simple strings
+        assertEquals(listOf("auckland, nz", "remote", "london, uk"), companyDto.hiringLocations)
+        assertEquals("NZ", companyDto.hqCountry)
+        assertEquals("VERIFIED", companyDto.verificationLevel)
+    }
+
+    @Test
+    fun `mapJobCompanyDto handles empty hiring locations`() {
+        val company = com.techmarket.models.CompanyInfoRow(
+            companyId = "test-company",
+            name = "Test Corp",
+            logoUrl = "",
+            description = "",
+            website = "",
+            hiringLocations = emptyList(),
+            hqCountry = null,
+            verificationLevel = "unverified"
+        )
+
+        val companyDto = JobMapper.mapJobCompanyDto(company)
+
+        assertEquals("test-company", companyDto.companyId)
+        assertEquals("Test Corp", companyDto.name)
+        assertEquals("", companyDto.logoUrl)
+        assertEquals("", companyDto.description)
+        assertEquals("", companyDto.website)
+        assertEquals(emptyList<String>(), companyDto.hiringLocations)
+        assertEquals(null, companyDto.hqCountry)
+        assertEquals("unverified", companyDto.verificationLevel)
     }
 }

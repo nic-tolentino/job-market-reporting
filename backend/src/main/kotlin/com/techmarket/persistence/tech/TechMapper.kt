@@ -4,138 +4,52 @@ import com.techmarket.api.model.CompanyLeaderboardDto
 import com.techmarket.api.model.JobRoleDto
 import com.techmarket.api.model.SeniorityDistributionDto
 import com.techmarket.api.model.TechDetailsPageDto
-import com.techmarket.model.NormalizedSalary
-import com.techmarket.persistence.JobFields
-import com.techmarket.persistence.SalaryMapper
+import com.techmarket.models.CompanyLeaderboardRow
+import com.techmarket.models.JobRow
+import com.techmarket.models.SeniorityRow
+import com.techmarket.persistence.JobRowMapper.mapToJobRole
 import com.techmarket.util.TechFormatter
-import java.time.Instant
 
 object TechMapper {
-        fun mapTechDetails(
-                techName: String,
-                senResult: com.google.cloud.bigquery.TableResult,
-                compResult: com.google.cloud.bigquery.TableResult,
-                rolesResult: com.google.cloud.bigquery.TableResult
-        ): TechDetailsPageDto {
+    /**
+     * Maps typed row objects to TechDetailsPageDto.
+     * All raw FieldValueList access is handled in QueryRows.kt
+     */
+    fun mapTechDetails(
+        techName: String,
+        seniorityRows: List<SeniorityRow>,
+        companyRows: List<CompanyLeaderboardRow>,
+        jobRows: List<JobRow>
+    ): TechDetailsPageDto {
 
-                val seniorityDistribution = senResult.values.map { mapSeniorityLine(it) }
-                val companies = compResult.values.map { mapCompanyLine(it) }
-                val roles = rolesResult.values.map { mapJobRole(it, null) } // null country because it's already in the row values
+        val seniorityDistribution = seniorityRows.map { mapSeniorityLine(it) }
+        val companies = companyRows.map { mapCompanyLine(it) }
+        val roles = jobRows.map { mapToJobRole(it) }
 
-                val totalJobs = seniorityDistribution.sumOf { it.value }
+        val totalJobs = seniorityDistribution.sumOf { it.value }
 
-                return TechDetailsPageDto(
-                        techName = TechFormatter.format(techName),
-                        totalJobs,
-                        seniorityDistribution,
-                        companies,
-                        roles
-                )
-        }
+        return TechDetailsPageDto(
+            techName = TechFormatter.format(techName),
+            totalJobs,
+            seniorityDistribution,
+            companies,
+            roles
+        )
+    }
 
-        fun mapSeniorityLine(row: com.google.cloud.bigquery.FieldValueList): SeniorityDistributionDto {
-                return SeniorityDistributionDto(
-                        row.get("name").stringValue,
-                        row.get("value").longValue.toInt()
-                )
-        }
+    fun mapSeniorityLine(row: SeniorityRow): SeniorityDistributionDto {
+        return SeniorityDistributionDto(
+            row.name,
+            row.value
+        )
+    }
 
-        fun mapCompanyLine(row: com.google.cloud.bigquery.FieldValueList): CompanyLeaderboardDto {
-                return CompanyLeaderboardDto(
-                        id = row.get("id").stringValue,
-                        name = row.get("name").stringValue,
-                        logo = if (row.get("logo").isNull) "" else row.get("logo").stringValue,
-                        activeRoles = row.get("activeRoles").longValue.toInt()
-                )
-        }
-
-        fun mapJobRole(row: com.google.cloud.bigquery.FieldValueList, countryOverride: String?): JobRoleDto {
-                val idList =
-                        if (row.get(JobFields.JOB_IDS).isNull) emptyList<String>()
-                        else
-                                row.get(JobFields.JOB_IDS).repeatedValue.map {
-                                        it.stringValue
-                                }
-                val applyList =
-                        if (row.get(JobFields.APPLY_URLS).isNull)
-                                emptyList<String?>()
-                        else
-                                row.get(JobFields.APPLY_URLS).repeatedValue.map {
-                                        if (it.isNull) null else it.stringValue
-                                }
-                val linkList =
-                        if (row.get(JobFields.PLATFORM_LINKS).isNull) emptyList<String?>()
-                        else
-                                row.get(JobFields.PLATFORM_LINKS).repeatedValue.map {
-                                        if (it.isNull) null else it.stringValue
-                                }
-                val techList =
-                        if (row.get(JobFields.TECHNOLOGIES).isNull)
-                                emptyList<String>()
-                        else
-                                row.get(JobFields.TECHNOLOGIES).repeatedValue.map {
-                                        TechFormatter.format(it.stringValue)
-                                }
-
-                val city =
-                        if (row.get(JobFields.CITY).isNull) "Unknown"
-                        else row.get(JobFields.CITY).stringValue
-                val stateRegion =
-                        if (row.get(JobFields.STATE_REGION).isNull) "Unknown"
-                        else row.get(JobFields.STATE_REGION).stringValue
-                val locList =
-                        listOf(
-                                if (stateRegion == "Unknown" || stateRegion == city)
-                                        city
-                                else "$city, $stateRegion"
-                        )
-
-                val rowSource =
-                        if (row.get(JobFields.SOURCE).isNull) "Unknown"
-                        else row.get(JobFields.SOURCE).stringValue
-                val rowCountry = countryOverride ?: (if (row.get(JobFields.COUNTRY).isNull) null
-                else row.get(JobFields.COUNTRY).stringValue)
-                
-                val rowLastUpdatedAt =
-                        if (row.get(JobFields.LAST_SEEN_AT).isNull) Instant.EPOCH
-                        else parseTimestampSafe(row.get(JobFields.LAST_SEEN_AT))
-                
-                return JobRoleDto(
-                        id = idList.firstOrNull() ?: "",
-                        title = row.get(JobFields.TITLE).stringValue,
-                        companyId = row.get(JobFields.COMPANY_ID).stringValue,
-                        companyName =
-                                if (row.get(JobFields.COMPANY_NAME).isNull) ""
-                                else row.get(JobFields.COMPANY_NAME).stringValue,
-                        locations = locList,
-                        jobIds = idList,
-                        applyUrls = applyList,
-                        platformLinks = linkList,
-                        salaryMin = SalaryMapper.fromFieldValue(row, JobFields.SALARY_MIN, rowCountry),
-                        salaryMax = SalaryMapper.fromFieldValue(row, JobFields.SALARY_MAX, rowCountry),
-                        postedDate =
-                                if (row.get(JobFields.POSTED_DATE).isNull) ""
-                                else row.get(JobFields.POSTED_DATE).stringValue,
-                        seniorityLevel =
-                                row.get(JobFields.SENIORITY_LEVEL).stringValue,
-                        technologies = techList,
-                        source = rowSource,
-                        lastUpdatedAt = rowLastUpdatedAt
-                )
-        }
-
-        private fun parseTimestampSafe(field: com.google.cloud.bigquery.FieldValue): Instant {
-                if (field.isNull) return Instant.EPOCH
-                return try {
-                        val stringVal = field.stringValue
-                        val doubleVal = stringVal.toDoubleOrNull()
-                        if (doubleVal != null) {
-                                Instant.ofEpochSecond(doubleVal.toLong())
-                        } else {
-                                Instant.parse(stringVal)
-                        }
-                } catch (e: Exception) {
-                        Instant.EPOCH
-                }
-        }
+    fun mapCompanyLine(row: CompanyLeaderboardRow): CompanyLeaderboardDto {
+        return CompanyLeaderboardDto(
+            id = row.id,
+            name = row.name,
+            logo = row.logo,
+            activeRoles = row.activeRoles
+        )
+    }
 }

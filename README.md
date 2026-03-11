@@ -210,6 +210,9 @@ Later:
 - for company IDs, how do we deal with international companies having the same name? I imagine we could end up with many conflicts - or worse, if we're not careful we may end up with multiple companies merged into one! Perhaps we can use the company home page and countries which a company operates in as part of the identification? Hmm. Likewise, how do we distinguish the companies during search? eg: Company Name (NZ)?
 - Also, how do we store more semi-dynamic information like what technologies a company uses, or how many jobs they've had for a particular role? Perhaps we can use the job data to inform what technologies are most commonly asked for at a company - how could that be setup? And how do we backup that data (or do we back it up?) or do we just re-calculate it every so often based on historic data?
 
+- Add a CONTRIBUTING with AI guidelines
+- Refactor documentation, arrange it, update it, distinguish between ADRs and Feature Specifications. Arrange by function like the codebase
+
 
 Images:
 - Manually search for logo urls for each of the technologies (and companies?). Host the images locally so they are more stable? Maybe use them as backups if the url isn't provided?
@@ -238,10 +241,13 @@ Funding ideas:
 - donations
 
 Costs:
-- Apify: USD2.5
+- Apify: USD2.5 + USD29
 - Domain: USD7
-- Hosting: USD1
+- Hosting: USD0
 - Qwen Code Lite Subscription USD11.5
+- Gemini Pro - Free (GDG Manager)
+- Claude Code - AUD34
+- Macbook Air M5 32GB - AUD2,399
 
 Time:
 Estimated time between 23 Feb and Friday 6th March: 40 hours
@@ -249,4 +255,8 @@ Friday - 5 hours
 Sat - 3 hours
 Sun - 5 hours
 Mon 9 March - 10 hours
-Tue - 5 hrs
+Tue - 13 hrs
+Wed - 1 hrs
+
+
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc

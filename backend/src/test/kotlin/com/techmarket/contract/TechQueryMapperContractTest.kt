@@ -7,15 +7,18 @@ import org.junit.jupiter.api.Assertions.assertTrue
 
 /**
  * Automated contract tests to ensure TechQueries and TechMapper are in sync.
+ * Note: TechMapper delegates to JobRowMapper for mapJobRole, so we test JobRowMapper instead.
  */
 class TechQueryMapperContractTest {
 
-    private val relativePath = "src/main/kotlin/com/techmarket/persistence/tech/TechMapper.kt"
+    private val techMapperPath = "src/main/kotlin/com/techmarket/persistence/tech/TechMapper.kt"
+    private val jobRowMapperPath = "src/main/kotlin/com/techmarket/persistence/JobRowMapper.kt"
 
     @Test
-    fun `getJobsSql includes all fields mapJobRole reads`() {
+    fun `getJobsSql includes all fields mapToJobRole reads`() {
         verifyContract(
-            methodName = "mapJobRole",
+            relativePath = jobRowMapperPath,
+            methodName = "mapToJobRole",
             requiredFields = TechQueries.getJobsSql("dataset", "jobs").requiredFields,
             "JobFields"
         )
@@ -24,6 +27,7 @@ class TechQueryMapperContractTest {
     @Test
     fun `getSenioritySql includes all fields mapSeniorityLine reads`() {
         verifyContract(
+            relativePath = techMapperPath,
             methodName = "mapSeniorityLine",
             requiredFields = TechQueries.getSenioritySql("dataset", "jobs").requiredFields
             // uses literals directly
@@ -33,6 +37,7 @@ class TechQueryMapperContractTest {
     @Test
     fun `getCompaniesSql includes all fields mapCompanyLine reads`() {
         verifyContract(
+            relativePath = techMapperPath,
             methodName = "mapCompanyLine",
             requiredFields = TechQueries.getCompaniesSql("dataset", "jobs", "companies").requiredFields
             // uses literals directly
@@ -40,7 +45,8 @@ class TechQueryMapperContractTest {
     }
 
     private fun verifyContract(
-        methodName: String, 
+        relativePath: String,
+        methodName: String,
         requiredFields: List<String>,
         vararg fieldObjectNames: String
     ) {
@@ -51,7 +57,7 @@ class TechQueryMapperContractTest {
         )
 
         val fieldsQueryProvides = requiredFields.toSet()
-        
+
         // Resolve constant values or use literals
         val expectedFields = fieldNames.map { name ->
             lookupFieldValue(name) ?: name
@@ -62,7 +68,7 @@ class TechQueryMapperContractTest {
             missingFields.isEmpty(),
             "TechMapper.$methodName reads fields not in requiredFields: $missingFields"
         )
-        
+
         // Stale fields check
         val staleFields = fieldsQueryProvides - expectedFields.toSet()
         if (staleFields.isNotEmpty()) {
@@ -81,7 +87,7 @@ class TechQueryMapperContractTest {
             "JobFields" -> JobFields::class.java
             else -> null
         }
-        
+
         return try {
             clazz?.getField(fieldName)?.get(null) as? String
         } catch (e: Exception) {

@@ -159,6 +159,7 @@ object QueryParams {
  * Used when selecting company data alongside job data to avoid column name conflicts.
  */
 object CompanyAliases {
+    const val COMPANY_ID = "comp_companyId"
     const val NAME = "comp_name"
     const val LOGO_URL = "comp_logo"
     const val DESCRIPTION = "comp_desc"

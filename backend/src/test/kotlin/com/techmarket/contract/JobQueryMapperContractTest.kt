@@ -9,31 +9,36 @@ import org.junit.jupiter.api.Assertions.assertTrue
 
 /**
  * Automated contract tests to ensure JobQueries and JobMapper are in sync.
+ * Note: Some methods have been moved to JobRowMapper for sharing with TechMapper.
  */
 class JobQueryMapperContractTest {
 
-    private val relativePath = "src/main/kotlin/com/techmarket/persistence/job/JobMapper.kt"
+    private val jobMapperPath = "src/main/kotlin/com/techmarket/persistence/job/JobMapper.kt"
+    private val jobRowMapperPath = "src/main/kotlin/com/techmarket/persistence/JobRowMapper.kt"
 
     @Test
     fun `getDetailsSql includes all fields JobMapper read methods require`() {
         val query = JobQueries.getDetailsSql("dataset", "jobs", "companies")
-        
+
         // mapJobDetailsDto
         verifyContract(
+            relativePath = jobMapperPath,
             methodName = "mapJobDetailsDto",
             requiredFields = query.requiredFields,
             "JobFields"
         )
-        
-        // mapJobLocations
+
+        // mapJobLocations - moved to JobRowMapper
         verifyContract(
-            methodName = "mapJobLocations",
+            relativePath = jobRowMapperPath,
+            methodName = "mapToJobLocations",
             requiredFields = query.requiredFields,
             "JobFields"
         )
-        
+
         // mapJobCompanyDto
         verifyContract(
+            relativePath = jobMapperPath,
             methodName = "mapJobCompanyDto",
             requiredFields = query.requiredFields,
             "JobFields", "CompanyAliases"
@@ -42,10 +47,15 @@ class JobQueryMapperContractTest {
 
     @Test
     fun `getDetailsSql does not select fields that no JobMapper method reads`() {
-        val methods = listOf("mapJobDetailsDto", "mapJobLocations", "mapJobCompanyDto", "mapJobRole")
+        val methods = listOf("mapJobDetailsDto", "mapJobCompanyDto")
+        val rowMapperMethods = listOf("mapToJobLocations", "mapToJobRole")
+        
         val allFieldsRead = methods.flatMap { methodName ->
-            FieldExtractor.extractFieldsFromMethod(relativePath, methodName, "JobFields", "CompanyAliases")
-        }.map { name ->
+            FieldExtractor.extractFieldsFromMethod(jobMapperPath, methodName, "JobFields", "CompanyAliases")
+        } + rowMapperMethods.flatMap { methodName ->
+            FieldExtractor.extractFieldsFromMethod(jobRowMapperPath, methodName, "JobFields", "CompanyAliases")
+        }
+        .map { name ->
             lookupFieldValue(name) ?: name
         }.toSet()
 
@@ -60,14 +70,16 @@ class JobQueryMapperContractTest {
     @Test
     fun `getSimilarSql includes all fields JobMapper reads for similar roles`() {
         verifyContract(
-            methodName = "mapJobRole",
+            relativePath = jobRowMapperPath,
+            methodName = "mapToJobRole",
             requiredFields = JobQueries.getSimilarSql("dataset", "jobs", emptyList()).requiredFields,
             "JobFields"
         )
     }
 
     private fun verifyContract(
-        methodName: String, 
+        relativePath: String,
+        methodName: String,
         requiredFields: List<String>,
         vararg fieldObjectNames: String
     ) {
@@ -78,7 +90,7 @@ class JobQueryMapperContractTest {
         )
 
         val fieldsQueryProvides = requiredFields.toSet()
-        
+
         // Resolve constant values
         val expectedFieldValues = fieldNames.map { name ->
             lookupFieldValue(name) ?: name
@@ -90,10 +102,10 @@ class JobQueryMapperContractTest {
             missingFields.isEmpty(),
             "JobMapper.$methodName reads fields not in requiredFields: $missingFields"
         )
-        
+
         // Stale fields check - only for mapJobRole which is a 1-to-1 mapping usually
         // For sub-mappings of larger queries, skip this check here to avoid false positives
-        if (methodName == "mapJobRole") {
+        if (methodName == "mapToJobRole") {
             val staleFields = fieldsQueryProvides - expectedFieldValues.toSet()
             if (staleFields.isNotEmpty()) {
                  println("⚠️  WARNING: JobQueries query for $methodName selects fields that mapper doesn't read: $staleFields")
@@ -118,7 +130,7 @@ class JobQueryMapperContractTest {
         } catch (e: Exception) {
             null
         }
-        
+
         return try {
             clazz?.getField(fieldName)?.get(null) as? String
         } catch (e: NoSuchFieldException) {
