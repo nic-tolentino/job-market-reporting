@@ -1,6 +1,6 @@
 # ATS Identification Findings — Full Database Scan (Verified)
 
-This document records the ATS (Applicant Tracking System) identification results for all companies in the `techmarket` database, extracted directly from over 2,000 job postings in BigQuery and validated via public APIs.
+This document records the ATS (Applicant Tracking System) identification results for all **1,257 companies** in the `techmarket` database, extracted from individual company manifests in `data/companies/`.
 
 ## Identification Summary (Step #1 & #3)
 
@@ -25,38 +25,42 @@ This document records the ATS (Applicant Tracking System) identification results
 
 ## Technical Audit (Step #3 - Identified Systems)
 
-Based on the Master Roster below (182 unique companies, 449 total jobs), here is the breakdown by ATS provider:
+Based on the updated dataset (**1,257 unique companies**), here is the breakdown by ATS provider:
 
-| Provider | Companies | % of Companies | Jobs | % of Jobs | Integration Status |
-|:---|:---:|:---:|:---:|:---:|:---|
-| **NONE** | 90 | 49.5% | — | — | ⚠️ No ATS identified — see [Handling NONE Results](#handling-none-results-no-ats-found) |
-| **Workday** | 25 | 13.7% | — | — | Phase 2 candidate |
-| **Greenhouse** | 9 | 4.9% | — | — | ✅ **Full** (v1 Boards API) |
-| **Lever** | 12 | 6.6% | — | — | ✅ **Full** (v0 Posting API) |
-| **Ashby** | 7 | 3.8% | — | — | ✅ **Full** (Posting API) |
-| **BambooHR** | 6 | 3.3% | — | — | Identified for future scope |
-| **SmartRecruiters** | 7 | 3.8% | — | — | Identified for future scope |
-| **Teamtailor** | 4 | 2.2% | — | — | Identified for future scope |
-| **Workable** | 8 | 4.4% | — | — | Identified for future scope |
-| **SnapHire** | 3 | 1.6% | — | — | Phase 3 candidate |
-| **SuccessFactors** | 4 | 2.2% | — | — | Identified for future scope |
-| **JobAdder** | 5 | 2.7% | — | — | Requires OAuth registration |
-| **Other** | 2 | 1.1% | — | — | (Breezy, ELMO, etc.) |
-| | **182** | **100%** | **449** | **100%** | |
+| Provider | Companies | % of Companies | Integration Status |
+|:---|:---:|:---:|:---|
+| **NONE** | 1104 | 87.8% | ⚠️ No ATS identified |
+| **Workday** | 23 | 1.8% | Phase 2 candidate |
+| **Lever** | 21 | 1.7% | ✅ **Full** (v0 Posting API) |
+| **Workable** | 16 | 1.3% | Identified for future scope |
+| **Greenhouse** | 15 | 1.2% | ✅ **Full** (v1 Boards API) |
+| **Ashby** | 13 | 1.0% | ✅ **Full** (Posting API) |
+| **Teamtailor** | 12 | 1.0% | Identified for future scope |
+| **SmartRecruiters** | 10 | 0.8% | Identified for future scope |
+| **SuccessFactors** | 8 | 0.6% | Identified for future scope |
+| **JobAdder** | 6 | 0.5% | Requires OAuth registration |
+| **BambooHR** | 6 | 0.5% | Identified for future scope |
+| **Factorial** | 5 | 0.4% | Identified for future scope |
+| **Personio** | 5 | 0.4% | Identified for future scope |
+| **SnapHire** | 4 | 0.3% | Phase 3 candidate |
+| **Other** | 9 | 0.7% | (Breezy, Zoho, Join, etc.) |
+| | **1,257** | **100%** | |
 
 ### Coverage Summary
 
 | Metric | Identified | Not Identified | Coverage |
 |:---|:---:|:---:|:---:|
-| **Companies** | 92 | 90 | **50.5%** |
-| **Jobs** | 247+ | 202- | **>55.0%** |
+| **Companies** | 153 | 1,104 | **12.2%** |
 
 > [!WARNING]
-> Only **32 of 182 companies** (17.6%) have a populated `applyUrl` in their scraped job data. The remaining 150 companies have jobs with empty apply URLs, which means our URL-pattern-matching approach can only ever identify ATS for those 32 companies. The rest require manual careers page inspection or an improved Apify scraping configuration to capture apply URLs.
+> Only **153 of 1,257 companies** (12.2%) have an identified ATS. This highlights that many companies use LinkedIn Easy Apply exclusively or use proprietary boards that mask the underlying ATS. The "NONE" category remains our primary challenge for Phase 3 (NLP Fallback).
 
 ---
 
-## Master Roster (Extracted from BigQuery)
+## Master Roster (Legacy Reference)
+> [!NOTE]
+> The full roster of 1,257 companies is now maintained as individual JSON manifests in `data/companies/`. Each manifest contains the `ats` object with the verified provider and identifier.
+
 | Company Name | ATS Provider | Identifier / Token | Status / Validation |
 |:---|:---|:---|:---|
 | 880 Productions NZ LP | NONE | `` | — |

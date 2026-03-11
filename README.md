@@ -210,6 +210,7 @@ Later:
 - Ability to 'hide' a job or company (though perhaps it's more about sorting them to the bottom and visibly marking them in some way?)
 - Ability to 'log in' to view my jobs, and see the success of my suggested resources? Also the ability to show a personal dashboard with the companies and tech that I follow as well as any roles that I saved or applied for which have since closed? Ability to mark applied jobs as rejected so we can show how long it takes to get a rejection on average. 
 - Ability to define job application process for each company (role?)
+- record which platforms have been used to get job data for a company - this way we can record that there's no careers platform for a company, and that historically their roles have only appeared on LinkedIn or X or Y platform. Which can help inform our own data intestion approaches.
 
 - for company IDs, how do we deal with international companies having the same name? I imagine we could end up with many conflicts - or worse, if we're not careful we may end up with multiple companies merged into one! Perhaps we can use the company home page and countries which a company operates in as part of the identification? Hmm. Likewise, how do we distinguish the companies during search? eg: Company Name (NZ)?
 - Also, how do we store more semi-dynamic information like what technologies a company uses, or how many jobs they've had for a particular role? Perhaps we can use the job data to inform what technologies are most commonly asked for at a company - how could that be setup? And how do we backup that data (or do we back it up?) or do we just re-calculate it every so often based on historic data?
@@ -239,6 +240,11 @@ Nice to have:
 - The "Market Sentiment" Feedback: Since you don't have historical data yet, add a simple "Is this salary range accurate for [City]?" button. It crowdsources "The Now" and builds a high-trust relationship with local devs who know the market.
 - The "Remote-from-NZ" Tag: Many AU companies hire NZ-based devs as contractors. Highlighting "Remote (NZ/AU Wide)" is a huge value-add for the local community that larger platforms often miss.
 - generate sitemap.xml for SEO
+
+Admin/stats
+- Breakdown of ATS provider counts / %s over the companies
+- List of all companies and their current sync status - highlighting issues
+- Background job sync logs?
 
 
 Meh?:

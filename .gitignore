@@ -21,6 +21,10 @@ backend/bin/
 frontend/.next/
 frontend/out/
 frontend/node_modules/
+crawler-service/node_modules/
+crawler-service/dist/
+crawler-service/coverage/
+crawler-service/.env
 
 # Terraform
 .terraform/

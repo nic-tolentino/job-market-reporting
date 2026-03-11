@@ -2,7 +2,7 @@ package com.techmarket.sync.ats
 
 /**
  * Supported Applicant Tracking System (ATS) providers. APIFY is included as the
- * legacy/supplementary scraper source.
+ * legacy/supplementary scraper source. CRAWLER is the self-hosted AI crawler.
  */
 enum class AtsProvider(val displayName: String) {
     GREENHOUSE("Greenhouse"),
@@ -17,7 +17,8 @@ enum class AtsProvider(val displayName: String) {
     SMARTRECRUITERS("SmartRecruiters"),
     WORKABLE("Workable"),
     SUCCESSFACTORS("SuccessFactors"),
-    APIFY("LinkedIn-Apify"); // Aligns with how it appears in sources
+    APIFY("LinkedIn-Apify"), // Aligns with how it appears in sources
+    CRAWLER("AI-Crawler");   // Self-hosted Crawlee + Gemini Flash crawler
 
     companion object {
         val ATS_SOURCES =

@@ -1,27 +1,126 @@
 # ATS Integration — Multi-Source Job Data Pipeline
 
-This document proposes a strategy for integrating with 6 major Applicant Tracking System (ATS) providers — **Greenhouse**, **Lever**, **Ashby**, **JobAdder**, **Employment Hero**, and **SnapHire** — while retaining **Apify** as a supplementary catch-all source. The goal is to pull job data from each provider's API, resolve their differing data shapes into our unified `JobRecord` and `CompanyRecord` entities, and run the whole thing on a weekly polling schedule.
+This document defines the strategy for integrating with Applicant Tracking System (ATS) providers and supplementary job data sources (scrapers, job boards) to build a comprehensive, multi-source job data pipeline. It reflects the current state of the codebase as of **March 2026** and prioritizes ATS systems based on our real-world company roster analysis.
 
 ---
 
-## 1. Why ATS-Direct Integration?
+## 1. Current State
 
-Our current pipeline scrapes data via Apify (LinkedIn). This works, but has limitations:
+### What's Already Built
 
-| Limitation | ATS-Direct Advantage |
-|:---|:---|
-| Scraping is fragile and rate-limited | ATS APIs are official, stable, and designed for consumption |
-| LinkedIn data lacks salary detail | Many ATS APIs expose structured salary, department, and compensation fields |
-| We're dependent on a single source | Multi-source gives us resilience and broader coverage |
-| Data freshness depends on Apify crawl cycles | We can poll ATS APIs on our own schedule |
+The backend has a functional ATS integration framework with the following components:
 
-**Apify remains valuable** as a catch-all for companies that don't use any of the 6 ATS providers (e.g. companies posting directly to LinkedIn, or using smaller/proprietary systems). The architecture below treats it as a 7th source, not a replacement.
+| Component | Path | Status |
+|:---|:---|:---|
+| `AtsProvider` enum | `sync/ats/AtsProvider.kt` | ✅ Implemented (6 ATS + Apify) |
+| `AtsClient` interface | `sync/ats/AtsClient.kt` | ✅ Implemented |
+| `AtsNormalizer` interface | `sync/ats/AtsNormalizer.kt` | ✅ Implemented |
+| `NormalizedJob` model | `sync/ats/model/NormalizedJob.kt` | ✅ Implemented |
+| `AtsClientFactory` | `sync/ats/AtsClientFactory.kt` | ✅ Implemented |
+| `AtsNormalizerFactory` | `sync/ats/AtsNormalizerFactory.kt` | ✅ Implemented |
+| `GreenhouseClient` | `sync/ats/greenhouse/GreenhouseClient.kt` | ✅ Implemented |
+| `GreenhouseNormalizer` | `sync/ats/greenhouse/GreenhouseNormalizer.kt` | ✅ Implemented |
+| `AtsJobDataSyncService` | `sync/AtsJobDataSyncService.kt` | ✅ Implemented (full Bronze→Silver flow) |
+| `AtsJobDataMapper` | `sync/AtsJobDataMapper.kt` | ✅ Implemented |
+| `CompanyAtsConfig` model | `persistence/model/CompanyAtsConfig.kt` | ✅ Implemented |
+| `AtsConfigBigQueryRepository` | `persistence/ats/AtsConfigBigQueryRepository.kt` | ✅ Implemented |
+| `AtsSyncController` | `api/AtsSyncController.kt` | ✅ Implemented |
+| `TechRoleClassifier` | Used in sync pipeline | ✅ Filters non-tech roles |
+| Lever/Ashby/JobAdder/EH/SnapHire clients | — | ❌ Not yet implemented |
+
+**Key insight**: The infrastructure is provider-agnostic. Adding a new ATS only requires implementing `AtsClient` and `AtsNormalizer` — everything downstream (Bronze persistence, Silver mapping, dedup, merge) already works.
+
+### What We Know About Our Companies
+
+A full database scan across **1,257 companies** produced the following ATS identification results (see `ats-identification-findings.md`):
+
+| Provider | Companies | % of Database | API Type | Integration Effort |
+|:---|:---:|:---:|:---|:---|
+| **NONE (unidentified)** | 1104 | 87.8% | — | Requires scraping or NLP |
+| **Workday** | 23 | 1.8% | ⚠️ Restricted (requires auth per tenant) | High |
+| **Lever** | 21 | 1.7% | ✅ Public (v0 Postings API) | Low |
+| **Workable** | 16 | 1.3% | ⚠️ API token required per tenant | Medium |
+| **Greenhouse** | 15 | 1.2% | ✅ Public (Boards API) | ✅ Done |
+| **Ashby** | 13 | 1.0% | ✅ Public (Posting API) | Low |
+| **Teamtailor** | 12 | 1.0% | ⚠️ API key or XML feed per tenant | Medium |
+| **SmartRecruiters** | 10 | 0.8% | ⚠️ Job Board API (requires auth) | Medium |
+| **SuccessFactors** | 8 | 0.6% | ⚠️ Enterprise only (SAP integration) | Very High |
+| **JobAdder** | 6 | 0.5% | ⚠️ OAuth 2.0 (partner registration) | High |
+| **BambooHR** | 6 | 0.5% | ⚠️ API key per tenant (no public API) | Medium |
+| **SnapHire** | 4 | 0.3% | ⚠️ HMAC via TAS developer portal | High |
+| **Other** (Factorial, Personio, Join, etc.) | 19 | 1.5% | Varies | Case-by-case |
+| **Total** | **1,257** | **100%** | | |
+
+> [!WARNING]
+> Only **153 of 1,257 companies** (12.2%) have an identified ATS. The remaining 1,104 use unknown systems or rely on job boards that hide the underlying ATS. URL-pattern-matching has clear limits — the "long tail" requires a hybrid discovery approach.
 
 ---
 
-## 2. ATS Provider API Overview
+## 2. Tiered Integration Strategy
 
-### 2.1 Greenhouse (Public Job Board API)
+Based on the data above, we propose a **four-tier** approach that balances coverage, effort, and cost.
+
+### Tier 1: Public APIs (Low Effort, High Value) — 49 companies, 3.9%
+
+These ATS providers have public, unauthenticated APIs. We need only the company's board token or slug to fetch all their jobs.
+
+| Provider | Companies | Status | Effort |
+|:---|:---:|:---|:---|
+| **Lever** | 21 | ❌ Needs `LeverClient` + `LeverNormalizer` | ~1 day |
+| **Greenhouse** | 15 | ✅ Client + Normalizer built | Done |
+| **Ashby** | 13 | ❌ Needs `AshbyClient` + `AshbyNormalizer` | ~1 day |
+
+**Combined coverage**: 49 companies (3.9% of database)
+
+---
+
+### Tier 2: Authenticated APIs (Medium Effort) — 44 companies, 3.5%
+
+These providers require per-tenant API keys, OAuth, or partner registration. Each company must independently authorize our access.
+
+| Provider | Companies | Auth Model | Notes |
+|:---|:---:|:---|:---|
+| **Workable** | 16 | API token (per account) | REST API with `r_jobs` permission. |
+| **Teamtailor** | 12 | API key or XML feed | Client API with token auth. |
+| **SmartRecruiters** | 10 | Job Board API key | Requires integration approval per company. |
+| **BambooHR** | 6 | API key (per subdomain) | No public careers API. |
+
+**Combined coverage**: 44 companies (3.5%)
+
+> [!IMPORTANT]
+> Tier 2 integrations have a **per-company onboarding cost**. Each company must grant us API access, which means manual outreach and configuration. For 25 companies, this is manageable. At scale (500+ companies), consider a unified ATS middleware service (see Section 6).
+
+---
+
+### Tier 3: Complex / Enterprise APIs (High Effort) — 41 companies, 3.2%
+
+These providers are enterprise platforms with restricted APIs, complex auth, or sparse documentation.
+
+| Provider | Companies | Challenge | Recommendation |
+|:---|:---:|:---|:---|
+| **Workday** | 23 | Requires per-tenant Staffing API auth. | **Scrape instead** (see Section 5) |
+| **SuccessFactors** (SAP) | 8 | Enterprise SAP integration. | **Scrape instead** |
+| **JobAdder** | 6 | OAuth 2.0 with partner registration. | Build if demand warrants; otherwise scrape. |
+| **SnapHire** | 4 | HMAC via TAS developer portal. NZ-only. | **Scrape instead** — 4 companies doesn't justify integration effort. |
+
+**Combined coverage**: 41 companies (3.2%)
+
+> [!CAUTION]
+> **Workday** is 13.7% of our companies and 22%+ of global ATS market share. However, its API is tenant-gated — there is no public Workday jobs API. Each company's HR system admin would need to create an integration user for us. This is impractical at scale. **Scraping Workday career pages** (via Apify or a custom crawler) is the pragmatic path. Each company's Workday instance follows a predictable URL pattern: `{slug}.wd{N}.myworkdayjobs.com`.
+
+---
+
+### Tier 4: Generic Fallback — 1,145+ companies, 91.1%
+
+These companies include the **1,104 unidentified (NONE)** companies plus those on Tier 3 platforms we've opted to scrape. They either use no identifiable ATS, use proprietary career pages, or rely exclusively on job boards (like LinkedIn Easy Apply) that hide the ATS.
+
+See **Sections 4** (Generic NLP) and **Section 5** (Scraping Services) for how to cover this tier.
+
+---
+
+## 3. ATS Provider API Reference
+
+### 3.1 Greenhouse (Public Job Board API) — ✅ IMPLEMENTED
 
 | Aspect | Detail |
 |:---|:---|
@@ -34,101 +133,154 @@ Our current pipeline scrapes data via Apify (LinkedIn). This works, but has limi
 | **Compensation** | Not exposed in public API |
 | **Pagination** | Query param `?content=true` to include body; all jobs returned in one response |
 
-**Notes:** Greenhouse is extremely simple — a public board token is all we need. Each registered company provides their board token, and we fetch all jobs in a single call. No OAuth, no secrets.
+**Implementation**: `GreenhouseClient.kt` + `GreenhouseNormalizer.kt` are fully built and tested.
+
+**Validated identifiers:**
+- Cabify: `cabify`
+- Canonical: `canonical`
+- Clover Health: `cloverhealth`
+- Karbon: `karbon`
+- Mr Apple: `mrapplecareers`
+- PALO IT: `paloit`
+- Pushpay: `pushpay`
+- ROLLER: `roller`
+- Re-Leased: `released`
+- Remote: `remotecom`
+- Riot Games: `embed`
+- Rocket Lab: `rocketlab`
+- Speechify: `speechify`
+- Topsort: `topsort`
+- Xero: `xero`
 
 ---
 
-### 2.2 Lever (Postings API v0)
+### 3.2 Lever (Postings API v0) — ❌ NOT YET IMPLEMENTED
 
 | Aspect | Detail |
 |:---|:---|
 | **Endpoint** | `GET https://api.lever.co/v0/postings/{company_slug}` |
 | **Single Job** | `GET https://api.lever.co/v0/postings/{company_slug}/{posting_id}` |
 | **Auth** | ❌ None required for public postings |
-| **Rate Limits** | Standard |
-| **Format** | JSON (also supports HTML / iframe — we use JSON) |
-| **Key Fields** | `id`, `text` (title), `categories.location`, `categories.department`, `categories.team`, `categories.commitment` (employment type), `description`, `descriptionPlain`, `lists[]` (structured sections), `hostedUrl`, `applyUrl`, `createdAt`, `workplaceType` |
+| **Format** | JSON |
+| **Key Fields** | `id`, `text` (title), `categories.location`, `categories.department`, `categories.team`, `categories.commitment` (employment type), `description`, `descriptionPlain`, `lists[]`, `hostedUrl`, `applyUrl`, `createdAt`, `workplaceType` |
 | **Compensation** | `salaryRange` object with `min`, `max`, `currency`, `interval` |
 | **Pagination** | `skip` and `limit` params (default limit 100) |
 
-**Notes:** Lever's public v0 API is almost as simple as Greenhouse. The `categories` object is particularly useful — it gives us structured department, team, location, and employment type data. Salary data is available when the company chooses to publish it.
+**Notes**: Extremely simple. Salary data available when companies publish it. `categories` gives us structured department/team/employment type.
+
+**Validated identifiers:**
+- 360Learning: `360learning`
+- ANYbotics: `anybotics`
+- Blinq: `blinq`
+- Cin7: `cin7`
+- Enable: `enable`
+- Envato: `envato-2`
+- Foodstuffs: `foodstuffs`
+- Hatch: `q-ctrl`
+- InDebted: `indebted`
+- Jobgether: `jobgether`
+- KPMG New Zealand: `kpmgnz`
+- Kogan.com: `kogan`
+- Kraken: `kraken123`
+- MYOB: `myob-2`
+- Megaport: `megaport`
+- Okendo: `okendo`
+- Onit: `onit`
+- Planner 5D: `planner5d`
+- Procreate: `procreate`
+- Q-CTRL: `q-ctrl`
+- Veepee: `veepee`
 
 ---
 
-### 2.3 Ashby (Posting API)
+### 3.3 Ashby (Posting API) — ❌ NOT YET IMPLEMENTED
 
 | Aspect | Detail |
 |:---|:---|
 | **Endpoint** | `GET https://api.ashbyhq.com/posting-api/job-board/{company_slug}` |
 | **Auth** | ❌ None required for public job board |
-| **Rate Limits** | Standard |
 | **Format** | JSON |
 | **Key Fields** | `jobs[].id`, `jobs[].title`, `jobs[].location`, `jobs[].department`, `jobs[].employmentType`, `jobs[].descriptionHtml`, `jobs[].publishedAt`, `jobs[].jobUrl`, `jobs[].applyUrl` |
-| **Compensation** | Available via `?includeCompensation=true` query param — returns `compensationTierSummary` with pay range |
+| **Compensation** | Available via `?includeCompensation=true` — returns `compensationTierSummary` string |
 | **Pagination** | All jobs returned in a single response |
 
-**Notes:** Ashby returns everything in one call. The `?includeCompensation=true` flag is an opt-in that gives us a compensation summary string — we'll need to parse this into min/max values.
+**Notes**: Returns everything in one call. Compensation summary needs parsing into min/max values.
+
+**Validated identifiers:**
+- Airwallex: `airwallex`
+- Alan: `alan`
+- EngFlow: `engflow`
+- Fetch: `fetch-pet-health`
+- Halter: `halter`
+- Heidi Health: `heidihealth`
+- Magic Eden: `magiceden`
+- Neon One: `HighlightTA`
+- Notion: `notion`
+- Partly: `partly`
+- Plain: `plain`
+- Prosper AI: `prosper-ai`
+- TravelPerk: `Perk`
 
 ---
 
-### 2.4 JobAdder (REST API v2)
+### 3.4 Workable (REST API) — Tier 2
 
 | Aspect | Detail |
 |:---|:---|
-| **Endpoint** | `GET https://api.jobadder.com/v2/jobboards/{board_id}/ads` |
-| **Board Discovery** | `GET https://api.jobadder.com/v2/jobboards` (lists available boards) |
-| **Auth** | ✅ **OAuth 2.0** — Authorization Code flow with refresh tokens |
-| **Token Lifetime** | Access token: 60 minutes; Refresh token: 14 days (inactivity expiry) |
+| **Endpoint** | `GET https://{subdomain}.workable.com/spi/v3/jobs` |
+| **Auth** | ✅ API token required (per account, `r_jobs` permission) |
 | **Format** | JSON |
-| **Key Fields** | `adId`, `title`, `description`, `location`, `salary`, `jobType`, `workType`, `category`, `subCategory`, `bulletPoints[]`, `portal.url` |
-| **Compensation** | Structured salary object |
-| **Pagination** | Offset-based |
-
-**Notes:** JobAdder is the first provider requiring OAuth. We'll need to store client credentials per company, handle the authorization code flow once during onboarding, and keep refresh tokens alive. We have to register as a Partner application via `api@jobadder.com` to get API access.
-
-> [!IMPORTANT]
-> JobAdder requires proactive token refresh — the refresh token expires after **14 days of inactivity**. Our weekly poll keeps it alive, but we should build a safety margin (e.g. refresh at 10-day intervals as a background task).
+| **Key Fields** | Job title, description, location, department, employment type, application URL |
+| **Notes** | Returns all jobs (draft, published, closed, archived) — filter for `state: published`. 8 companies identified. Each company must generate an API token from their Workable admin panel. |
 
 ---
 
-### 2.5 Employment Hero (Careers Page API)
+### 3.5 SmartRecruiters (Job Board API) — Tier 2
 
 | Aspect | Detail |
 |:---|:---|
-| **Endpoint** | `GET https://api.employmenthero.com/api/v1/organisations/{org_id}/jobs` |
-| **Auth** | ✅ **API Key** or **OAuth 2.0** (depending on tier) |
-| **Token Lifetime** | Access token: 15 minutes (if using OAuth) |
+| **Endpoint** | `GET https://api.smartrecruiters.com/v1/companies/{companyId}/postings` |
+| **Auth** | ✅ API key or partner token required |
 | **Format** | JSON |
-| **Key Fields** | `title`, `department`, `industry`, `remote`, `country_code`, `country_name`, `city`, `employment_type_name`, `employment_term_name`, `experience_level_name`, `description`, `created_at`, `application_url`, `recruitment_logo` |
-| **Compensation** | `salary_currency`, `salary_minimum`, `salary_maximum`, `salary_rate_name` |
-| **Pagination** | Standard offset/limit |
-
-**Notes:** Employment Hero has excellent structured data — salary comes pre-parsed with currency and rate (hourly/annual). The Careers Page API may use simpler API key auth, while the full API requires OAuth. Platinum subscription or higher is required for API access — our registered companies need to be on that tier.
-
-> [!WARNING]
-> Employment Hero requires a **Platinum subscription** for API access. We should surface this requirement clearly during company onboarding so we know upfront which companies can actually integrate.
+| **Key Fields** | Job title, location, department, description, application URL |
+| **Notes** | Job Board API is specifically designed for job board vendors. 7 companies including Air NZ, Canva, Deloitte, Eurofins, Vector, Visa. Apify has a SmartRecruiters scraper actor as a fallback. |
 
 ---
 
-### 2.6 SnapHire (Talent App Store API)
+### 3.6 BambooHR (Careers API) — Tier 2
 
 | Aspect | Detail |
 |:---|:---|
-| **Endpoint** | Via Talent App Store (TAS) — custom app integration |
-| **Auth** | ✅ **HMAC-based API key** (issued via TAS developer portal) |
+| **Endpoint** | `GET https://api.bamboohr.com/api/gateway.php/{subdomain}/v1/applicant_tracking/jobs` |
+| **Auth** | ✅ API key required (per tenant, no public API) |
 | **Format** | JSON |
-| **Key Fields** | Job title, description, location, employment type, status |
-| **Compensation** | Varies — may not be consistently available |
-| **Pagination** | Unknown — likely standard |
-
-**Notes:** SnapHire is the most opaque of the six providers. It operates through a "Talent App Store" integration model, where we'd register as a TAS developer and build an app. The API surface is less documented publicly compared to the others. We may need to engage directly with SnapHire's developer relations team.
-
-> [!CAUTION]
-> SnapHire's API documentation is sparse. Before committing engineering effort, we should do a spike to register as a TAS developer and evaluate the actual API surface in practice. This provider carries the highest integration risk.
+| **Notes** | 6 companies identified (Dawn Aerospace, Kami, Letterboxd, Lyssna, MATTR, Optimal). Each company must provide their BambooHR API key. Third-party service Fantastic.jobs aggregates BambooHR listings via a single endpoint. |
 
 ---
 
-### 2.7 Apify (Supplementary — LinkedIn Scraper)
+### 3.7 Teamtailor (Client API) — Tier 2
+
+| Aspect | Detail |
+|:---|:---|
+| **Endpoint** | `GET https://api.teamtailor.com/v1/jobs` |
+| **Auth** | ✅ API key (token auth) per tenant |
+| **Format** | JSON |
+| **Notes** | 4 companies (Gallagher, Henry Schein One, PredictHQ). Also supports XML feeds and HTTP Webhooks. XML feed may be publicly shareable. |
+
+---
+
+### 3.8 Workday — Tier 3 (Scrape Instead)
+
+| Aspect | Detail |
+|:---|:---|
+| **URL Pattern** | `{slug}.wd{N}.myworkdayjobs.com` (N = 1–5) |
+| **Auth** | ✅ Requires per-tenant integration user (Staffing REST API) |
+| **Our companies** | 25 (Autodesk, BNZ, Beca, Spark NZ, PwC, Red Hat, Westpac NZ, etc.) |
+| **Recommendation** | **Do not build a Workday API client.** The per-tenant auth model is impractical. Use Apify's Workday scraper actor or build a custom Crawlee-based scraper that targets the predictable `{slug}.wd{N}.myworkdayjobs.com` pattern. |
+
+---
+
+### 3.9 Apify (Supplementary — LinkedIn Scraper) — ✅ IMPLEMENTED
 
 | Aspect | Detail |
 |:---|:---|
@@ -136,648 +288,418 @@ Our current pipeline scrapes data via Apify (LinkedIn). This works, but has limi
 | **Auth** | ✅ API Key (already implemented) |
 | **Format** | JSON |
 | **Key Fields** | Already mapped — see existing `ApifyJobDto` |
-| **Role** | **Catch-all** for companies not on Greenhouse, Lever, Ashby, JobAdder, Employment Hero, or SnapHire |
-
-**Notes:** Apify stays as-is. It runs as a 7th source using the existing `ApifyClient` and `RawJobDataMapper`. When ATS data is available for a company, ATS is the primary source and Apify data supplements it (e.g. filling in fields the ATS API doesn't expose). When a company has no ATS integration, Apify is the sole source.
+| **Role** | **Catch-all** for companies not covered by direct ATS integrations or dedicated scrapers |
 
 ---
 
-## 3. Unified Data Model — Field Mapping
+## 4. Generic NLP/AI Fallback for Unstructured Career Pages
+
+For the **1,104 companies (87.8%)** with no identified ATS and the **41 companies (3.2%)** on enterprise ATS platforms (Workday, SuccessFactors, etc.) where direct API access is impractical, we need a generic fallback that can extract structured job data from arbitrary web pages.
+
+### 4.1 The Problem
+
+These companies' career pages vary wildly:
+- Some use proprietary CMS platforms with embedded job widgets
+- Some post directly to LinkedIn (Easy Apply) with no external careers page
+- Some use enterprise ATS (Workday, SuccessFactors) with complex, JavaScript-heavy pages
+- Some are small companies with simple HTML pages listing jobs
+
+### 4.2 Option A: LLM-Powered Page Parsing (Recommended Default)
+
+Use an LLM to extract structured job data from raw HTML/text of any career page. This is the most flexible approach and can handle arbitrary page structures without writing custom parsers.
+
+**How it works:**
+1. Fetch the career page HTML (via Apify, Crawlee, or direct HTTP)
+2. Strip boilerplate (nav, footer, scripts) to extract the main content
+3. Send the content to an LLM (Gemini, GPT-4o, Claude) with a structured extraction prompt
+4. LLM returns JSON conforming to our `NormalizedJob` schema
+5. Store raw HTML in Bronze, parsed results flow through normal Silver pipeline
+
+**Prompt template:**
+```
+Extract all job postings from the following career page content.
+For each job, return a JSON object with:
+- title, location, department, employmentType, description,
+  salaryMin, salaryMax, salaryCurrency, applyUrl, postedDate
+
+If a field is not found, return null. Return a JSON array of jobs.
+
+Page content:
+{page_content}
+```
+
+**Cost estimate** (Gemini 2.0 Flash):
+- Average career page: ~5,000 tokens input, ~1,000 tokens output
+- Cost: ~$0.0001 per page (at $0.075/1M input + $0.30/1M output)
+- For 1,000 companies weekly: **$0.43/month** (essentially free)
+- Compare to Apify LinkedIn scraper: ~$1/1,000 jobs ≈ $4.50/month for 4,500 jobs
+
+**Pros:**
+- Works on any page structure without custom code
+- Can extract nuanced data (salary from description text, seniority from context)
+- Extremely cheap with Gemini Flash
+- Can improve extraction quality just by updating the prompt
+
+**Cons:**
+- Requires reliable page fetching (JavaScript rendering for SPAs)
+- Occasional hallucination / incorrect extraction (mitigate with validation)
+- Need to discover career page URLs first (can automate with web search)
+- Slower than direct API calls (~2-5 seconds per page vs <1 second for API)
+
+> [!TIP]
+> **LLM extraction is dramatically cheaper than building and maintaining custom scrapers** for the long tail of companies. At $0.0001/page, we could parse 10,000 career pages for $1.00. The engineering time saved by not building per-ATS scrapers more than justifies occasional extraction errors.
+
+### 4.3 Option B: Rule-Based HTML Scraping (Cheap but Fragile)
+
+Build a generic career page scraper using CSS selectors and heuristics to identify job listing patterns. This is what traditional scraping services do.
+
+**How it works:**
+1. Fetch career page HTML
+2. Look for common job listing patterns (repeating `<div>` or `<li>` elements with titles, locations)
+3. Extract using CSS selectors and regex
+4. Heuristically parse location, salary, etc.
+
+**Pros:** Fast, no LLM cost, works consistently on pages with stable structure
+**Cons:** Breaks when pages change layout, requires per-site maintenance, can't extract nuanced data
+
+**Verdict:** Not recommended as a primary strategy. Too fragile for 90+ diverse company pages. However, CSS-based extraction is still useful as pre-processing before LLM parsing (strip boilerplate to reduce token count).
+
+### 4.4 Option C: Hybrid Approach (Recommended)
+
+Combine scraping for page fetching with LLM for data extraction:
+
+1. **Page fetching**: Use Apify/Crawlee/BrightData to fetch and render career pages (handles JavaScript, pagination, anti-bot protections)
+2. **Data extraction**: Send the rendered content to Gemini Flash for structured extraction
+3. **Validation**: Run extracted data through `RawJobDataParser` validation rules (non-empty title, valid location, etc.)
+4. **Fallback**: If LLM extraction fails quality checks, flag for manual review
+
+This gives us the reliability of professional scraping infrastructure with the flexibility of LLM-based parsing. Total cost for 1,000 companies weekly: **< $10/month** (scraping + LLM combined).
+
+---
+
+## 5. Scraping Services — Apify and Alternatives
+
+### 5.1 Current State: Apify
+
+We currently use Apify for LinkedIn scraping only. Apify has a broader ecosystem we should leverage:
+
+| Actor | Target | Cost | Notes |
+|:---|:---|:---|:---|
+| **LinkedIn Jobs Scraper** | LinkedIn | ~$1/1,000 jobs | Currently used. Guest API, no login needed. |
+| **Seek Job Scraper** | Seek (AU/NZ) | ~$2.50/1,000 results | Ready to use. Handles pagination. |
+| **Workday Jobs Scraper** | Workday career sites | Varies | Covers our 23 Workday companies |
+| **SmartRecruiters Scraper** | SmartRecruiters boards | Varies | Covers our 10 SmartRecruiters companies |
+| **Indeed Scraper** | Indeed | ~$1.50/1,000 jobs | Broad coverage, useful for companies not on LinkedIn |
+| **Generic Web Scraper** | Any URL | Varies | Can fetch arbitrary career pages for LLM parsing |
+
+**Current monthly Apify cost**: ~$49/month plan (sufficient for our current volume)
+
+### 5.2 Alternatives to Apify
+
+| Service | Best For | Pricing | Recommendation |
+|:---|:---|:---|:---|
+| **BrightData** | Enterprise-grade scraping, LinkedIn, proxy infrastructure | $0.001/record for jobs API; $499+/mo for heavy use | Consider if we need higher LinkedIn volume or run into anti-bot issues. LinkedIn scraping starts at ~$500 for 151K page loads. Overkill for our current scale. |
+| **Crawlee** (self-hosted) | Custom scrapers, Workday/SuccessFactors pages | Free (open-source, built by Apify) | **Recommended** for building custom scrapers we host on Cloud Run. Zero per-request cost. Ideal for Workday, SuccessFactors, and generic career page scraping. |
+| **ScrapingBee** | Simple API-based scraping with proxy rotation | $49/mo for 250K credits | Alternative to Apify for simple HTTP scraping. Similar capabilities, different pricing model. |
+| **Octoparse** | No-code visual scraping | $83/mo (Standard) | Not recommended — our team is technical enough for code-based solutions. |
+| **Zyte (Scrapinghub)** | Managed scraping service | Custom pricing | Consider if we want to outsource scraper maintenance entirely. |
+| **Fantastic.jobs** | ATS-specific job aggregation API | Pay-as-you-go | Aggregates jobs from BambooHR, Workable, Teamtailor via single API. Worth evaluating vs building individual clients. |
+
+### 5.3 Multi-Source Scraping Recommendation
+
+| Source | Tool | Coverage | Priority |
+|:---|:---|:---|:---|
+| **LinkedIn** | Apify (existing) | Primary source for all companies | Keep as-is |
+| **Seek (AU/NZ)** | Apify Seek Actor | ~50-60% of ANZ tech jobs not on LinkedIn | **High priority** — massive coverage gap |
+| **Trade Me Jobs (NZ)** | Custom Crawlee scraper | NZ domestic companies | Medium priority |
+| **Workday career pages** | Apify Workday Actor or Crawlee | 23 companies (1.8%) | High priority |
+| **SuccessFactors pages** | Custom Crawlee scraper | 8 companies | Low priority |
+| **Generic career pages** | Crawlee + LLM extraction (Section 4) | 1,104 unidentified companies | Medium priority |
+
+> [!IMPORTANT]
+> **Seek is the #1 missing source.** Seek dominates the ANZ job board market (~90% of job seeker traffic). Many government, enterprise, and NZ-only companies post exclusively to Seek. Adding Seek could expand our database from ~450 to 1,000+ active tech roles. The Apify Seek Actor costs ~$2.50/1,000 results, meaning ~$2-5/month for our volume.
+
+### 5.4 Cost Comparison Summary
+
+| Approach | Monthly Cost (1,000 companies) | Coverage | Maintenance |
+|:---|:---|:---:|:---|
+| Direct ATS APIs (Tier 1) | **$0** | 3.9% of companies | Low — public APIs rarely change |
+| Direct ATS APIs (Tier 2) | **$0** | +3.5% of companies | Medium — per-company onboarding |
+| Apify LinkedIn (existing) | **~$49** (plan) | All companies on LinkedIn | Low — existing infrastructure |
+| Apify Seek Actor | **~$20-30** | ANZ-focused companies | Low |
+| Apify Workday Actor | **~$5-10** | 23 Workday companies | Low |
+| Crawlee (self-hosted) | **$0** (Cloud Run free tier) | Custom targets | Medium — we maintain the scrapers |
+| LLM extraction (Gemini Flash) | **~$0.43** | 1,100+ misc career pages | Low — prompt-based |
+| BrightData | **$499+** | Enterprise-scale LinkedIn | Not recommended yet |
+| Unified ATS middleware (Merge.dev) | **$300-1,000+** | 50+ ATS providers | Low — vendor manages |
+| **Total (recommended stack)** | **~$80-100/month** | **90%+ of market** | |
+
+---
+
+## 6. Unified ATS Middleware (Merge / Knit / Kombo)
+
+Services like [Merge.dev](https://merge.dev), [Knit](https://getknit.dev), and [Kombo](https://kombo.dev) provide a single API aggregating 50+ ATS providers behind a unified schema.
+
+### 6.1 When This Makes Sense
+
+| Criteria | Our Situation | Verdict |
+|:---|:---|:---|
+| Number of ATS providers | 12+ identified | Approaching the threshold where middleware saves effort |
+| Per-company onboarding cost | High for OAuth/API-key providers | Middleware handles auth lifecycle |
+| Engineering maintenance burden | Low currently (only Greenhouse built) | Will grow as we add providers |
+| Budget | $0/month target | Middleware costs $300-1,000+/month — conflicts with budget constraints |
+
+### 6.2 Recommendation
+
+**Don't adopt middleware yet.** Our budget target is near-zero, and we only need ~3 public API providers built to cover the highest-value segment. Here's when to reconsider:
+
+1. If we need to onboard **50+ Tier 2 companies** (API-key-per-tenant becomes painful)
+2. If we expand into international markets with **dozens of new ATS providers**
+3. If the platform generates **revenue** that justifies $300+/month software costs
+
+**For now**: Build Lever + Ashby + Workable clients (all under 2 days work each), and cover everything else via Apify + Crawlee + LLM extraction.
+
+---
+
+## 7. Unified Data Model — Field Mapping
 
 Every ATS has a different shape. The table below shows how each provider's fields map to our existing `JobRecord` and `CompanyRecord` models.
 
-### 3.1 JobRecord Mapping
+### 7.1 JobRecord Mapping
 
-| Our Field | Greenhouse | Lever | Ashby | JobAdder | Employment Hero | SnapHire | Apify (existing) |
+| Our Field | Greenhouse | Lever | Ashby | Workable | SmartRecruiters | BambooHR | Apify (existing) |
 |:---|:---|:---|:---|:---|:---|:---|:---|
 | `jobId` | Generated slug | Generated slug | Generated slug | Generated slug | Generated slug | Generated slug | Generated slug |
-| `platformJobIds` | `id` | `id` | `id` | `adId` | Job ID | Job ID | `id` |
-| `title` | `title` | `text` | `title` | `title` | `title` | Title | `title` |
-| `companyName` | From registration | From slug | From slug | From board metadata | From org metadata | From config | `companyName` |
-| `description` | `content` (HTML) | `descriptionPlain` | `descriptionHtml` | `description` | `description` | Description | `descriptionText` |
-| `city` | Parse `location.name` | Parse `categories.location` | Parse `location` | Parse `location` | `city` | Parse location | `location` (parsed) |
-| `stateRegion` | Parse `location.name` | Parse `categories.location` | Parse `location` | Parse `location` | — (derive from city) | Parse location | `location` (parsed) |
-| `country` | Parse `offices[].location` | Parse `categories.location` | Parse `location` | Parse `location` | `country_code` ✅ | Parse location | `location` (parsed) |
-| `salaryMin` | — | `salaryRange.min` | Parse `compensationTierSummary` | `salary.min` | `salary_minimum` ✅ | — | `salaryInfo` (parsed) |
-| `salaryMax` | — | `salaryRange.max` | Parse `compensationTierSummary` | `salary.max` | `salary_maximum` ✅ | — | `salaryInfo` (parsed) |
-| `seniorityLevel` | Heuristic from title | Heuristic from title | Heuristic from title | Heuristic from title | `experience_level_name` ✅ | Heuristic from title | `seniorityLevel` |
-| `employmentType` | — | `categories.commitment` | `employmentType` ✅ | `jobType` | `employment_type_name` ✅ | — | `employmentType` |
-| `workModel` | Heuristic from location | `workplaceType` ✅ | Heuristic from location | `workType` | `remote` ✅ | Heuristic | Heuristic |
-| `technologies` | Extract from `content` | Extract from description | Extract from description | Extract from description | Extract from description | Extract from description | Extract from description |
-| `postedDate` | `updated_at` | `createdAt` | `publishedAt` | Posted date | `created_at` | Created at | `postedAt` |
-| `applyUrls` | `absolute_url` | `applyUrl` | `applyUrl` | `portal.url` | `application_url` | Apply URL | `applyUrl` |
-| `platformLinks` | `absolute_url` | `hostedUrl` | `jobUrl` | Portal URL | — | — | `link` |
-| `source` | `"Greenhouse"` | `"Lever"` | `"Ashby"` | `"JobAdder"` | `"EmploymentHero"` | `"SnapHire"` | `"LinkedIn-Apify"` |
-| `lastSeenAt` | Sync timestamp | Sync timestamp | Sync timestamp | Sync timestamp | Sync timestamp | Sync timestamp | Ingestion timestamp |
+| `platformJobIds` | `id` | `id` | `id` | Job ID | Job ID | Job ID | `id` |
+| `title` | `title` | `text` | `title` | `title` | `name` | `jobTitle` | `title` |
+| `companyName` | From config | From slug | From slug | From config | From API | From subdomain | `companyName` |
+| `description` | `content` (HTML) | `descriptionPlain` | `descriptionHtml` | `description` | `jobAd.sections` | `description` | `descriptionText` |
+| `city` | Parse `location.name` | Parse `categories.location` | Parse `location` | `location.city` ✅ | `location.city` ✅ | `location.city` ✅ | `location` (parsed) |
+| `country` | Parse `offices[].location` | Parse `categories.location` | Parse `location` | `location.country` ✅ | `location.country` ✅ | — | `location` (parsed) |
+| `salaryMin` | — | `salaryRange.min` ✅ | Parse `compensationTierSummary` | Via description | — | — | `salaryInfo` (parsed) |
+| `salaryMax` | — | `salaryRange.max` ✅ | Parse `compensationTierSummary` | Via description | — | — | `salaryInfo` (parsed) |
+| `employmentType` | — | `categories.commitment` ✅ | `employmentType` ✅ | `employment_type` ✅ | `typeOfEmployment` ✅ | `employmentStatus` ✅ | `employmentType` |
+| `workModel` | Heuristic | `workplaceType` ✅ | Heuristic | Heuristic | Heuristic | Heuristic | Heuristic |
+| `postedDate` | `updated_at` | `createdAt` | `publishedAt` | `published_on` | `releasedDate` | `datePosted` | `postedAt` |
+| `applyUrls` | `absolute_url` | `applyUrl` | `applyUrl` | `application_url` | `ref_links` | `applicationUrl` | `applyUrl` |
+| `source` | `"Greenhouse"` | `"Lever"` | `"Ashby"` | `"Workable"` | `"SmartRecruiters"` | `"BambooHR"` | `"LinkedIn-Apify"` |
 
 ✅ = Natively structured (no heuristic/parsing needed)
 
-### 3.2 CompanyRecord Mapping
+### 7.2 CompanyRecord Mapping
 
 | Our Field | Source |
 |:---|:---|
 | `companyId` | Generated from company name via `IdGenerator` |
 | `name` | From company registration / ATS metadata |
-| `logoUrl` | Greenhouse: not in public API; Lever: not in v0; Employment Hero: `recruitment_logo`; Others: from registration |
-| `website` | From registration data (most ATS APIs don't expose this) |
-| `industries` | Lever: `categories.department`; JobAdder: `category`; Others: from registration |
+| `logoUrl` | Employment Hero: `recruitment_logo`; Others: from `data/companies.json` |
+| `website` | From `data/companies.json` (most ATS APIs don't expose this) |
+| `industries` | From `data/companies.json` (profiled per company) |
 | `technologies` | Aggregated from all `JobRecord.technologies` for this company |
 | `hiringLocations` | Aggregated from all `JobRecord` locations for this company |
 | `lastUpdatedAt` | Latest sync timestamp |
 
 ---
 
-## 4. Architecture — Multi-Source Pipeline
+## 8. Architecture — Multi-Source Pipeline
 
-### 4.1 Extending the Medallion Architecture
+### 8.1 Design Overview
 
-The existing Bronze → Silver → Gold pipeline extends naturally. Each ATS becomes a new source feeding into Bronze, and a new set of provider-specific mappers normalize data before it enters Silver.
+The existing Bronze → Silver → Gold pipeline extends naturally. Each source feeds into Bronze via a source-specific client + normalizer, and the shared pipeline handles everything downstream.
 
-```mermaid
-graph TD
-    subgraph Sources
-        GH["Greenhouse API"]
-        LV["Lever API"]
-        AB["Ashby API"]
-        JA["JobAdder API"]
-        EH["Employment Hero API"]
-        SH["SnapHire API"]
-        AP["Apify (LinkedIn)"]
-    end
+**Source types:**
+1. **Direct ATS APIs** — `AtsClient` + `AtsNormalizer` → `NormalizedJob` → Bronze → Silver
+2. **Apify scrapers** — `ApifyClient` → `ApifyJobDto` → Bronze → Silver (existing)
+3. **Crawlee scrapers** — Custom scraper → raw HTML → Bronze → `NormalizedJob` → Silver
+4. **LLM extraction** — Fetch page → LLM prompt → `NormalizedJob` → Bronze → Silver
 
-    subgraph Clients ["ATS Clients"]
-        GHC["GreenhouseClient"]
-        LVC["LeverClient"]
-        ABC["AshbyClient"]
-        JAC["JobAdderClient"]
-        EHC["EmploymentHeroClient"]
-        SHC["SnapHireClient"]
-        APC["ApifyClient (existing)"]
-    end
+All four source types converge at the `NormalizedJob` model, which then flows through `AtsJobDataMapper` → `SilverDataMerger` → Silver layer.
 
-    GH --> GHC
-    LV --> LVC
-    AB --> ABC
-    JA --> JAC
-    EH --> EHC
-    SH --> SHC
-    AP --> APC
+### 8.2 Key Design Decisions
 
-    subgraph Normalizers ["Source Normalizers"]
-        GHN["GreenhouseNormalizer"]
-        LVN["LeverNormalizer"]
-        ABN["AshbyNormalizer"]
-        JAN["JobAdderNormalizer"]
-        EHN["EmploymentHeroNormalizer"]
-        SHN["SnapHireNormalizer"]
-        APN["ApifyNormalizer (existing mapper)"]
-    end
+#### A. Source Normalizer Pattern (Already Built)
 
-    GHC --> GHN
-    LVC --> LVN
-    ABC --> ABN
-    JAC --> JAN
-    EHC --> EHN
-    SHC --> SHN
-    APC --> APN
-
-    subgraph Pipeline ["Unified Pipeline"]
-        BR["Bronze Layer (raw_ingestions)"]
-        UM["Unified Mapper (shared parsing)"]
-        SM["SilverDataMerger (existing)"]
-        SL["Silver Layer (raw_jobs, raw_companies)"]
-    end
-
-    GHN --> BR
-    LVN --> BR
-    ABN --> BR
-    JAN --> BR
-    EHN --> BR
-    SHN --> BR
-    APN --> BR
-    BR --> UM
-    UM --> SM
-    SM --> SL
-```
-
-### 4.2 Key Design Decisions
-
-#### A. Source Normalizer Pattern (Strategy)
-
-Each ATS gets a **Client** (HTTP communication) and a **Normalizer** (data shape translation). The normalizer converts provider-specific DTOs into a common intermediate format (`NormalizedJob`) that our shared parsing logic (`RawJobDataParser`) can process.
-
-```
-interface AtsNormalizer {
-    fun normalize(rawData: JsonNode): List<NormalizedJob>
-}
-
-data class NormalizedJob(
-    val platformId: String,
-    val source: String,               // "Greenhouse", "Lever", etc.
-    val title: String?,
-    val companyName: String,
-    val location: String?,            // Raw location string for RawJobDataParser
-    val descriptionHtml: String?,
-    val descriptionText: String?,
-    val salaryMin: Int?,              // Pre-parsed if structured
-    val salaryMax: Int?,
-    val salaryCurrency: String?,
-    val employmentType: String?,
-    val seniorityLevel: String?,      // Pre-parsed if available
-    val workModel: String?,           // Pre-parsed if available (e.g., Lever workplaceType)
-    val department: String?,
-    val postedAt: String?,
-    val applyUrl: String?,
-    val platformUrl: String?,
-    val rawPayload: String            // Original JSON for Bronze layer audit
-)
-```
-
-This means:
-- **Structured fields** (e.g. Employment Hero's `salary_minimum`) are mapped directly — no heuristic needed.
-- **Unstructured fields** (e.g. Greenhouse's `location.name`) are left as raw strings for `RawJobDataParser` to handle, reusing existing parsing logic.
-- The `rawPayload` is stored in Bronze regardless, preserving the full audit trail.
+Each ATS gets a **Client** (HTTP communication) and a **Normalizer** (data shape translation). This pattern is already implemented in the codebase via `AtsClient` and `AtsNormalizer` interfaces.
 
 #### B. Source Priority & Conflict Resolution
 
-When the same company has data from both an ATS and Apify, we need a merge strategy:
+When the same company has data from multiple sources:
 
 | Scenario | Resolution |
 |:---|:---|
-| Same job exists in ATS + Apify | **ATS wins** — structured data is more reliable. Apify data can supplement missing fields (e.g. if ATS lacks salary but Apify has it). |
-| Job only in ATS | Use ATS data directly |
-| Job only in Apify | Use Apify data directly (company has no ATS integration) |
-| Company metadata conflicts | ATS is primary; Apify supplements `alternateNames` |
-
-This resolution builds on the existing `SilverDataMerger` — we add a `sourcePriority` concept where ATS sources rank higher than scraped sources.
+| Same job in ATS + Apify | **ATS wins** — structured data more reliable. Apify supplements missing fields. |
+| Same job in ATS + Seek | **ATS wins**. Seek supplements. |
+| Job only in one source | Use that source directly |
+| Company metadata conflicts | ATS is primary; scraped sources supplement `alternateNames` |
 
 #### C. Cross-Source Deduplication
 
-Jobs from different sources for the same company need deduplication. Our existing `(company, country, title)` key works, but we should add:
+Jobs from different sources for the same company need deduplication. Our existing `(company, country, title)` key works. Additional signals:
 
-1. **Platform-ID cross-reference table** — maps `(source, platformId)` → `jobId` so we can detect when Apify and an ATS are reporting the same job.
-2. **Fuzzy title matching** — catch cases where titles differ slightly across platforms (e.g. "Senior Software Engineer" vs "Sr. Software Engineer").
-3. **Temporal proximity** — two postings with the same title within 7 days are likely the same opening.
-
----
-
-## 5. Company Registration & Configuration
-
-For ATS integration, we need to know which companies use which provider, and their credentials/identifiers.
-
-### 5.1 Company ATS Configuration
-
-```
-data class CompanyAtsConfig(
-    val companyId: String,
-    val atsProvider: AtsProvider,           // GREENHOUSE, LEVER, ASHBY, etc.
-    val identifier: String,                // Board token, slug, org ID, etc.
-    val credentials: AtsCredentials?,      // Only for OAuth-based providers
-    val enabled: Boolean,
-    val lastSyncedAt: Instant?,
-    val syncStatus: SyncStatus             // SUCCESS, FAILED, PENDING
-)
-
-enum class AtsProvider {
-    GREENHOUSE,     // identifier = board token
-    LEVER,          // identifier = company slug
-    ASHBY,          // identifier = company slug
-    JOBADDER,       // identifier = board ID (discovered via API)
-    EMPLOYMENT_HERO,// identifier = organisation ID
-    SNAPHIRE,       // identifier = TAS app ID
-    APIFY           // identifier = n/a (catch-all)
-}
-```
-
-### 5.2 Credentials Storage
-
-| Provider | What We Store | Storage |
-|:---|:---|:---|
-| Greenhouse | Board token (public) | Plain config |
-| Lever | Company slug (public) | Plain config |
-| Ashby | Company slug (public) | Plain config |
-| JobAdder | Client ID, Client Secret, Refresh Token | **GCP Secret Manager** |
-| Employment Hero | API Key or OAuth tokens | **GCP Secret Manager** |
-| SnapHire | HMAC API Key | **GCP Secret Manager** |
-| Apify | API Key (shared, not per-company) | Environment variable (existing) |
-
-> [!IMPORTANT]
-> OAuth tokens and API keys must **never** be stored in BigQuery or application config. Use GCP Secret Manager with IAM-scoped access from the Cloud Run service account.
+1. **Platform-ID cross-reference** — maps `(source, platformId)` → `jobId`
+2. **Fuzzy title matching** — "Senior Software Engineer" vs "Sr. Software Engineer"
+3. **Temporal proximity** — two postings with same title within 7 days = likely duplicate
 
 ---
 
-## 6. Scheduled Polling System
+## 9. Implementation Phases (Updated)
 
-### 6.1 Architecture
+### Phase 1 — Complete Tier 1 (Lever + Ashby)
 
-Given our Cloud Run deployment and "$0/month" cost goal (from `background-processing.md`), the best approach is **Cloud Scheduler → Cloud Tasks → Cloud Run**.
+**Scope:** Finish the public API integrations. Total: 3 providers covering 28 companies.
 
-```mermaid
-sequenceDiagram
-    participant CS as Cloud Scheduler
-    participant CT as Cloud Tasks Queue
-    participant CR as Cloud Run (Backend)
-    participant ATS as ATS APIs
-    participant BQ as BigQuery
+**🤖 Code tasks:**
+- [ ] 🤖 Implement `LeverClient` + `LeverNormalizer`
+- [ ] 🤖 Implement `AshbyClient` + `AshbyNormalizer`
+- [ ] 🤖 Seed `company_ats_configs` in BigQuery for all validated Lever + Ashby identifiers
+- [ ] 🤖 Integration test with validated companies (e.g., Halter/Ashby, Tracksuit/Lever)
 
-    CS->>CT: Nightly cron (2am NZST)
-    
-    Note over CT: Creates one task per<br/>registered company
+**👤 Your tasks:**
+- [ ] 👤 Full validation sweep — run `validate_ats.sh` across all 92 identified companies
+- [ ] 👤 Verify all Lever/Ashby identifiers from `ats-identification-findings.md` are still active
 
-    loop For each company
-        CT->>CR: POST /api/internal/ats-sync
-        CR->>CR: Load CompanyAtsConfig
-        CR->>ATS: Fetch jobs (provider-specific client)
-        ATS-->>CR: Raw job data (JSON)
-        CR->>BQ: 1. Write raw JSON to Bronze (raw_ingestions)
-        CR->>CR: 2. Normalize raw JSON → NormalizedJob
-        CR->>CR: 3. Parse → Deduplicate → Merge
-        CR->>BQ: 4. Write Silver (raw_jobs, raw_companies)
-        CR-->>CT: 200 OK
-    end
-```
+**Estimated effort:** ~2-3 days
+**Coverage result:** 28 companies (15.3%) with direct ATS integration
+
+---
+
+### Phase 2 — Seek + Workday Scraping
+
+**Scope:** Add Seek as a major new data source. Add Workday career page scraping. This addresses the two largest coverage gaps.
+
+**🤖 Code tasks:**
+- [ ] 🤖 Build `SeekClient` wrapper around Apify Seek Job Scraper actor
+- [ ] 🤖 Build `SeekNormalizer` to map Seek data → `NormalizedJob`
+- [ ] 🤖 Build `WorkdayScraperClient` (using Apify Workday actor or Crawlee)
+- [ ] 🤖 Build `WorkdayNormalizer`
+- [ ] 🤖 Integrate both into the existing `AtsJobDataSyncService` flow
+- [ ] 🤖 Update deduplication to handle LinkedIn ↔ Seek ↔ Workday overlaps
+
+**👤 Your tasks:**
+- [ ] 👤 Define Seek search parameters (keywords, locations, categories for NZ/AU tech jobs)
+- [ ] 👤 Compile list of Workday slugs from the 25 identified companies
+
+**Estimated effort:** ~3-5 days
+**Coverage result:** Seek adds potentially 500+ new tech roles; Workday covers 25 additional companies
+
+---
+
+### Phase 3 — Scheduling + LLM Fallback
+
+**Scope:** Automate polling via Cloud Scheduler + Cloud Tasks. Build generic LLM extraction for the unidentified companies.
+
+**🤖 Code tasks:**
+- [ ] 🤖 Set up Cloud Scheduler → Cloud Tasks → Cloud Run sync pipeline
+- [ ] 🤖 Build `GenericCareerPageScraper` using Crawlee (fetches + renders career pages)
+- [ ] 🤖 Build `LlmJobExtractor` service (sends page content to Gemini Flash for structured extraction)
+- [ ] 🤖 Wire `LlmJobExtractor` output into `NormalizedJob` pipeline
+- [ ] 🤖 Add extraction quality validation (reject records failing minimum thresholds)
+- [ ] 🤖 Build career page URL discovery (look up `data/companies.json` websites + common `/careers` paths)
+
+**👤 Your tasks:**
+- [ ] 👤 Set up Cloud Scheduler cron job (nightly 2am NZST)
+- [ ] 👤 Set up Cloud Tasks queue with retry policy
+- [ ] 👤 Manually verify career page URLs for top 20 unidentified companies
+
+**Estimated effort:** ~5-7 days
+**Coverage result:** Automated nightly sync for all sources; ~50%+ of "unidentified" companies now covered via LLM extraction
+
+---
+
+### Phase 4 — Tier 2 ATS + Polish
+
+**Scope:** Build clients for higher-value authenticated ATS providers. Only pursue if the per-company onboarding effort is justified.
+
+**🤖 Code tasks (build on demand):**
+- [ ] 🤖 Implement `WorkableClient` + `WorkableNormalizer` (8 companies)
+- [ ] 🤖 Implement `SmartRecruitersClient` + `SmartRecruitersNormalizer` (7 companies)
+- [ ] 🤖 Implement `TeamtailorClient` + `TeamtailorNormalizer` (4 companies)
+- [ ] 🤖 Build `/api/admin/sync-status` dashboard endpoint
+- [ ] 🤖 Add data quality metrics (missing fields, parse failures per source)
+- [ ] 🤖 Connect multi-source data to Gold layer trend tables
+
+**👤 Your tasks:**
+- [ ] 👤 Reach out to companies for API access (Workable, SmartRecruiters, Teamtailor)
+- [ ] 👤 Evaluate whether Fantastic.jobs aggregation is cheaper than direct integrations
+- [ ] 👤 Write onboarding documentation for adding new companies
+
+**Estimated effort:** ~2-3 weeks (spread over time, per-company)
+
+---
+
+## 10. Scheduled Polling System
+
+### 10.1 Architecture
+
+Given our Cloud Run deployment and "$0/month" cost goal, the approach is **Cloud Scheduler → Cloud Tasks → Cloud Run**.
 
 > [!IMPORTANT]
-> **Bronze-first ingestion**: Raw JSON from the ATS is stored in Bronze **before** any normalization. This mirrors our existing `JobDataSyncService` pattern and means we can safely change normalization logic in the future and reprocess all historical data from the immutable Bronze source.
+> **Bronze-first ingestion**: Raw data from every source is stored in Bronze **before** any normalization. This mirrors our existing `JobDataSyncService` pattern and means we can safely change normalization logic in the future and reprocess all historical data from the immutable Bronze source.
 
-### 6.2 Why Cloud Scheduler + Cloud Tasks?
-
-| Consideration | Cloud Scheduler + Tasks | Spring `@Scheduled` | Cloud Run Jobs |
-|:---|:---|:---|:---|
-| **Works on Cloud Run** | ✅ Yes (HTTP-triggered) | ❌ CPU throttled after response | ✅ Yes |
-| **Per-company retries** | ✅ Individual task retries | ❌ All-or-nothing | ⚠️ Manual |
-| **Cost** | $0 (see [Section 9](#9-cost-estimate) for breakdown) | $0 (but unreliable) | Free tier |
-| **Isolation** | ✅ Each company is an independent task | ❌ Coupled | ✅ Separate executions |
-| **Timeout** | Up to 30 min per task | N/A | Up to 24 hours |
-
-### 6.3 Sync Flow Detail
-
-```kotlin
-// Triggered by Cloud Tasks for a single company
-@PostMapping("/api/internal/ats-sync")
-fun syncCompanyData(@RequestBody request: AtsSyncRequest) {
-    val config = configRepository.getAtsConfig(request.companyId)
-    
-    val client = atsClientFactory.getClient(config.atsProvider)
-    val normalizer = atsNormalizerFactory.getNormalizer(config.atsProvider)
-    
-    // 1. Fetch raw data from ATS
-    val rawResponse = client.fetchJobs(config.identifier, config.credentials)
-    
-    // 2. Store raw JSON in Bronze layer FIRST (immutable audit trail)
-    //    This preserves the original payload so we can re-normalize later
-    //    if our parsing logic changes — just like our existing Apify pipeline.
-    bronzeIngester.ingestRaw(rawResponse, config.atsProvider, config.companyId)
-    
-    // 3. Normalize raw JSON to common format
-    val normalizedJobs = normalizer.normalize(rawResponse)
-    
-    // 4. Parse, deduplicate, merge into Silver layer
-    //    Reuses existing RawJobDataParser + SilverDataMerger
-    val mapped = unifiedMapper.map(normalizedJobs)
-    silverMerger.mergeAndPersist(mapped)
-    
-    // 5. Update sync status
-    configRepository.updateSyncStatus(request.companyId, SyncStatus.SUCCESS)
-}
-```
-
-> [!NOTE]
-> **Why Bronze before normalization?** If we change how we normalize content in the future (e.g., improve location parsing, add new field extraction), we can replay the original raw JSON through updated normalizers — exactly as `reprocessHistoricalData()` works today for Apify data. The Bronze layer is our insurance policy.
-
-### 6.4 Schedule Configuration
+### 10.2 Schedule Configuration
 
 | Parameter | Value | Reasoning |
 |:---|:---|:---|
-| **Frequency** | **Nightly** (2:00 AM NZST) | Near-daily freshness makes us significantly more competitive. Cost is still $0 (see Section 9). |
-| **Task dispatch rate** | 5 tasks/second | Avoids overwhelming ATS APIs with concurrent requests |
-| **Retry policy** | 3 retries with exponential backoff (10s, 60s, 300s) | Handles transient API failures |
-| **Task timeout** | 5 minutes per company | More than enough for even large job boards |
-| **Apify sync** | Separate schedule (existing webhook + nightly fallback) | Keeps existing flow; adds a nightly poll as a safety net |
+| **Frequency** | **Nightly** (2:00 AM NZST) | Near-daily freshness at zero additional cost |
+| **Task dispatch rate** | 5 tasks/second | Avoids overwhelming ATS APIs |
+| **Retry policy** | 3 retries with exponential backoff (10s, 60s, 300s) | Handles transient failures |
+| **Task timeout** | 5 minutes per company | Enough for large job boards |
+| **Apify sync** | Existing webhook + nightly fallback | Keeps current flow; adds safety net |
 
-### 6.5 Failure Handling
+### 10.3 Cost Breakdown (Nightly, 1,000 companies)
 
-| Failure Type | Handling |
+| Resource | Monthly Cost |
 |:---|:---|
-| API temporarily down | Cloud Tasks retries (3x with backoff) |
-| OAuth token expired | Refresh token automatically before request; if refresh fails, mark company as `AUTH_EXPIRED` and alert |
-| Invalid/revoked credentials | Mark `SyncStatus.AUTH_FAILED`; skip until reconfigured |
-| Partial data (rate limited) | Store what we got; next sync fills the gaps via `SilverDataMerger` |
-| Schema change in ATS API | Normalizer handles gracefully with null defaults; log warnings for unrecognized fields |
-
----
-
-## 7. Implementation Phases
-
-Tasks are tagged with who does the work:
-- 🤖 **Code** — engineering work (Antigravity builds this)
-- 👤 **You** — manual research, configuration, or external outreach you'll need to do
-
-### Phase 1 — Foundation (Highest Value, Lowest Effort)
-
-**Scope:** Greenhouse + Lever + Ashby (all public, no-auth APIs)
-
-**👤 Your tasks:**
-- [ ] 👤 **Research company ATS identifiers** — for each company we track, determine which ATS they use and find their board token / company slug. This is typically visible in the URL of their careers page:
-  - Greenhouse: `boards.greenhouse.io/{board_token}` → the `board_token`
-  - Lever: `jobs.lever.co/{company_slug}` → the `company_slug`
-  - Ashby: `jobs.ashbyhq.com/{company_slug}` → the `company_slug`
-- [ ] 👤 **Build initial company roster** — create a spreadsheet or JSON file mapping each company to their ATS provider and identifier. This becomes the seed data for `CompanyAtsConfig`.
-- [ ] 👤 **Validate test companies** — pick 2–3 companies per ATS provider that we can use for development and testing (ideally companies with a mix of job volumes).
-
-**🤖 Code tasks:**
-- [ ] 🤖 Define `NormalizedJob` intermediate model
-- [ ] 🤖 Create `AtsNormalizer` interface and implement for Greenhouse, Lever, Ashby
-- [ ] 🤖 Create `GreenhouseClient`, `LeverClient`, `AshbyClient` HTTP clients
-- [ ] 🤖 Create `CompanyAtsConfig` model and `AtsConfigRepository` (BigQuery table)
-- [ ] 🤖 Build seed data loader to import your company roster into `CompanyAtsConfig`
-- [ ] 🤖 Extend `raw_ingestions` Bronze table to include `source` field
-- [ ] 🤖 Build `AtsJobDataMapper` that accepts `NormalizedJob` and reuses `RawJobDataParser`
-- [ ] 🤖 Extend `SilverDataMerger` with source priority logic
-- [ ] 🤖 Add `POST /api/internal/ats-sync` endpoint
-- [ ] 🤖 Update `source` field on existing `JobRecord` to distinguish ATS vs Apify data
-- [ ] 🤖 Manual testing with the test companies you identified
-
-### Phase 2 — Scheduling & OAuth Providers
-
-**Scope:** Cloud Scheduler/Tasks setup + JobAdder + Employment Hero
-
-**👤 Your tasks:**
-- [ ] 👤 **Register as a JobAdder API Partner** — email `api@jobadder.com` to request partner access. They'll issue client credentials after review.
-- [ ] 👤 **Confirm Employment Hero tier** — for each company using Employment Hero, verify they have a Platinum subscription (required for API access). If not, flag them as Apify-only.
-- [ ] 👤 **Authorize OAuth for each JobAdder/EH company** — once we build the OAuth callback flow, you'll send each company a one-time authorization link. They click it, approve access, and we store the token.
-- [ ] 👤 **Set up GCP Cloud Scheduler** — create the cron job in GCP Console (or we can script this via Terraform/gcloud CLI).
-- [ ] 👤 **Set up Cloud Tasks queue** — create a task queue in GCP Console with the retry policy from Section 6.4.
-
-**🤖 Code tasks:**
-- [ ] 🤖 Create `CloudTasksDispatcher` service
-- [ ] 🤖 Implement `JobAdderClient` with OAuth 2.0 flow (authorization code + refresh)
-- [ ] 🤖 Implement `EmploymentHeroClient` with API key / OAuth
-- [ ] 🤖 Set up GCP Secret Manager integration for credential storage
-- [ ] 🤖 Build OAuth callback endpoint (`/api/auth/callback/{provider}`) for company onboarding
-- [ ] 🤖 Add token refresh scheduling (pre-emptive refresh before expiry)
-- [ ] 🤖 Add `SyncStatus` tracking and alerting on failures
-
-### Phase 3 — SnapHire & Advanced Features
-
-**Scope:** SnapHire integration + cross-source deduplication + monitoring
-
-**👤 Your tasks:**
-- [ ] 👤 **Register as a SnapHire TAS developer** — sign up at the Talent App Store developer portal. Evaluate the API surface and report back on feasibility.
-- [ ] 👤 **Identify SnapHire companies** — determine which of our tracked companies use SnapHire and obtain their TAS identifiers.
-- [ ] 👤 **Review deduplication quality** — after cross-source dedup is implemented, spot-check 20–30 jobs to verify duplicates are correctly merged and no valid jobs are lost.
-
-**🤖 Code tasks:**
-- [ ] 🤖 Implement `SnapHireClient` and `SnapHireNormalizer`
-- [ ] 🤖 Build cross-source deduplication logic (platform ID cross-reference table)
-- [ ] 🤖 Add fuzzy title matching for cross-source dedup
-- [ ] 🤖 Build `/api/admin/sync-status` dashboard endpoint
-- [ ] 🤖 Add data quality metrics (missing fields, parse failures per source)
-- [ ] 🤖 Implement Apify as supplementary source with ATS-first priority merge
-
-### Phase 4 — Polish & Gold Layer Integration
-
-**Scope:** Connect ATS data to Gold layer aggregation
-
-**👤 Your tasks:**
-- [ ] 👤 **Onboard remaining companies** — work through the full company roster to ensure all companies with ATS integrations are registered and syncing.
-- [ ] 👤 **Write onboarding documentation** — create runbooks for how to add a new company (finding their ATS, getting credentials, running first sync).
-
-**🤖 Code tasks:**
-- [ ] 🤖 Feed multi-source Silver data into Gold layer trend tables (from `data-pipeline.md`)
-- [ ] 🤖 Add `source` dimension to Gold aggregations (trends by source)
-- [ ] 🤖 Salary normalization across currencies/rates (from data-pipeline roadmap)
-- [ ] 🤖 Add per-source data quality scoring to admin dashboard
-- [ ] 🤖 Build `reprocessFromBronze()` support for ATS sources (reprocess raw ATS data through updated normalizers)
-
----
-
-## 8. New Files & Components Summary
-
-| Component | Path | Purpose |
-|:---|:---|:---|
-| `AtsNormalizer` | `sync/ats/AtsNormalizer.kt` | Interface for source-specific data normalization |
-| `NormalizedJob` | `sync/ats/model/NormalizedJob.kt` | Common intermediate DTO |
-| `GreenhouseClient` | `sync/ats/greenhouse/GreenhouseClient.kt` | HTTP client for Greenhouse API |
-| `GreenhouseNormalizer` | `sync/ats/greenhouse/GreenhouseNormalizer.kt` | Greenhouse → NormalizedJob |
-| `LeverClient` | `sync/ats/lever/LeverClient.kt` | HTTP client for Lever API |
-| `LeverNormalizer` | `sync/ats/lever/LeverNormalizer.kt` | Lever → NormalizedJob |
-| `AshbyClient` | `sync/ats/ashby/AshbyClient.kt` | HTTP client for Ashby API |
-| `AshbyNormalizer` | `sync/ats/ashby/AshbyNormalizer.kt` | Ashby → NormalizedJob |
-| `JobAdderClient` | `sync/ats/jobadder/JobAdderClient.kt` | OAuth HTTP client for JobAdder |
-| `JobAdderNormalizer` | `sync/ats/jobadder/JobAdderNormalizer.kt` | JobAdder → NormalizedJob |
-| `EmploymentHeroClient` | `sync/ats/employmenthero/EmploymentHeroClient.kt` | HTTP client for Employment Hero |
-| `EmploymentHeroNormalizer` | `sync/ats/employmenthero/EmploymentHeroNormalizer.kt` | Employment Hero → NormalizedJob |
-| `SnapHireClient` | `sync/ats/snaphire/SnapHireClient.kt` | HTTP client for SnapHire TAS |
-| `SnapHireNormalizer` | `sync/ats/snaphire/SnapHireNormalizer.kt` | SnapHire → NormalizedJob |
-| `AtsClientFactory` | `sync/ats/AtsClientFactory.kt` | Factory to get the right client by provider |
-| `AtsNormalizerFactory` | `sync/ats/AtsNormalizerFactory.kt` | Factory to get the right normalizer by provider |
-| `AtsJobDataMapper` | `sync/AtsJobDataMapper.kt` | Maps NormalizedJob → JobRecord/CompanyRecord (reuses `RawJobDataParser`) |
-| `CompanyAtsConfig` | `persistence/model/CompanyAtsConfig.kt` | Per-company ATS configuration model |
-| `AtsConfigRepository` | `persistence/ats/AtsConfigRepository.kt` | BigQuery persistence for ATS configs |
-| `CloudTasksDispatcher` | `sync/scheduling/CloudTasksDispatcher.kt` | Creates Cloud Tasks for each company |
-| `AtsSyncController` | `controller/AtsSyncController.kt` | Internal endpoint for Cloud Tasks callbacks |
-| `OAuthTokenManager` | `sync/ats/auth/OAuthTokenManager.kt` | Token refresh and secure storage via Secret Manager |
-
----
-
-## 9. Cost Estimate
-
-### 9.1 How Cloud Scheduler + Tasks Pricing Works
-
-**Cloud Scheduler** charges per *job definition* (i.e., per cron schedule you configure), not per execution:
-- **Free tier:** 3 job definitions per billing account per month
-- **Beyond free tier:** $0.10 per job per month
-- We'd need **1 job** (a single nightly cron). This is well within the free tier — we could run it every minute and it wouldn't cost more, because you pay for the job's existence, not how often it fires.
-
-**Cloud Tasks** charges per *billable operation* (API calls + push delivery attempts), chunked at 32KB:
-- **Free tier:** 1,000,000 operations per month
-- **Beyond free tier:** $0.40 per million operations
-
-### 9.2 Nightly Sync Cost Breakdown
-
-Assuming **100 registered companies** (a generous upper estimate for early stages):
-
-| Operation | Count per night | Monthly (×30) | Notes |
-|:---|:---|:---|:---|
-| Cloud Scheduler fires cron | 1 | 30 | Triggers the dispatch endpoint |
-| Cloud Tasks created (1 per company) | 100 | 3,000 | Each task is a single API call (~1KB, well under 32KB chunk) |
-| Cloud Tasks push delivery | 100 | 3,000 | Each task calls our Cloud Run endpoint once |
-| Retry deliveries (est. 5% failure rate) | ~15 | ~450 | 3 retries × 5 failed tasks |
-| **Total task operations** | **~216** | **~6,480** | Well under the 1M free tier |
-
-| Resource | Monthly Cost (Nightly, 100 companies) | Monthly Cost (Weekly, 100 companies) |
-|:---|:---|:---|
-| Cloud Scheduler | **$0** (1 job, free tier covers 3) | **$0** |
-| Cloud Tasks | **$0** (~6,480 ops, free tier covers 1M) | **$0** (~1,620 ops) |
-| Cloud Run invocations | **$0** (~3,000 requests, free tier covers 2M) | **$0** (~750 requests) |
-| GCP Secret Manager | **~$0.06** ($0.06/10K accesses) | **~$0.02** |
-| BigQuery storage (incremental) | **~$0.50** | **~$0.50** |
-| **Total** | **< $1/month** ✅ | **< $1/month** ✅ |
+| Cloud Scheduler | **$0** (1 job, free tier covers 3) |
+| Cloud Tasks | **$0** (~31,000 ops, free tier covers 1M) |
+| Cloud Run invocations | **$0** (~30,000 requests, free tier covers 2M) |
+| GCP Secret Manager | **~$0.06** |
+| BigQuery storage (incremental) | **~$5.00** |
+| Apify (LinkedIn + Seek + Workday) | **~$80** |
+| Gemini Flash (LLM extraction) | **~$0.43** |
+| **Total** | **~$85-90/month** |
 
 > [!TIP]
-> **Nightly syncs are essentially free.** Even at 100 companies synced every night, we'd use ~6,500 of our 1,000,000 free Cloud Tasks operations (~0.65%). We could scale to **15,000+ companies nightly** before hitting the paid tier. There is no cost reason to limit ourselves to weekly syncs — **nightly gives us a major competitive advantage at zero additional cost.**
+> Even at 1,000 companies synced nightly, we'd use ~31,000 of our 1,000,000 free Cloud Tasks operations (~3.1%). We could scale to **30,000+ companies** before hitting the Cloud Tasks paid tier. The primary cost driver is Apify, not GCP infrastructure.
 
 ---
 
-## 10. Risks & Reliability Considerations
-
-Building a multi-source pipeline that aims to be **the most reliable source of tech job information** introduces several categories of risk. Below is a comprehensive breakdown and the mitigations we should build in.
-
-### 10.1 API Stability & Breaking Changes
+## 11. Risks & Mitigations
 
 | Risk | Impact | Mitigation |
 |:---|:---|:---|
-| ATS provider deprecates or versions their API | Normalizer breaks silently; stale/missing data | **Schema validation** — each normalizer should validate incoming JSON against an expected shape and emit structured warnings when unknown fields appear or expected fields vanish. This gives us early warning before data quality degrades. |
-| Rate limit changes | Sync fails mid-way; partial data ingested | **Adaptive rate limiting** — track `429` / `Retry-After` headers per provider and dynamically throttle. Store rate limit metadata in `CompanyAtsConfig` so subsequent syncs respect provider-specific limits. |
-| API outage during sync window | No data for that week | **Staggered retries** — Cloud Tasks already retries 3x, but we should also support a **secondary sync window** (e.g., Tuesday 2am if Sunday sync failed) so companies don't go 2 weeks without fresh data. |
-
-### 10.2 OAuth Token Fragility
-
-| Risk | Impact | Mitigation |
-|:---|:---|:---|
-| Refresh token expires (JobAdder: 14-day inactivity) | Silent auth failure; company data goes stale | **Pre-emptive token refresh** — schedule a Cloud Tasks job mid-week (e.g., Wednesday) that refreshes all OAuth tokens. This ensures the token is never more than 4 days from its last use, well within the 14-day window. |
-| Company revokes OAuth access | Sync fails with 401 | **Auth health monitoring** — after each sync, verify token validity. On `401`, immediately mark the company as `AUTH_REVOKED` and trigger an alert (email / Slack webhook) so we can follow up. |
-| Token stored insecurely | Credential leak; security incident | **Never store tokens in BigQuery or config files.** Use GCP Secret Manager with IAM-scoped access. Rotate service account keys periodically. |
-
-### 10.3 Data Quality & Consistency
-
-| Risk | Impact | Mitigation |
-|:---|:---|:---|
-| ATS returns garbage data (empty titles, placeholder descriptions) | Pollutes Silver layer; degrades user trust | **Pre-Silver validation gate** — before merging into Silver, every `NormalizedJob` must pass a minimum quality threshold: non-empty title, non-empty company name, valid location or "Unknown". Reject records that fail, log them for review. |
-| Different sources report conflicting data for the same job | Users see duplicate or contradictory listings | **Source-priority merge with conflict logging** — ATS always wins over Apify, but **log every conflict** to a `data_conflicts` audit table. This lets us measure how often sources disagree and tune our merge strategy over time. |
-| Salary data in different currencies/ranges | Misleading salary comparisons across countries | **Normalize salary to a standard unit** — store `salaryCurrency` and `salaryInterval` (annual/hourly/monthly) alongside min/max. Present salary in original currency but allow conversion using a static exchange rate table for cross-market comparisons. |
-| Technology extraction misses new frameworks | Technology trends become stale | **Monthly tech keyword review** — periodically audit `RawJobDataParser.techKeywords` against descriptions that don't match any keywords. Flag descriptions with >500 words and zero tech matches for manual review. Consider crowdsourcing new keyword suggestions from users. |
-
-### 10.4 Deduplication Failure Modes
-
-| Risk | Impact | Mitigation |
-|:---|:---|:---|
-| Same job appears from ATS + Apify with slightly different titles | Duplicate listings in Silver | **Multi-signal matching** — combine `(company, country, normalizedTitle)` with temporal proximity (posted within 7 days) and location overlap. A match on 2 of 3 signals = likely duplicate. |
-| Company name variations across sources (e.g., "XYZ Ltd" vs "XYZ Limited" vs "XYZ") | Same company stored as separate entities | **Company name canonicalization** — build a lookup table of known variations. Use `IdGenerator.slugify()` to strip suffixes like "Ltd", "Limited", "Inc", "Pty". Store all variants in `CompanyRecord.alternateNames`. |
-| Re-posted job (closed and reopened) treated as same opening | Over-deduplication — we lose valid reopened positions | **Job lifecycle awareness** — if a job was previously marked `LIKELY_CLOSED` (>30 days since `lastSeenAt`) and reappears, treat it as a **new opening** with a fresh `jobId` date segment. |
-
-### 10.5 Scheduling & Infrastructure
-
-| Risk | Impact | Mitigation |
-|:---|:---|:---|
-| Cloud Scheduler cron fires but Cloud Run is cold-starting | Task times out before processing begins | **Set Cloud Run min-instances to 1** during the sync window (Sunday 1:50am–3:00am). Use Cloud Scheduler to warm the instance 10 minutes before the main sync cron. Revert to 0 after sync completes. |
-| Too many companies → tasks overwhelm a single Cloud Run instance | Out-of-memory or CPU throttling | **Concurrency control** — set Cloud Tasks dispatch rate to 5/sec and Cloud Run max concurrency to 10. Each sync task is independent, so horizontal scaling handles load. |
-| BigQuery write failures mid-sync | Partial Silver update; data inconsistency | **Atomic batch writes** — group all Silver writes for a company into a single BigQuery streaming insert or batch job. If any part fails, retry the entire company sync (not individual records). |
-
-### 10.6 Security & Compliance
-
-| Risk | Impact | Mitigation |
-|:---|:---|:---|
-| PII leaks through job descriptions | Privacy violation | **Reuse `PiiSanitizer`** — run all description text through the existing sanitizer before persisting to Silver. Extend it to catch additional PII patterns from ATS-specific fields (e.g., recruiter names, internal codes). |
-| Scraping legality (Apify / LinkedIn) | Legal risk from ToS violation | **Minimize scraping reliance** — as ATS coverage grows, reduce Apify usage to only companies without ATS integrations. Document that ATS data is sourced from official APIs with company consent. |
-| Credential exposure in logs | Security incident | **Structured logging with sensitive field masking** — ensure no OAuth tokens, API keys, or `rawPayload` contents appear in Cloud Run logs. Use log redaction filters. |
-
-### 10.7 Vendor & Platform Risk
-
-| Risk | Impact | Mitigation |
-|:---|:---|:---|
-| ATS provider changes pricing / restricts API access | Lose access to a data source | **Multi-provider strategy is itself a mitigation.** No single provider loss is catastrophic. Maintain Apify as a fallback for any provider that becomes unavailable. |
-| GCP free tier changes | Costs increase beyond budget | **Architecture is portable** — Cloud Scheduler + Tasks can be replaced with a simple cron job + HTTP calls if needed. BigQuery could be swapped for PostgreSQL. Nothing in the design is deeply coupled to GCP-specific services. |
-| Provider acquires/merges with another provider | API consolidation or discontinuation | **Monitor provider health** — track API changelog pages. Set up alerts for deprecation notices. The normalizer pattern means swapping one provider's implementation is isolated to 2 files (Client + Normalizer). |
-
----
-
-## 11. Future Improvements & Strategic Suggestions
-
-Beyond the core integration, here are ideas to make this pipeline a best-in-class competitive advantage.
-
-### 11.1 Webhook Push (Instead of Polling)
-
-Several ATS providers support **webhooks** that push data to us when jobs are created, updated, or closed:
-
-- **Greenhouse**: Supports webhooks for `job_post.created`, `job_post.updated`, `job_post.deleted`
-- **Lever**: Supports webhooks via v1 API
-- **Ashby**: Supports webhooks for job lifecycle events
-
-**Benefit:** Near-real-time data freshness instead of weekly polling. This could make us the fastest source of new job listings.
-
-**Approach:** Keep weekly polling as a **safety net** (catches anything webhooks miss), but process webhooks as they arrive for immediate updates. This hybrid model gives us both speed and reliability.
-
-### 11.2 Unified ATS Middleware (Merge / Knit / Kombo)
-
-Services like [Merge.dev](https://merge.dev), [Knit](https://getknit.dev), and [Kombo](https://kombo.dev) provide a **single API** that aggregates 50+ ATS providers behind a unified schema. Instead of building 6+ individual integrations, we could:
-
-1. Integrate with one middleware API
-2. Get access to dozens of ATS providers immediately
-3. Let the middleware handle OAuth, pagination, rate limiting, and schema changes
-
-**Trade-off:** Adds a dependency and potential cost (most charge per connected account). But it dramatically reduces engineering effort and maintenance burden, especially as we scale beyond 6 providers.
-
-**Recommendation:** Build the first 3 providers (Greenhouse, Lever, Ashby) ourselves to learn the domain. Evaluate middleware for providers 4+ if the per-provider maintenance cost is high.
-
-### 11.3 LLM-Powered Data Enrichment
-
-Use an LLM to extract structured information that heuristics struggle with:
-
-| Enrichment | Current Approach | LLM Advantage |
-|:---|:---|:---|
-| Technology extraction | Regex keyword matching | Understands context — "experience with reactive frameworks" → RxJava, RxSwift, etc. |
-| Seniority detection | Title keyword heuristic | Infers from description — "10+ years experience, leading a team of 5" → Senior/Lead |
-| Job category classification | Not implemented | Classifies roles into standardized categories (Backend, Frontend, DevOps, Data, etc.) |
-| Salary range estimation | Only available when structured | Infers from job description context or market data when not provided |
-| Company culture signals | Not implemented | Extracts benefits, work-life balance indicators, diversity commitments from descriptions |
-
-**Approach:** Run LLM enrichment as an **asynchronous post-processing step** after Silver layer ingestion. Store LLM-derived fields separately (e.g., `enriched_technologies`, `enriched_seniority`) so we can distinguish between structured source data and inferred data.
-
-### 11.4 Company Self-Service Portal
-
-Build a lightweight admin portal where companies can:
-
-1. **Register their ATS** — select provider, enter board token/slug, and authorize OAuth
-2. **View sync status** — see when their data was last synced, how many jobs were imported, and any errors
-3. **Correct data** — flag incorrect mappings (e.g., wrong city, wrong technology association)
-4. **Manage branding** — upload logos, descriptions, and website URLs (supplementing what the ATS API provides)
-
-This shifts onboarding from a manual admin process to a scalable self-service flow.
-
-### 11.5 Data Coverage Dashboard
-
-Build an internal dashboard (or admin API) that tracks:
-
-| Metric | Purpose |
-|:---|:---|
-| Jobs per source per week | Spot when a source is declining or a new source is outperforming |
-| Field completeness rate per source | Know which providers give us the richest data (e.g., "Employment Hero fills 95% of salary fields, Greenhouse fills 0%") |
-| Deduplication hit rate | Measure how many Apify jobs overlap with ATS data — helps decide when to reduce Apify reliance |
-| Sync success/failure rate per provider | Early warning for API issues |
-| Time-to-index (posting → available on our platform) | Benchmark our freshness vs. competitors |
-| Stale job percentage | Track data hygiene — what % of our listed jobs are likely already filled? |
-
-### 11.6 Competitive Moat Strategies
-
-To become **the most reliable source**, consider:
-
-1. **Data licensing partnerships** — approach ATS providers about premium/partner API access. Being a recognized integration partner gives us higher rate limits, early access to new fields, and listing in their marketplace (driving organic company sign-ups).
-2. **Exclusive data sources** — integrate with niche job boards specific to NZ/AU tech (e.g., Seek API for ANZ, Indeed Publisher API) as additional Bronze sources. More sources = harder to replicate.
-3. **Job expiry intelligence** — actively detect when jobs close (disappear from ATS) and mark them accordingly. Most job sites leave stale listings up. Having accurate "this job is still open" status would be a significant differentiator.
-4. **Historical analytics** — because we persist everything in Bronze, we can offer unique time-series data: "average time to fill for Senior Engineers in Auckland", "salary trend for React developers in 2025 vs 2026". No ATS alone has this cross-company view.
-5. **Open API for researchers/recruiters** — expose a public read-only API for aggregated market data. This creates network effects (people build tools on our data) and positions us as a data authority.
-
-### 11.7 Incremental Architecture Improvements
-
-| Improvement | Detail |
-|:---|:---|
-| **Circuit breaker per provider** | If a provider fails 3 consecutive syncs, automatically disable it and alert. Prevents wasted compute and noisy logs. Re-enable after manual review or after a health-check probe succeeds. |
-| **Dead letter queue** | Failed sync tasks go to a DLQ instead of being silently dropped. Provides visibility and allows manual replay. |
-| **Idempotent syncs** | Each sync should be safe to re-run. If a Cloud Task is delivered twice (at-least-once delivery), the outcome should be identical. Use `lastSeenAt` timestamps and the `SilverDataMerger` merge logic to ensure idempotency. |
-| **Schema versioning for Bronze** | Add a `schemaVersion` field to `raw_ingestions`. When we change how we interpret raw data, we can target reprocessing to specific versions rather than replaying everything. |
-| **Canary syncs** | Before rolling out a normalizer change, run it against the last 3 Bronze payloads for that provider and diff the output against current Silver data. If the diff is unexpectedly large, pause and alert for review. |
-| **Provider health probes** | Lightweight scheduled pings to each ATS API (e.g., fetch 1 job from a known board) to detect outages before the main sync window. If a provider is down, skip it and schedule a retry for Tuesday. |
+| ATS API deprecation/versioning | Normalizer breaks silently | **Schema validation** — each normalizer validates incoming JSON shape. Emit warnings on unknown/missing fields. |
+| Apify LinkedIn scraper breaks (DOM change) | Primary data source goes down | **Multi-source strategy** — ATS direct + Seek + LLM extraction provide redundancy. Alert if scraped job count drops >20% week-over-week. |
+| LLM hallucination in extraction | Incorrect job data pollutes Silver | **Validation gate** — every LLM-extracted `NormalizedJob` must pass minimum quality thresholds (non-empty title, valid location). Reject and flag failures. |
+| Seek scraping blocked by anti-bot | Lose ANZ coverage | Use Apify's managed actor (handles proxy rotation). Fallback to BrightData if Apify is blocked. |
+| OAuth token expiry (Tier 2 providers) | Company data goes stale | **Pre-emptive refresh** — schedule mid-week token refresh via Cloud Tasks. Alert on 401 responses. |
+| Cross-source dedup false positives | Valid jobs incorrectly merged | **Multi-signal matching** — require 2+ signals (company + title + temporal proximity) for dedup. Log all dedup decisions for audit. |
+| PII in job descriptions | Privacy violation | **Reuse `PiiSanitizer`** — run all description text through existing sanitizer before Silver persistence. |
+| Scraping legality (LinkedIn ToS) | Legal risk | **Minimize reliance** — as ATS and Seek coverage grows, reduce LinkedIn scraping to only companies with no other source. Document that ATS data comes from official APIs. |
 
 ---
 
 ## 12. Open Questions
 
-1. **Company onboarding UX** — For OAuth providers (JobAdder, Employment Hero), do we want an admin UI where companies authorize, or will onboarding be manual (we send them a link, they authorize, we store the token)?
-2. **SnapHire viability** — Should we spike SnapHire first before committing it to the plan? The API documentation is thin and integration risk is unclear.
-3. **Apify augmentation strategy** — Should Apify fill in missing fields on ATS-sourced jobs (e.g. add salary data from LinkedIn if the ATS doesn't expose it), or should it only provide data for companies with no ATS integration? The former is more powerful but adds complexity.
-4. **Sync frequency per provider** — Some ATS boards may update more frequently. Do we want per-provider schedules (e.g. Greenhouse daily, SnapHire weekly), or is a uniform weekly cadence sufficient to start?
-5. **Historical backfill** — When a company first connects their ATS, do we backfill all their current open roles immediately, or wait for the next scheduled sync?
-6. **Unified ATS middleware** — Should we evaluate Merge.dev / Knit / Kombo before building individual integrations for providers 4–6, or is the direct integration approach preferred for full control?
-7. **LLM enrichment priority** — Is LLM-powered extraction something we want to invest in early (Phase 2–3), or defer until the core multi-source pipeline is proven stable?
+1. **Seek integration scope** — Should we scrape all NZ/AU tech jobs on Seek (broad coverage, high volume, more dedup work) or only scrape for companies already in our database (targeted, lower volume)?
+2. **LLM extraction priority** — Should we pursue LLM extraction (Phase 3) before or after Seek integration (Phase 2)? Seek gives more immediate coverage, but LLM extraction covers the long tail.
+3. **Fantastic.jobs evaluation** — This service aggregates BambooHR + Workable + Teamtailor jobs via a single API. At 18 companies combined, is their per-request pricing cheaper than building 3 separate clients?
+4. **Trade Me Jobs** — Worth the effort? It's NZ-only and likely has significant overlap with Seek/LinkedIn for tech roles.
+5. **Unified ATS middleware** — At what point do we reevaluate Merge.dev / Kombo? If we onboard 30+ Tier 2 companies? When we have revenue to justify the cost?
+6. **Indeed API** — The Indeed Publisher API provides broad job board coverage. Worth adding as another source alongside Seek?
+7. **Historical backfill** — When a company first connects their ATS, do we backfill all current open roles immediately or wait for the next scheduled sync?
+
+---
+
+## 13. Summary: Path to 90%+ Coverage
+
+| What | Companies | Coverage | When |
+|:---|:---:|:---:|:---|
+| **Current (Greenhouse + Apify)** | All via Apify; 15 via Greenhouse | ~100% (Apify), ~1.2% (ATS direct) | Now |
+| **+ Phase 1 (Lever + Ashby)** | +34 via ATS direct | 3.9% (ATS direct) | +2-3 days |
+| **+ Phase 2 (Seek + Workday)** | +23 Workday; 1,000+ Seek jobs | 15%+ (ATS/scrapers direct) | +1-2 weeks |
+| **+ Phase 3 (LLM extraction)** | +50% of unidentified | 60%+ coverage | +2-3 weeks |
+| **+ Phase 4 (Tier 2 ATS)** | +44 authenticated ATS | 90%+ coverage | Ongoing |
+
+> [!NOTE]
+> **100% coverage is not feasible via ATS integration alone** — 87.8% of companies have no identified ATS. The hybrid approach (ATS APIs + Seek/Apify scraping + LLM-based extraction) is how we get to 90%+ coverage at a sustainable cost.
