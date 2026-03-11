@@ -140,6 +140,30 @@ object AtsConfigFields {
     const val SYNC_STATUS = "syncStatus"
 }
 
+object HubFields {
+    const val TECHNOLOGY = "technology"
+    const val JOB_COUNT = "jobCount"
+    const val COMPANY_COUNT = "companyCount"
+    const val AVG_SALARY_MAX = "avgSalaryMax"
+    const val SALARY_MIN = "salaryMin"
+    const val SALARY_MAX = "salaryMax"
+    const val JOB_URL = "jobUrl"
+    const val TOTAL_JOBS = "totalJobs"
+    const val TOTAL_COMPANIES = "totalCompanies"
+    const val CURRENT_MONTH_JOBS = "currentMonthJobs"
+    const val PREV_MONTH_JOBS = "prevMonthJobs"
+    const val LAST_6_MONTHS_JOBS = "last6MonthsJobs"
+    const val MONTH = "month"
+    const val CATEGORY_NAME = "categoryName"
+    const val CURRENT_JOBS = "currentJobs"
+    const val PREV_JOBS = "prevJobs"
+    const val GLOBAL_TOTAL_JOBS = "globalTotalJobs"
+    
+    // Internal query aliases
+    const val CATEGORY_COUNT = "categoryCount"
+    const val TOTAL_COUNT = "totalCount"
+}
+
 object CommonLiterals {
     const val UNKNOWN = "Unknown"
     const val UNKNOWN_COMPANY = "Unknown Company"

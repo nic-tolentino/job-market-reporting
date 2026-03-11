@@ -12,3 +12,6 @@ Please read ./CONTRIBUTING.md, ./backend/README.md and ./frontend/README.md
 
 ./docs/ should be used for feature documentation, feature implementation plans, architecture decision records, and other documentation that helps future contributors understand the codebase.
 
+Avoid using magic strings or magic numbers. Especially for any database fields. Use constants instead. Especially where a value is used in multiple places across multiple files.
+
+Consider using a database schema to define the structure of the database, and use the schema to generate the database tables. This will make it easier to maintain the database schema and make it easier to generate the database tables.

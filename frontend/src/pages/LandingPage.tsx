@@ -1,8 +1,20 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { Briefcase } from 'lucide-react';
+import { 
+    Briefcase, 
+    Globe, 
+    Server, 
+    Smartphone, 
+    Database, 
+    ChevronRight,
+    Code2,
+    Cloud,
+    Infinity as InfinityIcon,
+    ShieldCheck
+} from 'lucide-react';
 import { fetchLandingPageData, type LandingPageDto } from '../lib/api';
+import { api, type DomainSummary } from '../api';
 import { useAppStore } from '../store/useAppStore';
 import PageLoader from '../components/common/PageLoader';
 import { FeedbackButton } from '../components/common/Feedback';
@@ -15,6 +27,28 @@ import SearchBox from '../components/common/SearchBox';
 import { useChartStyles } from '../hooks/useChartStyles';
 import AsstonKick from '../assets/asston-kick.png';
 
+const categoryIcons: Record<string, any> = {
+  'languages': Code2,
+  'frontend': Globe,
+  'backend': Server,
+  'mobile': Smartphone,
+  'cloud-infra': Cloud,
+  'data-ai': Database,
+  'devops': InfinityIcon,
+  'security': ShieldCheck
+};
+
+const categoryColors: Record<string, string> = {
+  'languages': 'blue',
+  'frontend': 'blue',
+  'backend': 'emerald',
+  'mobile': 'purple',
+  'cloud-infra': 'sky',
+  'data-ai': 'amber',
+  'devops': 'indigo',
+  'security': 'rose'
+};
+
 const COMPANIES_PAGE_SIZE = 5;
 const MAX_COMPANIES = 20;
 const MAX_TECH = 20;
@@ -23,6 +57,7 @@ export default function LandingPage() {
     const navigate = useNavigate();
     const { selectedCountry } = useAppStore();
     const [data, setData] = useState<LandingPageDto | null>(null);
+    const [hubs, setHubs] = useState<DomainSummary[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
     const [companiesPage, setCompaniesPage] = useState(1);
@@ -33,8 +68,12 @@ export default function LandingPage() {
         setIsLoading(true);
         setError(false);
         try {
-            const apiData = await fetchLandingPageData(selectedCountry);
+            const [apiData, hubData] = await Promise.all([
+                fetchLandingPageData(selectedCountry),
+                api.getAllDomainHubs(selectedCountry)
+            ]);
             setData(apiData);
+            setHubs(hubData);
         } catch (err) {
             console.error('Failed to load landing page data:', err);
             setError(true);
@@ -71,6 +110,10 @@ export default function LandingPage() {
     if (error || !data) {
         return <ErrorState title="Couldn't load market data" message="We had trouble fetching the latest insights. This might be a temporary issue." onRetry={loadData} />;
     }
+
+    const topDomains = [...hubs]
+        .sort((a, b) => b.jobCount - a.jobCount)
+        .slice(0, 4);
 
     return (
         <div className="space-y-10">
@@ -143,6 +186,43 @@ export default function LandingPage() {
                     <div className="mt-2 md:mt-3 w-8 h-1 bg-amber-500 rounded-full opacity-20"></div>
                 </div>
             </section>
+            
+            {/* Tech Domains Section */}
+            <section className="space-y-6">
+                <div className="flex items-center justify-between">
+                    <div>
+                        <H2>Technology Domains</H2>
+                        <p className="text-sm text-secondary mt-1">Specialized market hubs by sector</p>
+                    </div>
+                    <button 
+                        onClick={() => navigate('/hubs')}
+                        className="text-sm font-bold text-accent hover:underline flex items-center gap-1"
+                    >
+                        Explore all <ChevronRight className="h-4 w-4" />
+                    </button>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {topDomains.map((hub) => {
+                        const Icon = categoryIcons[hub.category.slug] || Briefcase;
+                        const color = categoryColors[hub.category.slug] || 'blue';
+                        return (
+                            <button 
+                                key={hub.category.slug}
+                                onClick={() => navigate(`/hubs/${hub.category.slug}`)}
+                                className="p-6 rounded-2xl border border-border bg-card hover:border-accent hover:shadow-theme-md transition-all group flex flex-col items-center text-center gap-3"
+                            >
+                                <div className={`p-3 bg-${color}-500/10 text-${color}-500 rounded-xl group-hover:scale-110 transition-transform`}>
+                                    <Icon className="h-6 w-6" />
+                                </div>
+                                <div className="space-y-1">
+                                    <span className="font-bold text-primary block">{hub.category.displayName}</span>
+                                    <span className="text-[10px] text-muted font-bold uppercase tracking-tight">{hub.jobCount.toLocaleString()} Jobs</span>
+                                </div>
+                            </button>
+                        );
+                    })}
+                </div>
+            </section>
 
             {/* Main Content Grid */}
             <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -178,7 +258,7 @@ export default function LandingPage() {
                                     }}
                                     style={{ cursor: 'pointer', outline: 'none' }}
                                 >
-                                    {topTech.map((_entry, index) => (
+                                    {topTech.map((_entry: any, index: number) => (
                                         <Cell key={`cell-${index}`} fill={index === 0 ? barColors.primary : barColors.secondary} className="hover:opacity-80 transition-opacity" />
                                     ))}
                                 </Bar>

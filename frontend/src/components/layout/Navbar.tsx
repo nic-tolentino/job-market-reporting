@@ -72,6 +72,7 @@ export default function Navbar() {
                     />
                     <ThemeToggle />
                     <Link to="/companies" className="hover:text-accent transition-colors hidden sm:block">Companies</Link>
+                    <Link to="/hubs" className="hover:text-accent transition-colors hidden sm:block">Domains</Link>
                     <Link to="/transparency" className="hover:text-accent transition-colors hidden sm:block">About</Link>
                 </div>
             </div>

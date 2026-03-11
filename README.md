@@ -139,7 +139,11 @@ The frontend is hosted on Vercel and connects to the GCP backend via the `VITE_A
 
 Now:
 
+- TOP PRIORITY! Last I saw in production, the job page wasn't loading jobs, and there were multiple duplicating job listings in the company and tech pages. Investigate this issue once we're done with the current feature development.
 
+- Next I need to figure out a staged deployment process - I can't keep breaking and testing in production for frontend and backend services.
+
+- We need to make the landing page better reflect the Discover. Grow. Connect. philosophy.
 
 Later:
 
@@ -210,8 +214,15 @@ Later:
 - for company IDs, how do we deal with international companies having the same name? I imagine we could end up with many conflicts - or worse, if we're not careful we may end up with multiple companies merged into one! Perhaps we can use the company home page and countries which a company operates in as part of the identification? Hmm. Likewise, how do we distinguish the companies during search? eg: Company Name (NZ)?
 - Also, how do we store more semi-dynamic information like what technologies a company uses, or how many jobs they've had for a particular role? Perhaps we can use the job data to inform what technologies are most commonly asked for at a company - how could that be setup? And how do we backup that data (or do we back it up?) or do we just re-calculate it every so often based on historic data?
 
+- we should find a way to prioritise updating certain companies, and technologies which are most popular / high value
+
 - Add a CONTRIBUTING with AI guidelines
 - Refactor documentation, arrange it, update it, distinguish between ADRs and Feature Specifications. Arrange by function like the codebase
+
+
+- Search entire codebase looking for opportunities to reduce magic numbers and magic strings
+- Rename analytics to insights (package name)
+- Standardize DB column names to be consistent either way (camelCase or snake_case)
 
 
 Images:
@@ -256,7 +267,4 @@ Sat - 3 hours
 Sun - 5 hours
 Mon 9 March - 10 hours
 Tue - 13 hrs
-Wed - 1 hrs
-
-
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+Wed - 6 hrs

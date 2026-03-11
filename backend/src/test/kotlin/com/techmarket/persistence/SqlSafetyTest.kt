@@ -1,8 +1,10 @@
 package com.techmarket.persistence
 
 import com.techmarket.persistence.analytics.AnalyticsQueries
+import com.techmarket.persistence.analytics.HubQueries
 import com.techmarket.persistence.company.CompanyQueries
 import com.techmarket.persistence.tech.TechQueries
+import com.techmarket.model.TechCategory
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
@@ -55,6 +57,26 @@ class SqlSafetyTest {
         )
     }
 
+    private fun camelToSnake(s: String) =
+        s.replace(Regex("([A-Z])")) { "_${it.value.lowercase()}" }
+
+    private fun assertNoRawFieldNames(sql: String) {
+        val jobFieldValues = JobFields::class.java.fields
+            .filter { java.lang.reflect.Modifier.isStatic(it.modifiers) }
+            .filter { it.type == String::class.java }
+            .mapNotNull { it.get(null) as? String }
+
+        jobFieldValues.forEach { fieldValue ->
+            val snakeForm = camelToSnake(fieldValue)
+            if (snakeForm != fieldValue) { // only check ones that actually differ
+                assertFalse(
+                    sql.contains(snakeForm),
+                    "SQL contains raw '$snakeForm' — use JobFields constant instead of hardcoded column name"
+                )
+            }
+        }
+    }
+
     // --- CompanyQueries ---
 
     @Test
@@ -63,6 +85,7 @@ class SqlSafetyTest {
         val sql = query.sql
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
+        assertNoRawFieldNames(sql)
     }
 
     // --- AnalyticsQueries ---
@@ -73,6 +96,7 @@ class SqlSafetyTest {
         val sql = query.sql
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
+        assertNoRawFieldNames(sql)
     }
 
     @Test
@@ -81,6 +105,7 @@ class SqlSafetyTest {
         val sql = query.sql
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
+        assertNoRawFieldNames(sql)
     }
 
     @Test
@@ -90,6 +115,7 @@ class SqlSafetyTest {
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
         assertBacktickWrapped(sql, dataset, companiesTable)
+        assertNoRawFieldNames(sql)
     }
 
     @Test
@@ -99,6 +125,7 @@ class SqlSafetyTest {
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
         assertBacktickWrapped(sql, dataset, companiesTable)
+        assertNoRawFieldNames(sql)
     }
 
     // --- TechQueries ---
@@ -109,6 +136,7 @@ class SqlSafetyTest {
         val sql = query.sql
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
+        assertNoRawFieldNames(sql)
     }
 
     @Test
@@ -118,6 +146,7 @@ class SqlSafetyTest {
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
         assertBacktickWrapped(sql, dataset, companiesTable)
+        assertNoRawFieldNames(sql)
     }
 
     @Test
@@ -126,6 +155,7 @@ class SqlSafetyTest {
         val sql = query.sql
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
+        assertNoRawFieldNames(sql)
     }
 
     // --- Delete SQL (inline strings in repositories, tested via string helpers) ---
@@ -141,5 +171,31 @@ class SqlSafetyTest {
         assertSqlSafe(deleteCompaniesSql)
         assertBacktickWrapped(deleteJobsSql, dataset, jobsTable)
         assertBacktickWrapped(deleteCompaniesSql, dataset, companiesTable)
+    }
+
+    // --- HubQueries ---
+
+    @Test
+    fun `HubQueries getTechnologiesByCategorySql interpolates and wraps`() {
+        val sql = HubQueries.getTechnologiesByCategorySql(dataset, true).sql
+        assertSqlSafe(sql)
+        assertBacktickWrapped(sql, dataset, jobsTable)
+        assertNoRawFieldNames(sql)
+    }
+
+    @Test
+    fun `HubQueries getJobsByCategorySql interpolates and wraps`() {
+        val sql = HubQueries.getJobsByCategorySql(dataset, true).sql
+        assertSqlSafe(sql)
+        assertBacktickWrapped(sql, dataset, jobsTable)
+        assertNoRawFieldNames(sql)
+    }
+
+    @Test
+    fun `HubQueries getAllCategorySummariesSql interpolates and wraps`() {
+        val sql = HubQueries.getAllCategorySummariesSql(dataset, "AU", listOf(TechCategory.MOBILE)).sql
+        assertSqlSafe(sql)
+        assertBacktickWrapped(sql, dataset, jobsTable)
+        assertNoRawFieldNames(sql)
     }
 }

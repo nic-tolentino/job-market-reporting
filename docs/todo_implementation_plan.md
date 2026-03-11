@@ -58,7 +58,7 @@ Detailed implementation plans have been created for all major features. Each pla
 | [2.5 Type-Safe Query Results](./features/typed-row-abstraction-plan.md) | MEDIUM | 12-16 hours | ✅ **COMPLETE** | `docs/features/` |
 | [2.6 Automated Contract Validation](./phase2/2.6-automated-contract-validation.md) | HIGH | 8-10 hours | ✅ **COMPLETE** | `docs/phase2/` |
 | [3.1 SEEK & TradeMe](./implementation-plans/3.1-seek-trademe-integration-plan.md) | HIGH | 10-14 hours | ⏳ Pending | `docs/implementation-plans/` |
-| [3.2 Domain Hubs](./implementation-plans/3.2-technology-domain-hubs-plan.md) | HIGH | 12-16 hours | ⏳ Pending | `docs/implementation-plans/` |
+| [3.2 Domain Hubs](./phase3/3.2-technology-domain-hubs.md) | HIGH | 12-16 hours | ✅ **COMPLETE** | `docs/phase3/` |
 | [3.3 Tech Exclusion Filters](./implementation-plans/3.3-technology-exclusion-filters-plan.md) | MEDIUM | 4-6 hours | ⏳ Pending | `docs/implementation-plans/` |
 | [3.4 Trending Lists](./implementation-plans/3.4-trending-lists-plan.md) | MEDIUM | 6-8 hours | ⏳ Pending | `docs/implementation-plans/` |
 | [4.1 Mobile UX Overhaul](./implementation-plans/4.1-mobile-ux-overhaul-plan.md) | HIGH | 16-20 hours | ⏳ Pending | `docs/implementation-plans/` |
@@ -645,21 +645,24 @@ val allTechs = (companyTechs + techFromJobs).distinct().sorted()
 
 ---
 
-#### 3.2 Technology Domain Hubs [HIGH - UX/Discovery]
-**Problem:** Users can't browse jobs by high-level categories (Web, Mobile, Cloud, Data).
+#### 3.2 Technology Domain Hubs ✅ COMPLETE (March 2026)
 
-**Files to Create:**
-- `backend/src/main/kotlin/com/techmarket/model/TechCategory.kt` (enum)
-- `backend/src/main/kotlin/com/techmarket/api/DomainHubController.kt`
+**Summary:** Implemented specialized career-stage and technology-category hubs to help users discover high-level market trends.
 
-**Files to Modify:**
-- `backend/src/main/kotlin/com/techmarket/util/TechFormatter.kt`
-- Frontend: New `/hubs/{category}` pages
+**Impact:**
+- 8 specialized hubs (Web, Mobile, Cloud, Data, Security, etc.)
+- Batch query optimization: Consolidated 8 subqueries into a single optimized `GROUP BY` pass
+- Market share and growth trend computation for whole categories
+- High-level SEO landing pages for technology domains
 
-**Implementation:**
-See `docs/features/technology-grouping-plan.md` and `docs/features/hubs-and-career-stages.md`
+**Key Files:**
+- `backend/src/main/kotlin/com/techmarket/model/TechCategory.kt`
+- `backend/src/main/kotlin/com/techmarket/persistence/analytics/HubQueries.kt`
+- `backend/src/main/kotlin/com/techmarket/persistence/analytics/InsightsBigQueryRepositoryImpl.kt`
+- `frontend/src/pages/HubPage.tsx`
+- `frontend/src/components/landing/LandingPage.tsx`
 
-**Effort:** 12-16 hours | **Impact:** Better discovery, SEO landing pages
+**Documentation:** [`docs/phase3/3.2-technology-domain-hubs.md`](./phase3/3.2-technology-domain-hubs.md)
 
 ---
 
