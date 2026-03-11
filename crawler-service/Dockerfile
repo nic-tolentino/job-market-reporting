@@ -37,10 +37,10 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./
 
-# Install Playwright browsers (Chromium only for faster builds)
+# Install Playwright browsers (Chromium only)
 ENV PLAYWRIGHT_BROWSERS_PATH=/app/node_modules/playwright-core/.local-browsers
-RUN npx --yes playwright install chromium --with-deps && \
-    npx --yes playwright install-deps chromium
+# Install browsers without system dependencies (we already installed them above)
+RUN npx --yes playwright install chromium
 
 # Set environment variables
 ENV NODE_ENV=production
