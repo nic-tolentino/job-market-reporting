@@ -78,6 +78,7 @@ object CompanyFields {
     const val OFFICE_LOCATIONS = "officeLocations"
     const val REMOTE_POLICY = "remotePolicy"
     const val VISA_SPONSORSHIP = "visa_sponsorship"
+    const val VISA_SPONSORSHIP_DETAIL = "visa_sponsorship_detail"
     const val VERIFICATION_LEVEL = "verificationLevel"
 
     const val INGESTED_AT = "ingestedAt"

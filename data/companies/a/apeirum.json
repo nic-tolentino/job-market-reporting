@@ -31,6 +31,12 @@
   "remote_policy": "Hybrid",
   "updated_at": "2026-03-10T08:52:00Z",
   "verification_level": "silver",
-  "visa_sponsorship": false,
+  "visa_sponsorship": {
+    "offered": false,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "website": "https://apeirum.com"
 }

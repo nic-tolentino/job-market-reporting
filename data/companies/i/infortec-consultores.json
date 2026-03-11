@@ -23,7 +23,13 @@
     "Madrid"
   ],
   "remote_policy": "Remote",
-  "visa_sponsorship": false,
+  "visa_sponsorship": {
+    "offered": false,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 200,
   "verification_level": "silver",
   "updated_at": "2026-03-10T09:20:00Z"

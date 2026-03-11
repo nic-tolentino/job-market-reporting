@@ -1,19 +1,38 @@
 {
   "id": "weta-fx",
   "name": "Wētā FX",
-  "alternateNames": ["Weta Digital"],
+  "alternateNames": [
+    "Weta Digital"
+  ],
   "description": "Wētā FX is a world-class visual effects studio known for pioneering cinematic storytelling through advanced real-time technology, AI, and software engineering.",
   "website": "https://www.wetafx.co.nz",
   "logoUrl": null,
-  "industries": ["VFX", "Gaming Tech", "Entertainment", "Software Development", "AI"],
+  "industries": [
+    "VFX",
+    "Gaming Tech",
+    "Entertainment",
+    "Software Development",
+    "AI"
+  ],
   "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
   "hq_country": "NZ",
-  "operating_countries": ["NZ", "Worldwide"],
-  "office_locations": ["Wellington"],
+  "operating_countries": [
+    "NZ",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Wellington"
+  ],
   "remote_policy": "On-site",
-  "visa_sponsorship": true,
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 1500,
   "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z"

@@ -311,7 +311,7 @@ class QueryRowsTest {
             CompanyFields.INDUSTRIES, CompanyFields.DESCRIPTION, CompanyFields.TECHNOLOGIES,
             CompanyFields.HIRING_LOCATIONS, CompanyFields.IS_AGENCY, CompanyFields.IS_SOCIAL_ENTERPRISE,
             CompanyFields.HQ_COUNTRY, CompanyFields.OPERATING_COUNTRIES, CompanyFields.OFFICE_LOCATIONS,
-            CompanyFields.REMOTE_POLICY, CompanyFields.VISA_SPONSORSHIP, CompanyFields.VERIFICATION_LEVEL,
+            CompanyFields.REMOTE_POLICY, CompanyFields.VISA_SPONSORSHIP, CompanyFields.VISA_SPONSORSHIP_DETAIL, CompanyFields.VERIFICATION_LEVEL,
             CompanyFields.LAST_UPDATED_AT
         )
         return createMockFieldList(fields, allNull = true)

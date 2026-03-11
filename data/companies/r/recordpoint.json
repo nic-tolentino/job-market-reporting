@@ -27,7 +27,13 @@
     "London"
   ],
   "remote_policy": "Remote",
-  "visa_sponsorship": true,
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 150,
   "verification_level": "silver",
   "updated_at": "2026-03-10T10:00:00Z"

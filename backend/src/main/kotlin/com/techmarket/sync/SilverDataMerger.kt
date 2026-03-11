@@ -103,7 +103,9 @@ class SilverDataMerger {
                 operatingCountries = (existing.operatingCountries + new.operatingCountries).distinct().sorted(),
                 officeLocations = (existing.officeLocations + new.officeLocations).distinct().sorted(),
                 remotePolicy = existing.remotePolicy ?: new.remotePolicy,
-                visaSponsorship = existing.visaSponsorship || new.visaSponsorship,
+                // If existing has any visa info (likely from Gold/Manual), preserve it.
+                // Otherwise take from new discovery.
+                visaSponsorship = existing.visaSponsorship ?: new.visaSponsorship,
 
                 // Dynamic Aggregators
                 technologies = (new.technologies + existing.technologies).distinct().sorted(),

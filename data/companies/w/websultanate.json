@@ -25,7 +25,13 @@
     "Lucknow"
   ],
   "remote_policy": "Remote",
-  "visa_sponsorship": true,
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 100,
   "verification_level": "silver",
   "updated_at": "2026-03-10T13:00:00Z"

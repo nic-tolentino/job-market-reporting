@@ -29,7 +29,13 @@
     "London"
   ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": true,
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 120000,
   "verification_level": "silver",
   "updated_at": "2026-03-10T09:10:00Z"

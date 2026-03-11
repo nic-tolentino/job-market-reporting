@@ -31,6 +31,12 @@
   "remote_policy": "Remote",
   "updated_at": "2026-03-10T09:20:00Z",
   "verification_level": "silver",
-  "visa_sponsorship": true,
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "website": "https://www.indebted.co"
 }

@@ -30,6 +30,12 @@
   "remote_policy": "Remote Only",
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
-  "visa_sponsorship": true,
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "website": "http://www.canonical.com/"
 }

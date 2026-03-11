@@ -34,6 +34,12 @@
   "remote_policy": "On-site",
   "updated_at": "2026-03-10T09:05:00Z",
   "verification_level": "silver",
-  "visa_sponsorship": false,
+  "visa_sponsorship": {
+    "offered": false,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "website": "https://www.certusrecruitment.com"
 }

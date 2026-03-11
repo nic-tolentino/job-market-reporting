@@ -114,6 +114,7 @@ data class CompanyRow(
     val officeLocations: List<String> = emptyList(),
     val remotePolicy: String? = null,
     val visaSponsorship: Boolean = false,
+    val visaSponsorshipDetail: String? = null,
     val verificationLevel: String = VERIFIED,
     val lastUpdatedAt: Instant = Instant.EPOCH
 ) {
@@ -137,6 +138,7 @@ data class CompanyRow(
                 officeLocations = field.getStringList(CompanyFields.OFFICE_LOCATIONS),
                 remotePolicy = field.getStringOrNull(CompanyFields.REMOTE_POLICY),
                 visaSponsorship = field.getBooleanOrDefault(CompanyFields.VISA_SPONSORSHIP, false),
+                visaSponsorshipDetail = field.getStringOrNull(CompanyFields.VISA_SPONSORSHIP_DETAIL),
                 verificationLevel = field.getStringOrDefault(CompanyFields.VERIFICATION_LEVEL, VERIFIED),
                 lastUpdatedAt = field.getTimestampOrDefault(CompanyFields.LAST_UPDATED_AT, Instant.EPOCH)
             )

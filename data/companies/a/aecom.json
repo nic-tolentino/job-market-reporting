@@ -30,6 +30,12 @@
   "remote_policy": "Hybrid",
   "updated_at": "2026-03-10T05:30:58.400153Z",
   "verification_level": "silver",
-  "visa_sponsorship": true,
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "website": "https://aecom.com"
 }

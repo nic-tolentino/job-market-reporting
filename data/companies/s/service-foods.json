@@ -24,7 +24,13 @@
     "Christchurch"
   ],
   "remote_policy": "On-site",
-  "visa_sponsorship": true,
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 800,
   "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z"

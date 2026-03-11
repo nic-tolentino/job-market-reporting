@@ -303,6 +303,7 @@ class CompanyMapperTest {
         every { row.get(CompanyFields.IS_AGENCY) } returns boolF
         every { row.get(CompanyFields.IS_SOCIAL_ENTERPRISE) } returns boolF
         every { row.get(CompanyFields.VISA_SPONSORSHIP) } returns boolF
+        every { row.get(CompanyFields.VISA_SPONSORSHIP_DETAIL) } returns nullF
 
         every { row.get(CompanyFields.HQ_COUNTRY) } returns mockFieldValue("US")
 
@@ -319,7 +320,7 @@ class CompanyMapperTest {
         assertEquals("comp-1", record.companyId)
         assertEquals(true, record.isAgency)
         assertEquals(true, record.isSocialEnterprise)
-        assertEquals(true, record.visaSponsorship)
+        assertEquals(true, record.visaSponsorship?.offered)
         assertEquals("US", record.hqCountry)
         assertEquals(listOf("Alt"), record.alternateNames)
     }

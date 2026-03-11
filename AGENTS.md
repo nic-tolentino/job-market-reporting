@@ -7,3 +7,8 @@ When writing code, always write tests for the code you write. Focus on writing t
 If you come across a bug, in addition to addressing the bug, make sure you add test coverage which would detect the bug, and also consider how other parts of the codebase coul be impacted by this class of bug and how we can either add unit test coverage to detect it going forward, or refactor the code to make the class of bug impossible.
 
 When writing code, always write documentation for the code you write, to help future contributors understand why something was build the way it was.
+
+Please read ./CONTRIBUTING.md, ./backend/README.md and ./frontend/README.md
+
+./docs/ should be used for feature documentation, feature implementation plans, architecture decision records, and other documentation that helps future contributors understand the codebase.
+

@@ -14,6 +14,7 @@ const TransparencyPage = lazy(() => import('./pages/TransparencyPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 const TermsPage = lazy(() => import('./pages/TermsPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const CompaniesPage = lazy(() => import('./pages/CompaniesPage'));
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/transparency" element={<TransparencyPage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/terms" element={<TermsPage />} />
+            <Route path="/companies" element={<CompaniesPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </Suspense>

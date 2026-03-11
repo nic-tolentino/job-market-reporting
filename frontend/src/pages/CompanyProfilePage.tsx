@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Building2, MapPin, Calendar, X, ShieldCheck, Globe, CircleDashed } from 'lucide-react';
+import { Building2, MapPin, Calendar, X, ShieldCheck, Globe, CircleDashed, Plane } from 'lucide-react';
 import PageLoader from '../components/common/PageLoader';
 import { fetchCompanyProfile, type CompanyProfilePageDto } from '../lib/api';
 import { useAppStore } from '../store/useAppStore';
@@ -149,6 +149,12 @@ export default function CompanyProfilePage() {
                                 Unverified
                             </Badge>
                         ) : null}
+
+                        {data.companyDetails.visaSponsorship?.offered && (
+                            <Badge variant="blue" icon={<Plane className="h-3.5 w-3.5" />}>
+                                Visa Sponsorship
+                            </Badge>
+                        )}
 
                         {data.companyDetails.hqCountry && (
                             <Badge variant={data.companyDetails.hqCountry === 'NZ' ? 'emerald' : 'slate'} icon={data.companyDetails.hqCountry === 'NZ' ? <MapPin className="h-3.5 w-3.5" /> : <Globe className="h-3.5 w-3.5" />}>
@@ -339,6 +345,19 @@ export default function CompanyProfilePage() {
                                     <Badge variant="emerald">{data.insights.workModel}</Badge>
                                 </li>
 
+                                {data.companyDetails.visaSponsorship && (
+                                    <li className="flex justify-between items-center border-b border-border-subtle pb-3">
+                                        <span className="font-medium text-secondary">Visa Sponsorship</span>
+                                        {data.companyDetails.visaSponsorship.offered ? (
+                                            <Badge variant="emerald" icon={<Plane className="h-3.5 w-3.5" />}>
+                                                Available
+                                            </Badge>
+                                        ) : (
+                                            <Badge variant="slate">Not offered</Badge>
+                                        )}
+                                    </li>
+                                )}
+
                                 <li className="flex justify-between items-center border-b border-border-subtle pb-3 group cursor-pointer">
                                     <span className="font-medium text-secondary">Common Benefits</span>
                                     <span className="font-semibold text-accent group-hover:underline">View {data.insights.commonBenefits.length} tags</span>
@@ -358,7 +377,7 @@ export default function CompanyProfilePage() {
                                         </div>
                                     </li>
                                 )}
-                                <li className="pt-2">
+                                <li className="pt-2 border-b border-border-subtle pb-4">
                                     <span className="block font-medium text-secondary mb-3">Tech Stacks</span>
                                     <div className="flex flex-wrap gap-1.5">
                                         {data.techStack.map(tech => (
@@ -372,6 +391,26 @@ export default function CompanyProfilePage() {
                                         ))}
                                     </div>
                                 </li>
+                                {data.companyDetails.visaSponsorship?.offered && data.companyDetails.visaSponsorship.types.length > 0 && (
+                                    <li className="pt-2">
+                                        <span className="block font-medium text-secondary mb-3">Visa Types</span>
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {data.companyDetails.visaSponsorship.types.map(type => (
+                                                <span 
+                                                    key={type} 
+                                                    className="inline-flex items-center rounded-full bg-inset border border-border-subtle px-2.5 py-1 text-xs font-medium text-secondary"
+                                                >
+                                                    {type}
+                                                </span>
+                                            ))}
+                                        </div>
+                                        {data.companyDetails.visaSponsorship.lastVerified && (
+                                            <p className="mt-2 text-xs text-muted italic">
+                                                Last verified {new Date(data.companyDetails.visaSponsorship.lastVerified).toLocaleDateString()}
+                                            </p>
+                                        )}
+                                    </li>
+                                )}
                             </ul>
                         </CardContent>
                     </Card>

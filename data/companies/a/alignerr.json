@@ -23,6 +23,12 @@
   "remote_policy": "Remote Only",
   "updated_at": "2026-03-10T05:30:58.400163Z",
   "verification_level": "silver",
-  "visa_sponsorship": false,
+  "visa_sponsorship": {
+    "offered": false,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "website": "https://www.alignerr.com"
 }

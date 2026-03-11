@@ -27,7 +27,13 @@
     "Madrid"
   ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": true,
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 14500,
   "verification_level": "silver",
   "updated_at": "2026-03-10T08:55:00Z",

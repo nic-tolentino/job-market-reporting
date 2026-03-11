@@ -32,7 +32,13 @@
     "Auckland"
   ],
   "remote_policy": "On-site",
-  "visa_sponsorship": true,
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 160000,
   "verification_level": "silver",
   "updated_at": "2026-03-10T08:55:00Z"

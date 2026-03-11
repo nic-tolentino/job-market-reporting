@@ -1,19 +1,37 @@
 {
   "id": "z-energy",
   "name": "Z Energy",
-  "alternateNames": ["Z"],
+  "alternateNames": [
+    "Z"
+  ],
   "description": "Z Energy is a major NZ fuel distributor and retailer, investing in digital transformation and energy innovation to power New Zealand's future.",
   "website": "https://z.co.nz",
   "logoUrl": null,
-  "industries": ["Energy", "Retail", "Utilities", "Utilities"],
+  "industries": [
+    "Energy",
+    "Retail",
+    "Utilities",
+    "Utilities"
+  ],
   "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
   "hq_country": "NZ",
-  "operating_countries": ["NZ"],
-  "office_locations": ["Wellington", "Auckland"],
+  "operating_countries": [
+    "NZ"
+  ],
+  "office_locations": [
+    "Wellington",
+    "Auckland"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": false,
+  "visa_sponsorship": {
+    "offered": false,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 500,
   "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z"

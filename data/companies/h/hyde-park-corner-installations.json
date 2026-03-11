@@ -28,7 +28,13 @@
     "Warrington"
   ],
   "remote_policy": "On-site",
-  "visa_sponsorship": false,
+  "visa_sponsorship": {
+    "offered": false,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 150,
   "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z"

@@ -1,6 +1,8 @@
 package com.techmarket.sync.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize
+import com.techmarket.models.VisaSponsorshipInfo
 import com.techmarket.persistence.model.VerificationLevel
 
 data class CompanyJsonDto(
@@ -27,8 +29,9 @@ data class CompanyJsonDto(
     val officeLocations: List<String> = emptyList(),
     @JsonProperty("remote_policy")
     val remotePolicy: String? = null,
+    @JsonDeserialize(using = VisaSponsorshipDeserializer::class)
     @JsonProperty("visa_sponsorship")
-    val visaSponsorship: Boolean? = null,
+    val visaSponsorship: VisaSponsorshipInfo? = null,
     @JsonProperty("employees_count")
     val employeesCount: Int? = null,
     @JsonProperty("verification_level")

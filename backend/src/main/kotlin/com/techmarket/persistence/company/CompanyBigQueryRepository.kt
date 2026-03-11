@@ -1,15 +1,13 @@
 package com.techmarket.persistence.company
 
-import com.google.cloud.bigquery.BigQuery
-import com.google.cloud.bigquery.Field
-import com.google.cloud.bigquery.QueryJobConfiguration
-import com.google.cloud.bigquery.QueryParameterValue
-import com.google.cloud.bigquery.Schema
-import com.google.cloud.bigquery.StandardSQLTypeName
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.google.cloud.bigquery.*
 import com.google.cloud.spring.bigquery.core.BigQueryTemplate
 import com.techmarket.api.model.CompanyProfilePageDto
+import com.techmarket.models.CompanyListingItem
 import com.techmarket.models.CompanyRow
 import com.techmarket.models.JobRow
+import com.techmarket.models.VisaSponsorshipInfo
 import com.techmarket.persistence.BigQueryTables
 import com.techmarket.persistence.CompanyFields
 import com.techmarket.persistence.JobFields
@@ -32,6 +30,7 @@ class CompanyBigQueryRepository(
 ) : CompanyRepository {
 
         private val log = LoggerFactory.getLogger(CompanyBigQueryRepository::class.java)
+        private val mapper = jacksonObjectMapper()
 
         private val jobsTableName = BigQueryTables.JOBS
         private val companiesTableName = BigQueryTables.COMPANIES
@@ -86,6 +85,7 @@ class CompanyBigQueryRepository(
                                         .build(),
                                 Field.of(CompanyFields.REMOTE_POLICY, StandardSQLTypeName.STRING),
                                 Field.of(CompanyFields.VISA_SPONSORSHIP, StandardSQLTypeName.BOOL),
+                                Field.of(CompanyFields.VISA_SPONSORSHIP_DETAIL, StandardSQLTypeName.JSON),
                                 Field.of(CompanyFields.VERIFICATION_LEVEL, StandardSQLTypeName.STRING)
                         )
                 bigQuery.ensureTableExists(datasetName, companiesTableName, schema)
@@ -96,7 +96,7 @@ class CompanyBigQueryRepository(
                 val sql = "DELETE FROM `$datasetName.$companiesTableName` WHERE true"
                 log.info("GCP: Deleting all rows from $companiesTableName using DML")
                 try {
-                        val queryConfig = com.google.cloud.bigquery.QueryJobConfiguration.newBuilder(sql).build()
+                        val queryConfig = QueryJobConfiguration.newBuilder(sql).build()
                         bigQuery.query(queryConfig)
                         log.info("GCP: Deleted all rows from $companiesTableName")
                 } catch (e: Exception) {
@@ -109,7 +109,7 @@ class CompanyBigQueryRepository(
                 if (companies.isEmpty()) return
                 ensureTable()
                 log.info(
-                        "GCP: Streaming \${companies.size} companies to BigQuery table: \$companiesTableName"
+                        "GCP: Streaming ${companies.size} companies to BigQuery table: $companiesTableName"
                 )
                 try {
                         bigQueryTemplate
@@ -120,7 +120,7 @@ class CompanyBigQueryRepository(
                                 .get(120, TimeUnit.SECONDS)
                         log.info("GCP: Successfully inserted companies into BigQuery.")
                 } catch (e: Exception) {
-                        log.error("GCP: Failed to insert companies into BigQuery: \${e.message}", e)
+                        log.error("GCP: Failed to insert companies into BigQuery: ${e.message}", e)
                         throw e
                 }
         }
@@ -181,6 +181,7 @@ class CompanyBigQueryRepository(
                 }
         }
 
+        // TODO: Point 5 - Move this to a Service layer as it returns an API DTO
         override fun getCompanyProfile(companyId: String, country: String?): CompanyProfilePageDto {
                 val detailsQuery = CompanyQueries.getDetailsSql(datasetName, companiesTableName)
                 val jobsQuery = CompanyQueries.getJobsSql(datasetName, jobsTableName)
@@ -216,6 +217,66 @@ class CompanyBigQueryRepository(
                 return CompanyMapper.mapCompanyProfile(companyId, companyRow, jobRows, topModel)
         }
 
+        override fun getCompanyListing(visaOnly: Boolean, country: String?, limit: Int, offset: Int): List<CompanyListingItem> {
+                ensureTable()
+                val sql = """
+                    SELECT 
+                        c.${CompanyFields.COMPANY_ID} AS id,
+                        c.${CompanyFields.NAME} AS name,
+                        c.${CompanyFields.LOGO_URL} AS logoUrl,
+                        c.${CompanyFields.VISA_SPONSORSHIP} AS visaSponsorshipLegacy,
+                        c.${CompanyFields.VISA_SPONSORSHIP_DETAIL} AS visaSponsorshipDetail,
+                        COUNT(DISTINCT j.${JobFields.JOB_ID}) AS activeRoles
+                    FROM `$datasetName.$companiesTableName` c
+                    LEFT JOIN `$datasetName.$jobsTableName` j ON c.${CompanyFields.COMPANY_ID} = j.${JobFields.COMPANY_ID}
+                    WHERE (@country IS NULL OR c.${CompanyFields.HQ_COUNTRY} = @country OR @country IN UNNEST(c.${CompanyFields.OPERATING_COUNTRIES}))
+                    GROUP BY id, name, logoUrl, visaSponsorshipLegacy, visaSponsorshipDetail
+                    ORDER BY activeRoles DESC, name ASC
+                    LIMIT @limit OFFSET @offset
+                """.trimIndent()
+                
+                val c = country?.lowercase()
+                
+                val queryConfig = QueryJobConfiguration.newBuilder(sql)
+                        .addNamedParameter(COUNTRY, QueryParameterValue.string(c))
+                        .addNamedParameter("limit", QueryParameterValue.int64(limit.toLong()))
+                        .addNamedParameter("offset", QueryParameterValue.int64(offset.toLong()))
+                        .build()
+                        
+                val result = bigQuery.query(queryConfig)
+                
+                var items = result.iterateAll().map { row ->
+                    val legacyVal = if (!row.get("visaSponsorshipLegacy").isNull) row.get("visaSponsorshipLegacy").booleanValue else false
+                    val detailJson = if (!row.get("visaSponsorshipDetail").isNull) row.get("visaSponsorshipDetail").stringValue else null
+                    
+                    var visaInfo: VisaSponsorshipInfo? = null
+                    if (detailJson != null) {
+                        try {
+                            visaInfo = mapper.readValue(detailJson, VisaSponsorshipInfo::class.java)
+                        } catch (e: Exception) {
+                            log.warn("Failed to parse visa_sponsorship_detail JSON for company ${row.get("id").stringValue}")
+                        }
+                    } else if (legacyVal) {
+                        visaInfo = VisaSponsorshipInfo(offered = true)
+                    }
+                    
+                    CompanyListingItem(
+                        id = row.get("id").stringValue,
+                        name = row.get("name").stringValue,
+                        logo = if (!row.get("logoUrl").isNull) row.get("logoUrl").stringValue else "",
+                        visaSponsorship = visaInfo,
+                        activeRoles = row.get("activeRoles").numericValue.toInt()
+                    )
+                }
+                
+                // TODO: Push this filter to BigQuery SQL once transition is complete
+                if (visaOnly) {
+                    items = items.filter { it.visaSponsorship?.offered == true }
+                }
+                
+                return items
+        }
+
         private fun CompanyRecord.toMap(): Map<String, Any?> {
                 return mapOf(
                         CompanyFields.COMPANY_ID to this.companyId,
@@ -234,7 +295,8 @@ class CompanyBigQueryRepository(
                         CompanyFields.OPERATING_COUNTRIES to this.operatingCountries,
                         CompanyFields.OFFICE_LOCATIONS to this.officeLocations,
                         CompanyFields.REMOTE_POLICY to this.remotePolicy,
-                        CompanyFields.VISA_SPONSORSHIP to this.visaSponsorship,
+                        CompanyFields.VISA_SPONSORSHIP to this.visaSponsorship?.offered,
+                        CompanyFields.VISA_SPONSORSHIP_DETAIL to this.visaSponsorship?.let { visa -> mapper.writeValueAsString(visa) },
                         CompanyFields.VERIFICATION_LEVEL to this.verificationLevel,
                         CompanyFields.INGESTED_AT to this.lastUpdatedAt.toEpochMilli() * 1000,
                         CompanyFields.LAST_UPDATED_AT to this.lastUpdatedAt.toEpochMilli() * 1000
@@ -242,15 +304,9 @@ class CompanyBigQueryRepository(
         }
 
         private fun List<Map<String, Any?>>.byteInputStream(): java.io.InputStream {
-                val jsonString =
-                        this.joinToString(separator = "\n") {
-                                com.fasterxml
-                                        .jackson
-                                        .module
-                                        .kotlin
-                                        .jacksonObjectMapper()
-                                        .writeValueAsString(it)
-                        }
+                val jsonString = this.joinToString(separator = "\n") {
+                    mapper.writeValueAsString(it)
+                } + "\n" // NDJSON requirements
                 return jsonString.byteInputStream()
         }
 }

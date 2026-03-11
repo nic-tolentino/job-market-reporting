@@ -1,19 +1,40 @@
 {
   "id": "slalom",
   "name": "Slalom",
-  "alternateNames": ["Slalom Consulting"],
+  "alternateNames": [
+    "Slalom Consulting"
+  ],
   "description": "Slalom is a fiercely human business and technology consulting firm focused on end-to-end transformation through innovative software engineering and data.",
   "website": "https://www.slalom.com",
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQG5l3nKnBCEWA/company-logo_100_100/company-logo_100_100/0/1719861816497/slalom_consulting_logo?e=1773878400&v=beta&t=...",
-  "industries": ["Consulting", "Software Development", "Data Science", "Cloud"],
+  "industries": [
+    "Consulting",
+    "Software Development",
+    "Data Science",
+    "Cloud"
+  ],
   "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
   "hq_country": "US",
-  "operating_countries": ["US", "AU", "NZ", "Worldwide"],
-  "office_locations": ["Seattle", "Auckland"],
+  "operating_countries": [
+    "US",
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Seattle",
+    "Auckland"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": true,
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 13000,
   "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z"

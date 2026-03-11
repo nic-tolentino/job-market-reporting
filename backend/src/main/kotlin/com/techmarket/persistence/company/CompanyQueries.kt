@@ -71,6 +71,7 @@ object CompanyQueries {
                     $OFFICE_LOCATIONS,
                     $REMOTE_POLICY,
                     ${CompanyFields.VISA_SPONSORSHIP},
+                    ${CompanyFields.VISA_SPONSORSHIP_DETAIL},
                     ${CompanyFields.VERIFICATION_LEVEL},
                     ${CompanyFields.LAST_UPDATED_AT}
                 FROM `$datasetName.$companiesTableName`
@@ -95,6 +96,7 @@ object CompanyQueries {
                 OFFICE_LOCATIONS,
                 REMOTE_POLICY,
                 CompanyFields.VISA_SPONSORSHIP,
+                CompanyFields.VISA_SPONSORSHIP_DETAIL,
                 CompanyFields.VERIFICATION_LEVEL,
                 CompanyFields.LAST_UPDATED_AT
             )

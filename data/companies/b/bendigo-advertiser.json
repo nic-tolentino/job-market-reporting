@@ -21,7 +21,13 @@
     "Bendigo"
   ],
   "remote_policy": "On-site",
-  "visa_sponsorship": false,
+  "visa_sponsorship": {
+    "offered": false,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 100,
   "verification_level": "needs_review",
   "blocked_reason": "Data collision: Scraper likely misattributed external tech jobs to this media outlet.",

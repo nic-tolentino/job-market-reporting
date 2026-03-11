@@ -1,5 +1,6 @@
 package com.techmarket.api.model
 
+import com.techmarket.models.VisaSponsorshipInfo
 import com.techmarket.persistence.model.VerificationLevel
 
 data class CompanyProfilePageDto(
@@ -21,8 +22,16 @@ data class CompanyDetailsDto(
     val isSocialEnterprise: Boolean = false,
     val hqCountry: String? = null,
     val remotePolicy: String? = null,
-    val visaSponsorship: Boolean = false,
+    val visaSponsorship: VisaSponsorshipInfo? = null,
     val verificationLevel: VerificationLevel = VerificationLevel.VERIFIED
+)
+
+data class CompanyListingItemDto(
+    val id: String,
+    val name: String,
+    val logo: String,
+    val visaSponsorship: VisaSponsorshipInfo?,
+    val activeRoles: Int
 )
 
 data class CompanyInsightsDto(

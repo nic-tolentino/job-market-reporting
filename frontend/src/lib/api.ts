@@ -65,8 +65,28 @@ export interface CompanyDetailsDto {
     employeesCount: number;
     industry: string;
     description: string;
+    isAgency: boolean;
+    isSocialEnterprise: boolean;
     hqCountry: string | null;
+    remotePolicy: string | null;
+    visaSponsorship: VisaSponsorshipInfo | null;
     verificationLevel: string;
+}
+
+export interface VisaSponsorshipInfo {
+    offered: boolean;
+    types: string[];
+    notes: string | null;
+    lastVerified: string | null;
+    source: string | null;
+}
+
+export interface CompanyListingItemDto {
+    id: string;
+    name: string;
+    logo: string;
+    visaSponsorship: VisaSponsorshipInfo | null;
+    activeRoles: number;
 }
 
 export interface CompanyInsightsDto {
@@ -158,6 +178,15 @@ export const fetchJobDetails = async (jobId: string): Promise<JobPageDto | null>
     const response = await fetch(`${API_BASE_URL}/job/${jobId}`);
     if (response.status === 404) return null;
     if (!response.ok) throw new Error(`Failed to fetch job details: ${response.statusText}`);
+    return await response.json();
+};
+
+export const fetchCompanyListing = async (visaSponsorshipOnly: boolean, country?: string): Promise<CompanyListingItemDto[]> => {
+    const url = new URL(`${API_BASE_URL}/company/listing`, window.location.origin);
+    if (country) url.searchParams.append('country', country);
+    if (visaSponsorshipOnly) url.searchParams.append('visaSponsorship', 'true');
+    const response = await fetch(url.toString());
+    if (!response.ok) throw new Error(`Failed to fetch company listing: ${response.statusText}`);
     return await response.json();
 };
 

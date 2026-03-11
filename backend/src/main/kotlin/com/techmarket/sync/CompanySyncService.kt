@@ -81,7 +81,7 @@ class CompanySyncService(
                 operatingCountries = dto.operatingCountries,
                 officeLocations = dto.officeLocations,
                 remotePolicy = dto.remotePolicy,
-                visaSponsorship = dto.visaSponsorship ?: false,
+                visaSponsorship = dto.visaSponsorship,
                 verificationLevel = dto.verificationLevel,
                 lastUpdatedAt = Instant.now()
             )
@@ -105,7 +105,6 @@ class CompanySyncService(
      * Preserves operational state (enabled, syncStatus) for existing configs.
      */
     private fun syncAtsConfigurations(companies: List<CompanyJsonDto>) {
-        val syncTime = Instant.now()
         var saved = 0
         var skipped = 0
 

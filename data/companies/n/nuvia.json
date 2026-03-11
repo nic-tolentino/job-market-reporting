@@ -5,15 +5,34 @@
   "description": "NUVIA is an international industrial engineering firm specializing in nuclear energy, defense, and environmental services for sensitive and highly regulated sites.",
   "website": "https://nuvia.com",
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFKV8NL_p1Xsg/company-logo_100_100/company-logo_100_100/0/1656661925252/nuviagroup_logo?e=1773878400&v=beta&t=...",
-  "industries": ["Engineering", "Nuclear", "Defense", "Consulting"],
+  "industries": [
+    "Engineering",
+    "Nuclear",
+    "Defense",
+    "Consulting"
+  ],
   "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
   "hq_country": "FR",
-  "operating_countries": ["FR", "GB", "AU", "Worldwide"],
-  "office_locations": ["Paris", "Warrington"],
+  "operating_countries": [
+    "FR",
+    "GB",
+    "AU",
+    "Worldwide"
+  ],
+  "office_locations": [
+    "Paris",
+    "Warrington"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": true,
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 3000,
   "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z"

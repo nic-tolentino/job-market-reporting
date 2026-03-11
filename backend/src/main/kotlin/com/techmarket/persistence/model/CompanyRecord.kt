@@ -1,5 +1,6 @@
 package com.techmarket.persistence.model
 
+import com.techmarket.models.VisaSponsorshipInfo
 import java.time.Instant
 
 data class CompanyRecord(
@@ -19,7 +20,7 @@ data class CompanyRecord(
         val operatingCountries: List<String> = emptyList(),
         val officeLocations: List<String> = emptyList(),
         val remotePolicy: String? = null,
-        val visaSponsorship: Boolean = false,
+        val visaSponsorship: VisaSponsorshipInfo? = null,
         val verificationLevel: VerificationLevel = VerificationLevel.VERIFIED,
         val lastUpdatedAt: Instant
 )

@@ -22,7 +22,13 @@
     "Sydney"
   ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": false,
+  "visa_sponsorship": {
+    "offered": false,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
   "employees_count": 50,
   "verification_level": "silver",
   "updated_at": "2026-03-10T09:05:00Z"

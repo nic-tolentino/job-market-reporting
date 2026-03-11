@@ -1,40 +1,35 @@
 package com.techmarket.persistence.company
 
-import com.google.cloud.bigquery.TableResult
 import com.techmarket.api.model.CompanyDetailsDto
 import com.techmarket.api.model.CompanyInsightsDto
 import com.techmarket.api.model.CompanyProfilePageDto
 import com.techmarket.api.model.JobRoleDto
 import com.techmarket.models.CompanyRow
 import com.techmarket.models.JobRow
+import com.techmarket.models.VisaSponsorshipInfo
 import com.techmarket.persistence.CommonLiterals.HYBRID_FRIENDLY
 import com.techmarket.persistence.CommonLiterals.UNKNOWN
 import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.model.VerificationLevel
 import com.techmarket.util.TechFormatter
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import org.slf4j.LoggerFactory
 
 /**
  * Maps typed row objects to DTOs.
- * 
- * Since rows are already hydrated with clean data (nulls handled, defaults applied),
- * this mapper focuses purely on DTO transformation logic.
  */
 object CompanyMapper {
+    private val log = LoggerFactory.getLogger(CompanyMapper::class.java)
+    private val mapper = jacksonObjectMapper()
     
-    /**
-     * Maps typed row objects to CompanyProfilePageDto.
-     * No more string-based field access - compiler verifies all properties exist.
-     */
     fun mapCompanyProfile(
         companyId: String,
         companyRow: CompanyRow,
         jobRows: List<JobRow>,
         topModel: String?
     ): CompanyProfilePageDto {
-        
         val details = mapCompanyDetails(companyId, companyRow)
         
-        // Aggregate technologies from all active job postings
         val techFromJobs = jobRows
             .flatMap { it.technologies }
             .map { TechFormatter.format(it) }
@@ -45,7 +40,6 @@ object CompanyMapper {
             mapJobRole(job, companyRow.name, companyId)
         }
         
-        // Merge company-level technologies with job-aggregated technologies
         val companyTechs = companyRow.technologies.map { TechFormatter.format(it) }
         val allTechs = (companyTechs + techFromJobs).distinct().sorted()
         
@@ -70,7 +64,7 @@ object CompanyMapper {
             isSocialEnterprise = row.isSocialEnterprise,
             hqCountry = row.hqCountry,
             remotePolicy = row.remotePolicy,
-            visaSponsorship = row.visaSponsorship,
+            visaSponsorship = getVisaSponsorshipInfoFallback(row.visaSponsorship, row.visaSponsorshipDetail),
             verificationLevel = VerificationLevel.fromString(row.verificationLevel)
         )
     }
@@ -149,9 +143,20 @@ object CompanyMapper {
             operatingCountries = row.operatingCountries,
             officeLocations = row.officeLocations,
             remotePolicy = row.remotePolicy,
-            visaSponsorship = row.visaSponsorship,
+            visaSponsorship = getVisaSponsorshipInfoFallback(row.visaSponsorship, row.visaSponsorshipDetail),
             verificationLevel = VerificationLevel.fromString(row.verificationLevel),
             lastUpdatedAt = row.lastUpdatedAt
         )
+    }
+    
+    private fun getVisaSponsorshipInfoFallback(legacySponsorship: Boolean, detailedSponsorshipJson: String?): VisaSponsorshipInfo? {
+        if (detailedSponsorshipJson != null) {
+            try {
+                return mapper.readValue(detailedSponsorshipJson, VisaSponsorshipInfo::class.java)
+            } catch (e: Exception) {
+                log.warn("Failed to parse visa_sponsorship_detail JSON: ${e.message}")
+            }
+        }
+        return if (legacySponsorship) VisaSponsorshipInfo(offered = true) else null
     }
 }
