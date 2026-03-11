@@ -7,8 +7,7 @@ WORKDIR /app
 COPY package*.json ./
 COPY tsconfig.json ./
 
-# Install dependencies (skip Playwright browser download - we'll use system chromium)
-ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+# Install dependencies
 RUN npm ci
 
 # Copy source code
@@ -22,7 +21,7 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Install system Chromium and dependencies
+# Install system dependencies for Playwright/Chromium
 RUN apk add --no-cache \
     chromium \
     nss \
@@ -30,6 +29,7 @@ RUN apk add --no-cache \
     harfbuzz \
     ca-certificates \
     ttf-freefont \
+    libstdc++ \
     && rm -rf /var/cache/apk/*
 
 # Copy built files from builder
@@ -37,10 +37,15 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./
 
+# Install Playwright browsers (Chromium only for faster builds)
+ENV PLAYWRIGHT_BROWSERS_PATH=/app/node_modules/playwright-core/.local-browsers
+RUN npx --yes playwright install chromium --with-deps && \
+    npx --yes playwright install-deps chromium
+
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=8080
-ENV PLAYWRIGHT_BROWSERS_PATH=0
+ENV PLAYWRIGHT_BROWSERS_PATH=/app/node_modules/playwright-core/.local-browsers
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 # Expose port
