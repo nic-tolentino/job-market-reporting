@@ -39,7 +39,7 @@ export class CrawlerService {
       const testResult = await this.extractionService.extractJobs('Test', { companyName: 'Test' });
       return { valid: true };
     } catch (error) {
-      const errorMessage = error.message || 'Unknown error';
+      const errorMessage = (error as Error).message || 'Unknown error';
       
       // Provide actionable error messages
       if (errorMessage.includes('API key not valid')) {

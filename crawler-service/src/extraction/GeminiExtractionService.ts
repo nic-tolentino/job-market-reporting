@@ -122,26 +122,28 @@ export class GeminiExtractionService {
       };
     } catch (error) {
       // Enhance Gemini API error messages
-      if (error.message?.includes('API key not valid')) {
+      const errorMessage = (error as Error).message || 'Unknown error';
+      
+      if (errorMessage.includes('API key not valid')) {
         throw new Error(
           `Gemini API Error: Invalid or expired API key. ` +
-          `Details: ${error.message}. ` +
+          `Details: ${errorMessage}. ` +
           `Solutions: 1) Check API key is correct, 2) Ensure billing is enabled at https://console.cloud.google.com/billing, ` +
           `3) Verify API key has Gemini API permissions`
         );
       }
-      if (error.message?.includes('quota') || error.message?.includes('Quota exceeded')) {
+      if (errorMessage.includes('quota') || errorMessage.includes('Quota exceeded')) {
         throw new Error(
           `Gemini API Error: Quota exceeded. ` +
-          `Details: ${error.message}. ` +
+          `Details: ${errorMessage}. ` +
           `Solutions: 1) Wait for quota to reset (usually 1 minute), 2) Enable billing at https://console.cloud.google.com/billing, ` +
           `3) Request quota increase at https://cloud.google.com/vertex-ai/docs/quotas`
         );
       }
-      if (error.message?.includes('billing')) {
+      if (errorMessage.includes('billing')) {
         throw new Error(
           `Gemini API Error: Billing not enabled. ` +
-          `Details: ${error.message}. ` +
+          `Details: ${errorMessage}. ` +
           `Solution: Enable billing at https://console.cloud.google.com/billing to continue using Gemini API`
         );
       }
