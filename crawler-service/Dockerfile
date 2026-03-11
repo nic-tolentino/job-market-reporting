@@ -40,7 +40,7 @@ COPY --from=builder /app/package.json ./
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=8080
-ENV PLAYWRIGHT_BROWSERS_PATH=0  # Use system chromium
+ENV PLAYWRIGHT_BROWSERS_PATH=0
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 # Expose port
