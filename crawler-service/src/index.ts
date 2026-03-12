@@ -1,22 +1,28 @@
 import { createApp } from './api/server';
 import { CrawlerService } from './api/CrawlerService';
+import { DEFAULT_MODEL, getModelConfig } from './config/model-config';
 
 const PORT = process.env.PORT || 8080;
-const GCP_PROJECT_ID = process.env.GCP_PROJECT_ID;
-const GCP_REGION = process.env.GCP_REGION || 'us-central1';
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GEMINI_MODEL = process.env.GEMINI_MODEL || DEFAULT_MODEL;
 
 async function main() {
+  const modelConfig = getModelConfig(GEMINI_MODEL);
+  
   console.log('Starting Crawler Service (Vertex AI)...');
+  console.log(`Model: ${modelConfig?.displayName || GEMINI_MODEL}`);
+  console.log(`Cost: $${modelConfig?.inputCostPerMillion}/1M input, $${modelConfig?.outputCostPerMillion}/1M output`);
 
-  if (GCP_PROJECT_ID) {
-    console.log(`✓ Vertex AI: Project=${GCP_PROJECT_ID}, Region=${GCP_REGION}`);
+  if (GEMINI_API_KEY && GEMINI_API_KEY.startsWith('AQ.')) {
+    console.log(`✓ Vertex AI API Key: Configured`);
+  } else if (GEMINI_API_KEY) {
+    console.warn(`⚠️  API key format unexpected (starts with ${GEMINI_API_KEY.substring(0, 6)}...)`);
   } else {
-    console.warn('⚠️  WARNING: GCP_PROJECT_ID not set - Vertex AI disabled');
+    console.warn('⚠️  WARNING: GEMINI_API_KEY not set');
   }
 
-  // Initialize crawler service with Vertex AI
-  const crawlerService = new CrawlerService(GCP_PROJECT_ID, GCP_REGION, GEMINI_MODEL);
+  // Initialize crawler service - pass BOTH key and model
+  const crawlerService = new CrawlerService(GEMINI_API_KEY || '', GEMINI_MODEL);
 
   // Create Express app
   const app = createApp(crawlerService);
@@ -28,7 +34,6 @@ async function main() {
     console.log(`Crawl: POST http://localhost:${PORT}/crawl`);
   });
 
-  // Graceful shutdown
   const shutdown = () => {
     console.log('Shutting down gracefully...');
     process.exit(0);

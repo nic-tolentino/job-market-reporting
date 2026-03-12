@@ -31,15 +31,15 @@ COPY tsconfig.json ./
 # Install dependencies
 RUN npm ci
 
+# Install Playwright browsers (Chromium only) - before COPY src so this layer is cached
+ENV PLAYWRIGHT_BROWSERS_PATH=/app/node_modules/playwright-core/.local-browsers
+RUN npx --yes playwright install chromium
+
 # Copy source code
 COPY src ./src
 
 # Build TypeScript
 RUN npm run build
-
-# Install Playwright browsers (Chromium only)
-ENV PLAYWRIGHT_BROWSERS_PATH=/app/node_modules/playwright-core/.local-browsers
-RUN npx --yes playwright install chromium
 
 # Set environment variables
 ENV NODE_ENV=production

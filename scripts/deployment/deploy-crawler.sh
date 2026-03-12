@@ -33,10 +33,26 @@ echo "Region: $GCP_REGION"
 echo "Service: $CRAWLER_SERVICE_NAME"
 echo ""
 
+# Check for --cloud flag
+USE_CLOUD_BUILD=false
+if [[ "$1" == "--cloud" ]]; then
+    USE_CLOUD_BUILD=true
+fi
+
+# Check if Docker is running
+if [ "$USE_CLOUD_BUILD" = false ]; then
+    if ! docker info >/dev/null 2>&1; then
+        echo "⚠️  Docker is not running locally."
+        echo "Falling back to Google Cloud Build..."
+        USE_CLOUD_BUILD=true
+    fi
+fi
+
 cd "$PROJECT_ROOT/crawler-service" || exit
 
-# Check if GEMINI_API_KEY is set
-if [ -z "$GEMINI_API_KEY" ]; then
+# Check if GEMINI_API_KEY is set (only if not using Vertex AI)
+# Note: Vertex AI version uses service account permissions instead
+if [ -z "$GEMINI_API_KEY" ] && [[ "$0" != *"vertex"* ]]; then
     echo "⚠️  GEMINI_API_KEY not found in environment"
     echo "Please set it in .env or export it before deploying"
     echo ""
@@ -47,27 +63,67 @@ if [ -z "$GEMINI_API_KEY" ]; then
     fi
 fi
 
-# Build and deploy
-echo "📦 Building and deploying with Cloud Build..."
-echo ""
+if [ "$USE_CLOUD_BUILD" = true ]; then
+    echo "☁️  Starting Cloud Build & Deployment (No local Docker needed)..."
+    echo ""
 
-gcloud run deploy "$CRAWLER_SERVICE_NAME" \
-    --source . \
-    --project "$GCP_PROJECT_ID" \
-    --region "$GCP_REGION" \
-    --allow-unauthenticated \
-    --min-instances 0 \
-    --max-instances 3 \
-    --cpu 1 \
-    --memory 2Gi \
-    --timeout 300 \
-    --port 8080 \
-    --set-env-vars="\
+    gcloud run deploy "$CRAWLER_SERVICE_NAME" \
+        --source . \
+        --project "$GCP_PROJECT_ID" \
+        --region "$GCP_REGION" \
+        --allow-unauthenticated \
+        --min-instances 0 \
+        --max-instances 3 \
+        --cpu 1 \
+        --memory 2Gi \
+        --timeout 300 \
+        --port 8080 \
+        --set-env-vars="\
 PORT=8080,\
 NODE_ENV=production,\
 PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1" \
-    --set-secrets="\
+        --set-secrets="\
 GEMINI_API_KEY=GEMINI_API_KEY:latest"
+else
+    echo "🚀 Starting Fast Local Build & Deployment (Requires Docker)..."
+
+    echo "📦 Building Docker image locally..."
+    # --platform linux/amd64 is crucial for Mac M1/M2/M3 compatibility with Cloud Run
+    docker build --platform linux/amd64 -t "$CRAWLER_IMAGE" .
+
+    if [ $? -ne 0 ]; then
+        echo "❌ Docker build failed."
+        echo "Try running with --cloud to build in the cloud instead: ./scripts/deployment/deploy-crawler.sh --cloud"
+        exit 1
+    fi
+
+    echo "📤 Pushing image to Google Artifact Registry..."
+    docker push "$CRAWLER_IMAGE"
+
+    if [ $? -ne 0 ]; then
+        echo "❌ Docker push failed."
+        exit 1
+    fi
+
+    echo "🚀 Deploying to Cloud Run from image..."
+    gcloud run deploy "$CRAWLER_SERVICE_NAME" \
+        --image "$CRAWLER_IMAGE" \
+        --project "$GCP_PROJECT_ID" \
+        --region "$GCP_REGION" \
+        --allow-unauthenticated \
+        --min-instances 0 \
+        --max-instances 3 \
+        --cpu 1 \
+        --memory 2Gi \
+        --timeout 300 \
+        --port 8080 \
+        --set-env-vars="\
+PORT=8080,\
+NODE_ENV=production,\
+PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1" \
+        --set-secrets="\
+GEMINI_API_KEY=GEMINI_API_KEY:latest"
+fi
 
 # Get the service URL
 SERVICE_URL=$(gcloud run services describe "$CRAWLER_SERVICE_NAME" \

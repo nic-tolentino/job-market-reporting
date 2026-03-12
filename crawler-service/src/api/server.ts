@@ -33,15 +33,16 @@ export function createApp(crawlerService: CrawlerService): express.Application {
   app.use(cors());
   app.use(express.json({ limit: '10mb' }));
   
-  // Health check endpoint with Vertex AI validation
+  // Health check endpoint with API key validation
   app.get('/health', async (req: Request, res: Response) => {
-    const configValidation = await crawlerService.validateVertexAIConfig();
+    // Validate Gemini API key
+    const apiValidation = await crawlerService.validateGeminiConfig();
     
     res.json({ 
-      status: configValidation.valid ? 'ok' : 'degraded',
+      status: apiValidation.valid ? 'ok' : 'degraded',
       timestamp: new Date().toISOString(),
-      vertexAI: configValidation.valid ? 'configured' : 'not-configured',
-      vertexAIError: configValidation.error || undefined
+      gemini: apiValidation.valid ? 'valid' : 'invalid',
+      geminiApiError: apiValidation.error || undefined
     });
   });
   

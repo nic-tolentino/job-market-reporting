@@ -1,5 +1,6 @@
 import { VertexAIClient } from './VertexAIClient';
 import { NormalizedJob } from '../api/types';
+import { DEFAULT_MODEL } from '../config/model-config';
 
 export interface LlmJobData {
   title: string;
@@ -35,19 +36,19 @@ export interface ExtractionConfig {
 }
 
 /**
- * Service for extracting job data using Vertex AI (Gemini)
+ * Service for extracting job data using Gemini API
  */
 export class GeminiExtractionService {
   private vertexClient: VertexAIClient;
   private model: string;
 
-  constructor(project: string, location: string = 'us-central1', model: string = 'gemini-2.0-flash') {
+  constructor(apiKey: string, model: string = DEFAULT_MODEL) {
     this.model = model;
-    this.vertexClient = new VertexAIClient(project, location, model);
+    this.vertexClient = new VertexAIClient(apiKey, model);
   }
 
   /**
-   * Extracts jobs from page content using Vertex AI
+   * Extracts jobs from page content using Gemini
    */
   async extractJobs(content: string, config: ExtractionConfig = {}): Promise<ExtractionResult> {
     const prompt = this.buildPrompt(content, config);
@@ -55,18 +56,17 @@ export class GeminiExtractionService {
     try {
       const response = await this.vertexClient.generateContent(prompt);
 
-      // Check if response is empty
       if (!response.text || response.text.trim().length === 0) {
-        throw new Error(
-          'Vertex AI returned empty response. ' +
-          'This may indicate API issues or quota exceeded. ' +
-          'Check: https://console.cloud.google.com/vertex-ai'
-        );
+        throw new Error('Gemini API returned empty response.');
+      }
+
+      // Log if response doesn't start with JSON
+      const trimmedText = response.text.trim();
+      if (!trimmedText.startsWith('[') && !trimmedText.startsWith('{')) {
+        console.warn('Gemini returned non-JSON response:', response.text.substring(0, 200));
       }
 
       const llmJobs = this.parseJobsFromResponse(response.text);
-
-      // Convert LLM jobs to NormalizedJob with service-set fields
       const jobs = llmJobs.map(job => this.toNormalizedJob(job, config.companyName));
 
       return {
@@ -78,94 +78,51 @@ export class GeminiExtractionService {
         }
       };
     } catch (error) {
-      // Enhance Vertex AI error messages
-      const errorMessage = (error as Error).message || 'Unknown error';
-      
-      if (errorMessage.includes('Permission Denied')) {
-        throw new Error(
-          `Vertex AI Error: Service account lacks permissions. ` +
-          `Solutions: 1) Grant "Vertex AI User" role to service account, 2) Verify service account has access to project, ` +
-          `3) Enable Vertex AI API at https://console.cloud.google.com/vertex-ai`
-        );
-      }
-      if (errorMessage.includes('Quota Exceeded')) {
-        throw new Error(
-          `Vertex AI Error: Quota exceeded. ` +
-          `Solutions: 1) Wait for quota reset, 2) Request quota increase at https://console.cloud.google.com/vertex-ai/quotas`
-        );
-      }
-      if (errorMessage.includes('API not enabled')) {
-        throw new Error(
-          `Vertex AI Error: API not enabled. ` +
-          `Solution: Enable Vertex AI API at https://console.cloud.google.com/vertex-ai`
-        );
-      }
-      // Re-throw other errors
+      console.error('Extraction error:', (error as Error).message);
       throw error;
     }
   }
 
-  /**
-   * Builds the extraction prompt with company-specific context
-   */
   private buildPrompt(content: string, config: ExtractionConfig): string {
     let prompt = config.prompt || DEFAULT_EXTRACTION_PROMPT;
 
-    // Replace template variables
     prompt = prompt
       .replace('{{companyName}}', config.companyName || 'Unknown')
       .replace('{{industries}}', config.industries?.join(', ') || 'Unknown')
       .replace('{{officeLocations}}', config.officeLocations?.join(', ') || 'Unknown')
       .replace('{{pageContent}}', content);
 
-    // Append extraction hints if provided
     if (config.extractionHints && Object.keys(config.extractionHints).length > 0) {
       const hintsText = Object.entries(config.extractionHints)
         .map(([key, value]) => `- ${key}: ${value}`)
         .join('\n');
-
       prompt += `\n\nAdditional context for this company:\n${hintsText}`;
     }
 
     return prompt;
   }
 
-  /**
-   * Parses job data from LLM response
-   */
   private parseJobsFromResponse(text: string): LlmJobData[] {
     try {
-      // Remove markdown code blocks if present
       const cleanText = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
-      
-      // Try parsing as array
       let jobs: LlmJobData[];
       try {
         jobs = JSON.parse(cleanText) as LlmJobData[];
       } catch {
-        // Try parsing as object with jobs array
         const obj = JSON.parse(cleanText) as { jobs?: LlmJobData[] };
         jobs = obj.jobs || [];
       }
-
-      // Ensure array
       if (!Array.isArray(jobs)) {
         jobs = [jobs];
       }
-
       return jobs;
     } catch (error) {
       console.error('Failed to parse LLM response:', error);
-      console.error('Response text:', text);
       return [];
     }
   }
 
-  /**
-   * Converts LLM job data to NormalizedJob format
-   */
   private toNormalizedJob(llmJob: LlmJobData, companyName?: string): NormalizedJob {
-    // Generate platformId from title and date
     const slug = llmJob.title.toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '')
@@ -178,10 +135,10 @@ export class GeminiExtractionService {
       platformId,
       source: 'Crawler',
       title: llmJob.title,
-      companyName: llmJob.companyName || companyName || 'Unknown',
+      companyName: (llmJob.companyName as string) || companyName || 'Unknown',
       location: llmJob.location || null,
       descriptionHtml: null,
-      descriptionText: llmJob.description || null,
+      descriptionText: (llmJob.description as string) || null,
       salaryMin: llmJob.salaryMin || null,
       salaryMax: llmJob.salaryMax || null,
       salaryCurrency: llmJob.salaryCurrency || null,
@@ -217,4 +174,8 @@ Extract these fields for each job:
 - postedAt (ISO date if mentioned)
 - applyUrl
 
-Return as JSON array. If no jobs found, return empty array [].`;
+IMPORTANT: Return ONLY a valid JSON array. Do not include any explanatory text.
+If no jobs are found, return an empty array: []
+
+Example format:
+[{"title": "Software Engineer", "location": "Sydney, Australia", "employmentType": "Full-time"}]`;

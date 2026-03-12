@@ -1,0 +1,68 @@
+steps:
+  # Pull the previous image to use as cache source (ignore failure on first build)
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        docker pull ${_REGION}-docker.pkg.dev/$PROJECT_ID/tech-market-repo/crawler-service:latest || true
+
+  # Build using the cached layers
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '--cache-from'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/tech-market-repo/crawler-service:latest'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/tech-market-repo/crawler-service:latest'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/tech-market-repo/crawler-service:$COMMIT_SHA'
+      - '.'
+
+  # Push both tags
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - '--all-tags'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/tech-market-repo/crawler-service'
+
+  # Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'crawler-service'
+      - '--image'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/tech-market-repo/crawler-service:$COMMIT_SHA'
+      - '--project'
+      - '$PROJECT_ID'
+      - '--region'
+      - '${_REGION}'
+      - '--allow-unauthenticated'
+      - '--min-instances'
+      - '0'
+      - '--max-instances'
+      - '3'
+      - '--cpu'
+      - '1'
+      - '--memory'
+      - '2Gi'
+      - '--timeout'
+      - '300'
+      - '--port'
+      - '8080'
+      - '--set-env-vars'
+      - 'NODE_ENV=production,GCP_PROJECT_ID=$PROJECT_ID'
+      - '--set-secrets'
+      - 'GEMINI_API_KEY=GEMINI_API_KEY:latest'
+
+images:
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/tech-market-repo/crawler-service:latest'
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/tech-market-repo/crawler-service:$COMMIT_SHA'
+
+substitutions:
+  _REGION: australia-southeast1
+
+options:
+  logging: CLOUD_LOGGING_ONLY
