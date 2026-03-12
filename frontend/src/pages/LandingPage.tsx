@@ -134,7 +134,7 @@ export default function LandingPage() {
                         <p className="max-w-2xl text-xl md:text-2xl text-secondary font-medium leading-[1.4] text-center md:text-left">
                             Stop grazing. Start kicking.<br/>
                             <span className="text-muted text-lg md:text-xl font-normal opacity-90">
-                                The open-source hub for your next big career move 💥🚀📈❤️
+                                The open-source hub for your next kick-ass career move 💥🚀📈❤️
                             </span>
                         </p>
                     </div>
