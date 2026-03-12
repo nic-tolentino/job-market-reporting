@@ -207,14 +207,18 @@ class JobBigQueryRepository(
 
                 val seniority = detailsRow.job.seniorityLevel
 
-                val similarQuery = JobQueries.getSimilarSql(datasetName, jobsTableName, detailsRow.job.technologies)
+                val techList = detailsRow.job.technologies
+                val similarQuery = JobQueries.getSimilarSql(datasetName, jobsTableName, techList)
                 val similarQueryBuilder =
                         QueryJobConfiguration.newBuilder(similarQuery.sql)
                                 .addNamedParameter(JOB_ID, QueryParameterValue.string(jobId))
-                                .addNamedParameter(
-                                        SENIORITY,
-                                        QueryParameterValue.string(seniority)
-                                )
+                                .addNamedParameter(SENIORITY, QueryParameterValue.string(seniority))
+                if (techList.isNotEmpty()) {
+                    similarQueryBuilder.addNamedParameter(
+                        "techs",
+                        QueryParameterValue.array(techList.toTypedArray(), StandardSQLTypeName.STRING)
+                    )
+                }
 
                 val similarResult = bigQuery.query(similarQueryBuilder.build())
                 // Hydrate typed rows for similar jobs

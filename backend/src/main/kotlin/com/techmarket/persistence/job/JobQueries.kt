@@ -106,79 +106,101 @@ object JobQueries {
      * Includes all fields needed by JobRow.fromJobRow() to prevent silent data degradation.
      */
     fun getSimilarSql(datasetName: String, jobsTableName: String, techList: List<String>): JobSimilarQuery {
+        val requiredFields = listOf(
+            JobFields.JOB_ID,
+            JobFields.JOB_IDS,
+            JobFields.APPLY_URLS,
+            JobFields.PLATFORM_LINKS,
+            JobFields.LOCATIONS,
+            JobFields.TITLE,
+            JobFields.COMPANY_ID,
+            JobFields.COMPANY_NAME,
+            JobFields.SALARY_MIN,
+            JobFields.SALARY_MAX,
+            JobFields.POSTED_DATE,
+            JobFields.TECHNOLOGIES,
+            JobFields.BENEFITS,
+            JobFields.CITY,
+            JobFields.STATE_REGION,
+            JobFields.SENIORITY_LEVEL,
+            JobFields.COUNTRY,
+            JobFields.SOURCE,
+            JobFields.LAST_SEEN_AT,
+            JobFields.DESCRIPTION,
+            JobFields.EMPLOYMENT_TYPE,
+            JobFields.WORK_MODEL,
+            JobFields.JOB_FUNCTION
+        )
         return if (techList.isEmpty()) {
             JobSimilarQuery(
                 sql = """
-                    SELECT ${JobFields.JOB_ID}, ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.PLATFORM_LINKS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.COMPANY_ID}, ${JobFields.COMPANY_NAME}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}, ${JobFields.BENEFITS}, ${JobFields.CITY}, ${JobFields.STATE_REGION}, ${JobFields.SENIORITY_LEVEL}, ${JobFields.COUNTRY}, ${JobFields.SOURCE}, ${JobFields.LAST_SEEN_AT}, ${JobFields.DESCRIPTION}, ${JobFields.EMPLOYMENT_TYPE}, ${JobFields.WORK_MODEL}, ${JobFields.JOB_FUNCTION}
+                    SELECT
+                        ${JobFields.JOB_ID},
+                        ${JobFields.JOB_IDS},
+                        ${JobFields.APPLY_URLS},
+                        ${JobFields.PLATFORM_LINKS},
+                        ${JobFields.LOCATIONS},
+                        ${JobFields.TITLE},
+                        ${JobFields.COMPANY_ID},
+                        ${JobFields.COMPANY_NAME},
+                        ${JobFields.SALARY_MIN},
+                        ${JobFields.SALARY_MAX},
+                        ${JobFields.POSTED_DATE},
+                        ${JobFields.TECHNOLOGIES},
+                        ${JobFields.BENEFITS},
+                        ${JobFields.CITY},
+                        ${JobFields.STATE_REGION},
+                        ${JobFields.SENIORITY_LEVEL},
+                        ${JobFields.COUNTRY},
+                        ${JobFields.SOURCE},
+                        ${JobFields.LAST_SEEN_AT},
+                        ${JobFields.DESCRIPTION},
+                        ${JobFields.EMPLOYMENT_TYPE},
+                        ${JobFields.WORK_MODEL},
+                        ${JobFields.JOB_FUNCTION}
                     FROM `$datasetName.$jobsTableName`
                     WHERE ${JobFields.SENIORITY_LEVEL} = @seniority
                       AND @jobId NOT IN UNNEST(${JobFields.JOB_IDS})
                     ORDER BY ${JobFields.POSTED_DATE} DESC
                     LIMIT 3
                 """.trimIndent(),
-                requiredFields = listOf(
-                    JobFields.JOB_ID,
-                    JobFields.JOB_IDS,
-                    JobFields.APPLY_URLS,
-                    JobFields.PLATFORM_LINKS,
-                    JobFields.LOCATIONS,
-                    JobFields.TITLE,
-                    JobFields.COMPANY_ID,
-                    JobFields.COMPANY_NAME,
-                    JobFields.SALARY_MIN,
-                    JobFields.SALARY_MAX,
-                    JobFields.POSTED_DATE,
-                    JobFields.TECHNOLOGIES,
-                    JobFields.BENEFITS,
-                    JobFields.CITY,
-                    JobFields.STATE_REGION,
-                    JobFields.SENIORITY_LEVEL,
-                    JobFields.COUNTRY,
-                    JobFields.SOURCE,
-                    JobFields.LAST_SEEN_AT,
-                    JobFields.DESCRIPTION,
-                    JobFields.EMPLOYMENT_TYPE,
-                    JobFields.WORK_MODEL,
-                    JobFields.JOB_FUNCTION
-                )
+                requiredFields = requiredFields
             )
         } else {
-            val techArrayString = techList.joinToString("','", "'", "'")
             JobSimilarQuery(
                 sql = """
-                    SELECT DISTINCT j.${JobFields.JOB_ID}, j.${JobFields.JOB_IDS}, j.${JobFields.APPLY_URLS}, j.${JobFields.PLATFORM_LINKS}, j.${JobFields.LOCATIONS}, j.${JobFields.TITLE}, j.${JobFields.COMPANY_ID}, j.${JobFields.COMPANY_NAME}, j.${JobFields.SALARY_MIN}, j.${JobFields.SALARY_MAX}, j.${JobFields.POSTED_DATE}, j.${JobFields.TECHNOLOGIES}, j.${JobFields.BENEFITS}, j.${JobFields.CITY}, j.${JobFields.STATE_REGION}, j.${JobFields.SENIORITY_LEVEL}, j.${JobFields.COUNTRY}, j.${JobFields.SOURCE}, j.${JobFields.LAST_SEEN_AT}, j.${JobFields.DESCRIPTION}, j.${JobFields.EMPLOYMENT_TYPE}, j.${JobFields.WORK_MODEL}, j.${JobFields.JOB_FUNCTION}
+                    SELECT DISTINCT
+                        j.${JobFields.JOB_ID},
+                        j.${JobFields.JOB_IDS},
+                        j.${JobFields.APPLY_URLS},
+                        j.${JobFields.PLATFORM_LINKS},
+                        j.${JobFields.LOCATIONS},
+                        j.${JobFields.TITLE},
+                        j.${JobFields.COMPANY_ID},
+                        j.${JobFields.COMPANY_NAME},
+                        j.${JobFields.SALARY_MIN},
+                        j.${JobFields.SALARY_MAX},
+                        j.${JobFields.POSTED_DATE},
+                        j.${JobFields.TECHNOLOGIES},
+                        j.${JobFields.BENEFITS},
+                        j.${JobFields.CITY},
+                        j.${JobFields.STATE_REGION},
+                        j.${JobFields.SENIORITY_LEVEL},
+                        j.${JobFields.COUNTRY},
+                        j.${JobFields.SOURCE},
+                        j.${JobFields.LAST_SEEN_AT},
+                        j.${JobFields.DESCRIPTION},
+                        j.${JobFields.EMPLOYMENT_TYPE},
+                        j.${JobFields.WORK_MODEL},
+                        j.${JobFields.JOB_FUNCTION}
                     FROM `$datasetName.$jobsTableName` j, UNNEST(j.${JobFields.TECHNOLOGIES}) t
                     WHERE j.${JobFields.SENIORITY_LEVEL} = @seniority
                       AND @jobId NOT IN UNNEST(j.${JobFields.JOB_IDS})
-                      AND t IN ($techArrayString)
+                      AND t IN UNNEST(@techs)
                     ORDER BY j.${JobFields.POSTED_DATE} DESC
                     LIMIT 3
                 """.trimIndent(),
-                requiredFields = listOf(
-                    JobFields.JOB_ID,
-                    JobFields.JOB_IDS,
-                    JobFields.APPLY_URLS,
-                    JobFields.PLATFORM_LINKS,
-                    JobFields.LOCATIONS,
-                    JobFields.TITLE,
-                    JobFields.COMPANY_ID,
-                    JobFields.COMPANY_NAME,
-                    JobFields.SALARY_MIN,
-                    JobFields.SALARY_MAX,
-                    JobFields.POSTED_DATE,
-                    JobFields.TECHNOLOGIES,
-                    JobFields.BENEFITS,
-                    JobFields.CITY,
-                    JobFields.STATE_REGION,
-                    JobFields.SENIORITY_LEVEL,
-                    JobFields.COUNTRY,
-                    JobFields.SOURCE,
-                    JobFields.LAST_SEEN_AT,
-                    JobFields.DESCRIPTION,
-                    JobFields.EMPLOYMENT_TYPE,
-                    JobFields.WORK_MODEL,
-                    JobFields.JOB_FUNCTION
-                )
+                requiredFields = requiredFields
             )
         }
     }

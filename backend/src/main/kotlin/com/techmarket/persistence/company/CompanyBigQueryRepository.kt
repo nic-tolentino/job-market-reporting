@@ -225,12 +225,12 @@ class CompanyBigQueryRepository(
                         c.${CompanyFields.NAME} AS name,
                         c.${CompanyFields.LOGO_URL} AS logoUrl,
                         c.${CompanyFields.VISA_SPONSORSHIP} AS visaSponsorshipLegacy,
-                        c.${CompanyFields.VISA_SPONSORSHIP_DETAIL} AS visaSponsorshipDetail,
+                        ANY_VALUE(c.${CompanyFields.VISA_SPONSORSHIP_DETAIL}) AS visaSponsorshipDetail,
                         COUNT(DISTINCT j.${JobFields.JOB_ID}) AS activeRoles
                     FROM `$datasetName.$companiesTableName` c
                     LEFT JOIN `$datasetName.$jobsTableName` j ON c.${CompanyFields.COMPANY_ID} = j.${JobFields.COMPANY_ID}
                     WHERE (@country IS NULL OR c.${CompanyFields.HQ_COUNTRY} = @country OR @country IN UNNEST(c.${CompanyFields.OPERATING_COUNTRIES}))
-                    GROUP BY id, name, logoUrl, visaSponsorshipLegacy, visaSponsorshipDetail
+                    GROUP BY id, name, logoUrl, visaSponsorshipLegacy
                     ORDER BY activeRoles DESC, name ASC
                     LIMIT @limit OFFSET @offset
                 """.trimIndent()
