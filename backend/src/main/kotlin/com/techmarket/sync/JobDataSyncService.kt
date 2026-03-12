@@ -204,13 +204,36 @@ class JobDataSyncService(
                 }
             }
 
-            // Persist batch incrementally to avoid memory buildup
+            // Persist batch incrementally with deduplication (same pattern as runDataSync)
             if (batchJobs.isNotEmpty() || batchCompanies.isNotEmpty()) {
-                companyRepository.saveCompanies(batchCompanies)
-                jobRepository.saveJobs(batchJobs)
-                totalJobsProcessed += batchJobs.size
-                totalCompaniesProcessed += batchCompanies.size
-                log.info("Persisted batch: ${batchJobs.size} jobs, ${batchCompanies.size} companies (Total: $totalJobsProcessed jobs, $totalCompaniesProcessed companies)")
+                // Deduplicate within the batch first (same jobId may appear across multiple manifests)
+                val dedupedBatchJobs = batchJobs
+                    .groupBy { it.jobId }
+                    .values
+                    .map { group -> group.drop(1).fold(group.first()) { acc, job -> silverDataMerger.mergeJobs(listOf(job), listOf(acc)).first() } }
+                val dedupedBatchCompanies = batchCompanies
+                    .groupBy { it.companyId }
+                    .values
+                    .map { group -> group.drop(1).fold(group.first()) { acc, company -> silverDataMerger.mergeCompanies(listOf(company), listOf(acc)).first() } }
+
+                val jobIds = dedupedBatchJobs.map { it.jobId }
+                val companyIds = dedupedBatchCompanies.map { it.companyId }
+
+                // Merge with any already-persisted records from a previous batch (cross-batch dedup)
+                val existingJobs = jobRepository.getJobsByIds(jobIds)
+                val existingCompanies = companyRepository.getCompaniesByIds(companyIds)
+
+                val mergedJobs = silverDataMerger.mergeJobs(dedupedBatchJobs, existingJobs)
+                val mergedCompanies = silverDataMerger.mergeCompanies(dedupedBatchCompanies, existingCompanies)
+
+                if (jobIds.isNotEmpty()) jobRepository.deleteJobsByIds(jobIds)
+                if (companyIds.isNotEmpty()) companyRepository.deleteCompaniesByIds(companyIds)
+
+                companyRepository.saveCompanies(mergedCompanies)
+                jobRepository.saveJobs(mergedJobs)
+                totalJobsProcessed += mergedJobs.size
+                totalCompaniesProcessed += mergedCompanies.size
+                log.info("Persisted batch: ${mergedJobs.size} jobs, ${mergedCompanies.size} companies (Total: $totalJobsProcessed jobs, $totalCompaniesProcessed companies)")
             }
         }
 

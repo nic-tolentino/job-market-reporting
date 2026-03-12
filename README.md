@@ -147,6 +147,8 @@ Now:
 
 Later:
 
+- The ability to link directly to a technology's community or growth tabs.
+
 - I was thinking: does it make sense to save every ingestion into a separte cold storage file - afterall they shouldn't be accessed often at all, and it also allows us to more easily mamage the data, reduces costs, and we don't need to maintain that table. The cost is performance but does it matter in practice?
 
 - Company level tech stack has a lot of potentail for improvement refer to company-tech-stack-fix.md
