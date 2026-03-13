@@ -275,7 +275,10 @@ class RawJobDataMapper(
                         )
                 val technologies =
                         parser.extractTechnologies(
-                                lifecycle.firstNotNullOfOrNull { it.dto.descriptionText } ?: ""
+                                buildString {
+                                    lifecycle.firstNotNullOfOrNull { it.dto.title }?.let { append(it); append(" ") }
+                                    append(lifecycle.firstNotNullOfOrNull { it.dto.descriptionText } ?: "")
+                                }
                         )
 
                 val country = (targetCountry ?: run {

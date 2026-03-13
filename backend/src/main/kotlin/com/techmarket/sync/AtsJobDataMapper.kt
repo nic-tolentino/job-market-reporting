@@ -88,7 +88,7 @@ class AtsJobDataMapper(private val parser: RawJobDataParser) {
                 val jobId = IdGenerator.buildJobId(companyId, country, title, datePart)
 
                 val descriptionHtml = PiiSanitizer.sanitize(job.descriptionHtml)
-                val technologies = parser.extractTechnologies(job.descriptionText ?: "")
+                val technologies = parser.extractTechnologies("${job.title ?: ""} ${job.descriptionText ?: ""}")
 
                 return JobRecord(
                         jobId = jobId,

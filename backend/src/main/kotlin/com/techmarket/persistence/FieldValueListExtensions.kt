@@ -34,6 +34,15 @@ fun FieldValueList.getStringOrNull(field: String): String? =
 fun FieldValueList.getStringOrDefault(field: String, default: String = ""): String =
     getStringOrNull(field) ?: default
 
+/**
+ * Gets a required string field, throwing IllegalStateException if missing or null.
+ * Use this for primary key fields where a missing value indicates a broken query
+ * (e.g. forgot to include the field in SELECT) rather than legitimate absent data.
+ */
+fun FieldValueList.getStringOrThrow(field: String): String =
+    getStringOrNull(field)
+        ?: throw IllegalStateException("Required field '$field' is missing or null in query result. Check that the SQL SELECT includes this field.")
+
 fun FieldValueList.getLongOrNull(field: String): Long? =
     getFieldOrNull(field)?.takeIf { !it.isNull }?.longValue
 

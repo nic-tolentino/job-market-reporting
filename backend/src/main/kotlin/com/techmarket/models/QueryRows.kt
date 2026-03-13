@@ -13,6 +13,7 @@ import com.techmarket.persistence.getLongOrNull
 import com.techmarket.persistence.getSalaryOrNull
 import com.techmarket.persistence.getString
 import com.techmarket.persistence.getStringOrDefault
+import com.techmarket.persistence.getStringOrThrow
 import com.techmarket.persistence.getStringList
 import com.techmarket.persistence.getStringListOrNull
 import com.techmarket.persistence.getStringOrNull
@@ -56,12 +57,12 @@ data class JobRow(
          * Hydrates a JobRow from BigQuery FieldValueList.
          * Handles all null-safety and type conversion in one place.
          * 
-         * Critical fields (jobId, title, seniorityLevel, source, postedDate) use 
-         * getStringOrDefault to prevent null pointer exceptions at runtime.
+         * jobId uses getStringOrThrow — a missing ID means the SQL forgot to SELECT it,
+         * which is a query bug and should fail loudly rather than silently corrupt data.
          */
         fun fromJobRow(field: FieldValueList): JobRow {
             return JobRow(
-                jobId = field.getStringOrDefault(JobFields.JOB_ID, ""),
+                jobId = field.getStringOrThrow(JobFields.JOB_ID),
                 jobIds = field.getStringList(JobFields.JOB_IDS),
                 applyUrls = field.getStringListOrNull(JobFields.APPLY_URLS),
                 platformLinks = field.getStringListOrNull(JobFields.PLATFORM_LINKS),

@@ -40,7 +40,7 @@ object TechQueries {
 
     fun getJobsSql(datasetName: String, jobsTableName: String) = TechQuery(
         sql = """
-            SELECT ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.PLATFORM_LINKS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.COMPANY_ID}, ${JobFields.COMPANY_NAME}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}, ${JobFields.CITY}, ${JobFields.STATE_REGION}, ${JobFields.SENIORITY_LEVEL}, ${JobFields.SOURCE}, ${JobFields.LAST_SEEN_AT}, ${JobFields.COUNTRY}
+            SELECT ${JobFields.JOB_ID}, ${JobFields.JOB_IDS}, ${JobFields.APPLY_URLS}, ${JobFields.PLATFORM_LINKS}, ${JobFields.LOCATIONS}, ${JobFields.TITLE}, ${JobFields.COMPANY_ID}, ${JobFields.COMPANY_NAME}, ${JobFields.SALARY_MIN}, ${JobFields.SALARY_MAX}, ${JobFields.POSTED_DATE}, ${JobFields.TECHNOLOGIES}, ${JobFields.CITY}, ${JobFields.STATE_REGION}, ${JobFields.SENIORITY_LEVEL}, ${JobFields.SOURCE}, ${JobFields.LAST_SEEN_AT}, ${JobFields.COUNTRY}
             FROM `$datasetName.$jobsTableName` j, UNNEST(j.${JobFields.TECHNOLOGIES}) as t
             WHERE LOWER(t) = LOWER(@techName)
             AND DATE(j.${JobFields.POSTED_DATE}) >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
@@ -48,7 +48,7 @@ object TechQueries {
             ORDER BY j.${JobFields.POSTED_DATE} DESC
         """.trimIndent(),
         requiredFields = listOf(
-            JobFields.JOB_IDS, JobFields.APPLY_URLS, JobFields.PLATFORM_LINKS, JobFields.LOCATIONS,
+            JobFields.JOB_ID, JobFields.JOB_IDS, JobFields.APPLY_URLS, JobFields.PLATFORM_LINKS, JobFields.LOCATIONS,
             JobFields.TITLE, JobFields.COMPANY_ID, JobFields.COMPANY_NAME, JobFields.SALARY_MIN,
             JobFields.SALARY_MAX, JobFields.POSTED_DATE, JobFields.TECHNOLOGIES, JobFields.CITY,
             JobFields.STATE_REGION, JobFields.SENIORITY_LEVEL, JobFields.SOURCE, JobFields.LAST_SEEN_AT,
