@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Plane } from 'lucide-react';
+import { useCountryUrlSync } from '../hooks/useCountryUrlSync';
 import { Badge } from '../components/ui/Badge';
 import CompanyLogo from '../components/common/CompanyLogo';
 import { useAppStore } from '../store/useAppStore';
@@ -10,6 +11,7 @@ import ErrorState from '../components/common/ErrorState';
 
 export default function CompaniesPage() {
     const { selectedCountry } = useAppStore();
+    useCountryUrlSync();
     const [visaSponsorshipOnly, setVisaSponsorshipOnly] = useState(false);
     const [companies, setCompanies] = useState<CompanyListingItemDto[]>([]);
     const [isLoading, setIsLoading] = useState(true);

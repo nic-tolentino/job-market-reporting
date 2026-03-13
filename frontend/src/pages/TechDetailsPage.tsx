@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import PageLoader from '../components/common/PageLoader';
 import { fetchTechDetails, type TechDetailsPageDto } from '../lib/api';
 import { useAppStore } from '../store/useAppStore';
+import { useCountryUrlSync } from '../hooks/useCountryUrlSync';
 import { FeedbackButton } from '../components/common/Feedback';
 import ErrorState from '../components/common/ErrorState';
 import { H1 } from '../components/ui/Typography';
@@ -21,11 +22,31 @@ type Tab = 'Market' | 'Learn' | 'Community';
 export default function TechDetailsPage() {
     const { techId } = useParams<{ techId: string }>();
     const { selectedCountry } = useAppStore();
+    const [searchParams, setSearchParams] = useSearchParams();
+    
+    // Global country sync
+    useCountryUrlSync();
 
     const [data, setData] = useState<TechDetailsPageDto | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [activeTab, setActiveTab] = useState<Tab>('Market');
+
+    // Sync active tab with URL
+    const activeTab = (searchParams.get('tab') as Tab) || 'Market';
+    const setActiveTab = (tab: Tab) => {
+        const newParams = new URLSearchParams(searchParams);
+        newParams.set('tab', tab);
+        setSearchParams(newParams);
+    };
+
+    // Mirror default tab to URL if not present
+    useEffect(() => {
+        if (!searchParams.get('tab')) {
+            const newParams = new URLSearchParams(searchParams);
+            newParams.set('tab', 'Market');
+            setSearchParams(newParams, { replace: true });
+        }
+    }, [searchParams, setSearchParams]);
 
     // Filter states
     const [selectedSeniority, setSelectedSeniority] = useState<string>('All');
@@ -43,7 +64,6 @@ export default function TechDetailsPage() {
         setSelectedCity('All');
         setCompaniesPage(1);
         setJobsPage(1);
-        setActiveTab('Market');
         try {
             const apiData = await fetchTechDetails(techId, selectedCountry);
             setData(apiData);
@@ -57,7 +77,7 @@ export default function TechDetailsPage() {
 
     useEffect(() => {
         loadData();
-    }, [loadData, techId, selectedCountry]);
+    }, [loadData]);
 
     // Derived filter options
     const seniorityOptions = useMemo(() => {

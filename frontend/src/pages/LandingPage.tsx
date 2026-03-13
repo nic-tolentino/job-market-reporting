@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCountryUrlSync } from '../hooks/useCountryUrlSync';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { 
     Briefcase, 
@@ -56,6 +57,7 @@ const MAX_TECH = 20;
 export default function LandingPage() {
     const navigate = useNavigate();
     const { selectedCountry } = useAppStore();
+    useCountryUrlSync();
     const [data, setData] = useState<LandingPageDto | null>(null);
     const [hubs, setHubs] = useState<DomainSummary[]>([]);
     const [isLoading, setIsLoading] = useState(true);

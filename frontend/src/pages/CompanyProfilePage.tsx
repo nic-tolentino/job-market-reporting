@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useCountryUrlSync } from '../hooks/useCountryUrlSync';
 import { Building2, MapPin, Calendar, X, ShieldCheck, Globe, CircleDashed, Plane } from 'lucide-react';
 import PageLoader from '../components/common/PageLoader';
 import { fetchCompanyProfile, type CompanyProfilePageDto } from '../lib/api';
@@ -38,6 +39,9 @@ export default function CompanyProfilePage() {
     const navigate = useNavigate();
     const { companyId } = useParams<{ companyId: string }>();
     const { selectedCountry } = useAppStore();
+    
+    // Global country sync
+    useCountryUrlSync();
     const [data, setData] = useState<CompanyProfilePageDto | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);

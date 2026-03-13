@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useCountryUrlSync } from '../hooks/useCountryUrlSync';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell,
   AreaChart, Area
@@ -29,6 +30,9 @@ export default function DomainHubPage() {
   const { category: categorySlug } = useParams<{ category: string }>();
   const navigate = useNavigate();
   const { selectedCountry } = useAppStore();
+  
+  // Global country sync
+  useCountryUrlSync();
   const [data, setData] = useState<DomainHub | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -199,7 +203,7 @@ export default function DomainHubPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-border-subtle">
-                {topCompanies.map((company) => (
+                {topCompanies.map((company: any) => (
                   <tr key={company.id} className="hover:bg-surface-hover transition-colors cursor-pointer" onClick={() => navigate(`/company/${company.id}`)}>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
@@ -227,7 +231,7 @@ export default function DomainHubPage() {
             </button>
           </div>
           <div className="space-y-3">
-            {recentJobs.slice(0, 6).map((job) => (
+            {recentJobs.slice(0, 6).map((job: any) => (
               <Card 
                 key={job.id} 
                 className="p-4 border-border hover:border-accent transition-all cursor-pointer group"
@@ -256,7 +260,7 @@ export default function DomainHubPage() {
       <section className="space-y-6">
         <H2>Technology Directory</H2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-          {technologies.map((tech) => (
+          {technologies.map((tech: any) => (
             <div 
               key={tech.name}
               className="p-4 rounded-xl border border-border bg-card hover:border-accent hover:shadow-theme-sm transition-all cursor-pointer group"

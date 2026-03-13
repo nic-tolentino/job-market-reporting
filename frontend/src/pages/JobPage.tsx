@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useCountryUrlSync } from '../hooks/useCountryUrlSync';
 import { Building2, MapPin, Clock, Calendar, ChevronRight, ExternalLink } from 'lucide-react';
 import DOMPurify from 'dompurify';
 import { FeedbackButton } from '../components/common/Feedback';
@@ -15,6 +16,9 @@ const JobPage: React.FC = () => {
     const { jobId } = useParams<{ jobId: string }>();
     const [data, setData] = useState<JobPageDto | null>(null);
     const [loading, setLoading] = useState(true);
+
+    // Global country sync
+    useCountryUrlSync();
 
     useEffect(() => {
         const loadData = async () => {
@@ -128,7 +132,7 @@ const JobPage: React.FC = () => {
                         </CardHeader>
                         <div className="p-0">
                             <ul className="divide-y divide-border-subtle">
-                                {locations.map((loc, idx) => (
+                                {locations.map((loc: any, idx: number) => (
                                     <li key={idx} className="px-6 py-4 flex items-center justify-between group hover:bg-surface-hover transition-colors">
                                         <span className="text-secondary font-medium">{loc.location}</span>
                                         {loc.applyUrl ? (
@@ -179,7 +183,7 @@ const JobPage: React.FC = () => {
                             <SectionSubtitle className="mb-4">Required Stack</SectionSubtitle>
                             {details.technologies && details.technologies.length > 0 ? (
                                 <div className="flex flex-wrap gap-1.5">
-                                    {details.technologies.map(tech => (
+                                    {details.technologies.map((tech: string) => (
                                         <Link
                                             key={tech}
                                             to={`/tech/${tech.toLowerCase()}`}
@@ -198,7 +202,7 @@ const JobPage: React.FC = () => {
                             <div className="p-6 border-t border-border-subtle">
                                 <SectionSubtitle className="mb-4">Role Benefits</SectionSubtitle>
                                 <div className="flex flex-wrap gap-2">
-                                    {details.benefits.map((benefit, i) => (
+                                    {details.benefits.map((benefit: string, i: number) => (
                                         <Badge key={i} variant="emerald">{benefit}</Badge>
                                     ))}
                                 </div>
@@ -214,7 +218,7 @@ const JobPage: React.FC = () => {
                                 <FeedbackButton variant="icon" context="Similar Roles Section" />
                             </CardHeader>
                             <div className="divide-y divide-border-subtle">
-                                {similarRoles.map(role => (
+                                {similarRoles.map((role: any) => (
                                     <Link
                                         key={role.id}
                                         to={`/job/${role.id}`}

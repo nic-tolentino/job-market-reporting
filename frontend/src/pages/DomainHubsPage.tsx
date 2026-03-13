@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCountryUrlSync } from '../hooks/useCountryUrlSync';
 import { 
   Code2, 
   Globe, 
@@ -36,6 +37,9 @@ const categoryIcons: Record<string, any> = {
 export default function DomainHubsPage() {
   const navigate = useNavigate();
   const { selectedCountry } = useAppStore();
+  
+  // Global country sync
+  useCountryUrlSync();
   const [hubs, setHubs] = useState<DomainSummary[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -74,7 +78,7 @@ export default function DomainHubsPage() {
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {hubs.map((hub) => {
+        {hubs.map((hub: any) => {
           const Icon = categoryIcons[hub.category.slug] || Layers;
           return (
             <Card 
