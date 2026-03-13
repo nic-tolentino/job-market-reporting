@@ -347,7 +347,7 @@ class RawJobDataMapper(
                         employmentType = lifecycle.firstNotNullOfOrNull { it.dto.employmentType },
                         workModel =
                                 lifecycle.firstNotNullOfOrNull {
-                                        parser.extractWorkModel(it.dto.location, it.dto.title)
+                                        parser.extractWorkModel(it.dto.location, it.dto.title, it.dto.descriptionText)
                                 }
                                         ?: manifestCompanies[companyId]?.remotePolicy
                                         ?: "On-site",

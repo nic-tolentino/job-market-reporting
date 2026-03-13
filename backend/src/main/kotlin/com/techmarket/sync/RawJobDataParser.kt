@@ -131,15 +131,20 @@ class RawJobDataParser {
         return Triple(result.first, result.second, normalizeCountry(result.third))
     }
 
-    /** Detects "Remote", "Hybrid" based on location or title keywords. Returns "On-site" if no explicit keyword is found. */
-    fun extractWorkModel(location: String?, title: String?): String {
+    /** Detects "Remote", "Hybrid" based on location, title, or description keywords. Returns "On-site" if no explicit keyword is found. */
+    fun extractWorkModel(location: String?, title: String?, description: String? = null): String {
         val locLower = location?.lowercase() ?: ""
         val titleLower = title?.lowercase() ?: ""
-        val combined = "$locLower $titleLower"
+        // Check title+location first (most reliable), then fall back to description snippet
+        val primary = "$locLower $titleLower"
+        val secondary = description?.take(500)?.lowercase() ?: ""
         return when {
-            combined.contains("remote") || combined.contains("teletrabajo") -> "Remote"
-            combined.contains("hybrid") || combined.contains("híbrido") -> "Hybrid"
-            combined.contains("presencial") -> "On-site"
+            primary.contains("remote") || primary.contains("teletrabajo") -> "Remote"
+            primary.contains("hybrid") || primary.contains("híbrido") -> "Hybrid"
+            primary.contains("presencial") -> "On-site"
+            secondary.contains("remote") || secondary.contains("teletrabajo") -> "Remote"
+            secondary.contains("hybrid") || secondary.contains("híbrido") -> "Hybrid"
+            secondary.contains("presencial") -> "On-site"
             else -> "On-site"
         }
     }

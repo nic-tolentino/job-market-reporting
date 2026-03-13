@@ -36,8 +36,8 @@ object AnalyticsMapper {
                 val remoteCount = row?.get(AnalyticsFields.REMOTE_COUNT)?.longValue?.toInt() ?: 0
                 val hybridCount = row?.get(AnalyticsFields.HYBRID_COUNT)?.longValue?.toInt() ?: 0
 
-                val remotePct = if (totalVacancies > 0) (remoteCount * 100) / totalVacancies else 0
-                val hybridPct = if (totalVacancies > 0) (hybridCount * 100) / totalVacancies else 0
+                val remotePct = if (totalVacancies > 0) Math.round(remoteCount * 100.0 / totalVacancies).toInt() else 0
+                val hybridPct = if (totalVacancies > 0) Math.round(hybridCount * 100.0 / totalVacancies).toInt() else 0
 
                 return GlobalStatsDto(
                         totalVacancies = totalVacancies,
