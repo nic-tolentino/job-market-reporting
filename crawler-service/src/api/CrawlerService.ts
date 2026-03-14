@@ -165,6 +165,10 @@ export class CrawlerService {
       let paginationSignal: CrawlMeta['paginationSignal'] = undefined;
       let jobYieldSignal: CrawlMeta['jobYieldSignal'] = undefined;
 
+      let jobsRaw = 0;
+      let jobsValid = 0;
+      let jobsTech = 0;
+
       // Growth/Contraction Signal Logging
       // Only emit when we have a prior baseline to compare against.
       if (seedData && seedData.lastKnownPageCount !== undefined) {
@@ -205,8 +209,11 @@ export class CrawlerService {
             if (i > 0) await new Promise(resolve => setTimeout(resolve, INTER_EXTRACTION_DELAY_MS));
             const extractionResult = await this.extractionService.extractJobs(wrappedContent, extractionConfig);
             
+            jobsRaw += extractionResult.jobs.length;
+
             // Post-Extraction Filtering for non-tech seeds
             let { validJobs } = validateJobs(extractionResult.jobs);
+            jobsValid += validJobs.length;
 
             if (seedData?.category === 'general' || seedData?.category === 'careers' || seedData?.category === 'homepage' || seedData?.category === 'unknown') {
               const originalCount = validJobs.length;
@@ -231,6 +238,7 @@ export class CrawlerService {
               }
             }
             
+            jobsTech += validJobs.length;
             allValidJobs = [...allValidJobs, ...validJobs];
           } catch (error) {
             console.error(`Error extracting from page ${i + 1}:`, (error as Error).message);
@@ -283,7 +291,12 @@ export class CrawlerService {
           errorMessage: crawlError,
           atsDirectUrl,
         },
-        jobs: uniqueJobs
+        jobs: uniqueJobs,
+        extractionStats: {
+          jobsRaw,
+          jobsValid,
+          jobsTech
+        }
       };
       
       return response;

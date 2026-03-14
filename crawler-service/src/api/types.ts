@@ -40,6 +40,7 @@ export interface CrawlResponse {
   companyId: string;
   crawlMeta: CrawlMeta;
   jobs: NormalizedJob[];
+  extractionStats?: ExtractionStats;
 }
 
 export interface CrawlMeta {
@@ -71,6 +72,12 @@ export interface CrawlMeta {
    * Use this as the seed URL for a follow-up targeted crawl.
    */
   atsDirectUrl?: string;
+}
+
+export interface ExtractionStats {
+  jobsRaw: number;    // total from Gemini before validation
+  jobsValid: number;  // after validateJobs()
+  jobsTech: number;   // after tech/negative keyword filter
 }
 
 export interface NormalizedJob {

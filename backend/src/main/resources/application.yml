@@ -45,3 +45,11 @@ gcs:
 
 app:
   base-url: ${APP_BASE_URL:https://devassembly.org}
+
+admin:
+  panel:
+    token: ${ADMIN_PANEL_TOKEN:}
+
+crawler:
+  service:
+    url: ${CRAWLER_SERVICE_URL:http://localhost:8080}

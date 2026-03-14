@@ -39,7 +39,24 @@ data class CompanyJsonDto(
     @JsonProperty("updated_at")
     val updatedAt: String? = null,
     @JsonProperty("ats")
-    val atsConfig: AtsConfigDto? = null
+    val atsConfig: AtsConfigDto? = null,
+    val crawler: CrawlerJsonDto? = null
+)
+
+data class CrawlerJsonDto(
+    val seeds: List<CrawlerSeedDto> = emptyList(),
+    val discovery: CrawlerDiscoveryDto? = null
+)
+
+data class CrawlerSeedDto(
+    val url: String,
+    val category: String?,
+    val status: String?
+)
+
+data class CrawlerDiscoveryDto(
+    val status: String?,
+    val errorMessage: String?
 )
 
 data class AtsConfigDto(

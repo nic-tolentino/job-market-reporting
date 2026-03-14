@@ -3,6 +3,8 @@ package com.techmarket.sync
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.techmarket.persistence.ats.AtsConfigRepository
 import com.techmarket.persistence.company.CompanyRepository
+import com.techmarket.persistence.crawler.CrawlerSeedRecord
+import com.techmarket.persistence.crawler.CrawlerSeedRepository
 import com.techmarket.persistence.model.CompanyAtsConfig
 import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.sync.ats.AtsProvider
@@ -22,6 +24,7 @@ import kotlin.streams.toList
 class CompanySyncService(
     private val companyRepository: CompanyRepository,
     private val atsConfigRepository: AtsConfigRepository,
+    private val crawlerSeedRepository: CrawlerSeedRepository,
     private val objectMapper: ObjectMapper,
     @Value("\${tech-market.manifest-dir:data/companies}")
     private val manifestDir: String
@@ -97,7 +100,43 @@ class CompanySyncService(
         // Sync ATS configurations
         syncAtsConfigurations(companies)
 
+        log.info("Company records synced. Now syncing Crawler seeds...")
+
+        // Sync Crawler seeds
+        syncCrawlerSeeds(companies)
+
         log.info("Company Manifest Sync completed successfully.")
+    }
+
+    /**
+     * Syncs Crawler seeds and discovery status from manifest to BigQuery.
+     */
+    private fun syncCrawlerSeeds(companies: List<CompanyJsonDto>) {
+        companies.forEach { dto ->
+            dto.crawler?.seeds?.forEach { seedDto ->
+                try {
+                    val record = CrawlerSeedRecord(
+                        companyId = dto.id,
+                        url = seedDto.url,
+                        category = seedDto.category ?: "unknown",
+                        status = seedDto.status ?: "ACTIVE",
+                        paginationPattern = null,
+                        lastKnownJobCount = null,
+                        lastKnownPageCount = null,
+                        lastCrawledAt = null,
+                        lastDurationMs = null,
+                        errorMessage = null,
+                        consecutiveZeroYieldCount = 0,
+                        atsProvider = null,
+                        atsIdentifier = null,
+                        atsDirectUrl = null
+                    )
+                    crawlerSeedRepository.upsert(record)
+                } catch (e: Exception) {
+                    log.error("Failed to sync crawler seed for ${dto.id}: ${e.message}")
+                }
+            }
+        }
     }
 
     /**

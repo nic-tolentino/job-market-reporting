@@ -8,6 +8,48 @@ object BigQueryTables {
     const val SEARCH_MISSES = "search_misses"
     const val USER_FEEDBACK = "user_feedback"
     const val ATS_CONFIGS = "company_ats_configs"
+    const val CRAWLER_SEEDS = "crawler_seeds"
+    const val CRAWL_RUNS = "crawl_runs"
+}
+
+object CrawlerSeedFields {
+    const val COMPANY_ID = "company_id"
+    const val URL = "url"
+    const val CATEGORY = "category"
+    const val STATUS = "status"
+    const val PAGINATION_PATTERN = "pagination_pattern"
+    const val LAST_KNOWN_JOB_COUNT = "last_known_job_count"
+    const val LAST_KNOWN_PAGE_COUNT = "last_known_page_count"
+    const val LAST_CRAWLED_AT = "last_crawled_at"
+    const val LAST_DURATION_MS = "last_duration_ms"
+    const val ERROR_MESSAGE = "error_message"
+    const val CONSECUTIVE_ZERO_YIELD_COUNT = "consecutive_zero_yield_count"
+    const val ATS_PROVIDER = "ats_provider"
+    const val ATS_IDENTIFIER = "ats_identifier"
+    const val ATS_DIRECT_URL = "ats_direct_url"
+}
+
+object CrawlRunFields {
+    const val RUN_ID = "run_id"
+    const val BATCH_ID = "batch_id"
+    const val COMPANY_ID = "company_id"
+    const val SEED_URL = "seed_url"
+    const val IS_TARGETED = "is_targeted"
+    const val STARTED_AT = "started_at"
+    const val DURATION_MS = "duration_ms"
+    const val PAGES_VISITED = "pages_visited"
+    const val JOBS_RAW = "jobs_raw"
+    const val JOBS_VALID = "jobs_valid"
+    const val JOBS_TECH = "jobs_tech"
+    const val JOBS_FINAL = "jobs_final"
+    const val CONFIDENCE_AVG = "confidence_avg"
+    const val ATS_PROVIDER = "ats_provider"
+    const val ATS_IDENTIFIER = "ats_identifier"
+    const val ATS_DIRECT_URL = "ats_direct_url"
+    const val PAGINATION_PATTERN = "pagination_pattern"
+    const val STATUS = "status"
+    const val ERROR_MESSAGE = "error_message"
+    const val MODEL_USED = "model_used"
 }
 
 object JobFields {

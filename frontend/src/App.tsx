@@ -17,28 +17,47 @@ const ContactPage = lazy(() => import('./pages/ContactPage'));
 const CompaniesPage = lazy(() => import('./pages/CompaniesPage'));
 const DomainHubsPage = lazy(() => import('./pages/DomainHubsPage'));
 const DomainHubPage = lazy(() => import('./pages/DomainHubPage'));
+const AdminApp = lazy(() => import('./admin/AdminApp').then((m) => ({ default: m.AdminApp })));
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Layout>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/tech/:techId" element={<TechDetailsPage />} />
-            <Route path="/company/:companyId" element={<CompanyProfilePage />} />
-            <Route path="/job/:jobId" element={<JobPage />} />
-            <Route path="/transparency" element={<TransparencyPage />} />
-            <Route path="/privacy" element={<PrivacyPolicyPage />} />
-            <Route path="/terms" element={<TermsPage />} />
-            <Route path="/companies" element={<CompaniesPage />} />
-            <Route path="/hubs" element={<DomainHubsPage />} />
-            <Route path="/hubs/:category" element={<DomainHubPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
-        </Suspense>
-      </Layout>
+      <Routes>
+        {/* Admin panel — own layout, no public nav */}
+        <Route
+          path="/admin/*"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <AdminApp />
+            </Suspense>
+          }
+        />
+
+        {/* Public site */}
+        <Route
+          path="/*"
+          element={
+            <Layout>
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  <Route path="/" element={<LandingPage />} />
+                  <Route path="/tech/:techId" element={<TechDetailsPage />} />
+                  <Route path="/company/:companyId" element={<CompanyProfilePage />} />
+                  <Route path="/job/:jobId" element={<JobPage />} />
+                  <Route path="/transparency" element={<TransparencyPage />} />
+                  <Route path="/privacy" element={<PrivacyPolicyPage />} />
+                  <Route path="/terms" element={<TermsPage />} />
+                  <Route path="/companies" element={<CompaniesPage />} />
+                  <Route path="/hubs" element={<DomainHubsPage />} />
+                  <Route path="/hubs/:category" element={<DomainHubPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                </Routes>
+              </Suspense>
+            </Layout>
+          }
+        />
+      </Routes>
       <Analytics />
       <SpeedInsights />
     </Router>

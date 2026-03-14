@@ -21,12 +21,6 @@ resource "google_cloud_tasks_queue" "sync_queue" {
   stackdriver_logging_config {
     sampling_ratio = 1.0
   }
-
-  # OIDC authentication for Cloud Run
-  oidc_access_token_config {
-    service_account_email = var.gcp_service_account
-    audience             = "https://tech-market-backend.a.run.app"
-  }
 }
 
 # Dead letter queue for failed tasks
