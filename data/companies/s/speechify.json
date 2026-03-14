@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://speechify.com"
+  "website": "https://speechify.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://speechify.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

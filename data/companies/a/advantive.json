@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.advantive.com"
+  "website": "http://www.advantive.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.advantive.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

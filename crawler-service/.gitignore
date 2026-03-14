@@ -36,5 +36,8 @@ Thumbs.db
 test-results/
 
 # Temporary
-tmp/
 temp/
+tmp/
+storage/
+test_log*.txt
+*.pid

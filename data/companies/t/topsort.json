@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.topsort.com"
+  "website": "https://www.topsort.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.topsort.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

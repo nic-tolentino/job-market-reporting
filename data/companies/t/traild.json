@@ -33,5 +33,13 @@
   },
   "employees_count": 50,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T12:00:00Z"
+  "updated_at": "2026-03-10T12:00:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://traild.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

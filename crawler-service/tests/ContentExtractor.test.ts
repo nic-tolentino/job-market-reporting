@@ -99,6 +99,51 @@ describe('ContentExtractor', () => {
       
       expect(result.mainContent).not.toContain('cookie-banner');
     });
+
+    it('populates textContent as plain text without tags', () => {
+      const html = '<html><body><main><p>Hello <b>World</b></p><ul><li>Item 1</li></ul></main></body></html>';
+      const result = extractContent(html);
+      
+      expect(result.textContent).toBe('Hello World Item 1');
+      expect(result.textContent).not.toContain('<p>');
+      expect(result.textContent).not.toContain('<b>');
+    });
+
+    it('sanitizes simplifiedHtml to allowed tags only', () => {
+      const html = `
+        <html>
+          <body>
+            <main>
+              <h1>Job Title</h1>
+              <div class="irrelevant">
+                <p>Description with <span style="color: red">span</span></p>
+                <button>Apply Now</button>
+                <svg>...</svg>
+              </div>
+            </main>
+          </body>
+        </html>
+      `;
+      const result = extractContent(html);
+      
+      expect(result.simplifiedHtml).toContain('<h1>Job Title</h1>');
+      expect(result.simplifiedHtml).toMatch(/<p>\s*Description with span\s*<\/p>/);
+      expect(result.simplifiedHtml).not.toContain('<div');
+      expect(result.simplifiedHtml).not.toContain('<span');
+      expect(result.simplifiedHtml).not.toContain('<button');
+      expect(result.simplifiedHtml).not.toContain('<svg');
+    });
+
+    it('strips all attributes except href on anchors in simplifiedHtml', () => {
+      const html = '<html><body><a href="https://ex.com" target="_blank" class="keep-me">Link</a><p class="text">Text</p></body></html>';
+      const result = extractContent(html);
+      
+      expect(result.simplifiedHtml).toContain('<a href="https://ex.com">Link</a>');
+      expect(result.simplifiedHtml).not.toContain('target="_blank"');
+      expect(result.simplifiedHtml).not.toContain('class="btn"');
+      expect(result.simplifiedHtml).toContain('<p>Text</p>');
+      expect(result.simplifiedHtml).not.toContain('class="text"');
+    });
   });
   
   describe('wrapContentForLlm', () => {

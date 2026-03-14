@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.unisys.com"
+  "website": "http://www.unisys.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.unisys.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

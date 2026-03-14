@@ -292,3 +292,27 @@ Sun - 5 hours
 Mon 9 March - 10 hours
 Tue - 13 hrs
 Wed - 6 hrs
+Thu - 5 hrs
+Fri - 6 hrs
+Sat - 4 hrs
+
+- should the crawler-service/storage folder be added to gitignore?
+- https://www.devassembly.org/company/xero lists 8 jobs, but it's actually just 4 jobs which weren't de-duplicated successfully. We should understand why and fix this issue. 
+- Consider adding a calculation for the total number of jobs listed this month, and this year for each company, and on average how long a job listing exists for (do we ever remove jobs from the database - should we?).
+
+- Xero careers with Engineering + Data Science filter (page 1 of x): https://careers.xero.com/jobs/?team=Data,%20AI%20%26%20Machine%20Learning&team=Engineering&pagesize=20#results 
+- Trade Me careers with Engineering filter: https://trademe.csod.com/ux/ats/careersite/1/home?c=trademe&cfdd[0][id]=241&cfdd[0][options][0]=512
+- atlassian with Engineering + Data + Design filters: https://www.atlassian.com/company/careers/all-jobs?team=Engineering%2CData%2C%20Analytics%20%26%20Research%2CDesign&location=&search=
+
+Trade Me: https://trademe.csod.com/ux/ats/careersite/6/home?c=trademe (Cornerstone Integration)
+Xero: https://careers.xero.com (Engineering specific findings also available)
+Atlassian: https://www.atlassian.com/company/careers/all-jobs (Workday)
+Canva: https://www.canva.com/careers/ (SmartRecruiters)
+Salesforce: https://www.salesforce.com/company/careers/ (Workday)
+Fisher & Paykel: https://www.fphcare.com/us/careers/
+Rocket Lab: https://www.rocketlabusa.com/careers/
+Mainfreight: https://www.mainfreight.com/careers
+Pushpay: https://pushpay.com/company/careers
+Halter: https://halter.com/careers/
+Tracksuit: https://www.tracksuit.com/careers/jobs
+Vend/Lightspeed: https://www.lightspeedhq.com/careers/

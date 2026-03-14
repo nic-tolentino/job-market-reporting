@@ -47,5 +47,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.telefonica.com"
+  "website": "https://www.telefonica.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.telefonica.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

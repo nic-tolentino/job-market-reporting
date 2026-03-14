@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.cloverhealth.com"
+  "website": "http://www.cloverhealth.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.cloverhealth.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

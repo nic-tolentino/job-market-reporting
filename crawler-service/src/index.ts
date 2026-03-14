@@ -1,8 +1,9 @@
+import 'dotenv/config';
 import { createApp } from './api/server';
 import { CrawlerService } from './api/CrawlerService';
 import { DEFAULT_MODEL, getModelConfig } from './config/model-config';
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || DEFAULT_MODEL;
 

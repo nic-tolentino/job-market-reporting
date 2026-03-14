@@ -23,5 +23,13 @@
   "updated_at": "2026-03-10T07:45:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://vermont-solutions.com"
+  "website": "https://vermont-solutions.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://vermont-solutions.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

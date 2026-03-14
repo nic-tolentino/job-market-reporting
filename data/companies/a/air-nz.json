@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.airnewzealand.co.nz"
+  "website": "http://www.airnewzealand.co.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.airnewzealand.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

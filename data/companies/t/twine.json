@@ -29,5 +29,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.twine.net"
+  "website": "https://www.twine.net",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.twine.net/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

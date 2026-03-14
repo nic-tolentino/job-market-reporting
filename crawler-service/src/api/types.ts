@@ -6,6 +6,7 @@ export interface CrawlRequest {
   companyId: string;
   url: string;
   crawlConfig?: CrawlConfig;
+  seedData?: SeedMetadata; // Optional: metadata from a previous crawl of this seed
 }
 
 export interface CrawlConfig {
@@ -15,6 +16,19 @@ export interface CrawlConfig {
   cssSelectors?: CssSelectors | null;
   knownAtsProvider?: string | null;
   timeout?: number;
+  isDiscoveryMode?: boolean; // If true, crawler ignores same-path restriction to scout for boards
+  paginationLimit?: number;
+  extractionHints?: Array<{ key: string; value: string }>;
+}
+
+export interface SeedMetadata {
+  url: string;
+  category: 'tech-filtered' | 'general' | 'careers' | 'homepage' | 'unknown';
+  lastKnownPageCount?: number;
+  lastKnownJobCount?: number;
+  lastVerified?: string;
+  pagination_pattern?: string;
+  status?: 'ACTIVE' | 'BLOCKED' | 'TIMEOUT' | 'STALE';
 }
 
 export interface CssSelectors {
@@ -36,6 +50,27 @@ export interface CrawlMeta {
   crawlDurationMs: number;
   extractionModel: string;
   extractionConfidence: number;
+  lastCrawledAt: string;
+  pagination_pattern?: string;
+  errorMessage?: string;
+  paginationSignal?: {
+    type: 'GROWTH' | 'CONTRACTION';
+    previousPages: number;
+    newPages: number;
+  };
+  jobYieldSignal?: {
+    type: 'GROWTH' | 'CONTRACTION';
+    previousJobs: number;
+    newJobs: number;
+    delta: number;
+  };
+  status?: 'ACTIVE' | 'BLOCKED' | 'TIMEOUT' | 'STALE' | 'FAILED';
+  /**
+   * Direct URL to the ATS job board when a provider was detected but no jobs
+   * could be extracted from the crawled page (e.g. Greenhouse embed, iFrame).
+   * Use this as the seed URL for a follow-up targeted crawl.
+   */
+  atsDirectUrl?: string;
 }
 
 export interface NormalizedJob {

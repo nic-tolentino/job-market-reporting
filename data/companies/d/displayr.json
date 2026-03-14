@@ -35,5 +35,18 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.displayr.com"
+  "website": "https://www.displayr.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.displayr.com/careers",
+        "category": "unknown"
+      }
+    ],
+    "discovery": {
+      "status": "NO_MATCH",
+      "lastAttemptedAt": "2026-03-14",
+      "notes": "Workable widget detected on homepage but identifier slug unknown (null) so atsDirectUrl cannot be constructed. No careers nav link exists to follow. Needs manual investigation to find the Workable board URL."
+    }
+  }
 }

@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://fergus.com"
+  "website": "https://fergus.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://fergus.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

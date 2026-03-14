@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.roller.software"
+  "website": "https://www.roller.software",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.roller.software/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

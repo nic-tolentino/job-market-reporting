@@ -41,5 +41,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.plainconcepts.com"
+  "website": "https://www.plainconcepts.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.plainconcepts.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

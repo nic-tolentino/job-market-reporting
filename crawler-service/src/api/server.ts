@@ -19,7 +19,17 @@ const CrawlRequestSchema = z.object({
       removeSelectors: z.array(z.string()).optional()
     }).nullable().optional(),
     knownAtsProvider: z.string().nullable().optional(),
-    timeout: z.number().int().positive().optional()
+    timeout: z.number().int().positive().optional(),
+    isDiscoveryMode: z.boolean().optional()
+  }).optional(),
+  seedData: z.object({
+    url: z.string().url(),
+    category: z.enum(['tech-filtered', 'general', 'careers', 'homepage', 'unknown']),
+    lastKnownPageCount: z.number().optional(),
+    lastKnownJobCount: z.number().optional(),
+    lastVerified: z.string().optional(),
+    pagination_pattern: z.string().optional(),
+    status: z.enum(['ACTIVE', 'BLOCKED', 'TIMEOUT', 'STALE']).optional(),
   }).optional()
 });
 
@@ -126,10 +136,10 @@ export function createApp(crawlerService: CrawlerService): express.Application {
         const batchResults = await Promise.all(
           batch.map((req, batchIndex) => 
             crawlerService.crawl(req)
-              .then(result => ({ ...result, index: requests.findIndex(r => r.companyId === req.companyId) }))
+              .then(result => ({ ...result, index: i + batchIndex }))
               .catch(err => ({
                 companyId: req.companyId,
-                index: requests.findIndex(r => r.companyId === req.companyId),
+                index: i + batchIndex,
                 crawlMeta: {
                   pagesVisited: 0,
                   totalJobsFound: 0,
@@ -137,7 +147,8 @@ export function createApp(crawlerService: CrawlerService): express.Application {
                   detectedAtsIdentifier: null,
                   crawlDurationMs: 0,
                   extractionModel: 'none',
-                  extractionConfidence: 0
+                  extractionConfidence: 0,
+                  lastCrawledAt: new Date().toISOString()
                 },
                 jobs: [],
                 error: err.message

@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.mrapple.com"
+  "website": "https://www.mrapple.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.mrapple.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

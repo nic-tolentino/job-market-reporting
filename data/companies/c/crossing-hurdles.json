@@ -31,5 +31,13 @@
   },
   "employees_count": 30,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T09:05:00Z"
+  "updated_at": "2026-03-10T09:05:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.crossinghurdles.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

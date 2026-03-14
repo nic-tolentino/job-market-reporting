@@ -32,5 +32,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://wallapop.com"
+  "website": "https://wallapop.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://wallapop.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

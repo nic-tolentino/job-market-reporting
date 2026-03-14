@@ -35,5 +35,13 @@
   },
   "employees_count": 800,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T09:20:00Z"
+  "updated_at": "2026-03-10T09:20:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.kairosds.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

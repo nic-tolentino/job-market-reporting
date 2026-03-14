@@ -41,5 +41,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.deloitte.com/"
+  "website": "http://www.deloitte.com/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.deloitte.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

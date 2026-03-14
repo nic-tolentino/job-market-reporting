@@ -33,5 +33,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.garmin.com/en-NZ/"
+  "website": "https://www.garmin.com/en-NZ/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.garmin.com/en-NZ/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

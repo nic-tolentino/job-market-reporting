@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.bnz.co.nz"
+  "website": "http://www.bnz.co.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.bnz.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

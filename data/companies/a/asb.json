@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.asb.co.nz"
+  "website": "https://www.asb.co.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.asb.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

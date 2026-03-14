@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.ct.com.au"
+  "website": "https://www.ct.com.au",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.ct.com.au/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

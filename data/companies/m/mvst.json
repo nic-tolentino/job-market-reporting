@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.mvst.co"
+  "website": "https://www.mvst.co",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.mvst.co/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

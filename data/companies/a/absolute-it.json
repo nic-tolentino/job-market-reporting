@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.absoluteit.co.nz"
+  "website": "https://www.absoluteit.co.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.absoluteit.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

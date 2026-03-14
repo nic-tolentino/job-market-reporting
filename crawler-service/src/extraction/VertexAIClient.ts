@@ -18,10 +18,8 @@ export class VertexAIClient {
   private model: string;
 
   constructor(apiKey: string, model: string = DEFAULT_MODEL) {
-    if (!apiKey || apiKey.length < 20) {
-      throw new Error(
-        'Invalid Vertex AI API key. Get one from Google Cloud Console.'
-      );
+    if (!apiKey) {
+      console.warn('Vertex AI API key is missing. Extraction will fail.');
     }
     this.apiKey = apiKey;
     this.model = model;
@@ -32,6 +30,13 @@ export class VertexAIClient {
    * Uses streaming endpoint with API key auth
    */
   async generateContent(prompt: string): Promise<VertexAIResponse> {
+    if (!this.apiKey || this.apiKey.length < 20) {
+      throw new Error(
+        'Invalid Vertex AI API key. Get one from Google Cloud Console.'
+      );
+    }
+    
+    // Use global endpoint as confirmed by user to work with gemini-2.5-flash-lite
     const url = `https://aiplatform.googleapis.com/v1/publishers/google/models/${this.model}:streamGenerateContent?key=${this.apiKey}&alt=sse`;
 
     const response = await fetch(url, {

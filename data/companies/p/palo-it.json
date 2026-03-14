@@ -42,5 +42,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.palo-it.com"
+  "website": "https://www.palo-it.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.palo-it.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

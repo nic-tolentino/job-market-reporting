@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.tencent.com/en-us/"
+  "website": "https://www.tencent.com/en-us/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.tencent.com/en-us/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.pss-ti.com"
+  "website": "https://www.pss-ti.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.pss-ti.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

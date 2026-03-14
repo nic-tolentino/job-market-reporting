@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.kapres.com"
+  "website": "https://www.kapres.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.kapres.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

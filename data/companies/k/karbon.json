@@ -39,5 +39,14 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.karbonhq.com"
+  "website": "https://www.karbonhq.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.karbonhq.com/careers",
+        "category": "tech-filtered",
+        "status": "ACTIVE"
+      }
+    ]
+  }
 }

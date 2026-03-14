@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://mathspace.co"
+  "website": "https://mathspace.co",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://mathspace.co/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

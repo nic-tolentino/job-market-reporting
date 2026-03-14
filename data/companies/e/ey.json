@@ -40,5 +40,13 @@
   },
   "employees_count": 350000,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T14:00:00Z"
+  "updated_at": "2026-03-10T14:00:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.ey.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

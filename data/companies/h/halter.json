@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.halter.co.nz"
+  "website": "http://www.halter.co.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://halter.com/careers/",
+        "category": "tech-filtered"
+      }
+    ]
+  }
 }

@@ -33,5 +33,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://sourced.nz"
+  "website": "http://sourced.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://sourced.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

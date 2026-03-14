@@ -42,5 +42,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.dxc.com"
+  "website": "http://www.dxc.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.dxc.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

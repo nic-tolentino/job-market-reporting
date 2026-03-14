@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.bookboost.io"
+  "website": "https://www.bookboost.io",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.bookboost.io/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

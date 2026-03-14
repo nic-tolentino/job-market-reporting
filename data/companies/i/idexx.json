@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.idexx.com"
+  "website": "http://www.idexx.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.idexx.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

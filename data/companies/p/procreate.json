@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://procreate.com"
+  "website": "https://procreate.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://procreate.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

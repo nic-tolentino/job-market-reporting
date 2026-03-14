@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://q-ctrl.com"
+  "website": "https://q-ctrl.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://q-ctrl.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -43,5 +43,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://welcome.jbtmarel.com"
+  "website": "https://welcome.jbtmarel.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://welcome.jbtmarel.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

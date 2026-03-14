@@ -36,5 +36,13 @@
   "ats": {
     "provider": "LEVER",
     "identifier": "anybotics"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.anybotics.com/careers",
+        "category": "unknown"
+      }
+    ]
   }
 }

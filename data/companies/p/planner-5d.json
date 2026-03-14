@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://planner5d.com"
+  "website": "https://planner5d.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://planner5d.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.educationperfect.com"
+  "website": "https://www.educationperfect.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.educationperfect.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

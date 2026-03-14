@@ -1,0 +1,46 @@
+{
+  "id": "mainfreight",
+  "name": "Mainfreight",
+  "alternateNames": [],
+  "description": "Mainfreight is a global logistics provider based in New Zealand.",
+  "website": "https://www.mainfreight.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQG-z98X8Xjw/company-logo_100_100/0/1630578616623/mainfreight_logo?e=1774483200&v=beta&t=...",
+  "industries": [
+    "Logistics",
+    "Supply Chain"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "NZ",
+  "operating_countries": [
+    "NZ",
+    "AU",
+    "US",
+    "GB",
+    "EU",
+    "AS"
+  ],
+  "office_locations": [
+    "Auckland"
+  ],
+  "remote_policy": "On-site",
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
+  "employees_count": 10000,
+  "verification_level": "verified",
+  "updated_at": "2026-03-14T10:00:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.mainfreight.com/careers",
+        "category": "general"
+      }
+    ]
+  }
+}

@@ -38,5 +38,13 @@
   },
   "employees_count": 50,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T11:00:00Z"
+  "updated_at": "2026-03-10T11:00:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.simplemachines.com.au/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

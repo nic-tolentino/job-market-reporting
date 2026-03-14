@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.excelia.com"
+  "website": "https://www.excelia.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.excelia.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.teachershealth.com.au"
+  "website": "https://www.teachershealth.com.au",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.teachershealth.com.au/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

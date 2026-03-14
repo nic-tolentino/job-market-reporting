@@ -31,5 +31,13 @@
   "updated_at": "2026-03-10T07:45:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.nttdata.com"
+  "website": "https://www.nttdata.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.nttdata.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

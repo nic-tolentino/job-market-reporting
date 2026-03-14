@@ -34,5 +34,13 @@
   },
   "employees_count": 50,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T08:50:00Z"
+  "updated_at": "2026-03-10T08:50:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://acento.be/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

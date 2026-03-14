@@ -41,5 +41,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://cabify.com"
+  "website": "https://cabify.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://cabify.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

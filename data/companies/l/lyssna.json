@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.lyssna.com"
+  "website": "https://www.lyssna.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.lyssna.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

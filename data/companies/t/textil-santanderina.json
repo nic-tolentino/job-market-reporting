@@ -34,5 +34,13 @@
   },
   "employees_count": 1000,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T12:00:00Z"
+  "updated_at": "2026-03-10T12:00:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.textilsantanderina.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

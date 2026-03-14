@@ -43,5 +43,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.jadethirdeye.com"
+  "website": "https://www.jadethirdeye.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.jadethirdeye.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

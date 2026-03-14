@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.seequent.com/"
+  "website": "https://www.seequent.com/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.seequent.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

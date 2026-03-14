@@ -22,13 +22,13 @@ describe('GeminiExtractionService', () => {
   describe('constructor', () => {
     it('accepts API key parameter', () => {
       const { GeminiExtractionService } = require('../src/extraction/GeminiExtractionService');
-      const service = new GeminiExtractionService('test-key');
+      const service = new GeminiExtractionService('dummy-test-key-of-sufficient-length');
       expect(service).toBeDefined();
     });
 
     it('accepts custom model parameter', () => {
       const { GeminiExtractionService } = require('../src/extraction/GeminiExtractionService');
-      const service = new GeminiExtractionService('test-key', 'gemini-1.5-pro');
+      const service = new GeminiExtractionService('dummy-test-key-of-sufficient-length', 'gemini-1.5-pro');
       expect(service).toBeDefined();
     });
 
@@ -43,7 +43,7 @@ describe('GeminiExtractionService', () => {
       new GeminiExtractionService();
 
       expect(console.warn).toHaveBeenCalledWith(
-        expect.stringContaining('GEMINI_API_KEY not set')
+        expect.stringContaining('Vertex AI API key is missing')
       );
 
       console.warn = consoleWarn;

@@ -43,5 +43,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://enable.com"
+  "website": "https://enable.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://enable.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

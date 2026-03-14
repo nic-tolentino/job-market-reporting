@@ -39,14 +39,14 @@ npm run build
 npm start
 ```
 
-The service will start on `http://localhost:8080`
+The service will start on `http://localhost:8081`
 
 ## Step 4: Test the Service
 
 ### Health Check
 
 ```bash
-curl http://localhost:8080/health
+curl http://localhost:8081/health
 ```
 
 Expected response:
@@ -57,7 +57,7 @@ Expected response:
 ### Test Crawl
 
 ```bash
-curl -X POST http://localhost:8080/crawl \
+curl -X POST http://localhost:8081/crawl \
   -H "Content-Type: application/json" \
   -d '{
     "companyId": "test-company",

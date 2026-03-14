@@ -34,5 +34,13 @@
   },
   "employees_count": 100,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T09:20:00Z"
+  "updated_at": "2026-03-10T09:20:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.hoplasoftware.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

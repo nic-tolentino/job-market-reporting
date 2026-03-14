@@ -23,5 +23,13 @@
   "updated_at": "2026-03-10T07:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.plexus.es"
+  "website": "https://www.plexus.es",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.plexus.es/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

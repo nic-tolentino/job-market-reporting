@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.plain.com"
+  "website": "https://www.plain.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.plain.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

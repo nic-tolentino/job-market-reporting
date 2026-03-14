@@ -31,5 +31,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.tradifyhq.com"
+  "website": "http://www.tradifyhq.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.tradifyhq.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

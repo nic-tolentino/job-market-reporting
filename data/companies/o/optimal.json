@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.optimalworkshop.com"
+  "website": "https://www.optimalworkshop.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.optimalworkshop.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

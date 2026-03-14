@@ -41,5 +41,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.travelperk.com"
+  "website": "https://www.travelperk.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.travelperk.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

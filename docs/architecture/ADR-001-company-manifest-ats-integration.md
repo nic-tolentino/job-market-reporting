@@ -17,6 +17,9 @@ This document records the architecture decisions for the company manifest system
 3. [Validation & Quality Assurance](#3-validation--quality-assurance)
 4. [Data Synchronization Pipeline](#4-data-synchronization-pipeline)
 5. [Future Enhancements](#5-future-enhancements)
+6. [Lessons Learned](#6-lessons-learned)
+7. [References](#7-references)
+8. [Crawler Data Persistence & Backend Integration](#8-crawler-data-persistence--backend-integration)
 
 ---
 
@@ -667,6 +670,107 @@ withContext(IO) {
 
 ---
 
-**Document Status:** ✅ Complete  
-**Last Updated:** March 10, 2026  
-**Next Review:** Q3 2026
+## 8. Crawler Data Persistence & Backend Integration
+
+### 8.1 Architectural Decision: Kotlin Backend Owns BigQuery Write-Back
+
+**March 14, 2026** | **Status: Decided**
+
+#### 8.1.1 Decision
+The Kotlin backend — not the crawler service — is responsible for persisting crawl results to the `crawler_seeds` BigQuery table. The crawler service is a stateless computation service: it crawls, extracts, and returns a typed `CrawlMeta` response. It has no BigQuery client and no opinion about persistence.
+
+#### 8.1.2 Rationale
+1. **Single BigQuery client** — schema definition, validation, and access patterns live in one place. When `crawler_seeds` changes, one codebase changes.
+2. **Type safety** — Kotlin data classes + `CrawlerSeedRepository` provide compile-time schema validation. TypeScript has no entity model and weak guarantees around what it writes to BigQuery.
+3. **Business logic belongs here** — deciding what to do with a `PAGINATION_GROWTH` signal (schedule a re-crawl, mark a seed STALE, alert) is orchestration logic that belongs alongside other scheduling code in the backend.
+4. **Consistent error handling** — the backend already handles partial failures, retries, and BQ write errors for other tables. Crawl result persistence follows the same patterns.
+
+### 8.2 Implementation Recommendations
+
+#### 8.2.1 Treat CrawlMeta as a Formal Contract
+The crawler's `CrawlMeta` response is the interface between the two services. Define a matching Kotlin DTO immediately and treat it as a versioned contract — not an ad-hoc JSON blob.
+
+```kotlin
+data class CrawlMetaDto(
+    val companyId: String,
+    val seedUrl: String?,
+    val pagesVisited: Int,
+    val totalJobsFound: Int,
+    val durationMs: Long,
+    val exitState: CrawlExitState, // ACTIVE, BLOCKED, TIMEOUT
+    val errorMessage: String?,
+    val paginationSignal: PaginationSignal?,
+    val jobYieldSignal: JobYieldSignal?,
+    val paginationPattern: String?
+)
+
+enum class CrawlExitState { ACTIVE, BLOCKED, TIMEOUT }
+
+data class PaginationSignal(
+    val type: SignalType, // GROWTH, CONTRACTION
+    val previousPages: Int,
+    val newPages: Int
+)
+
+data class JobYieldSignal(
+    val type: SignalType,
+    val previousJobs: Int,
+    val newJobs: Int,
+    val delta: Int
+)
+```
+
+#### 8.2.2 Log Raw Response Immediately on Receipt
+Before any processing or BQ write, log the raw `CrawlMeta` payload. This is the primary failure recovery mechanism — if the BQ write fails, the data isn't lost.
+
+```kotlin
+fun handleCrawlResult(meta: CrawlMetaDto) {
+    logger.info("CRAWL_RESULT_RECEIVED company={} seed={} payload={}",
+        meta.companyId, meta.seedUrl, objectMapper.writeValueAsString(meta))
+
+    persistToDatabase(meta)   // can fail — log is already written
+    processSignals(meta)      // separate concern
+}
+```
+
+#### 8.2.3 Separate Persistence from Signal Processing
+Two distinct responsibilities — keep them in separate methods/classes:
+
+```kotlin
+// 1. Always runs first — raw state update
+crawlerSeedRepository.upsert(CrawlerSeedRecord(
+    companyId = meta.companyId,
+    url = meta.seedUrl ?: return,
+    lastKnownPageCount = meta.pagesVisited,
+    lastKnownJobCount = meta.totalJobsFound,
+    lastCrawledAt = Instant.now(),
+    lastDurationMs = meta.durationMs,
+    status = meta.exitState.toSeedStatus(),
+    errorMessage = meta.errorMessage?.take(500),
+    paginationPattern = meta.paginationPattern,
+    consecutiveZeroYieldCount = if (meta.totalJobsFound == 0) (existing?.consecutiveZeroYieldCount ?: 0) + 1 else 0
+))
+
+// 2. Runs after — signal-driven side effects
+signalProcessor.handle(meta)
+```
+
+#### 8.2.4 CrawlerSeedRepository — Upsert Pattern
+BigQuery doesn't support true upserts natively. The standard pattern for `crawler_seeds`:
+- **Option A (simplest)**: Use a `MERGE` statement in a scheduled backend job that deduplicates by `(company_id, url)` on `last_crawled_at`.
+- **Option B (recommended)**: Use BigQuery's `INSERT` with `ignoreUnknownValues` and run periodic `MERGE` to compact. This works well for append-heavy operational tables.
+
+#### 8.2.5 STALE Lifecycle — Backend Maintenance Job
+`STALE` is set by age (>30 days) and yield (0 jobs for 3 consecutive runs). This needs a scheduled job, not inline crawl processing. 
+
+Note: yield-based staleness requires adding `consecutive_zero_yield_count (INTEGER)` to the schema to track runs without querying history.
+
+#### 8.2.6 Failure Mitigation — Tiered Approach
+1. **Tier 1**: Structured log on receipt (immediate) — zero cost, implement now.
+2. **Tier 2**: Retry with exponential backoff on BQ write failure.
+3. **Tier 3**: Dead-letter queue (Cloud Pub/Sub or Cloud Tasks).
+4. **Tier 4**: Idempotent re-crawl (Last resort).
+
+---
+
+**Last Updated:** March 14, 2026

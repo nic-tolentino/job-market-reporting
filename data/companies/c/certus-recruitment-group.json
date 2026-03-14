@@ -41,5 +41,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.certusrecruitment.com"
+  "website": "https://www.certusrecruitment.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.certusrecruitment.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

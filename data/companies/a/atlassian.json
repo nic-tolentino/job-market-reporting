@@ -1,0 +1,53 @@
+{
+  "id": "atlassian",
+  "name": "Atlassian",
+  "alternateNames": [],
+  "description": "Atlassian Corporation is a software company that develops products for software developers, project managers and other software development teams.",
+  "website": "https://www.atlassian.com",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQG0xndv8X8Xjw/company-logo_100_100/0/1630578616623/atlassian_logo?e=1774483200&v=beta&t=...",
+  "industries": [
+    "Software Development",
+    "Collaboration",
+    "SaaS"
+  ],
+  "company_type": "Product",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "hq_country": "US",
+  "operating_countries": [
+    "AU",
+    "US",
+    "NL",
+    "PH",
+    "IN"
+  ],
+  "office_locations": [
+    "Sydney",
+    "Amsterdam",
+    "San Francisco",
+    "Bengaluru"
+  ],
+  "remote_policy": "Remote",
+  "visa_sponsorship": {
+    "offered": true,
+    "types": [],
+    "notes": null,
+    "last_verified": null,
+    "source": null
+  },
+  "employees_count": 10000,
+  "verification_level": "verified",
+  "updated_at": "2026-03-14T10:00:00Z",
+  "ats": {
+    "provider": "WORKDAY",
+    "identifier": "atlassian"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.atlassian.com/company/careers/all-jobs?team=Engineering%2CData%2C%20Analytics%20%26%20Research%2CDesign&location=&search=",
+        "category": "tech-filtered"
+      }
+    ]
+  }
+}

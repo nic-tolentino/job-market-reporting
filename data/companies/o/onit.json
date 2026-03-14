@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.onit.com"
+  "website": "http://www.onit.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.onit.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

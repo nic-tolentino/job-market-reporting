@@ -32,5 +32,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.idealista.com"
+  "website": "https://www.idealista.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.idealista.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

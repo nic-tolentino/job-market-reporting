@@ -33,5 +33,13 @@
   "ats": {
     "provider": "LEVER",
     "identifier": "360learning"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://360learning.com/careers",
+        "category": "unknown"
+      }
+    ]
   }
 }

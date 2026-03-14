@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.tyro.com"
+  "website": "https://www.tyro.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.tyro.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

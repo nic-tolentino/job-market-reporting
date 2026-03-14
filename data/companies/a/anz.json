@@ -44,5 +44,13 @@
   "ats": {
     "provider": "SUCCESSFACTORS",
     "identifier": "performancemanager10"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.anz.com/careers",
+        "category": "unknown"
+      }
+    ]
   }
 }

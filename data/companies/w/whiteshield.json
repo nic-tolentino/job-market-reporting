@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.whiteshield.com"
+  "website": "https://www.whiteshield.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.whiteshield.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

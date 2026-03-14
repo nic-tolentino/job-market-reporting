@@ -42,5 +42,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://factorialhr.com"
+  "website": "https://factorialhr.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://factorialhr.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

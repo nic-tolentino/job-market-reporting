@@ -87,11 +87,9 @@ export class RobotsChecker {
    * Extracts crawl-delay from robots.txt
    */
   private extractCrawlDelay(parser: RobotsParser, domain: string): number {
-    // robots-parser doesn't expose crawl-delay directly, so we use default
-    // In production, you'd parse this from the robots.txt content
-    const match = parser.toString().match(/Crawl-delay:\s*(\d+)/i);
-    if (match) {
-      return parseInt(match[1], 10) * 1000; // Convert to ms
+    const delay = parser.getCrawlDelay(this.userAgent);
+    if (delay && !isNaN(delay)) {
+      return delay * 1000; // Convert to ms
     }
     return this.defaultCrawlDelay;
   }

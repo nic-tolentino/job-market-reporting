@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.notion.so"
+  "website": "https://www.notion.so",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.notion.so/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -41,5 +41,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://vista.co"
+  "website": "http://vista.co",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://vista.co/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://clue.aero"
+  "website": "https://clue.aero",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://clue.aero/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://expertech.com.au"
+  "website": "https://expertech.com.au",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://expertech.com.au/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

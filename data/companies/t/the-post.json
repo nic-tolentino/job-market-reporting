@@ -32,5 +32,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.thepost.co.nz/"
+  "website": "https://www.thepost.co.nz/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.thepost.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

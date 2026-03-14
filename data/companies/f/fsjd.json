@@ -1,8 +1,8 @@
 {
   "id": "fsjd",
-  "name": "Fundaci\u00f3 de Recerca Sant Joan de D\u00e9u",
+  "name": "Fundació de Recerca Sant Joan de Déu",
   "alternateNames": [],
-  "description": "Fundaci\u00f3 de Recerca Sant Joan de D\u00e9u is a company profile created during backlog processing.",
+  "description": "Fundació de Recerca Sant Joan de Déu is a company profile created during backlog processing.",
   "website": null,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFfNslu0eeCVA/company-logo_100_100/company-logo_100_100/0/1630671564992/fundaci_sant_joan_de_d_u_logo?e=1774483200&v=beta&t=h__tJF2WCyt_0CiqqncVrM0fP2y1QzMhYcw6zn50ke4",
   "industries": [],
@@ -16,5 +16,8 @@
   "visa_sponsorship": null,
   "employees_count": null,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T07:34:10.000729Z"
+  "updated_at": "2026-03-10T07:34:10.000729Z",
+  "crawler": {
+    "seeds": []
+  }
 }

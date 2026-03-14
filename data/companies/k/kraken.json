@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://kraken.tech"
+  "website": "https://kraken.tech",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://kraken.tech/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -48,5 +48,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.veepee.com"
+  "website": "https://www.veepee.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.veepee.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

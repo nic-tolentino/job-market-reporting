@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.imara.co.nz"
+  "website": "http://www.imara.co.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.imara.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

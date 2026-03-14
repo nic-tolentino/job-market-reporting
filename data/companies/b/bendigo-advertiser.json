@@ -31,5 +31,13 @@
   "employees_count": 100,
   "verification_level": "needs_review",
   "blocked_reason": "Data collision: Scraper likely misattributed external tech jobs to this media outlet.",
-  "updated_at": "2026-03-10T09:00:00Z"
+  "updated_at": "2026-03-10T09:00:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.bendigoadvertiser.com.au/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -41,5 +41,13 @@
   },
   "employees_count": 160000,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T08:55:00Z"
+  "updated_at": "2026-03-10T08:55:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.apple.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

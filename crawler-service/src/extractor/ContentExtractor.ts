@@ -5,6 +5,8 @@ import * as cheerio from 'cheerio';
  */
 export interface ExtractedContent {
   mainContent: string;
+  textContent: string;
+  simplifiedHtml: string;
   title: string;
   metaDescription: string | null;
   canonicalUrl: string | null;
@@ -64,7 +66,27 @@ const REMOVE_SELECTORS = [
   
   // Breadcrumbs
   '.breadcrumbs',
-  '.breadcrumb'
+  '.breadcrumb',
+  
+  // Non-textual elements
+  'svg',
+  'path',
+  'symbol',
+  'canvas',
+  'video',
+  'audio',
+  'img',
+  
+  // Interactive elements that usually don't contain job data
+  'button:not(.job-link)',
+  '.btn',
+  '.button',
+  
+  // Hidden elements
+  '[aria-hidden="true"]',
+  '[style*="display: none"]',
+  '.sr-only',
+  '.visually-hidden'
 ];
 
 /**
@@ -147,8 +169,52 @@ export function extractContent(html: string): ExtractedContent {
   // Sanitize the extracted content
   mainContent = sanitizeContent(mainContent);
   
+  // Provide a simplified HTML version for token efficiency while keeping structure
+  const $simplified = cheerio.load(mainContent);
+  
+  // Remove all attributes except href for links
+  $simplified('*').each((_, el: any) => {
+    const $el = $simplified(el);
+    const attribs = el.attribs || {};
+    for (const attr in attribs) {
+      if (attr !== 'href') {
+        $el.removeAttr(attr);
+      }
+    }
+  });
+
+  // Keep only structural tags, convert others to text content with spacing
+  const ALLOWED_TAGS = ['p', 'b', 'i', 'strong', 'em', 'ul', 'ol', 'li', 'br', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'main', 'body', 'html'];
+  
+  // Recursive function to strip tags while keeping content and adding spaces
+  const stripUnwantedTags = (node: any) => {
+    $simplified(node).children().each((_, child) => {
+      stripUnwantedTags(child);
+    });
+
+    if (node.type === 'tag' && !ALLOWED_TAGS.includes(node.name.toLowerCase())) {
+      const $node = $simplified(node);
+      // Add spaces to prevent word collision during text extraction
+      $node.replaceWith(` ${$node.html()} `);
+    }
+  };
+
+  stripUnwantedTags($simplified('body')[0]);
+
+  // For textContent, we want to ensure all elements separate words to avoid collisions
+  const $textOnly = cheerio.load($simplified('body').html() || '');
+  $textOnly('*').each((_, el) => {
+    $textOnly(el).append(' ');
+    $textOnly(el).prepend(' ');
+  });
+
+  const textContent = $textOnly('body').text().replace(/\s+/g, ' ').trim() || '';
+  const simplifiedHtml = $simplified('body').html()?.replace(/\s+/g, ' ').trim() || '';
+  
   return {
     mainContent,
+    textContent,
+    simplifiedHtml,
     title,
     metaDescription,
     canonicalUrl,

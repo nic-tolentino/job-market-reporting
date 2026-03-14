@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.canva.com"
+  "website": "http://www.canva.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.canva.com/careers/",
+        "category": "tech-filtered"
+      }
+    ]
+  }
 }

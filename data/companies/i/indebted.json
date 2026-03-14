@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.indebted.co"
+  "website": "https://www.indebted.co",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.indebted.co/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

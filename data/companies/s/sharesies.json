@@ -33,5 +33,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.sharesies.nz"
+  "website": "http://www.sharesies.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.sharesies.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

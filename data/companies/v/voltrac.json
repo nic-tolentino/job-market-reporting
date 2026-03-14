@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.voltrac.com"
+  "website": "https://www.voltrac.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.voltrac.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

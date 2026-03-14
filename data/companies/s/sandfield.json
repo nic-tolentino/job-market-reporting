@@ -31,5 +31,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.sandfield.co.nz"
+  "website": "https://www.sandfield.co.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.sandfield.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

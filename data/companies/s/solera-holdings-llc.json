@@ -42,5 +42,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.solera.com"
+  "website": "https://www.solera.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.solera.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

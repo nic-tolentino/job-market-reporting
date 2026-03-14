@@ -31,5 +31,13 @@
   },
   "employees_count": 50,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T09:30:00Z"
+  "updated_at": "2026-03-10T09:30:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://letterboxd.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

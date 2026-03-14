@@ -41,5 +41,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.re-leased.com"
+  "website": "https://www.re-leased.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.re-leased.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

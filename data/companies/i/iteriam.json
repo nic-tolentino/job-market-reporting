@@ -24,5 +24,13 @@
   "updated_at": "2026-03-10T07:45:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.iteriam.com"
+  "website": "https://www.iteriam.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.iteriam.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

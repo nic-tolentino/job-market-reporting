@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.cognex.com"
+  "website": "http://www.cognex.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.cognex.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }
