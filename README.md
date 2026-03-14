@@ -139,17 +139,13 @@ The frontend is hosted on Vercel and connects to the GCP backend via the `VITE_A
 
 Now:
 
-- TOP PRIORITY! Last I saw in production, the job page wasn't loading jobs, and there were multiple duplicating job listings in the company and tech pages. Investigate this issue once we're done with the current feature development.
-
 - Next I need to figure out a staged deployment process - I can't keep breaking and testing in production for frontend and backend services.
 
 - We need to make the landing page better reflect the Discover. Grow. Connect. philosophy.
 
 Later:
 
-- The ability to link directly to a technology's community or growth tabs.
-
-- I was thinking: does it make sense to save every ingestion into a separte cold storage file - afterall they shouldn't be accessed often at all, and it also allows us to more easily mamage the data, reduces costs, and we don't need to maintain that table. The cost is performance but does it matter in practice?
+- Melbourne tech events calendar: https://calendar.google.com/calendar/u/0/embed?src=741714b060754779a29f37566919b7921ec1133990e4c4021d013e72204f38f9@group.calendar.google.com&ctz=Australia/Melbourne
 
 - Company level tech stack has a lot of potentail for improvement refer to company-tech-stack-fix.md
 
@@ -157,9 +153,10 @@ Later:
 
 - An admin panel would be very useful, I'm not sure exactly how it would be accessed though. Nor exactly what to add to it. I feel it could get bloated very quickly. It would be good to get suggestions on what would be good to add, and how to structure the functionality.
 
-- The ability to group technologies by category, e.g. cloud, server, database, web, mobile, backend, etc in the landing, and company pages
+- Add testing, design, project management, product management???
+- Add a link to the relevant Tech Domain to the tech page, (and Job page?)
+- Identify what the core technology (or multiple??) are for a role - we can use this to sort the roles and other information. May need NLP.
 
-- Add currency detection and support
 - Add salary analysis on a per country basis, comparing industries and seniorities
 - Add details to the job salary indicatig the source of the info (job listing, vs market data, vs AI estimate) so we can make accurate analysis
 - Add language detection for job listings
@@ -226,6 +223,25 @@ Later:
 - Search entire codebase looking for opportunities to reduce magic numbers and magic strings
 - Rename analytics to insights (package name)
 - Standardize DB column names to be consistent either way (camelCase or snake_case)
+- Improve Remove/Hybrid % data by processing the job description, and searching for online data about the company's work model.
+- Why does the Hubs data take so long to load? Is it not being cached? https://www.devassembly.org/hubs/mobile
+
+Atul feedback:
+8
+- Top search is broken 
+- Main search by location 
+- Auto assign country I 
+- Filter by city or region 
+- Love the Tech Hubs 
+- companies roles/ 
+- Add activity indicator 
+- interest into roles or companies? Check for seniority filter usage 
+- Atul: Market maybe learn? 
+- Domain hubs explore all not visible 
+- Rather put one hub - with highest at the front, or personalised - once you visit it. 
+- Link to domain hub from technology hub 
+- Remember scroll position (and don't reload data)
+- Improve 'unlisted' as pay label, it's confusing replace with blank
 
 
 Images:

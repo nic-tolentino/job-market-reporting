@@ -50,7 +50,7 @@ export default function TechDetailsPage() {
 
     // Filter states
     const [selectedSeniority, setSelectedSeniority] = useState<string>('All');
-    const [selectedCity, setSelectedCity] = useState<string>('All');
+    const [selectedLocation, setSelectedLocation] = useState<string>('All');
 
     // Pagination states
     const [companiesPage, setCompaniesPage] = useState(1);
@@ -60,8 +60,9 @@ export default function TechDetailsPage() {
         if (!techId) return;
         setIsLoading(true);
         setError(false);
+        setError(false);
         setSelectedSeniority('All');
-        setSelectedCity('All');
+        setSelectedLocation('All');
         setCompaniesPage(1);
         setJobsPage(1);
         try {
@@ -86,10 +87,18 @@ export default function TechDetailsPage() {
         return data.seniorityDistribution.map(d => d.name).sort();
     }, [data]);
 
-    const cityOptions = useMemo(() => {
+    const locationOptions = useMemo(() => {
         if (!data) return [];
-        const cities = data.roles.map(r => r.locations[0]?.split(',')[0]?.trim()).filter(Boolean);
-        return [...new Set(cities)].sort() as string[];
+        const locations = new Set<string>();
+        data.roles.forEach(role => {
+            role.locations.forEach(loc => {
+                const parts = loc.split(',').map(p => p.trim());
+                parts.forEach(part => {
+                    if (part) locations.add(part);
+                });
+            });
+        });
+        return Array.from(locations).sort();
     }, [data]);
 
     // Filtered roles
@@ -99,19 +108,19 @@ export default function TechDetailsPage() {
             const matchesSeniority = selectedSeniority === 'All' ||
                 role.seniorityLevel === selectedSeniority;
 
-            const matchesCity = selectedCity === 'All' ||
-                role.locations.some(loc => loc.startsWith(selectedCity));
+            const matchesLocation = selectedLocation === 'All' ||
+                role.locations.some(loc => loc.toLowerCase().includes(selectedLocation.toLowerCase()));
 
-            return matchesSeniority && matchesCity;
+            return matchesSeniority && matchesLocation;
         });
-    }, [data, selectedSeniority, selectedCity]);
+    }, [data, selectedSeniority, selectedLocation]);
 
     // Filtered hiring companies
     const filteredHiringCompanies = useMemo(() => {
         if (!data) return [];
 
         // If no filter, use the top companies provided by the backend
-        if (selectedSeniority === 'All' && selectedCity === 'All') {
+        if (selectedSeniority === 'All' && selectedLocation === 'All') {
             return data.hiringCompanies;
         }
 
@@ -136,7 +145,7 @@ export default function TechDetailsPage() {
 
         return Array.from(companyMap.values())
             .sort((a, b) => b.activeRoles - a.activeRoles);
-    }, [data, filteredRoles, selectedSeniority, selectedCity]);
+    }, [data, filteredRoles, selectedSeniority, selectedLocation]);
 
     // Paginated roles
     const paginatedRoles = useMemo(() => {
@@ -216,15 +225,14 @@ export default function TechDetailsPage() {
                         data={data}
                         selectedSeniority={selectedSeniority}
                         setSelectedSeniority={setSelectedSeniority}
-                        selectedCity={selectedCity}
-                        setSelectedCity={setSelectedCity}
+                        selectedLocation={selectedLocation}
+                        setSelectedLocation={setSelectedLocation}
                         companiesPage={companiesPage}
                         setCompaniesPage={setCompaniesPage}
                         jobsPage={jobsPage}
                         setJobsPage={setJobsPage}
                         seniorityOptions={seniorityOptions}
-                        cityOptions={cityOptions}
-                        filteredRoles={filteredRoles}
+                        locationOptions={locationOptions}
                         paginatedRoles={paginatedRoles}
                         paginatedCompanies={paginatedCompanies}
                         totalJobsPages={totalJobsPages}

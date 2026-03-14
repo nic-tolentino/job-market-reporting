@@ -1,6 +1,6 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
-import { Briefcase, MapPin, Calendar, ShieldCheck } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 import { Card, CardHeader, CardContent } from '../ui/Card';
 import { H2 } from '../ui/Typography';
 import Dropdown from '../ui/Dropdown';
@@ -9,42 +9,20 @@ import CompanyLogo from '../common/CompanyLogo';
 import { FeedbackButton } from '../common/Feedback';
 import { useChartStyles } from '../../hooks/useChartStyles';
 import { type TechDetailsPageDto } from '../../lib/api';
-import { formatSalaryRange, getConfidenceBadgeClasses, getConfidenceLabel } from '../../lib/salaryFormatter';
-
-/**
- * Formats an ISO timestamp into a human-readable relative time string.
- */
-function formatLastUpdated(isoString: string): string {
-    if (!isoString || isoString === '1970-01-01T00:00:00Z') return 'today';
-    
-    const lastUpdated = new Date(isoString);
-    const now = new Date();
-    const diffMs = now.getTime() - lastUpdated.getTime();
-    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-    const diffDays = Math.floor(diffHours / 24);
-    
-    if (diffHours < 1) return 'within the last hour';
-    if (diffHours < 24) return `${diffHours}h ago`;
-    if (diffDays === 1) return 'yesterday';
-    if (diffDays < 7) return `${diffDays}d ago`;
-    return lastUpdated.toLocaleDateString();
-}
-
-const JOBS_PAGE_SIZE = 10;
+import { JobList } from '../common/JobList';
 
 interface MarketTabProps {
     data: TechDetailsPageDto;
     selectedSeniority: string;
     setSelectedSeniority: (val: string) => void;
-    selectedCity: string;
-    setSelectedCity: (val: string) => void;
+    selectedLocation: string;
+    setSelectedLocation: (val: string) => void;
     companiesPage: number;
     setCompaniesPage: (val: number) => void;
     jobsPage: number;
     setJobsPage: (val: number) => void;
     seniorityOptions: string[];
-    cityOptions: string[];
-    filteredRoles: any[];
+    locationOptions: string[];
     paginatedRoles: any[];
     paginatedCompanies: any[];
     totalJobsPages: number;
@@ -56,22 +34,20 @@ export const MarketTab = ({
     data,
     selectedSeniority,
     setSelectedSeniority,
-    selectedCity,
-    setSelectedCity,
+    selectedLocation,
+    setSelectedLocation,
     companiesPage,
     setCompaniesPage,
     jobsPage,
     setJobsPage,
     seniorityOptions,
-    cityOptions,
-    filteredRoles,
+    locationOptions,
     paginatedRoles,
     paginatedCompanies,
     totalJobsPages,
     totalCompaniesPages,
     filteredHiringCompanies
 }: MarketTabProps) => {
-    const navigate = useNavigate();
     const { tooltipStyle, tooltipItemStyle, pieColors } = useChartStyles();
 
     return (
@@ -96,7 +72,7 @@ export const MarketTab = ({
                                     dataKey="value"
                                     stroke="none"
                                 >
-                                    {data.seniorityDistribution.map((_entry, index) => (
+                                    {data.seniorityDistribution.map((_entry: any, index: number) => (
                                         <Cell key={`cell-${index}`} fill={pieColors[index % pieColors.length]} style={{ outline: 'none' }} />
                                     ))}
                                 </Pie>
@@ -107,7 +83,7 @@ export const MarketTab = ({
                             </PieChart>
                         </div>
                         <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3 text-sm px-2">
-                            {data.seniorityDistribution.map((entry, index) => (
+                            {data.seniorityDistribution.map((entry: any, index: number) => (
                                 <div key={entry.name} className="flex items-center gap-2">
                                     <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: pieColors[index % pieColors.length] }}></div>
                                     <span className="text-secondary font-medium whitespace-nowrap">{entry.name}</span>
@@ -139,7 +115,7 @@ export const MarketTab = ({
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-border-subtle">
-                                {paginatedCompanies.map((company) => (
+                                {paginatedCompanies.map((company: any) => (
                                     <tr key={company.id} className="hover:bg-surface-hover transition-colors group">
                                         <td className="px-6 py-4">
                                             <Link to={"/company/" + company.id} className="flex items-center gap-3">
@@ -185,122 +161,33 @@ export const MarketTab = ({
                             onChange={setSelectedSeniority}
                             options={[
                                 { value: 'All', label: 'All Seniorities' },
-                                ...seniorityOptions.map(opt => ({ value: opt, label: opt }))
+                                ...seniorityOptions.map((opt: string) => ({ value: opt, label: opt }))
                             ]}
                             labelPrefix="Seniority"
                         />
 
                         <Dropdown
-                            value={selectedCity}
-                            onChange={setSelectedCity}
+                            value={selectedLocation}
+                            onChange={setSelectedLocation}
                             options={[
-                                { value: 'All', label: 'All Cities' },
-                                ...cityOptions.map(city => ({ value: city, label: city }))
+                                { value: 'All', label: 'All Locations' },
+                                ...locationOptions.map((loc: string) => ({ value: loc, label: loc }))
                             ]}
                             labelPrefix="Location"
                         />
                     </div>
                 </div>
 
-                <Card>
-                    <CardHeader className="flex flex-row items-center justify-between">
-                        <div className="text-sm font-medium text-muted">
-                            Showing <span className="text-primary font-bold">{filteredRoles.length > 0 ? (jobsPage - 1) * JOBS_PAGE_SIZE + 1 : 0}</span> to <span className="text-primary font-bold">{Math.min(jobsPage * JOBS_PAGE_SIZE, filteredRoles.length)}</span> of <span className="text-primary font-bold">{filteredRoles.length}</span> positions
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <SimplePager
-                                currentPage={jobsPage}
-                                totalPages={totalJobsPages}
-                                onPageChange={setJobsPage}
-                            />
-                            <FeedbackButton variant="icon" context={`${data.techName} Job Listings`} />
-                        </div>
-                    </CardHeader>
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left text-sm">
-                            <thead className="table-header-row bg-elevated text-secondary sticky top-0 z-20">
-                                <tr>
-                                    <th className="px-6 py-4 font-medium uppercase tracking-wider">Role</th>
-                                    <th className="px-6 py-4 font-medium uppercase tracking-wider">Company</th>
-                                    <th className="px-6 py-4 font-medium uppercase tracking-wider">Compensation</th>
-                                    <th className="px-6 py-4 font-medium uppercase tracking-wider">Posted</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-border-subtle">
-                                {filteredRoles.length === 0 ? (
-                                    <tr>
-                                        <td colSpan={4} className="px-6 py-12 text-center text-muted">
-                                            No {data.techName} roles found matching your criteria.
-                                        </td>
-                                    </tr>
-                                ) : (
-                                    paginatedRoles.map((role) => (
-                                        <tr
-                                            key={role.id}
-                                            onClick={() => navigate(`/job/${role.id}`)}
-                                            className="hover:bg-surface-hover transition-colors cursor-pointer group/row"
-                                        >
-                                            <td className="px-6 py-5">
-                                                <span className="font-semibold text-primary group-hover/row:text-accent transition-colors">
-                                                    {role.title}
-                                                </span>
-                                                <div className="mt-1 flex items-center gap-1.5 text-muted">
-                                                    <MapPin className="h-3.5 w-3.5" />
-                                                    <span>{role.locations.map((loc: string) => loc.replace(/,\s*$/, '')).join(' · ')}</span>
-                                                </div>
-                                            </td>
-                                            <td className="px-6 py-5">
-                                                <div className="flex items-center gap-2">
-                                                    <span className="font-medium text-secondary">{role.companyName}</span>
-                                                </div>
-                                            </td>
-                                            <td className="px-6 py-5">
-                                                {role.salaryMin && role.salaryMax ? (
-                                                    <div className="space-y-1">
-                                                        <div className="font-medium text-secondary">
-                                                            {formatSalaryRange(role.salaryMin, role.salaryMax)}
-                                                        </div>
-                                                        <span className={`inline-flex items-center gap-1 rounded border px-2 py-0.5 text-xs font-medium ${getConfidenceBadgeClasses(role.salaryMin.source)}`}
-                                                              title={role.salaryMin.disclaimer || undefined}>
-                                                            <ShieldCheck className="h-3 w-3" />
-                                                            {getConfidenceLabel(role.salaryMin.source)}
-                                                        </span>
-                                                    </div>
-                                                ) : (
-                                                    <span className="text-muted italic">Unlisted</span>
-                                                )}
-                                            </td>
-                                            <td className="px-6 py-5 text-muted whitespace-nowrap">
-                                                <div className="flex items-center gap-1.5">
-                                                    <Calendar className="h-4 w-4" />
-                                                    {role.postedDate}
-                                                </div>
-                                                <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                                                    <span className="inline-flex items-center gap-1 rounded bg-accent-subtle px-2 py-0.5 text-xs font-medium text-accent">
-                                                        <ShieldCheck className="h-3 w-3" />
-                                                        {role.source}
-                                                    </span>
-                                                    <span className="text-xs text-muted">
-                                                        Updated {formatLastUpdated(role.lastUpdatedAt)}
-                                                    </span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    ))
-                                )}
-                            </tbody>
-                        </table>
-                    </div>
-                    {totalJobsPages > 1 && (
-                        <div className="flex justify-center border-t border-border-subtle p-4">
-                            <SimplePager
-                                currentPage={jobsPage}
-                                totalPages={totalJobsPages}
-                                onPageChange={setJobsPage}
-                            />
-                        </div>
-                    )}
-                </Card>
+                <JobList 
+                    jobs={paginatedRoles}
+                    title={`Active ${data.techName} Roles`}
+                    page={jobsPage}
+                    setPage={setJobsPage}
+                    totalPages={totalJobsPages}
+                    context={`${data.techName} Job Listings`}
+                    showPagination={true}
+                />
+
             </div>
         </div>
     );

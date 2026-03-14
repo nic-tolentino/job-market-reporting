@@ -12,7 +12,6 @@ import {
   ChevronRight,
   ArrowRight,
   Building2,
-  Euro,
   Navigation
 } from 'lucide-react';
 import { api, type DomainHub } from '../api';
@@ -24,7 +23,8 @@ import { H2 } from '../components/ui/Typography';
 import { FeedbackButton } from '../components/common/Feedback';
 import CompanyLogo from '../components/common/CompanyLogo';
 import { useChartStyles } from '../hooks/useChartStyles';
-import TechBadge from '../components/common/TechBadge';
+import { JobList } from '../components/common/JobList';
+import { TechIcon } from '../components/common/TechIcon';
 
 export default function DomainHubPage() {
   const { category: categorySlug } = useParams<{ category: string }>();
@@ -230,29 +230,22 @@ export default function DomainHubPage() {
               <ArrowRight className="h-4 w-4" />
             </button>
           </div>
-          <div className="space-y-3">
-            {recentJobs.slice(0, 6).map((job: any) => (
-              <Card 
-                key={job.id} 
-                className="p-4 border-border hover:border-accent transition-all cursor-pointer group"
-                onClick={() => navigate(`/job/${job.id}`)}
-              >
-                <div className="flex justify-between items-start">
-                  <div className="space-y-1">
-                    <h3 className="font-bold text-primary group-hover:text-accent transition-colors">{job.title}</h3>
-                    <p className="text-sm text-secondary font-medium">{job.companyName}</p>
-                    <div className="flex items-center gap-3 text-xs text-muted">
-                      <span className="flex items-center gap-1"><Navigation className="h-3 w-3" /> {job.location}</span>
-                      {job.salaryMax > 0 && <span className="flex items-center gap-1"><Euro className="h-3 w-3" /> {(job.salaryMax / 1000).toFixed(0)}k</span>}
-                    </div>
-                  </div>
-                  <div className="p-2 rounded-lg bg-surface border border-border group-hover:bg-accent/10 group-hover:text-accent transition-all">
-                    <ChevronRight className="h-5 w-5" />
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
+          <JobList 
+            jobs={recentJobs.slice(0, 6).map((job: any) => ({
+                id: job.id,
+                title: job.title,
+                companyName: job.companyName,
+                locations: [job.location],
+                postedDate: 'Recently', // Backend update might be needed for exact date
+                source: 'Direct',
+                lastUpdatedAt: new Date().toISOString(),
+                salaryMax: job.salaryMax > 0 ? { value: job.salaryMax, currency: 'EUR', source: 'Listed' } : undefined,
+                salaryMin: job.salaryMin > 0 ? { value: job.salaryMin, currency: 'EUR', source: 'Listed' } : undefined
+            }))} 
+            title="Recent Opportunities" 
+            showPagination={false} 
+            context={`Domain Hub: ${category.displayName} Jobs`}
+          />
         </div>
       </section>
 
@@ -263,13 +256,15 @@ export default function DomainHubPage() {
           {technologies.map((tech: any) => (
             <div 
               key={tech.name}
-              className="p-4 rounded-xl border border-border bg-card hover:border-accent hover:shadow-theme-sm transition-all cursor-pointer group"
+              className="p-6 rounded-2xl border border-border bg-card hover:border-accent hover:shadow-theme-md transition-all cursor-pointer group flex flex-col items-center text-center space-y-4"
               onClick={() => navigate(`/tech/${tech.name.toLowerCase()}`)}
             >
-              <div className="flex flex-col items-center text-center space-y-2">
-                <TechBadge name={tech.name} className="scale-125 mb-1" />
-                <span className="font-bold text-sm text-primary group-hover:text-accent transition-colors">{tech.name}</span>
-                <span className="text-[10px] text-muted font-bold uppercase">{tech.jobCount} roles</span>
+              <div className="h-16 w-16 rounded-xl bg-inset border border-border-subtle flex items-center justify-center group-hover:border-accent/30 group-hover:bg-accent/5 transition-all">
+                <TechIcon techId={tech.name} className="w-10 h-10" />
+              </div>
+              <div className="space-y-1">
+                <span className="block font-bold text-primary group-hover:text-accent transition-colors">{tech.name}</span>
+                <span className="block text-[10px] text-muted font-bold uppercase tracking-wider">{tech.jobCount} Active Roles</span>
               </div>
             </div>
           ))}
