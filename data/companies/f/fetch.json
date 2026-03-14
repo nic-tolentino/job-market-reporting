@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.fetchpet.au"
+  "website": "https://www.fetchpet.au",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.fetchpet.au/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

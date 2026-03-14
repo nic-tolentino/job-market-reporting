@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.weekday.works"
+  "website": "https://www.weekday.works",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.weekday.works/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

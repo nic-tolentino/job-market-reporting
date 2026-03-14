@@ -35,5 +35,13 @@
   },
   "employees_count": 500,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T13:00:00Z"
+  "updated_at": "2026-03-10T13:00:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://trinetix.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

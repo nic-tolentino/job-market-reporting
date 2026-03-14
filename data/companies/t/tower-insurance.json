@@ -43,5 +43,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.tower.co.nz"
+  "website": "http://www.tower.co.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.tower.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

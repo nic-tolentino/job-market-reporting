@@ -42,5 +42,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.simprogroup.com"
+  "website": "https://www.simprogroup.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.simprogroup.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

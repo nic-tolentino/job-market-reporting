@@ -33,5 +33,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://neonone.com/"
+  "website": "https://neonone.com/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://neonone.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

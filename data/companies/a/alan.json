@@ -38,5 +38,13 @@
   "ats": {
     "provider": "ASHBY",
     "identifier": "alan"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://alan.com/careers",
+        "category": "unknown"
+      }
+    ]
   }
 }

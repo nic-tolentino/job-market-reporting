@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.cin7.com"
+  "website": "http://www.cin7.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.cin7.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

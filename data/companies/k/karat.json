@@ -33,5 +33,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.karat.com"
+  "website": "http://www.karat.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.karat.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

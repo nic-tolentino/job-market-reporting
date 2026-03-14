@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.auror.co"
+  "website": "http://www.auror.co",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.auror.co/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

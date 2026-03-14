@@ -3,7 +3,7 @@
   "name": "Lightspeed Commerce",
   "alternateNames": [],
   "description": "Lightspeed Commerce is a company profile created during backlog processing.",
-  "website": null,
+  "website": "https://www.lightspeedhq.com",
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQH7z9vO5QwCvg/company-logo_100_100/B4EZnlqp04KcAQ-/0/1760494788198/lightspeedcommerce_logo?e=1774483200&v=beta&t=27wRLteusdlf_fHe9onKpd9TVJvTar6szE9UI-e2jrU",
   "industries": [],
   "company_type": "Product",
@@ -16,5 +16,13 @@
   "visa_sponsorship": null,
   "employees_count": null,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T07:39:05.140070Z"
+  "updated_at": "2026-03-10T07:39:05.140070Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.lightspeedhq.com/careers/openings/?department=technology",
+        "category": "tech-filtered"
+      }
+    ]
+  }
 }

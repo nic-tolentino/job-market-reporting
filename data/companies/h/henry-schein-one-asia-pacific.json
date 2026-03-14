@@ -41,5 +41,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.henryscheinone.com.au"
+  "website": "https://www.henryscheinone.com.au",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.henryscheinone.com.au/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

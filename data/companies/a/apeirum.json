@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://apeirum.com"
+  "website": "https://apeirum.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://apeirum.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

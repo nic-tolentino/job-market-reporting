@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.enatel.net"
+  "website": "http://www.enatel.net",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.enatel.net/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

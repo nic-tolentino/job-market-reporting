@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.kamiapp.com"
+  "website": "https://www.kamiapp.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.kamiapp.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

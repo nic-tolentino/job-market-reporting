@@ -25,5 +25,13 @@
   "updated_at": "2026-03-10T07:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://quikhire.ca"
+  "website": "https://quikhire.ca",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://quikhire.ca/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

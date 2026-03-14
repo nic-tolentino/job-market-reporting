@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.theta.co.nz"
+  "website": "http://www.theta.co.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.theta.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

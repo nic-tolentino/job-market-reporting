@@ -31,5 +31,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.jobgether.com"
+  "website": "https://www.jobgether.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.jobgether.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

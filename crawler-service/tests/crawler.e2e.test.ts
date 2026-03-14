@@ -11,7 +11,7 @@
  * The entire suite will be SKIPPED if no server is running.
  */
 
-const BASE_URL = process.env.CRAWLER_URL || 'http://localhost:8080';
+const BASE_URL = process.env.CRAWLER_URL || 'http://localhost:8081';
 let serverRunning = false;
 
 // Check if server is running before defining any tests
@@ -108,6 +108,29 @@ if (serverRunning) {
 
         expect(result.crawlMeta.pagesVisited).toBeLessThanOrEqual(1);
       });
+
+      // NOTE: This test requires the mock server to be running on 8082
+      it('respects the 50-page pagination safety cap', async () => {
+        const response = await fetch(`${BASE_URL}/crawl`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            companyId: 'test-pagination-cap',
+            url: 'http://localhost:8082/jobs',
+            crawlConfig: {
+              maxPages: 1, // Only 1 "navigation" page allowed
+              followJobLinks: true, // But we should exhaust pagination
+              isDiscoveryMode: false
+            }
+          })
+        });
+
+        expect(response.status).toBe(200);
+        const result = await response.json();
+
+        // 1 initial page + 49 pagination pages = strictly 50
+        expect(result.crawlMeta.pagesVisited).toBe(50);
+      }, 30000); // Allow exactly 30 seconds for the crawl to hit 50 pages
     });
 
     describe('Batch Crawl Endpoint', () => {

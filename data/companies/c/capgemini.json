@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.capgemini.com"
+  "website": "https://www.capgemini.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.capgemini.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

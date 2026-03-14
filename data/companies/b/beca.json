@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.beca.com"
+  "website": "http://www.beca.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.beca.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

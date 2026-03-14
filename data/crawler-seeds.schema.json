@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Crawler Seeds Schema",
+  "description": "Schema for defining crawler seed URLs and categories in company manifests.",
+  "type": "object",
+  "properties": {
+    "crawler": {
+      "type": "object",
+      "properties": {
+        "seeds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["url", "category"],
+            "properties": {
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "The target career board URL."
+              },
+              "category": {
+                "type": "string",
+                "enum": ["general", "tech-filtered"],
+                "description": "The processing category for the seed."
+              },
+              "lastKnownJobCount": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Historical job count for signal detection (Operational State)."
+              },
+              "lastKnownPageCount": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Historical page count for signal detection (Operational State)."
+              }
+            }
+          }
+        }
+      },
+      "required": ["seeds"]
+    }
+  },
+  "required": ["crawler"]
+}

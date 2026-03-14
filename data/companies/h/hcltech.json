@@ -42,5 +42,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.hcltech.com"
+  "website": "https://www.hcltech.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.hcltech.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -46,5 +46,13 @@
   },
   "employees_count": 1000,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T14:00:00Z"
+  "updated_at": "2026-03-10T14:00:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.ampstek.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

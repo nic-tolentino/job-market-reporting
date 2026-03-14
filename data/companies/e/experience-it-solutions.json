@@ -32,5 +32,13 @@
   },
   "employees_count": 100,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T09:10:00Z"
+  "updated_at": "2026-03-10T09:10:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.experience-it.es/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

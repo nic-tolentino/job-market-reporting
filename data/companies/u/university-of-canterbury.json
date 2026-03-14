@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.canterbury.ac.nz"
+  "website": "https://www.canterbury.ac.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.canterbury.ac.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

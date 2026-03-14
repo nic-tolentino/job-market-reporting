@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://mattr.global"
+  "website": "https://mattr.global",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://mattr.global/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

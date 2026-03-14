@@ -26,5 +26,13 @@
   "updated_at": "2026-03-10T07:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.knowmadmood.com"
+  "website": "https://www.knowmadmood.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.knowmadmood.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

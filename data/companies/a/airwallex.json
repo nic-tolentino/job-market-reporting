@@ -45,5 +45,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.airwallex.com"
+  "website": "https://www.airwallex.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.airwallex.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

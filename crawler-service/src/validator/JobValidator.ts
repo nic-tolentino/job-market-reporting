@@ -1,5 +1,8 @@
 import { NormalizedJob, ValidationResult } from '../api/types';
 
+/** Minimum confidence score a job must achieve to be considered valid. */
+export const MIN_CONFIDENCE_THRESHOLD = 0.5;
+
 /**
  * Validation rules for job fields
  */
@@ -125,7 +128,7 @@ export function validateJob(job: Partial<NormalizedJob>): ValidationResult {
     e.includes('Invalid posted date') ||
     e.includes('Salary min is greater')
   );
-  const valid = confidence >= 0.5 && !hasRequiredError && !hasTitleError && !hasDataIntegrityError;
+  const valid = confidence >= MIN_CONFIDENCE_THRESHOLD && !hasRequiredError && !hasTitleError && !hasDataIntegrityError;
 
   return {
     valid,
@@ -137,9 +140,10 @@ export function validateJob(job: Partial<NormalizedJob>): ValidationResult {
 /**
  * Validates multiple jobs and filters out invalid ones
  */
-export function validateJobs(jobs: NormalizedJob[], minConfidence: number = 0.5): {
+export function validateJobs(jobs: NormalizedJob[], minConfidence: number = MIN_CONFIDENCE_THRESHOLD): {
   validJobs: NormalizedJob[];
   rejectedJobs: Array<{ job: NormalizedJob; reason: string }>;
+  averageConfidence: number;
 } {
   const validJobs: NormalizedJob[] = [];
   const rejectedJobs: Array<{ job: NormalizedJob; reason: string }> = [];
@@ -156,7 +160,11 @@ export function validateJobs(jobs: NormalizedJob[], minConfidence: number = 0.5)
     }
   }
   
-  return { validJobs, rejectedJobs };
+  const avgConfidence = validJobs.length > 0
+    ? validJobs.reduce((sum, job) => sum + validateJob(job).confidence, 0) / validJobs.length
+    : 0;
+  
+  return { validJobs, rejectedJobs, averageConfidence: avgConfidence };
 }
 
 /**

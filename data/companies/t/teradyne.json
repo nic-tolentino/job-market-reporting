@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.teradyne.com"
+  "website": "https://www.teradyne.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.teradyne.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

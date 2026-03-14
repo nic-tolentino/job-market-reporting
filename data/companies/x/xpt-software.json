@@ -18,5 +18,13 @@
   "visa_sponsorship": null,
   "employees_count": null,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T03:36:42.903748Z"
+  "updated_at": "2026-03-10T03:36:42.903748Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.xptsoftware.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.kpmg.com/nz"
+  "website": "https://www.kpmg.com/nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.kpmg.com/nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

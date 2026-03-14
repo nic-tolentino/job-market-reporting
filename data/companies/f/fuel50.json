@@ -32,5 +32,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://fuel50.com"
+  "website": "https://fuel50.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://fuel50.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

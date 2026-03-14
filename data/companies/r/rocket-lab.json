@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://rocketlabcorp.com"
+  "website": "https://rocketlabcorp.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.rocketlabusa.com/careers/",
+        "category": "tech-filtered"
+      }
+    ]
+  }
 }

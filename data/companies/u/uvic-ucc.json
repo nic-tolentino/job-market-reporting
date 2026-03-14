@@ -1,8 +1,8 @@
 {
   "id": "uvic-ucc",
-  "name": "Universitat de Vic \u2013 Universitat Central de Catalunya",
+  "name": "Universitat de Vic – Universitat Central de Catalunya",
   "alternateNames": [],
-  "description": "Universitat de Vic \u2013 Universitat Central de Catalunya is a company profile created during backlog processing.",
+  "description": "Universitat de Vic – Universitat Central de Catalunya is a company profile created during backlog processing.",
   "website": null,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGEzbQQm50EQQ/company-logo_100_100/B4EZwn9Qe4GcAU-/0/1770196896048/universitat_de_vic_logo?e=1774483200&v=beta&t=f6JKFYVrUQq-NHvyDPj2ZFfNXqVbZVPZhdWIdJ6klC0",
   "industries": [],
@@ -16,5 +16,8 @@
   "visa_sponsorship": null,
   "employees_count": null,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T08:02:30.341504Z"
+  "updated_at": "2026-03-10T08:02:30.341504Z",
+  "crawler": {
+    "seeds": []
+  }
 }

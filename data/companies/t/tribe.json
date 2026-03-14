@@ -32,5 +32,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.tribegroup.com"
+  "website": "http://www.tribegroup.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.tribegroup.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

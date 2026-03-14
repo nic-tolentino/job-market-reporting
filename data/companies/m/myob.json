@@ -37,5 +37,18 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.myob.com"
+  "website": "https://www.myob.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://careers.myob.com/",
+        "category": "unknown"
+      }
+    ],
+    "discovery": {
+      "status": "BLOCKED",
+      "lastAttemptedAt": "2026-03-14",
+      "notes": "Homepage triggers a browser file download on page load, crashing the crawler. Seed URL updated to the redirect destination careers.myob.com — use targeted mode."
+    }
+  }
 }

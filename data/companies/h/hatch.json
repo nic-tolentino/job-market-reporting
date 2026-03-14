@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.hatch.team"
+  "website": "https://www.hatch.team",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.hatch.team/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

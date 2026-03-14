@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.engflow.com"
+  "website": "https://www.engflow.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.engflow.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

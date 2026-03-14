@@ -36,5 +36,13 @@
   },
   "employees_count": 150,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T10:00:00Z"
+  "updated_at": "2026-03-10T10:00:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.recordpoint.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

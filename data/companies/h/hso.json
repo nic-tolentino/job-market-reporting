@@ -32,5 +32,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.hso.com/"
+  "website": "https://www.hso.com/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.hso.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.talentconnect.es"
+  "website": "https://www.talentconnect.es",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.talentconnect.es/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

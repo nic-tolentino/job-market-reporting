@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.evercommerce.com"
+  "website": "https://www.evercommerce.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.evercommerce.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

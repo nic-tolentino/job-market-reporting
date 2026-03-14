@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.watercare.co.nz/"
+  "website": "https://www.watercare.co.nz/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.watercare.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

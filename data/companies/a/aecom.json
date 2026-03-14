@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://aecom.com"
+  "website": "https://aecom.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://aecom.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

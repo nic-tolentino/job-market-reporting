@@ -26,5 +26,13 @@
   "updated_at": "2026-03-10T07:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.heidihealth.com"
+  "website": "https://www.heidihealth.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.heidihealth.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

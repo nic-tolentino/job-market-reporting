@@ -18,14 +18,22 @@
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
       "minLength": 1,
       "maxLength": 100,
-      "examples": ["xero", "canva", "rocket-lab"]
+      "examples": [
+        "xero",
+        "canva",
+        "rocket-lab"
+      ]
     },
     "name": {
       "type": "string",
       "description": "Official company name",
       "minLength": 1,
       "maxLength": 200,
-      "examples": ["Xero", "Canva", "Rocket Lab"]
+      "examples": [
+        "Xero",
+        "Canva",
+        "Rocket Lab"
+      ]
     },
     "alternateNames": {
       "type": "array",
@@ -42,12 +50,18 @@
       "maxLength": 2000
     },
     "website": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "Company website URL",
       "format": "uri"
     },
     "logoUrl": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "Company logo URL",
       "format": "uri"
     },
@@ -89,7 +103,12 @@
       "type": "string",
       "description": "Headquarters country (ISO 3166-1 alpha-2)",
       "pattern": "^[A-Z]{2}$",
-      "examples": ["NZ", "AU", "US", "GB"]
+      "examples": [
+        "NZ",
+        "AU",
+        "US",
+        "GB"
+      ]
     },
     "operating_countries": {
       "type": "array",
@@ -123,11 +142,17 @@
       ]
     },
     "visa_sponsorship": {
-      "type": ["boolean", "null"],
+      "type": [
+        "boolean",
+        "null"
+      ],
       "description": "Whether company sponsors work visas"
     },
     "employees_count": {
-      "type": ["integer", "null"],
+      "type": [
+        "integer",
+        "null"
+      ],
       "description": "Number of employees",
       "minimum": 0,
       "maximum": 2000000
@@ -196,7 +221,46 @@
           "minLength": 1
         }
       },
-      "required": ["provider", "identifier"],
+      "required": [
+        "provider",
+        "identifier"
+      ],
+      "additionalProperties": false
+    },
+    "crawler": {
+      "type": "object",
+      "description": "Crawler configuration and seeds",
+      "properties": {
+        "seeds": {
+          "type": "array",
+          "description": "Seed URLs for targeted extraction",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "tech-filtered",
+                  "general"
+                ]
+              },
+              "pagination_pattern": {
+                "type": "string",
+                "description": "Regex or CSS selector for next pages"
+              }
+            },
+            "required": [
+              "url",
+              "category"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
       "additionalProperties": false
     }
   },
@@ -209,6 +273,11 @@
     }
   },
   "then": {
-    "required": ["blocked_reason"]
+    "required": [
+      "blocked_reason"
+    ]
+  },
+  "crawler": {
+    "seeds": []
   }
 }

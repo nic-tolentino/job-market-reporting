@@ -22,5 +22,13 @@
   "updated_at": "2026-03-10T07:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.gamblingcareers.com"
+  "website": "https://www.gamblingcareers.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.gamblingcareers.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

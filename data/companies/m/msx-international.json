@@ -42,5 +42,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.msxi.com"
+  "website": "https://www.msxi.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.msxi.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

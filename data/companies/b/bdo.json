@@ -41,5 +41,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.bdo.nz"
+  "website": "https://www.bdo.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.bdo.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

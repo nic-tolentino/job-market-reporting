@@ -32,5 +32,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.pharos.com"
+  "website": "https://www.pharos.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.pharos.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

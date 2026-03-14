@@ -31,5 +31,13 @@
   },
   "employees_count": 500,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T09:10:00Z"
+  "updated_at": "2026-03-10T09:10:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.grupodigital.eu/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

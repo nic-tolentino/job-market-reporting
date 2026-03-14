@@ -41,5 +41,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.synechron.com"
+  "website": "http://www.synechron.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.synechron.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

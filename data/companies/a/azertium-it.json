@@ -35,5 +35,13 @@
   "ats": {
     "provider": "TEAMTAILOR",
     "identifier": "app"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://azertium.es/careers",
+        "category": "unknown"
+      }
+    ]
   }
 }

@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.kogan.com"
+  "website": "https://www.kogan.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.kogan.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

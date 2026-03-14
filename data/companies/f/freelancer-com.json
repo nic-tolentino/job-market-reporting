@@ -41,5 +41,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.freelancer.com"
+  "website": "https://www.freelancer.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.freelancer.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

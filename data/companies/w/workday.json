@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.workday.com"
+  "website": "http://www.workday.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.workday.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

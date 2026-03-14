@@ -1,8 +1,8 @@
 {
   "id": "fpcm-madrid",
-  "name": "Fundaci\u00f3n Parque Cient\u00edfico de Madrid",
+  "name": "Fundación Parque Científico de Madrid",
   "alternateNames": [],
-  "description": "Fundaci\u00f3n Parque Cient\u00edfico de Madrid is a company profile created during backlog processing.",
+  "description": "Fundación Parque Científico de Madrid is a company profile created during backlog processing.",
   "website": null,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGxUHHfNWsTRA/company-logo_100_100/B4DZkU_r3TIEAg-/0/1756993863465/parque_cientifico_de_madrid_logo?e=1774483200&v=beta&t=88W7WuG8uk-nCs2uve2t86t951ML0hKcGHVePpBl508",
   "industries": [],
@@ -16,5 +16,8 @@
   "visa_sponsorship": null,
   "employees_count": null,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T07:27:03.818991Z"
+  "updated_at": "2026-03-10T07:27:03.818991Z",
+  "crawler": {
+    "seeds": []
+  }
 }

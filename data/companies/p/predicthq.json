@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.predicthq.com/"
+  "website": "http://www.predicthq.com/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.predicthq.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

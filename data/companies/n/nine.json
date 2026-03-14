@@ -42,5 +42,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.nineforbrands.com.au"
+  "website": "https://www.nineforbrands.com.au",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.nineforbrands.com.au/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

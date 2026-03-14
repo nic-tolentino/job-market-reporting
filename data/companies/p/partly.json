@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.partly.com"
+  "website": "https://www.partly.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.partly.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

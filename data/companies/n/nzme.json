@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://nzme.co.nz/"
+  "website": "https://nzme.co.nz/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://nzme.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

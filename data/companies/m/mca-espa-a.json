@@ -37,5 +37,13 @@
   },
   "employees_count": 1450,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T09:40:00Z"
+  "updated_at": "2026-03-10T09:40:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.mca-groupe.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

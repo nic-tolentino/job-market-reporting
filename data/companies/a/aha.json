@@ -30,5 +30,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.aha.io"
+  "website": "https://www.aha.io",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.aha.io/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

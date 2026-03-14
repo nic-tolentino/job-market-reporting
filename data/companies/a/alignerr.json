@@ -30,5 +30,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.alignerr.com"
+  "website": "https://www.alignerr.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.alignerr.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -33,5 +33,13 @@
   },
   "employees_count": 300,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T09:40:00Z"
+  "updated_at": "2026-03-10T09:40:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.micromine.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

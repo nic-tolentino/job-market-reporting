@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.spark.co.nz"
+  "website": "http://www.spark.co.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.spark.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

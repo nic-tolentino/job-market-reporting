@@ -33,5 +33,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.haysplc.com"
+  "website": "http://www.haysplc.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.haysplc.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

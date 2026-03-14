@@ -18,7 +18,7 @@ for var in "${REQUIRED_VARS[@]}"; do
     fi
 done
 
-# Check for --cloud flag
+# Check for --cloud flag - avoid this as it can take 20min or longer
 USE_CLOUD_BUILD=false
 if [[ "$1" == "--cloud" ]]; then
     USE_CLOUD_BUILD=true

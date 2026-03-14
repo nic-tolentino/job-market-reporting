@@ -44,5 +44,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.thalesgroup.com"
+  "website": "https://www.thalesgroup.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.thalesgroup.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.ole.mx"
+  "website": "https://www.ole.mx",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.ole.mx/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

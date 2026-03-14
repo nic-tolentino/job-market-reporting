@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://blinq.me"
+  "website": "https://blinq.me",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://blinq.me/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

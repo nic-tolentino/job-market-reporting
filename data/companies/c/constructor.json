@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://constructor.io"
+  "website": "https://constructor.io",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://constructor.io/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

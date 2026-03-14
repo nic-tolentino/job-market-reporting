@@ -33,5 +33,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.hnry.co.nz"
+  "website": "http://www.hnry.co.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.hnry.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -60,13 +60,15 @@ export class GeminiExtractionService {
         throw new Error('Gemini API returned empty response.');
       }
 
-      // Log if response doesn't start with JSON
-      const trimmedText = response.text.trim();
-      if (!trimmedText.startsWith('[') && !trimmedText.startsWith('{')) {
-        console.warn('Gemini returned non-JSON response:', response.text.substring(0, 200));
+      // Clean the text from markdown code blocks before validation/parsing
+      const cleanText = response.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+
+      // Log if response doesn't start with JSON after cleaning
+      if (!cleanText.startsWith('[') && !cleanText.startsWith('{')) {
+        console.warn('Gemini returned non-JSON response:', cleanText.substring(0, 200));
       }
 
-      const llmJobs = this.parseJobsFromResponse(response.text);
+      const llmJobs = this.parseJobsFromResponse(cleanText);
       const jobs = llmJobs.map(job => this.toNormalizedJob(job, config.companyName));
 
       return {
@@ -128,8 +130,10 @@ export class GeminiExtractionService {
       .replace(/^-|-$/g, '')
       .slice(0, 50);
     
-    const dateStr = (llmJob.postedAt as string || new Date().toISOString()).replace(/-/g, '').slice(0, 8);
-    const platformId = llmJob.platformId as string || `${slug}-${dateStr}`;
+    const dateStr = llmJob.postedAt 
+      ? (llmJob.postedAt as string).slice(0, 10) 
+      : new Date().toISOString().split('T')[0];
+    const platformId = llmJob.platformId as string || `${slug}-${dateStr.replace(/-/g, '')}`;
 
     return {
       platformId,
@@ -137,8 +141,8 @@ export class GeminiExtractionService {
       title: llmJob.title,
       companyName: (llmJob.companyName as string) || companyName || 'Unknown',
       location: llmJob.location || null,
-      descriptionHtml: null,
-      descriptionText: (llmJob.description as string) || null,
+      descriptionHtml: (llmJob.description as string) || null,
+      descriptionText: (llmJob.description as string)?.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim() || null,
       salaryMin: llmJob.salaryMin || null,
       salaryMax: llmJob.salaryMax || null,
       salaryCurrency: llmJob.salaryCurrency || null,
@@ -146,7 +150,7 @@ export class GeminiExtractionService {
       seniorityLevel: llmJob.seniorityLevel || null,
       workModel: llmJob.workModel || null,
       department: llmJob.department || null,
-      postedAt: llmJob.postedAt ? (llmJob.postedAt as string).replace(/-/g, '').slice(0, 8) : null,
+      postedAt: llmJob.postedAt ? (llmJob.postedAt as string).slice(0, 10) : null,
       applyUrl: llmJob.applyUrl || null,
       platformUrl: null
     };
@@ -165,7 +169,7 @@ Page Content:
 Extract these fields for each job:
 - title (required)
 - location (city, country)
-- description
+- description (Provide foundational HTML formatting using tags like <p>, <ul>, <li>, <strong> to match the original structure)
 - salaryMin, salaryMax, salaryCurrency (if mentioned)
 - employmentType (Full-time, Part-time, Contract, Internship)
 - seniorityLevel (Junior, Mid, Senior, Lead, Principal, Director, VP)
@@ -178,4 +182,4 @@ IMPORTANT: Return ONLY a valid JSON array. Do not include any explanatory text.
 If no jobs are found, return an empty array: []
 
 Example format:
-[{"title": "Software Engineer", "location": "Sydney, Australia", "employmentType": "Full-time"}]`;
+[{"title": "Software Engineer", "location": "Sydney, Australia", "employmentType": "Full-time", "description": "<p>We are looking for...</p>"}]`;

@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.nomadatomics.com"
+  "website": "https://www.nomadatomics.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.nomadatomics.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

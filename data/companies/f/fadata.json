@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.fadata.eu"
+  "website": "https://www.fadata.eu",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.fadata.eu/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

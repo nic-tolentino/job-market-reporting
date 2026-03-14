@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.ottogroup.com"
+  "website": "https://www.ottogroup.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.ottogroup.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -62,7 +62,7 @@ npm run test:e2e
 docker build -t crawler-service:latest .
 
 # Run container
-docker run -p 8080:8080 -e GEMINI_API_KEY=your-key crawler-service:latest
+docker run -p 8081:8081 -e GEMINI_API_KEY=your-key crawler-service:latest
 ```
 
 ### Deploy to Cloud Run
@@ -105,12 +105,17 @@ Content-Type: application/json
 {
   "companyId": "airwallex",
   "url": "https://www.airwallex.com/careers",
+  "seedData": {
+    "url": "https://careers.airwallex.com/jobs",
+    "category": "tech-filtered",
+    "lastKnownJobCount": 42,
+    "lastKnownPageCount": 2
+  },
   "crawlConfig": {
-    "maxPages": 5,
+    "maxPages": 15,
     "followJobLinks": true,
     "extractionPrompt": null,
-    "knownAtsProvider": "ASHBY",
-    "timeout": 30000
+    "timeout": 60000
   }
 }
 ```
@@ -120,13 +125,24 @@ Response:
 {
   "companyId": "airwallex",
   "crawlMeta": {
+    "status": "ACTIVE",
     "pagesVisited": 3,
     "totalJobsFound": 47,
     "detectedAtsProvider": "ASHBY",
     "detectedAtsIdentifier": "airwallex",
     "crawlDurationMs": 8200,
-    "extractionModel": "gemini-2.0-flash",
-    "extractionConfidence": 0.92
+    "extractionModel": "gemini-2.5-flash-lite",
+    "extractionConfidence": 0.92,
+    "lastCrawledAt": "2026-03-14T12:00:00.000Z",
+    "pagination_pattern": "query:p",
+    "errorMessage": null,
+    "paginationSignal": null,
+    "jobYieldSignal": {
+      "type": "GROWTH",
+      "previousJobs": 42,
+      "newJobs": 47,
+      "delta": 5
+    }
   },
   "jobs": [
     {
@@ -135,16 +151,42 @@ Response:
       "title": "Senior Software Engineer",
       "companyName": "Airwallex",
       "location": "Melbourne, AU",
-      "descriptionText": "We are looking for...",
-      "employmentType": "Full-time",
-      "seniorityLevel": "Senior",
-      "workModel": "Hybrid",
-      "postedAt": "2026-03-08",
       "applyUrl": "https://jobs.ashbyhq.com/airwallex/abc123"
     }
   ]
 }
 ```
+
+## Crawl Modes
+
+The service automatically switches behavior based on the presence of `seedData.url`:
+
+| Mode | Trigger | maxPages (default) | Behavior |
+|:---|:---|:---|:---|
+| **Discovery** | No `seedData.url` | 10 | Crawls from `url`, prioritizes career/job links via glob matching. |
+| **Targeted** | `seedData.url` present | 60 | Jumps directly to `seedData.url`, stays on path, depth for pagination. |
+
+## Manifest Structure
+
+Company seeds are defined in `data/companies/**/*.json` manifests.
+
+```json
+{
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://careers.canva.com/engineering/",
+        "category": "tech-filtered"
+      }
+    ]
+  }
+}
+```
+
+- `url`: The deepest known career board URL.
+- `category`: 
+  - `general`: Broad board, applies tech-filtering to drop non-tech roles.
+  - `tech-filtered`: Targeted board, applies insurance-only filtering.
 
 ### Batch Crawl
 
@@ -164,7 +206,7 @@ Content-Type: application/json
 
 | Environment Variable | Default | Description |
 |:---|:---|:---|
-| `PORT` | `8080` | Port to listen on |
+| `PORT` | `8081` | Port to listen on |
 | `GEMINI_API_KEY` | - | Google Gemini API key (required) |
 | `NODE_ENV` | `production` | Environment mode |
 

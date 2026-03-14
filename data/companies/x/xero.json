@@ -47,5 +47,14 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.xero.com"
+  "website": "http://www.xero.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://careers.xero.com/jobs/?team=Data,%20AI%20%26%20Machine%20Learning&team=Engineering&pagesize=20#results",
+        "category": "tech-filtered",
+        "status": "ACTIVE"
+      }
+    ]
+  }
 }

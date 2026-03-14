@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.okendo.io"
+  "website": "https://www.okendo.io",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.okendo.io/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

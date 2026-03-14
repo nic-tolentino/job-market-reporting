@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.riotgames.com"
+  "website": "https://www.riotgames.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.riotgames.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -33,5 +33,13 @@
   },
   "employees_count": 20,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T14:00:00Z"
+  "updated_at": "2026-03-10T14:00:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://showcaseworkshop.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

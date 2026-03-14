@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.auckland.ac.nz"
+  "website": "https://www.auckland.ac.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.auckland.ac.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

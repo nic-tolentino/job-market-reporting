@@ -31,5 +31,13 @@
   },
   "employees_count": 50,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T10:00:00Z"
+  "updated_at": "2026-03-10T10:00:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.preacta.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

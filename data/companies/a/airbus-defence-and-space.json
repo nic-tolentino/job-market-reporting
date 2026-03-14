@@ -46,5 +46,13 @@
   "ats": {
     "provider": "WORKDAY",
     "identifier": "2Fag"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.airbus.com/careers",
+        "category": "unknown"
+      }
+    ]
   }
 }

@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://hellostake.com"
+  "website": "https://hellostake.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://hellostake.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

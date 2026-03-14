@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://tripleten.com"
+  "website": "https://tripleten.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://tripleten.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

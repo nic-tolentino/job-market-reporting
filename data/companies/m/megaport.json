@@ -40,5 +40,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.megaport.com"
+  "website": "https://www.megaport.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.megaport.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -41,5 +41,13 @@
   },
   "employees_count": 12000,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T08:52:00Z"
+  "updated_at": "2026-03-10T08:52:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.allianz.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

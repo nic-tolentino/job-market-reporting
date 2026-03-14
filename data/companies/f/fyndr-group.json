@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://fyndr.com.au"
+  "website": "https://fyndr.com.au",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://fyndr.com.au/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

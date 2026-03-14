@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://glovoapp.com"
+  "website": "https://glovoapp.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://glovoapp.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

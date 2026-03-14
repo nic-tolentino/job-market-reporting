@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.pasiona.com"
+  "website": "https://www.pasiona.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.pasiona.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

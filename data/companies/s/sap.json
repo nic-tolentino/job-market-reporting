@@ -41,5 +41,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.sap.com"
+  "website": "https://www.sap.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.sap.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

@@ -37,5 +37,13 @@
   },
   "employees_count": 1800,
   "verification_level": "silver",
-  "updated_at": "2026-03-10T13:00:00Z"
+  "updated_at": "2026-03-10T13:00:00Z",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.udg.de/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

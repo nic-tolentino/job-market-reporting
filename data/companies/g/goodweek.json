@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://goodweek.io"
+  "website": "https://goodweek.io",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://goodweek.io/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

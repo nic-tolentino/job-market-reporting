@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://pushpay.com/"
+  "website": "https://pushpay.com/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://pushpay.com/company/careers",
+        "category": "general"
+      }
+    ]
+  }
 }

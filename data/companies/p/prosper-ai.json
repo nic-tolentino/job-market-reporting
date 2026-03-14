@@ -35,5 +35,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.prosper-ai.com"
+  "website": "https://www.prosper-ai.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.prosper-ai.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

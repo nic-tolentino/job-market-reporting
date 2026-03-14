@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.alphero.com"
+  "website": "https://www.alphero.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.alphero.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

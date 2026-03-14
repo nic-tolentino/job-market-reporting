@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.lic.co.nz"
+  "website": "https://www.lic.co.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.lic.co.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

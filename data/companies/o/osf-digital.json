@@ -32,5 +32,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://osf.digital/"
+  "website": "https://osf.digital/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://osf.digital/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

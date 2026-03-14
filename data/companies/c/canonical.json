@@ -37,5 +37,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.canonical.com/"
+  "website": "http://www.canonical.com/",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.canonical.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

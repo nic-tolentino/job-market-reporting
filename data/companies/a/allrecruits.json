@@ -29,5 +29,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.allrecruits.nz"
+  "website": "http://www.allrecruits.nz",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.allrecruits.nz/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

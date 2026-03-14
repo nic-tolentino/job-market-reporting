@@ -15,6 +15,14 @@ export interface ModelConfig {
 }
 
 export const AVAILABLE_MODELS: Record<string, ModelConfig> = {
+  'gemini-2.5-flash-lite': {
+    modelId: 'gemini-2.5-flash-lite',
+    displayName: 'Gemini 2.5 Flash Lite',
+    inputCostPerMillion: 0.075,
+    outputCostPerMillion: 0.30,
+    maxTokens: 8192,
+    description: 'Ultra-fast lite model for high-volume extraction.'
+  },
   'gemini-2.0-flash': {
     modelId: 'gemini-2.0-flash',
     displayName: 'Gemini 2.0 Flash',
@@ -33,7 +41,7 @@ export const AVAILABLE_MODELS: Record<string, ModelConfig> = {
   }
 };
 
-export const DEFAULT_MODEL = 'gemini-2.0-flash';
+export const DEFAULT_MODEL = 'gemini-2.5-flash-lite';
 
 export function getModelConfig(modelId: string): ModelConfig | undefined {
   return AVAILABLE_MODELS[modelId];

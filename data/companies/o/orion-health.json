@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://orionhealth.com"
+  "website": "http://orionhealth.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://orionhealth.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

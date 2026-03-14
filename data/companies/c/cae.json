@@ -39,5 +39,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.cae.com"
+  "website": "https://www.cae.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.cae.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

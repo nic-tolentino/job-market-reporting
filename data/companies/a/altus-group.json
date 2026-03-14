@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.altusgroup.com"
+  "website": "https://www.altusgroup.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.altusgroup.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

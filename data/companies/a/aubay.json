@@ -16,5 +16,8 @@
   "visa_sponsorship": null,
   "employees_count": null,
   "verification_level": "unverified",
-  "updated_at": "2026-03-10T07:39:35.000058Z"
+  "updated_at": "2026-03-10T07:39:35.000058Z",
+  "crawler": {
+    "seeds": []
+  }
 }

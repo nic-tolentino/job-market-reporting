@@ -38,5 +38,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://www.martianlogic.com"
+  "website": "https://www.martianlogic.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://www.martianlogic.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

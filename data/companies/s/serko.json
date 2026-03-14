@@ -36,5 +36,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "http://www.serko.com"
+  "website": "http://www.serko.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "http://www.serko.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }

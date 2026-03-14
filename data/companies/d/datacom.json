@@ -42,5 +42,13 @@
     "last_verified": null,
     "source": null
   },
-  "website": "https://datacom.com"
+  "website": "https://datacom.com",
+  "crawler": {
+    "seeds": [
+      {
+        "url": "https://datacom.com/careers",
+        "category": "unknown"
+      }
+    ]
+  }
 }
