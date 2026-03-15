@@ -20,15 +20,18 @@ import java.util.concurrent.TimeUnit
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
+import org.springframework.beans.factory.ObjectProvider
 
 @Repository
 class CompanyBigQueryRepository(
-        private val bigQueryTemplate: BigQueryTemplate,
-        private val bigQuery: BigQuery,
+        bigQueryTemplateProvider: ObjectProvider<BigQueryTemplate>,
+        bigQueryProvider: ObjectProvider<BigQuery>,
         @Value("\${spring.cloud.gcp.bigquery.dataset-name:techmarket}")
         private val datasetName: String
 ) : CompanyRepository {
 
+        private val bigQueryTemplate: BigQueryTemplate? = bigQueryTemplateProvider.ifAvailable
+        private val bigQuery: BigQuery? = bigQueryProvider.ifAvailable
         private val log = LoggerFactory.getLogger(CompanyBigQueryRepository::class.java)
         private val mapper = jacksonObjectMapper()
 
@@ -88,6 +91,10 @@ class CompanyBigQueryRepository(
                                 Field.of(CompanyFields.VISA_SPONSORSHIP_DETAIL, StandardSQLTypeName.JSON),
                                 Field.of(CompanyFields.VERIFICATION_LEVEL, StandardSQLTypeName.STRING)
                         )
+                if (bigQuery == null) {
+                        log.warn("BigQuery unavailable - skipping table check")
+                        return
+                }
                 bigQuery.ensureTableExists(datasetName, companiesTableName, schema)
         }
 
@@ -95,6 +102,10 @@ class CompanyBigQueryRepository(
                 ensureTable()
                 val sql = "DELETE FROM `$datasetName.$companiesTableName` WHERE true"
                 log.info("GCP: Deleting all rows from $companiesTableName using DML")
+                if (bigQuery == null) {
+                        log.warn("BigQuery unavailable - cannot delete companies")
+                        return
+                }
                 try {
                         val queryConfig = QueryJobConfiguration.newBuilder(sql).build()
                         bigQuery.query(queryConfig)
@@ -111,6 +122,10 @@ class CompanyBigQueryRepository(
                 log.info(
                         "GCP: Streaming ${companies.size} companies to BigQuery table: $companiesTableName"
                 )
+                if (bigQueryTemplate == null) {
+                        log.warn("BigQueryTemplate unavailable - cannot stream companies")
+                        return
+                }
                 try {
                         bigQueryTemplate
                                 .writeJsonStream(
@@ -129,6 +144,7 @@ class CompanyBigQueryRepository(
                 ensureTable()
                 log.info("GCP: Fetching all companies from $companiesTableName")
                 val query = "SELECT * FROM `$datasetName.$companiesTableName`"
+                if (bigQuery == null) return emptyList()
                 val queryConfig = QueryJobConfiguration.newBuilder(query).build()
                 val result = bigQuery.query(queryConfig)
                 return result.iterateAll().map { row -> 
@@ -150,6 +166,7 @@ class CompanyBigQueryRepository(
                                         )
                                 )
                                 .build()
+                if (bigQuery == null) return emptyList()
                 val result = bigQuery.query(queryConfig)
                 return result.iterateAll().map { row -> 
                         CompanyMapper.mapToCompanyRecord(CompanyRow.fromCompanyRow(row)) 
@@ -170,6 +187,10 @@ class CompanyBigQueryRepository(
                                         )
                                 )
                                 .build()
+                if (bigQuery == null) {
+                        log.warn("BigQuery unavailable - cannot delete companies by ids")
+                        return
+                }
                 try {
                         bigQuery.query(queryConfig)
                         log.info(
@@ -202,6 +223,16 @@ class CompanyBigQueryRepository(
                 jobsConfig.addNamedParameter(COUNTRY, QueryParameterValue.string(c))
                 aggConfig.addNamedParameter(COUNTRY, QueryParameterValue.string(c))
 
+                if (bigQuery == null) {
+                        log.warn("BigQuery unavailable - returning mock profile for $companyId")
+                        // Return a minimal valid DTO instead of throwing if in local/BigQuery-less mode
+                        return CompanyMapper.mapCompanyProfile(
+                            companyId, 
+                            CompanyRow(companyId, companyId, website = "https://$companyId.com"), 
+                            emptyList(), 
+                            null
+                        )
+                }
                 val detResult = bigQuery.query(detConfig.build())
                 val jobsResult = bigQuery.query(jobsConfig.build())
                 val aggResult = bigQuery.query(aggConfig.build())
@@ -243,6 +274,7 @@ class CompanyBigQueryRepository(
                         .addNamedParameter("offset", QueryParameterValue.int64(offset.toLong()))
                         .build()
                         
+                if (bigQuery == null) return emptyList()
                 val result = bigQuery.query(queryConfig)
                 
                 var items = result.iterateAll().map { row ->

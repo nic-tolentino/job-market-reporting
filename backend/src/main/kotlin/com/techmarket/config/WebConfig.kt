@@ -7,7 +7,15 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
-class WebConfig : WebMvcConfigurer {
+class WebConfig(
+    private val adminTokenInterceptor: AdminTokenInterceptor
+) : WebMvcConfigurer {
+
+    override fun addInterceptors(registry: org.springframework.web.servlet.config.annotation.InterceptorRegistry) {
+        registry.addInterceptor(adminTokenInterceptor)
+            .addPathPatterns("/api/admin/**")
+    }
+
     override fun addCorsMappings(registry: CorsRegistry) {
         val extraOrigins =
                 System.getenv("CORS_ALLOWED_ORIGINS")?.split(",")?.toTypedArray() ?: emptyArray()

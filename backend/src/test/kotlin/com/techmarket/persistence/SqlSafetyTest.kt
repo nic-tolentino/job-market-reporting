@@ -3,6 +3,7 @@ package com.techmarket.persistence
 import com.techmarket.persistence.analytics.AnalyticsQueries
 import com.techmarket.persistence.analytics.HubQueries
 import com.techmarket.persistence.company.CompanyQueries
+import com.techmarket.persistence.ingestion.IngestionMetadataQueries
 import com.techmarket.persistence.tech.TechQueries
 import com.techmarket.model.TechCategory
 import org.junit.jupiter.api.Assertions.assertFalse
@@ -197,5 +198,15 @@ class SqlSafetyTest {
         assertSqlSafe(sql)
         assertBacktickWrapped(sql, dataset, jobsTable)
         assertNoRawFieldNames(sql)
+    }
+
+    // --- IngestionMetadataQueries ---
+
+    @Test
+    fun `IngestionMetadataQueries listManifestsSql interpolates and wraps`() {
+        val tableName = "ingestion_metadata"
+        val sql = IngestionMetadataQueries.listManifestsSql(dataset, tableName, "")
+        assertSqlSafe(sql)
+        assertBacktickWrapped(sql, dataset, tableName)
     }
 }

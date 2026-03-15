@@ -8,8 +8,10 @@ interface JobRepository {
     fun saveJobs(jobs: List<JobRecord>)
     fun deleteAllJobs()
     fun getJobDetails(jobId: String): JobPageDto?
-    fun getJobsByIds(jobIds: List<String>): List<JobRecord>
     fun getAllJobs(): List<JobRecord>
+    fun getJobsByIds(jobIds: List<String>): List<JobRecord>
+    fun count(): Long
+    fun countActive(): Long
     fun deleteJobsByIds(jobIds: List<String>)
 
     // Health check methods for dead link detection

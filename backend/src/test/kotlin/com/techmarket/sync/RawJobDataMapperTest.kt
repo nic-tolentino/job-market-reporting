@@ -131,7 +131,7 @@ class RawJobDataMapperTest {
                 every { parser.extractSeniority(any(), any()) } returns "Senior"
                 every { parser.parseDate(any()) } returns LocalDate.parse("2023-01-01")
                 every { parser.parseSalary(any(), any()) } returns null
-                every { parser.extractWorkModel(any(), any()) } returns "Remote"
+                every { parser.extractWorkModel(any(), any(), any()) } returns "Remote"
 
                 val result =
                         mapper.assembleMappedData(
@@ -180,7 +180,7 @@ class RawJobDataMapperTest {
                 every { parser.determineCountry(any()) } returns "AU"
                 every { parser.extractSeniority(any(), any()) } returns "Senior"
                 every { parser.extractTechnologies(any()) } returns listOf("Kotlin")
-                every { parser.extractWorkModel(any(), any()) } returns "Remote"
+                every { parser.extractWorkModel(any(), any(), any()) } returns "Remote"
                 every { parser.parseSalary(any(), any()) } returns null
 
                 every { parser.parseDate(any()) } returns LocalDate.parse("2023-01-01")
@@ -226,7 +226,7 @@ class RawJobDataMapperTest {
                 every { parser.determineCountry(any()) } returns "NZ"
                 every { parser.extractSeniority(any(), any()) } returns "Senior"
                 every { parser.extractTechnologies(any()) } returns listOf("Kotlin")
-                every { parser.extractWorkModel(any(), any()) } returns "Remote"
+                every { parser.extractWorkModel(any(), any(), any()) } returns "Remote"
                 every { parser.parseSalary(any(), any()) } returns null
                 every { parser.parseDate(any()) } returns LocalDate.parse("2023-01-01")
 
@@ -296,7 +296,7 @@ class RawJobDataMapperTest {
             every { parser.determineCountry(any()) } returns "US"
             every { parser.extractSeniority(any(), any()) } returns "Entry"
             every { parser.extractTechnologies(any()) } returns emptyList()
-            every { parser.extractWorkModel(any(), any()) } returns "On-site"
+            every { parser.extractWorkModel(any(), any(), any()) } returns "On-site"
             every { parser.parseSalary(any(), any()) } returns null
             every { parser.parseDate(any()) } returns LocalDate.now()
 

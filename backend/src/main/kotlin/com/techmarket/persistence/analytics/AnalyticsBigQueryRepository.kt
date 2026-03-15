@@ -14,16 +14,20 @@ import com.techmarket.persistence.ensureTableExists
 import java.time.Instant
 import java.util.concurrent.TimeUnit
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.ObjectProvider
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
 
 @Repository
 class AnalyticsBigQueryRepository(
-        private val bigQueryTemplate: BigQueryTemplate,
-        private val bigQuery: BigQuery,
+        bigQueryTemplateProvider: ObjectProvider<BigQueryTemplate>,
+        bigQueryProvider: ObjectProvider<BigQuery>,
         @Value("\${spring.cloud.gcp.bigquery.dataset-name:techmarket}")
         private val datasetName: String
 ) : AnalyticsRepository {
+
+        private val bigQueryTemplate: BigQueryTemplate? = bigQueryTemplateProvider.ifAvailable
+        private val bigQuery: BigQuery? = bigQueryProvider.ifAvailable
 
         private val log = LoggerFactory.getLogger(AnalyticsBigQueryRepository::class.java)
 
@@ -39,7 +43,6 @@ class AnalyticsBigQueryRepository(
                                 Field.of(AnalyticsFields.TERM, StandardSQLTypeName.STRING),
                                 Field.of(AnalyticsFields.TIMESTAMP, StandardSQLTypeName.TIMESTAMP)
                         )
-                bigQuery.ensureTableExists(datasetName, searchMissesTableName, searchMissesSchema)
 
                 // user_feedback schema
                 val feedbackSchema =
@@ -48,6 +51,12 @@ class AnalyticsBigQueryRepository(
                                 Field.of(AnalyticsFields.MESSAGE, StandardSQLTypeName.STRING),
                                 Field.of(AnalyticsFields.TIMESTAMP, StandardSQLTypeName.TIMESTAMP)
                         )
+
+                if (bigQuery == null) {
+                        log.warn("BigQuery unavailable - skipping analytics table checks")
+                        return
+                }
+                bigQuery.ensureTableExists(datasetName, searchMissesTableName, searchMissesSchema)
                 bigQuery.ensureTableExists(datasetName, feedbackTableName, feedbackSchema)
         }
 
@@ -70,6 +79,14 @@ class AnalyticsBigQueryRepository(
                 techConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
                 companiesConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
 
+                if (bigQuery == null) {
+                    log.warn("BigQuery unavailable - returning empty landing page data")
+                    return LandingPageDto(
+                        globalStats = GlobalStatsDto(0, 0, 0, ""),
+                        topTech = emptyList(),
+                        topCompanies = emptyList()
+                    )
+                }
                 val statsResult = bigQuery.query(statsConfig.build())
                 val techResult = bigQuery.query(techConfig.build())
                 val companiesResult = bigQuery.query(companiesConfig.build())
@@ -90,6 +107,7 @@ class AnalyticsBigQueryRepository(
                 val c = country?.lowercase()
                 queryConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
 
+                if (bigQuery == null) return SearchSuggestionsResponse(emptyList())
                 return try {
                         val result = bigQuery.query(queryConfig.build())
                         val suggestions =
@@ -109,6 +127,10 @@ class AnalyticsBigQueryRepository(
                                 AnalyticsFields.TERM to term,
                                 AnalyticsFields.TIMESTAMP to Instant.now().toString()
                         )
+                if (bigQueryTemplate == null) {
+                        log.warn("BigQueryTemplate unavailable - cannot save search miss")
+                        return
+                }
                 try {
                         bigQueryTemplate
                                 .writeJsonStream(
@@ -130,6 +152,10 @@ class AnalyticsBigQueryRepository(
                                 AnalyticsFields.MESSAGE to message,
                                 AnalyticsFields.TIMESTAMP to Instant.now().toString()
                         )
+                if (bigQueryTemplate == null) {
+                        log.warn("BigQueryTemplate unavailable - cannot save feedback")
+                        return
+                }
                 try {
                         bigQueryTemplate
                                 .writeJsonStream(
@@ -144,6 +170,7 @@ class AnalyticsBigQueryRepository(
 
         override fun getAllFeedback(): List<com.techmarket.api.model.FeedbackDto> {
                 val query = AnalyticsQueries.getFeedbackSql(datasetName, feedbackTableName)
+                if (bigQuery == null) return emptyList()
                 return try {
                         val result = bigQuery.query(QueryJobConfiguration.newBuilder(query.sql).build())
                         result.values.map { AnalyticsMapper.mapFeedback(it) }

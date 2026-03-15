@@ -8,15 +8,18 @@ import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
 
+import org.springframework.beans.factory.ObjectProvider
+
 /**
  * Manages the crawler_seeds table — upserted after every crawl.
  * One row per (company_id, url) composite key.
  */
 @Repository
 class CrawlerSeedRepository(
-    private val bigQuery: BigQuery,
+    bigQueryProvider: ObjectProvider<BigQuery>,
     @Value("\${spring.cloud.gcp.bigquery.dataset-name:techmarket}") private val datasetName: String
 ) {
+    private val bigQuery: BigQuery? = bigQueryProvider.ifAvailable
     private val log = LoggerFactory.getLogger(CrawlerSeedRepository::class.java)
     private val mapper = jacksonObjectMapper()
     private val table = BigQueryTables.CRAWLER_SEEDS
@@ -67,6 +70,11 @@ class CrawlerSeedRepository(
             )
         """.trimIndent()
 
+        if (bigQuery == null) {
+            log.warn("BigQuery unavailable — skipping upsert for ${record.companyId}")
+            return
+        }
+
         val config = QueryJobConfiguration.newBuilder(sql)
             .addNamedParameter("company_id", QueryParameterValue.string(record.companyId))
             .addNamedParameter("url", QueryParameterValue.string(record.url))
@@ -107,6 +115,8 @@ class CrawlerSeedRepository(
             .addNamedParameter("company_id", QueryParameterValue.string(companyId))
             .build()
 
+        if (bigQuery == null) return emptyList()
+
         return bigQuery.query(config).iterateAll().map { mapRow(it) }
     }
 
@@ -143,6 +153,8 @@ class CrawlerSeedRepository(
                 QueryParameterValue.array(companyIds.toTypedArray(), StandardSQLTypeName.STRING)
             )
             .build()
+
+        if (bigQuery == null) return emptyMap()
 
         return bigQuery.query(config).iterateAll().associate { row ->
             val companyId = row["company_id"].stringValue

@@ -43,6 +43,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.7.3")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.projectreactor:reactor-test")
     testImplementation("io.mockk:mockk:1.13.9")
 }
 
@@ -61,4 +62,25 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.getByName<org.springframework.boot.gradle.tasks.run.BootRun>("bootRun") {
+    val envFile = file("../.env")
+    if (envFile.exists()) {
+        envFile.readLines().forEach { line ->
+            val trimmedLine = line.trim()
+            if (trimmedLine.isNotBlank() && !trimmedLine.startsWith("#")) {
+                val parts = trimmedLine.split("=", limit = 2)
+                if (parts.size == 2) {
+                    val key = parts[0].trim()
+                    var value = parts[1].trim()
+                    if (value.startsWith("\"") && value.endsWith("\"") || 
+                        value.startsWith("'") && value.endsWith("'")) {
+                        value = value.substring(1, value.length - 1)
+                    }
+                    environment(key, value)
+                }
+            }
+        }
+    }
 }

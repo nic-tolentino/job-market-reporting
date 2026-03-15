@@ -89,6 +89,33 @@ class CloudTasksService(
     }
 
     /**
+     * Retrieves metadata about the sync queue.
+     */
+    fun getQueueMetadata(): Map<String, Any> {
+        val queuePath = QueueName.of(projectId, location, queueName).toString()
+        return try {
+            val queue = cloudTasksClient.getQueue(queuePath)
+            mapOf(
+                "name" to queue.name,
+                "status" to queue.state.name,
+                "rateLimits" to mapOf(
+                    "maxDispatchesPerSecond" to queue.rateLimits.maxDispatchesPerSecond,
+                    "maxConcurrentDispatches" to queue.rateLimits.maxConcurrentDispatches,
+                    "maxBurstSize" to queue.rateLimits.maxBurstSize
+                ),
+                "retryConfig" to mapOf(
+                    "maxAttempts" to queue.retryConfig.maxAttempts,
+                    "minBackoff" to queue.retryConfig.minBackoff.seconds,
+                    "maxBackoff" to queue.retryConfig.maxBackoff.seconds
+                )
+            )
+        } catch (e: Exception) {
+            log.warn("Failed to fetch queue metadata: {}", e.message)
+            mapOf("status" to "UNAVAILABLE", "error" to (e.message ?: "Unknown error"))
+        }
+    }
+
+    /**
      * Payload for sync tasks.
      */
     data class SyncTaskPayload(

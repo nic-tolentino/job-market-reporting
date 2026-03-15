@@ -35,7 +35,7 @@ class JobQueriesTest {
         assertTrue(sql.contains("FROM `test_dataset.test_jobs` j, UNNEST(j.technologies) t"))
         assertTrue(sql.contains("WHERE j.seniorityLevel = @seniority"))
         assertTrue(sql.contains("AND @jobId NOT IN UNNEST(j.jobIds)"))
-        assertTrue(sql.contains("AND t IN ('react','kotlin')"))
+        assertTrue(sql.contains("AND t IN UNNEST(@techs)"))
         assertTrue(sql.contains("ORDER BY j.postedDate DESC"))
         assertTrue(sql.contains("LIMIT 3"))
     }

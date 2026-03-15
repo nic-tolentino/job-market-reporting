@@ -27,6 +27,7 @@ import com.techmarket.util.HealthCheckConstants.UrlStatus.UNKNOWN
 import java.time.Instant
 import java.util.concurrent.TimeUnit
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.ObjectProvider
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
 
@@ -36,12 +37,14 @@ import org.springframework.stereotype.Repository
  */
 @Repository
 class JobBigQueryRepository(
-        private val bigQueryTemplate: BigQueryTemplate,
-        private val bigQuery: BigQuery,
+        bigQueryTemplateProvider: ObjectProvider<BigQueryTemplate>,
+        bigQueryProvider: ObjectProvider<BigQuery>,
         @Value("\${spring.cloud.gcp.bigquery.dataset-name:techmarket}")
         private val datasetName: String
 ) : JobRepository {
 
+        private val bigQueryTemplate: BigQueryTemplate? = bigQueryTemplateProvider.ifAvailable
+        private val bigQuery: BigQuery? = bigQueryProvider.ifAvailable
         private val log = LoggerFactory.getLogger(JobBigQueryRepository::class.java)
 
         private val jobsTableName = BigQueryTables.JOBS
@@ -104,12 +107,20 @@ class JobBigQueryRepository(
                                 Field.of(JobFields.URL_CHECK_FAILURES, StandardSQLTypeName.INT64),
                                 Field.of(JobFields.HTTP_STATUS_CODE, StandardSQLTypeName.INT64)
                         )
+                if (bigQuery == null) {
+                        log.warn("BigQuery unavailable - skipping jobs table check")
+                        return
+                }
                 bigQuery.ensureTableExists(datasetName, jobsTableName, jobsSchema)
         }
 
         override fun deleteAllJobs() {
                 val tableId = TableId.of(datasetName, jobsTableName)
                 log.info("GCP: Dropping table $jobsTableName to allow schema refresh")
+                if (bigQuery == null) {
+                        log.warn("BigQuery unavailable - cannot drop table")
+                        return
+                }
                 try {
                         bigQuery.delete(tableId)
                         log.info("GCP: Successfully dropped table $jobsTableName")
@@ -125,6 +136,10 @@ class JobBigQueryRepository(
                 ensureTable()
 
                 log.info("GCP: Streaming \${jobs.size} jobs to BigQuery table: \$jobsTableName")
+                if (bigQueryTemplate == null) {
+                        log.warn("BigQueryTemplate unavailable - cannot stream jobs")
+                        return
+                }
                 try {
                         bigQueryTemplate
                                 .writeJsonStream(
@@ -190,6 +205,10 @@ class JobBigQueryRepository(
         override fun getJobDetails(jobId: String): JobPageDto? {
                 val detailsQuery =
                         JobQueries.getDetailsSql(datasetName, jobsTableName, companiesTableName)
+                if (bigQuery == null) {
+                    log.warn("BigQuery unavailable - returning null for job details: $jobId")
+                    return null
+                }
                 val detResult =
                         bigQuery.query(
                                 QueryJobConfiguration.newBuilder(detailsQuery.sql)
@@ -220,6 +239,7 @@ class JobBigQueryRepository(
                     )
                 }
 
+                if (bigQuery == null) return null
                 val similarResult = bigQuery.query(similarQueryBuilder.build())
                 // Hydrate typed rows for similar jobs
                 val similarJobRows = similarResult.values.map { JobRow.fromJobRow(it) }
@@ -229,7 +249,7 @@ class JobBigQueryRepository(
 
         override fun getJobsByIds(jobIds: List<String>): List<JobRecord> {
                 if (jobIds.isEmpty()) return emptyList()
-                ensureTable()
+                if (bigQuery == null) return emptyList()
                 val sql =
                         "SELECT * FROM `$datasetName.$jobsTableName` WHERE ${JobFields.JOB_ID} IN UNNEST(?)"
                 val queryConfig =
@@ -246,16 +266,41 @@ class JobBigQueryRepository(
         }
 
         override fun getAllJobs(): List<JobRecord> {
-                ensureTable()
+                if (bigQuery == null) return emptyList()
                 val sql = "SELECT * FROM `$datasetName.$jobsTableName`"
                 val queryConfig = QueryJobConfiguration.newBuilder(sql).build()
                 val result = bigQuery.query(queryConfig)
                 return result.iterateAll().map { row -> JobRow.fromJobRow(row).let { JobMapper.mapToJobRecord(it) } }
         }
 
+        override fun count(): Long {
+                if (bigQuery == null) return 0
+                val sql = "SELECT COUNT(*) AS cnt FROM `$datasetName.$jobsTableName`"
+                val queryConfig = QueryJobConfiguration.newBuilder(sql).build()
+                val result = bigQuery.query(queryConfig)
+                return result.iterateAll().firstOrNull()?.get("cnt")?.longValue ?: 0
+        }
+
+        override fun countActive(): Long {
+                if (bigQuery == null) return 0
+                // Match HealthCheckConstants.UrlStatus.isClosed() logic: startsWith("CLOSED_")
+                // and includes GONE (mapped to CLOSED_410)
+                val sql = """
+                    SELECT COUNT(*) AS cnt FROM `$datasetName.$jobsTableName`
+                    WHERE ${JobFields.URL_STATUS} IS NULL 
+                       OR (${JobFields.URL_STATUS} NOT LIKE 'CLOSED_%' AND ${JobFields.URL_STATUS} != 'GONE')
+                """.trimIndent()
+                val queryConfig = QueryJobConfiguration.newBuilder(sql).build()
+                val result = bigQuery.query(queryConfig)
+                return result.iterateAll().firstOrNull()?.get("cnt")?.longValue ?: 0
+        }
+
         override fun deleteJobsByIds(jobIds: List<String>) {
                 if (jobIds.isEmpty()) return
-                ensureTable()
+                if (bigQuery == null) {
+                        log.warn("BigQuery unavailable - cannot delete jobs by ids")
+                        return
+                }
                 val sql =
                         "DELETE FROM `$datasetName.$jobsTableName` WHERE ${JobFields.JOB_ID} IN UNNEST(?)"
                 val queryConfig =
@@ -277,7 +322,7 @@ class JobBigQueryRepository(
         }
 
         override fun getJobsNeedingHealthCheck(limit: Int): List<JobRecord> {
-                ensureTable()
+                if (bigQuery == null) return emptyList()
                 val twentyFourHoursAgo = Instant.now()
                     .minusSeconds(SECONDS_IN_DAY)
                     .toString()
@@ -304,7 +349,10 @@ class JobBigQueryRepository(
                 urlCheckFailures: Int,
                 urlLastKnownActive: Instant?
         ) {
-                ensureTable()
+                if (bigQuery == null) {
+                        log.warn("BigQuery unavailable - cannot update health status for $jobId")
+                        return
+                }
                 val sql = """
                     UPDATE `$datasetName.$jobsTableName`
                     SET url_status = ?,
@@ -339,7 +387,10 @@ class JobBigQueryRepository(
         }
 
         override fun markJobAsClosed(jobId: String, reason: String, closedAt: Instant) {
-                ensureTable()
+                if (bigQuery == null) {
+                        log.warn("BigQuery unavailable - cannot mark job as closed: $jobId")
+                        return
+                }
                 val sql = """
                     UPDATE `$datasetName.$jobsTableName`
                     SET url_status = ?,
@@ -363,7 +414,7 @@ class JobBigQueryRepository(
         }
 
         override fun getJobById(jobId: String): JobRecord? {
-                ensureTable()
+                if (bigQuery == null) return null
                 val sql = "SELECT * FROM `$datasetName.$jobsTableName` WHERE ${JobFields.JOB_ID} = ?"
                 val queryConfig =
                         QueryJobConfiguration.newBuilder(sql)

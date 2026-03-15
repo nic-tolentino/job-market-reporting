@@ -10,17 +10,20 @@ import com.techmarket.sync.ats.SyncStatus
 import java.time.Instant
 import java.util.concurrent.TimeUnit
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.ObjectProvider
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
 
 @Repository
 class AtsConfigBigQueryRepository(
-        private val bigQueryTemplate: BigQueryTemplate,
-        private val bigQuery: BigQuery,
+        bigQueryTemplateProvider: ObjectProvider<BigQueryTemplate>,
+        bigQueryProvider: ObjectProvider<BigQuery>,
         @Value("\${spring.cloud.gcp.bigquery.dataset-name:techmarket}")
         private val datasetName: String
 ) : AtsConfigRepository {
 
+    private val bigQueryTemplate: BigQueryTemplate? = bigQueryTemplateProvider.ifAvailable
+    private val bigQuery: BigQuery? = bigQueryProvider.ifAvailable
     private val log = LoggerFactory.getLogger(AtsConfigBigQueryRepository::class.java)
     private val tableName = BigQueryTables.ATS_CONFIGS
 
@@ -34,11 +37,15 @@ class AtsConfigBigQueryRepository(
                         Field.of(AtsConfigFields.LAST_SYNCED_AT, StandardSQLTypeName.TIMESTAMP),
                         Field.of(AtsConfigFields.SYNC_STATUS, StandardSQLTypeName.STRING)
                 )
+        if (bigQuery == null) {
+            log.warn("BigQuery unavailable - skipping ATS config table check")
+            return
+        }
         bigQuery.ensureTableExists(datasetName, tableName, schema)
     }
 
     override fun getEnabledConfigs(): List<CompanyAtsConfig> {
-        ensureTable()
+        if (bigQuery == null) return emptyList()
         val query = AtsConfigQueries.getSelectAllEnabledSql(datasetName, tableName)
         val queryConfig = QueryJobConfiguration.newBuilder(query).build()
 
@@ -52,7 +59,7 @@ class AtsConfigBigQueryRepository(
     }
 
     override fun getConfig(companyId: String): CompanyAtsConfig? {
-        ensureTable()
+        if (bigQuery == null) return null
         val query = AtsConfigQueries.getSelectByCompanyIdSql(datasetName, tableName)
         val queryConfig =
                 QueryJobConfiguration.newBuilder(query)
@@ -69,7 +76,10 @@ class AtsConfigBigQueryRepository(
     }
 
     override fun updateSyncStatus(companyId: String, status: SyncStatus, syncedAt: Instant) {
-        ensureTable()
+        if (bigQuery == null) {
+            log.warn("BigQuery unavailable - cannot update sync status for $companyId")
+            return
+        }
         val sql =
                 """
             UPDATE `$datasetName.$tableName` 
@@ -98,7 +108,10 @@ class AtsConfigBigQueryRepository(
     }
 
     override fun saveConfig(config: CompanyAtsConfig) {
-        ensureTable()
+        if (bigQueryTemplate == null) {
+            log.warn("BigQueryTemplate unavailable - cannot save ATS config for ${config.companyId}")
+            return
+        }
         // Upsert pattern: Delete then Insert
         deleteConfig(config.companyId)
 
@@ -115,6 +128,10 @@ class AtsConfigBigQueryRepository(
     }
 
     private fun deleteConfig(companyId: String) {
+        if (bigQuery == null) {
+            log.warn("BigQuery unavailable - cannot delete ATS config for $companyId")
+            return
+        }
         val sql =
                 "DELETE FROM `$datasetName.$tableName` WHERE ${AtsConfigFields.COMPANY_ID} = @companyId"
         val queryConfig =

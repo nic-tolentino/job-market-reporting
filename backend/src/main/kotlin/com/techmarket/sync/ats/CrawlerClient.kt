@@ -8,6 +8,7 @@ import com.techmarket.persistence.crawler.CrawlRunRepository
 import com.techmarket.persistence.crawler.CrawlerSeedRecord
 import com.techmarket.persistence.crawler.CrawlerSeedRepository
 import com.techmarket.sync.ats.model.NormalizedJob
+import com.techmarket.service.CrawlLogService
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
@@ -109,7 +110,8 @@ class CrawlerClient(
     private val companyRepository: CompanyRepository,
     private val crawlerSeedRepository: CrawlerSeedRepository,
     private val crawlRunRepository: CrawlRunRepository,
-    @Value("\${crawler.service.url:http://localhost:8080}") private val crawlerUrl: String
+    private val crawlLogService: CrawlLogService,
+    @Value("\${crawler.service.url}") private val crawlerUrl: String
 ) : AtsClient {
     
     private val log = LoggerFactory.getLogger(CrawlerClient::class.java)
@@ -143,6 +145,7 @@ class CrawlerClient(
         )
         
         log.info("Crawling company: {} with URL: {} (Targeted: {})", identifier, config.careersUrl, targetedSeed != null)
+        crawlLogService.log(identifier, "INFO", "Starting targeted crawl for $identifier at ${config.careersUrl}")
         
         val uri = UriComponentsBuilder
             .fromHttpUrl(crawlerUrl)
@@ -154,10 +157,12 @@ class CrawlerClient(
             restTemplate.postForObject(uri, request, String::class.java)
         } catch (e: Exception) {
             log.error("Crawler service request failed for {}: {}", identifier, e.message)
+            crawlLogService.log(identifier, "ERROR", "Crawler service request failed: ${e.message}")
             throw RuntimeException("Crawler service request failed: ${e.message}", e)
         }
         
         if (responseJson == null) {
+            crawlLogService.log(identifier, "ERROR", "Crawler returned null for $identifier")
             throw RuntimeException("Crawler returned null for $identifier")
         }
 
@@ -165,9 +170,11 @@ class CrawlerClient(
         // (Though in this architecture, the Caller handles the JSON result, so we can persist here)
         try {
             val response = objectMapper.readValue<CrawlResponse>(responseJson)
+            crawlLogService.log(identifier, "SUCCESS", "Crawler finished: ${response.jobs.size} jobs found in ${response.crawlMeta.crawlDurationMs}ms")
             persistCrawlResult(response, targetedSeed)
         } catch (e: Exception) {
             log.error("Failed to persist crawl result for $identifier: ${e.message}", e)
+            crawlLogService.log(identifier, "WARNING", "Failed to persist results: ${e.message}")
         }
 
         return responseJson

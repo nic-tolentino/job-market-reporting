@@ -19,6 +19,10 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.client.RestClient
+import com.techmarket.service.CrawlLogService
+import reactor.core.publisher.Flux
+
+import org.springframework.beans.factory.ObjectProvider
 
 /**
  * Admin endpoints for the crawler management panel.
@@ -30,34 +34,30 @@ import org.springframework.web.client.RestClient
 @RestController
 @RequestMapping("/api/admin/crawler")
 class CrawlerAdminController(
-    private val bigQuery: BigQuery,
+    bigQueryProvider: ObjectProvider<BigQuery>,
     private val crawlerSeedRepository: CrawlerSeedRepository,
     private val crawlRunRepository: CrawlRunRepository,
+    private val crawlLogService: CrawlLogService,
     private val objectMapper: ObjectMapper,
     @Value("\${spring.cloud.gcp.bigquery.dataset-name:techmarket}") private val datasetName: String,
-    @Value("\${admin.panel.token:}") private val adminToken: String,
-    @Value("\${crawler.service.url:http://localhost:8080}") private val crawlerServiceUrl: String,
+    @Value("\${crawler.service.url}") private val crawlerServiceUrl: String
 ) {
+    private val bigQuery: BigQuery? = bigQueryProvider.ifAvailable
     private val log = LoggerFactory.getLogger(CrawlerAdminController::class.java)
 
-    private val crawlerClient: RestClient by lazy {
+    init {
+        log.info("CrawlerAdminController initialized with: datasetName=$datasetName, crawlerServiceUrl=$crawlerServiceUrl, bigQueryAvailable=${bigQuery != null}")
+    }
+
+    private val crawlerServiceRestClient: RestClient by lazy {
+        log.info("Creating crawlerServiceRestClient with baseUrl=$crawlerServiceUrl")
         RestClient.builder().baseUrl(crawlerServiceUrl).build()
     }
 
-    // ---------------------------------------------------------------------------
-    // Auth helper
-    // ---------------------------------------------------------------------------
-
-    private fun isAuthorized(authorization: String?): Boolean {
-        if (adminToken.isBlank()) {
-            log.warn("ADMIN_PANEL_TOKEN not configured — rejecting all admin requests")
-            return false
-        }
-        return authorization == "Bearer $adminToken"
+    @GetMapping(value = ["/logs"], produces = [org.springframework.http.MediaType.TEXT_EVENT_STREAM_VALUE])
+    fun streamLogs(): Flux<CrawlLogService.CrawlLogMessage> {
+        return crawlLogService.getGlobalStream()
     }
-
-    private fun unauthorized(): ResponseEntity<Map<String, String>> =
-        ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(mapOf("error" to "Unauthorized"))
 
     // ---------------------------------------------------------------------------
     // GET /api/admin/crawler/companies
@@ -66,26 +66,34 @@ class CrawlerAdminController(
 
     @GetMapping("/companies")
     fun listCompanies(
-        @RequestHeader("Authorization", required = false) authorization: String?,
         @RequestParam("page", defaultValue = "0") page: Int,
         @RequestParam("limit", defaultValue = "50") limit: Int,
         @RequestParam("search", required = false) search: String?,
         @RequestParam("seedStatus", required = false) seedStatus: String?,
         @RequestParam("hqCountry", required = false) hqCountry: String?,
     ): ResponseEntity<*> {
-        if (!isAuthorized(authorization)) return unauthorized()
+
+        if (bigQuery == null) {
+            return ResponseEntity.ok(mapOf(
+                "data" to emptyList<Any>(),
+                "page" to page,
+                "limit" to limit,
+                "total" to 0,
+                "warning" to "BigQuery is unavailable in this profile"
+            ))
+        }
 
         val offset = page * limit
         val searchPattern = search?.let { "%${it.lowercase()}%" }
 
         val companies = bigQuery.query(buildCompanyQuery(searchPattern, hqCountry, limit, offset)).iterateAll().map { row ->
             mapOf(
-                "companyId" to row["companyId"].stringValue,
-                "name" to row["name"].stringValue,
-                "logoUrl" to (row["logoUrl"].takeUnless { it.isNull }?.stringValue ?: ""),
-                "hqCountry" to (row["hqCountry"].takeUnless { it.isNull }?.stringValue),
-                "verificationLevel" to (row["verificationLevel"].takeUnless { it.isNull }?.stringValue),
-                "employeesCount" to (row["employeesCount"].takeUnless { it.isNull }?.longValue?.toInt()),
+                "companyId" to row.get("companyId").stringValue,
+                "name" to row.get("name").stringValue,
+                "logoUrl" to (row.get("logoUrl").takeUnless { it.isNull }?.stringValue ?: ""),
+                "hqCountry" to (row.get("hqCountry").takeUnless { it.isNull }?.stringValue),
+                "verificationLevel" to (row.get("verificationLevel").takeUnless { it.isNull }?.stringValue),
+                "employeesCount" to (row.get("employeesCount").takeUnless { it.isNull }?.longValue?.toInt()),
             )
         }
 
@@ -101,8 +109,8 @@ class CrawlerAdminController(
 
         // Apply seedStatus filter post-join (simpler than complex SQL)
         var results = companies.map { company ->
-            val id = company["companyId"] as String
-            val health = seedHealth[id]
+            val id = company.get("companyId") as String
+            val health = seedHealth.get(id)
             company + mapOf(
                 "seedStatus" to health?.seedStatus,
                 "seedCount" to (health?.seedCount ?: 0),
@@ -136,10 +144,8 @@ class CrawlerAdminController(
 
     @GetMapping("/companies/{companyId}")
     fun getCompany(
-        @RequestHeader("Authorization", required = false) authorization: String?,
         @PathVariable companyId: String,
     ): ResponseEntity<*> {
-        if (!isAuthorized(authorization)) return unauthorized()
 
         val seeds: List<CrawlerSeedRecord> = try {
             crawlerSeedRepository.findByCompanyId(companyId)
@@ -169,10 +175,8 @@ class CrawlerAdminController(
 
     @PutMapping("/seeds")
     fun upsertSeed(
-        @RequestHeader("Authorization", required = false) authorization: String?,
         @RequestBody body: UpsertSeedRequest,
     ): ResponseEntity<*> {
-        if (!isAuthorized(authorization)) return unauthorized()
 
         val record = CrawlerSeedRecord(
             companyId = body.companyId,
@@ -207,11 +211,9 @@ class CrawlerAdminController(
 
     @PostMapping("/companies/{companyId}/crawl")
     fun triggerCrawl(
-        @RequestHeader("Authorization", required = false) authorization: String?,
         @PathVariable companyId: String,
         @RequestBody body: TriggerCrawlRequest,
     ): ResponseEntity<*> {
-        if (!isAuthorized(authorization)) return unauthorized()
 
         log.info("Admin triggering crawl for $companyId at ${body.url}")
 
@@ -227,7 +229,7 @@ class CrawlerAdminController(
         ).filterValues { it != null }
 
         return try {
-            val result = crawlerClient.post()
+            val result = crawlerServiceRestClient.post()
                 .uri("/crawl")
                 .header("Content-Type", "application/json")
                 .body(objectMapper.writeValueAsString(crawlPayload))
@@ -248,12 +250,10 @@ class CrawlerAdminController(
 
     @GetMapping("/runs")
     fun listRuns(
-        @RequestHeader("Authorization", required = false) authorization: String?,
         @RequestParam("page", defaultValue = "0") page: Int,
         @RequestParam("limit", defaultValue = "50") limit: Int,
         @RequestParam("companyId", required = false) companyId: String?,
     ): ResponseEntity<*> {
-        if (!isAuthorized(authorization)) return unauthorized()
 
         val runs = try {
             crawlRunRepository.findAll(limit = limit, offset = page * limit, companyId = companyId)
@@ -274,14 +274,20 @@ class CrawlerAdminController(
     // ---------------------------------------------------------------------------
 
     @GetMapping("/health")
-    fun health(
-        @RequestHeader("Authorization", required = false) authorization: String?,
-    ): ResponseEntity<*> {
-        if (!isAuthorized(authorization)) return unauthorized()
+    fun health(): ResponseEntity<*> {
+
+        log.info("Health check requested. crawlerServiceUrl: $crawlerServiceUrl")
 
         val crawlerReachable = try {
-            crawlerClient.get().uri("/health").retrieve().body(String::class.java) != null
+            val response = crawlerServiceRestClient.get()
+                .uri("/health")
+                .retrieve()
+                .toEntity(String::class.java)
+            
+            log.info("Crawler health check status: ${response.statusCode}")
+            response.statusCode.is2xxSuccessful
         } catch (e: Exception) {
+            log.warn("Crawler health check failed: ${e.message}")
             false
         }
 
@@ -295,6 +301,13 @@ class CrawlerAdminController(
     // Private helpers
     // ---------------------------------------------------------------------------
 
+    /**
+     * Builds the SQL query to fetch raw company data.
+     * 
+     * NOTE: Filtering by [seedStatus] is performed in Kotlin AFTER this query returns.
+     * This keeps the SQL simple and avoids complex joins across potentially large datasets
+     * for the admin-only observability view.
+     */
     private fun buildCompanyQuery(search: String?, hqCountry: String?, limit: Int, offset: Int): QueryJobConfiguration {
         val sql = buildString {
             append("SELECT companyId, name, logoUrl, hqCountry, verificationLevel, employeesCount")
@@ -314,6 +327,10 @@ class CrawlerAdminController(
         return cfg.build()
     }
 
+    /**
+     * Builds the SQL query to count total companies matching base filters.
+     * Used for pagination calculation.
+     */
     private fun buildCompanyCountQuery(search: String?, hqCountry: String?): QueryJobConfiguration {
         val sql = buildString {
             append("SELECT COUNT(*) AS cnt FROM `$datasetName.${BigQueryTables.COMPANIES}`")

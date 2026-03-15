@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { listRuns } from '../lib/adminApi';
 import { StatusBadge } from '../components/StatusBadge';
+import { ActiveCrawlMonitor } from '../components/ActiveCrawlMonitor';
 
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleString();
@@ -17,6 +18,10 @@ export function CrawlsPage() {
       <div className="px-6 py-4 border-b border-gray-200 bg-white">
         <h1 className="text-lg font-semibold text-gray-900">Crawl Runs</h1>
         <p className="text-sm text-gray-500 mt-0.5">Execution history from crawl_runs</p>
+      </div>
+
+      <div className="p-6 pb-0">
+        <ActiveCrawlMonitor />
       </div>
 
       <div className="flex-1 overflow-auto">

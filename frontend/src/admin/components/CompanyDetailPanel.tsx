@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { X, Plus, RefreshCw, ExternalLink, ChevronRight } from 'lucide-react';
+import { X, Plus, RefreshCw } from 'lucide-react';
 import { getCompany, upsertSeed, triggerCrawl } from '../lib/adminApi';
 import { StatusBadge } from './StatusBadge';
 import type { CrawlerSeed } from '../types/admin';
@@ -55,7 +55,7 @@ function SeedRow({
             <select
               className="w-full text-sm border border-gray-300 rounded px-2 py-1"
               value={editCategory}
-              onChange={(e) => setEditCategory(e.target.value)}
+              onChange={(e) => setEditCategory(e.target.value as any)}
             >
               {CATEGORY_OPTIONS.map((c) => <option key={c}>{c}</option>)}
             </select>
@@ -65,7 +65,7 @@ function SeedRow({
             <select
               className="w-full text-sm border border-gray-300 rounded px-2 py-1"
               value={editStatus}
-              onChange={(e) => setEditStatus(e.target.value)}
+              onChange={(e) => setEditStatus(e.target.value as any)}
             >
               {STATUS_OPTIONS.map((s) => <option key={s}>{s}</option>)}
             </select>
@@ -197,8 +197,14 @@ export function CompanyDetailPanel({
     mutationFn: (url: string) => triggerCrawl(companyId, { url }),
     onMutate: () => setCrawlStatus('Running…'),
     onSuccess: (result: any) => {
+      const stats = result?.crawlMeta?.extractionStats;
+      const meta = result?.crawlMeta;
+      const statsText = stats 
+        ? `(${stats.jobsRaw} raw -> ${stats.jobsValid} valid -> ${stats.jobsTech} tech)`
+        : `${meta?.totalJobsFound ?? 0} jobs`;
+      
       setCrawlStatus(
-        `Done — ${result?.crawlMeta?.totalJobsFound ?? 0} jobs, ${result?.crawlMeta?.pagesVisited ?? 0} pages`
+        `Done — ${statsText}, ${meta?.pagesVisited ?? 0} pages`
       );
       qc.invalidateQueries({ queryKey: ['admin-company', companyId] });
     },
@@ -337,6 +343,11 @@ export function CompanyDetailPanel({
                 <p className="font-mono text-gray-600 truncate">{run.seedUrl}</p>
                 <div className="flex gap-3 text-gray-500">
                   <span>{run.jobsFinal ?? 0} jobs</span>
+                  {(run.jobsRaw !== null || run.jobsValid !== null || run.jobsTech !== null) && (
+                    <span className="text-[10px] bg-gray-100 px-1 rounded">
+                      {run.jobsRaw ?? '?'}/{run.jobsValid ?? '?'}/{run.jobsTech ?? '?'}
+                    </span>
+                  )}
                   <span>{run.pagesVisited ?? 0} pages</span>
                   {run.durationMs && <span>{(run.durationMs / 1000).toFixed(1)}s</span>}
                   {run.confidenceAvg !== null && run.confidenceAvg !== undefined && (

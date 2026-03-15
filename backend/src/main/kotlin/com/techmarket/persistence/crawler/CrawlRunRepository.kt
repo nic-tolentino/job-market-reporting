@@ -6,6 +6,7 @@ import com.google.cloud.spring.bigquery.core.BigQueryTemplate
 import com.techmarket.persistence.BigQueryTables
 import com.techmarket.persistence.CrawlRunFields
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.ObjectProvider
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
 import java.util.concurrent.TimeUnit
@@ -15,10 +16,12 @@ import java.util.concurrent.TimeUnit
  */
 @Repository
 class CrawlRunRepository(
-    private val bigQuery: BigQuery,
-    private val bigQueryTemplate: BigQueryTemplate,
+    bigQueryProvider: ObjectProvider<BigQuery>,
+    bigQueryTemplateProvider: ObjectProvider<BigQueryTemplate>,
     @Value("\${spring.cloud.gcp.bigquery.dataset-name:techmarket}") private val datasetName: String
 ) {
+    private val bigQuery: BigQuery? = bigQueryProvider.ifAvailable
+    private val bigQueryTemplate: BigQueryTemplate? = bigQueryTemplateProvider.ifAvailable
     private val log = LoggerFactory.getLogger(CrawlRunRepository::class.java)
     private val mapper = jacksonObjectMapper()
     private val table = BigQueryTables.CRAWL_RUNS
@@ -50,6 +53,11 @@ class CrawlRunRepository(
             CrawlRunFields.MODEL_USED to record.modelUsed,
         ).filterValues { it != null }
 
+        if (bigQueryTemplate == null) {
+            log.warn("BigQueryTemplate unavailable — skipping append for ${record.companyId}")
+            return
+        }
+
         val json = mapper.writeValueAsString(row) + "\n"
         try {
             bigQueryTemplate.writeJsonStream(table, json.byteInputStream())
@@ -77,6 +85,8 @@ class CrawlRunRepository(
             .addNamedParameter("limit", QueryParameterValue.int64(limit.toLong()))
             .build()
 
+        if (bigQuery == null) return emptyList()
+
         return try {
             bigQuery.query(config).iterateAll().map { mapRow(it) }
         } catch (e: Exception) {
@@ -103,6 +113,8 @@ class CrawlRunRepository(
         if (companyId != null) {
             configBuilder.addNamedParameter("company_id", QueryParameterValue.string(companyId))
         }
+
+        if (bigQuery == null) return emptyList()
 
         return try {
             bigQuery.query(configBuilder.build()).iterateAll().map { mapRow(it) }

@@ -29,7 +29,7 @@ class QueryRowsTest {
 
         // Should not throw and should return sensible defaults
         assertNotNull(jobRow)
-        assertEquals("", jobRow.jobId)
+        assertEquals("test-job-id", jobRow.jobId)
         assertEquals("Unknown Title", jobRow.title)
         assertEquals("unknown", jobRow.companyId)
         assertEquals("Unknown Company", jobRow.companyName)
@@ -209,7 +209,7 @@ class QueryRowsTest {
             JobFields.SENIORITY_LEVEL, JobFields.SOURCE, JobFields.LAST_SEEN_AT,
             JobFields.COUNTRY, JobFields.WORK_MODEL
         )
-        return createMockFieldList(fields, allNull = true)
+        val fieldList = createMockFieldList(fields, allNull = true); setupField(fieldList, JobFields.JOB_ID, "test-job-id"); return fieldList
     }
 
     private fun createPartialNullFieldList(): FieldValueList {
@@ -301,7 +301,7 @@ class QueryRowsTest {
             CompanyAliases.DESCRIPTION, CompanyAliases.WEBSITE, CompanyAliases.HIRING_LOCATIONS,
             CompanyAliases.HQ_COUNTRY, CompanyAliases.VERIFICATION_LEVEL
         )
-        return createMockFieldList(fields, allNull = true)
+        val fieldList = createMockFieldList(fields, allNull = true); setupField(fieldList, JobFields.JOB_ID, "test-job-id"); return fieldList
     }
 
     private fun createAllNullCompanyRowFieldList(): FieldValueList {
@@ -314,7 +314,7 @@ class QueryRowsTest {
             CompanyFields.REMOTE_POLICY, CompanyFields.VISA_SPONSORSHIP, CompanyFields.VISA_SPONSORSHIP_DETAIL, CompanyFields.VERIFICATION_LEVEL,
             CompanyFields.LAST_UPDATED_AT
         )
-        return createMockFieldList(fields, allNull = true)
+        val fieldList = createMockFieldList(fields, allNull = true); setupField(fieldList, JobFields.JOB_ID, "test-job-id"); return fieldList
     }
 
     private fun createPartialCompanyFieldList(): FieldValueList {

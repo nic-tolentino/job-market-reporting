@@ -12,6 +12,7 @@ import com.techmarket.persistence.IngestionMetadataFields
 import com.techmarket.persistence.ensureTableExists
 import com.techmarket.persistence.model.BronzeIngestionManifest
 import com.techmarket.persistence.model.ProcessingStatus
+import org.springframework.beans.factory.ObjectProvider
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -25,6 +26,8 @@ class IngestionMetadataRepositoryTest {
 
     private val bigQueryTemplate = mockk<BigQueryTemplate>()
     private val bigQuery = mockk<BigQuery>(relaxed = true)
+    private val bigQueryTemplateProvider = mockk<ObjectProvider<BigQueryTemplate>>()
+    private val bigQueryProvider = mockk<ObjectProvider<BigQuery>>()
     private val objectMapper = ObjectMapper()
     private val datasetName = "techmarket"
 
@@ -34,8 +37,10 @@ class IngestionMetadataRepositoryTest {
     fun setup() {
         mockkStatic("com.techmarket.persistence.BigQueryExtensionsKt")
         every { any<BigQuery>().ensureTableExists(any(), any(), any()) } returns Unit
+        every { bigQueryTemplateProvider.ifAvailable } returns bigQueryTemplate
+        every { bigQueryProvider.ifAvailable } returns bigQuery
         
-        repository = IngestionMetadataRepository(bigQueryTemplate, bigQuery, objectMapper, datasetName)
+        repository = IngestionMetadataRepository(bigQueryTemplateProvider, bigQueryProvider, objectMapper, datasetName)
     }
 
     // Note: saveManifest test skipped - requires integration test with real BigQuery

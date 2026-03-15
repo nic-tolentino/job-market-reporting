@@ -7,6 +7,8 @@ import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { CompaniesPage } from './pages/CompaniesPage';
 import { CrawlsPage } from './pages/CrawlsPage';
+import { PipelinePage } from './pages/PipelinePage';
+import { AnalyticsPage } from './pages/AnalyticsPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,6 +33,8 @@ export function AdminApp() {
           <Route index element={<DashboardPage />} />
           <Route path="companies" element={<CompaniesPage />} />
           <Route path="crawls" element={<CrawlsPage />} />
+          <Route path="pipeline" element={<PipelinePage />} />
+          <Route path="analytics" element={<AnalyticsPage />} />
           <Route path="*" element={<Navigate to="/admin" replace />} />
         </Route>
       </Routes>

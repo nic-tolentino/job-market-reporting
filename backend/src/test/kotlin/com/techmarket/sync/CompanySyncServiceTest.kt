@@ -3,6 +3,7 @@ package com.techmarket.sync
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.techmarket.persistence.ats.AtsConfigRepository
 import com.techmarket.persistence.company.CompanyRepository
+import com.techmarket.persistence.crawler.CrawlerSeedRepository
 import com.techmarket.persistence.model.CompanyRecord
 import io.mockk.*
 import org.junit.jupiter.api.Test
@@ -14,6 +15,7 @@ class CompanySyncServiceTest {
 
     private val repository = mockk<CompanyRepository>(relaxed = true)
     private val atsRepository = mockk<AtsConfigRepository>(relaxed = true)
+    private val crawlerSeedRepository = mockk<CrawlerSeedRepository>(relaxed = true)
     private val mapper = jacksonObjectMapper()
     
     @Test
@@ -32,7 +34,7 @@ class CompanySyncServiceTest {
             }
         """.trimIndent())
 
-        val service = CompanySyncService(repository, atsRepository, mapper, tempDir.absolutePath)
+        val service = CompanySyncService(repository, atsRepository, crawlerSeedRepository, mapper, tempDir.absolutePath)
         
         service.syncFromManifest()
 
@@ -62,7 +64,7 @@ class CompanySyncServiceTest {
             }
         """.trimIndent())
 
-        val service = CompanySyncService(repository, atsRepository, mapper, tempDir.absolutePath)
+        val service = CompanySyncService(repository, atsRepository, crawlerSeedRepository, mapper, tempDir.absolutePath)
         
         service.syncFromManifest()
 
@@ -77,7 +79,7 @@ class CompanySyncServiceTest {
 
     @Test
     fun `syncFromManifest throws exception if directory not found`() {
-        val service = CompanySyncService(repository, atsRepository, mapper, "missing-dir")
+        val service = CompanySyncService(repository, atsRepository, crawlerSeedRepository, mapper, "missing-dir")
         assertThrows<IllegalArgumentException> {
             service.syncFromManifest()
         }

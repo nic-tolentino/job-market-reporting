@@ -2,16 +2,20 @@ package com.techmarket.sync.ats
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.techmarket.persistence.model.CompanyRecord
 import com.techmarket.persistence.company.CompanyRepository
+import com.techmarket.persistence.crawler.CrawlRunRepository
+import com.techmarket.persistence.crawler.CrawlerSeedRepository
+import com.techmarket.persistence.model.CompanyRecord
+import com.techmarket.service.CrawlLogService
+import io.mockk.every
+import io.mockk.mockk
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import org.mockito.kotlin.mock
-import org.mockito.kotlin.whenever
 import org.springframework.web.client.RestTemplate
 import java.net.URI
+import java.time.Instant
 
 /**
  * Unit tests for CrawlerClient
@@ -22,21 +26,27 @@ class CrawlerClientTest {
     private lateinit var restTemplate: RestTemplate
     private lateinit var objectMapper: ObjectMapper
     private lateinit var companyRepository: CompanyRepository
+    private lateinit var crawlerSeedRepository: CrawlerSeedRepository
+    private lateinit var crawlRunRepository: CrawlRunRepository
+    private lateinit var crawlLogService: CrawlLogService
 
     @BeforeEach
     fun setup() {
-        restTemplate = object : RestTemplate() {
-            var mockResponse: String? = null
-            var shouldThrow: Exception? = null
-
-            override fun postForObject(url: URI, request: Any?, responseType: Class<String>): String? {
-                shouldThrow?.let { throw it }
-                return mockResponse
-            }
-        }
+        restTemplate = mockk()
         objectMapper = ObjectMapper().registerModule(KotlinModule.Builder().build())
-        companyRepository = mock()
-        crawlerClient = CrawlerClient(restTemplate, objectMapper, companyRepository, "http://localhost:8080")
+        companyRepository = mockk()
+        crawlerSeedRepository = mockk(relaxed = true)
+        crawlRunRepository = mockk(relaxed = true)
+        crawlLogService = mockk(relaxed = true)
+        crawlerClient = CrawlerClient(
+            restTemplate, 
+            objectMapper, 
+            companyRepository, 
+            crawlerSeedRepository, 
+            crawlRunRepository, 
+            crawlLogService, 
+            "http://localhost:8080"
+        )
     }
 
     @Test
@@ -79,18 +89,22 @@ class CrawlerClientTest {
 
         // Mock company repository to return a company with website
         val mockCompany = CompanyRecord(
-            id = "airwallex",
+            companyId = "airwallex",
             name = "Airwallex",
+            alternateNames = emptyList(),
+            logoUrl = null,
+            description = null,
             website = "https://www.airwallex.com",
-            hqCountry = "AU"
+            employeesCount = null,
+            industries = null,
+            technologies = emptyList(),
+            hiringLocations = emptyList(),
+            hqCountry = "AU",
+            lastUpdatedAt = Instant.now()
         )
-        whenever(companyRepository.getCompaniesByIds(listOf("airwallex"))).thenReturn(listOf(mockCompany))
+        every { companyRepository.getCompaniesByIds(listOf("airwallex")) } returns listOf(mockCompany)
 
-        // Use reflection to set mock response
-        restTemplate.javaClass.getDeclaredField("mockResponse").apply {
-            isAccessible = true
-            set(restTemplate, mockResponse)
-        }
+        every { restTemplate.postForObject(any<URI>(), any(), String::class.java) } returns mockResponse
 
         val result = crawlerClient.fetchJobs("airwallex")
 
@@ -100,17 +114,22 @@ class CrawlerClientTest {
     @Test
     fun `fetchJobs throws on null response`() {
         val mockCompany = CompanyRecord(
-            id = "airwallex",
+            companyId = "airwallex",
             name = "Airwallex",
+            alternateNames = emptyList(),
+            logoUrl = null,
+            description = null,
             website = "https://www.airwallex.com",
-            hqCountry = "AU"
+            employeesCount = null,
+            industries = null,
+            technologies = emptyList(),
+            hiringLocations = emptyList(),
+            hqCountry = "AU",
+            lastUpdatedAt = Instant.now()
         )
-        whenever(companyRepository.getCompaniesByIds(listOf("airwallex"))).thenReturn(listOf(mockCompany))
+        every { companyRepository.getCompaniesByIds(listOf("airwallex")) } returns listOf(mockCompany)
 
-        restTemplate.javaClass.getDeclaredField("mockResponse").apply {
-            isAccessible = true
-            set(restTemplate, null)
-        }
+        every { restTemplate.postForObject(any<URI>(), any(), String::class.java) } returns null
 
         assertThrows<RuntimeException> {
             crawlerClient.fetchJobs("airwallex")
@@ -120,17 +139,22 @@ class CrawlerClientTest {
     @Test
     fun `fetchJobs throws on RestTemplate error`() {
         val mockCompany = CompanyRecord(
-            id = "airwallex",
+            companyId = "airwallex",
             name = "Airwallex",
+            alternateNames = emptyList(),
+            logoUrl = null,
+            description = null,
             website = "https://www.airwallex.com",
-            hqCountry = "AU"
+            employeesCount = null,
+            industries = null,
+            technologies = emptyList(),
+            hiringLocations = emptyList(),
+            hqCountry = "AU",
+            lastUpdatedAt = Instant.now()
         )
-        whenever(companyRepository.getCompaniesByIds(listOf("airwallex"))).thenReturn(listOf(mockCompany))
+        every { companyRepository.getCompaniesByIds(listOf("airwallex")) } returns listOf(mockCompany)
 
-        restTemplate.javaClass.getDeclaredField("shouldThrow").apply {
-            isAccessible = true
-            set(restTemplate, RuntimeException("Connection refused"))
-        }
+        every { restTemplate.postForObject(any<URI>(), any(), String::class.java) } throws RuntimeException("Connection refused")
 
         val exception = assertThrows<RuntimeException> {
             crawlerClient.fetchJobs("airwallex")
@@ -141,20 +165,25 @@ class CrawlerClientTest {
 
     @Test
     fun `fetchJobs uses company website to construct career URL`() {
-        val mockResponse = """{"companyId": "test", "crawlMeta": {"pagesVisited": 1, "totalJobsFound": 0, "detectedAtsProvider": null, "detectedAtsIdentifier": null, "crawlDurationMs": 1000, "extractionModel": "gemini-2.0-flash", "extractionConfidence": 0.0}, "jobs": []}"""
+        val mockResponse = """{"companyId": "test-company", "crawlMeta": {"pagesVisited": 1, "totalJobsFound": 0, "detectedAtsProvider": null, "detectedAtsIdentifier": null, "crawlDurationMs": 1000, "extractionModel": "gemini-2.0-flash", "extractionConfidence": 0.0}, "jobs": []}"""
         
         val mockCompany = CompanyRecord(
-            id = "test-company",
+            companyId = "test-company",
             name = "Test Company",
+            alternateNames = emptyList(),
+            logoUrl = null,
+            description = null,
             website = "https://www.testcompany.com",
-            hqCountry = "US"
+            employeesCount = null,
+            industries = null,
+            technologies = emptyList(),
+            hiringLocations = emptyList(),
+            hqCountry = "US",
+            lastUpdatedAt = Instant.now()
         )
-        whenever(companyRepository.getCompaniesByIds(listOf("test-company"))).thenReturn(listOf(mockCompany))
+        every { companyRepository.getCompaniesByIds(listOf("test-company")) } returns listOf(mockCompany)
         
-        restTemplate.javaClass.getDeclaredField("mockResponse").apply {
-            isAccessible = true
-            set(restTemplate, mockResponse)
-        }
+        every { restTemplate.postForObject(any<URI>(), any(), String::class.java) } returns mockResponse
 
         val result = crawlerClient.fetchJobs("test-company")
 
@@ -167,12 +196,9 @@ class CrawlerClientTest {
     fun `fetchJobs falls back to companyId URL when company not found`() {
         val mockResponse = """{"companyId": "unknown", "crawlMeta": {"pagesVisited": 1, "totalJobsFound": 0, "detectedAtsProvider": null, "detectedAtsIdentifier": null, "crawlDurationMs": 1000, "extractionModel": "gemini-2.0-flash", "extractionConfidence": 0.0}, "jobs": []}"""
         
-        whenever(companyRepository.getCompaniesByIds(listOf("unknown"))).thenReturn(emptyList())
+        every { companyRepository.getCompaniesByIds(listOf("unknown")) } returns emptyList()
         
-        restTemplate.javaClass.getDeclaredField("mockResponse").apply {
-            isAccessible = true
-            set(restTemplate, mockResponse)
-        }
+        every { restTemplate.postForObject(any<URI>(), any(), String::class.java) } returns mockResponse
 
         val result = crawlerClient.fetchJobs("unknown")
 

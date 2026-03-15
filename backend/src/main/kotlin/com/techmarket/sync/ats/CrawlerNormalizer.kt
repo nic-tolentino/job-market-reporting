@@ -71,7 +71,7 @@ private fun CrawlerJob.toNormalizedJob(): NormalizedJob {
         companyName = this.companyName,
         location = formatLocation(this.location),
         descriptionHtml = this.descriptionHtml,
-        descriptionText = this.descriptionText,
+        descriptionText = this.descriptionText ?: this.descriptionHtml,
         salaryMin = this.salaryMin,
         salaryMax = this.salaryMax,
         salaryCurrency = this.salaryCurrency,

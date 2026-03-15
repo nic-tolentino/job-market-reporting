@@ -52,4 +52,4 @@ admin:
 
 crawler:
   service:
-    url: ${CRAWLER_SERVICE_URL:http://localhost:8080}
+    url: ${CRAWLER_SERVICE_URL:http://localhost:8083}

@@ -16,6 +16,7 @@ import com.techmarket.persistence.model.BronzeIngestionManifest
 import com.techmarket.persistence.model.ProcessingStatus
 import java.time.Instant
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.ObjectProvider
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
 
@@ -25,12 +26,14 @@ import org.springframework.stereotype.Repository
  */
 @Repository
 class IngestionMetadataRepository(
-    private val bigQueryTemplate: BigQueryTemplate,
-    private val bigQuery: BigQuery,
+    bigQueryTemplateProvider: ObjectProvider<BigQueryTemplate>,
+    bigQueryProvider: ObjectProvider<BigQuery>,
     private val objectMapper: ObjectMapper,
     @Value("\${spring.cloud.gcp.bigquery.dataset-name:techmarket}")
     private val datasetName: String
 ) {
+    private val bigQueryTemplate: BigQueryTemplate? = bigQueryTemplateProvider.ifAvailable
+    private val bigQuery: BigQuery? = bigQueryProvider.ifAvailable
     private val log = LoggerFactory.getLogger(IngestionMetadataRepository::class.java)
     private val tableName = BigQueryTables.INGESTION_METADATA
 
@@ -52,6 +55,10 @@ class IngestionMetadataRepository(
                 .build(),
             Field.of(IngestionMetadataFields.METADATA_ID, StandardSQLTypeName.STRING)
         )
+        if (bigQuery == null) {
+            log.warn("BigQuery unavailable - skipping ingestion metadata table check")
+            return
+        }
         bigQuery.ensureTableExists(datasetName, tableName, schema)
     }
 
@@ -59,6 +66,10 @@ class IngestionMetadataRepository(
         ensureTable()
         log.info("Saving ingestion metadata to BigQuery: datasetId=${manifest.datasetId}")
 
+        if (bigQueryTemplate == null) {
+            log.warn("BigQueryTemplate unavailable - cannot save manifest")
+            return
+        }
         try {
             bigQueryTemplate.writeJsonStream(
                 tableName,
@@ -83,6 +94,7 @@ class IngestionMetadataRepository(
             .addNamedParameter("datasetId", QueryParameterValue.string(datasetId))
             .build()
 
+        if (bigQuery == null) return null
         return try {
             val results = bigQuery.query(queryConfig)
             results.iterateAll().firstOrNull()?.let { mapRow(it) }
@@ -105,6 +117,10 @@ class IngestionMetadataRepository(
             .addNamedParameter("datasetId", QueryParameterValue.string(datasetId))
             .build()
 
+        if (bigQuery == null) {
+            log.warn("BigQuery unavailable - cannot update processing status")
+            return false
+        }
         return try {
             bigQuery.query(queryConfig)
             log.info("Updated processing status to $status for dataset $datasetId")
@@ -127,6 +143,7 @@ class IngestionMetadataRepository(
             .addNamedParameter("datasetId", QueryParameterValue.string(datasetId))
             .build()
 
+        if (bigQuery == null) return false
         return try {
             val results = bigQuery.query(queryConfig)
             results.iterateAll().any()
@@ -136,10 +153,21 @@ class IngestionMetadataRepository(
         }
     }
 
+    /**
+     * Lists ingestion manifests with optional filters.
+     * 
+     * @param source Optional source platform filter
+     * @param fromDate Optional start timestamp filter
+     * @param toDate Optional end timestamp filter
+     * @param limit The maximum number of results to return (default 50).
+     *              This LIMIT is pushed down to the BigQuery SQL query.
+     * @return A list of [BronzeIngestionManifest] matching the criteria.
+     */
     fun listManifests(
         source: String?,
         fromDate: Instant?,
-        toDate: Instant?
+        toDate: Instant?,
+        limit: Int = 50
     ): List<BronzeIngestionManifest> {
         ensureTable()
 
@@ -165,18 +193,16 @@ class IngestionMetadataRepository(
             "WHERE " + whereClauses.joinToString(" AND ")
         } else ""
 
-        val query = """
-            SELECT * FROM `$datasetName.$tableName`
-            $whereClause
-            ORDER BY ${IngestionMetadataFields.INGESTED_AT} DESC
-        """.trimIndent()
+        val query = IngestionMetadataQueries.listManifestsSql(datasetName, tableName, whereClause)
 
         val queryConfig = QueryJobConfiguration.newBuilder(query).apply {
             parameters.forEach { (key, value) ->
                 addNamedParameter(key, value)
             }
+            addNamedParameter("limit", QueryParameterValue.int64(limit.toLong()))
         }.build()
 
+        if (bigQuery == null) return emptyList()
         return try {
             val results = bigQuery.query(queryConfig)
             results.iterateAll().map { mapRow(it) }.toList()

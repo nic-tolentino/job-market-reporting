@@ -5,15 +5,20 @@ import com.techmarket.model.TechCategory
 import com.techmarket.dto.*
 import com.techmarket.persistence.*
 import com.techmarket.util.TechFormatter
+import org.springframework.beans.factory.ObjectProvider
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
+import org.slf4j.LoggerFactory
 
 @Repository
 class InsightsBigQueryRepositoryImpl(
-    private val bigQuery: BigQuery,
+    bigQueryProvider: ObjectProvider<BigQuery>,
     @Value("${'$'}{spring.cloud.gcp.bigquery.dataset-name:techmarket}")
     private val datasetName: String
 ) : InsightsBigQueryRepository {
+
+    private val bigQuery: BigQuery? = bigQueryProvider.ifAvailable
+    private val log = LoggerFactory.getLogger(InsightsBigQueryRepositoryImpl::class.java)
 
     override fun getTechnologiesByCategory(
         category: TechCategory,
@@ -313,6 +318,7 @@ class InsightsBigQueryRepositoryImpl(
         queryConfig: QueryJobConfiguration,
         mapper: (FieldValueList) -> T
     ): List<T> {
+        if (bigQuery == null) return emptyList()
         val result = bigQuery.query(queryConfig)
         return result.iterateAll().map { mapper(it) }
     }

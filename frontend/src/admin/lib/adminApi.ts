@@ -8,10 +8,12 @@ import type {
   TriggerCrawlRequest,
 } from '../types/admin';
 
-const BASE = '/api/admin/crawler';
+const BASE = '/api/admin';
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${BASE}${path}`, {
+  const fullPath = `${BASE}${path}`;
+
+  const res = await fetch(fullPath, {
     ...options,
     headers: {
       'Content-Type': 'application/json',
@@ -52,11 +54,11 @@ export async function listCompanies(params: ListCompaniesParams = {}): Promise<A
   if (params.seedStatus) qs.set('seedStatus', params.seedStatus);
   if (params.hqCountry) qs.set('hqCountry', params.hqCountry);
   const query = qs.toString() ? `?${qs.toString()}` : '';
-  return request<AdminCompanyListResponse>(`/companies${query}`);
+  return request<AdminCompanyListResponse>(`/crawler/companies${query}`);
 }
 
 export async function getCompany(companyId: string): Promise<AdminCompanyDetail> {
-  return request<AdminCompanyDetail>(`/companies/${companyId}`);
+  return request<AdminCompanyDetail>(`/crawler/companies/${companyId}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -64,7 +66,7 @@ export async function getCompany(companyId: string): Promise<AdminCompanyDetail>
 // ---------------------------------------------------------------------------
 
 export async function upsertSeed(body: UpsertSeedRequest): Promise<{ status: string }> {
-  return request('/seeds', {
+  return request('/crawler/seeds', {
     method: 'PUT',
     body: JSON.stringify(body),
   });
@@ -78,7 +80,7 @@ export async function triggerCrawl(
   companyId: string,
   body: TriggerCrawlRequest,
 ): Promise<unknown> {
-  return request(`/companies/${companyId}/crawl`, {
+  return request(`/crawler/companies/${companyId}/crawl`, {
     method: 'POST',
     body: JSON.stringify(body),
   });
@@ -102,7 +104,7 @@ export async function listRuns(
   if (params.limit !== undefined) qs.set('limit', String(params.limit));
   if (params.companyId) qs.set('companyId', params.companyId);
   const query = qs.toString() ? `?${qs.toString()}` : '';
-  return request(`/runs${query}`);
+  return request(`/crawler/runs${query}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -110,5 +112,37 @@ export async function listRuns(
 // ---------------------------------------------------------------------------
 
 export async function getAdminHealth(): Promise<{ backend: string; crawlerService: string }> {
-  return request('/health');
+  return request('/crawler/health');
+}
+
+// ---------------------------------------------------------------------------
+// Pipeline
+// ---------------------------------------------------------------------------
+
+export async function getQueueStats(): Promise<any> {
+  return request('/pipeline/queue');
+}
+
+export async function getIngestionHistory(): Promise<any> {
+  return request('/pipeline/history');
+}
+
+// ---------------------------------------------------------------------------
+// Analytics
+// ---------------------------------------------------------------------------
+
+export async function getAnalyticsSummary(): Promise<any> {
+  return request('/analytics/summary');
+}
+
+export async function getFeedback(): Promise<any[]> {
+  return request('/analytics/feedback');
+}
+
+// ---------------------------------------------------------------------------
+// Logs (SSE)
+// ---------------------------------------------------------------------------
+
+export function getLogStreamUrl(token: string): string {
+  return `${BASE}/crawler/logs?token=${token}`;
 }
