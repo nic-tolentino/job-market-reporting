@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "FACTORIAL",
-    "identifier": "assets"
+    "identifier": "assets",
+    "provider": "FACTORIAL"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.excelia.com/careers"
+      }
+    ]
+  },
   "description": "Excelia is a multinational consultancy specializing in data-driven solutions, cybersecurity, and professional services across 50+ countries with over 25 years of experience.",
   "employees_count": 500,
   "hq_country": "ES",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-10T09:10:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.excelia.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.excelia.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.excelia.com"
 }

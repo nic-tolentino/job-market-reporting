@@ -1,10 +1,23 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "myob-2"
+    "identifier": "myob-2",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "discovery": {
+      "lastAttemptedAt": "2026-03-14",
+      "notes": "Homepage triggers a browser file download on page load, crashing the crawler. Seed URL updated to the redirect destination careers.myob.com — use targeted mode.",
+      "status": "BLOCKED"
+    },
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://careers.myob.com/"
+      }
+    ]
+  },
   "description": "MYOB is a leading provider of business management solutions in Australia and New Zealand, offering integrated tools locally tailored to help businesses thrive.",
   "employees_count": 2000,
   "hq_country": "AU",
@@ -31,24 +44,11 @@
   "updated_at": "2026-03-10T09:40:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.myob.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://careers.myob.com/",
-        "category": "unknown"
-      }
-    ],
-    "discovery": {
-      "status": "BLOCKED",
-      "lastAttemptedAt": "2026-03-14",
-      "notes": "Homepage triggers a browser file download on page load, crashing the crawler. Seed URL updated to the redirect destination careers.myob.com — use targeted mode."
-    }
-  }
+  "website": "https://www.myob.com"
 }

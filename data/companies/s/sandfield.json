@@ -3,6 +3,14 @@
     "Sandfield Information Systems"
   ],
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.sandfield.co.nz/careers"
+      }
+    ]
+  },
   "description": "Sandfield is a New Zealand software company that specializes in building custom business applications.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -25,19 +33,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.sandfield.co.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.sandfield.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.sandfield.co.nz"
 }

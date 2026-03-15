@@ -1,48 +1,48 @@
 {
-  "id": "macquarie-group",
-  "name": "Macquarie Group",
   "alternateNames": [
     "Macquarie"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.macquarie.com/careers"
+      }
+    ]
+  },
   "description": "Macquarie Group is a global financial services provider with a strong presence in equities research, advising organizations on markets, industries, and business value creation.",
-  "website": "https://www.macquarie.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFWxaMqRxHNZQ/company-logo_100_100/company-logo_100_100/0/1630472263203/macquariegroup_logo?e=1774483200&v=beta&t=o0JV6M6TcwZFZhmPbbpvIKPbj8LwdDbYDZWxxu2fmKo",
+  "employees_count": 21000,
+  "hq_country": "AU",
+  "id": "macquarie-group",
   "industries": [
     "Fintech",
     "Investment Banking",
     "Financial Services"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU",
-    "NZ",
-    "Worldwide"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFWxaMqRxHNZQ/company-logo_100_100/company-logo_100_100/0/1630472263203/macquariegroup_logo?e=1774483200&v=beta&t=o0JV6M6TcwZFZhmPbbpvIKPbj8LwdDbYDZWxxu2fmKo",
+  "name": "Macquarie Group",
   "office_locations": [
     "Sydney",
     "Melbourne",
     "Auckland"
   ],
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 21000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:30:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.macquarie.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.macquarie.com"
 }

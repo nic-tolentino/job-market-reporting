@@ -1,20 +1,33 @@
 {
-  "id": "simple-machines",
-  "name": "Simple Machines",
   "alternateNames": [],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.simplemachines.com.au/careers"
+      }
+    ]
+  },
   "description": "Simple Machines is an independent boutique technology firm specializing in architecting scalable data platforms and software systems designed for an AI-driven world.",
-  "website": "https://www.simplemachines.com.au",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFABvUDD7egEg/company-logo_100_100/company-logo_100_100/0/1705398364689/simplemachinesau_logo?e=1774483200&v=beta&t=9DSr8eRFpP-OH8ovKXkBjoL3_sLNbPG7_VRhiUzMjsQ",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "simple-machines",
   "industries": [
     "Data Engineering",
     "AI",
     "Software Development",
     "Consulting"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFABvUDD7egEg/company-logo_100_100/company-logo_100_100/0/1705398364689/simplemachinesau_logo?e=1774483200&v=beta&t=9DSr8eRFpP-OH8ovKXkBjoL3_sLNbPG7_VRhiUzMjsQ",
+  "name": "Simple Machines",
+  "office_locations": [
+    "Sydney",
+    "London",
+    "San Francisco"
+  ],
   "operating_countries": [
     "AU",
     "NZ",
@@ -23,28 +36,15 @@
     "PL",
     "Worldwide"
   ],
-  "office_locations": [
-    "Sydney",
-    "London",
-    "San Francisco"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T11:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.simplemachines.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.simplemachines.com.au"
 }

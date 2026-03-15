@@ -118,7 +118,7 @@ def validate_all():
         return 1
     
     json_files = sorted([
-        f for f in MANIFEST_DIR.glob('*.json')
+        f for f in MANIFEST_DIR.rglob('*.json')
         if not f.name.startswith('.') and f.name != 'schema.json'
     ])
     

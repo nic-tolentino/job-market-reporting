@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "ASHBY",
-    "identifier": "plain"
+    "identifier": "plain",
+    "provider": "ASHBY"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.plain.com/careers"
+      }
+    ]
+  },
   "description": "Plain is building the next-gen customer support platform for B2B companies, unifying interactions and leveraging AI to help teams build better customer relationships.",
   "employees_count": 50,
   "hq_country": "GB",
@@ -30,19 +38,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.plain.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.plain.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.plain.com"
 }

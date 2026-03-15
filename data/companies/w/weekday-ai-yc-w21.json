@@ -3,10 +3,18 @@
     "Weekday"
   ],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "weekday-1"
+    "identifier": "weekday-1",
+    "provider": "WORKABLE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.weekday.works/careers"
+      }
+    ]
+  },
   "description": "Weekday is a YC-backed recruitment startup providing a hand-curated platform for premium tech jobs at VC-backed startups and research labs.",
   "employees_count": 20,
   "hq_country": "US",
@@ -33,19 +41,11 @@
   "updated_at": "2026-03-10T14:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.weekday.works",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.weekday.works/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.weekday.works"
 }

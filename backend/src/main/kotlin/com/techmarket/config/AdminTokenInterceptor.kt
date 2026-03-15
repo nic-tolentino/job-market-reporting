@@ -6,16 +6,6 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import org.springframework.web.servlet.HandlerInterceptor
 
-/**
- * Interceptor that validates the administrative token for /api/admin/* routes.
- *
- * Supports two authentication modes:
- * 1. `Authorization: Bearer <token>` header (Standard API calls)
- * 2. `?token=<token>` query parameter (Server-Sent Events / EventSource)
- *
- * Implement a fail-closed policy: if `ADMIN_PANEL_TOKEN` is blank or missing from environment,
- * all authenticated requests will be rejected even if a token is provided.
- */
 @Component
 class AdminTokenInterceptor(
     @Value("\${ADMIN_PANEL_TOKEN:}") private val adminToken: String

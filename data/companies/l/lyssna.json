@@ -1,9 +1,17 @@
 {
   "ats": {
-    "provider": "BAMBOOHR",
-    "identifier": "lyssna"
+    "identifier": "lyssna",
+    "provider": "BAMBOOHR"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.lyssna.com/careers"
+      }
+    ]
+  },
   "description": "Lyssna is a comprehensive user research platform that provides on-demand access to panelists for surveys, usability tests, and interviews to help product teams move in the right direction.",
   "employees_count": 50,
   "hq_country": "AU",
@@ -29,19 +37,11 @@
   "updated_at": "2026-03-10T09:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.lyssna.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.lyssna.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.lyssna.com"
 }

@@ -3,10 +3,18 @@
     "Clover"
   ],
   "ats": {
-    "provider": "GREENHOUSE",
-    "identifier": "cloverhealth"
+    "identifier": "cloverhealth",
+    "provider": "GREENHOUSE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.cloverhealth.com/careers"
+      }
+    ]
+  },
   "description": "Clover Health is a next-generation Medicare Advantage insurer which leverages its flagship software platform.",
   "employees_count": null,
   "hq_country": "US",
@@ -31,19 +39,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.cloverhealth.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.cloverhealth.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.cloverhealth.com"
 }

@@ -1,6 +1,14 @@
 {
   "alternateNames": [],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.idealista.com/careers"
+      }
+    ]
+  },
   "description": "Largest real estate portal in Spain and Europe, connecting buyers, sellers, and renters.",
   "employees_count": null,
   "hq_country": "ES",
@@ -26,19 +34,11 @@
   "updated_at": "2026-03-07T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.idealista.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.idealista.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.idealista.com"
 }

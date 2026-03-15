@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "TEAMTAILOR",
-    "identifier": "knowmadmood"
+    "identifier": "knowmadmood",
+    "provider": "TEAMTAILOR"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.knowmadmood.com/careers"
+      }
+    ]
+  },
   "description": "An IT service and software development company focused on digital transformation and IT consulting.",
   "employees_count": null,
   "hq_country": "ES",
@@ -26,13 +34,5 @@
   "updated_at": "2026-03-10T07:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.knowmadmood.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.knowmadmood.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.knowmadmood.com"
 }

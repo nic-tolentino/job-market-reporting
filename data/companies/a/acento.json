@@ -1,46 +1,46 @@
 {
-  "id": "acento",
-  "name": "Acento",
   "alternateNames": [
     "Acento Recruitment"
   ],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://acento.be/careers"
+      }
+    ]
+  },
   "description": "Acento is an international recruitment and staffing agency specializing in connecting tech talent with European institutions and global enterprises.",
-  "website": "https://acento.be",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGbsGLQe2aosQ/company-logo_100_100/company-logo_100_100/0/1630649934645/acentocat_logo?e=1774483200&v=beta&t=-M9VoEVVt3MalpRcAfqfI5GWGkYna36uDIxIA2zWueM",
+  "employees_count": 50,
+  "hq_country": "BE",
+  "id": "acento",
   "industries": [
     "Recruitment",
     "Staffing",
     "IT Services"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "BE",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGbsGLQe2aosQ/company-logo_100_100/company-logo_100_100/0/1630649934645/acentocat_logo?e=1774483200&v=beta&t=-M9VoEVVt3MalpRcAfqfI5GWGkYna36uDIxIA2zWueM",
+  "name": "Acento",
+  "office_locations": [
+    "Brussels"
+  ],
   "operating_countries": [
     "BE",
     "ES",
     "EU"
   ],
-  "office_locations": [
-    "Brussels"
-  ],
   "remote_policy": "Unknown",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T08:50:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://acento.be/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://acento.be"
 }

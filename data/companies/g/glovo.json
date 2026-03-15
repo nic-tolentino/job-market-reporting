@@ -1,6 +1,14 @@
 {
   "alternateNames": [],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://glovoapp.com/careers"
+      }
+    ]
+  },
   "description": "On-demand delivery platform connecting users with local restaurants, shops, and pharmacies across 22 countries.",
   "employees_count": null,
   "hq_country": "ES",
@@ -31,19 +39,11 @@
   "updated_at": "2026-03-07T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://glovoapp.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://glovoapp.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://glovoapp.com"
 }

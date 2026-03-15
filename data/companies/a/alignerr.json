@@ -3,6 +3,14 @@
     "Alignerr AI"
   ],
   "company_type": "Platform",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.alignerr.com/careers"
+      }
+    ]
+  },
   "description": "A platform connecting subject matter experts with AI companies to train and refine advanced models.",
   "employees_count": 50,
   "hq_country": "US",
@@ -24,19 +32,11 @@
   "updated_at": "2026-03-10T05:30:58.400163Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.alignerr.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.alignerr.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.alignerr.com"
 }

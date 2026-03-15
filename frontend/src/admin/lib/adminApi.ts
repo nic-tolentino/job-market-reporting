@@ -1,6 +1,5 @@
 import { authHeader } from './auth';
 import type {
-  AdminCompany,
   AdminCompanyListResponse,
   AdminCompanyDetail,
   CrawlRun,

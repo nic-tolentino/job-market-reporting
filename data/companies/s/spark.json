@@ -4,10 +4,18 @@
     "Telecom NZ"
   ],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "sparknz"
+    "identifier": "sparknz",
+    "provider": "WORKDAY"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.spark.co.nz/careers"
+      }
+    ]
+  },
   "description": "Spark is New Zealand's largest telecommunications and IT services company.",
   "employees_count": 5000,
   "hq_country": "NZ",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.spark.co.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.spark.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.spark.co.nz"
 }

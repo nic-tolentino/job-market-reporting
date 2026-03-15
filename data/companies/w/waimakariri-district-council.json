@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "TEAMTAILOR",
-    "identifier": "www"
+    "identifier": "www",
+    "provider": "TEAMTAILOR"
   },
   "company_type": "Government",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.waimakariri.govt.nz/careers"
+      }
+    ]
+  },
   "description": "The Waimakariri District Council is a local government body serving one of NZ's fastest-growing regions, committed to professional excellence and community service.",
   "employees_count": 400,
   "hq_country": "NZ",
@@ -28,19 +36,11 @@
   "updated_at": "2026-03-10T13:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.waimakariri.govt.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.waimakariri.govt.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.waimakariri.govt.nz"
 }

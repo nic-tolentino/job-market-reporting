@@ -1,22 +1,36 @@
 {
-  "id": "talent",
-  "name": "Talent International",
   "alternateNames": [
     "Talent"
   ],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.talentinternational.com/careers"
+      }
+    ]
+  },
   "description": "Talent International is a premier global tech recruitment firm partnering with major banks and professional services to deliver elite engineering and AI talent.",
-  "website": "https://www.talentinternational.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEmUkJ4adld3Q/company-logo_100_100/company-logo_100_100/0/1686266745827/talent_international_logo?e=1774483200&v=beta&t=g5Q5n-7rCIrMScEE7qq8R5YnFYh1HuBlg0StnS0NL7g",
+  "employees_count": 500,
+  "hq_country": "AU",
+  "id": "talent",
   "industries": [
     "Recruitment",
     "IT Staffing",
     "Consulting",
     "AI"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "AU",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEmUkJ4adld3Q/company-logo_100_100/company-logo_100_100/0/1686266745827/talent_international_logo?e=1774483200&v=beta&t=g5Q5n-7rCIrMScEE7qq8R5YnFYh1HuBlg0StnS0NL7g",
+  "name": "Talent International",
+  "office_locations": [
+    "Sydney",
+    "Melbourne",
+    "London",
+    "Auckland"
+  ],
   "operating_countries": [
     "AU",
     "NZ",
@@ -25,29 +39,15 @@
     "US",
     "Worldwide"
   ],
-  "office_locations": [
-    "Sydney",
-    "Melbourne",
-    "London",
-    "Auckland"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 500,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T12:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.talentinternational.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.talentinternational.com"
 }

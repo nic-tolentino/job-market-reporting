@@ -4,10 +4,18 @@
     "Channel 9"
   ],
   "ats": {
-    "provider": "SMARTRECRUITERS",
-    "identifier": "Nine"
+    "identifier": "Nine",
+    "provider": "SMARTRECRUITERS"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.nineforbrands.com.au/careers"
+      }
+    ]
+  },
   "description": "Nine is Australia's largest locally owned media company, driving the success of the country's most trusted television, radio, digital, and publishing brands.",
   "employees_count": 5000,
   "hq_country": "AU",
@@ -36,19 +44,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.nineforbrands.com.au",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.nineforbrands.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.nineforbrands.com.au"
 }

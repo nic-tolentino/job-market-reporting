@@ -1,49 +1,49 @@
 {
-  "id": "navico-group",
-  "name": "Navico Group",
   "alternateNames": [
     "Navico"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.navico.com/careers"
+      }
+    ]
+  },
   "description": "Navico Group is the world's leading supplier of integrated marine electronics and power management systems for recreational and commercial vehicles.",
-  "website": "http://www.navico.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHLcE0_dVB-oQ/company-logo_100_100/company-logo_100_100/0/1659521438341/navico_logo?e=1773878400&v=beta&t=...",
+  "employees_count": 2000,
+  "hq_country": "US",
+  "id": "navico-group",
   "industries": [
     "Consumer Electronics",
     "Marine Tech",
     "Software Development",
     "IoT"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHLcE0_dVB-oQ/company-logo_100_100/company-logo_100_100/0/1659521438341/navico_logo?e=1773878400&v=beta&t=...",
+  "name": "Navico Group",
+  "office_locations": [
+    "Auckland",
+    "Chicago"
+  ],
   "operating_countries": [
     "US",
     "AU",
     "NZ",
     "Worldwide"
   ],
-  "office_locations": [
-    "Auckland",
-    "Chicago"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 2000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.navico.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "http://www.navico.com"
 }

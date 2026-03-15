@@ -1,42 +1,42 @@
 {
-  "id": "hola-consultores-sl",
-  "name": "Hola Consultores",
   "alternateNames": [],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.holaconsultores.com/careers"
+      }
+    ]
+  },
   "description": "Hola Consultores is a specialized IT services and engineering firm providing custom software solutions and management consulting for businesses.",
-  "website": "https://www.holaconsultores.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEnLG2sKPOPOw/company-logo_100_100/company-logo_100_100/0/1657118088396/holaconsultores_logo?e=1774483200&v=beta&t=5PCJ3enN-ZvVvvMDmMMjxfV1S5YrqxbcId6PLtb9zLA",
+  "employees_count": 50,
+  "hq_country": "ES",
+  "id": "hola-consultores-sl",
   "industries": [
     "IT Services",
     "Consulting",
     "Software Development"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
-  "operating_countries": [
-    "ES"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEnLG2sKPOPOw/company-logo_100_100/company-logo_100_100/0/1657118088396/holaconsultores_logo?e=1774483200&v=beta&t=5PCJ3enN-ZvVvvMDmMMjxfV1S5YrqxbcId6PLtb9zLA",
+  "name": "Hola Consultores",
   "office_locations": [
     "Madrid"
   ],
+  "operating_countries": [
+    "ES"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:20:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.holaconsultores.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.holaconsultores.com"
 }

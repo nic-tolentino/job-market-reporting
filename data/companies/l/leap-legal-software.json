@@ -1,6 +1,14 @@
 {
   "alternateNames": [],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.leaplegalsoftware.com/careers"
+      }
+    ]
+  },
   "description": "A multinational legal technology company developing practice management software for the legal profession.",
   "employees_count": null,
   "hq_country": "AU",
@@ -25,13 +33,5 @@
   "updated_at": "2026-03-10T07:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.leaplegalsoftware.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.leaplegalsoftware.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.leaplegalsoftware.com"
 }

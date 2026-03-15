@@ -1,45 +1,45 @@
 {
-  "id": "droneshield",
-  "name": "DroneShield",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.droneshield.com/careers"
+      }
+    ]
+  },
   "description": "DroneShield is a global leader in counter-drone solutions, using cutting-edge AI and signal processing technology to protect military bases, airports, and critical infrastructure.",
-  "website": "https://www.droneshield.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQE3f3zQmal_lA/company-logo_100_100/company-logo_100_100/0/1630559197152/droneshield_logo?e=1774483200&v=beta&t=4TdbKaEF04oVmZE0nyTxdF9H-Hf6SUVvCMVO0ZQQpxE",
+  "employees_count": 100,
+  "hq_country": "AU",
+  "id": "droneshield",
   "industries": [
     "Aerospace",
     "Defence",
     "AI",
     "Cybersecurity"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU",
-    "Worldwide"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQE3f3zQmal_lA/company-logo_100_100/company-logo_100_100/0/1630559197152/droneshield_logo?e=1774483200&v=beta&t=4TdbKaEF04oVmZE0nyTxdF9H-Hf6SUVvCMVO0ZQQpxE",
+  "name": "DroneShield",
   "office_locations": [
     "Sydney",
     "Virginia"
   ],
+  "operating_countries": [
+    "AU",
+    "Worldwide"
+  ],
   "remote_policy": "On-site",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 100,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:10:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.droneshield.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.droneshield.com"
 }

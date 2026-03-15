@@ -1,22 +1,35 @@
 {
-  "id": "sector-alarm-espa-a",
-  "name": "Sector Alarm España",
   "alternateNames": [
     "Sector Alarm"
   ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.sectoralarm.es/careers"
+      }
+    ]
+  },
   "description": "Sector Alarm is a leading European security provider, designing and developing IoT-driven backend systems and high-quality safety solutions for millions of homes.",
-  "website": "https://www.sectoralarm.es",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEqT_zmqH8EuQ/company-logo_100_100/company-logo_100_100/0/1630552158736/sector_alarm_espana_logo?e=1774483200&v=beta&t=SXpXG6s6RWs7UD302oNXirkE8qSNTIPxGrUTX0gpeFQ",
+  "employees_count": 3000,
+  "hq_country": "NO",
+  "id": "sector-alarm-espa-a",
   "industries": [
     "Security",
     "IoT",
     "SaaS",
     "IT Services"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NO",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEqT_zmqH8EuQ/company-logo_100_100/company-logo_100_100/0/1630552158736/sector_alarm_espana_logo?e=1774483200&v=beta&t=SXpXG6s6RWs7UD302oNXirkE8qSNTIPxGrUTX0gpeFQ",
+  "name": "Sector Alarm España",
+  "office_locations": [
+    "Fuengirola",
+    "Madrid",
+    "Oslo"
+  ],
   "operating_countries": [
     "NO",
     "ES",
@@ -26,28 +39,15 @@
     "FR",
     "Worldwide"
   ],
-  "office_locations": [
-    "Fuengirola",
-    "Madrid",
-    "Oslo"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 3000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T11:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.sectoralarm.es/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.sectoralarm.es"
 }

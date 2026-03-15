@@ -3,10 +3,18 @@
     "Savage Interactive"
   ],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "procreate"
+    "identifier": "procreate",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://procreate.com/careers"
+      }
+    ]
+  },
   "description": "Procreate is a global leader in creative tools, crafting exceptional digital art software used by millions, combining beautiful UX with high-performance engineering.",
   "employees_count": 100,
   "hq_country": "AU",
@@ -31,19 +39,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://procreate.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://procreate.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://procreate.com"
 }

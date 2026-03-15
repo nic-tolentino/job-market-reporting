@@ -3,6 +3,14 @@
     "Alphabet"
   ],
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.google.com/careers"
+      }
+    ]
+  },
   "description": "A global technology leader specializing in Internet-related services and products, including search, cloud computing, and AI.",
   "employees_count": null,
   "hq_country": "US",
@@ -28,13 +36,5 @@
   "updated_at": "2026-03-10T07:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.google.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.google.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.google.com"
 }

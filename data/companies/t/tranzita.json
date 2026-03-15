@@ -1,43 +1,43 @@
 {
-  "id": "tranzita",
-  "name": "Tranzita",
   "alternateNames": [],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://tranzita.com/careers"
+      }
+    ]
+  },
   "description": "Tranzita is an engineering-led technology partner crafting efficient and scalable backend systems using Node.js and Python for diverse global clients.",
-  "website": "https://tranzita.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQG_w8XL4lL2Rg/company-logo_100_100/B56ZhaYc9iH0AU-/0/1753863016709/tranzita_logo?e=1774483200&v=beta&t=crFVz3U1h73j2x8WuvVyNtqjjCryOZ-l2BGjvqvKMVQ",
+  "employees_count": 50,
+  "hq_country": "ES",
+  "id": "tranzita",
   "industries": [
     "Software Development",
     "IT Services",
     "Consulting"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQG_w8XL4lL2Rg/company-logo_100_100/B56ZhaYc9iH0AU-/0/1753863016709/tranzita_logo?e=1774483200&v=beta&t=crFVz3U1h73j2x8WuvVyNtqjjCryOZ-l2BGjvqvKMVQ",
+  "name": "Tranzita",
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [
     "ES",
     "Worldwide"
   ],
-  "office_locations": [
-    "Madrid"
-  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T12:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://tranzita.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://tranzita.com"
 }

@@ -3,10 +3,18 @@
     "Otto"
   ],
   "ats": {
-    "provider": "PERSONIO",
-    "identifier": "jobs"
+    "identifier": "jobs",
+    "provider": "PERSONIO"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.ottogroup.com/careers"
+      }
+    ]
+  },
   "description": "one.O is a specialized tech division of the Otto Group, focusing on modern cloud infrastructure and advanced e-commerce frontend development for global retail platforms.",
   "employees_count": 1000,
   "hq_country": "DE",
@@ -34,19 +42,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.ottogroup.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.ottogroup.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.ottogroup.com"
 }

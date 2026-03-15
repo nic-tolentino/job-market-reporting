@@ -1,46 +1,46 @@
 {
-  "id": "t-mapp",
-  "name": "T-mapp",
   "alternateNames": [],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.t-mapp.com/careers"
+      }
+    ]
+  },
   "description": "T-mapp is a global technology partner specializing in high-performance Java backend solutions for international electric markets and financial trading systems.",
-  "website": "https://www.t-mapp.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEMwELtwv385g/company-logo_100_100/company-logo_100_100/0/1644851804966/t_mapp_logo?e=1774483200&v=beta&t=lWp-Pok8hcIC4NRTY-9F0SXpHVNoP74ulojgxR73vuQ",
+  "employees_count": 100,
+  "hq_country": "US",
+  "id": "t-mapp",
   "industries": [
     "IT Services",
     "Energy Tech",
     "Fintech",
     "Consulting"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEMwELtwv385g/company-logo_100_100/company-logo_100_100/0/1644851804966/t_mapp_logo?e=1774483200&v=beta&t=lWp-Pok8hcIC4NRTY-9F0SXpHVNoP74ulojgxR73vuQ",
+  "name": "T-mapp",
+  "office_locations": [
+    "Boston"
+  ],
   "operating_countries": [
     "US",
     "BR",
     "MX",
     "Worldwide"
   ],
-  "office_locations": [
-    "Boston"
-  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 100,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T12:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.t-mapp.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.t-mapp.com"
 }

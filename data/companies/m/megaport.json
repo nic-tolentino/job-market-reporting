@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "megaport"
+    "identifier": "megaport",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.megaport.com/careers"
+      }
+    ]
+  },
   "description": "Megaport is a global leader in Network as a Service (NaaS), providing an on-demand SDN that interconnects thousands of data centers and cloud providers globally.",
   "employees_count": 300,
   "hq_country": "AU",
@@ -34,19 +42,11 @@
   "updated_at": "2026-03-10T09:40:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.megaport.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.megaport.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.megaport.com"
 }

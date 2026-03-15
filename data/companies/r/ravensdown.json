@@ -1,45 +1,45 @@
 {
-  "id": "ravensdown",
-  "name": "Ravensdown",
   "alternateNames": [],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.ravensdown.co.nz/careers"
+      }
+    ]
+  },
   "description": "Ravensdown is a major farmer-owned co-operative enabling smarter farming through high-quality agri-products, technology, and environmental mitigation.",
-  "website": "https://www.ravensdown.co.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGSi9oCCF1THw/company-logo_100_100/company-logo_100_100/0/1639594006041/ravensdown_logo?e=1773878400&v=beta&t=apBd1ETF-jxV3x6EXl3VFAw7mKE25caNl1oDY884X7k",
+  "employees_count": 800,
+  "hq_country": "NZ",
+  "id": "ravensdown",
   "industries": [
     "Agriculture",
     "Agtech",
     "Manufacturing",
     "Software Development"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGSi9oCCF1THw/company-logo_100_100/company-logo_100_100/0/1639594006041/ravensdown_logo?e=1773878400&v=beta&t=apBd1ETF-jxV3x6EXl3VFAw7mKE25caNl1oDY884X7k",
+  "name": "Ravensdown",
   "office_locations": [
     "Christchurch",
     "Auckland",
     "Dunedin"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 800,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.ravensdown.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.ravensdown.co.nz"
 }

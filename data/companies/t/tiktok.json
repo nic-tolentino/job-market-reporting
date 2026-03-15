@@ -1,22 +1,37 @@
 {
-  "id": "tiktok",
-  "name": "TikTok",
   "alternateNames": [
     "ByteDance"
   ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.tiktok.com/careers"
+      }
+    ]
+  },
   "description": "TikTok is the world's leading destination for short-form mobile video, on a mission to inspire creativity and bring joy through high-performance engineering and AI.",
-  "website": "https://www.tiktok.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHYzDOZhwEZ7Q/company-logo_100_100/B56Zl_CaXSIAAU-/0/1758772964879/tiktok_logo?e=1774483200&v=beta&t=48KBkWlX6ggKe-soIhmmwSmQB23Zl1T5DYYIteD4G8A",
+  "employees_count": 10000,
+  "hq_country": "US",
+  "id": "tiktok",
   "industries": [
     "Social Media",
     "Entertainment",
     "Software Development",
     "AI"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHYzDOZhwEZ7Q/company-logo_100_100/B56Zl_CaXSIAAU-/0/1758772964879/tiktok_logo?e=1774483200&v=beta&t=48KBkWlX6ggKe-soIhmmwSmQB23Zl1T5DYYIteD4G8A",
+  "name": "TikTok",
+  "office_locations": [
+    "Los Angeles",
+    "Singapore",
+    "Sydney",
+    "London",
+    "Dublin"
+  ],
   "operating_countries": [
     "US",
     "SG",
@@ -31,30 +46,15 @@
     "JP",
     "Worldwide"
   ],
-  "office_locations": [
-    "Los Angeles",
-    "Singapore",
-    "Sydney",
-    "London",
-    "Dublin"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 10000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T12:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.tiktok.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.tiktok.com"
 }

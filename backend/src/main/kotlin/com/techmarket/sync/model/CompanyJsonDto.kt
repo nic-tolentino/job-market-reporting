@@ -56,7 +56,9 @@ data class CrawlerSeedDto(
 
 data class CrawlerDiscoveryDto(
     val status: String?,
-    val errorMessage: String?
+    val lastAttemptedAt: String? = null,
+    val notes: String? = null,
+    val errorMessage: String? = null
 )
 
 data class AtsConfigDto(

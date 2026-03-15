@@ -1,45 +1,45 @@
 {
-  "id": "corto",
-  "name": "CORTO",
   "alternateNames": [
     "LawY"
   ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.corto.ai/careers"
+      }
+    ]
+  },
   "description": "CORTO is a legaltech company dedicated to revolutionizing the industry with AI-driven solutions that streamline workflows for legal professionals.",
-  "website": "https://www.corto.ai",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHcdps23AjBnA/company-logo_100_100/B56ZWwzCajGoAQ-/0/1742427924511/docorto_logo?e=1774483200&v=beta&t=ON1_ER-4jrCcyWkAGhq9FdcpYwtsjg4nGUYQgnE4u4I",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "corto",
   "industries": [
     "Legaltech",
     "AI",
     "SaaS"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHcdps23AjBnA/company-logo_100_100/B56ZWwzCajGoAQ-/0/1742427924511/docorto_logo?e=1774483200&v=beta&t=ON1_ER-4jrCcyWkAGhq9FdcpYwtsjg4nGUYQgnE4u4I",
+  "name": "CORTO",
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [
     "AU",
     "Worldwide"
   ],
-  "office_locations": [
-    "Sydney"
-  ],
   "remote_policy": "Flexible",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:05:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.corto.ai/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.corto.ai"
 }

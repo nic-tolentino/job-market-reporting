@@ -1,21 +1,33 @@
 {
-  "id": "mca-espa-a",
-  "name": "MCA España",
   "alternateNames": [
     "MCA"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.mca-groupe.com/careers"
+      }
+    ]
+  },
   "description": "MCA is an international engineering and high-tech consultancy specializing in large-scale industrial projects across diverse sectors including energy and manufacturing.",
-  "website": "https://www.mca-groupe.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF6QWU6zekEfA/company-logo_100_100/B56ZUS8BLcHoAQ-/0/1739779478632/mca_engineering_spain_logo?e=1774483200&v=beta&t=6VymXCuOuxGehw_3S9GH-4gth-ylMkppQAxeD7S4sLw",
+  "employees_count": 1450,
+  "hq_country": "FR",
+  "id": "mca-espa-a",
   "industries": [
     "Engineering",
     "Industrial Tech",
     "Consulting"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "FR",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF6QWU6zekEfA/company-logo_100_100/B56ZUS8BLcHoAQ-/0/1739779478632/mca_engineering_spain_logo?e=1774483200&v=beta&t=6VymXCuOuxGehw_3S9GH-4gth-ylMkppQAxeD7S4sLw",
+  "name": "MCA España",
+  "office_locations": [
+    "Madrid",
+    "Barcelona"
+  ],
   "operating_countries": [
     "ES",
     "FR",
@@ -23,27 +35,15 @@
     "DE",
     "Worldwide"
   ],
-  "office_locations": [
-    "Madrid",
-    "Barcelona"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1450,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:40:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.mca-groupe.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.mca-groupe.com"
 }

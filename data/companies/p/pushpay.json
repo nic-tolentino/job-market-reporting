@@ -3,10 +3,18 @@
     "Pushpay Limited"
   ],
   "ats": {
-    "provider": "GREENHOUSE",
-    "identifier": "pushpay"
+    "identifier": "pushpay",
+    "provider": "GREENHOUSE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "general",
+        "url": "https://pushpay.com/company/careers"
+      }
+    ]
+  },
   "description": "Pushpay provides mobile commerce and engagement solutions for faith-based organizations and non-profits.",
   "employees_count": null,
   "hq_country": "US",
@@ -31,19 +39,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://pushpay.com/",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://pushpay.com/company/careers",
-        "category": "general"
-      }
-    ]
-  }
+  "website": "https://pushpay.com/"
 }

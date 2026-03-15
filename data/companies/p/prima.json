@@ -1,50 +1,50 @@
 {
-  "id": "prima",
-  "name": "Prima",
   "alternateNames": [
     "Prima Assicurazioni"
   ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.prima.it/careers"
+      }
+    ]
+  },
   "description": "Prima is a tech-driven motor insurance provider using data and tech to rethink insurance for millions of drivers across the UK, Italy, and Spain.",
-  "website": "https://www.prima.it",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEKHjN4KrO5KQ/company-logo_100_100/B4DZjQhn_tGQAQ-/0/1755845132686/prima_assicurazioni_logo?e=1774483200&v=beta&t=6slY2V0NZaKwthPe-9rLfZ66gFE0jTHiZwaB9-T14p4",
+  "employees_count": 1000,
+  "hq_country": "IT",
+  "id": "prima",
   "industries": [
     "Insurtech",
     "Fintech",
     "SaaS",
     "Insurance"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "IT",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEKHjN4KrO5KQ/company-logo_100_100/B4DZjQhn_tGQAQ-/0/1755845132686/prima_assicurazioni_logo?e=1774483200&v=beta&t=6slY2V0NZaKwthPe-9rLfZ66gFE0jTHiZwaB9-T14p4",
+  "name": "Prima",
+  "office_locations": [
+    "Milan",
+    "London",
+    "Madrid"
+  ],
   "operating_countries": [
     "IT",
     "GB",
     "ES",
     "Worldwide"
   ],
-  "office_locations": [
-    "Milan",
-    "London",
-    "Madrid"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T10:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.prima.it/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.prima.it"
 }

@@ -3,10 +3,18 @@
     "Quantifi Photonics"
   ],
   "ats": {
-    "provider": "SUCCESSFACTORS",
-    "identifier": "rmkcdn"
+    "identifier": "rmkcdn",
+    "provider": "SUCCESSFACTORS"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.teradyne.com/careers"
+      }
+    ]
+  },
   "description": "Teradyne is a global leader in test and industrial automation, driving excellence in photonics engineering and high-performance hardware connections.",
   "employees_count": 6500,
   "hq_country": "US",
@@ -34,19 +42,11 @@
   "updated_at": "2026-03-10T12:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.teradyne.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.teradyne.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.teradyne.com"
 }

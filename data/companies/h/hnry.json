@@ -3,6 +3,14 @@
     "Hnry Limited"
   ],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.hnry.co.nz/careers"
+      }
+    ]
+  },
   "description": "Hnry is an all-in-one tax and financial service for freelancers and contractors.",
   "employees_count": 100,
   "hq_country": "NZ",
@@ -27,19 +35,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.hnry.co.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.hnry.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.hnry.co.nz"
 }

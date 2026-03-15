@@ -1,43 +1,43 @@
 {
-  "id": "second-window",
-  "name": "Second Window",
   "alternateNames": [],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.secondwindow.es/careers"
+      }
+    ]
+  },
   "description": "Second Window is an international technology consultancy specializing in software development, Java backend systems, and enterprise API management for global clients.",
-  "website": "https://www.secondwindow.es",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFbCh4M5ZPbHQ/company-logo_100_100/company-logo_100_100/0/1630573580379/second_window_logo?e=1774483200&v=beta&t=3-WqYKU7rwkaQKGMPiT8CYhL-cOekpE4bKkXgX-G3qI",
+  "employees_count": 100,
+  "hq_country": "ES",
+  "id": "second-window",
   "industries": [
     "IT Services",
     "Consulting",
     "Software Development"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFbCh4M5ZPbHQ/company-logo_100_100/company-logo_100_100/0/1630573580379/second_window_logo?e=1774483200&v=beta&t=3-WqYKU7rwkaQKGMPiT8CYhL-cOekpE4bKkXgX-G3qI",
+  "name": "Second Window",
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [
     "ES",
     "Worldwide"
   ],
-  "office_locations": [
-    "Madrid"
-  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 100,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T11:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.secondwindow.es/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.secondwindow.es"
 }

@@ -1,42 +1,42 @@
 {
-  "id": "motor-trade-association-mta",
-  "name": "MTA (Motor Trade Association)",
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.mta.org.nz/careers"
+      }
+    ]
+  },
   "description": "MTA is New Zealand's largest automotive industry body, serving thousands of members with industry standards, advocacy, and vocational training across the motor sector.",
-  "website": "https://www.mta.org.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHqlHi0WAcMSw/company-logo_100_100/company-logo_100_100/0/1722820966303/motor_trade_association_logo?e=1774483200&v=beta&t=svbuMbPY8OCDM6kPnCKwA-unPOE0IzBOKq1SxmnixgU",
+  "employees_count": 100,
+  "hq_country": "NZ",
+  "id": "motor-trade-association-mta",
   "industries": [
     "Automotive",
     "Industry Body",
     "Training"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHqlHi0WAcMSw/company-logo_100_100/company-logo_100_100/0/1722820966303/motor_trade_association_logo?e=1774483200&v=beta&t=svbuMbPY8OCDM6kPnCKwA-unPOE0IzBOKq1SxmnixgU",
+  "name": "MTA (Motor Trade Association)",
   "office_locations": [
     "Wellington",
     "Auckland"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "On-site",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 100,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:40:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.mta.org.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.mta.org.nz"
 }

@@ -1,47 +1,47 @@
 {
-  "id": "tarlogic",
-  "name": "Tarlogic",
   "alternateNames": [
     "Tarlogic Security"
   ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.tarlogic.com/careers"
+      }
+    ]
+  },
   "description": "Tarlogic is a specialized cybersecurity firm developing innovative products for communications analysis and SaaS platforms for global security monitoring.",
-  "website": "https://www.tarlogic.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHCIp65GqDD1A/company-logo_100_100/company-logo_100_100/0/1631334732497?e=1774483200&v=beta&t=g4q2ZQicYkdRZSHeiFjDk9AICxBgwqbQrvcqIMUXuJw",
+  "employees_count": 150,
+  "hq_country": "ES",
+  "id": "tarlogic",
   "industries": [
     "Cybersecurity",
     "SaaS",
     "Software Development",
     "IT Services"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
-  "operating_countries": [
-    "ES",
-    "Worldwide"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHCIp65GqDD1A/company-logo_100_100/company-logo_100_100/0/1631334732497?e=1774483200&v=beta&t=g4q2ZQicYkdRZSHeiFjDk9AICxBgwqbQrvcqIMUXuJw",
+  "name": "Tarlogic",
   "office_locations": [
     "Madrid",
     "Santiago de Compostela"
   ],
+  "operating_countries": [
+    "ES",
+    "Worldwide"
+  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 150,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T12:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.tarlogic.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.tarlogic.com"
 }

@@ -1,50 +1,50 @@
 {
-  "id": "susquehanna-international-group",
-  "name": "Susquehanna International Group",
   "alternateNames": [
     "SIG"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://sig.com/careers"
+      }
+    ]
+  },
   "description": "SIG is a global quantitative trading firm powered by scientific rigor and scientific innovation, building some of the most powerful trading systems in the financial industry.",
-  "website": "https://sig.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGRndfnf-vqyg/company-logo_100_100/company-logo_100_100/0/1725734450282/susquehanna_international_group_llp_sig_logo?e=1774483200&v=beta&t=T41_pPSCiQDsAjmxcOUqae4M_lo6G9Axmx1Z5L4N5kY",
+  "employees_count": 3000,
+  "hq_country": "US",
+  "id": "susquehanna-international-group",
   "industries": [
     "Fintech",
     "Quantitative Trading",
     "Finance",
     "AI"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGRndfnf-vqyg/company-logo_100_100/company-logo_100_100/0/1725734450282/susquehanna_international_group_llp_sig_logo?e=1774483200&v=beta&t=T41_pPSCiQDsAjmxcOUqae4M_lo6G9Axmx1Z5L4N5kY",
+  "name": "Susquehanna International Group",
+  "office_locations": [
+    "Bala Cynwyd",
+    "Sydney",
+    "Dublin"
+  ],
   "operating_countries": [
     "US",
     "AU",
     "IE",
     "Worldwide"
   ],
-  "office_locations": [
-    "Bala Cynwyd",
-    "Sydney",
-    "Dublin"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 3000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T11:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://sig.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://sig.com"
 }

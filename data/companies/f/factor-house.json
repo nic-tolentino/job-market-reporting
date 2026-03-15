@@ -1,30 +1,30 @@
 {
-  "id": "factor-house",
-  "name": "Factor House",
   "alternateNames": [],
-  "description": "Factor House is a company profile created during backlog processing.",
-  "website": "https://factorhouse.io",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGQ167j3gVAEQ/company-logo_100_100/B56Zq9jy8uJoAU-/0/1764116869462/factorhouse_logo?e=1774483200&v=beta&t=7RiVSE28pfaJ2s62J2fGUlSzQ3FiTtOBNFDjiVAmDC0",
-  "industries": [
-    "Software Development"
-  ],
   "company_type": "Product",
-  "is_agency": false,
-  "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [],
-  "office_locations": [],
-  "remote_policy": "Unknown",
-  "visa_sponsorship": null,
-  "employees_count": null,
-  "verification_level": "silver",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
   "crawler": {
     "seeds": [
       {
-        "url": "https://factorhouse.io/careers",
-        "category": "unknown"
+        "category": "unknown",
+        "url": "https://factorhouse.io/careers"
       }
     ]
-  }
+  },
+  "description": "Factor House is a company profile created during backlog processing.",
+  "employees_count": null,
+  "hq_country": "AU",
+  "id": "factor-house",
+  "industries": [
+    "Software Development"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGQ167j3gVAEQ/company-logo_100_100/B56Zq9jy8uJoAU-/0/1764116869462/factorhouse_logo?e=1774483200&v=beta&t=7RiVSE28pfaJ2s62J2fGUlSzQ3FiTtOBNFDjiVAmDC0",
+  "name": "Factor House",
+  "office_locations": [],
+  "operating_countries": [],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T03:36:42.903748Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://factorhouse.io"
 }

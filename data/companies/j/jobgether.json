@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "jobgether"
+    "identifier": "jobgether",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.jobgether.com/careers"
+      }
+    ]
+  },
   "description": "Jobgether is a platform focused on remote job opportunities and talent matching.",
   "employees_count": null,
   "hq_country": "BE",
@@ -25,19 +33,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.jobgether.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.jobgether.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.jobgether.com"
 }

@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "planner5d"
+    "identifier": "planner5d",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://planner5d.com/careers"
+      }
+    ]
+  },
   "description": "Planner 5D is a global home design platform with over 100 million users, simplifying the home renovation process through advanced 3D graphics and intuitive tools.",
   "employees_count": 100,
   "hq_country": "LT",
@@ -30,19 +38,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://planner5d.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://planner5d.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://planner5d.com"
 }

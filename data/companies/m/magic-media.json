@@ -1,46 +1,46 @@
 {
-  "id": "magic-media",
-  "name": "Magic Media",
   "alternateNames": [],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.magicmedia.studio/careers"
+      }
+    ]
+  },
   "description": "Magic Media is a pioneering entertainment and tech group providing global solutions in art, animation, cybersecurity, and full-cycle game development for the games industry.",
-  "website": "https://www.magicmedia.studio",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEpKReAty3aQg/company-logo_100_100/company-logo_100_100/0/1645002270801/magic_media_entertainment_logo?e=1774483200&v=beta&t=gzUJfoi0XudfWKgiZVJ2lCsVcGQBtZbhshZyKA9CLeU",
+  "employees_count": 1000,
+  "hq_country": "CY",
+  "id": "magic-media",
   "industries": [
     "Game Development",
     "Cybersecurity",
     "IT Services"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "CY",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEpKReAty3aQg/company-logo_100_100/company-logo_100_100/0/1645002270801/magic_media_entertainment_logo?e=1774483200&v=beta&t=gzUJfoi0XudfWKgiZVJ2lCsVcGQBtZbhshZyKA9CLeU",
+  "name": "Magic Media",
+  "office_locations": [
+    "Madrid",
+    "Barcelona"
+  ],
   "operating_countries": [
     "ES",
     "BE",
     "US",
     "Worldwide"
   ],
-  "office_locations": [
-    "Madrid",
-    "Barcelona"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:30:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.magicmedia.studio/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.magicmedia.studio"
 }

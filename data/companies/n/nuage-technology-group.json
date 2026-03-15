@@ -1,44 +1,44 @@
 {
-  "id": "nuage-technology-group",
-  "name": "Nuage Technology Group",
   "alternateNames": [
     "Nuage"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.nuagetech.com.au/careers"
+      }
+    ]
+  },
   "description": "Nuage is a specialized tech consultancy providing full-stack engineering, cloud integration, and AI-enabled software solutions for enterprise clients in Australia.",
-  "website": "https://www.nuagetech.com.au",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQExQCPVv06ZwA/company-logo_100_100/company-logo_100_100/0/1678137188575/nuage_technology_group_logo?e=1774483200&v=beta&t=M0ipkrhZz-FQ2U3KFvADFWsJMh6vFMcsn1f90y4uK80",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "nuage-technology-group",
   "industries": [
     "IT Services",
     "Consulting",
     "Software Development"
   ],
-  "company_type": "Consultancy",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQExQCPVv06ZwA/company-logo_100_100/company-logo_100_100/0/1678137188575/nuage_technology_group_logo?e=1774483200&v=beta&t=M0ipkrhZz-FQ2U3KFvADFWsJMh6vFMcsn1f90y4uK80",
+  "name": "Nuage Technology Group",
   "office_locations": [
     "Sydney"
   ],
+  "operating_countries": [
+    "AU"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T10:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.nuagetech.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.nuagetech.com.au"
 }

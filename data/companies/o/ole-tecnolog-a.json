@@ -3,10 +3,18 @@
     "Ole"
   ],
   "ats": {
-    "provider": "PERSONIO",
-    "identifier": "jobs"
+    "identifier": "jobs",
+    "provider": "PERSONIO"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.ole.mx/careers"
+      }
+    ]
+  },
   "description": "Ole Tecnología specializes in full-stack web development, cloud services, and specialized SDK development for modern interactive devices such as Roku.",
   "employees_count": 100,
   "hq_country": "MX",
@@ -33,19 +41,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.ole.mx",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.ole.mx/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.ole.mx"
 }

@@ -1,31 +1,31 @@
 {
-  "id": "publicis-sapient",
-  "name": "Publicis Sapient",
   "alternateNames": [],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://publicissapient.com/careers"
+      }
+    ]
+  },
   "description": "Publicis Sapient is a technology company that provides enterprise AI platforms and services. With over 30 years of digital business transformation experience, we enable enterprise clients to transform how they operate and serve their customers, unlocking new value and enabling them to thrive in an AI-driven world. Our platforms use AI built off this deep enterprise context to help them modernize, build agentic solutions, and sustain their competitive advantage. The combination of our AI platforms and the expertise of our people enables us to deliver faster and more effective outcomes through solutions that are specific to the unique needs of our clients’ businesses, their industries and their customers.  Publicis Sapient is the technology hub of Publicis Groupe, uniting 20,000 people worldwide across 28 countries. For more information, visit publicissapient.com. ",
-  "website": "http://publicissapient.com/",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFFzEm8Vg3Lwg/company-logo_100_100/B4EZqics_9KMAU-/0/1763662025177?e=1774483200&v=beta&t=JyblRGrJJfQEdlFpXcwigaJThJU21XdvpkpaPPlYAGk",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "publicis-sapient",
   "industries": [
     "Business Consulting",
     "Services"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
-  "operating_countries": [],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFFzEm8Vg3Lwg/company-logo_100_100/B4EZqics_9KMAU-/0/1763662025177?e=1774483200&v=beta&t=JyblRGrJJfQEdlFpXcwigaJThJU21XdvpkpaPPlYAGk",
+  "name": "Publicis Sapient",
   "office_locations": [],
+  "operating_countries": [],
   "remote_policy": "Unknown",
-  "visa_sponsorship": null,
-  "employees_count": null,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T03:36:42.903748Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://publicissapient.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "http://publicissapient.com/"
 }

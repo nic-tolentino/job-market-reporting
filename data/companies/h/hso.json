@@ -3,6 +3,14 @@
     "HSO International"
   ],
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.hso.com/careers"
+      }
+    ]
+  },
   "description": "HSO is a global provider of business applications and platform services geared towards the Microsoft ecosystem.",
   "employees_count": null,
   "hq_country": "NL",
@@ -26,19 +34,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.hso.com/",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.hso.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.hso.com/"
 }

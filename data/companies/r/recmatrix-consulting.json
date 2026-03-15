@@ -1,47 +1,47 @@
 {
-  "id": "recmatrix-consulting",
-  "name": "Recmatrix Consulting",
   "alternateNames": [
     "Recmatrix"
   ],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.recmatrix.com/careers"
+      }
+    ]
+  },
   "description": "Recmatrix is a specialized recruitment consultancy focused on Digital, Data, Cloud, and AI talent across NZ, Australia, and India.",
-  "website": "http://www.recmatrix.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFNgWlV9PowzQ/company-logo_100_100/company-logo_100_100/0/1695015582176/recmatrix_consulting_ltd_logo?e=1773878400&v=beta&t=tINago2mFyD0HbMRi7rFB0DQ8AAEaVBIG9kFpf2C9b4",
+  "employees_count": 20,
+  "hq_country": "NZ",
+  "id": "recmatrix-consulting",
   "industries": [
     "Recruitment",
     "IT Staffing",
     "Consulting",
     "Software Development"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFNgWlV9PowzQ/company-logo_100_100/company-logo_100_100/0/1695015582176/recmatrix_consulting_ltd_logo?e=1773878400&v=beta&t=tINago2mFyD0HbMRi7rFB0DQ8AAEaVBIG9kFpf2C9b4",
+  "name": "Recmatrix Consulting",
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [
     "NZ",
     "AU",
     "IN"
   ],
-  "office_locations": [
-    "Auckland"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 20,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.recmatrix.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "http://www.recmatrix.com"
 }

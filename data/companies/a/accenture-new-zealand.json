@@ -4,10 +4,18 @@
     "Accenture New Zealand"
   ],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "accenture"
+    "identifier": "accenture",
+    "provider": "WORKDAY"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.accenture.co.nz/careers"
+      }
+    ]
+  },
   "description": "A global professional services company with leading capabilities in digital, cloud, and security.",
   "employees_count": 700000,
   "hq_country": "IE",
@@ -33,19 +41,11 @@
   "updated_at": "2026-03-10T05:30:58.400150Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.accenture.co.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.accenture.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.accenture.co.nz"
 }

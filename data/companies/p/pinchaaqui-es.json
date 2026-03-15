@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "ZOHO",
-    "identifier": "pinchaaqui"
+    "identifier": "pinchaaqui",
+    "provider": "ZOHO"
   },
   "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.pinchaaqui.es/careers"
+      }
+    ]
+  },
   "description": "Pinchaaqui.es is a digital strategy agency that connects brands and people through memorable experiences, driving growth through e-commerce and web development.",
   "employees_count": 50,
   "hq_country": "ES",
@@ -28,19 +36,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.pinchaaqui.es",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.pinchaaqui.es/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.pinchaaqui.es"
 }

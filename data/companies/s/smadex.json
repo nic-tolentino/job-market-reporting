@@ -1,47 +1,47 @@
 {
-  "id": "smadex",
-  "name": "Smadex",
   "alternateNames": [
     "Smadex (by Entravision)"
   ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://smadex.com/careers"
+      }
+    ]
+  },
   "description": "Smadex is a cutting-edge ad-tech company processing 4.5 million requests per second with sub-100ms response times, using massive scale data for real-time bidding.",
-  "website": "https://smadex.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFIqGWL1u7WvQ/company-logo_100_100/company-logo_100_100/0/1712563047157/smadex_logo?e=1774483200&v=beta&t=nAoLiv9tDKoJM2-mA24OHE5wB8eZP_zD9kMy3E9Fuhg",
+  "employees_count": 150,
+  "hq_country": "ES",
+  "id": "smadex",
   "industries": [
     "Ad-tech",
     "SaaS",
     "Data Engineering",
     "Big Data"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFIqGWL1u7WvQ/company-logo_100_100/company-logo_100_100/0/1712563047157/smadex_logo?e=1774483200&v=beta&t=nAoLiv9tDKoJM2-mA24OHE5wB8eZP_zD9kMy3E9Fuhg",
+  "name": "Smadex",
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [
     "ES",
     "US",
     "Worldwide"
   ],
-  "office_locations": [
-    "Barcelona"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 150,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T11:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://smadex.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://smadex.com"
 }

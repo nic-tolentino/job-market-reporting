@@ -4,10 +4,18 @@
     "Air New Zealand"
   ],
   "ats": {
-    "provider": "SMARTRECRUITERS",
-    "identifier": "AirNewZealand"
+    "identifier": "AirNewZealand",
+    "provider": "SMARTRECRUITERS"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.airnewzealand.co.nz/careers"
+      }
+    ]
+  },
   "description": "Air New Zealand is the national airline carrier of New Zealand.",
   "employees_count": 11000,
   "hq_country": "NZ",
@@ -30,19 +38,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.airnewzealand.co.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.airnewzealand.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.airnewzealand.co.nz"
 }

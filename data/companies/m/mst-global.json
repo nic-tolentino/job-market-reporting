@@ -1,21 +1,32 @@
 {
-  "id": "mst-global",
-  "name": "MST Global",
   "alternateNames": [
     "MST"
   ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.mstglobal.com/careers"
+      }
+    ]
+  },
   "description": "MST Global designs and delivers mission-critical communications and tracking solutions for the global mining and industrial sectors using advanced IoT and SDN technology.",
-  "website": "https://www.mstglobal.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGif7gfRf_Ckw/company-logo_100_100/company-logo_100_100/0/1724899821113/mstglobal_logo?e=1774483200&v=beta&t=KvUUWap4m58z4qAOSOrL4u_4xZfAxUwcfw-6tGXBIrA",
+  "employees_count": 200,
+  "hq_country": "AU",
+  "id": "mst-global",
   "industries": [
     "Mining Tech",
     "IoT",
     "Networking"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGif7gfRf_Ckw/company-logo_100_100/company-logo_100_100/0/1724899821113/mstglobal_logo?e=1774483200&v=beta&t=KvUUWap4m58z4qAOSOrL4u_4xZfAxUwcfw-6tGXBIrA",
+  "name": "MST Global",
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [
     "AU",
     "CA",
@@ -23,26 +34,15 @@
     "ZA",
     "Worldwide"
   ],
-  "office_locations": [
-    "Sydney"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 200,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:40:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.mstglobal.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.mstglobal.com"
 }

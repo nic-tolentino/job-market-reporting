@@ -1,44 +1,44 @@
 {
-  "id": "altech",
-  "name": "ALTECH",
   "alternateNames": [
     "ALTECH Solutions and Consulting"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://altech.es/careers"
+      }
+    ]
+  },
   "description": "ALTECH is an engineering firm specialized in the design and integration of ICT solutions for transport, mobility, security, and urban environments.",
-  "website": "https://altech.es",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEJretoOD9y_g/company-logo_100_100/company-logo_100_100/0/1686557522633/altech_sl_logo?e=1774483200&v=beta&t=9e1zBCadz1Q1kAUgUxZp4uvG3qHkxLaGdxDD0h54vhw",
+  "employees_count": 150,
+  "hq_country": "ES",
+  "id": "altech",
   "industries": [
     "Engineering",
     "IT Services",
     "Smart City"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
-  "operating_countries": [
-    "ES"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEJretoOD9y_g/company-logo_100_100/company-logo_100_100/0/1686557522633/altech_sl_logo?e=1774483200&v=beta&t=9e1zBCadz1Q1kAUgUxZp4uvG3qHkxLaGdxDD0h54vhw",
+  "name": "ALTECH",
   "office_locations": [
     "Barcelona"
   ],
+  "operating_countries": [
+    "ES"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 150,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T08:52:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://altech.es/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://altech.es"
 }

@@ -1,10 +1,18 @@
 {
-  "id": "the-university-of-waikato",
-  "name": "University of Waikato",
   "alternateNames": [],
+  "company_type": "Government",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.waikato.ac.nz/careers"
+      }
+    ]
+  },
   "description": "The University of Waikato is a leading NZ research institution investing heavily in a bold digital transformation plan across cloud, AI, and enterprise architecture.",
-  "website": "https://www.waikato.ac.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHNhH-_r2Z-Xg/company-logo_100_100/company-logo_100_100/0/1675122985357/universityofwaikato_logo?e=1774483200&v=beta&t=8029Tyr4OiMOpeEDzVFzdt93uHDkqMGpEaDCAUE8stk",
+  "employees_count": 2000,
+  "hq_country": "NZ",
+  "id": "the-university-of-waikato",
   "industries": [
     "Education",
     "Research",
@@ -12,34 +20,26 @@
     "Cloud",
     "AI"
   ],
-  "company_type": "Government",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHNhH-_r2Z-Xg/company-logo_100_100/company-logo_100_100/0/1675122985357/universityofwaikato_logo?e=1774483200&v=beta&t=8029Tyr4OiMOpeEDzVFzdt93uHDkqMGpEaDCAUE8stk",
+  "name": "University of Waikato",
   "office_locations": [
     "Hamilton",
     "Tauranga"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 2000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T12:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.waikato.ac.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.waikato.ac.nz"
 }

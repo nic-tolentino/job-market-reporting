@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "GREENHOUSE",
-    "identifier": "speechify"
+    "identifier": "speechify",
+    "provider": "GREENHOUSE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://speechify.com/careers"
+      }
+    ]
+  },
   "description": "Speechify is an AI-powered text-to-speech platform used by over 50 million people to overcome reading barriers through high-performance audio technologies.",
   "employees_count": 100,
   "hq_country": "US",
@@ -34,19 +42,11 @@
   "updated_at": "2026-03-10T11:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://speechify.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://speechify.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://speechify.com"
 }

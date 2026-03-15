@@ -1,46 +1,46 @@
 {
-  "id": "channel-factory",
-  "name": "Channel Factory",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://channelfactory.com/careers"
+      }
+    ]
+  },
   "description": "Channel Factory is a global technology platform that maximizes the suitability and performance of social video advertising for brands on platforms like YouTube.",
-  "website": "https://channelfactory.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHFgWgcFAfj5g/company-logo_100_100/B4EZyLMtbgH0AQ-/0/1771861891514/channel_factory_logo?e=1774483200&v=beta&t=rHI7gLkTuc4WRnSrNf3Cp-ZRdcyJNcTOotcjJta3Oq4",
+  "employees_count": 400,
+  "hq_country": "US",
+  "id": "channel-factory",
   "industries": [
     "Adtech",
     "Data Analytics",
     "Digital Marketing"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHFgWgcFAfj5g/company-logo_100_100/B4EZyLMtbgH0AQ-/0/1771861891514/channel_factory_logo?e=1774483200&v=beta&t=rHI7gLkTuc4WRnSrNf3Cp-ZRdcyJNcTOotcjJta3Oq4",
+  "name": "Channel Factory",
+  "office_locations": [
+    "Los Angeles",
+    "Sydney"
+  ],
   "operating_countries": [
     "US",
     "AU",
     "GB",
     "Worldwide"
   ],
-  "office_locations": [
-    "Los Angeles",
-    "Sydney"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 400,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:05:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://channelfactory.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://channelfactory.com"
 }

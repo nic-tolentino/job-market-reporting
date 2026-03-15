@@ -3,10 +3,18 @@
     "NTT DATA"
   ],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "nttlimited"
+    "identifier": "nttlimited",
+    "provider": "WORKDAY"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.nttdata.com/careers"
+      }
+    ]
+  },
   "description": "A prominent information technology service and consulting company offering a broad spectrum of IT and digital services.",
   "employees_count": null,
   "hq_country": "JP",
@@ -31,13 +39,5 @@
   "updated_at": "2026-03-10T07:45:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.nttdata.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.nttdata.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.nttdata.com"
 }

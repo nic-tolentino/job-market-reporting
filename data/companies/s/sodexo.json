@@ -1,19 +1,32 @@
 {
-  "id": "sodexo",
-  "name": "Sodexo",
   "alternateNames": [],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.sodexo.com/careers"
+      }
+    ]
+  },
   "description": "Sodexo is a global leader in sustainable food services and facilities management, employing 400,000+ people worldwide to deliver mission-critical support services.",
-  "website": "https://www.sodexo.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGlvBxOcBV-pw/company-logo_100_100/company-logo_100_100/0/1719819668533/sodexo_logo?e=1774483200&v=beta&t=zBxqd-sNm7nyuE7woG29BH8-vhjptYyLvlU2-jtnz84",
+  "employees_count": 420000,
+  "hq_country": "FR",
+  "id": "sodexo",
   "industries": [
     "Facilities Management",
     "Food Services",
     "Enterprise Solutions"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "FR",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGlvBxOcBV-pw/company-logo_100_100/company-logo_100_100/0/1719819668533/sodexo_logo?e=1774483200&v=beta&t=zBxqd-sNm7nyuE7woG29BH8-vhjptYyLvlU2-jtnz84",
+  "name": "Sodexo",
+  "office_locations": [
+    "Paris",
+    "Perth",
+    "Melbourne"
+  ],
   "operating_countries": [
     "FR",
     "AU",
@@ -21,28 +34,15 @@
     "GB",
     "Worldwide"
   ],
-  "office_locations": [
-    "Paris",
-    "Perth",
-    "Melbourne"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 420000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T11:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.sodexo.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.sodexo.com"
 }

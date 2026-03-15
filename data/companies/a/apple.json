@@ -1,23 +1,37 @@
 {
-  "id": "apple",
-  "name": "Apple",
   "alternateNames": [
     "Apple Inc.",
     "Apple Spain",
     "Apple NZ"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.apple.com/careers"
+      }
+    ]
+  },
   "description": "Apple is a global leader in consumer electronics, software, and online services, known for its innovation in hardware products and environmental efforts.",
-  "website": "https://www.apple.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHdAaarsO-eyA/company-logo_100_100/company-logo_100_100/0/1630637844948/apple_logo?e=1774483200&v=beta&t=hn366UlbYwsZPYNfEe6tco1oY6ogkvQqmHgFNvoNTpY",
+  "employees_count": 160000,
+  "hq_country": "US",
+  "id": "apple",
   "industries": [
     "Consumer Electronics",
     "Software Development",
     "Retail"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHdAaarsO-eyA/company-logo_100_100/company-logo_100_100/0/1630637844948/apple_logo?e=1774483200&v=beta&t=hn366UlbYwsZPYNfEe6tco1oY6ogkvQqmHgFNvoNTpY",
+  "name": "Apple",
+  "office_locations": [
+    "Cupertino",
+    "Madrid",
+    "Barcelona",
+    "Auckland"
+  ],
   "operating_countries": [
     "US",
     "ES",
@@ -25,29 +39,15 @@
     "AU",
     "Worldwide"
   ],
-  "office_locations": [
-    "Cupertino",
-    "Madrid",
-    "Barcelona",
-    "Auckland"
-  ],
   "remote_policy": "On-site",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 160000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T08:55:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.apple.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.apple.com"
 }

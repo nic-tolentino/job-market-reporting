@@ -3,6 +3,14 @@
     "Serko Limited"
   ],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.serko.com/careers"
+      }
+    ]
+  },
   "description": "Serko is a leader in online travel booking and expense management for the corporate market.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -30,19 +38,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.serko.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.serko.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.serko.com"
 }

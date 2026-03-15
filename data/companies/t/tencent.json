@@ -3,10 +3,18 @@
     "Tencent Global"
   ],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "tencent"
+    "identifier": "tencent",
+    "provider": "WORKDAY"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.tencent.com/en-us/careers"
+      }
+    ]
+  },
   "description": "Tencent is a world-leading internet and technology company that develops innovative products and services.",
   "employees_count": null,
   "hq_country": "CN",
@@ -33,19 +41,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.tencent.com/en-us/",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.tencent.com/en-us/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.tencent.com/en-us/"
 }

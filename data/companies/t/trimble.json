@@ -5,6 +5,14 @@
     "Trimble Inc."
   ],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.trimble.com/careers"
+      }
+    ]
+  },
   "description": "Trimble is a leading provider of advanced location-based solutions that maximize productivity and enhance profitability.",
   "employees_count": null,
   "hq_country": "US",
@@ -28,19 +36,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.trimble.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.trimble.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.trimble.com"
 }

@@ -1,46 +1,46 @@
 {
-  "id": "skills-group",
-  "name": "Skills Group",
   "alternateNames": [
     "The Skills Organisation"
   ],
+  "company_type": "Social Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://skills-group.org/careers"
+      }
+    ]
+  },
   "description": "Skills Group is an international expert in vocational education, workforce development, and workplace wellbeing, helping nations build economic growth.",
-  "website": "https://skills-group.org",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFN-nTVaiBaHQ/company-logo_100_100/company-logo_100_100/0/1719985449173/skills_group_nz_logo?e=1773878400&v=beta&t=WL_TFb_4o5xv6-7P_aw_ZZbYX9W7LQ5TSsjF28dYwDM",
+  "employees_count": 250,
+  "hq_country": "NZ",
+  "id": "skills-group",
   "industries": [
     "Education",
     "Consulting",
     "L&D",
     "Cloud"
   ],
-  "company_type": "Social Enterprise",
   "is_agency": false,
   "is_social_enterprise": true,
-  "hq_country": "NZ",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFN-nTVaiBaHQ/company-logo_100_100/company-logo_100_100/0/1719985449173/skills_group_nz_logo?e=1773878400&v=beta&t=WL_TFb_4o5xv6-7P_aw_ZZbYX9W7LQ5TSsjF28dYwDM",
+  "name": "Skills Group",
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [
     "NZ",
     "Worldwide"
   ],
-  "office_locations": [
-    "Auckland"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 250,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://skills-group.org/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://skills-group.org"
 }

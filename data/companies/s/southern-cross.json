@@ -1,44 +1,44 @@
 {
-  "id": "southern-cross",
-  "name": "Southern Cross",
   "alternateNames": [
     "Southern Cross Health Society"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.southerncross.co.nz/careers"
+      }
+    ]
+  },
   "description": "Southern Cross is New Zealand's leading provider of health insurance and healthcare services, helping more than 900,000 Kiwis with their wellbeing.",
-  "website": "https://www.southerncross.co.nz",
-  "logoUrl": null,
+  "employees_count": 1000,
+  "hq_country": "NZ",
+  "id": "southern-cross",
   "industries": [
     "Insurance",
     "Health",
     "Non-profit"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": null,
+  "name": "Southern Cross",
   "office_locations": [
     "Auckland"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T11:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.southerncross.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.southerncross.co.nz"
 }

@@ -3,10 +3,18 @@
     "Te Whare Wānanga o Waitaha"
   ],
   "ats": {
-    "provider": "SNAPHIRE",
-    "identifier": "www"
+    "identifier": "www",
+    "provider": "SNAPHIRE"
   },
   "company_type": "Government",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.canterbury.ac.nz/careers"
+      }
+    ]
+  },
   "description": "The University of Canterbury is a premier NZ educational institution focusing on digital services, software engineering, and community-driven research.",
   "employees_count": 2500,
   "hq_country": "NZ",
@@ -31,19 +39,11 @@
   "updated_at": "2026-03-10T13:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.canterbury.ac.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.canterbury.ac.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.canterbury.ac.nz"
 }

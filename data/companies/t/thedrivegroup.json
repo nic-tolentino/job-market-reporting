@@ -1,6 +1,14 @@
 {
   "alternateNames": [],
   "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.thedrivegroup.com.au/careers"
+      }
+    ]
+  },
   "description": "A specialist technology recruitment and talent acquisition agency connecting people with businesses in the tech sector.",
   "employees_count": null,
   "hq_country": "AU",
@@ -22,13 +30,5 @@
   "updated_at": "2026-03-10T07:45:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.thedrivegroup.com.au",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.thedrivegroup.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.thedrivegroup.com.au"
 }

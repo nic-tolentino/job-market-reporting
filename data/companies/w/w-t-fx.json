@@ -1,12 +1,20 @@
 {
-  "id": "w-t-fx",
-  "name": "Wētā FX",
   "alternateNames": [
     "Weta Digital"
   ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.wetafx.co.nz/careers"
+      }
+    ]
+  },
   "description": "Wētā FX is a world-renowned visual effects studio, harnessing game engines, AI, and cutting-edge software engineering to achieve visionary creative storytelling.",
-  "website": "https://www.wetafx.co.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFfpbL7jb5q2g/company-logo_100_100/company-logo_100_100/0/1647286500329/weta_fx_logo?e=1774483200&v=beta&t=kHPicDuXqWNzj8YtEobfzeLqQcP6wobrW3AJloAfrA4",
+  "employees_count": 1500,
+  "hq_country": "NZ",
+  "id": "w-t-fx",
   "industries": [
     "VFX",
     "Gaming Tech",
@@ -14,34 +22,26 @@
     "Software Development",
     "AI"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFfpbL7jb5q2g/company-logo_100_100/company-logo_100_100/0/1647286500329/weta_fx_logo?e=1774483200&v=beta&t=kHPicDuXqWNzj8YtEobfzeLqQcP6wobrW3AJloAfrA4",
+  "name": "Wētā FX",
+  "office_locations": [
+    "Wellington"
+  ],
   "operating_countries": [
     "NZ",
     "Worldwide"
   ],
-  "office_locations": [
-    "Wellington"
-  ],
   "remote_policy": "On-site",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1500,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T13:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.wetafx.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.wetafx.co.nz"
 }

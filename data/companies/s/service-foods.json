@@ -1,45 +1,45 @@
 {
-  "id": "service-foods",
-  "name": "Service Foods",
   "alternateNames": [],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.servicefoods.co.nz/careers"
+      }
+    ]
+  },
   "description": "Service Foods is a major 100% NZ-owned food distributor investing in AI and automation to deliver smarter logistical solutions for the hospitality trade.",
-  "website": "http://www.servicefoods.co.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHya1qRgS-qYw/company-logo_100_100/company-logo_100_100/0/1714365111386/service_foods_ltd_logo?e=1773878400&v=beta&t=IHHNdZq4vJuEbPiHfl-4LF__8NwTPbdXksDNqxXmERU",
+  "employees_count": 800,
+  "hq_country": "NZ",
+  "id": "service-foods",
   "industries": [
     "Logistics",
     "Wholesale",
     "AI",
     "Software Development"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHya1qRgS-qYw/company-logo_100_100/company-logo_100_100/0/1714365111386/service_foods_ltd_logo?e=1773878400&v=beta&t=IHHNdZq4vJuEbPiHfl-4LF__8NwTPbdXksDNqxXmERU",
+  "name": "Service Foods",
   "office_locations": [
     "Auckland",
     "Wellington",
     "Christchurch"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "On-site",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 800,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.servicefoods.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "http://www.servicefoods.co.nz"
 }

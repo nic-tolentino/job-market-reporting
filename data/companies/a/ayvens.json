@@ -1,52 +1,52 @@
 {
-  "id": "ayvens",
-  "name": "Ayvens",
   "alternateNames": [
     "ALD Automotive",
     "LeasePlan"
   ],
+  "ats": {
+    "identifier": "ayvens",
+    "provider": "WORKDAY"
+  },
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.ayvens.com/careers"
+      }
+    ]
+  },
   "description": "Ayvens is a global leader in sustainable mobility, providing full-service leasing and fleet management solutions to large corporates and SMEs.",
-  "website": "https://www.ayvens.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHXCBCnjpcvxA/company-logo_100_100/company-logo_100_100/0/1697434143011/ayvens_logo?e=1774483200&v=beta&t=gI0euaslg04_rYDj6Bw0DC6DX6-zjM1g069EOtWbqIY",
+  "employees_count": 14500,
+  "hq_country": "FR",
+  "id": "ayvens",
   "industries": [
     "Automotive",
     "Financial Services",
     "Sustainability"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "FR",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHXCBCnjpcvxA/company-logo_100_100/company-logo_100_100/0/1697434143011/ayvens_logo?e=1774483200&v=beta&t=gI0euaslg04_rYDj6Bw0DC6DX6-zjM1g069EOtWbqIY",
+  "name": "Ayvens",
+  "office_locations": [
+    "Paris",
+    "Madrid"
+  ],
   "operating_countries": [
     "FR",
     "ES",
     "Worldwide"
   ],
-  "office_locations": [
-    "Paris",
-    "Madrid"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 14500,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T08:55:00Z",
-  "ats": {
-    "provider": "WORKDAY",
-    "identifier": "ayvens"
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.ayvens.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.ayvens.com"
 }

@@ -4,6 +4,14 @@
     "Garmin New Zealand"
   ],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.garmin.com/en-NZ/careers"
+      }
+    ]
+  },
   "description": "Garmin is a leading provider of navigation, communication, and information devices and applications.",
   "employees_count": null,
   "hq_country": "CH",
@@ -27,19 +35,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.garmin.com/en-NZ/",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.garmin.com/en-NZ/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.garmin.com/en-NZ/"
 }

@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "SUCCESSFACTORS",
-    "identifier": "rmkcdn"
+    "identifier": "rmkcdn",
+    "provider": "SUCCESSFACTORS"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.sap.com/careers"
+      }
+    ]
+  },
   "description": "SAP is the global leader in enterprise software, helping the world run better by touching over 20 industries and 80% of global commerce through its massive cloud portfolio.",
   "employees_count": 100000,
   "hq_country": "DE",
@@ -35,19 +43,11 @@
   "updated_at": "2026-03-10T11:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.sap.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.sap.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.sap.com"
 }

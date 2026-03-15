@@ -3,10 +3,18 @@
     "Fyndr"
   ],
   "ats": {
-    "provider": "JOBADDER",
-    "identifier": "au3"
+    "identifier": "au3",
+    "provider": "JOBADDER"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://fyndr.com.au/careers"
+      }
+    ]
+  },
   "description": "Fyndr Group specializes in enterprise application delivery and rule-driven revenue auditing platforms for the aviation industry.",
   "employees_count": 50,
   "hq_country": "AU",
@@ -30,19 +38,11 @@
   "updated_at": "2026-03-10T09:10:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://fyndr.com.au",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://fyndr.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://fyndr.com.au"
 }

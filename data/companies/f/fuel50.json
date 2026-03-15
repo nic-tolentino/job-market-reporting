@@ -1,6 +1,14 @@
 {
   "alternateNames": [],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://fuel50.com/careers"
+      }
+    ]
+  },
   "description": "Fuel50 provides an AI-driven talent marketplace platform for employee career pathing and skills management.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -26,19 +34,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://fuel50.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://fuel50.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://fuel50.com"
 }

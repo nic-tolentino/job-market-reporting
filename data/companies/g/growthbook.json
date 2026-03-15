@@ -1,10 +1,18 @@
 {
-  "id": "growthbook",
-  "name": "GrowthBook",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.growthbook.io/careers"
+      }
+    ]
+  },
   "description": "GrowthBook is a high-growth open-source feature flagging and A/B testing platform, helping developers release code and measure business impact via their own data.",
-  "website": "https://www.growthbook.io",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEnMuxt27IFHg/company-logo_100_100/company-logo_100_100/0/1722412664207/growthbook_logo?e=1773878400&v=beta&t=tHX0HxxkkX04lEneFPhU8WpJFML-saE_9cDlQITV_AM",
+  "employees_count": 20,
+  "hq_country": "US",
+  "id": "growthbook",
   "industries": [
     "SaaS",
     "DevOps",
@@ -12,34 +20,26 @@
     "Data Science",
     "Software Development"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEnMuxt27IFHg/company-logo_100_100/company-logo_100_100/0/1722412664207/growthbook_logo?e=1773878400&v=beta&t=tHX0HxxkkX04lEneFPhU8WpJFML-saE_9cDlQITV_AM",
+  "name": "GrowthBook",
+  "office_locations": [
+    "San Francisco"
+  ],
   "operating_countries": [
     "US",
     "Worldwide"
   ],
-  "office_locations": [
-    "San Francisco"
-  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 20,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.growthbook.io/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.growthbook.io"
 }

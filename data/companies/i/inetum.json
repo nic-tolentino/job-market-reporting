@@ -1,19 +1,32 @@
 {
-  "id": "inetum",
-  "name": "Inetum",
   "alternateNames": [],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.inetum.com/careers"
+      }
+    ]
+  },
   "description": "Inetum is a European leader in digital services and solutions, helping companies and public sector entities achieve a sustainable digital impact.",
-  "website": "https://www.inetum.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGXCWtYPQqNWA/company-logo_100_100/B4EZwJQyCRGsAU-/0/1769681920574/inetum_logo?e=1774483200&v=beta&t=Fl3bHPX-8mlFeOwa85ktTwDluUIo-MT1Adjmhnl9wUA",
+  "employees_count": 28000,
+  "hq_country": "FR",
+  "id": "inetum",
   "industries": [
     "IT Services",
     "Consulting",
     "Software Development"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "FR",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGXCWtYPQqNWA/company-logo_100_100/B4EZwJQyCRGsAU-/0/1769681920574/inetum_logo?e=1774483200&v=beta&t=Fl3bHPX-8mlFeOwa85ktTwDluUIo-MT1Adjmhnl9wUA",
+  "name": "Inetum",
+  "office_locations": [
+    "Paris",
+    "Madrid",
+    "Lisbon"
+  ],
   "operating_countries": [
     "FR",
     "ES",
@@ -21,28 +34,15 @@
     "BE",
     "Worldwide"
   ],
-  "office_locations": [
-    "Paris",
-    "Madrid",
-    "Lisbon"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 28000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:20:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.inetum.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.inetum.com"
 }

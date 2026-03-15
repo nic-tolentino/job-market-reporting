@@ -1,12 +1,20 @@
 {
-  "id": "westpac",
-  "name": "Westpac",
   "alternateNames": [
     "Westpac Group"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.westpac.com.au/careers"
+      }
+    ]
+  },
   "description": "Westpac is a major Australian financial institution driving digital banking transformation through cloud-native Java and Python services and AI-driven initiatives.",
-  "website": "https://www.westpac.com.au",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHvhPjh_QGVEw/company-logo_100_100/company-logo_100_100/0/1630583808407/westpac_logo?e=1774483200&v=beta&t=oeY7nU4slb4Jt77BiFzUoS7RdHDAbpneED5NhJLEeM4",
+  "employees_count": 35000,
+  "hq_country": "AU",
+  "id": "westpac",
   "industries": [
     "Banking",
     "Fintech",
@@ -14,37 +22,29 @@
     "SaaS",
     "AI"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU",
-    "NZ",
-    "Worldwide"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHvhPjh_QGVEw/company-logo_100_100/company-logo_100_100/0/1630583808407/westpac_logo?e=1774483200&v=beta&t=oeY7nU4slb4Jt77BiFzUoS7RdHDAbpneED5NhJLEeM4",
+  "name": "Westpac",
   "office_locations": [
     "Sydney",
     "Melbourne",
     "Auckland"
   ],
+  "operating_countries": [
+    "AU",
+    "NZ",
+    "Worldwide"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 35000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.westpac.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.westpac.com.au"
 }

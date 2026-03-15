@@ -3,6 +3,14 @@
     "Absolute IT Limited"
   ],
   "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.absoluteit.co.nz/careers"
+      }
+    ]
+  },
   "description": "Leading New Zealand specialist IT recruitment agency with a nationwide presence.",
   "employees_count": 100,
   "hq_country": "NZ",
@@ -29,19 +37,11 @@
   "updated_at": "2026-03-10T05:30:58.400147Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.absoluteit.co.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.absoluteit.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.absoluteit.co.nz"
 }

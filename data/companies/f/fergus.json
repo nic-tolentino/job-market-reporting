@@ -3,10 +3,18 @@
     "Fergus Software"
   ],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "fergus"
+    "identifier": "fergus",
+    "provider": "WORKABLE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://fergus.com/careers"
+      }
+    ]
+  },
   "description": "Fergus provides automated job management software for tradespeople (plumbers, electricians, etc.).",
   "employees_count": null,
   "hq_country": "NZ",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://fergus.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://fergus.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://fergus.com"
 }

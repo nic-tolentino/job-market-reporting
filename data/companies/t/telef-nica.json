@@ -4,10 +4,18 @@
     "TSA"
   ],
   "ats": {
-    "provider": "SUCCESSFACTORS",
-    "identifier": "rmkcdn"
+    "identifier": "rmkcdn",
+    "provider": "SUCCESSFACTORS"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.telefonica.com/careers"
+      }
+    ]
+  },
   "description": "Telefónica is a global telecom giant and leader in digital transformation, providing mission-critical solutions in cybersecurity, AI, cloud, and broadcast technologies.",
   "employees_count": 100000,
   "hq_country": "ES",
@@ -41,19 +49,11 @@
   "updated_at": "2026-03-10T12:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.telefonica.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.telefonica.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.telefonica.com"
 }

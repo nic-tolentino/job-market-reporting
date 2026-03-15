@@ -1,22 +1,36 @@
 {
-  "id": "allianz-technology",
-  "name": "Allianz Technology",
   "alternateNames": [
     "Allianz IT",
     "Allianz Global IT"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.allianz.com/careers"
+      }
+    ]
+  },
   "description": "Allianz Technology is the global IT service provider for Allianz Group, delivering digital transformation and high-performance IT solutions for the insurance industry.",
-  "website": "https://www.allianz.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFCvx4AFpBEdg/company-logo_100_100/B4DZfpUdrmG8AQ-/0/1751966147444/allianz_technology_logo?e=1774483200&v=beta&t=M7EAFYKstjAnxDGa3leie0YONBAGis3ggUrAoAvCi24",
+  "employees_count": 12000,
+  "hq_country": "DE",
+  "id": "allianz-technology",
   "industries": [
     "Insurance",
     "IT Services",
     "Software Development"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "DE",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFCvx4AFpBEdg/company-logo_100_100/B4DZfpUdrmG8AQ-/0/1751966147444/allianz_technology_logo?e=1774483200&v=beta&t=M7EAFYKstjAnxDGa3leie0YONBAGis3ggUrAoAvCi24",
+  "name": "Allianz Technology",
+  "office_locations": [
+    "Munich",
+    "Wallisellen",
+    "Barcelona",
+    "Pune"
+  ],
   "operating_countries": [
     "DE",
     "CH",
@@ -25,29 +39,15 @@
     "NZ",
     "AU"
   ],
-  "office_locations": [
-    "Munich",
-    "Wallisellen",
-    "Barcelona",
-    "Pune"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 12000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T08:52:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.allianz.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.allianz.com"
 }

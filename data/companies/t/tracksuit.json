@@ -1,19 +1,33 @@
 {
-  "id": "tracksuit",
-  "name": "Tracksuit",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "general",
+        "url": "https://www.tracksuit.com/careers/jobs"
+      }
+    ]
+  },
   "description": "Tracksuit is a high-growth brand tracking platform providing companies with a common language to measure and communicate the value of brand through data.",
-  "website": "https://www.gotracksuit.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGcngSXcG9zjw/company-logo_100_100/company-logo_100_100/0/1699841300093/gotracksuit_logo?e=1773878400&v=beta&t=g6IxF2V5vB3gJZJM--rP6ol_MbIu7PwRNEWLH-VbRm8",
+  "employees_count": 100,
+  "hq_country": "NZ",
+  "id": "tracksuit",
   "industries": [
     "Marketing Tech",
     "Data Analytics",
     "SaaS"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGcngSXcG9zjw/company-logo_100_100/company-logo_100_100/0/1699841300093/gotracksuit_logo?e=1773878400&v=beta&t=g6IxF2V5vB3gJZJM--rP6ol_MbIu7PwRNEWLH-VbRm8",
+  "name": "Tracksuit",
+  "office_locations": [
+    "Auckland",
+    "Sydney",
+    "London",
+    "New York"
+  ],
   "operating_countries": [
     "NZ",
     "AU",
@@ -21,29 +35,15 @@
     "US",
     "Worldwide"
   ],
-  "office_locations": [
-    "Auckland",
-    "Sydney",
-    "London",
-    "New York"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 100,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T12:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.tracksuit.com/careers/jobs",
-        "category": "general"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.gotracksuit.com"
 }

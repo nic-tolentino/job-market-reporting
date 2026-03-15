@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "JOIN",
-    "identifier": "apeirum"
+    "identifier": "apeirum",
+    "provider": "JOIN"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://apeirum.com/careers"
+      }
+    ]
+  },
   "description": "apeirum is a digital product design and nearshore engineering firm that builds high-performing teams for startups and enterprises.",
   "employees_count": 100,
   "hq_country": "ES",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-10T08:52:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://apeirum.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://apeirum.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://apeirum.com"
 }

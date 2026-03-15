@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "FACTORIAL",
-    "identifier": "mvst"
+    "identifier": "mvst",
+    "provider": "FACTORIAL"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.mvst.co/careers"
+      }
+    ]
+  },
   "description": "MVST is a full-cycle product delivery studio that collaborates with high-growth businesses to strategy, design, and build impactful digital experiences.",
   "employees_count": 50,
   "hq_country": "DE",
@@ -30,19 +38,11 @@
   "updated_at": "2026-03-10T09:40:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.mvst.co",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.mvst.co/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.mvst.co"
 }

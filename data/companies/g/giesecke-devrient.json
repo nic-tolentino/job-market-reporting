@@ -1,50 +1,50 @@
 {
-  "id": "giesecke-devrient",
-  "name": "Giesecke+Devrient",
   "alternateNames": [
     "G+D",
     "G+D Mobile Security"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.gi-de.com/careers"
+      }
+    ]
+  },
   "description": "G+D is an international technology group providing security technologies in digital security, financial platforms, and currency technology.",
-  "website": "https://www.gi-de.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHaycOtNZjIqw/company-logo_100_100/company-logo_100_100/0/1630663044004/giesecke_devrient_logo?e=1774483200&v=beta&t=YpFfbFdBSrMt91_Nv9bSHWvb8lifzPXaV_y-3KrdPtY",
+  "employees_count": 14000,
+  "hq_country": "DE",
+  "id": "giesecke-devrient",
   "industries": [
     "Cybersecurity",
     "Fintech",
     "Hardware"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "DE",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHaycOtNZjIqw/company-logo_100_100/company-logo_100_100/0/1630663044004/giesecke_devrient_logo?e=1774483200&v=beta&t=YpFfbFdBSrMt91_Nv9bSHWvb8lifzPXaV_y-3KrdPtY",
+  "name": "Giesecke+Devrient",
+  "office_locations": [
+    "Munich",
+    "Barcelona",
+    "Sydney"
+  ],
   "operating_countries": [
     "DE",
     "ES",
     "AU",
     "Worldwide"
   ],
-  "office_locations": [
-    "Munich",
-    "Barcelona",
-    "Sydney"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 14000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:10:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.gi-de.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.gi-de.com"
 }

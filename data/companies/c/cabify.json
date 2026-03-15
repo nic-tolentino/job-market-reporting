@@ -3,10 +3,18 @@
     "Cabify España"
   ],
   "ats": {
-    "provider": "GREENHOUSE",
-    "identifier": "cabify"
+    "identifier": "cabify",
+    "provider": "GREENHOUSE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://cabify.com/careers"
+      }
+    ]
+  },
   "description": "Multi-mobility platform offering ride-hailing, delivery, and corporate transport solutions across 6 countries.",
   "employees_count": null,
   "hq_country": "ES",
@@ -35,19 +43,11 @@
   "updated_at": "2026-03-07T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://cabify.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://cabify.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://cabify.com"
 }

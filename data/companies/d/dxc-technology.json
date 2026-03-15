@@ -3,10 +3,18 @@
     "DXC"
   ],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "dxctechnology"
+    "identifier": "dxctechnology",
+    "provider": "WORKDAY"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.dxc.com/careers"
+      }
+    ]
+  },
   "description": "DXC Technology is a global Fortune 500 IT services leader, delivering mission-critical infrastructure, cloud solutions, and digital transformation.",
   "employees_count": 130000,
   "hq_country": "US",
@@ -36,19 +44,11 @@
   "updated_at": "2026-03-10T14:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.dxc.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.dxc.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.dxc.com"
 }

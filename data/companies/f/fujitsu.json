@@ -1,19 +1,33 @@
 {
-  "id": "fujitsu",
-  "name": "Fujitsu",
   "alternateNames": [],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.fujitsu.com/careers"
+      }
+    ]
+  },
   "description": "Fujitsu is a global leader in technology and business solutions, offering a comprehensive range of IT products, services, and consulting globally.",
-  "website": "https://www.fujitsu.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHNKrGAQbM1XA/company-logo_100_100/B4DZjqnZFVHsAU-/0/1756282853333/fujitsu_logo?e=1774483200&v=beta&t=0bfJCC8aHH_5_atjoiTSN1lrYVRby9T5Q3dw52OEl0A",
+  "employees_count": 120000,
+  "hq_country": "JP",
+  "id": "fujitsu",
   "industries": [
     "IT Services",
     "Hardware",
     "Consulting"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "JP",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHNKrGAQbM1XA/company-logo_100_100/B4DZjqnZFVHsAU-/0/1756282853333/fujitsu_logo?e=1774483200&v=beta&t=0bfJCC8aHH_5_atjoiTSN1lrYVRby9T5Q3dw52OEl0A",
+  "name": "Fujitsu",
+  "office_locations": [
+    "Tokyo",
+    "Sydney",
+    "Auckland",
+    "London"
+  ],
   "operating_countries": [
     "JP",
     "AU",
@@ -22,29 +36,15 @@
     "DE",
     "Worldwide"
   ],
-  "office_locations": [
-    "Tokyo",
-    "Sydney",
-    "Auckland",
-    "London"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 120000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:10:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.fujitsu.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.fujitsu.com"
 }

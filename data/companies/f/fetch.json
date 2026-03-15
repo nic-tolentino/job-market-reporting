@@ -3,10 +3,18 @@
     "Fetch Pet"
   ],
   "ats": {
-    "provider": "ASHBY",
-    "identifier": "fetch-pet-health"
+    "identifier": "fetch-pet-health",
+    "provider": "ASHBY"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.fetchpet.au/careers"
+      }
+    ]
+  },
   "description": "Fetch is a modern pet health platform that combines insurance, health services, and AI-driven care into a single app for better pet care.",
   "employees_count": 50,
   "hq_country": "AU",
@@ -31,19 +39,11 @@
   "updated_at": "2026-03-10T09:10:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.fetchpet.au",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.fetchpet.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.fetchpet.au"
 }

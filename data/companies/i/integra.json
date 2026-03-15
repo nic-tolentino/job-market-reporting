@@ -1,45 +1,45 @@
 {
-  "id": "integra",
-  "name": "Integra Tecnología",
   "alternateNames": [
     "Integra"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.integra.es/careers"
+      }
+    ]
+  },
   "description": "Integra Tecnología is a global technology consultancy providing specialized services in digital transformation and business process automation.",
-  "website": "https://www.integra.es",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGPtC18eZ_rEA/company-logo_100_100/company-logo_100_100/0/1729493168066/integra_estrategia_tecnologia_logo?e=1774483200&v=beta&t=MZpbEolfNcQgxR8ePkz39hwVmWPm1oKG86T7LuLiLQk",
+  "employees_count": 500,
+  "hq_country": "ES",
+  "id": "integra",
   "industries": [
     "IT Services",
     "Consulting",
     "Software Development"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
-  "operating_countries": [
-    "ES"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGPtC18eZ_rEA/company-logo_100_100/company-logo_100_100/0/1729493168066/integra_estrategia_tecnologia_logo?e=1774483200&v=beta&t=MZpbEolfNcQgxR8ePkz39hwVmWPm1oKG86T7LuLiLQk",
+  "name": "Integra Tecnología",
   "office_locations": [
     "Madrid",
     "Zaragoza"
   ],
+  "operating_countries": [
+    "ES"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 500,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:20:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.integra.es/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.integra.es"
 }

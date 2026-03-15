@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "nomad-atomics"
+    "identifier": "nomad-atomics",
+    "provider": "WORKABLE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.nomadatomics.com/careers"
+      }
+    ]
+  },
   "description": "Nomad Atomics is a deep-tech company building advanced quantum sensors to revolutionize terrestrial and space exploration through high-precision sensing.",
   "employees_count": 50,
   "hq_country": "AU",
@@ -30,19 +38,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.nomadatomics.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.nomadatomics.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.nomadatomics.com"
 }

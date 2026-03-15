@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "PERSONIO",
-    "identifier": "jobs"
+    "identifier": "jobs",
+    "provider": "PERSONIO"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.pasiona.com/careers"
+      }
+    ]
+  },
   "description": "Pasiona is a technology consultancy specializing in scaling AI assets and developing innovative RAG-based products and insurance sector transformation.",
   "employees_count": 150,
   "hq_country": "ES",
@@ -30,19 +38,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.pasiona.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.pasiona.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.pasiona.com"
 }

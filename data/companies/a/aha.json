@@ -3,6 +3,14 @@
     "Aha! Labs"
   ],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.aha.io/careers"
+      }
+    ]
+  },
   "description": "The world's #1 product development software, empowering teams to build strategic roadmaps.",
   "employees_count": 100,
   "hq_country": "US",
@@ -24,19 +32,11 @@
   "updated_at": "2026-03-10T05:30:58.400155Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.aha.io",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.aha.io/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.aha.io"
 }

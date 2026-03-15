@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "JOBADDER",
-    "identifier": "au6"
+    "identifier": "au6",
+    "provider": "JOBADDER"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.teachershealth.com.au/careers"
+      }
+    ]
+  },
   "description": "Teachers Health is a major Australian health insurer on a mission to empower members through modern digital health platforms and secure, scalable Azure solutions.",
   "employees_count": 500,
   "hq_country": "AU",
@@ -29,19 +37,11 @@
   "updated_at": "2026-03-10T12:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.teachershealth.com.au",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.teachershealth.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.teachershealth.com.au"
 }

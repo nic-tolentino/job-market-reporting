@@ -1,45 +1,45 @@
 {
-  "id": "talenza",
-  "name": "Talenza",
   "alternateNames": [],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://talenza.com.au/careers"
+      }
+    ]
+  },
   "description": "Talenza is a leading technology and digital recruitment agency in Australia, specializing in high-impact engineering leadership and AI-driven digital transformation.",
-  "website": "https://talenza.com.au",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFeToAMCFoiUQ/company-logo_100_100/company-logo_100_100/0/1630654521212/talenza_logo?e=1774483200&v=beta&t=ewi1kYqN8xF9hRkI_VjpYQhOMHMnTug-Jk8JczsURV0",
+  "employees_count": 100,
+  "hq_country": "AU",
+  "id": "talenza",
   "industries": [
     "Recruitment",
     "IT Staffing",
     "Consulting",
     "AI"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFeToAMCFoiUQ/company-logo_100_100/company-logo_100_100/0/1630654521212/talenza_logo?e=1774483200&v=beta&t=ewi1kYqN8xF9hRkI_VjpYQhOMHMnTug-Jk8JczsURV0",
+  "name": "Talenza",
   "office_locations": [
     "Sydney",
     "Melbourne",
     "Brisbane"
   ],
+  "operating_countries": [
+    "AU"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 100,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T12:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://talenza.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://talenza.com.au"
 }

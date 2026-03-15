@@ -3,10 +3,18 @@
     "Envato Elements"
   ],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "envato-2"
+    "identifier": "envato-2",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://elements.envato.com/careers"
+      }
+    ]
+  },
   "description": "Envato is a leading creative subscription platform providing unlimited access to millions of digital assets and AI-powered tools for creatives worldwide.",
   "employees_count": 600,
   "hq_country": "AU",
@@ -31,19 +39,11 @@
   "updated_at": "2026-03-10T09:10:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://elements.envato.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://elements.envato.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://elements.envato.com"
 }

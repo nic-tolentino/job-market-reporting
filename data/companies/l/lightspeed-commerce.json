@@ -1,28 +1,28 @@
 {
-  "id": "lightspeed-commerce",
-  "name": "Lightspeed Commerce",
   "alternateNames": [],
-  "description": "Lightspeed Commerce is a company profile created during backlog processing.",
-  "website": "https://www.lightspeedhq.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQH7z9vO5QwCvg/company-logo_100_100/B4EZnlqp04KcAQ-/0/1760494788198/lightspeedcommerce_logo?e=1774483200&v=beta&t=27wRLteusdlf_fHe9onKpd9TVJvTar6szE9UI-e2jrU",
-  "industries": [],
   "company_type": "Product",
-  "is_agency": false,
-  "is_social_enterprise": false,
-  "hq_country": "CA",
-  "operating_countries": [],
-  "office_locations": [],
-  "remote_policy": "Unknown",
-  "visa_sponsorship": null,
-  "employees_count": null,
-  "verification_level": "silver",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
   "crawler": {
     "seeds": [
       {
-        "url": "https://www.lightspeedhq.com/careers/openings/?department=technology",
-        "category": "tech-filtered"
+        "category": "tech-filtered",
+        "url": "https://www.lightspeedhq.com/careers/openings/?department=technology"
       }
     ]
-  }
+  },
+  "description": "Lightspeed Commerce is a company profile created during backlog processing.",
+  "employees_count": null,
+  "hq_country": "CA",
+  "id": "lightspeed-commerce",
+  "industries": [],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQH7z9vO5QwCvg/company-logo_100_100/B4EZnlqp04KcAQ-/0/1760494788198/lightspeedcommerce_logo?e=1774483200&v=beta&t=27wRLteusdlf_fHe9onKpd9TVJvTar6szE9UI-e2jrU",
+  "name": "Lightspeed Commerce",
+  "office_locations": [],
+  "operating_countries": [],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T07:39:05.140070Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://www.lightspeedhq.com"
 }

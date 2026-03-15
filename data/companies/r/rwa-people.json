@@ -1,44 +1,44 @@
 {
-  "id": "rwa-people",
-  "name": "RWA People",
   "alternateNames": [
     "RWA"
   ],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.rwa.co.nz/careers"
+      }
+    ]
+  },
   "description": "RWA People is a trusted NZ recruitment partner specializing in connecting technology and digital talent with high-performing organizations.",
-  "website": "http://www.rwa.co.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEPkA52xDw9zw/company-logo_100_100/B56Ze99JelHUAU-/0/1751238613412/rwa_people_logo?e=1773878400&v=beta&t=4oOAuRyjWJdRHyLcFdThUZBC-Wu25hu0d8KllBZtqmQ",
+  "employees_count": 30,
+  "hq_country": "NZ",
+  "id": "rwa-people",
   "industries": [
     "Recruitment",
     "IT Staffing",
     "Consulting"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEPkA52xDw9zw/company-logo_100_100/B56Ze99JelHUAU-/0/1751238613412/rwa_people_logo?e=1773878400&v=beta&t=4oOAuRyjWJdRHyLcFdThUZBC-Wu25hu0d8KllBZtqmQ",
+  "name": "RWA People",
   "office_locations": [
     "Auckland"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 30,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.rwa.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "http://www.rwa.co.nz"
 }

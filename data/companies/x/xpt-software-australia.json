@@ -1,46 +1,46 @@
 {
-  "id": "xpt-software-australia",
-  "name": "XPT Software",
   "alternateNames": [],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://xptsoftware.com/careers"
+      }
+    ]
+  },
   "description": "XPT Software is a specialized technology partner delivering high-scale Java, Spring Boot, and Cloud-native microservices for the Banking and Insurance domains.",
-  "website": "https://xptsoftware.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQFraaz0dzyCYQ/company-logo_100_100/company-logo_100_100/0/1630574395990/xpt_software_australia_logo?e=1774483200&v=beta&t=U3Uyb-FniKbbqOO8qZIMsVggAjzRHx5VyMDKPgsaM88",
+  "employees_count": 100,
+  "hq_country": "AU",
+  "id": "xpt-software-australia",
   "industries": [
     "Software Development",
     "IT Services",
     "Fintech",
     "Consulting"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU",
-    "Worldwide"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQFraaz0dzyCYQ/company-logo_100_100/company-logo_100_100/0/1630574395990/xpt_software_australia_logo?e=1774483200&v=beta&t=U3Uyb-FniKbbqOO8qZIMsVggAjzRHx5VyMDKPgsaM88",
+  "name": "XPT Software",
   "office_locations": [
     "Sydney",
     "Melbourne",
     "Brisbane"
   ],
+  "operating_countries": [
+    "AU",
+    "Worldwide"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 100,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://xptsoftware.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://xptsoftware.com"
 }

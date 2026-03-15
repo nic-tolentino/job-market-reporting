@@ -1,9 +1,17 @@
 {
   "ats": {
-    "provider": "TEAMTAILOR",
-    "identifier": "www"
+    "identifier": "www",
+    "provider": "TEAMTAILOR"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.lic.co.nz/careers"
+      }
+    ]
+  },
   "description": "LIC is a generational farmer-owned co-operative specializing in herd improvement through genetics, diagnostic testing, and integrated on-farm software for New Zealand's dairy sector.",
   "employees_count": 800,
   "hq_country": "NZ",
@@ -30,19 +38,11 @@
   "updated_at": "2026-03-10T09:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.lic.co.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.lic.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.lic.co.nz"
 }

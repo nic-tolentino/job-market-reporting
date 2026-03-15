@@ -3,10 +3,18 @@
     "TripleTen"
   ],
   "ats": {
-    "provider": "COMEET",
-    "identifier": "tripleten"
+    "identifier": "tripleten",
+    "provider": "COMEET"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://tripleten.com/careers"
+      }
+    ]
+  },
   "description": "TripleTen is an innovative Edtech platform empower people to master IT professions like software engineering and data science through AI-driven skill building.",
   "employees_count": 250,
   "hq_country": "US",
@@ -33,19 +41,11 @@
   "updated_at": "2026-03-10T13:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://tripleten.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://tripleten.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://tripleten.com"
 }

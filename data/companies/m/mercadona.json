@@ -1,45 +1,45 @@
 {
-  "id": "mercadona",
-  "name": "Mercadona IT",
   "alternateNames": [
     "Mercadona"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.mercadona.it/careers"
+      }
+    ]
+  },
   "description": "Mercadona IT is the digital division of Spain's leading retailer, modernizing applications and developing advanced products to optimize large-scale logistics and retail operations.",
-  "website": "https://www.mercadona.it",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQG0SazMoEsf6A/company-logo_100_100/B4EZvqWVcGKgAQ-/0/1769163282525/mercadona_logo?e=1774483200&v=beta&t=uneYCPDfoKMjRHTsYUv0N1oqoEtZcpDdE86c27-Z-PA",
+  "employees_count": 1000,
+  "hq_country": "ES",
+  "id": "mercadona",
   "industries": [
     "Retail Tech",
     "Logistics",
     "Digital Transformation"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQG0SazMoEsf6A/company-logo_100_100/B4EZvqWVcGKgAQ-/0/1769163282525/mercadona_logo?e=1774483200&v=beta&t=uneYCPDfoKMjRHTsYUv0N1oqoEtZcpDdE86c27-Z-PA",
+  "name": "Mercadona IT",
+  "office_locations": [
+    "Valencia"
+  ],
   "operating_countries": [
     "ES",
     "PT"
   ],
-  "office_locations": [
-    "Valencia"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:40:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.mercadona.it/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.mercadona.it"
 }

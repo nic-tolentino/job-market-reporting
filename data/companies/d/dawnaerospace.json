@@ -1,45 +1,45 @@
 {
-  "id": "dawnaerospace",
-  "name": "Dawn Aerospace",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.dawnaerospace.com/careers"
+      }
+    ]
+  },
   "description": "Dawn Aerospace is a space transportation company building reusable spaceplanes and satellite propulsion systems for sustainable access to space.",
-  "website": "https://www.dawnaerospace.com",
-  "logoUrl": null,
+  "employees_count": 150,
+  "hq_country": "NZ",
+  "id": "dawnaerospace",
   "industries": [
     "Aerospace",
     "Space Tech",
     "Manufacturing"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
+  "logoUrl": null,
+  "name": "Dawn Aerospace",
+  "office_locations": [
+    "Christchurch",
+    "Delft"
+  ],
   "operating_countries": [
     "NZ",
     "NL",
     "US"
   ],
-  "office_locations": [
-    "Christchurch",
-    "Delft"
-  ],
   "remote_policy": "On-site",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 150,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:05:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.dawnaerospace.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.dawnaerospace.com"
 }

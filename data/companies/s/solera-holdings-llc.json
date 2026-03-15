@@ -3,10 +3,18 @@
     "Solera Holdings"
   ],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "solera"
+    "identifier": "solera",
+    "provider": "WORKDAY"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.solera.com/careers"
+      }
+    ]
+  },
   "description": "Solera is a global leader in vehicle lifecycle management and software services, processing 300 million transactions annually for over 235,000 partners worldwide.",
   "employees_count": 6500,
   "hq_country": "US",
@@ -36,19 +44,11 @@
   "updated_at": "2026-03-10T11:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.solera.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.solera.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.solera.com"
 }

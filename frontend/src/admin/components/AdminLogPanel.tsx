@@ -4,7 +4,7 @@ import { useCrawlLogs } from '../hooks/useCrawlLogs';
 import type { LogMessage } from '../hooks/useCrawlLogs';
 
 export function AdminLogPanel() {
-  const { logs, setLogs } = useCrawlLogs(100);
+  const { logs, clearLogs } = useCrawlLogs();
   const [filter, setFilter] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -19,7 +19,7 @@ export function AdminLogPanel() {
 
   const filteredLogs = bottomLogs.filter((l: LogMessage) => 
     l.message.toLowerCase().includes(filter.toLowerCase()) || 
-    l.companyId.toLowerCase().includes(filter.toLowerCase())
+    (l.companyId?.toLowerCase().includes(filter.toLowerCase()) ?? false)
   );
 
   return (
@@ -41,7 +41,7 @@ export function AdminLogPanel() {
             />
           </div>
           <button 
-            onClick={() => setLogs([])}
+            onClick={() => clearLogs()}
             className="text-gray-500 hover:text-white transition-colors"
             title="Clear logs"
           >

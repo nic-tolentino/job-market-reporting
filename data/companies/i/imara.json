@@ -3,10 +3,18 @@
     "Imara"
   ],
   "ats": {
-    "provider": "JOBADDER",
-    "identifier": "au1"
+    "identifier": "au1",
+    "provider": "JOBADDER"
   },
   "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.imara.co.nz/careers"
+      }
+    ]
+  },
   "description": "Imara is a New Zealand recruitment agency specializing in IT and professional services.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -29,19 +37,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.imara.co.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.imara.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.imara.co.nz"
 }

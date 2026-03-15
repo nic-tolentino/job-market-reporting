@@ -3,10 +3,18 @@
     "EROAD Limited"
   ],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "eroadgroup"
+    "identifier": "eroadgroup",
+    "provider": "WORKDAY"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.eroad.com/careers"
+      }
+    ]
+  },
   "description": "EROAD provides electronic tax and fleet management solutions for the transport industry.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.eroad.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.eroad.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.eroad.com"
 }

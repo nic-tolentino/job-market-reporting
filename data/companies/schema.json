@@ -142,9 +142,28 @@
       ]
     },
     "visa_sponsorship": {
-      "type": [
-        "boolean",
-        "null"
+      "oneOf": [
+        {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "offered": { "type": "boolean" },
+            "types": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "notes": { "type": ["string", "null"] },
+            "last_verified": { "type": ["string", "null"] },
+            "source": { "type": ["string", "null"] }
+          },
+          "required": ["offered"],
+          "additionalProperties": false
+        }
       ],
       "description": "Whether company sponsors work visas"
     },
@@ -245,7 +264,19 @@
                 "type": "string",
                 "enum": [
                   "tech-filtered",
-                  "general"
+                  "general",
+                  "unknown"
+                ]
+              },
+              "status": {
+                "type": ["string", "null"],
+                "enum": [
+                  "active",
+                  "inactive",
+                  "failed",
+                  "discovery",
+                  "unknown",
+                  null
                 ]
               },
               "pagination_pattern": {
@@ -259,6 +290,16 @@
             ],
             "additionalProperties": false
           }
+        },
+        "discovery": {
+          "type": ["object", "null"],
+          "properties": {
+            "status": { "type": ["string", "null"] },
+            "lastAttemptedAt": { "type": ["string", "null"] },
+            "notes": { "type": ["string", "null"] },
+            "errorMessage": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false

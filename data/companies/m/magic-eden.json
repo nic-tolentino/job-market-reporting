@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "ASHBY",
-    "identifier": "magiceden"
+    "identifier": "magiceden",
+    "provider": "ASHBY"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.magiceden.io/careers"
+      }
+    ]
+  },
   "description": "Magic Eden is a leading global crypto entertainment platform providing immersive on-chain experiences culture, trading, gaming, and entertainment for the next generation of users.",
   "employees_count": 150,
   "hq_country": "US",
@@ -31,19 +39,11 @@
   "updated_at": "2026-03-10T09:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.magiceden.io",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.magiceden.io/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.magiceden.io"
 }

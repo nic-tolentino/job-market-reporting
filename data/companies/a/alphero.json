@@ -3,10 +3,18 @@
     "Alphero Limited"
   ],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "alphero-limited"
+    "identifier": "alphero-limited",
+    "provider": "WORKABLE"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.alphero.com/careers"
+      }
+    ]
+  },
   "description": "New Zealand's leading digital product agency specialising in mobile and web experiences.",
   "employees_count": 50,
   "hq_country": "NZ",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-10T05:30:58.400167Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.alphero.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.alphero.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.alphero.com"
 }

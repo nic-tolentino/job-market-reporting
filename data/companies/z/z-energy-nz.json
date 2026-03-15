@@ -1,46 +1,46 @@
 {
-  "id": "z-energy-nz",
-  "name": "Z Energy NZ",
   "alternateNames": [
     "Z Energy"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.z.co.nz/careers"
+      }
+    ]
+  },
   "description": "Z Energy is Aotearoa's largest transport energy provider, committed to decarbonizing NZ's transport network through fuel today and EV solutions tomorrow.",
-  "website": "http://www.z.co.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQH9oNG_EcpVEg/company-logo_100_100/company-logo_100_100/0/1631347021725?e=1773878400&v=beta&t=-kxtK3lOAY_REZc-b6IayfW0PliBqNxnDxz3JBfF0lo",
+  "employees_count": 1000,
+  "hq_country": "NZ",
+  "id": "z-energy-nz",
   "industries": [
     "Energy",
     "Oil and Gas",
     "Software Development",
     "Sustainability"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQH9oNG_EcpVEg/company-logo_100_100/company-logo_100_100/0/1631347021725?e=1773878400&v=beta&t=-kxtK3lOAY_REZc-b6IayfW0PliBqNxnDxz3JBfF0lo",
+  "name": "Z Energy NZ",
   "office_locations": [
     "Wellington",
     "Auckland"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.z.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "http://www.z.co.nz"
 }

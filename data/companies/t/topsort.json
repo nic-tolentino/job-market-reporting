@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "GREENHOUSE",
-    "identifier": "topsort"
+    "identifier": "topsort",
+    "provider": "GREENHOUSE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.topsort.com/careers"
+      }
+    ]
+  },
   "description": "Topsort is a privacy-first, cookie-free advertising platform democratizing advanced AI technologies to make advertising intuitive and intelligent for modern marketplaces.",
   "employees_count": 50,
   "hq_country": "US",
@@ -30,19 +38,11 @@
   "updated_at": "2026-03-10T12:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.topsort.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.topsort.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.topsort.com"
 }

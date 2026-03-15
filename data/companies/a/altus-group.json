@@ -3,6 +3,14 @@
     "Altus Group Limited"
   ],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.altusgroup.com/careers"
+      }
+    ]
+  },
   "description": "Global provider of commercial real estate software and data analytics solutions.",
   "employees_count": 2000,
   "hq_country": "CA",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-10T05:30:58.400170Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.altusgroup.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.altusgroup.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.altusgroup.com"
 }

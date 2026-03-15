@@ -1,49 +1,49 @@
 {
-  "id": "seisma-group",
-  "name": "SEISMA GROUP",
   "alternateNames": [
     "Seisma"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.seismagroup.com/careers"
+      }
+    ]
+  },
   "description": "Seisma Group is an AU/NZ owned IT professional services firm helping enterprises navigate digital complexities through architecture and software engineering.",
-  "website": "https://www.seismagroup.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGlfmaijYj5Zw/company-logo_100_100/company-logo_100_100/0/1631950841857/seisma_group_logo?e=1773878400&v=beta&t=c0CdIPFJok5MWl-Q_DC4EmWo2muyWxLTAoERJsAZLtw",
+  "employees_count": 500,
+  "hq_country": "AU",
+  "id": "seisma-group",
   "industries": [
     "IT Services",
     "Consulting",
     "Cloud",
     "SaaS"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU",
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGlfmaijYj5Zw/company-logo_100_100/company-logo_100_100/0/1631950841857/seisma_group_logo?e=1773878400&v=beta&t=c0CdIPFJok5MWl-Q_DC4EmWo2muyWxLTAoERJsAZLtw",
+  "name": "SEISMA GROUP",
   "office_locations": [
     "Melbourne",
     "Sydney",
     "Auckland",
     "Wellington"
   ],
+  "operating_countries": [
+    "AU",
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 500,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.seismagroup.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.seismagroup.com"
 }

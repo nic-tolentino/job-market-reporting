@@ -1,44 +1,44 @@
 {
-  "id": "maxvy-technologies-pvt-ltd",
-  "name": "Maxvy Technologies",
   "alternateNames": [
     "Maxvy"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.maxvy.com/careers"
+      }
+    ]
+  },
   "description": "Maxvy Technologies is a specialized tech services firm focusing on embedded systems, IoT, and full-stack web development for diverse industrial applications.",
-  "website": "https://www.maxvy.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEBMTBudRm24g/company-logo_100_100/company-logo_100_100/0/1630646691052/maxvytech_logo?e=1774483200&v=beta&t=CW1hQf9irG5nuFp8vRs0Qt4y5J44jbpE-CR8QwW6d5k",
+  "employees_count": 50,
+  "hq_country": "IN",
+  "id": "maxvy-technologies-pvt-ltd",
   "industries": [
     "Embedded Systems",
     "IoT",
     "IT Services"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "IN",
-  "operating_countries": [
-    "IN"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEBMTBudRm24g/company-logo_100_100/company-logo_100_100/0/1630646691052/maxvytech_logo?e=1774483200&v=beta&t=CW1hQf9irG5nuFp8vRs0Qt4y5J44jbpE-CR8QwW6d5k",
+  "name": "Maxvy Technologies",
   "office_locations": [
     "Bangalore"
   ],
+  "operating_countries": [
+    "IN"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:40:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.maxvy.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.maxvy.com"
 }

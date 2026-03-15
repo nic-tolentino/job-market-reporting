@@ -1,6 +1,14 @@
 {
   "alternateNames": [],
   "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.allrecruits.nz/careers"
+      }
+    ]
+  },
   "description": "AllRecruits is a New Zealand-based recruitment agency connecting talent with employers across various industries.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -23,19 +31,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.allrecruits.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.allrecruits.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.allrecruits.nz"
 }

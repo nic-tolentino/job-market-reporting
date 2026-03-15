@@ -1,6 +1,14 @@
 {
   "alternateNames": [],
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.plexus.es/careers"
+      }
+    ]
+  },
   "description": "An IT consulting company providing technology services and solutions with a focus on banking, healthcare, and tourism.",
   "employees_count": null,
   "hq_country": "ES",
@@ -23,13 +31,5 @@
   "updated_at": "2026-03-10T07:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.plexus.es",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.plexus.es/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.plexus.es"
 }

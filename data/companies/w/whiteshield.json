@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "whiteshield"
+    "identifier": "whiteshield",
+    "provider": "WORKABLE"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.whiteshield.com/careers"
+      }
+    ]
+  },
   "description": "Whiteshield is a global policy advisory and AI economics firm transforming complex data into actionable insights for governments and businesses worldwide.",
   "employees_count": 100,
   "hq_country": "AE",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-10T14:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.whiteshield.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.whiteshield.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.whiteshield.com"
 }

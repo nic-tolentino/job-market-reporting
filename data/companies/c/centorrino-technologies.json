@@ -3,10 +3,18 @@
     "CT"
   ],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "j"
+    "identifier": "j",
+    "provider": "WORKABLE"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.ct.com.au/careers"
+      }
+    ]
+  },
   "description": "Centorrino Technologies (CT) is a leading Australian managed IT services provider dedicated to delivering outstanding customer experiences and innovative tech solutions.",
   "employees_count": 200,
   "hq_country": "AU",
@@ -30,19 +38,11 @@
   "updated_at": "2026-03-10T09:05:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.ct.com.au",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.ct.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.ct.com.au"
 }

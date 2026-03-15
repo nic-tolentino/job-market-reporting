@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "ASHBY",
-    "identifier": "partly"
+    "identifier": "partly",
+    "provider": "ASHBY"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.partly.com/careers"
+      }
+    ]
+  },
   "description": "Partly is building the first foundational AI model for the auto parts industry, connecting the global parts supply chain from procurement to order management.",
   "employees_count": 100,
   "hq_country": "GB",
@@ -34,19 +42,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.partly.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.partly.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.partly.com"
 }

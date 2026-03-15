@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "resmed"
+    "identifier": "resmed",
+    "provider": "WORKDAY"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.resmed.com/careers"
+      }
+    ]
+  },
   "description": "ResMed is a global leader in digital health and cloud-connected medical devices, delivering life-changing solutions to help people with sleep apnea and chronic respiratory diseases.",
   "employees_count": 10000,
   "hq_country": "US",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.resmed.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.resmed.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.resmed.com"
 }

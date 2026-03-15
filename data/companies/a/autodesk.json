@@ -1,21 +1,38 @@
 {
-  "id": "autodesk",
-  "name": "Autodesk",
   "alternateNames": [
     "Autodesk Inc."
   ],
+  "ats": {
+    "identifier": "autodesk",
+    "provider": "WORKDAY"
+  },
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.autodesk.com/careers"
+      }
+    ]
+  },
   "description": "Autodesk is a global leader in design and make technology, providing software for architecture, engineering, construction, product design, and media.",
-  "website": "https://www.autodesk.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGrSi2UOCdL5g/company-logo_100_100/company-logo_100_100/0/1719952472030/autodesk_logo?e=1773878400&v=beta&t=YEgQqApqhDNYQwWviIyKXxv_Tvch7oSY9arH5lFGAt0",
+  "employees_count": 13700,
+  "hq_country": "US",
+  "id": "autodesk",
   "industries": [
     "Software Development",
     "Design Services",
     "Engineering"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGrSi2UOCdL5g/company-logo_100_100/company-logo_100_100/0/1719952472030/autodesk_logo?e=1773878400&v=beta&t=YEgQqApqhDNYQwWviIyKXxv_Tvch7oSY9arH5lFGAt0",
+  "name": "Autodesk",
+  "office_locations": [
+    "San Francisco",
+    "Barcelona",
+    "Auckland"
+  ],
   "operating_countries": [
     "US",
     "ES",
@@ -23,32 +40,15 @@
     "AU",
     "Worldwide"
   ],
-  "office_locations": [
-    "San Francisco",
-    "Barcelona",
-    "Auckland"
-  ],
   "remote_policy": "Flexible",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 13700,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T08:55:00Z",
-  "ats": {
-    "provider": "WORKDAY",
-    "identifier": "autodesk"
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.autodesk.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.autodesk.com"
 }

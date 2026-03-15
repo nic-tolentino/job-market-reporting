@@ -3,10 +3,18 @@
     "Vente-Privee"
   ],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "veepee"
+    "identifier": "veepee",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.veepee.com/careers"
+      }
+    ]
+  },
   "description": "Veepee is a pioneer of European e-commerce and flash sales, collaborating with 7,000 brands to deliver high-performing digital shopping experiences.",
   "employees_count": 5000,
   "hq_country": "FR",
@@ -42,19 +50,11 @@
   "updated_at": "2026-03-10T13:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.veepee.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.veepee.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.veepee.com"
 }

@@ -1,47 +1,47 @@
 {
-  "id": "global-wave-group",
-  "name": "Global Wave Group",
   "alternateNames": [
     "GWG"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://gwgdigital.com/careers"
+      }
+    ]
+  },
   "description": "Global Wave Group is an Australian technology firm specializing in digital solutions, high-performance web engineering, and financial services consulting.",
-  "website": "https://gwgdigital.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFWnXYz67bI1g/company-logo_100_100/B56ZoT_iJjIsAQ-/0/1761272013809?e=1773878400&v=beta&t=vhhtHyHH0RgMe93kdKcjCtNne4kMsSY6fR3VIPzqZ1U",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "global-wave-group",
   "industries": [
     "IT Services",
     "Fintech",
     "Consulting",
     "Software Development"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFWnXYz67bI1g/company-logo_100_100/B56ZoT_iJjIsAQ-/0/1761272013809?e=1773878400&v=beta&t=vhhtHyHH0RgMe93kdKcjCtNne4kMsSY6fR3VIPzqZ1U",
+  "name": "Global Wave Group",
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [
     "AU",
     "NZ",
     "Worldwide"
   ],
-  "office_locations": [
-    "Auckland"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://gwgdigital.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://gwgdigital.com"
 }

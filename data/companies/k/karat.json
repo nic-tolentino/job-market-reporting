@@ -3,6 +3,14 @@
     "Karat Inc"
   ],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.karat.com/careers"
+      }
+    ]
+  },
   "description": "Karat is the leader in technical interviewing, partnering with organizations to improve the hiring experience.",
   "employees_count": null,
   "hq_country": "US",
@@ -27,19 +35,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.karat.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.karat.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.karat.com"
 }

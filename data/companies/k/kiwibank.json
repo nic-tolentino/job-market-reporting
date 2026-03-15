@@ -1,44 +1,44 @@
 {
-  "id": "kiwibank",
-  "name": "Kiwibank",
   "alternateNames": [],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.kiwibank.co.nz/careers"
+      }
+    ]
+  },
   "description": "Kiwibank is NZ's largest locally-owned bank, helping Kiwi families and businesses stay better off through modern digital experiences and community-focused banking.",
-  "website": "http://www.kiwibank.co.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFu9oIWpgPx4w/company-logo_100_100/company-logo_100_100/0/1652059521966/kiwibank_logo?e=1773878400&v=beta&t=OKNf8LD1jJGhSCRoQ4yO4OAGQRsd3qFB_tT0iWRLFmc",
+  "employees_count": 2500,
+  "hq_country": "NZ",
+  "id": "kiwibank",
   "industries": [
     "Banking",
     "Fintech",
     "Public Sector",
     "SaaS"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFu9oIWpgPx4w/company-logo_100_100/company-logo_100_100/0/1652059521966/kiwibank_logo?e=1773878400&v=beta&t=OKNf8LD1jJGhSCRoQ4yO4OAGQRsd3qFB_tT0iWRLFmc",
+  "name": "Kiwibank",
   "office_locations": [
     "Auckland",
     "Wellington"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 2500,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.kiwibank.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "http://www.kiwibank.co.nz"
 }

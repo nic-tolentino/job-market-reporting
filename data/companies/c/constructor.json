@@ -3,10 +3,18 @@
     "Constructor.io"
   ],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "constructor-1"
+    "identifier": "constructor-1",
+    "provider": "WORKABLE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://constructor.io/careers"
+      }
+    ]
+  },
   "description": "Constructor is an AI-powered search and discovery platform for e-commerce, explicitly optimizing for metrics like revenue and conversion using LLMs.",
   "employees_count": 200,
   "hq_country": "US",
@@ -31,19 +39,11 @@
   "updated_at": "2026-03-10T09:05:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://constructor.io",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://constructor.io/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://constructor.io"
 }

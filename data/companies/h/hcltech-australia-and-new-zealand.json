@@ -3,10 +3,18 @@
     "HCL Technologies"
   ],
   "ats": {
-    "provider": "SUCCESSFACTORS",
-    "identifier": "rmkcdn"
+    "identifier": "rmkcdn",
+    "provider": "SUCCESSFACTORS"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.hcltech.com/careers"
+      }
+    ]
+  },
   "description": "HCLTech is a global technology company supercharging progress through industry-leading capabilities in Digital, Engineering, and Cloud for major enterprises in AU/NZ.",
   "employees_count": 220000,
   "hq_country": "IN",
@@ -35,19 +43,11 @@
   "updated_at": "2026-03-10T09:20:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.hcltech.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.hcltech.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.hcltech.com"
 }

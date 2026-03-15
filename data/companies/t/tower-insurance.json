@@ -4,10 +4,18 @@
     "Tower Limited"
   ],
   "ats": {
-    "provider": "SNAPHIRE",
-    "identifier": "tower"
+    "identifier": "tower",
+    "provider": "SNAPHIRE"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.tower.co.nz/careers"
+      }
+    ]
+  },
   "description": "Tower is a general insurance company in New Zealand and the South Pacific.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -37,19 +45,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.tower.co.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.tower.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.tower.co.nz"
 }

@@ -1,30 +1,30 @@
 {
-  "id": "new-zealand-customs-service",
-  "name": "New Zealand Customs Service",
   "alternateNames": [],
-  "description": "The New Zealand Customs Service is the government agency with the job of ensuring the security of our border. \n\nWe protect the economy from illegal imports and exports. We promote New Zealand’s international trade. We collect revenues, investigate illegal activity and prosecute where necessary. \n\nWe also make sure that lawful travellers and goods can move across our border as smoothly and efficiently as possible.",
-  "website": "www.customs.govt.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGKIYfBpbnMng/company-logo_100_100/company-logo_100_100/0/1630671215022/nzcustoms_logo?e=1774483200&v=beta&t=KRAAaE_9BH4c0P51vKHbhlzuMtJ6wnQ3kt1IvBjTEWs",
-  "industries": [
-    "Government Administration"
-  ],
   "company_type": "Government",
-  "is_agency": false,
-  "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [],
-  "office_locations": [],
-  "remote_policy": "Unknown",
-  "visa_sponsorship": null,
-  "employees_count": null,
-  "verification_level": "silver",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
   "crawler": {
     "seeds": [
       {
-        "url": "www.customs.govt.nz/careers",
-        "category": "unknown"
+        "category": "unknown",
+        "url": "www.customs.govt.nz/careers"
       }
     ]
-  }
+  },
+  "description": "The New Zealand Customs Service is the government agency with the job of ensuring the security of our border. \n\nWe protect the economy from illegal imports and exports. We promote New Zealand’s international trade. We collect revenues, investigate illegal activity and prosecute where necessary. \n\nWe also make sure that lawful travellers and goods can move across our border as smoothly and efficiently as possible.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "new-zealand-customs-service",
+  "industries": [
+    "Government Administration"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGKIYfBpbnMng/company-logo_100_100/company-logo_100_100/0/1630671215022/nzcustoms_logo?e=1774483200&v=beta&t=KRAAaE_9BH4c0P51vKHbhlzuMtJ6wnQ3kt1IvBjTEWs",
+  "name": "New Zealand Customs Service",
+  "office_locations": [],
+  "operating_countries": [],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T03:36:42.903748Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "www.customs.govt.nz"
 }

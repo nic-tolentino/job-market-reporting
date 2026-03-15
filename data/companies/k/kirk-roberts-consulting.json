@@ -1,9 +1,17 @@
 {
   "ats": {
-    "provider": "TEAMTAILOR",
-    "identifier": "app"
+    "identifier": "app",
+    "provider": "TEAMTAILOR"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.kirkroberts.co.nz/careers"
+      }
+    ]
+  },
   "description": "Kirk Roberts Consulting is a multi-disciplinary engineering consultancy providing structural, geotechnical, and civil engineering services for large-scale projects across New Zealand.",
   "employees_count": 150,
   "hq_country": "NZ",
@@ -29,19 +37,11 @@
   "updated_at": "2026-03-10T09:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.kirkroberts.co.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.kirkroberts.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.kirkroberts.co.nz"
 }

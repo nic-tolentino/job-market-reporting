@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "onit"
+    "identifier": "onit",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.onit.com/careers"
+      }
+    ]
+  },
   "description": "Onit is the global leader in AI-native legal operations solutions, helping legal teams optimize contract management and matter workflows via proactive automation.",
   "employees_count": 600,
   "hq_country": "US",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-10T14:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.onit.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.onit.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.onit.com"
 }

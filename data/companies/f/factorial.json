@@ -3,10 +3,18 @@
     "Factorial HR"
   ],
   "ats": {
-    "provider": "FACTORIAL",
-    "identifier": "apidoc"
+    "identifier": "apidoc",
+    "provider": "FACTORIAL"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://factorialhr.com/careers"
+      }
+    ]
+  },
   "description": "All-in-one business management software unifying HR, finance, payroll, time management, and talent management. Serving 15,000+ companies.",
   "employees_count": null,
   "hq_country": "ES",
@@ -36,19 +44,11 @@
   "updated_at": "2026-03-07T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://factorialhr.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://factorialhr.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://factorialhr.com"
 }

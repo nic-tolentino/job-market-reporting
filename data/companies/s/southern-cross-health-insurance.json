@@ -1,45 +1,45 @@
 {
-  "id": "southern-cross-health-insurance",
-  "name": "Southern Cross Health Insurance",
   "alternateNames": [
     "Southern Cross"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.southerncross.co.nz/careers"
+      }
+    ]
+  },
   "description": "Southern Cross is NZ's leading health insurer, dedicated to empowering members to live well for longer through timely access to quality care and digital innovation.",
-  "website": "https://www.southerncross.co.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFtMAB2blOs2Q/company-logo_100_100/company-logo_100_100/0/1679004908722?e=1773878400&v=beta&t=NP9rJHHH8Ex5brRwAfxKOnCYB-NnhGcvjzQEKwD2j7A",
+  "employees_count": 1000,
+  "hq_country": "NZ",
+  "id": "southern-cross-health-insurance",
   "industries": [
     "Insurance",
     "Healthtech",
     "Fintech",
     "Cloud"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFtMAB2blOs2Q/company-logo_100_100/company-logo_100_100/0/1679004908722?e=1773878400&v=beta&t=NP9rJHHH8Ex5brRwAfxKOnCYB-NnhGcvjzQEKwD2j7A",
+  "name": "Southern Cross Health Insurance",
   "office_locations": [
     "Auckland"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.southerncross.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.southerncross.co.nz"
 }

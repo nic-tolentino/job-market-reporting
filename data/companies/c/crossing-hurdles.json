@@ -1,43 +1,43 @@
 {
-  "id": "crossing-hurdles",
-  "name": "Crossing Hurdles",
   "alternateNames": [],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.crossinghurdles.com/careers"
+      }
+    ]
+  },
   "description": "Crossing Hurdles specializing in customized recruitment and staffing solutions, connecting top-tier tech talent with leading organizations worldwide.",
-  "website": "https://www.crossinghurdles.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEGLWHBZmzzcA/company-logo_100_100/B56ZYzlx2LHEAY-/0/1744622264274/crossinghurdles_logo?e=1773878400&v=beta&t=CMXDa7zCSCg1TPyWGTQg19B6yN1Z3S7sn51GzQ7ULvg",
+  "employees_count": 30,
+  "hq_country": "IN",
+  "id": "crossing-hurdles",
   "industries": [
     "Recruitment",
     "Staffing",
     "Tech Recruitment"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "IN",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEGLWHBZmzzcA/company-logo_100_100/B56ZYzlx2LHEAY-/0/1744622264274/crossinghurdles_logo?e=1773878400&v=beta&t=CMXDa7zCSCg1TPyWGTQg19B6yN1Z3S7sn51GzQ7ULvg",
+  "name": "Crossing Hurdles",
+  "office_locations": [
+    "Mumbai"
+  ],
   "operating_countries": [
     "IN",
     "Worldwide"
   ],
-  "office_locations": [
-    "Mumbai"
-  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 30,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:05:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.crossinghurdles.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.crossinghurdles.com"
 }

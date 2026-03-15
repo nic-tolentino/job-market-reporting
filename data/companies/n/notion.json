@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "ASHBY",
-    "identifier": "notion"
+    "identifier": "notion",
+    "provider": "ASHBY"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.notion.so/careers"
+      }
+    ]
+  },
   "description": "Notion is an all-in-one workspace that seamlessly connects docs, projects, and notes with built-in AI, used by millions from individuals to large global organizations.",
   "employees_count": 500,
   "hq_country": "US",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.notion.so",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.notion.so/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.notion.so"
 }

@@ -1,43 +1,43 @@
 {
-  "id": "dds-it",
-  "name": "DDS IT",
   "alternateNames": [],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.dds-it.com/careers"
+      }
+    ]
+  },
   "description": "DDS IT is a New Zealand-based IT services provider delivering managed services, cloud solutions, and enterprise support with a focus on people.",
-  "website": "https://www.dds-it.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFawwz1g1DP6Q/company-logo_100_100/company-logo_100_100/0/1707702305091/ddsit_logo?e=1774483200&v=beta&t=ZvEZ0jQPlmVhD3sm1w4nUA7H4nWP6R30UN0_nYBYOTg",
+  "employees_count": 80,
+  "hq_country": "NZ",
+  "id": "dds-it",
   "industries": [
     "MSP",
     "IT Services",
     "Cloud Solutions"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFawwz1g1DP6Q/company-logo_100_100/company-logo_100_100/0/1707702305091/ddsit_logo?e=1774483200&v=beta&t=ZvEZ0jQPlmVhD3sm1w4nUA7H4nWP6R30UN0_nYBYOTg",
+  "name": "DDS IT",
   "office_locations": [
     "Auckland",
     "Hamilton"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 80,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:05:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.dds-it.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.dds-it.com"
 }

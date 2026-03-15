@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "blinq"
+    "identifier": "blinq",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://blinq.me/careers"
+      }
+    ]
+  },
   "description": "Blinq is the world's leading digital business card platform, building an intelligence layer for professional relationships to help people connect and stay in play.",
   "employees_count": 50,
   "hq_country": "AU",
@@ -29,19 +37,11 @@
   "updated_at": "2026-03-10T09:05:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://blinq.me",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://blinq.me/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://blinq.me"
 }

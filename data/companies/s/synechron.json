@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "synechron"
+    "identifier": "synechron",
+    "provider": "WORKDAY"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.synechron.com/careers"
+      }
+    ]
+  },
   "description": "Synechron is a global digital transformation consultancy combining creativity and innovative technology to deliver AI and cloud solutions for major financial firms.",
   "employees_count": 14000,
   "hq_country": "US",
@@ -35,19 +43,11 @@
   "updated_at": "2026-03-10T14:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.synechron.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.synechron.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.synechron.com"
 }

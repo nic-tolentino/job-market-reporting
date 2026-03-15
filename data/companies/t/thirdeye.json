@@ -4,10 +4,18 @@
     "Jade Software"
   ],
   "ats": {
-    "provider": "BAMBOOHR",
-    "identifier": "jadeworld"
+    "identifier": "jadeworld",
+    "provider": "BAMBOOHR"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.jadethirdeye.com/careers"
+      }
+    ]
+  },
   "description": "Jade ThirdEye is a flagship SaaS product helping financial institutions globally detect and prevent money laundering and terrorism financing through advanced AI.",
   "employees_count": 150,
   "hq_country": "NZ",
@@ -37,19 +45,11 @@
   "updated_at": "2026-03-10T12:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.jadethirdeye.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.jadethirdeye.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.jadethirdeye.com"
 }

@@ -3,10 +3,18 @@
     "Theta"
   ],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "j"
+    "identifier": "j",
+    "provider": "WORKABLE"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.theta.co.nz/careers"
+      }
+    ]
+  },
   "description": "Theta is a proudly NZ owned and operated technology consultancy, delivering smart, pragmatic digital solutions to leading Aotearoa organizations.",
   "employees_count": 300,
   "hq_country": "NZ",
@@ -33,19 +41,11 @@
   "updated_at": "2026-03-10T14:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.theta.co.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.theta.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.theta.co.nz"
 }

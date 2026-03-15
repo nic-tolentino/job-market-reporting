@@ -1,10 +1,19 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "GREENHOUSE",
-    "identifier": "karbon"
+    "identifier": "karbon",
+    "provider": "GREENHOUSE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "tech-filtered",
+        "status": "active",
+        "url": "https://www.karbonhq.com/careers"
+      }
+    ]
+  },
   "description": "Karbon is a global leader in AI-powered practice management software for accounting firms, providing a collaborative platform to help professionals work more efficiently.",
   "employees_count": 200,
   "hq_country": "AU",
@@ -33,20 +42,11 @@
   "updated_at": "2026-03-10T09:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.karbonhq.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.karbonhq.com/careers",
-        "category": "tech-filtered",
-        "status": "ACTIVE"
-      }
-    ]
-  }
+  "website": "https://www.karbonhq.com"
 }

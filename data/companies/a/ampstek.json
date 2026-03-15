@@ -1,22 +1,35 @@
 {
-  "id": "ampstek",
-  "name": "Ampstek",
   "alternateNames": [
     "AmpsTek"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.ampstek.com/careers"
+      }
+    ]
+  },
   "description": "Ampstek is a global IT consulting firm specializing in Microsoft Dynamics, Azure, SAP, and custom software engineering across 42 countries.",
-  "website": "https://www.ampstek.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQG0xJ6p0R1G5w/company-logo_100_100/company-logo_100_100/0/1651008478851/ampstek_logo?e=1773878400&v=beta&t=...",
+  "employees_count": 1000,
+  "hq_country": "US",
+  "id": "ampstek",
   "industries": [
     "IT Services",
     "Consulting",
     "Cloud",
     "Software Development"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQG0xJ6p0R1G5w/company-logo_100_100/company-logo_100_100/0/1651008478851/ampstek_logo?e=1773878400&v=beta&t=...",
+  "name": "Ampstek",
+  "office_locations": [
+    "Princeton",
+    "Sydney",
+    "Auckland"
+  ],
   "operating_countries": [
     "US",
     "AU",
@@ -31,28 +44,15 @@
     "IN",
     "Worldwide"
   ],
-  "office_locations": [
-    "Princeton",
-    "Sydney",
-    "Auckland"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.ampstek.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.ampstek.com"
 }

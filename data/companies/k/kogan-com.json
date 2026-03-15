@@ -3,10 +3,18 @@
     "Kogan"
   ],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "kogan"
+    "identifier": "kogan",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.kogan.com/careers"
+      }
+    ]
+  },
   "description": "Kogan.com is a leading Australian e-commerce pioneer, providing a wide range of products and services through a technology-driven shopping experience used by millions.",
   "employees_count": 500,
   "hq_country": "AU",
@@ -31,19 +39,11 @@
   "updated_at": "2026-03-10T09:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.kogan.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.kogan.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.kogan.com"
 }

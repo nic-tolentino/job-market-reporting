@@ -3,10 +3,18 @@
     "Simpro Software"
   ],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "simpro"
+    "identifier": "simpro",
+    "provider": "WORKDAY"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.simprogroup.com/careers"
+      }
+    ]
+  },
   "description": "Simpro is the leading AI-first operating platform for trade businesses, integrating scheduling, compliance, and invoicing to double contractor profitability globally.",
   "employees_count": 500,
   "hq_country": "AU",
@@ -36,19 +44,11 @@
   "updated_at": "2026-03-10T11:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.simprogroup.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.simprogroup.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.simprogroup.com"
 }

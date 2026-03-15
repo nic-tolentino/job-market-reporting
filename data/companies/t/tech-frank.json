@@ -1,42 +1,42 @@
 {
-  "id": "tech-frank",
-  "name": "Tech Frank",
   "alternateNames": [],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.techfrank.co.nz/careers"
+      }
+    ]
+  },
   "description": "Tech Frank is a forward-thinking NZ tech firm specializing in smart, scalable solutions and bespoke software engineering for businesses navigating digital growth.",
-  "website": "https://www.techfrank.co.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEbDPQPMU0KTg/company-logo_100_100/B56ZcI3p9UHwAQ-/0/1748200501385?e=1773878400&v=beta&t=XCQ1oDFwYTjqABmnVDVfCCCvmoTlDGrc9qtc75x8lMo",
+  "employees_count": 20,
+  "hq_country": "NZ",
+  "id": "tech-frank",
   "industries": [
     "IT Services",
     "Software Development",
     "Consulting"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEbDPQPMU0KTg/company-logo_100_100/B56ZcI3p9UHwAQ-/0/1748200501385?e=1773878400&v=beta&t=XCQ1oDFwYTjqABmnVDVfCCCvmoTlDGrc9qtc75x8lMo",
+  "name": "Tech Frank",
   "office_locations": [
     "Auckland"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 20,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.techfrank.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.techfrank.co.nz"
 }

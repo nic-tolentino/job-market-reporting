@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "ASHBY",
-    "identifier": "engflow"
+    "identifier": "engflow",
+    "provider": "ASHBY"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.engflow.com/careers"
+      }
+    ]
+  },
   "description": "EngFlow provides a secure remote execution, caching, and observability platform that accelerates developer productivity by Reducing build and test times by up to 10x.",
   "employees_count": 50,
   "hq_country": "US",
@@ -29,19 +37,11 @@
   "updated_at": "2026-03-10T09:10:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.engflow.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.engflow.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.engflow.com"
 }

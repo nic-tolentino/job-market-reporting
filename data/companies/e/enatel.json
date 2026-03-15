@@ -3,6 +3,14 @@
     "Enatel Limited"
   ],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.enatel.net/careers"
+      }
+    ]
+  },
   "description": "Enatel designs and manufactures world-class power conversion products for the global market.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -29,19 +37,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.enatel.net",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.enatel.net/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.enatel.net"
 }

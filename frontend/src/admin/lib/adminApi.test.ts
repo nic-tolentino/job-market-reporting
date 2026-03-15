@@ -1,6 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import * as adminApi from './adminApi';
-import * as auth from './auth';
 
 vi.mock('./auth', () => ({
   authHeader: vi.fn(() => ({ Authorization: 'Bearer test-token' })),

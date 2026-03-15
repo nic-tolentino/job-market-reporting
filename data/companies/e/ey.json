@@ -1,12 +1,20 @@
 {
-  "id": "ey",
-  "name": "EY",
   "alternateNames": [
     "Ernst & Young"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.ey.com/careers"
+      }
+    ]
+  },
   "description": "EY is a global professional services firm driving digital transformation and trust in capital markets through AI-enabled core initiatives and strategic consulting.",
-  "website": "http://www.ey.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQGpRhkpxp5A9A/company-logo_100_100/company-logo_100_100/0/1630570672166/ernstandyoung_logo?e=1773878400&v=beta&t=wjQxj0WYwJNR4Drna9xSCrv5lwt0vzfb0otcHMf6f1s",
+  "employees_count": 350000,
+  "hq_country": "GB",
+  "id": "ey",
   "industries": [
     "Consulting",
     "Finance",
@@ -14,10 +22,15 @@
     "Cloud",
     "SaaS"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "GB",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQGpRhkpxp5A9A/company-logo_100_100/company-logo_100_100/0/1630570672166/ernstandyoung_logo?e=1773878400&v=beta&t=wjQxj0WYwJNR4Drna9xSCrv5lwt0vzfb0otcHMf6f1s",
+  "name": "EY",
+  "office_locations": [
+    "London",
+    "Sydney",
+    "Wellington"
+  ],
   "operating_countries": [
     "GB",
     "AU",
@@ -25,28 +38,15 @@
     "US",
     "Worldwide"
   ],
-  "office_locations": [
-    "London",
-    "Sydney",
-    "Wellington"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 350000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.ey.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "http://www.ey.com"
 }

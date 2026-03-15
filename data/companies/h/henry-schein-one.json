@@ -1,44 +1,44 @@
 {
-  "id": "henry-schein-one",
-  "name": "Henry Schein One",
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.henryscheinone.com/careers"
+      }
+    ]
+  },
   "description": "Henry Schein One is the world's largest dental practice management software company, developing integrated technology solutions to improve practice efficiency and patient care.",
-  "website": "https://www.henryscheinone.com",
-  "logoUrl": null,
+  "employees_count": 1500,
+  "hq_country": "US",
+  "id": "henry-schein-one",
   "industries": [
     "Healthtech",
     "Dental Tech",
     "SaaS"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
-  "operating_countries": [
-    "US",
-    "Worldwide"
-  ],
+  "logoUrl": null,
+  "name": "Henry Schein One",
   "office_locations": [
     "American Fork",
     "Sydney",
     "London"
   ],
+  "operating_countries": [
+    "US",
+    "Worldwide"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1500,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:20:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.henryscheinone.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.henryscheinone.com"
 }

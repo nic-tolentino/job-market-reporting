@@ -3,6 +3,14 @@
     "AECOM New Zealand"
   ],
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://aecom.com/careers"
+      }
+    ]
+  },
   "description": "Global infrastructure leader providing design, consulting, and management services.",
   "employees_count": 50000,
   "hq_country": "US",
@@ -31,19 +39,11 @@
   "updated_at": "2026-03-10T05:30:58.400153Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://aecom.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://aecom.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://aecom.com"
 }

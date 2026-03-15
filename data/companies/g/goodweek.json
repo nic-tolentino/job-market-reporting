@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "JOIN",
-    "identifier": "goodweekcom"
+    "identifier": "goodweekcom",
+    "provider": "JOIN"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://goodweek.io/careers"
+      }
+    ]
+  },
   "description": "goodweek is building a next-generation AI tool designed to revolutionize business productivity, backed by international investment.",
   "employees_count": 40,
   "hq_country": "FR",
@@ -33,19 +41,11 @@
   "updated_at": "2026-03-10T09:10:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://goodweek.io",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://goodweek.io/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://goodweek.io"
 }

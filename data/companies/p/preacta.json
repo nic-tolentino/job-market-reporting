@@ -1,43 +1,43 @@
 {
-  "id": "preacta",
-  "name": "Preacta",
   "alternateNames": [],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.preacta.com/careers"
+      }
+    ]
+  },
   "description": "Preacta is a specialized tech recruitment and talent consultancy partnering with Australia's leading financial institutions and enterprise software providers.",
-  "website": "https://www.preacta.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHRCjREzAE6vA/company-logo_100_100/company-logo_100_100/0/1668122167988/preactarecruitment_logo?e=1774483200&v=beta&t=HmUaQwiN8PCdu3tlhJ8haYr1LvpDaodms0wxTSIxRaM",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "preacta",
   "industries": [
     "Recruitment",
     "IT Staffing",
     "Consulting"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHRCjREzAE6vA/company-logo_100_100/company-logo_100_100/0/1668122167988/preactarecruitment_logo?e=1774483200&v=beta&t=HmUaQwiN8PCdu3tlhJ8haYr1LvpDaodms0wxTSIxRaM",
+  "name": "Preacta",
   "office_locations": [
     "Sydney",
     "Melbourne"
   ],
+  "operating_countries": [
+    "AU"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T10:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.preacta.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.preacta.com"
 }

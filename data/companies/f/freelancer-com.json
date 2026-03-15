@@ -4,10 +4,18 @@
     "Escrow.com"
   ],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "freelancer"
+    "identifier": "freelancer",
+    "provider": "WORKABLE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.freelancer.com/careers"
+      }
+    ]
+  },
   "description": "Freelancer.com is the world's largest freelancing and crowdsourcing marketplace, connecting over 70 million users and projects globally.",
   "employees_count": 500,
   "hq_country": "AU",
@@ -35,19 +43,11 @@
   "updated_at": "2026-03-10T09:10:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.freelancer.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.freelancer.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.freelancer.com"
 }

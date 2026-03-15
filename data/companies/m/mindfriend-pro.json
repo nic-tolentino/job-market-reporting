@@ -1,44 +1,44 @@
 {
-  "id": "mindfriend-pro",
-  "name": "MindFriend Pro",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://mindfriendpro.com/careers"
+      }
+    ]
+  },
   "description": "MindFriend Pro is an AI-driven digital mental health platform providing scalable, cloud-native solutions and features to enhance emotional well-being.",
-  "website": "https://mindfriendpro.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFXIMJHITqJCg/company-logo_100_100/B4EZqrSLgBGUAU-/0/1763810261460/thecognitiveexchange_logo?e=1774483200&v=beta&t=rch7nboNKCRxl_e3nDaxX82O4KXdbs834Xf9Rd4Jh20",
+  "employees_count": 50,
+  "hq_country": "US",
+  "id": "mindfriend-pro",
   "industries": [
     "Healthtech",
     "AI",
     "Mobile Apps",
     "SaaS"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": true,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFXIMJHITqJCg/company-logo_100_100/B4EZqrSLgBGUAU-/0/1763810261460/thecognitiveexchange_logo?e=1774483200&v=beta&t=rch7nboNKCRxl_e3nDaxX82O4KXdbs834Xf9Rd4Jh20",
+  "name": "MindFriend Pro",
+  "office_locations": [
+    "San Francisco"
+  ],
   "operating_countries": [
     "US",
     "Worldwide"
   ],
-  "office_locations": [
-    "San Francisco"
-  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:40:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://mindfriendpro.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://mindfriendpro.com"
 }

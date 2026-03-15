@@ -1,22 +1,40 @@
 {
-  "id": "airbus-defence-and-space",
-  "name": "Airbus Defence and Space",
   "alternateNames": [
     "Airbus DS",
     "Airbus Defence & Space"
   ],
+  "ats": {
+    "identifier": "2Fag",
+    "provider": "WORKDAY"
+  },
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.airbus.com/careers"
+      }
+    ]
+  },
   "description": "Airbus Defence and Space is a division of Airbus responsible for military aircraft, space systems, and connected intelligence solutions.",
-  "website": "https://www.airbus.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHiVUv4_8Usqw/company-logo_100_100/company-logo_100_100/0/1631362043684/airbus_defence_and_space_logo?e=1774483200&v=beta&t=yXHu0bSUS2buqb0hAPw4k6D52KYNR2UE94lHn8Bi9VM",
+  "employees_count": 35000,
+  "hq_country": "DE",
+  "id": "airbus-defence-and-space",
   "industries": [
     "Aerospace",
     "Defence",
     "Space"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "DE",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHiVUv4_8Usqw/company-logo_100_100/company-logo_100_100/0/1631362043684/airbus_defence_and_space_logo?e=1774483200&v=beta&t=yXHu0bSUS2buqb0hAPw4k6D52KYNR2UE94lHn8Bi9VM",
+  "name": "Airbus Defence and Space",
+  "office_locations": [
+    "Getafe",
+    "Munich",
+    "Toulouse",
+    "Stevenage"
+  ],
   "operating_countries": [
     "DE",
     "FR",
@@ -26,33 +44,15 @@
     "NZ",
     "AU"
   ],
-  "office_locations": [
-    "Getafe",
-    "Munich",
-    "Toulouse",
-    "Stevenage"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 35000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T08:50:00Z",
-  "ats": {
-    "provider": "WORKDAY",
-    "identifier": "2Fag"
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.airbus.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.airbus.com"
 }

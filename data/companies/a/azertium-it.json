@@ -1,47 +1,47 @@
 {
-  "id": "azertium-it",
-  "name": "Azertium IT",
   "alternateNames": [],
+  "ats": {
+    "identifier": "app",
+    "provider": "TEAMTAILOR"
+  },
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://azertium.es/careers"
+      }
+    ]
+  },
   "description": "Azertium IT is a technology services company providing specialized software development, systems analysis, and IT outsourcing solutions.",
-  "website": "https://azertium.es",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGqZTmFC9r2PA/company-logo_100_100/company-logo_100_100/0/1688460470874/azertium_it_logo?e=1774483200&v=beta&t=ZBgyShQCLBsEKffA3UwVqadMrulZr8NSFYzgyD4PxZQ",
+  "employees_count": 200,
+  "hq_country": "ES",
+  "id": "azertium-it",
   "industries": [
     "IT Services",
     "Software Development",
     "Outsourcing"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
-  "operating_countries": [
-    "ES"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGqZTmFC9r2PA/company-logo_100_100/company-logo_100_100/0/1688460470874/azertium_it_logo?e=1774483200&v=beta&t=ZBgyShQCLBsEKffA3UwVqadMrulZr8NSFYzgyD4PxZQ",
+  "name": "Azertium IT",
   "office_locations": [
     "Barcelona",
     "Madrid"
   ],
+  "operating_countries": [
+    "ES"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 200,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:00:00Z",
-  "ats": {
-    "provider": "TEAMTAILOR",
-    "identifier": "app"
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://azertium.es/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://azertium.es"
 }

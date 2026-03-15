@@ -1,47 +1,47 @@
 {
-  "id": "witi",
-  "name": "WITI",
   "alternateNames": [
     "Women in Technical Infrastructure",
     "Bending Spoons"
   ],
+  "company_type": "Non-profit",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://witi.com/careers"
+      }
+    ]
+  },
   "description": "WITI focuses on empowering women in technical infrastructure, partnering with high-impact tech companies like Bending Spoons to foster engineering excellence.",
-  "website": "https://witi.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFIAhLMa45Fmw/company-logo_100_100/company-logo_100_100/0/1630505368750/womenintechnicalinfrastructure_logo?e=1774483200&v=beta&t=AhjPCtB6ATpdcvy5aWT0PFStZ43xMEabNaR6PW1A1yc",
+  "employees_count": 50,
+  "hq_country": "US",
+  "id": "witi",
   "industries": [
     "Non-profit",
     "IT Infrastructure",
     "Education",
     "Software Development"
   ],
-  "company_type": "Non-profit",
   "is_agency": false,
   "is_social_enterprise": true,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFIAhLMa45Fmw/company-logo_100_100/company-logo_100_100/0/1630505368750/womenintechnicalinfrastructure_logo?e=1774483200&v=beta&t=AhjPCtB6ATpdcvy5aWT0PFStZ43xMEabNaR6PW1A1yc",
+  "name": "WITI",
+  "office_locations": [
+    "Los Angeles"
+  ],
   "operating_countries": [
     "US",
     "Worldwide"
   ],
-  "office_locations": [
-    "Los Angeles"
-  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://witi.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://witi.com"
 }

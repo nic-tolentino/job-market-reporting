@@ -1,44 +1,44 @@
 {
-  "id": "csa-integraci-de-sistemes",
-  "name": "CSA Integració de Sistemes",
   "alternateNames": [
     "CSA Associats"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.csa.cat/careers"
+      }
+    ]
+  },
   "description": "CSA is an IT services company based in Barcelona that delivers technological solutions and talent acquisition for the banking and enterprise sectors.",
-  "website": "https://www.csa.cat",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGDtmzIotz-dA/company-logo_100_100/company-logo_100_100/0/1697124946886/csa_integracio_de_sistemes_logo?e=1774483200&v=beta&t=Puzc4Lc8BzHGcZ4AHgqngAWE9FgqQnctlK16IrzRSMg",
+  "employees_count": 100,
+  "hq_country": "ES",
+  "id": "csa-integraci-de-sistemes",
   "industries": [
     "IT Services",
     "System Integration",
     "Banking Tech"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
-  "operating_countries": [
-    "ES"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGDtmzIotz-dA/company-logo_100_100/company-logo_100_100/0/1697124946886/csa_integracio_de_sistemes_logo?e=1774483200&v=beta&t=Puzc4Lc8BzHGcZ4AHgqngAWE9FgqQnctlK16IrzRSMg",
+  "name": "CSA Integració de Sistemes",
   "office_locations": [
     "Barcelona"
   ],
+  "operating_countries": [
+    "ES"
+  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 100,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:05:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.csa.cat/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.csa.cat"
 }

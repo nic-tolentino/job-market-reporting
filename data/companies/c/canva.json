@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "SMARTRECRUITERS",
-    "identifier": "Canva"
+    "identifier": "Canva",
+    "provider": "SMARTRECRUITERS"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "tech-filtered",
+        "url": "https://www.canva.com/careers/"
+      }
+    ]
+  },
   "description": "Canva is a global graphic design platform that allows users to create social media graphics, presentations, and more.",
   "employees_count": null,
   "hq_country": "AU",
@@ -33,19 +41,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.canva.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.canva.com/careers/",
-        "category": "tech-filtered"
-      }
-    ]
-  }
+  "website": "http://www.canva.com"
 }

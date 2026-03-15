@@ -4,6 +4,14 @@
     "Microsoft NZ"
   ],
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://news.microsoft.com/careers"
+      }
+    ]
+  },
   "description": "Microsoft is a global leader in software, services, devices, and solutions.",
   "employees_count": null,
   "hq_country": "US",
@@ -28,19 +36,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://news.microsoft.com/",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://news.microsoft.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://news.microsoft.com/"
 }

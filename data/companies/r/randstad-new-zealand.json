@@ -1,47 +1,47 @@
 {
-  "id": "randstad-new-zealand",
-  "name": "Randstad New Zealand",
   "alternateNames": [
     "Randstad"
   ],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.randstad.co.nz/careers"
+      }
+    ]
+  },
   "description": "Randstad is a global leader in talent solutions, helping NZ organizations build agile workforces through specialized IT recruitment and strategic consulting.",
-  "website": "http://www.randstad.co.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEt4-bVNjCnsQ/company-logo_100_100/company-logo_100_100/0/1678670050981/randstad_new_zealand_logo?e=1773878400&v=beta&t=...",
+  "employees_count": 46000,
+  "hq_country": "NL",
+  "id": "randstad-new-zealand",
   "industries": [
     "Recruitment",
     "IT Staffing",
     "Consulting"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "NL",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEt4-bVNjCnsQ/company-logo_100_100/company-logo_100_100/0/1678670050981/randstad_new_zealand_logo?e=1773878400&v=beta&t=...",
+  "name": "Randstad New Zealand",
+  "office_locations": [
+    "Auckland",
+    "Wellington"
+  ],
   "operating_countries": [
     "NZ",
     "AU",
     "Worldwide"
   ],
-  "office_locations": [
-    "Auckland",
-    "Wellington"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 46000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.randstad.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "http://www.randstad.co.nz"
 }

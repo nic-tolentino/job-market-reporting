@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "indebted"
+    "identifier": "indebted",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.indebted.co/careers"
+      }
+    ]
+  },
   "description": "InDebted is a fintech company specializing in digital debt collection solutions that prioritize consumer experience and human-centered technology.",
   "employees_count": 300,
   "hq_country": "AU",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-10T09:20:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.indebted.co",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.indebted.co/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.indebted.co"
 }

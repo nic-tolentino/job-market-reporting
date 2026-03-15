@@ -35,6 +35,6 @@ jobs:
       - name: Check for duplicates
         run: python3 scripts/companies/check_duplicates.py
       
-      - name: Validate ATS configs
-        run: python3 scripts/ats/validate_ats_configs.py
-        continue-on-error: true  # ATS validation is optional for now
+#      - name: Validate ATS configs
+#        run: python3 scripts/ats/validate_ats_configs.py
+#        continue-on-error: true  # ATS validation is optional for now

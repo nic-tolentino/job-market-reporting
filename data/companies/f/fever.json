@@ -3,6 +3,14 @@
     "Fever Up"
   ],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://feverup.com/careers"
+      }
+    ]
+  },
   "description": "Live entertainment platform curating experiences including concerts, sports, culture, and immersive events in 200+ cities across 30+ countries.",
   "employees_count": null,
   "hq_country": "ES",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-07T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://feverup.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://feverup.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://feverup.com"
 }

@@ -4,10 +4,18 @@
     "Vista Group"
   ],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "vista-group"
+    "identifier": "vista-group",
+    "provider": "WORKABLE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://vista.co/careers"
+      }
+    ]
+  },
   "description": "Vista is the world's leading supplier of software to the global cinema industry.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -35,19 +43,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://vista.co",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://vista.co/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://vista.co"
 }

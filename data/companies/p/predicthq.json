@@ -3,10 +3,18 @@
     "PredictHQ Limited"
   ],
   "ats": {
-    "provider": "TEAMTAILOR",
-    "identifier": "predicthq"
+    "identifier": "predicthq",
+    "provider": "TEAMTAILOR"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.predicthq.com/careers"
+      }
+    ]
+  },
   "description": "PredictHQ is a demand intelligence platform that helps companies predict and utilize external events.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -33,19 +41,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.predicthq.com/",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.predicthq.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.predicthq.com/"
 }

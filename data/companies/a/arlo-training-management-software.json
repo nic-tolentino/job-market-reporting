@@ -1,31 +1,31 @@
 {
-  "id": "arlo-training-management-software",
-  "name": "Arlo Training Management Software",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.arlo.co/careers"
+      }
+    ]
+  },
   "description": "Less admin. More training. Manage course scheduling, registrations, payments, website, CRM, and reporting—all in one powerful and easy-to-use platform. Try for free now at https://www.arlo.co\n\nOffer the entire registration experience using Arlo. Create simple registration forms for free events, complex forms for conferences, and everything between. Accept payments, issue invoices, and manage transfers, cancellations, and refunds.\n\nArlo manages all event information and resources: one place, online, and accessible wherever you are. Track tasks, record notes, send emails, print name labels, manage waiting lists, and more.\n\nUse Arlo’s flexible integration options to set your web designers free. Integrate Arlo with other business applications for seamless marketing and management. \n\nEasily manage online presentations, such as live webinars for sales and training, and self-paced e-learning.\n\nManage information about existing clients in Arlo, and easily run campaigns to target potential customers. Arlo is a fully featured customer relationship management tool.",
-  "website": "http://www.arlo.co",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQG-SAR07-pfRw/company-logo_100_100/company-logo_100_100/0/1663144868376/arlo_logo?e=1774483200&v=beta&t=6QmGQ1fSTeKZhh-XD9u0TroVoIrK49v7Zc2ytgH7Ng4",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "arlo-training-management-software",
   "industries": [
     "Technology, Information",
     "Internet"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQG-SAR07-pfRw/company-logo_100_100/company-logo_100_100/0/1663144868376/arlo_logo?e=1774483200&v=beta&t=6QmGQ1fSTeKZhh-XD9u0TroVoIrK49v7Zc2ytgH7Ng4",
+  "name": "Arlo Training Management Software",
   "office_locations": [],
+  "operating_countries": [],
   "remote_policy": "Unknown",
-  "visa_sponsorship": null,
-  "employees_count": null,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T03:36:42.903748Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.arlo.co/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "http://www.arlo.co"
 }

@@ -1,46 +1,46 @@
 {
-  "id": "skl-technology",
-  "name": "SKL Technology",
   "alternateNames": [
     "SKL"
   ],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.skltechnology.com.au/careers"
+      }
+    ]
+  },
   "description": "SKL Technology is a specialist IT services division providing full-stack development and business intelligence services for secure, high-availability enterprise environments.",
-  "website": "https://www.skltechnology.com.au",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEqahagdbWZcg/company-logo_100_100/company-logo_100_100/0/1662610450277?e=1774483200&v=beta&t=l90vwTsou_6WgsR_ds-RjdhA9KJIWfo5SngRUkjaJQw",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "skl-technology",
   "industries": [
     "IT Services",
     "Business Intelligence",
     "Consulting",
     "Software Development"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEqahagdbWZcg/company-logo_100_100/company-logo_100_100/0/1662610450277?e=1774483200&v=beta&t=l90vwTsou_6WgsR_ds-RjdhA9KJIWfo5SngRUkjaJQw",
+  "name": "SKL Technology",
   "office_locations": [
     "Sydney",
     "Brisbane"
   ],
+  "operating_countries": [
+    "AU"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T11:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.skltechnology.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.skltechnology.com.au"
 }

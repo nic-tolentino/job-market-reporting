@@ -1,47 +1,47 @@
 {
-  "id": "tait-communications",
-  "name": "Tait Communications",
   "alternateNames": [
     "Tait"
   ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://taitcommunications.com/careers"
+      }
+    ]
+  },
   "description": "Tait is a global leader in critical communication solutions, delivering robust wireless networks and bespoke hardware for public safety and utility organizations.",
-  "website": "https://taitcommunications.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGdlF1z_o-T7A/company-logo_100_100/company-logo_100_100/0/1630549325048/tait_communications_logo?e=1773878400&v=beta&t=...",
+  "employees_count": 600,
+  "hq_country": "NZ",
+  "id": "tait-communications",
   "industries": [
     "Telecommunications",
     "Engineering",
     "Hardware",
     "IoT"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGdlF1z_o-T7A/company-logo_100_100/company-logo_100_100/0/1630549325048/tait_communications_logo?e=1773878400&v=beta&t=...",
+  "name": "Tait Communications",
+  "office_locations": [
+    "Christchurch"
+  ],
   "operating_countries": [
     "NZ",
     "US",
     "Worldwide"
   ],
-  "office_locations": [
-    "Christchurch"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 600,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://taitcommunications.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://taitcommunications.com"
 }

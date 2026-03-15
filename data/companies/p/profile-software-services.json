@@ -4,6 +4,14 @@
     "Second Window"
   ],
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://profile.es/careers"
+      }
+    ]
+  },
   "description": "An IT consulting activity company specializing in software programming, strategic architecture, and cloud computing.",
   "employees_count": null,
   "hq_country": "ES",
@@ -25,13 +33,5 @@
   "updated_at": "2026-03-10T07:45:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://profile.es",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://profile.es/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://profile.es"
 }

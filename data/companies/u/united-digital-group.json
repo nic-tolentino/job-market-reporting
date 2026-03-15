@@ -1,49 +1,49 @@
 {
-  "id": "united-digital-group",
-  "name": "UDG",
   "alternateNames": [
     "United Digital Group",
     "MSQ"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.udg.de/careers"
+      }
+    ]
+  },
   "description": "UDG is a leading international agency group crafting scalable backend systems and innovative user interfaces for global B2B market leaders.",
-  "website": "https://www.udg.de",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEIYXr_h_y1gA/company-logo_100_100/company-logo_100_100/0/1731519495029/udg_united_digital_group_logo?e=1774483200&v=beta&t=6W1KArdxsU5wOQ79G5cfSvjIbR8IrFe84-d6QaGA2k4",
+  "employees_count": 1800,
+  "hq_country": "DE",
+  "id": "united-digital-group",
   "industries": [
     "Digital Agency",
     "IT Services",
     "Software Development",
     "Consulting"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "DE",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEIYXr_h_y1gA/company-logo_100_100/company-logo_100_100/0/1731519495029/udg_united_digital_group_logo?e=1774483200&v=beta&t=6W1KArdxsU5wOQ79G5cfSvjIbR8IrFe84-d6QaGA2k4",
+  "name": "UDG",
+  "office_locations": [
+    "Hamburg",
+    "London"
+  ],
   "operating_countries": [
     "DE",
     "GB",
     "Worldwide"
   ],
-  "office_locations": [
-    "Hamburg",
-    "London"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1800,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T13:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.udg.de/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.udg.de"
 }

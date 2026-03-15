@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "GREENHOUSE",
-    "identifier": "roller"
+    "identifier": "roller",
+    "provider": "GREENHOUSE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.roller.software/careers"
+      }
+    ]
+  },
   "description": "ROLLER is a leading SaaS platform for the leisure and attractions industry, helping operators run better businesses while creating great guest experiences globally.",
   "employees_count": 150,
   "hq_country": "AU",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-10T11:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.roller.software",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.roller.software/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.roller.software"
 }

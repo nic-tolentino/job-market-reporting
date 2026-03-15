@@ -3,10 +3,18 @@
     "KPMG"
   ],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "kpmgnz"
+    "identifier": "kpmgnz",
+    "provider": "LEVER"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.kpmg.com/nz/careers"
+      }
+    ]
+  },
   "description": "KPMG NZ is a leading professional services firm providing audit, tax, and advisory services, with a strong focus on digital consulting and technology-driven transformation for prosperity in Aotearoa.",
   "employees_count": 1000,
   "hq_country": "NZ",
@@ -33,19 +41,11 @@
   "updated_at": "2026-03-10T09:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.kpmg.com/nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.kpmg.com/nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.kpmg.com/nz"
 }

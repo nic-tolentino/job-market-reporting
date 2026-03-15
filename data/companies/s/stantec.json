@@ -1,20 +1,33 @@
 {
-  "id": "stantec",
-  "name": "Stantec",
   "alternateNames": [],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.stantec.com/careers"
+      }
+    ]
+  },
   "description": "Stantec is a global leader in sustainable engineering, architecture, and environmental consulting, innovating at the intersection of community, digital transformation, and future-ready infrastructure.",
-  "website": "https://www.stantec.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEVy3k40NUZqg/company-logo_100_100/company-logo_100_100/0/1719174187372/stantec_logo?e=1774483200&v=beta&t=2KK61TJdyBX8bbryMXvp1muKh34xVXDBXjMdEpcCFJU",
+  "employees_count": 28000,
+  "hq_country": "CA",
+  "id": "stantec",
   "industries": [
     "Engineering",
     "Architecture",
     "Consulting",
     "Sustainability"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "CA",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEVy3k40NUZqg/company-logo_100_100/company-logo_100_100/0/1719174187372/stantec_logo?e=1774483200&v=beta&t=2KK61TJdyBX8bbryMXvp1muKh34xVXDBXjMdEpcCFJU",
+  "name": "Stantec",
+  "office_locations": [
+    "Edmonton",
+    "Sydney",
+    "Wellington"
+  ],
   "operating_countries": [
     "AU",
     "NZ",
@@ -23,28 +36,15 @@
     "GB",
     "Worldwide"
   ],
-  "office_locations": [
-    "Edmonton",
-    "Sydney",
-    "Wellington"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 28000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T11:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.stantec.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.stantec.com"
 }

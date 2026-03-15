@@ -1,20 +1,31 @@
 {
-  "id": "noloco",
-  "name": "Noloco",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.noloco.io/careers"
+      }
+    ]
+  },
   "description": "Noloco is a Y Combinator-backed no-code platform that empowers SMBs to turn their data into custom, AI-powered internal tools, client portals, and CRMs.",
-  "website": "https://www.noloco.io",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFmC_p6BGNdQg/company-logo_100_100/B4EZaqdo4VHcAQ-/0/1746616618974/nolocohq_logo?e=1774483200&v=beta&t=fEVxG3jukwXU4umeoSB3whvEExoCjwyLvWxPRCkL_uM",
+  "employees_count": 50,
+  "hq_country": "IE",
+  "id": "noloco",
   "industries": [
     "SaaS",
     "No-code",
     "AI",
     "App Development"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "IE",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFmC_p6BGNdQg/company-logo_100_100/B4EZaqdo4VHcAQ-/0/1746616618974/nolocohq_logo?e=1774483200&v=beta&t=fEVxG3jukwXU4umeoSB3whvEExoCjwyLvWxPRCkL_uM",
+  "name": "Noloco",
+  "office_locations": [
+    "Dublin"
+  ],
   "operating_countries": [
     "IE",
     "ES",
@@ -22,26 +33,15 @@
     "CA",
     "Worldwide"
   ],
-  "office_locations": [
-    "Dublin"
-  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T10:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.noloco.io/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.noloco.io"
 }

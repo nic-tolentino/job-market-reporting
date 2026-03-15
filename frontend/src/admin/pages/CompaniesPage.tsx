@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Search, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
 import { listCompanies } from '../lib/adminApi';
 import { StatusBadge } from '../components/StatusBadge';
 import { CompanyDetailPanel } from '../components/CompanyDetailPanel';
@@ -19,11 +19,6 @@ const PRESET_FILTERS: { label: string; seedStatus?: string; description: string 
   { label: 'Working well', seedStatus: 'ACTIVE', description: 'Active seeds' },
 ];
 
-function formatDuration(ms: number | null): string {
-  if (!ms) return '—';
-  if (ms < 1000) return `${ms}ms`;
-  return `${(ms / 1000).toFixed(1)}s`;
-}
 
 function formatDate(iso: string | null): string {
   if (!iso) return 'Never';

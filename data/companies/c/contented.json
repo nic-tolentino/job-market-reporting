@@ -1,28 +1,28 @@
 {
-  "id": "contented",
-  "name": "Contented",
   "alternateNames": [],
-  "description": "We believe all human conversation should be able to be turned into extraordinary outcomes. Our tool turns voice audio into incredible outputs- accurate rich insights, thoughtful summaries and user research findings and information modelling. Capturing every word and transforming it in ways you could never imagine.\n\nFor employment opportunities & expressions of interest, please apply here: http://bit.ly/3OewGaZ",
-  "website": "www.contentedai.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEh3ZdGSMiwog/company-logo_100_100/company-logo_100_100/0/1725917621875/contentedai_logo?e=1774483200&v=beta&t=2OrjGSdCxvSOKOGaF1lF9M4uCpW3641-qk4njw48JY0",
-  "industries": [],
   "company_type": "Product",
-  "is_agency": false,
-  "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [],
-  "office_locations": [],
-  "remote_policy": "Unknown",
-  "visa_sponsorship": null,
-  "employees_count": null,
-  "verification_level": "silver",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
   "crawler": {
     "seeds": [
       {
-        "url": "www.contentedai.com/careers",
-        "category": "unknown"
+        "category": "unknown",
+        "url": "www.contentedai.com/careers"
       }
     ]
-  }
+  },
+  "description": "We believe all human conversation should be able to be turned into extraordinary outcomes. Our tool turns voice audio into incredible outputs- accurate rich insights, thoughtful summaries and user research findings and information modelling. Capturing every word and transforming it in ways you could never imagine.\n\nFor employment opportunities & expressions of interest, please apply here: http://bit.ly/3OewGaZ",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "contented",
+  "industries": [],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEh3ZdGSMiwog/company-logo_100_100/company-logo_100_100/0/1725917621875/contentedai_logo?e=1774483200&v=beta&t=2OrjGSdCxvSOKOGaF1lF9M4uCpW3641-qk4njw48JY0",
+  "name": "Contented",
+  "office_locations": [],
+  "operating_countries": [],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T03:36:42.903748Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "www.contentedai.com"
 }

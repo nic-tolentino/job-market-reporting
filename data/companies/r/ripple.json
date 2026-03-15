@@ -1,50 +1,50 @@
 {
-  "id": "ripple",
-  "name": "Ripple",
   "alternateNames": [
     "Ripple Labs"
   ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://ripple.com/careers"
+      }
+    ]
+  },
   "description": "Ripple is building a world where value moves like information today, improving the global financial system through crypto solutions for institutions and developers.",
-  "website": "https://ripple.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEKIG_L21BqTA/company-logo_100_100/B56ZUFnbr4GQAU-/0/1739555978246/rippleofficial_logo?e=1774483200&v=beta&t=DpFyMimc7i9xvo957ubr_8nRFouYJFAz9CNTfGZYwQA",
+  "employees_count": 1000,
+  "hq_country": "US",
+  "id": "ripple",
   "industries": [
     "Fintech",
     "Blockchain",
     "SaaS",
     "Banking"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEKIG_L21BqTA/company-logo_100_100/B56ZUFnbr4GQAU-/0/1739555978246/rippleofficial_logo?e=1774483200&v=beta&t=DpFyMimc7i9xvo957ubr_8nRFouYJFAz9CNTfGZYwQA",
+  "name": "Ripple",
+  "office_locations": [
+    "San Francisco",
+    "Sydney",
+    "London"
+  ],
   "operating_countries": [
     "US",
     "AU",
     "GB",
     "Worldwide"
   ],
-  "office_locations": [
-    "San Francisco",
-    "Sydney",
-    "London"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T11:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://ripple.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://ripple.com"
 }

@@ -1,48 +1,48 @@
 {
-  "id": "recordpoint",
-  "name": "RecordPoint",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.recordpoint.com/careers"
+      }
+    ]
+  },
   "description": "RecordPoint is a leading data and information lifecycle management SaaS provider helping highly-regulated organizations manage data safer and more securely at scale.",
-  "website": "https://www.recordpoint.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGqR-oAqAJs_g/company-logo_100_100/company-logo_100_100/0/1665374110785/recordpoint_logo?e=1774483200&v=beta&t=r6WMJhuqvCY1wf61UjKlroTnJlvfHn7W2yOi0Y-T3c8",
+  "employees_count": 150,
+  "hq_country": "AU",
+  "id": "recordpoint",
   "industries": [
     "Information Governance",
     "Data Management",
     "SaaS",
     "Compliance"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGqR-oAqAJs_g/company-logo_100_100/company-logo_100_100/0/1665374110785/recordpoint_logo?e=1774483200&v=beta&t=r6WMJhuqvCY1wf61UjKlroTnJlvfHn7W2yOi0Y-T3c8",
+  "name": "RecordPoint",
+  "office_locations": [
+    "Sydney",
+    "Seattle",
+    "London"
+  ],
   "operating_countries": [
     "AU",
     "US",
     "GB",
     "Worldwide"
   ],
-  "office_locations": [
-    "Sydney",
-    "Seattle",
-    "London"
-  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 150,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T10:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.recordpoint.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.recordpoint.com"
 }

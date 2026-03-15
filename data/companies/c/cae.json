@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "cae"
+    "identifier": "cae",
+    "provider": "WORKDAY"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.cae.com/careers"
+      }
+    ]
+  },
   "description": "CAE is a global leader in high-tech training and simulation solutions for civil aviation, defense, security, and healthcare.",
   "employees_count": 13000,
   "hq_country": "CA",
@@ -33,19 +41,11 @@
   "updated_at": "2026-03-10T14:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.cae.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.cae.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.cae.com"
 }

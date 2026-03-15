@@ -1,6 +1,14 @@
 {
   "alternateNames": [],
   "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://jobadvisor.cl/careers"
+      }
+    ]
+  },
   "description": "An AI-powered recruitment and human resources company providing job search assistance and staffing solutions.",
   "employees_count": null,
   "hq_country": "CL",
@@ -22,13 +30,5 @@
   "updated_at": "2026-03-10T07:45:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://jobadvisor.cl",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://jobadvisor.cl/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://jobadvisor.cl"
 }

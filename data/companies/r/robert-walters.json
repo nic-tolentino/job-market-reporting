@@ -1,47 +1,47 @@
 {
-  "id": "robert-walters",
-  "name": "Robert Walters",
   "alternateNames": [],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.robertwalters.co.nz/careers"
+      }
+    ]
+  },
   "description": "Robert Walters is a global talent solutions business providing specialist recruitment and advisory services to high-growth firms and enterprises worldwide.",
-  "website": "https://www.robertwalters.co.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQG7fuCEWaSKRA/company-logo_100_100/company-logo_100_100/0/1720445443255/robert_walters_logo?e=1773878400&v=beta&t=hAoCiXC7HOQ0IkqfJgZwruHZzerZTvQY9DwiUbas42k",
+  "employees_count": 4000,
+  "hq_country": "GB",
+  "id": "robert-walters",
   "industries": [
     "Recruitment",
     "IT Staffing",
     "Consulting"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "GB",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQG7fuCEWaSKRA/company-logo_100_100/company-logo_100_100/0/1720445443255/robert_walters_logo?e=1773878400&v=beta&t=hAoCiXC7HOQ0IkqfJgZwruHZzerZTvQY9DwiUbas42k",
+  "name": "Robert Walters",
+  "office_locations": [
+    "London",
+    "Auckland",
+    "Wellington"
+  ],
   "operating_countries": [
     "GB",
     "AU",
     "NZ",
     "Worldwide"
   ],
-  "office_locations": [
-    "London",
-    "Auckland",
-    "Wellington"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 4000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.robertwalters.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.robertwalters.co.nz"
 }

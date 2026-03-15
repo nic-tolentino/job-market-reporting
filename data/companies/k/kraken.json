@@ -4,10 +4,18 @@
     "Kraken Technologies"
   ],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "kraken123"
+    "identifier": "kraken123",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://kraken.tech/careers"
+      }
+    ]
+  },
   "description": "Kraken Technologies provides a cloud-native platform for utilities to manage energy and customer data.",
   "employees_count": null,
   "hq_country": "UK",
@@ -34,19 +42,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://kraken.tech",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://kraken.tech/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://kraken.tech"
 }

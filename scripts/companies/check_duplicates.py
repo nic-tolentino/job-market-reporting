@@ -19,7 +19,7 @@ def check_duplicates():
     
     # Load all companies
     companies = []
-    for file in MANIFEST_DIR.glob('*.json'):
+    for file in MANIFEST_DIR.rglob('*.json'):
         if file.name.startswith('.') or file.name == 'schema.json':
             continue
         

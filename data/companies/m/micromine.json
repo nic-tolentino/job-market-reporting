@@ -1,45 +1,45 @@
 {
-  "id": "micromine",
-  "name": "Micromine",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.micromine.com/careers"
+      }
+    ]
+  },
   "description": "Micromine is a premier mining software company providing cutting-edge technology solutions for exploration and mining operations in every corner of the globe.",
-  "website": "https://www.micromine.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE4E9FzNVdTEg/company-logo_100_100/B56ZwDL7EzK4AQ-/0/1769579983619/micromine_logo?e=1774483200&v=beta&t=r7_QWT_-la3eYxUdWs15tXAdeKHGxJoND2Bm9eEJVNc",
+  "employees_count": 300,
+  "hq_country": "AU",
+  "id": "micromine",
   "industries": [
     "Mining Tech",
     "Agtech",
     "SaaS"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE4E9FzNVdTEg/company-logo_100_100/B56ZwDL7EzK4AQ-/0/1769579983619/micromine_logo?e=1774483200&v=beta&t=r7_QWT_-la3eYxUdWs15tXAdeKHGxJoND2Bm9eEJVNc",
+  "name": "Micromine",
+  "office_locations": [
+    "Perth"
+  ],
   "operating_countries": [
     "AU",
     "CA",
     "ZA",
     "Worldwide"
   ],
-  "office_locations": [
-    "Perth"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 300,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:40:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.micromine.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.micromine.com"
 }

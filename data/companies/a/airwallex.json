@@ -3,10 +3,18 @@
     "Airwallex Pty Ltd"
   ],
   "ats": {
-    "provider": "ASHBY",
-    "identifier": "airwallex"
+    "identifier": "airwallex",
+    "provider": "ASHBY"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.airwallex.com/careers"
+      }
+    ]
+  },
   "description": "A fintech unicorn providing global payments and financial platform for modern businesses.",
   "employees_count": 1500,
   "hq_country": "AU",
@@ -39,19 +47,11 @@
   "updated_at": "2026-03-10T05:30:58.400158Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.airwallex.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.airwallex.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.airwallex.com"
 }

@@ -3,10 +3,18 @@
     "Datacom Group"
   ],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "datacom1"
+    "identifier": "datacom1",
+    "provider": "WORKABLE"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://datacom.com/careers"
+      }
+    ]
+  },
   "description": "Datacom is Australasia's largest home-grown tech company, providing a broad range of services from cloud and cybersecurity to digital platforms and payroll.",
   "employees_count": 6500,
   "hq_country": "NZ",
@@ -36,19 +44,11 @@
   "updated_at": "2026-03-10T09:05:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://datacom.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://datacom.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://datacom.com"
 }

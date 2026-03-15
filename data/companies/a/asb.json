@@ -4,10 +4,18 @@
     "ASB Bank Limited"
   ],
   "ats": {
-    "provider": "SNAPHIRE",
-    "identifier": "asb"
+    "identifier": "asb",
+    "provider": "SNAPHIRE"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.asb.co.nz/careers"
+      }
+    ]
+  },
   "description": "ASB is one of New Zealand's leading commercial banks, offering personal, business, and rural banking services.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -33,19 +41,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.asb.co.nz",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.asb.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.asb.co.nz"
 }

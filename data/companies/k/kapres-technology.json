@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "TEAMTAILOR",
-    "identifier": "kapres"
+    "identifier": "kapres",
+    "provider": "TEAMTAILOR"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.kapres.com/careers"
+      }
+    ]
+  },
   "description": "Kapres Technology is a tech consulting firm specializing in high-impact software development, GenAI solutions, and IT staffing for large enterprises in telecommunications and finance.",
   "employees_count": 100,
   "hq_country": "ES",
@@ -30,19 +38,11 @@
   "updated_at": "2026-03-10T09:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.kapres.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.kapres.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.kapres.com"
 }

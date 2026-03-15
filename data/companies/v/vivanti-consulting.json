@@ -1,12 +1,20 @@
 {
-  "id": "vivanti-consulting",
-  "name": "Vivanti",
   "alternateNames": [
     "Vivanti Consulting"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.vivanti.com/careers"
+      }
+    ]
+  },
   "description": "Vivanti is a high-growth global tech consultancy helping the world's biggest businesses bring their data, AI, cloud, and digital solutions to life.",
-  "website": "https://www.vivanti.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEM_gnmLdI3Gw/company-logo_100_100/company-logo_100_100/0/1716081368628/vivanti_consulting_logo?e=1774483200&v=beta&t=AUdr8eB7DS7d4kkXveQt1Quh5gAc5iLZPy5x_Er3Qs8",
+  "employees_count": 150,
+  "hq_country": "AU",
+  "id": "vivanti-consulting",
   "industries": [
     "IT Services",
     "AI",
@@ -14,37 +22,29 @@
     "Data Science",
     "Consulting"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU",
-    "US",
-    "Worldwide"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEM_gnmLdI3Gw/company-logo_100_100/company-logo_100_100/0/1716081368628/vivanti_consulting_logo?e=1774483200&v=beta&t=AUdr8eB7DS7d4kkXveQt1Quh5gAc5iLZPy5x_Er3Qs8",
+  "name": "Vivanti",
   "office_locations": [
     "Sydney",
     "Canberra",
     "New York"
   ],
+  "operating_countries": [
+    "AU",
+    "US",
+    "Worldwide"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 150,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T13:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.vivanti.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.vivanti.com"
 }

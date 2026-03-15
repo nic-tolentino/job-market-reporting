@@ -3,6 +3,14 @@
     "Twine.net"
   ],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.twine.net/careers"
+      }
+    ]
+  },
   "description": "Twine is a marketplace for freelancers in the creative and technology sectors.",
   "employees_count": null,
   "hq_country": "UK",
@@ -23,19 +31,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.twine.net",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.twine.net/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.twine.net"
 }

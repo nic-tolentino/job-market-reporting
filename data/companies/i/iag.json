@@ -1,35 +1,35 @@
 {
-  "id": "iag",
-  "name": "IAG",
   "alternateNames": [],
+  "company_type": "Enterprise",
+  "crawler": {
+    "discovery": {
+      "lastAttemptedAt": "2026-03-14",
+      "notes": "10 pages visited, 0 jobs extracted. Careers appear to be embedded inside a Workday iframe — content is not accessible via DOM scraping. Needs a manual seed URL pointing directly to the Workday board.",
+      "status": "NO_MATCH"
+    },
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.iag.com.au/careers"
+      }
+    ]
+  },
   "description": "IAG is Australia and New Zealand's largest general insurance company with a purpose to make your world a safer place, whether you are a customer, partner, employee, shareholder or part of the communities IAG serves across Australia and New Zealand.\n\nOur businesses have helped people recover from natural disasters, accidents and loss since 1851. In Australia and New Zealand we provide insurance under many leading brands, including NRMA Insurance, CGU, SGIO, SGIC and WFI; and NZI, State, AMI and Lumley Insurance (New Zealand). We also have interests in general insurance joint ventures in Malaysia and India. \n\nIncreasingly, we see our role extending beyond paying claims to increasing awareness of risk, and helping communities reduce and prevent risk. We believe it is our responsibility as an industry leader to use our influence and role as a major investor, purchaser and employer for the good of everyone.\n\nFor further information please visit www.iag.com.au.",
-  "website": "http://www.iag.com.au",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFvZTMrPPiP2g/company-logo_100_100/company-logo_100_100/0/1739332831603/iag_logo?e=1774483200&v=beta&t=oRmuHmMNeQ7Yxri6ykW2MAv7cvilsZ7Q4LgYOCrFgK0",
+  "employees_count": null,
+  "hq_country": "AU",
+  "id": "iag",
   "industries": [
     "Insurance"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFvZTMrPPiP2g/company-logo_100_100/company-logo_100_100/0/1739332831603/iag_logo?e=1774483200&v=beta&t=oRmuHmMNeQ7Yxri6ykW2MAv7cvilsZ7Q4LgYOCrFgK0",
+  "name": "IAG",
   "office_locations": [],
+  "operating_countries": [],
   "remote_policy": "Unknown",
-  "visa_sponsorship": null,
-  "employees_count": null,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T03:36:42.903748Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.iag.com.au/careers",
-        "category": "unknown"
-      }
-    ],
-    "discovery": {
-      "status": "NO_MATCH",
-      "lastAttemptedAt": "2026-03-14",
-      "notes": "10 pages visited, 0 jobs extracted. Careers appear to be embedded inside a Workday iframe — content is not accessible via DOM scraping. Needs a manual seed URL pointing directly to the Workday board."
-    }
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "http://www.iag.com.au"
 }

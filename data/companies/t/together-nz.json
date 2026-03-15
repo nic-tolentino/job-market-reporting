@@ -1,28 +1,28 @@
 {
-  "id": "together-nz",
-  "name": "Together - NZ",
   "alternateNames": [],
-  "description": "Media Agency of the Year, IAB NZ Awards 2025.\nMedia Agency of the Year, Campaign Asia 2024.\nDeloitte Fast50 Company, 2023.\nDigital Agency of the Year, IAB NZ Awards 2023.\nDigital Agency of the Year, IAB NZ Awards 2022.\nMedia Agency of the Year, Beacon Awards 2022.\nMedia Agency of the Year, Campaign Asia 2022.\n\nTogether is one of New Zealand’s fastest growing and most highly awarded independent media agency / consultancy hybrids. \n\nWe were established by industry leaders to challenge the traditional media, digital and performance agency model. We focus on bringing together the thinking, technology and data required to put the right message, in front of the right person, at the right moment. To do this our team combines award-winning strategic and digital thinking with leading edge technology, data and analytics.",
-  "website": "http://www.wearetogether.co.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHOfB2l9_6MWQ/company-logo_100_100/company-logo_100_100/0/1716149927916/wearetogether_nz_logo?e=1774483200&v=beta&t=0PjbrJsHCVxvG5xOJBLYLQXm7gdsG9DQqR9kTNTYzRE",
-  "industries": [],
   "company_type": "Agency",
-  "is_agency": true,
-  "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [],
-  "office_locations": [],
-  "remote_policy": "Unknown",
-  "visa_sponsorship": null,
-  "employees_count": null,
-  "verification_level": "silver",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
   "crawler": {
     "seeds": [
       {
-        "url": "http://www.wearetogether.co.nz/careers",
-        "category": "unknown"
+        "category": "unknown",
+        "url": "http://www.wearetogether.co.nz/careers"
       }
     ]
-  }
+  },
+  "description": "Media Agency of the Year, IAB NZ Awards 2025.\nMedia Agency of the Year, Campaign Asia 2024.\nDeloitte Fast50 Company, 2023.\nDigital Agency of the Year, IAB NZ Awards 2023.\nDigital Agency of the Year, IAB NZ Awards 2022.\nMedia Agency of the Year, Beacon Awards 2022.\nMedia Agency of the Year, Campaign Asia 2022.\n\nTogether is one of New Zealand’s fastest growing and most highly awarded independent media agency / consultancy hybrids. \n\nWe were established by industry leaders to challenge the traditional media, digital and performance agency model. We focus on bringing together the thinking, technology and data required to put the right message, in front of the right person, at the right moment. To do this our team combines award-winning strategic and digital thinking with leading edge technology, data and analytics.",
+  "employees_count": null,
+  "hq_country": "NZ",
+  "id": "together-nz",
+  "industries": [],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHOfB2l9_6MWQ/company-logo_100_100/company-logo_100_100/0/1716149927916/wearetogether_nz_logo?e=1774483200&v=beta&t=0PjbrJsHCVxvG5xOJBLYLQXm7gdsG9DQqR9kTNTYzRE",
+  "name": "Together - NZ",
+  "office_locations": [],
+  "operating_countries": [],
+  "remote_policy": "Unknown",
+  "updated_at": "2026-03-10T03:36:42.903748Z",
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "http://www.wearetogether.co.nz"
 }

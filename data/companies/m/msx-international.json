@@ -3,10 +3,18 @@
     "MSXI"
   ],
   "ats": {
-    "provider": "SMARTRECRUITERS",
-    "identifier": "MSXInternational"
+    "identifier": "MSXInternational",
+    "provider": "SMARTRECRUITERS"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.msxi.com/careers"
+      }
+    ]
+  },
   "description": "MSX International is a global leader in automotive business solutions, helping manufacturers and dealers improve performance through specialized retail and training services.",
   "employees_count": 6000,
   "hq_country": "US",
@@ -36,19 +44,11 @@
   "updated_at": "2026-03-10T09:40:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.msxi.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.msxi.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.msxi.com"
 }

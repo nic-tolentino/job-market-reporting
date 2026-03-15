@@ -1,44 +1,44 @@
 {
-  "id": "socialite-recruitment-ltd",
-  "name": "Socialite Recruitment Ltd.",
   "alternateNames": [
     "Socialite"
   ],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.socialitenz.com/careers"
+      }
+    ]
+  },
   "description": "Socialite is a boutique NZ digital recruitment firm harnessing social channels to target high-end engineering professionals for progressive tech companies.",
-  "website": "http://www.socialitenz.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFJdZA3SMzrIw/company-logo_100_100/company-logo_100_100/0/1631301148605?e=1773878400&v=beta&t=UAHpCiJ3zD891qTku4Gs0q0_tLiTzUDFtCGB_NCJqu4",
+  "employees_count": 10,
+  "hq_country": "NZ",
+  "id": "socialite-recruitment-ltd",
   "industries": [
     "Recruitment",
     "IT Staffing",
     "Digital Marketing"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFJdZA3SMzrIw/company-logo_100_100/company-logo_100_100/0/1631301148605?e=1773878400&v=beta&t=UAHpCiJ3zD891qTku4Gs0q0_tLiTzUDFtCGB_NCJqu4",
+  "name": "Socialite Recruitment Ltd.",
   "office_locations": [
     "Auckland"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 10,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.socialitenz.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "http://www.socialitenz.com"
 }

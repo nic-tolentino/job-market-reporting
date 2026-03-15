@@ -1,41 +1,41 @@
 {
-  "id": "ndeva",
-  "name": "Ndeva",
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.ndeva.com.au/careers"
+      }
+    ]
+  },
   "description": "Ndeva is a tech-focused firm specializing in mission-critical IoT platforms and building safety SaaS solutions with a dominant market share in Australia.",
-  "website": "https://www.ndeva.com.au",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHCSuBsAtUgFw/company-logo_100_100/company-logo_100_100/0/1706594086973/ndeva_logo?e=1774483200&v=beta&t=Sq5uD3fTq37SjFYg0SoZ5f2cPW_vIHZ04nnCW65-eKg",
+  "employees_count": 100,
+  "hq_country": "AU",
+  "id": "ndeva",
   "industries": [
     "IoT",
     "SaaS",
     "Cybersecurity"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHCSuBsAtUgFw/company-logo_100_100/company-logo_100_100/0/1706594086973/ndeva_logo?e=1774483200&v=beta&t=Sq5uD3fTq37SjFYg0SoZ5f2cPW_vIHZ04nnCW65-eKg",
+  "name": "Ndeva",
   "office_locations": [
     "Sydney"
   ],
+  "operating_countries": [
+    "AU"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 100,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:40:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.ndeva.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.ndeva.com.au"
 }

@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "j"
+    "identifier": "j",
+    "provider": "WORKABLE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://mathspace.co/careers"
+      }
+    ]
+  },
   "description": "Mathspace is a world-class EdTech platform providing intelligent, adaptive math learning experiences for hundreds of thousands of students and teachers globally.",
   "employees_count": 100,
   "hq_country": "AU",
@@ -32,19 +40,11 @@
   "updated_at": "2026-03-10T09:40:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://mathspace.co",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://mathspace.co/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://mathspace.co"
 }

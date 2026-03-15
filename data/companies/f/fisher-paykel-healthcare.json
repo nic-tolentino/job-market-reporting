@@ -3,10 +3,18 @@
     "F&P Healthcare"
   ],
   "ats": {
-    "provider": "SUCCESSFACTORS",
-    "identifier": "performancemanager10"
+    "identifier": "performancemanager10",
+    "provider": "SUCCESSFACTORS"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "general",
+        "url": "https://www.fphcare.com/us/careers/"
+      }
+    ]
+  },
   "description": "Fisher & Paykel Healthcare is a leading designer, manufacturer, and marketer of products and systems for use in respiratory care.",
   "employees_count": 6000,
   "hq_country": "NZ",
@@ -28,19 +36,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.fphcare.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.fphcare.com/us/careers/",
-        "category": "general"
-      }
-    ]
-  }
+  "website": "http://www.fphcare.com"
 }

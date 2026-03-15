@@ -1,43 +1,43 @@
 {
-  "id": "twirll",
-  "name": "Twirll",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://twirll.com/careers"
+      }
+    ]
+  },
   "description": "Twirll is an Australian technology company building simple, intuitive interfaces for navigating complex cloud applications and navigating information-rich digital experiences.",
-  "website": "https://twirll.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGZFqJMaqx8ow/company-logo_100_100/company-logo_100_100/0/1631330241961?e=1774483200&v=beta&t=k_OgGNKE-ZdgigNEP8DpiH3gJ0oYosm-hCJXzYacUy0",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "twirll",
   "industries": [
     "Software Development",
     "SaaS",
     "UX Design"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGZFqJMaqx8ow/company-logo_100_100/company-logo_100_100/0/1631330241961?e=1774483200&v=beta&t=k_OgGNKE-ZdgigNEP8DpiH3gJ0oYosm-hCJXzYacUy0",
+  "name": "Twirll",
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [
     "AU",
     "Worldwide"
   ],
-  "office_locations": [
-    "Sydney"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T13:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://twirll.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://twirll.com"
 }

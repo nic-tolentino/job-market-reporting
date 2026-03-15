@@ -1,45 +1,45 @@
 {
-  "id": "n2s-global",
-  "name": "N2S Global",
   "alternateNames": [],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.n2s-global.com/careers"
+      }
+    ]
+  },
   "description": "N2S Global is a specialized tech services and staffing firm focused on high-performance web development and scalable backend microservices for enterprise clients.",
-  "website": "https://www.n2s-global.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEY3k4RKRSFIQ/company-logo_100_100/company-logo_100_100/0/1720449812799/n2sglobal_logo?e=1774483200&v=beta&t=iAwfK8AO5gNGk2c45Vb98wQ77A38YxRDPgyPHdvfBrs",
+  "employees_count": 500,
+  "hq_country": "IN",
+  "id": "n2s-global",
   "industries": [
     "IT Services",
     "Staffing",
     "Consulting"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "IN",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEY3k4RKRSFIQ/company-logo_100_100/company-logo_100_100/0/1720449812799/n2sglobal_logo?e=1774483200&v=beta&t=iAwfK8AO5gNGk2c45Vb98wQ77A38YxRDPgyPHdvfBrs",
+  "name": "N2S Global",
+  "office_locations": [
+    "Sydney",
+    "Bangalore"
+  ],
   "operating_countries": [
     "AU",
     "IN",
     "US"
   ],
-  "office_locations": [
-    "Sydney",
-    "Bangalore"
-  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 500,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:40:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.n2s-global.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.n2s-global.com"
 }

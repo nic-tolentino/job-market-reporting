@@ -1,45 +1,45 @@
 {
-  "id": "gt-motive-spain",
-  "name": "GT Motive",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.gtmotive.com/careers"
+      }
+    ]
+  },
   "description": "GT Motive is a Spanish technology company specializing in data and software solutions for the automotive industry, particularly in insurance and vehicle repair processing.",
-  "website": "https://www.gtmotive.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGqsgoK1T_WLQ/company-logo_100_100/company-logo_100_100/0/1705917398615/gtmotive_spain_logo?e=1774483200&v=beta&t=sFvK4eoD6HQPFYsta-vtlqwhHW2LuTRa6xwx5tKbS1k",
+  "employees_count": 300,
+  "hq_country": "ES",
+  "id": "gt-motive-spain",
   "industries": [
     "Automotive Tech",
     "Insurtech",
     "SaaS"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGqsgoK1T_WLQ/company-logo_100_100/company-logo_100_100/0/1705917398615/gtmotive_spain_logo?e=1774483200&v=beta&t=sFvK4eoD6HQPFYsta-vtlqwhHW2LuTRa6xwx5tKbS1k",
+  "name": "GT Motive",
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [
     "ES",
     "FR",
     "PT",
     "DE"
   ],
-  "office_locations": [
-    "Madrid"
-  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 300,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:20:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.gtmotive.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.gtmotive.com"
 }

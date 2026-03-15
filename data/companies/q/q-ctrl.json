@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "q-ctrl"
+    "identifier": "q-ctrl",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://q-ctrl.com/careers"
+      }
+    ]
+  },
   "description": "Q-CTRL is a global leader in quantum control, building infrastructure software and sensing technologies to make quantum computers and sensors useful for real-world applications.",
   "employees_count": 100,
   "hq_country": "AU",
@@ -34,19 +42,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://q-ctrl.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://q-ctrl.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://q-ctrl.com"
 }

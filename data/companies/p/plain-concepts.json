@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "plainconcepts"
+    "identifier": "plainconcepts",
+    "provider": "WORKABLE"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.plainconcepts.com/careers"
+      }
+    ]
+  },
   "description": "Plain Concepts is an international technology firm specializing in innovative solutions across AI, computer vision, and mobile development for global clients.",
   "employees_count": 500,
   "hq_country": "ES",
@@ -35,19 +43,11 @@
   "updated_at": "2026-03-10T10:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.plainconcepts.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.plainconcepts.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.plainconcepts.com"
 }

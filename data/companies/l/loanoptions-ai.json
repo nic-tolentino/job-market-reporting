@@ -1,42 +1,42 @@
 {
-  "id": "loanoptions-ai",
-  "name": "LoanOptions.ai",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://loanoptions.ai/careers"
+      }
+    ]
+  },
   "description": "LoanOptions.ai is a fast-growing startup providing an AI-driven loan brokerage and asset finance software platform to streamline the lending process for consumers and businesses.",
-  "website": "https://loanoptions.ai",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGwl9_QptcW4w/company-logo_100_100/company-logo_100_100/0/1736985842928/loanoptions_ai_logo?e=1774483200&v=beta&t=mpehVQ2s7wBgM7qEDKbgBjfzB9tWmxzekOPhNm-KLIY",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "loanoptions-ai",
   "industries": [
     "Fintech",
     "AI",
     "SaaS"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGwl9_QptcW4w/company-logo_100_100/company-logo_100_100/0/1736985842928/loanoptions_ai_logo?e=1774483200&v=beta&t=mpehVQ2s7wBgM7qEDKbgBjfzB9tWmxzekOPhNm-KLIY",
+  "name": "LoanOptions.ai",
   "office_locations": [
     "Sydney"
   ],
+  "operating_countries": [
+    "AU"
+  ],
   "remote_policy": "On-site",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:30:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://loanoptions.ai/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://loanoptions.ai"
 }

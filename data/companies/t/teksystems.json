@@ -1,48 +1,48 @@
 {
-  "id": "teksystems",
-  "name": "TEKsystems",
   "alternateNames": [],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.teksystems.com/careers"
+      }
+    ]
+  },
   "description": "TEKsystems is a global IT services and talent solutions leader, helping organizations capitalize on change via robust digital transformation and managed services.",
-  "website": "https://www.teksystems.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEGWkPukExqDw/company-logo_100_100/company-logo_100_100/0/1737653799738/teksystems_logo?e=1773878400&v=beta&t=ptNlCvANFPS26lPD5Qn6uGcVyCHsic6K-Av31EdAYX4",
+  "employees_count": 80000,
+  "hq_country": "US",
+  "id": "teksystems",
   "industries": [
     "Recruitment",
     "IT Staffing",
     "Consulting",
     "IT Services"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEGWkPukExqDw/company-logo_100_100/company-logo_100_100/0/1737653799738/teksystems_logo?e=1773878400&v=beta&t=ptNlCvANFPS26lPD5Qn6uGcVyCHsic6K-Av31EdAYX4",
+  "name": "TEKsystems",
+  "office_locations": [
+    "Hanover",
+    "Sydney",
+    "Auckland"
+  ],
   "operating_countries": [
     "US",
     "AU",
     "NZ",
     "Worldwide"
   ],
-  "office_locations": [
-    "Hanover",
-    "Sydney",
-    "Auckland"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 80000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.teksystems.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.teksystems.com"
 }

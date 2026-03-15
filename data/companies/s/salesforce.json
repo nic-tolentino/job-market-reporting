@@ -1,46 +1,46 @@
 {
-  "id": "salesforce",
-  "name": "Salesforce",
   "alternateNames": [],
+  "ats": {
+    "identifier": "salesforce",
+    "provider": "WORKDAY"
+  },
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "general",
+        "url": "https://www.salesforce.com/company/careers/"
+      }
+    ]
+  },
   "description": "Salesforce, Inc. is an American cloud-based software company headquartered in San Francisco, California.",
-  "website": "https://www.salesforce.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQG-z98X8Xjw/company-logo_100_100/0/1630578616623/salesforce_logo?e=1774483200&v=beta&t=...",
+  "employees_count": 75000,
+  "hq_country": "US",
+  "id": "salesforce",
   "industries": [
     "CRM",
     "SaaS",
     "Cloud Computing"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
-  "operating_countries": [
-    "Worldwide"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQG-z98X8Xjw/company-logo_100_100/0/1630578616623/salesforce_logo?e=1774483200&v=beta&t=...",
+  "name": "Salesforce",
   "office_locations": [
     "San Francisco"
   ],
+  "operating_countries": [
+    "Worldwide"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 75000,
-  "verification_level": "verified",
   "updated_at": "2026-03-14T10:00:00Z",
-  "ats": {
-    "provider": "WORKDAY",
-    "identifier": "salesforce"
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.salesforce.com/company/careers/",
-        "category": "general"
-      }
-    ]
-  }
+  "website": "https://www.salesforce.com"
 }

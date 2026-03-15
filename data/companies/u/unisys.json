@@ -1,10 +1,18 @@
 {
   "alternateNames": [],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "unisys"
+    "identifier": "unisys",
+    "provider": "WORKDAY"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.unisys.com/careers"
+      }
+    ]
+  },
   "description": "Unisys is a global technology solutions firm powerhouse, powering breakthroughs in cloud, AI, and digital workplace security for the world's leading organizations.",
   "employees_count": 16000,
   "hq_country": "US",
@@ -34,19 +42,11 @@
   "updated_at": "2026-03-10T14:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.unisys.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.unisys.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.unisys.com"
 }

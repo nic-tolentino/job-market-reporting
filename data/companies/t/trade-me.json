@@ -1,47 +1,47 @@
 {
-  "id": "trade-me",
-  "name": "Trade Me",
   "alternateNames": [],
+  "ats": {
+    "identifier": "TradeMe",
+    "provider": "SMARTRECRUITERS"
+  },
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "tech-filtered",
+        "url": "https://trademe.csod.com/ux/ats/careersite/1/home?c=trademe&cfdd[0][id]=241&cfdd[0][options][0]=512"
+      }
+    ]
+  },
   "description": "Trade Me is New Zealand's largest online auction and classifieds website.",
-  "website": "https://www.trademe.co.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQG-z98X8Xjw/company-logo_100_100/0/1630578616623/trade_me_logo?e=1774483200&v=beta&t=...",
+  "employees_count": 600,
+  "hq_country": "NZ",
+  "id": "trade-me",
   "industries": [
     "E-commerce",
     "Classifieds"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQG-z98X8Xjw/company-logo_100_100/0/1630578616623/trade_me_logo?e=1774483200&v=beta&t=...",
+  "name": "Trade Me",
   "office_locations": [
     "Auckland",
     "Wellington",
     "Christchurch"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 600,
-  "verification_level": "verified",
   "updated_at": "2026-03-14T10:00:00Z",
-  "ats": {
-    "provider": "SMARTRECRUITERS",
-    "identifier": "TradeMe"
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://trademe.csod.com/ux/ats/careersite/1/home?c=trademe&cfdd[0][id]=241&cfdd[0][options][0]=512",
-        "category": "tech-filtered"
-      }
-    ]
-  }
+  "website": "https://www.trademe.co.nz"
 }

@@ -1,46 +1,46 @@
 {
-  "id": "leonardo-ai",
-  "name": "Leonardo.Ai",
   "alternateNames": [
     "Leonardo"
   ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://leonardo.ai/careers"
+      }
+    ]
+  },
   "description": "Leonardo.Ai is a creator-first generative AI platform and creative partner, powering visionary storytelling through frontier AI for millions of users worldwide.",
-  "website": "https://leonardo.ai",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF098e41AC7Jw/company-logo_100_100/B56ZxyEzjqKAAQ-/0/1771440388639/leonardo_ai_logo?e=1773878400&v=beta&t=5sURdRxQhAua3gs8RoGLl22VnkUdMCLW09LHH_R9wEw",
+  "employees_count": 100,
+  "hq_country": "AU",
+  "id": "leonardo-ai",
   "industries": [
     "AI",
     "Generative AI",
     "Software Development",
     "Creative Tech"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF098e41AC7Jw/company-logo_100_100/B56ZxyEzjqKAAQ-/0/1771440388639/leonardo_ai_logo?e=1773878400&v=beta&t=5sURdRxQhAua3gs8RoGLl22VnkUdMCLW09LHH_R9wEw",
+  "name": "Leonardo.Ai",
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [
     "AU",
     "Worldwide"
   ],
-  "office_locations": [
-    "Sydney"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 100,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://leonardo.ai/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://leonardo.ai"
 }

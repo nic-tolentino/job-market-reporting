@@ -1,47 +1,47 @@
 {
-  "id": "trinetix",
-  "name": "Trinetix",
   "alternateNames": [],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://trinetix.com/careers"
+      }
+    ]
+  },
   "description": "Trinetix is a global technology partner specializing in AI-native engineering, context-aware AI agents, and high-performance mobile and web solutions for enterprise clients.",
-  "website": "https://trinetix.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHlAKs7TtpCJg/company-logo_100_100/company-logo_100_100/0/1678888197161/trinetix_inc_logo?e=1774483200&v=beta&t=ZXWMMRkthwubLdSadG-HIFlP1KOuJ9MN7AMbzGDRlfE",
+  "employees_count": 500,
+  "hq_country": "US",
+  "id": "trinetix",
   "industries": [
     "IT Services",
     "AI",
     "Software Development",
     "Consulting"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHlAKs7TtpCJg/company-logo_100_100/company-logo_100_100/0/1678888197161/trinetix_inc_logo?e=1774483200&v=beta&t=ZXWMMRkthwubLdSadG-HIFlP1KOuJ9MN7AMbzGDRlfE",
+  "name": "Trinetix",
+  "office_locations": [
+    "San Francisco",
+    "Sydney"
+  ],
   "operating_countries": [
     "US",
     "AU",
     "UA",
     "Worldwide"
   ],
-  "office_locations": [
-    "San Francisco",
-    "Sydney"
-  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 500,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T13:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://trinetix.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://trinetix.com"
 }

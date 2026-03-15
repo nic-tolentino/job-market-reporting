@@ -1,45 +1,45 @@
 {
-  "id": "weave-recruitment",
-  "name": "Weave Recruitment",
   "alternateNames": [
     "Weave"
   ],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.weave.com.au/careers"
+      }
+    ]
+  },
   "description": "Weave Recruitment is a specialized tech recruitment agency partnering with Australia's Top 4 Banks and high-engagement startups to deliver elite engineering talent.",
-  "website": "https://www.weave.com.au",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEf97xnoLXDTA/company-logo_100_100/B56ZX7BklCGUAQ-/0/1743673249081?e=1774483200&v=beta&t=qinkqAKxu817-PGGTPfdRB5iKZdux40ZWw0SaGXIbjs",
+  "employees_count": 20,
+  "hq_country": "AU",
+  "id": "weave-recruitment",
   "industries": [
     "Recruitment",
     "IT Staffing",
     "Consulting"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEf97xnoLXDTA/company-logo_100_100/B56ZX7BklCGUAQ-/0/1743673249081?e=1774483200&v=beta&t=qinkqAKxu817-PGGTPfdRB5iKZdux40ZWw0SaGXIbjs",
+  "name": "Weave Recruitment",
   "office_locations": [
     "Melbourne",
     "Sydney"
   ],
+  "operating_countries": [
+    "AU"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 20,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T13:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.weave.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.weave.com.au"
 }

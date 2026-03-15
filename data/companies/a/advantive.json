@@ -3,6 +3,14 @@
     "Advantive Software"
   ],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.advantive.com/careers"
+      }
+    ]
+  },
   "description": "Advantive is a global provider of mission-critical software for specialty manufacturing and distribution companies.",
   "employees_count": null,
   "hq_country": "US",
@@ -29,19 +37,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.advantive.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.advantive.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.advantive.com"
 }

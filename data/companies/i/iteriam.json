@@ -1,6 +1,14 @@
 {
   "alternateNames": [],
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.iteriam.com/careers"
+      }
+    ]
+  },
   "description": "A technology company specializing in digital transformation, software solutions, and cybersecurity.",
   "employees_count": null,
   "hq_country": "ES",
@@ -24,13 +32,5 @@
   "updated_at": "2026-03-10T07:45:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.iteriam.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.iteriam.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.iteriam.com"
 }

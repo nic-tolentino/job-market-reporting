@@ -3,10 +3,18 @@
     "Thales Group"
   ],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "thales"
+    "identifier": "thales",
+    "provider": "WORKDAY"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.thalesgroup.com/careers"
+      }
+    ]
+  },
   "description": "Thales is a global leader in advanced technologies, delivering secure, sustainable solutions across aerospace, defense, cybersecurity, and digital identity.",
   "employees_count": 80000,
   "hq_country": "FR",
@@ -38,19 +46,11 @@
   "updated_at": "2026-03-10T12:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.thalesgroup.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.thalesgroup.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.thalesgroup.com"
 }

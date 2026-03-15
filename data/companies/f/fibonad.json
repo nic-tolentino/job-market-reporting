@@ -1,6 +1,14 @@
 {
   "alternateNames": [],
   "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.fibonad.com/careers"
+      }
+    ]
+  },
   "description": "A global advertising media company specializing in digital branding and performance solutions.",
   "employees_count": null,
   "hq_country": "ES",
@@ -22,13 +30,5 @@
   "updated_at": "2026-03-10T07:45:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.fibonad.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.fibonad.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.fibonad.com"
 }

@@ -1,6 +1,14 @@
 {
   "alternateNames": [],
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.ad4octogono.es/careers"
+      }
+    ]
+  },
   "description": "An IT consulting and services company specializing in the utilities sector, providing outsourcing and cloud services.",
   "employees_count": null,
   "hq_country": "ES",
@@ -22,13 +30,5 @@
   "updated_at": "2026-03-10T07:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://www.ad4octogono.es",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.ad4octogono.es/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.ad4octogono.es"
 }

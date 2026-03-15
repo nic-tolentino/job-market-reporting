@@ -1,42 +1,42 @@
 {
-  "id": "krell",
-  "name": "Krell Consulting",
   "alternateNames": [],
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.krell-consulting.com/careers"
+      }
+    ]
+  },
   "description": "Krell Consulting is a technology services firm specializing in advanced software development and senior-level IT staffing for critical business systems.",
-  "website": "https://www.krell-consulting.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGwpqR_ugWujw/company-logo_100_100/company-logo_100_100/0/1729162700438/krellconsulting_logo?e=1774483200&v=beta&t=NVenb8JGB7yF3T1IUOzKCVTqHmOCnkL1X8phoh2o8zI",
+  "employees_count": 150,
+  "hq_country": "ES",
+  "id": "krell",
   "industries": [
     "IT Services",
     "Staffing",
     "Consulting"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "ES",
-  "operating_countries": [
-    "ES"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGwpqR_ugWujw/company-logo_100_100/company-logo_100_100/0/1729162700438/krellconsulting_logo?e=1774483200&v=beta&t=NVenb8JGB7yF3T1IUOzKCVTqHmOCnkL1X8phoh2o8zI",
+  "name": "Krell Consulting",
   "office_locations": [
     "Madrid"
   ],
+  "operating_countries": [
+    "ES"
+  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 150,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:30:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.krell-consulting.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.krell-consulting.com"
 }

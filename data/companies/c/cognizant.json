@@ -1,33 +1,33 @@
 {
-  "id": "cognizant",
-  "name": "Cognizant",
   "alternateNames": [],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.cognizant.com/careers"
+      }
+    ]
+  },
   "description": "Cognizant (Nasdaq-100: CTSH) engineers modern businesses. We help our clients modernize technology, reimagine processes and transform experiences so they can stay ahead in our fast-changing world. Together, we’re improving everyday life. See how at www.cognizant.com or @cognizant.",
-  "website": "https://www.cognizant.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFZH4svu5BTZA/company-logo_100_100/B4EZk_EfNgHgAU-/0/1757699778309/cognizant_logo?e=1774483200&v=beta&t=Lzwdt2d-DkuT-sIPc0TJN-isvNLCUCPjlyUYsMqUW7g",
+  "employees_count": null,
+  "hq_country": "US",
+  "id": "cognizant",
   "industries": [
     "IT Services",
     "IT Consulting",
     "Business Consulting",
     "Services"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "US",
-  "operating_countries": [],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFZH4svu5BTZA/company-logo_100_100/B4EZk_EfNgHgAU-/0/1757699778309/cognizant_logo?e=1774483200&v=beta&t=Lzwdt2d-DkuT-sIPc0TJN-isvNLCUCPjlyUYsMqUW7g",
+  "name": "Cognizant",
   "office_locations": [],
+  "operating_countries": [],
   "remote_policy": "Unknown",
-  "visa_sponsorship": null,
-  "employees_count": null,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T03:36:42.903748Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.cognizant.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": null,
+  "website": "https://www.cognizant.com"
 }

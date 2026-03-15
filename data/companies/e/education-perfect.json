@@ -3,10 +3,18 @@
     "EP"
   ],
   "ats": {
-    "provider": "WORKABLE",
-    "identifier": "education-perfect"
+    "identifier": "education-perfect",
+    "provider": "WORKABLE"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.educationperfect.com/careers"
+      }
+    ]
+  },
   "description": "Education Perfect is a world-class EdTech platform that empowers educators to personalize learning at scale through powerful assessment, insights, and interactive learning tools.",
   "employees_count": 250,
   "hq_country": "NZ",
@@ -34,19 +42,11 @@
   "updated_at": "2026-03-10T09:10:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://www.educationperfect.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.educationperfect.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://www.educationperfect.com"
 }

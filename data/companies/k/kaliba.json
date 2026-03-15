@@ -1,42 +1,42 @@
 {
-  "id": "kaliba",
-  "name": "Kaliba",
+  "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.kaliba.com.au/careers"
+      }
+    ]
+  },
   "description": "Kaliba is a specialist tech recruitment firm partnering with digital product consultancies and fintechs to build high-quality engineering teams in Australia.",
-  "website": "https://www.kaliba.com.au",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQGclfliOujK7w/company-logo_100_100/company-logo_100_100/0/1631405214419?e=1774483200&v=beta&t=axlcBXW_wm7_RA1BY3-WljmlQxdnrPjnAlxZVBVhyL0",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "kaliba",
   "industries": [
     "Staffing",
     "Recruitment",
     "Tech"
   ],
-  "company_type": "Agency",
   "is_agency": true,
   "is_social_enterprise": false,
-  "hq_country": "AU",
-  "operating_countries": [
-    "AU"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQGclfliOujK7w/company-logo_100_100/company-logo_100_100/0/1631405214419?e=1774483200&v=beta&t=axlcBXW_wm7_RA1BY3-WljmlQxdnrPjnAlxZVBVhyL0",
+  "name": "Kaliba",
   "office_locations": [
     "Sydney",
     "Melbourne"
   ],
+  "operating_countries": [
+    "AU"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:20:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.kaliba.com.au/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.kaliba.com.au"
 }

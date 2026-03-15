@@ -1,44 +1,44 @@
 {
-  "id": "landra-sistemas",
-  "name": "Landra Sistemas",
   "alternateNames": [
     "Landra"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.landra.es/careers"
+      }
+    ]
+  },
   "description": "Landra Sistemas is a technology services firm specializing in digital transformation for the healthcare sector, creating custom software solutions for healthcare management.",
-  "website": "https://www.landra.es",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFJiQmjGCBZvA/company-logo_100_100/company-logo_100_100/0/1630452597510/landra_sistemas_logo?e=1774483200&v=beta&t=m7VGolpKDvRRG2HUdPEJ8v8S2dkKCcWqJnqoeCsAYMk",
+  "employees_count": 50,
+  "hq_country": "ES",
+  "id": "landra-sistemas",
   "industries": [
     "Healthtech",
     "IT Services",
     "Software Development"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
-  "operating_countries": [
-    "ES"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFJiQmjGCBZvA/company-logo_100_100/company-logo_100_100/0/1630452597510/landra_sistemas_logo?e=1774483200&v=beta&t=m7VGolpKDvRRG2HUdPEJ8v8S2dkKCcWqJnqoeCsAYMk",
+  "name": "Landra Sistemas",
   "office_locations": [
     "Narón"
   ],
+  "operating_countries": [
+    "ES"
+  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:30:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.landra.es/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.landra.es"
 }

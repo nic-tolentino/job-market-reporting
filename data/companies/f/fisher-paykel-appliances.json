@@ -1,49 +1,49 @@
 {
-  "id": "fisher-paykel-appliances",
-  "name": "Fisher & Paykel Appliances",
   "alternateNames": [
     "F&P"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.fisherpaykel.com/careers"
+      }
+    ]
+  },
   "description": "Fisher & Paykel is a premium NZ appliances manufacturer committed to pioneering human-centered design and sustainable household technology for global markets.",
-  "website": "https://www.fisherpaykel.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEnRo66-zRwRw/company-logo_100_100/company-logo_100_100/0/1700532615398/fisher__paykel_logo?e=1773878400&v=beta&t=rX5jsiPBEIa1PTasRJ5ROGYvVIofBbCDr1IpIajJjZU",
+  "employees_count": 4000,
+  "hq_country": "NZ",
+  "id": "fisher-paykel-appliances",
   "industries": [
     "Consumer Electronics",
     "Manufacturing",
     "Software Development",
     "IoT"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEnRo66-zRwRw/company-logo_100_100/company-logo_100_100/0/1700532615398/fisher__paykel_logo?e=1773878400&v=beta&t=rX5jsiPBEIa1PTasRJ5ROGYvVIofBbCDr1IpIajJjZU",
+  "name": "Fisher & Paykel Appliances",
+  "office_locations": [
+    "Auckland",
+    "Dunedin"
+  ],
   "operating_countries": [
     "NZ",
     "AU",
     "US",
     "Worldwide"
   ],
-  "office_locations": [
-    "Auckland",
-    "Dunedin"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 4000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.fisherpaykel.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.fisherpaykel.com"
 }

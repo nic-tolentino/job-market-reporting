@@ -1,47 +1,47 @@
 {
-  "id": "kairos-digital-solutions",
-  "name": "Kairós Digital Solutions",
   "alternateNames": [
     "Kairós DS"
   ],
+  "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.kairosds.com/careers"
+      }
+    ]
+  },
   "description": "Kairós Digital Solutions is a leading technology consultancy focusing on digital products, architecture, and personal/professional growth, recognized as a Great Place to Work.",
-  "website": "https://www.kairosds.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHM5oefclDeNw/company-logo_100_100/company-logo_100_100/0/1727424460691/kairosds_logo?e=1774483200&v=beta&t=qUuYCmrtG-qV5-VI6Parh5Nkf7T8RgpQbNSZxU_mGaM",
+  "employees_count": 800,
+  "hq_country": "ES",
+  "id": "kairos-digital-solutions",
   "industries": [
     "IT Services",
     "Consulting",
     "Software Development"
   ],
-  "company_type": "Consultancy",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHM5oefclDeNw/company-logo_100_100/company-logo_100_100/0/1727424460691/kairosds_logo?e=1774483200&v=beta&t=qUuYCmrtG-qV5-VI6Parh5Nkf7T8RgpQbNSZxU_mGaM",
+  "name": "Kairós Digital Solutions",
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [
     "ES",
     "MX",
     "BR",
     "CO"
   ],
-  "office_locations": [
-    "Madrid"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 800,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:20:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.kairosds.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.kairosds.com"
 }

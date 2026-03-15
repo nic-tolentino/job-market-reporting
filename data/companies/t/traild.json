@@ -1,45 +1,45 @@
 {
-  "id": "traild",
-  "name": "Traild",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://traild.com/careers"
+      }
+    ]
+  },
   "description": "Traild is a dynamic SaaS company streamlining and protecting Accounts Payable functions for organizations, providing always-on risk protection for B2B payments.",
-  "website": "https://traild.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGu31a3tSw1NA/company-logo_100_100/B56ZoszhJoIsAU-/0/1761688294625/traild_logo?e=1774483200&v=beta&t=pv-sEDMKyVdh7-GHEb4AbRuvGz_F09Yx29_MxHMaykw",
+  "employees_count": 50,
+  "hq_country": "AU",
+  "id": "traild",
   "industries": [
     "Fintech",
     "SaaS",
     "Cybersecurity",
     "Accounting Tech"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "AU",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGu31a3tSw1NA/company-logo_100_100/B56ZoszhJoIsAU-/0/1761688294625/traild_logo?e=1774483200&v=beta&t=pv-sEDMKyVdh7-GHEb4AbRuvGz_F09Yx29_MxHMaykw",
+  "name": "Traild",
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [
     "AU",
     "US",
     "Worldwide"
   ],
-  "office_locations": [
-    "Melbourne"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T12:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://traild.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://traild.com"
 }

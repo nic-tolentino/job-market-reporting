@@ -1,46 +1,46 @@
 {
-  "id": "one-new-zealand",
-  "name": "One New Zealand",
   "alternateNames": [
     "One NZ"
   ],
+  "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.one.nz/careers"
+      }
+    ]
+  },
   "description": "One New Zealand is a leading Aotearoa telco driving a better-connected nation through innovative mobile, fiber, and AI-enabled digital services.",
-  "website": "https://www.one.nz",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHrJatXrH5s-w/company-logo_100_100/B56Zjy_0L2HAAQ-/0/1756423472307/onenz_logo?e=1773878400&v=beta&t=sq9O7r1NhC0ONjkMHdhhbesF2UVxrvNz13fc1dnYkJw",
+  "employees_count": 3000,
+  "hq_country": "NZ",
+  "id": "one-new-zealand",
   "industries": [
     "Telecommunications",
     "IT Services",
     "AI",
     "Cloud"
   ],
-  "company_type": "Enterprise",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "NZ",
-  "operating_countries": [
-    "NZ"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHrJatXrH5s-w/company-logo_100_100/B56Zjy_0L2HAAQ-/0/1756423472307/onenz_logo?e=1773878400&v=beta&t=sq9O7r1NhC0ONjkMHdhhbesF2UVxrvNz13fc1dnYkJw",
+  "name": "One New Zealand",
   "office_locations": [
     "Auckland",
     "Wellington"
   ],
+  "operating_countries": [
+    "NZ"
+  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 3000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T14:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.one.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.one.nz"
 }

@@ -3,10 +3,18 @@
     "Marel"
   ],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "jbtm"
+    "identifier": "jbtm",
+    "provider": "WORKDAY"
   },
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://welcome.jbtmarel.com/careers"
+      }
+    ]
+  },
   "description": "JBT Marel is a global leader in integrated food and beverage technology, delivering transformative software and automated machinery for sustainable food processing.",
   "employees_count": 15000,
   "hq_country": "US",
@@ -37,19 +45,11 @@
   "updated_at": "2026-03-10T14:00:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://welcome.jbtmarel.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://welcome.jbtmarel.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://welcome.jbtmarel.com"
 }

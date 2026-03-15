@@ -1,45 +1,45 @@
 {
-  "id": "iteration-mobile-s-l",
-  "name": "Iteration Mobile",
   "alternateNames": [
     "Radarbot"
   ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.iteration-mobile.com/careers"
+      }
+    ]
+  },
   "description": "Iteration Mobile is a pioneer in automotive software and mobile app development, creators of Radarbot, a leading global GPS navigation and radar warning app.",
-  "website": "https://www.iteration-mobile.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQH--nC3hJ14aA/company-logo_100_100/company-logo_100_100/0/1630643465301/iteration_mobile_s_l_logo?e=1774483200&v=beta&t=OmYd3UPncNGDmq0UNfgaTfVfMNSL_UK9VHQYfBD6W5A",
+  "employees_count": 50,
+  "hq_country": "ES",
+  "id": "iteration-mobile-s-l",
   "industries": [
     "Mobile Apps",
     "Automotive Tech",
     "Navigation"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQH--nC3hJ14aA/company-logo_100_100/company-logo_100_100/0/1630643465301/iteration_mobile_s_l_logo?e=1774483200&v=beta&t=OmYd3UPncNGDmq0UNfgaTfVfMNSL_UK9VHQYfBD6W5A",
+  "name": "Iteration Mobile",
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [
     "ES",
     "Worldwide"
   ],
-  "office_locations": [
-    "Madrid"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:20:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.iteration-mobile.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.iteration-mobile.com"
 }

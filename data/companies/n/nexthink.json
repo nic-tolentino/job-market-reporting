@@ -1,18 +1,31 @@
 {
-  "id": "nexthink",
-  "name": "Nexthink",
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://www.nexthink.com/careers"
+      }
+    ]
+  },
   "description": "Nexthink is a global leader in digital employee experience (DEX) management, providing IT leaders with proactive insights to optimize digital workplaces for millions of employees.",
-  "website": "https://www.nexthink.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQG89k5gaaPJNg/company-logo_100_100/company-logo_100_100/0/1630473071483/nexthink_logo?e=1774483200&v=beta&t=nTen2jusboUefFkI3okvYUWiiprvKpsnUhJAzySnKwY",
+  "employees_count": 1000,
+  "hq_country": "CH",
+  "id": "nexthink",
   "industries": [
     "DEX",
     "SaaS",
     "IT Management"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "CH",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQG89k5gaaPJNg/company-logo_100_100/company-logo_100_100/0/1630473071483/nexthink_logo?e=1774483200&v=beta&t=nTen2jusboUefFkI3okvYUWiiprvKpsnUhJAzySnKwY",
+  "name": "Nexthink",
+  "office_locations": [
+    "Lausanne",
+    "Madrid",
+    "Boston"
+  ],
   "operating_countries": [
     "CH",
     "ES",
@@ -20,28 +33,15 @@
     "GB",
     "Worldwide"
   ],
-  "office_locations": [
-    "Lausanne",
-    "Madrid",
-    "Boston"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 1000,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:40:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://www.nexthink.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://www.nexthink.com"
 }

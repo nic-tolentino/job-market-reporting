@@ -1,43 +1,43 @@
 {
-  "id": "biorce",
-  "name": "Biorce",
   "alternateNames": [],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://biorce.com/careers"
+      }
+    ]
+  },
   "description": "Biorce is a healthtech company dedicated to revolutionizing clinical research and drug development through the power of Artificial Intelligence.",
-  "website": "https://biorce.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGh4dudC7u2tQ/company-logo_100_100/B4DZzDy60EIgAQ-/0/1772811431544/biorce_logo?e=1774483200&v=beta&t=FZnEZ59xrlgT9hVou9ab4YUhgBXxfNROA6Sjvwjb5bs",
+  "employees_count": 50,
+  "hq_country": "ES",
+  "id": "biorce",
   "industries": [
     "Healthtech",
     "AI",
     "Clinical Research"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "ES",
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGh4dudC7u2tQ/company-logo_100_100/B4DZzDy60EIgAQ-/0/1772811431544/biorce_logo?e=1774483200&v=beta&t=FZnEZ59xrlgT9hVou9ab4YUhgBXxfNROA6Sjvwjb5bs",
+  "name": "Biorce",
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [
     "ES",
     "Worldwide"
   ],
-  "office_locations": [
-    "Barcelona"
-  ],
   "remote_policy": "Hybrid",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 50,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:00:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://biorce.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
+  },
+  "website": "https://biorce.com"
 }

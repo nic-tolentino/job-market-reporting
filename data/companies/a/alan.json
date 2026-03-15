@@ -1,50 +1,50 @@
 {
-  "id": "alan",
-  "name": "Alan",
   "alternateNames": [],
+  "ats": {
+    "identifier": "alan",
+    "provider": "ASHBY"
+  },
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://alan.com/careers"
+      }
+    ]
+  },
   "description": "Alan is a vertically integrated health partner that unites insurance and healthcare delivery into one seamless, digital-first system.",
-  "website": "https://alan.com",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHC5r2QBWDy8w/company-logo_100_100/company-logo_100_100/0/1667470432110/avec_alan_logo?e=1774483200&v=beta&t=-518bZN1KuQfpqfNoWNSqodD6j15FZ7xTQS8Nw4dmUA",
+  "employees_count": 800,
+  "hq_country": "FR",
+  "id": "alan",
   "industries": [
     "Insurtech",
     "Healthtech",
     "Fintech"
   ],
-  "company_type": "Product",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "FR",
-  "operating_countries": [
-    "FR",
-    "BE",
-    "ES"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHC5r2QBWDy8w/company-logo_100_100/company-logo_100_100/0/1667470432110/avec_alan_logo?e=1774483200&v=beta&t=-518bZN1KuQfpqfNoWNSqodD6j15FZ7xTQS8Nw4dmUA",
+  "name": "Alan",
   "office_locations": [
     "Paris",
     "Brussels",
     "Madrid"
   ],
+  "operating_countries": [
+    "FR",
+    "BE",
+    "ES"
+  ],
   "remote_policy": "Remote",
-  "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 800,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T08:50:00Z",
-  "ats": {
-    "provider": "ASHBY",
-    "identifier": "alan"
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://alan.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://alan.com"
 }

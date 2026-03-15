@@ -3,6 +3,14 @@
     "QuikHire"
   ],
   "company_type": "Agency",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://quikhire.ca/careers"
+      }
+    ]
+  },
   "description": "A staffing and recruitment company providing human resources and staffing solutions.",
   "employees_count": null,
   "hq_country": "CA",
@@ -25,13 +33,5 @@
   "updated_at": "2026-03-10T07:30:00Z",
   "verification_level": "silver",
   "visa_sponsorship": null,
-  "website": "https://quikhire.ca",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://quikhire.ca/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://quikhire.ca"
 }

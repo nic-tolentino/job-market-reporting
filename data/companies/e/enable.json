@@ -4,10 +4,18 @@
     "Flintfox"
   ],
   "ats": {
-    "provider": "LEVER",
-    "identifier": "enable"
+    "identifier": "enable",
+    "provider": "LEVER"
   },
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://enable.com/careers"
+      }
+    ]
+  },
   "description": "Enable is an AI-driven rebate management platform that helps manufacturers, distributors, and retailers unlock profitability by transforming complex rebate programs into strategic levers.",
   "employees_count": 500,
   "hq_country": "GB",
@@ -37,19 +45,11 @@
   "updated_at": "2026-03-10T09:10:00Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://enable.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://enable.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://enable.com"
 }

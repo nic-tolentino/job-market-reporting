@@ -1,44 +1,44 @@
 {
-  "id": "bfpa",
-  "name": "British Fluid Power Association (BFPA)",
   "alternateNames": [
     "BFPA"
   ],
+  "company_type": "Non-profit",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://bfpa.co.uk/careers"
+      }
+    ]
+  },
   "description": "The BFPA is the UK's trade body representing the fluid power industry, setting standards and supporting manufacturers in hydraulics and pneumatics.",
-  "website": "https://bfpa.co.uk",
-  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGkiDH5AWE3bg/company-logo_100_100/company-logo_100_100/0/1663679385705?e=1774483200&v=beta&t=-P0fnhjKQVIg-D4W9rOJbg3rlTa5DVwLvNSC94CLjw8",
+  "employees_count": 20,
+  "hq_country": "GB",
+  "id": "bfpa",
   "industries": [
     "Trade Association",
     "Engineering",
     "Manufacturing"
   ],
-  "company_type": "Non-profit",
   "is_agency": false,
   "is_social_enterprise": false,
-  "hq_country": "GB",
-  "operating_countries": [
-    "GB"
-  ],
+  "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGkiDH5AWE3bg/company-logo_100_100/company-logo_100_100/0/1663679385705?e=1774483200&v=beta&t=-P0fnhjKQVIg-D4W9rOJbg3rlTa5DVwLvNSC94CLjw8",
+  "name": "British Fluid Power Association (BFPA)",
   "office_locations": [
     "Chipping Norton"
   ],
+  "operating_countries": [
+    "GB"
+  ],
   "remote_policy": "On-site",
-  "visa_sponsorship": {
-    "offered": false,
-    "types": [],
-    "notes": null,
-    "last_verified": null,
-    "source": null
-  },
-  "employees_count": 20,
-  "verification_level": "silver",
   "updated_at": "2026-03-10T09:05:00Z",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://bfpa.co.uk/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "verification_level": "silver",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": false,
+    "source": null,
+    "types": []
+  },
+  "website": "https://bfpa.co.uk"
 }

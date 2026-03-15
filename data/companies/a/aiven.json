@@ -3,6 +3,14 @@
     "Aiven.io"
   ],
   "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://aiven.io/careers"
+      }
+    ]
+  },
   "description": "A managed open source data platform that simplifies data management in the cloud.",
   "employees_count": 500,
   "hq_country": "FI",
@@ -28,19 +36,11 @@
   "updated_at": "2026-03-10T05:30:58.400160Z",
   "verification_level": "silver",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://aiven.io",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://aiven.io/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://aiven.io"
 }

@@ -4,6 +4,14 @@
     "NZME Limited"
   ],
   "company_type": "Enterprise",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "https://nzme.co.nz/careers"
+      }
+    ]
+  },
   "description": "NZME is a leading New Zealand media and entertainment business, home to brands like The New Zealand Herald and Newstalk ZB.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -29,19 +37,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "https://nzme.co.nz/",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "https://nzme.co.nz/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "https://nzme.co.nz/"
 }

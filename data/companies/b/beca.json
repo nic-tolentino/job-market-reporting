@@ -3,10 +3,18 @@
     "Beca Group"
   ],
   "ats": {
-    "provider": "WORKDAY",
-    "identifier": "beca"
+    "identifier": "beca",
+    "provider": "WORKDAY"
   },
   "company_type": "Consultancy",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "url": "http://www.beca.com/careers"
+      }
+    ]
+  },
   "description": "Beca is one of Asia Pacific's largest independent advisory, design, and engineering consultancies.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -34,19 +42,11 @@
   "updated_at": "2026-03-06T10:00:00Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "offered": true,
-    "types": [],
-    "notes": null,
     "last_verified": null,
-    "source": null
+    "notes": null,
+    "offered": true,
+    "source": null,
+    "types": []
   },
-  "website": "http://www.beca.com",
-  "crawler": {
-    "seeds": [
-      {
-        "url": "http://www.beca.com/careers",
-        "category": "unknown"
-      }
-    ]
-  }
+  "website": "http://www.beca.com"
 }

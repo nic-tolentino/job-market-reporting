@@ -7,7 +7,7 @@ set -e
 
 # Get the directory of the script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PROJECT_ROOT="$(dirname "$DIR")"
+PROJECT_ROOT="$(dirname "$DIR")/.."
 
 # Load .env
 if [ -f "$PROJECT_ROOT/.env" ]; then
@@ -79,7 +79,6 @@ if [ "$USE_CLOUD_BUILD" = true ]; then
         --timeout 300 \
         --port 8080 \
         --set-env-vars="\
-PORT=8080,\
 NODE_ENV=production,\
 PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1" \
         --set-secrets="\
@@ -118,7 +117,6 @@ else
         --timeout 300 \
         --port 8080 \
         --set-env-vars="\
-PORT=8080,\
 NODE_ENV=production,\
 PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1" \
         --set-secrets="\
