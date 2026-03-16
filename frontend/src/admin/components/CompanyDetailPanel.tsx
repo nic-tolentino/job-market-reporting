@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { X, Plus, RefreshCw } from 'lucide-react';
-import { getCompany, upsertSeed } from '../lib/adminApi';
+import { X, Plus, RefreshCw, Trash2, ExternalLink, FileText } from 'lucide-react';
+import { getCompany, upsertSeed, deleteSeed, listJobsForCompany, deleteJobsForCompany } from '../lib/adminApi';
 import { useActiveCrawl } from '../context/ActiveCrawlContext';
 import { StatusBadge } from './StatusBadge';
 import type { CrawlerSeed } from '../types/admin';
@@ -37,6 +37,11 @@ function SeedRow({
       qc.invalidateQueries({ queryKey: ['admin-company', companyId] });
       setEditing(false);
     },
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: () => deleteSeed(companyId, seed.url),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['admin-company', companyId] }),
   });
 
   if (editing) {
@@ -160,6 +165,16 @@ function SeedRow({
           >
             Edit
           </button>
+          <button
+            onClick={() => {
+              if (confirm(`Delete seed?\n${seed.url}`)) deleteMutation.mutate();
+            }}
+            disabled={deleteMutation.isPending}
+            title="Delete seed"
+            className="p-1 text-muted hover:text-red-500 dark:hover:text-red-400 rounded disabled:opacity-50"
+          >
+            <Trash2 size={14} />
+          </button>
         </div>
       </div>
     </div>
@@ -171,10 +186,11 @@ export function CompanyDetailPanel({
   companyName,
   onClose,
 }: CompanyDetailPanelProps) {
-  const [activeTab, setActiveTab] = useState<'seeds' | 'history'>('seeds');
+  const [activeTab, setActiveTab] = useState<'seeds' | 'history' | 'jobs'>('seeds');
   const [addingNew, setAddingNew] = useState(false);
   const [newUrl, setNewUrl] = useState('');
   const [newCategory, setNewCategory] = useState('tech-filtered');
+  const [selectedJobIds, setSelectedJobIds] = useState<Set<string>>(new Set());
   const [crawlFormOpen, setCrawlFormOpen] = useState(false);
   const [crawlUrl, setCrawlUrl] = useState('');
   const [crawlDiscovery, setCrawlDiscovery] = useState(false);
@@ -188,6 +204,20 @@ export function CompanyDetailPanel({
   const { data, isLoading, error } = useQuery({
     queryKey: ['admin-company', companyId],
     queryFn: () => getCompany(companyId),
+  });
+
+  const { data: jobsData, isLoading: jobsLoading, refetch: refetchJobs } = useQuery({
+    queryKey: ['admin-company-jobs', companyId],
+    queryFn: () => listJobsForCompany(companyId),
+    enabled: activeTab === 'jobs',
+  });
+
+  const deleteJobsMutation = useMutation({
+    mutationFn: (jobIds?: string[]) => deleteJobsForCompany(companyId, jobIds),
+    onSuccess: () => {
+      setSelectedJobIds(new Set());
+      refetchJobs();
+    },
   });
 
   const addSeedMutation = useMutation({
@@ -215,9 +245,37 @@ export function CompanyDetailPanel({
     startCrawl(companyId, data?.name ?? companyName, url, { isDiscovery: discovery ?? crawlDiscovery });
   };
 
+  const jobs = jobsData?.data ?? [];
+  const allJobIds = jobs.map(j => j.jobId);
+  const allSelected = allJobIds.length > 0 && allJobIds.every(id => selectedJobIds.has(id));
+
+  const toggleJob = (jobId: string) => {
+    setSelectedJobIds(prev => {
+      const next = new Set(prev);
+      next.has(jobId) ? next.delete(jobId) : next.add(jobId);
+      return next;
+    });
+  };
+
+  const toggleAll = () => {
+    setSelectedJobIds(allSelected ? new Set() : new Set(allJobIds));
+  };
+
+  const handleDeleteSelected = () => {
+    const ids = Array.from(selectedJobIds);
+    if (!confirm(`Delete ${ids.length} job${ids.length !== 1 ? 's' : ''} from the Silver table?`)) return;
+    deleteJobsMutation.mutate(ids);
+  };
+
+  const handleDeleteAll = () => {
+    if (!confirm(`Delete ALL ${jobs.length} jobs for this company from the Silver table? This cannot be undone.`)) return;
+    deleteJobsMutation.mutate(undefined);
+  };
+
   const tabs = [
     { id: 'seeds' as const, label: `Seeds (${data?.seeds.length ?? '…'})` },
     { id: 'history' as const, label: `History (${data?.recentRuns.length ?? '…'})` },
+    { id: 'jobs' as const, label: `Jobs (${jobsData ? jobs.length : '…'})` },
   ];
 
   return (
@@ -421,6 +479,111 @@ export function CompanyDetailPanel({
           </>
         )}
 
+        {/* Jobs tab */}
+        {activeTab === 'jobs' && (
+          <>
+            {/* Toolbar */}
+            <div className="flex items-center justify-between gap-2 pb-2 border-b border-border">
+              <div className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={allSelected}
+                  onChange={toggleAll}
+                  disabled={jobs.length === 0}
+                  className="rounded border-border accent-accent"
+                />
+                <span className="text-xs text-muted">
+                  {selectedJobIds.size > 0 ? `${selectedJobIds.size} selected` : `${jobs.length} jobs`}
+                </span>
+              </div>
+              <div className="flex gap-2">
+                {selectedJobIds.size > 0 && (
+                  <button
+                    onClick={handleDeleteSelected}
+                    disabled={deleteJobsMutation.isPending}
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-red-600 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg hover:bg-red-100 disabled:opacity-50 transition-colors"
+                  >
+                    <Trash2 size={12} />
+                    Delete {selectedJobIds.size}
+                  </button>
+                )}
+                {jobs.length > 0 && (
+                  <button
+                    onClick={handleDeleteAll}
+                    disabled={deleteJobsMutation.isPending}
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-muted border border-border rounded-lg hover:text-red-600 hover:border-red-300 disabled:opacity-50 transition-colors"
+                  >
+                    <Trash2 size={12} />
+                    Delete all
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {jobsLoading && <p className="text-sm text-muted text-center py-8">Loading jobs…</p>}
+            {deleteJobsMutation.isError && (
+              <p className="text-xs text-red-500 py-1">{(deleteJobsMutation.error as Error).message}</p>
+            )}
+
+            {!jobsLoading && jobs.length === 0 && (
+              <p className="text-sm text-muted text-center py-8">No jobs in Silver table</p>
+            )}
+
+            <div className="divide-y divide-border-subtle">
+              {jobs.map((job) => (
+                <div
+                  key={job.jobId}
+                  className={`flex items-start gap-2.5 py-2.5 group ${
+                    selectedJobIds.has(job.jobId) ? 'bg-accent-subtle' : 'hover:bg-surface-hover'
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={selectedJobIds.has(job.jobId)}
+                    onChange={() => toggleJob(job.jobId)}
+                    className="mt-0.5 rounded border-border accent-accent shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-xs font-medium text-primary truncate">{job.title}</span>
+                      {job.hasDescription && (
+                        <FileText size={10} className="text-green-500 shrink-0" title="Has description" />
+                      )}
+                      {job.applyUrl && (
+                        <a
+                          href={job.applyUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-muted hover:text-accent shrink-0"
+                          title="Open apply URL"
+                        >
+                          <ExternalLink size={10} />
+                        </a>
+                      )}
+                    </div>
+                    <div className="flex gap-2 mt-0.5 text-[10px] text-muted flex-wrap">
+                      {job.location && <span>{job.location}</span>}
+                      {job.workModel && <span>{job.workModel}</span>}
+                      {job.seniorityLevel && <span>{job.seniorityLevel}</span>}
+                      <span className="text-muted/60">{job.source}</span>
+                      {job.postedDate && <span>{job.postedDate}</span>}
+                      {job.urlStatus && job.urlStatus !== 'UNKNOWN' && (
+                        <span className={
+                          job.urlStatus === 'ACTIVE' ? 'text-green-600 dark:text-green-400'
+                          : job.urlStatus?.startsWith('CLOSED') ? 'text-red-500 dark:text-red-400'
+                          : 'text-yellow-600 dark:text-yellow-400'
+                        }>
+                          {job.urlStatus}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
         {/* History tab */}
         {activeTab === 'history' && data && (
           <>
@@ -439,11 +602,29 @@ export function CompanyDetailPanel({
                   <StatusBadge status={run.status} />
                 </div>
                 <p className="font-mono text-secondary truncate">{run.seedUrl}</p>
-                <div className="flex gap-3 text-muted">
+                <div className="flex gap-3 text-muted flex-wrap">
                   <span>{run.jobsFinal ?? 0} jobs</span>
                   {(run.jobsRaw !== null || run.jobsValid !== null || run.jobsTech !== null) && (
-                    <span className="text-[10px] bg-elevated px-1 rounded">
+                    <span className="text-[10px] bg-elevated px-1 rounded" title="raw / valid / tech">
                       {run.jobsRaw ?? '?'}/{run.jobsValid ?? '?'}/{run.jobsTech ?? '?'}
+                    </span>
+                  )}
+                  {run.detailPagesAttempted !== null && run.detailPagesAttempted !== undefined && (
+                    <span
+                      className={`text-[10px] px-1 rounded ${
+                        run.descriptionCoverage !== null && run.descriptionCoverage !== undefined
+                          ? run.descriptionCoverage >= 0.8
+                            ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300'
+                            : run.descriptionCoverage >= 0.4
+                            ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300'
+                            : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
+                          : 'bg-elevated'
+                      }`}
+                      title={`Detail pages: ${run.detailPagesEnriched ?? 0}/${run.detailPagesAttempted} enriched`}
+                    >
+                      desc {run.descriptionCoverage !== null && run.descriptionCoverage !== undefined
+                        ? `${Math.round(run.descriptionCoverage * 100)}%`
+                        : '–'}
                     </span>
                   )}
                   <span>{run.pagesVisited ?? 0} pages</span>

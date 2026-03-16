@@ -18,10 +18,16 @@ class SilverDataMerger {
 
     /** Merges a batch of new job records with their existing counterparts. */
     fun mergeJobs(newJobs: List<JobRecord>, existingJobs: List<JobRecord>): List<JobRecord> {
-        val existingMap = existingJobs.associateBy { it.jobId }
+        val existingByJobId = existingJobs.associateBy { it.jobId }
+        // Secondary index by ATS platform ID so jobs re-crawled on different dates
+        // (which produce a different jobId date-suffix) are still recognised as the same record.
+        val existingByPlatformId: Map<String, JobRecord> = existingJobs
+            .flatMap { r -> r.platformJobIds.map { pid -> pid to r } }
+            .toMap()
 
         return newJobs.map { newJob ->
-            val existing = existingMap[newJob.jobId]
+            val existing = existingByJobId[newJob.jobId]
+                ?: newJob.platformJobIds.firstNotNullOfOrNull { existingByPlatformId[it] }
             if (existing == null) {
                 newJob
             } else {

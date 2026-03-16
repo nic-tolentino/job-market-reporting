@@ -1,6 +1,7 @@
 package com.techmarket.api
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.google.cloud.bigquery.BigQuery
@@ -13,7 +14,11 @@ import com.techmarket.persistence.crawler.CrawlRunRecord
 import com.techmarket.persistence.crawler.CrawlRunRepository
 import com.techmarket.persistence.crawler.CrawlerSeedRecord
 import com.techmarket.persistence.crawler.CrawlerSeedRepository
+import com.techmarket.persistence.job.JobRepository
 import com.techmarket.sync.CompanySyncService
+import com.techmarket.sync.CrawlerDataSyncService
+import com.techmarket.sync.CrawlerJobPersistenceService
+import com.techmarket.sync.model.NormalizedJobDto
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
@@ -40,6 +45,9 @@ class CrawlerAdminController(
     private val crawlRunRepository: CrawlRunRepository,
     private val crawlLogService: CrawlLogService,
     private val companySyncService: CompanySyncService,
+    private val crawlerJobPersistenceService: CrawlerJobPersistenceService,
+    private val crawlerDataSyncService: CrawlerDataSyncService,
+    private val jobRepository: JobRepository,
     private val objectMapper: ObjectMapper,
     @Value("\${spring.cloud.gcp.bigquery.dataset-name:techmarket}") private val datasetName: String,
     @Value("\${crawler.service.url}") private val crawlerServiceUrl: String
@@ -101,6 +109,7 @@ class CrawlerAdminController(
             "totalJobsLastRun" -> "s.total_jobs_last_run"
             "hqCountry" -> "c.hqCountry"
             "seedCount" -> "s.seed_count"
+            "jobCount" -> "COALESCE(j.job_count, 0)"
             else -> "c.name"
         }
 
@@ -131,6 +140,7 @@ class CrawlerAdminController(
                     "totalJobsLastRun" to (row.get("totalJobsLastRun").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
                     "atsProvider" to (row.get("atsProvider").takeUnless { it.isNull }?.stringValue),
                     "maxZeroYieldCount" to (row.get("maxZeroYieldCount").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
+                    "jobCount" to (row.get("jobCount").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
                 )
             }
 
@@ -236,6 +246,26 @@ class CrawlerAdminController(
     }
 
     // ---------------------------------------------------------------------------
+    // DELETE /api/admin/crawler/companies/{companyId}/seeds
+    // Delete a single seed by URL.
+    // ---------------------------------------------------------------------------
+
+    data class DeleteSeedRequest(val url: String)
+
+    @DeleteMapping("/companies/{companyId}/seeds")
+    fun deleteSeed(
+        @PathVariable companyId: String,
+        @RequestBody body: DeleteSeedRequest,
+    ): ResponseEntity<*> {
+        return try {
+            crawlerSeedRepository.delete(companyId, body.url)
+            ResponseEntity.ok(mapOf("status" to "ok"))
+        } catch (e: Exception) {
+            ResponseEntity.internalServerError().body(mapOf("error" to e.message))
+        }
+    }
+
+    // ---------------------------------------------------------------------------
     // POST /api/admin/crawler/companies/{companyId}/crawl
     // Trigger a single targeted crawl via the crawler service.
     // ---------------------------------------------------------------------------
@@ -292,6 +322,9 @@ class CrawlerAdminController(
                 jobsValid = (stats?.get("jobsValid") as? Number)?.toInt(),
                 jobsTech = (stats?.get("jobsTech") as? Number)?.toInt(),
                 jobsFinal = (meta["totalJobsFound"] as? Number)?.toInt(),
+                detailPagesAttempted = (stats?.get("detailPagesAttempted") as? Number)?.toInt(),
+                detailPagesEnriched = (stats?.get("detailPagesEnriched") as? Number)?.toInt(),
+                descriptionCoverage = (stats?.get("descriptionCoverage") as? Number)?.toDouble(),
                 confidenceAvg = (meta["extractionConfidence"] as? Number)?.toDouble(),
                 atsProvider = meta["detectedAtsProvider"] as? String,
                 atsIdentifier = meta["detectedAtsIdentifier"] as? String,
@@ -308,6 +341,57 @@ class CrawlerAdminController(
             val crawlStatus = (meta["status"] as? String) ?: "COMPLETED"
             val crawlError = meta["errorMessage"] as? String
 
+            // --- Emit fine-grained diagnostics to the live monitor ---
+
+            // ATS detection
+            val detectedAts = meta["detectedAtsProvider"] as? String
+            if (detectedAts != null) {
+                val atsId = meta["detectedAtsIdentifier"] as? String
+                val atsMsg = buildString {
+                    append("ATS detected: $detectedAts")
+                    if (atsId != null) append(" ($atsId)")
+                    val atsDirectUrl = meta["atsDirectUrl"] as? String
+                    if (atsDirectUrl != null) append(" → $atsDirectUrl")
+                }
+                crawlLogService.log(companyId, "INFO", atsMsg)
+            }
+
+            // Pages that actually yielded tech jobs
+            @Suppress("UNCHECKED_CAST")
+            val listingPageUrls = meta["listingPageUrls"] as? List<String> ?: emptyList()
+            listingPageUrls.forEach { pageUrl ->
+                crawlLogService.log(companyId, "INFO", "↳ page yielded jobs: $pageUrl")
+            }
+
+            // Extraction funnel (raw → valid → tech → final)
+            val jobsRawCount  = (stats?.get("jobsRaw")   as? Number)?.toInt() ?: 0
+            val jobsValidCount = (stats?.get("jobsValid") as? Number)?.toInt() ?: 0
+            val jobsTechCount  = (stats?.get("jobsTech")  as? Number)?.toInt() ?: 0
+            if (jobsRawCount > 0 || jobsFinalCount > 0) {
+                crawlLogService.log(companyId, "INFO",
+                    "Extraction funnel: $jobsRawCount raw → $jobsValidCount valid → $jobsTechCount tech → $jobsFinalCount final"
+                )
+            }
+
+            // Detail page enrichment
+            val detailAttempted = (stats?.get("detailPagesAttempted") as? Number)?.toInt() ?: 0
+            val detailEnriched  = (stats?.get("detailPagesEnriched")  as? Number)?.toInt() ?: 0
+            if (detailAttempted > 0) {
+                val coveragePct = ((stats?.get("descriptionCoverage") as? Number)?.toDouble() ?: 0.0)
+                    .let { "%.0f%%".format(it * 100) }
+                crawlLogService.log(companyId, "INFO",
+                    "Detail pages: enriched $detailEnriched/$detailAttempted ($coveragePct description coverage)"
+                )
+            }
+
+            // Zero-yield warning
+            if (jobsFinalCount == 0 && pagesCount > 0) {
+                crawlLogService.log(companyId, "WARNING",
+                    "Zero jobs extracted from $pagesCount page(s) — possible bot-detection, rate limit, or empty board"
+                )
+            }
+
+            // Summary line
             val logLevel = when {
                 crawlError != null -> "ERROR"
                 jobsFinalCount == 0 -> "WARNING"
@@ -327,9 +411,10 @@ class CrawlerAdminController(
             }
 
             // Update the seed health in crawler_seeds
-            val existingSeed = try {
-                crawlerSeedRepository.findByCompanyId(companyId).find { it.url == body.url }
-            } catch (e: Exception) { null }
+            val existingSeeds: List<CrawlerSeedRecord> = try {
+                crawlerSeedRepository.findByCompanyId(companyId)
+            } catch (e: Exception) { emptyList() }
+            val existingSeed = existingSeeds.find { it.url == body.url }
 
             val jobsFound = (meta["totalJobsFound"] as? Number)?.toInt() ?: 0
             val zeroYieldCount = if (jobsFound == 0)
@@ -342,7 +427,8 @@ class CrawlerAdminController(
                 category = existingSeed?.category
                     ?: (body.seedData?.get("category") as? String)
                     ?: if (body.isDiscovery == true) "homepage" else "general",
-                status = (meta["status"] as? String) ?: existingSeed?.status ?: "ACTIVE",
+                status = if (jobsFound > 0) "ACTIVE"
+                         else (meta["status"] as? String) ?: existingSeed?.status ?: "ACTIVE",
                 paginationPattern = (meta["pagination_pattern"] as? String) ?: existingSeed?.paginationPattern,
                 lastKnownJobCount = jobsFound,
                 lastKnownPageCount = (meta["pagesVisited"] as? Number)?.toInt(),
@@ -360,6 +446,61 @@ class CrawlerAdminController(
                 log.info("Updated crawler_seeds for $companyId / ${body.url}: ${jobsFound} jobs found")
             } catch (e: Exception) {
                 log.error("Failed to update crawler_seeds for $companyId: ${e.message}", e)
+            }
+
+            // Upsert any discovered listing-page URLs as new seeds.
+            // These are pages (different from body.url) where tech jobs were actually extracted.
+            // In discovery mode this lets future crawls jump straight to the careers page.
+            try {
+                listingPageUrls
+                    .filter { it != body.url }
+                    .forEach { listingUrl ->
+                        val existingListingSeed = existingSeeds.find { it.url == listingUrl }
+                        val listingSeed = CrawlerSeedRecord(
+                            companyId = companyId,
+                            url = listingUrl,
+                            category = existingListingSeed?.category ?: "general",
+                            status = "ACTIVE",
+                            paginationPattern = existingListingSeed?.paginationPattern,
+                            lastKnownJobCount = jobsFound,
+                            lastKnownPageCount = null,
+                            lastCrawledAt = meta["lastCrawledAt"] as? String,
+                            lastDurationMs = null,
+                            errorMessage = null,
+                            consecutiveZeroYieldCount = 0,
+                            atsProvider = existingListingSeed?.atsProvider,
+                            atsIdentifier = existingListingSeed?.atsIdentifier,
+                            atsDirectUrl = existingListingSeed?.atsDirectUrl,
+                        )
+                        crawlerSeedRepository.upsert(listingSeed)
+                        log.info("Upserted discovered listing page seed for $companyId: $listingUrl")
+                        crawlLogService.log(companyId, "INFO", "↳ new seed saved: $listingUrl")
+                    }
+            } catch (e: Exception) {
+                log.warn("Failed to upsert listing page seeds for $companyId: ${e.message}")
+            }
+
+            // Persist extracted jobs to raw_jobs + archive to GCS bronze (both non-fatal)
+            try {
+                val rawJobs: List<NormalizedJobDto> = objectMapper.convertValue(
+                    result["jobs"] ?: emptyList<Any>(),
+                    object : TypeReference<List<NormalizedJobDto>>() {}
+                )
+                if (rawJobs.isNotEmpty()) {
+                    val saved = crawlerJobPersistenceService.persist(companyId, rawJobs)
+                    crawlLogService.log(companyId, "INFO", "Persisted $saved jobs to raw_jobs")
+
+                    try {
+                        crawlerDataSyncService.archiveCrawlBatch(
+                            companyId, runId, java.time.LocalDate.now(), rawJobs
+                        )
+                    } catch (archiveEx: Exception) {
+                        log.warn("GCS archive failed for $companyId run $runId: ${archiveEx.message}")
+                    }
+                }
+            } catch (e: Exception) {
+                log.error("Job persistence failed for $companyId: ${e.message}", e)
+                crawlLogService.log(companyId, "WARNING", "Job persistence failed: ${e.message}")
             }
 
             ResponseEntity.ok(result)
@@ -410,6 +551,69 @@ class CrawlerAdminController(
         } catch (e: Exception) {
             log.error("Company manifest sync failed: ${e.message}", e)
             ResponseEntity.internalServerError().body(mapOf("error" to (e.message ?: "Sync failed")))
+        }
+    }
+
+    // ---------------------------------------------------------------------------
+    // POST /api/admin/crawler/daily-batch
+    // Creates the daily crawler dataset manifest in ingestion_metadata, grouping
+    // all GCS bronze files written today by individual crawl runs.
+    // Idempotent — returns the existing manifest if already created today.
+    // Intended to be called by Cloud Scheduler at end of each day.
+    // ---------------------------------------------------------------------------
+
+    @PostMapping("/daily-batch")
+    fun createDailyBatch(
+        @RequestParam("date", required = false) dateParam: String?,
+    ): ResponseEntity<*> {
+        val date = if (dateParam != null) {
+            try { java.time.LocalDate.parse(dateParam) }
+            catch (e: Exception) {
+                return ResponseEntity.badRequest().body(mapOf("error" to "Invalid date format. Use YYYY-MM-DD."))
+            }
+        } else {
+            java.time.LocalDate.now()
+        }
+
+        return try {
+            val manifest = crawlerDataSyncService.createDailyDataset(date)
+                ?: return ResponseEntity.ok(mapOf(
+                    "status" to "no_files",
+                    "message" to "No crawler GCS files found for $date",
+                    "date" to date.toString(),
+                ))
+
+            ResponseEntity.ok(mapOf(
+                "status" to "ok",
+                "datasetId" to manifest.datasetId,
+                "date" to date.toString(),
+                "fileCount" to manifest.fileCount,
+                "processingStatus" to manifest.processingStatus.name,
+            ))
+        } catch (e: Exception) {
+            log.error("Failed to create daily crawler batch for $date: ${e.message}", e)
+            ResponseEntity.internalServerError().body(mapOf("error" to (e.message ?: "Batch creation failed")))
+        }
+    }
+
+    // ---------------------------------------------------------------------------
+    // POST /api/admin/crawler/process-dataset
+    // Re-processes a crawler bronze dataset from GCS back into raw_jobs.
+    // Use this after deleting stale Silver data to replay from the archive.
+    // ---------------------------------------------------------------------------
+
+    @PostMapping("/process-dataset")
+    fun processDataset(
+        @RequestParam("datasetId") datasetId: String,
+    ): ResponseEntity<*> {
+        return try {
+            crawlerDataSyncService.processDataset(datasetId)
+            ResponseEntity.ok(mapOf("status" to "ok", "datasetId" to datasetId))
+        } catch (e: IllegalArgumentException) {
+            ResponseEntity.badRequest().body(mapOf("error" to e.message))
+        } catch (e: Exception) {
+            log.error("Failed to process crawler dataset $datasetId: ${e.message}", e)
+            ResponseEntity.internalServerError().body(mapOf("error" to (e.message ?: "Processing failed")))
         }
     }
 
@@ -478,13 +682,20 @@ class CrawlerAdminController(
             append("    MAX(CASE WHEN status = 'ACTIVE' THEN ats_provider ELSE NULL END) AS ats_provider")
             append("  FROM `$datasetName.${BigQueryTables.CRAWLER_SEEDS}`")
             append("  GROUP BY company_id")
+            append("),")
+            append("job_counts AS (")
+            append("  SELECT companyId, COUNT(*) AS job_count")
+            append("  FROM `$datasetName.${BigQueryTables.JOBS}`")
+            append("  GROUP BY companyId")
             append(")")
             append("SELECT c.companyId, c.name, c.logoUrl, c.hqCountry, c.verificationLevel, c.employeesCount,")
             append("  s.seed_status as seedStatus, s.seed_count as seedCount, s.last_crawled_at as lastCrawledAt,")
             append("  s.total_jobs_last_run as totalJobsLastRun, s.max_zero_yield_count as maxZeroYieldCount,")
-            append("  s.ats_provider as atsProvider")
+            append("  s.ats_provider as atsProvider,")
+            append("  COALESCE(j.job_count, 0) as jobCount")
             append(" FROM `$datasetName.${BigQueryTables.COMPANIES}` c")
             append(" LEFT JOIN seed_health s ON c.companyId = s.company_id")
+            append(" LEFT JOIN job_counts j ON c.companyId = j.companyId")
             
             val where = mutableListOf<String>()
             if (searchPattern != null) where.add("LOWER(c.name) LIKE @searchPattern")
@@ -572,6 +783,66 @@ class CrawlerAdminController(
         "atsDirectUrl" to s.atsDirectUrl,
     )
 
+    // -------------------------------------------------------------------------
+    // Jobs — Silver layer read/delete for a specific company
+    // -------------------------------------------------------------------------
+
+    @GetMapping("/companies/{companyId}/jobs")
+    fun listJobsForCompany(
+        @PathVariable companyId: String,
+        @RequestParam(defaultValue = "200") limit: Int,
+    ): ResponseEntity<Any> {
+        val jobs = try {
+            jobRepository.findByCompanyId(companyId, limit)
+        } catch (e: Exception) {
+            log.error("Failed to list jobs for $companyId: ${e.message}")
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(mapOf("error" to e.message))
+        }
+        val data = jobs.map { j ->
+            mapOf(
+                "jobId" to j.jobId,
+                "title" to j.title,
+                "location" to j.city.ifBlank { j.locations.firstOrNull() ?: "" },
+                "country" to j.country,
+                "source" to j.source,
+                "postedDate" to j.postedDate?.toString(),
+                "workModel" to j.workModel,
+                "seniorityLevel" to j.seniorityLevel,
+                "hasDescription" to (j.description != null),
+                "urlStatus" to j.urlStatus,
+                "applyUrl" to j.applyUrls.firstOrNull(),
+                "lastSeenAt" to j.lastSeenAt.toString(),
+            )
+        }
+        return ResponseEntity.ok(mapOf("data" to data, "total" to data.size))
+    }
+
+    @DeleteMapping("/companies/{companyId}/jobs")
+    fun deleteJobsForCompany(
+        @PathVariable companyId: String,
+        @RequestBody(required = false) body: DeleteJobsRequest?,
+    ): ResponseEntity<Any> {
+        return try {
+            val jobIds = if (body?.jobIds.isNullOrEmpty()) {
+                // Delete all — fetch IDs first
+                jobRepository.findByCompanyId(companyId, limit = 2000).map { it.jobId }
+            } else {
+                body!!.jobIds
+            }
+            if (jobIds.isEmpty()) {
+                return ResponseEntity.ok(mapOf("deleted" to 0))
+            }
+            jobRepository.deleteJobsByIds(jobIds)
+            log.info("Deleted ${jobIds.size} jobs for $companyId")
+            ResponseEntity.ok(mapOf("deleted" to jobIds.size))
+        } catch (e: Exception) {
+            log.error("Failed to delete jobs for $companyId: ${e.message}")
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(mapOf("error" to e.message))
+        }
+    }
+
     private fun runToMap(r: CrawlRunRecord) = mapOf(
         "runId" to r.runId,
         "batchId" to r.batchId,
@@ -585,6 +856,9 @@ class CrawlerAdminController(
         "jobsValid" to r.jobsValid,
         "jobsTech" to r.jobsTech,
         "jobsFinal" to r.jobsFinal,
+        "detailPagesAttempted" to r.detailPagesAttempted,
+        "detailPagesEnriched" to r.detailPagesEnriched,
+        "descriptionCoverage" to r.descriptionCoverage,
         "confidenceAvg" to r.confidenceAvg,
         "atsProvider" to r.atsProvider,
         "atsDirectUrl" to r.atsDirectUrl,
@@ -594,6 +868,10 @@ class CrawlerAdminController(
         "modelUsed" to r.modelUsed,
     )
 }
+
+data class DeleteJobsRequest(
+    val jobIds: List<String> = emptyList(),
+)
 
 data class UpsertSeedRequest(
     val companyId: String,

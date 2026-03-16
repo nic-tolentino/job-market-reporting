@@ -21,13 +21,20 @@ class SearchController(private val analyticsRepository: AnalyticsRepository) {
         @RequestParam(required = false) term: String?,
         @RequestParam(required = false) country: String?
     ): SearchSuggestionsResponse {
+        // If we have a term, try to find direct matches first
         if (!term.isNullOrBlank()) {
-            log.info("Tracking search miss and returning empty suggestions for term: $term")
-            analyticsRepository.saveSearchMiss(term)
-            return SearchSuggestionsResponse(emptyList())
+            val results = analyticsRepository.getSearchSuggestions(term, country)
+            
+            if (results.suggestions.isEmpty()) {
+                log.info("Tracking search miss for term: $term")
+                analyticsRepository.saveSearchMiss(term)
+            }
+            
+            return results
         }
 
-        log.info("Fetching search suggestions from database")
-        return analyticsRepository.getSearchSuggestions(country)
+        // Default: fetch master list (popular suggestions)
+        log.info("Fetching master search suggestions list from database")
+        return analyticsRepository.getSearchSuggestions(null, country)
     }
 }

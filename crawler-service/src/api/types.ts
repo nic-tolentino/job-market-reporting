@@ -72,12 +72,24 @@ export interface CrawlMeta {
    * Use this as the seed URL for a follow-up targeted crawl.
    */
   atsDirectUrl?: string;
+  /**
+   * URLs of pages where tech jobs were actually extracted during this crawl,
+   * with pagination parameters stripped so each entry is a canonical listing root.
+   *
+   * In discovery mode this will differ from the input URL (e.g. the crawler
+   * started at a homepage but found jobs at /careers). The backend uses these
+   * to upsert new, more-direct seeds so future targeted crawls skip discovery.
+   */
+  listingPageUrls?: string[];
 }
 
 export interface ExtractionStats {
-  jobsRaw: number;    // total from Gemini before validation
-  jobsValid: number;  // after validateJobs()
-  jobsTech: number;   // after tech/negative keyword filter
+  jobsRaw: number;             // total from Gemini before validation
+  jobsValid: number;           // after validateJobs()
+  jobsTech: number;            // after tech/negative keyword filter
+  detailPagesAttempted: number; // detail page URLs enqueued for enrichment
+  detailPagesEnriched: number;  // jobs that got a description from a detail page
+  descriptionCoverage: number;  // fraction of final jobs with a description (0–1)
 }
 
 export interface NormalizedJob {

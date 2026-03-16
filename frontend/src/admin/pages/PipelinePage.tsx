@@ -14,15 +14,17 @@ import {
   Building2,
   ChevronRight
 } from 'lucide-react';
-import { 
-  getQueueStats, 
-  getIngestionHistory, 
-  reprocessAll, 
-  wipeSilver, 
-  ingestDataset, 
+import {
+  getQueueStats,
+  getIngestionHistory,
+  reprocessAll,
+  wipeSilver,
+  ingestDataset,
   deleteDataset,
   syncCompanies,
-  runHealthCheck
+  runHealthCheck,
+  createCrawlerDailyBatch,
+  processCrawlerDataset,
 } from '../lib/adminApi';
 import { AdminLogPanel } from '../components/AdminLogPanel';
 
@@ -44,6 +46,8 @@ export function PipelinePage() {
   const [isIngesting, setIsIngesting] = useState(false);
   const [isSyncingCompanies, setIsSyncingCompanies] = useState(false);
   const [isCheckingHealth, setIsCheckingHealth] = useState(false);
+  const [isCreatingBatch, setIsCreatingBatch] = useState(false);
+  const [reprocessingId, setReprocessingId] = useState<string | null>(null);
 
   const { data: queue, isLoading: queueLoading } = useQuery<QueueStats>({
     queryKey: ['admin-pipeline-queue'],
@@ -120,6 +124,37 @@ export function PipelinePage() {
       alert(`Error: ${e.message}`);
     } finally {
       setIsSyncingCompanies(false);
+    }
+  };
+
+  const handleCreateDailyBatch = async () => {
+    setIsCreatingBatch(true);
+    try {
+      const res = await createCrawlerDailyBatch();
+      if (res.status === 'no_files') {
+        alert(`No crawler GCS files found for today. Run some crawls first.`);
+      } else {
+        alert(`Daily batch created: ${res.datasetId} (${res.fileCount} files)`);
+        refetchHistory();
+      }
+    } catch (e: any) {
+      alert(`Error: ${e.message}`);
+    } finally {
+      setIsCreatingBatch(false);
+    }
+  };
+
+  const handleReprocessCrawlerDataset = async (datasetId: string) => {
+    if (!confirm(`Re-process crawler dataset ${datasetId} into raw_jobs?`)) return;
+    setReprocessingId(datasetId);
+    try {
+      await processCrawlerDataset(datasetId);
+      alert(`Dataset ${datasetId} re-processed successfully`);
+      refetchHistory();
+    } catch (e: any) {
+      alert(`Error: ${e.message}`);
+    } finally {
+      setReprocessingId(null);
     }
   };
 
@@ -254,7 +289,7 @@ export function PipelinePage() {
                 {isSyncingCompanies ? <RefreshCw size={14} className="animate-spin text-muted" /> : <ChevronRight size={14} className="text-muted" />}
               </button>
               
-              <button 
+              <button
                 onClick={handleHealthCheck}
                 disabled={isCheckingHealth}
                 className="flex items-center justify-between px-3 py-2 text-sm text-secondary bg-surface border border-border rounded-lg hover:border-primary/30 transition-all group"
@@ -264,6 +299,18 @@ export function PipelinePage() {
                   <span>Run Job Health Checks</span>
                 </div>
                 {isCheckingHealth ? <RefreshCw size={14} className="animate-spin text-muted" /> : <ChevronRight size={14} className="text-muted" />}
+              </button>
+
+              <button
+                onClick={handleCreateDailyBatch}
+                disabled={isCreatingBatch}
+                className="flex items-center justify-between px-3 py-2 text-sm text-secondary bg-surface border border-border rounded-lg hover:border-primary/30 transition-all group"
+              >
+                <div className="flex items-center gap-2">
+                  <Database size={16} className="text-muted group-hover:text-primary transition-colors" />
+                  <span>Archive Today's Crawler Jobs</span>
+                </div>
+                {isCreatingBatch ? <RefreshCw size={14} className="animate-spin text-muted" /> : <ChevronRight size={14} className="text-muted" />}
               </button>
             </div>
           </div>
@@ -312,12 +359,24 @@ export function PipelinePage() {
                     <p className="text-xs text-muted">Source: {event.source} · {new Date(event.startedAt).toLocaleString()}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="text-right">
+                <div className="flex items-center gap-2">
+                  <div className="text-right mr-2">
                     <p className="text-sm font-semibold text-primary">{event.count ?? 0} jobs</p>
                     <p className="text-[10px] text-muted font-mono max-w-[120px] truncate" title={event.datasetId}>ID: {event.datasetId}</p>
                   </div>
-                  <button 
+                  {event.source === 'crawler' && (
+                    <button
+                      onClick={() => handleReprocessCrawlerDataset(event.datasetId)}
+                      disabled={reprocessingId === event.datasetId}
+                      className="p-1.5 text-muted hover:text-primary hover:bg-surface rounded-md transition-all opacity-0 group-hover:opacity-100"
+                      title="Re-process crawler dataset into raw_jobs"
+                    >
+                      {reprocessingId === event.datasetId
+                        ? <RefreshCw size={14} className="animate-spin" />
+                        : <Play size={14} />}
+                    </button>
+                  )}
+                  <button
                     onClick={() => handleDeleteDataset(event.datasetId)}
                     className="p-1.5 text-muted hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md transition-all opacity-0 group-hover:opacity-100"
                     title="Delete dataset"

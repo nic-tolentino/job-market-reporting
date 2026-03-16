@@ -1,7 +1,12 @@
 package com.techmarket.api
 
+import com.techmarket.persistence.company.CompanyRepository
 import com.techmarket.persistence.ingestion.IngestionMetadataRepository
+import com.techmarket.persistence.job.JobRepository
 import com.techmarket.service.CloudTasksService
+import com.techmarket.service.JobHealthCheckService
+import com.techmarket.sync.CompanySyncService
+import com.techmarket.sync.JobDataSyncService
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.BeforeEach
@@ -22,7 +27,15 @@ class PipelineAdminControllerTest {
     fun setup() {
         cloudTasksService = mockk()
         ingestionRepository = mockk()
-        val controller = PipelineAdminController(cloudTasksService, ingestionRepository)
+        val controller = PipelineAdminController(
+            cloudTasksService,
+            ingestionRepository,
+            mockk(),
+            mockk(),
+            mockk(),
+            mockk(),
+            mockk()
+        )
         mockMvc = standaloneSetup(controller).build()
     }
 

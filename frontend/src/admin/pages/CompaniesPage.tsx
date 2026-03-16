@@ -103,10 +103,13 @@ function CompanyRow({
         {formatDate(company.lastCrawledAt)}
       </td>
       <td className="px-4 py-3 text-sm">
-        {company.seedCount > 0 ? (
-          <span className={company.totalJobsLastRun === 0 ? 'text-orange-500 dark:text-orange-400' : 'text-primary'}>
-            {company.totalJobsLastRun}
-          </span>
+        {company.jobCount > 0 ? (
+          <div>
+            <span className="text-primary font-medium">{company.jobCount.toLocaleString()}</span>
+            {company.seedCount > 0 && company.totalJobsLastRun !== company.jobCount && (
+              <span className="text-muted text-xs ml-1">({company.totalJobsLastRun} last run)</span>
+            )}
+          </div>
         ) : (
           <span className="text-muted">—</span>
         )}
@@ -269,7 +272,7 @@ export function CompaniesPage() {
                 <SortableHeader label="Seed" field="seedStatus" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
                 <SortableHeader label="ATS" field="atsProvider" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
                 <SortableHeader label="Last crawl" field="lastCrawledAt" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
-                <SortableHeader label="Jobs" field="totalJobsLastRun" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
+                <SortableHeader label="Jobs stored" field="jobCount" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
                 <SortableHeader label="Country" field="hqCountry" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
                 <SortableHeader label="Seeds" field="seedCount" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
               </tr>

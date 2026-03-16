@@ -6,6 +6,10 @@
       {
         "category": "tech-filtered",
         "url": "https://www.lightspeedhq.com/careers/openings/?department=technology"
+      },
+      {
+        "url": "https://www.lightspeedhq.com/careers/",
+        "category": "general"
       }
     ]
   },

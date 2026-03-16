@@ -15,6 +15,7 @@ import {
   PAGE_BUDGET_DISCOVERY,
   DEFAULT_PAGINATION_LIMIT,
   INTER_EXTRACTION_DELAY_MS,
+  INTER_DETAIL_DELAY_MS,
   NETWORK_IDLE_TIMEOUT_MS,
   PAGINATION_PARAMS,
   CORE_PAGINATION_PARAMS,
@@ -22,6 +23,7 @@ import {
   TECH_KEYWORDS,
   NEGATIVE_KEYWORDS,
   ERROR_MESSAGE_MAX_LENGTH,
+  MAX_DETAIL_PAGES,
 } from '../config/crawler-constants';
 
 /**
@@ -63,6 +65,27 @@ export class CrawlerService {
     } catch (error) {
       const errorMessage = (error as Error).message;
       return { valid: false, error: errorMessage };
+    }
+  }
+
+  /**
+   * Strip pagination query params from a URL to produce a canonical listing root.
+   * e.g. https://careers.co.nz/jobs?page=3 → https://careers.co.nz/jobs
+   */
+  public static normalizeListingUrl(url: string, paginationPattern?: string): string {
+    try {
+      const u = new URL(url);
+      // Strip the detected pattern param first (fast path)
+      if (paginationPattern?.startsWith('query:')) {
+        u.searchParams.delete(paginationPattern.split(':')[1]);
+      }
+      // Also strip all known pagination params so we always get a clean root URL
+      for (const param of PAGINATION_PARAMS) {
+        u.searchParams.delete(param);
+      }
+      return u.toString();
+    } catch {
+      return url;
     }
   }
 
@@ -181,6 +204,9 @@ export class CrawlerService {
         }
       }
 
+      // Track URLs of pages that actually yielded tech jobs — becomes listingPageUrls in CrawlMeta.
+      const listingPageUrlSet = new Set<string>();
+
       if (results.length > 0) {
         const extractionConfig: ExtractionConfig = {
           prompt: crawlConfig.extractionPrompt || undefined,
@@ -193,7 +219,7 @@ export class CrawlerService {
 
         // Process each page individually to avoid TPM limits
         for (let i = 0; i < results.length; i++) {
-          const html = results[i];
+          const { url: pageUrl, html } = results[i];
           console.log(`Processing page ${i + 1}/${results.length}...`);
           
           const atsDetection = detectAts(html);
@@ -203,8 +229,8 @@ export class CrawlerService {
           }
 
           const extracted = extractContent(html);
-          console.log(`[TEXT_CONTENT_PREVIEW] page ${i + 1}: length=${extracted.textContent.length} preview="${extracted.textContent.substring(0, 800)}"`);
-          const wrappedContent = wrapContentForLlm(extracted.textContent);
+          console.log(`[CONTENT_PREVIEW] page ${i + 1}: length=${extracted.simplifiedHtml.length} preview="${extracted.simplifiedHtml.substring(0, 800)}"`);
+          const wrappedContent = wrapContentForLlm(extracted.simplifiedHtml);
 
           try {
             if (i > 0) await new Promise(resolve => setTimeout(resolve, INTER_EXTRACTION_DELAY_MS));
@@ -242,6 +268,9 @@ export class CrawlerService {
             
             jobsTech += validJobs.length;
             allValidJobs = [...allValidJobs, ...validJobs];
+            if (validJobs.length > 0) {
+              listingPageUrlSet.add(CrawlerService.normalizeListingUrl(pageUrl, detectedPaginationPattern));
+            }
           } catch (error) {
             console.error(`Error extracting from page ${i + 1}:`, (error as Error).message);
           }
@@ -249,7 +278,22 @@ export class CrawlerService {
       }
 
       // De-duplicate jobs before applying yield signal to prevent false inflations
-      const uniqueJobs = CrawlerService.deduplicateJobs(allValidJobs);
+      let uniqueJobs = CrawlerService.deduplicateJobs(allValidJobs);
+
+      // Enrich with full descriptions from individual job detail pages.
+      // Skipped when followJobLinks is false or no jobs were found.
+      let detailPagesAttempted = 0;
+      let detailPagesEnriched = 0;
+      if (config.followJobLinks && uniqueJobs.length > 0) {
+        try {
+          const enrichResult = await this.enrichJobsWithDetailPages(uniqueJobs, effectiveUrl, config.timeout);
+          uniqueJobs = enrichResult.jobs;
+          detailPagesAttempted = enrichResult.attempted;
+          detailPagesEnriched = enrichResult.enriched;
+        } catch (enrichErr: any) {
+          console.warn(`[DETAIL_FETCH] Enrichment failed (non-fatal): ${enrichErr.message}`);
+        }
+      }
 
       // Growth/Contraction Signal (Jobs)
       // Only emit when we have a prior baseline and the count actually changed.
@@ -264,6 +308,14 @@ export class CrawlerService {
           };
           console.log(`[SIGNAL] JOB_COUNT_CHANGE: ${companyId} yield changed by ${diff > 0 ? '+' : ''}${diff} jobs.`);
         }
+      }
+
+      // When pages were visited but no jobs were extracted, log a warning — the page
+      // may have returned a bot-detection challenge or empty SPA shell (e.g. Ashby
+      // rate-limiting after a burst of detail-page requests). We don't change the
+      // status here because a company may genuinely have an empty board.
+      if (pagesVisited > 0 && jobsRaw === 0) {
+        console.warn(`[ZERO_YIELD_WARNING] ${companyId}: visited ${pagesVisited} page(s) but extracted 0 jobs. Possible bot detection, empty board, or rendering failure.`);
       }
 
       const { averageConfidence } = validateJobs(uniqueJobs);
@@ -292,12 +344,18 @@ export class CrawlerService {
           status: (crawlError !== undefined && crawlError !== null && crawlError !== '') ? 'FAILED' : 'ACTIVE',
           errorMessage: crawlError,
           atsDirectUrl,
+          listingPageUrls: Array.from(listingPageUrlSet),
         },
         jobs: uniqueJobs,
         extractionStats: {
           jobsRaw,
           jobsValid,
-          jobsTech
+          jobsTech,
+          detailPagesAttempted,
+          detailPagesEnriched,
+          descriptionCoverage: uniqueJobs.length > 0
+            ? uniqueJobs.filter(j => j.descriptionText).length / uniqueJobs.length
+            : 0,
         }
       };
       
@@ -323,12 +381,130 @@ export class CrawlerService {
     }
   }
 
+  /**
+   * Fetches individual job detail pages for jobs that have a same-origin platformUrl
+   * and merges the cleaned page content as the job description.
+   *
+   * This is a second-pass Playwright crawl that runs after listing extraction.
+   * No additional Gemini calls are made — the ContentExtractor output is used
+   * directly as descriptionHtml / descriptionText.
+   *
+   * Only jobs without an existing description are enriched, and the total
+   * number of detail pages fetched is capped at MAX_DETAIL_PAGES.
+   */
+  private async enrichJobsWithDetailPages(
+    jobs: NormalizedJob[],
+    listingUrl: string,
+    timeout: number
+  ): Promise<{ jobs: NormalizedJob[]; attempted: number; enriched: number }> {
+    const noopResult = { jobs, attempted: 0, enriched: 0 };
+
+    const listingOrigin = (() => {
+      try { return new URL(listingUrl).origin; } catch { return null; }
+    })();
+    if (!listingOrigin) return noopResult;
+
+    // Collect unique same-origin platformUrls for jobs that have no description yet
+    const urlsToFetch = [
+      ...new Set(
+        jobs
+          .filter(j => !j.descriptionText)
+          .map(j => j.platformUrl || j.applyUrl)
+          .filter((u): u is string => {
+            if (!u) return false;
+            try { return new URL(u).origin === listingOrigin; }
+            catch { return false; }
+          })
+      )
+    ].slice(0, MAX_DETAIL_PAGES);
+
+    if (urlsToFetch.length === 0) {
+      console.log('[DETAIL_FETCH] No same-origin detail pages to fetch — skipping enrichment');
+      return noopResult;
+    }
+
+    console.log(`[DETAIL_FETCH] Fetching ${urlsToFetch.length} job detail pages for descriptions...`);
+
+    const descriptionByUrl = new Map<string, { html: string; text: string }>();
+
+    const storageId = `detail-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+    const storagePath = path.join(os.tmpdir(), 'crawler-storage', storageId);
+    if (!fs.existsSync(path.dirname(storagePath))) {
+      fs.mkdirSync(path.dirname(storagePath), { recursive: true });
+    }
+
+    const configOverride = new Configuration({
+      storageClientOptions: { localDataDirectory: storagePath },
+      purgeOnStart: true,
+    });
+
+    const detailCrawler = new PlaywrightCrawler({
+      maxRequestsPerCrawl: urlsToFetch.length,
+      requestHandlerTimeoutSecs: Math.floor(timeout / 1000),
+      // Sequential fetching (maxConcurrency: 1) combined with a per-request delay
+      // prevents triggering IP-level rate limits on rate-sensitive ATS providers
+      // such as Ashby. Without this, parallel detail fetches were causing subsequent
+      // listing-page crawls to return zero results due to temporary IP blocks.
+      maxConcurrency: 1,
+      launchContext: {
+        launchOptions: {
+          args: [
+            '--disable-dev-shm-usage',
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-gpu',
+          ],
+        },
+      },
+      async requestHandler({ request, page, log }) {
+        // Throttle between detail page requests to avoid bot-detection rate limits
+        await new Promise(r => setTimeout(r, INTER_DETAIL_DELAY_MS));
+        await page.waitForLoadState('networkidle', { timeout: NETWORK_IDLE_TIMEOUT_MS })
+          .catch(() => {});
+        const html = await page.content();
+        const { simplifiedHtml } = extractContent(html);
+        const text = simplifiedHtml.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+        log.info(`[DETAIL_FETCH] ${request.url.substring(0, 80)} — ${text.length} chars`);
+        // Key by the requested URL (not page.url()) so it matches job.platformUrl
+        // even when the server redirects or appends tracking parameters.
+        descriptionByUrl.set(request.url, { html: simplifiedHtml, text });
+      },
+      errorHandler({ request, error, log }) {
+        log.error(`Detail page ${request.url} failed: ${(error as any).message}`);
+      },
+      failedRequestHandler({ request, log }) {
+        // Non-fatal: log and skip, don't throw
+        log.warning(`Detail page ${request.url} ultimately failed — skipping`);
+      },
+    }, configOverride);
+
+    await detailCrawler.run(urlsToFetch.map(u => ({ url: u })));
+
+    try {
+      if (fs.existsSync(storagePath)) fs.rmSync(storagePath, { recursive: true, force: true });
+    } catch {}
+
+    // Merge descriptions into jobs — don't overwrite if a description already exists
+    const enrichedJobs = jobs.map(job => {
+      if (job.descriptionText) return job;
+      const detailUrl = job.platformUrl || job.applyUrl;
+      if (!detailUrl) return job;
+      const detail = descriptionByUrl.get(detailUrl);
+      if (!detail) return job;
+      return { ...job, descriptionHtml: detail.html, descriptionText: detail.text };
+    });
+
+    const enrichedCount = enrichedJobs.filter(j => j.descriptionText).length;
+    console.log(`[DETAIL_FETCH] Enriched ${enrichedCount}/${jobs.length} jobs with full descriptions`);
+    return { jobs: enrichedJobs, attempted: urlsToFetch.length, enriched: enrichedCount };
+  }
+
   private async fetchPageContent(
     url: string,
     config: { maxPages: number; followJobLinks: boolean; timeout: number; isDiscoveryMode?: boolean; paginationLimit?: number },
     companyId: string,
     crawlDelay?: number
-  ): Promise<{ results: string[]; pagesVisited: number; detectedPaginationPattern?: string }> {
+  ): Promise<{ results: Array<{ url: string; html: string }>; pagesVisited: number; detectedPaginationPattern?: string }> {
     const storageId = `${companyId}-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
     const storagePath = path.join(os.tmpdir(), 'crawler-storage', storageId);
     
@@ -347,7 +523,7 @@ export class CrawlerService {
     let pagesVisited = 0;
     let paginationPagesVisited = 0;
     const PAGINATION_LIMIT = config.paginationLimit || DEFAULT_PAGINATION_LIMIT;
-    const results: string[] = [];
+    const results: Array<{ url: string; html: string }> = [];
     let detectedPaginationPattern: string | undefined = undefined;
 
     if (crawlDelay && crawlDelay > 0) {
@@ -406,7 +582,7 @@ export class CrawlerService {
         const html = await page.content();
         const debugText = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 500);
         log.info(`[CONTENT_PREVIEW] ${request.url.substring(0, 80)}: ${debugText}`);
-        results.push(html);
+        results.push({ url: request.url, html });
 
         if (isRequestDiscoveryMode) {
           await enqueueLinks({

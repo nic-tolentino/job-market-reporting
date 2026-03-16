@@ -423,4 +423,25 @@ class JobBigQueryRepository(
                 val result = bigQuery.query(queryConfig)
                 return result.iterateAll().firstOrNull()?.let { row -> JobRow.fromJobRow(row).let { JobMapper.mapToJobRecord(it) } }
         }
+
+        override fun findByCompanyId(companyId: String, limit: Int): List<JobRecord> {
+                if (bigQuery == null) return emptyList()
+                val sql = """
+                    SELECT * FROM `$datasetName.$jobsTableName`
+                    WHERE ${JobFields.COMPANY_ID} = @companyId
+                    AND (url_status IS NULL OR url_status NOT IN ('CLOSED_404','CLOSED_REDIRECT','CLOSED_CONTENT'))
+                    LIMIT @limit
+                """.trimIndent()
+                val queryConfig = QueryJobConfiguration.newBuilder(sql)
+                        .addNamedParameter("companyId", QueryParameterValue.string(companyId))
+                        .addNamedParameter("limit", QueryParameterValue.int64(limit.toLong()))
+                        .build()
+                return try {
+                        bigQuery.query(queryConfig).iterateAll()
+                                .map { row -> JobRow.fromJobRow(row).let { JobMapper.mapToJobRecord(it) } }
+                } catch (e: Exception) {
+                        log.warn("findByCompanyId failed for $companyId: ${e.message}")
+                        emptyList()
+                }
+        }
 }

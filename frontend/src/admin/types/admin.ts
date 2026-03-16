@@ -14,6 +14,7 @@ export interface AdminCompany {
   totalJobsLastRun: number;
   atsProvider: string | null;
   maxZeroYieldCount: number;
+  jobCount: number;
 }
 
 export interface AdminCompanyListResponse {
@@ -53,6 +54,9 @@ export interface CrawlRun {
   jobsValid: number | null;
   jobsTech: number | null;
   jobsFinal: number | null;
+  detailPagesAttempted: number | null;
+  detailPagesEnriched: number | null;
+  descriptionCoverage: number | null;
   confidenceAvg: number | null;
   atsProvider: string | null;
   atsDirectUrl: string | null;
@@ -60,6 +64,21 @@ export interface CrawlRun {
   status: 'ACTIVE' | 'FAILED' | 'BLOCKED' | 'TIMEOUT';
   errorMessage: string | null;
   modelUsed: string | null;
+}
+
+export interface AdminJob {
+  jobId: string;
+  title: string;
+  location: string;
+  country: string;
+  source: string;
+  postedDate: string | null;
+  workModel: string | null;
+  seniorityLevel: string | null;
+  hasDescription: boolean;
+  urlStatus: string | null;
+  applyUrl: string | null;
+  lastSeenAt: string;
 }
 
 export interface AdminCompanyDetail {

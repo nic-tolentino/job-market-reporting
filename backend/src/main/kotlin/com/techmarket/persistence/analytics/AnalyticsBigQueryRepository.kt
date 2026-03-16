@@ -94,18 +94,23 @@ class AnalyticsBigQueryRepository(
                 return AnalyticsMapper.mapLandingPageData(statsResult, techResult, companiesResult)
         }
 
-        override fun getSearchSuggestions(country: String?): SearchSuggestionsResponse {
-                log.info("GCP: Querying search suggestions from BigQuery")
+        override fun getSearchSuggestions(term: String?, country: String?): SearchSuggestionsResponse {
+                log.info("GCP: Querying search suggestions from BigQuery (term=$term, country=$country)")
                 val query =
                         AnalyticsQueries.getSearchSuggestionsSql(
                                 datasetName,
                                 companiesTableName,
-                                jobsTableName
+                                jobsTableName,
+                                term
                         )
 
                 val queryConfig = QueryJobConfiguration.newBuilder(query.sql)
                 val c = country?.lowercase()
                 queryConfig.addNamedParameter(JobFields.COUNTRY, com.google.cloud.bigquery.QueryParameterValue.string(c))
+                
+                if (term != null) {
+                    queryConfig.addNamedParameter("termPattern", com.google.cloud.bigquery.QueryParameterValue.string("%${term.lowercase()}%"))
+                }
 
                 if (bigQuery == null) return SearchSuggestionsResponse(emptyList())
                 return try {
@@ -114,7 +119,7 @@ class AnalyticsBigQueryRepository(
                                 result.values.map { AnalyticsMapper.mapSearchSuggestion(it) }
                         SearchSuggestionsResponse(suggestions.toList())
                 } catch (e: Exception) {
-                        log.error("GCP: Failed to fetch search suggestions: \${e.message}", e)
+                        log.error("GCP: Failed to fetch search suggestions: ${e.message}", e)
                         SearchSuggestionsResponse(emptyList())
                 }
         }

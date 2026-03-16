@@ -781,10 +781,10 @@ val exclusions = mapOf(
 **Problem:** Mobile design is "meh" - job rows, headers, and navigation need work.
 
 **Areas to Address:**
-- Job list cards: Better hierarchy, larger tap targets
-- Page headers: Responsive typography, compact layout
-- Navigation: Smooth scroll show/hide for navbar
-- Company page refresh bug (404 on mobile)
+- [ ] Job list cards: Better hierarchy, larger tap targets
+- [ ] Page headers: Responsive typography, compact layout
+- ✅ Navigation: Smooth scroll show/hide for navbar
+- [ ] Company page refresh bug (404 on mobile)
 
 **Files to Modify:**
 - `frontend/src/components/job/JobCard.tsx`

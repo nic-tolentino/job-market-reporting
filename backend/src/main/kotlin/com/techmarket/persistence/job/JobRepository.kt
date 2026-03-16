@@ -42,4 +42,9 @@ interface JobRepository {
      * Gets a single job by ID.
      */
     fun getJobById(jobId: String): JobRecord?
+
+    /**
+     * Returns active jobs for a company. Used for deduplication before persisting crawler results.
+     */
+    fun findByCompanyId(companyId: String, limit: Int = 500): List<JobRecord>
 }

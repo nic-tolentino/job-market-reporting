@@ -254,3 +254,130 @@ accumulates the operational signal that informs those human decisions.
    - Admin panel reads `crawl_runs` for history/trend analytics
    - Admin panel reads `crawler_seeds` for current seed health dashboard
    - See `docs/admin-panel-plan.md` for full specification
+
+---
+
+## 8. Seed URL Promotion on Tech Job Discovery
+
+When a crawl returns one or more tech jobs, the crawled URL should be marked **ACTIVE** in `crawler_seeds` regardless of the `crawlMeta.status` field returned by the crawler service. This ensures that any URL which provably yields jobs is treated as a confirmed, healthy seed.
+
+### Rule
+```
+if (jobsFound > 0) → seed.status = "ACTIVE"
+else              → seed.status = crawlMeta.status (ACTIVE/BLOCKED/TIMEOUT) or existing status
+```
+
+### Implementation
+- `CrawlerAdminController.triggerCrawl`: Change status assignment in the `CrawlerSeedRecord` builder:
+  ```kotlin
+  status = if (jobsFound > 0) "ACTIVE"
+           else (meta["status"] as? String) ?: existingSeed?.status ?: "ACTIVE",
+  ```
+- This is backward-compatible — a previously-ACTIVE URL that returns 0 jobs will still get its `consecutiveZeroYieldCount` incremented, but here we're only strengthening promotion logic for the positive case.
+
+---
+
+## 9. Seed-to-Manifest Sync Script
+
+A daily or ad-hoc Python script (`scripts/sync-seeds-to-manifests.py`) pulls confirmed-active seeds from BigQuery and proposes additions to the company JSON manifests in `data/companies/`. Changes are written to disk for human review and committing — the Git manifest remains human-curated.
+
+### Behaviour
+- **Reads**: `crawler_seeds` WHERE `status = 'ACTIVE'` AND `last_known_job_count > 0`
+- **Finds**: matching `data/companies/{companyId}.json` manifest file
+- **Proposes**: add seed URL to `crawler.seeds[]` if not already present (matches on `url`)
+- **Category**: uses the `category` already stored in `crawler_seeds`
+- **Dry-run by default**: prints a summary of proposed changes without writing
+- **`--apply` flag**: writes updates to the JSON manifests on disk
+
+### Usage
+```bash
+# Preview proposed changes
+python3 scripts/sync-seeds-to-manifests.py
+
+# Write changes to manifests (then git diff to review before committing)
+python3 scripts/sync-seeds-to-manifests.py --apply
+```
+
+### Dependencies
+```bash
+pip install google-cloud-bigquery
+```
+
+---
+
+## 10. Daily Crawler Batch Archive
+
+Each crawl that finds jobs should be archived to GCS bronze storage in the same NDJSON/gzip format used by Apify ingestions. At end-of-day, a single dataset manifest is created in `ingestion_metadata`, making the day's crawl output re-processable and deletable like any other data source.
+
+### Architecture
+
+```
+Crawl completes (jobsFound > 0)
+        │
+        ├──► raw_jobs (Silver) ─── immediate availability
+        │      via CrawlerJobPersistenceService
+        │
+        └──► GCS Bronze ─────────── archival + replay
+               gs://{bucket}/crawler/{date}/run-{runId}/{companyId}-jobs.json.gz
+               via CrawlerDataSyncService.archiveCrawlBatch()
+
+End of day (Cloud Scheduler or manual)
+        │
+        └──► ingestion_metadata ── dataset manifest
+               datasetId = "crawler-{date}", source = "crawler"
+               files = all GCS paths for that date
+               via POST /api/admin/crawler/daily-batch
+```
+
+### GCS Path Convention
+```
+crawler/{YYYY-MM-DD}/run-{runId}/{companyId}-jobs.json.gz
+```
+- One file per crawl-run per company
+- `companyId` is encoded in the filename for re-processing (no separate index required)
+- NDJSON gzip: one `NormalizedJobDto` JSON object per line
+
+### Dataset ID Convention
+```
+crawler-{YYYY-MM-DD}
+```
+One manifest per day, idempotent (returns existing manifest if already created).
+
+### Endpoints
+
+| Method | Path | Purpose |
+|--------|------|---------|
+| `POST` | `/api/admin/crawler/daily-batch[?date=YYYY-MM-DD]` | Create day's manifest |
+| `POST` | `/api/admin/crawler/process-dataset?datasetId={id}` | Re-process from bronze |
+
+### Manual Trigger (Daily Batch)
+Call the endpoint yourself when you're happy with the day's crawl output:
+```bash
+curl -X POST https://{BACKEND_URL}/api/admin/crawler/daily-batch \
+  -H "Authorization: Bearer ${ADMIN_PANEL_TOKEN}"
+```
+Optionally pass `?date=YYYY-MM-DD` to back-fill a specific date.
+
+### Re-processing Flow
+1. Call `POST /api/admin/crawler/process-dataset?datasetId=crawler-2026-03-16`
+2. Service reads each GCS file, parses `NormalizedJobDto` NDJSON
+3. Extracts `companyId` from filename, runs through `CrawlerJobPersistenceService.persist()`
+4. Marks manifest `COMPLETED`
+
+To **delete** a day's crawler jobs: use the existing pipeline delete endpoint (removes GCS files + manifest), then trigger a historical reprocess.
+
+### New Service: `CrawlerDataSyncService`
+```kotlin
+@Service
+class CrawlerDataSyncService(
+    metadataRepository: IngestionMetadataRepository,
+    crawlerJobPersistenceService: CrawlerJobPersistenceService,
+    objectMapper: ObjectMapper,
+    gcsConfig: GcsConfig,
+    storage: Storage
+) {
+    fun archiveCrawlBatch(companyId: String, runId: String, date: LocalDate, jobs: List<NormalizedJobDto>)
+    fun createDailyDataset(date: LocalDate): BronzeIngestionManifest?
+    fun processDataset(datasetId: String)
+}
+```

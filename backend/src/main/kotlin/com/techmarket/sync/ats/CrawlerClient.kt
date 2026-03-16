@@ -74,7 +74,10 @@ data class CrawlMeta(
 data class ExtractionStats(
     val jobsRaw: Int,
     val jobsValid: Int,
-    val jobsTech: Int
+    val jobsTech: Int,
+    val detailPagesAttempted: Int? = null,
+    val detailPagesEnriched: Int? = null,
+    val descriptionCoverage: Double? = null,
 )
 
 data class CrawlerJob(
@@ -201,6 +204,9 @@ class CrawlerClient(
             jobsValid = meta.extractionStats?.jobsValid,
             jobsTech = meta.extractionStats?.jobsTech,
             jobsFinal = response.jobs.size,
+            detailPagesAttempted = meta.extractionStats?.detailPagesAttempted,
+            detailPagesEnriched = meta.extractionStats?.detailPagesEnriched,
+            descriptionCoverage = meta.extractionStats?.descriptionCoverage,
             confidenceAvg = meta.extractionConfidence,
             atsProvider = meta.detectedAtsProvider,
             atsIdentifier = meta.detectedAtsIdentifier,

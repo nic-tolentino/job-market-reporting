@@ -75,20 +75,29 @@ object AnalyticsQueries {
     fun getSearchSuggestionsSql(
             datasetName: String,
             companiesTableName: String,
-            jobsTableName: String
+            jobsTableName: String,
+            term: String? = null
     ): AnalyticsQuery {
+        val termFilter = term?.let { "AND (LOWER(${AnalyticsFields.NAME}) LIKE @termPattern OR LOWER(${AnalyticsFields.ID}) LIKE @termPattern)" } ?: ""
+        
         return AnalyticsQuery(
             sql = """
                 SELECT 'COMPANY' as ${AnalyticsFields.TYPE}, c.${CompanyFields.COMPANY_ID} as ${AnalyticsFields.ID}, c.${CompanyFields.NAME} as ${AnalyticsFields.NAME} 
                 FROM `$datasetName.$companiesTableName` c
-                WHERE (@country IS NULL OR EXISTS (
+                WHERE (@country IS NULL OR c.${CompanyFields.HQ_COUNTRY} = @country OR EXISTS (
                     SELECT 1 FROM `$datasetName.$jobsTableName` j 
                     WHERE j.${JobFields.COMPANY_ID} = c.${CompanyFields.COMPANY_ID} 
                     AND j.${JobFields.COUNTRY} = @country
                 ))
+                $termFilter
+                
                 UNION DISTINCT
+                
                 SELECT DISTINCT 'TECHNOLOGY' as ${AnalyticsFields.TYPE}, LOWER(t) as ${AnalyticsFields.ID}, t as ${AnalyticsFields.NAME} FROM `$datasetName.$jobsTableName`, UNNEST(${JobFields.TECHNOLOGIES}) as t
                 WHERE (@country IS NULL OR ${JobFields.COUNTRY} = @country)
+                $termFilter
+                
+                LIMIT 50
             """.trimIndent(),
             requiredFields = listOf(
                 AnalyticsFields.TYPE,

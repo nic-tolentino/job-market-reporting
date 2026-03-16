@@ -104,12 +104,14 @@ export function validateJob(job: Partial<NormalizedJob>): ValidationResult {
     confidence -= 0.1;
   }
 
-  // Penalize missing optional fields (for confidence scoring)
+  // Penalize missing optional fields (for confidence scoring).
+  // applyUrl is intentionally excluded: listing pages don't have direct apply links
+  // (platformUrl / job detail links serve that purpose), so penalising its absence
+  // would systematically reject all jobs extracted from listing/search pages.
   if (!job.location) confidence -= 0.15;
   if (!job.employmentType) confidence -= 0.1;
   if (!job.workModel) confidence -= 0.1;
   if (!job.postedAt) confidence -= 0.1;
-  if (!job.applyUrl) confidence -= 0.15;
 
   // Ensure confidence doesn't go below 0
   confidence = Math.max(0, confidence);
@@ -205,9 +207,11 @@ function isValidLocation(location: string): boolean {
   
   // Allow 2-letter ISO country codes
   if (/^[A-Z]{2}$/.test(trimmed)) return true;
-  
-  // All caps (likely invalid unless it's a country code)
-  if (/^[A-Z]{3,}$/.test(trimmed)) return false;
+
+  // Reject strings that look like instructions rather than places:
+  // multiple all-caps words with no lowercase (e.g. "APPLY NOW", "CLICK HERE")
+  // Single all-caps words like "AUCKLAND" or "WELLINGTON" are valid city names.
+  if (/^[A-Z]{2,}(\s+[A-Z]{2,})+$/.test(trimmed)) return false;
   
   // All numbers (likely invalid)
   if (/^\d+$/.test(trimmed)) return false;

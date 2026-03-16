@@ -2,6 +2,7 @@ import { authHeader } from './auth';
 import type {
   AdminCompanyListResponse,
   AdminCompanyDetail,
+  AdminJob,
   CrawlRun,
   UpsertSeedRequest,
   TriggerCrawlRequest,
@@ -75,6 +76,13 @@ export async function upsertSeed(body: UpsertSeedRequest): Promise<{ status: str
   });
 }
 
+export async function deleteSeed(companyId: string, url: string): Promise<{ status: string }> {
+  return request(`/crawler/companies/${companyId}/seeds`, {
+    method: 'DELETE',
+    body: JSON.stringify({ url }),
+  });
+}
+
 // ---------------------------------------------------------------------------
 // Crawl trigger
 // ---------------------------------------------------------------------------
@@ -114,6 +122,23 @@ export async function listRuns(
 // Sync
 // ---------------------------------------------------------------------------
 
+export async function listJobsForCompany(
+  companyId: string,
+  limit = 200,
+): Promise<{ data: AdminJob[]; total: number }> {
+  return request(`/crawler/companies/${companyId}/jobs?limit=${limit}`);
+}
+
+export async function deleteJobsForCompany(
+  companyId: string,
+  jobIds?: string[],
+): Promise<{ deleted: number }> {
+  return request(`/crawler/companies/${companyId}/jobs`, {
+    method: 'DELETE',
+    body: JSON.stringify({ jobIds: jobIds ?? [] }),
+  });
+}
+
 export async function syncManifest(): Promise<{ status: string; message: string }> {
   return request('/crawler/sync-manifest', { method: 'POST' });
 }
@@ -152,6 +177,15 @@ export async function wipeSilver(): Promise<any> {
 
 export async function deleteDataset(datasetId: string): Promise<any> {
   return request(`/pipeline/datasets/${datasetId}`, { method: 'DELETE' });
+}
+
+export async function createCrawlerDailyBatch(date?: string): Promise<any> {
+  const qs = date ? `?date=${date}` : '';
+  return request(`/crawler/daily-batch${qs}`, { method: 'POST' });
+}
+
+export async function processCrawlerDataset(datasetId: string): Promise<any> {
+  return request(`/crawler/process-dataset?datasetId=${datasetId}`, { method: 'POST' });
 }
 
 export async function syncCompanies(): Promise<any> {

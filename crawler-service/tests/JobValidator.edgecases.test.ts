@@ -49,7 +49,96 @@ describe('JobValidator - Edge Cases', () => {
     });
   });
 
+  describe('listing-page jobs (no applyUrl)', () => {
+    // Listing pages don't have direct apply URLs — only platformUrl (job detail link).
+    // Removing the applyUrl confidence penalty means these jobs should pass validation
+    // even with sparse metadata, as long as they have a title and location.
+    it('accepts a listing-page job with title + location but no applyUrl or optional fields', () => {
+      const result = validateJob({
+        platformId: 'test',
+        source: 'Crawler',
+        title: 'Mobile Software Engineer',
+        companyName: 'Datacom',
+        location: 'Auckland, New Zealand',
+        descriptionHtml: null,
+        descriptionText: null,
+        employmentType: null,
+        seniorityLevel: null,
+        workModel: null,
+        department: null,
+        postedAt: null,
+        applyUrl: null,
+        platformUrl: 'https://datacom.com/nz/en/careers/search/job/12345',
+      });
+      expect(result.valid).toBe(true);
+      expect(result.confidence).toBeGreaterThanOrEqual(0.5);
+    });
+
+    it('accepts a listing-page job with title only (no location, no applyUrl)', () => {
+      // Worst-case listing page: only a title was extracted
+      const result = validateJob({
+        platformId: 'test',
+        source: 'Crawler',
+        title: 'Senior Software Engineer',
+        companyName: 'Datacom',
+        location: null,
+        descriptionHtml: null,
+        descriptionText: null,
+        employmentType: null,
+        seniorityLevel: null,
+        workModel: null,
+        department: null,
+        postedAt: null,
+        applyUrl: null,
+        platformUrl: null,
+      });
+      // title only: 1.0 − 0.15 (no location) − 0.10 − 0.10 − 0.10 = 0.55
+      expect(result.valid).toBe(true);
+      expect(result.confidence).toBeCloseTo(0.55);
+    });
+  });
+
   describe('location validation', () => {
+    it('accepts single all-caps city names (e.g. AUCKLAND)', () => {
+      const result = validateJob({
+        platformId: 'test',
+        source: 'Crawler',
+        title: 'Software Engineer',
+        companyName: 'Datacom',
+        location: 'AUCKLAND',
+        descriptionHtml: null,
+        descriptionText: null,
+        employmentType: null,
+        seniorityLevel: null,
+        workModel: null,
+        department: null,
+        postedAt: null,
+        applyUrl: null,
+        platformUrl: null,
+      });
+      expect(result.valid).toBe(true);
+    });
+
+    it('rejects multi-word all-caps strings that look like instructions', () => {
+      const result = validateJob({
+        platformId: 'test',
+        source: 'Crawler',
+        title: 'Software Engineer',
+        companyName: 'Test',
+        location: 'APPLY NOW',
+        descriptionHtml: null,
+        descriptionText: null,
+        employmentType: null,
+        seniorityLevel: null,
+        workModel: null,
+        department: null,
+        postedAt: null,
+        applyUrl: null,
+        platformUrl: null,
+      });
+      expect(result.errors).toContain('Location format appears invalid');
+    });
+
     it('accepts 2-letter ISO country codes', () => {
       const job = {
         platformId: 'test',

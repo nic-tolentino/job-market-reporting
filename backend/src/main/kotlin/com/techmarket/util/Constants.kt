@@ -58,6 +58,7 @@ object Constants {
     const val SOURCE_ATS = "ATS"
     const val SOURCE_GREENHOUSE = "Greenhouse"
     const val SOURCE_LEVER = "Lever"
+    const val SOURCE_CRAWLER = "crawler"
 
     /**
      * Webhook event types.

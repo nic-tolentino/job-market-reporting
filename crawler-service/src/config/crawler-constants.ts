@@ -102,6 +102,22 @@ export const NEGATIVE_KEYWORDS = [
 ] as const;
 
 // ---------------------------------------------------------------------------
+// Job detail page enrichment
+// ---------------------------------------------------------------------------
+/**
+ * Maximum number of individual job detail pages to fetch after listing extraction.
+ * Kept low to avoid triggering bot detection on rate-sensitive ATS providers (e.g. Ashby).
+ * Only tech-filtered jobs reach this stage, so 100 covers most realistic engineering headcounts.
+ */
+export const MAX_DETAIL_PAGES = 100;
+
+/**
+ * Delay (ms) inserted before each job detail page request to reduce the crawl
+ * rate and avoid triggering IP-level rate limits on ATS providers.
+ */
+export const INTER_DETAIL_DELAY_MS = 1200;
+
+// ---------------------------------------------------------------------------
 // Misc
 // ---------------------------------------------------------------------------
 /** Maximum character length kept from an error message before truncation. */

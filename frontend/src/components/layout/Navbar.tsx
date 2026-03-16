@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Sun, Moon, Monitor } from 'lucide-react';
 import { useTheme } from 'next-themes';
@@ -39,9 +40,51 @@ function ThemeToggle() {
 export default function Navbar() {
     const { selectedCountry, setSelectedCountry } = useAppStore();
     const currentCountry = countries.find(c => c.code === selectedCountry);
+    const [isVisible, setIsVisible] = useState(true);
+    const [isFocused, setIsFocused] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const lastScrollY = useRef(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            const delta = currentScrollY - lastScrollY.current;
+
+            setIsScrolled(currentScrollY > 10);
+
+            // Threshold to avoid jitter
+            if (Math.abs(delta) < 5) return;
+
+            if (currentScrollY < 10) {
+                // Always show at the top
+                setIsVisible(true);
+            } else if (isFocused) {
+                // Always show if focused
+                setIsVisible(true);
+            } else if (delta > 0 && currentScrollY > 64) {
+                // Scrolling down and past navbar height
+                setIsVisible(false);
+            } else if (delta < 0) {
+                // Scrolling up
+                setIsVisible(true);
+            }
+
+            lastScrollY.current = currentScrollY;
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isFocused]);
 
     return (
-        <nav className="sticky top-0 z-50 w-full border-b border-border bg-card shadow-theme-sm">
+        <nav 
+            onFocus={() => setIsVisible(true)}
+            onFocusCapture={() => setIsFocused(true)}
+            onBlurCapture={() => setIsFocused(false)}
+            className={`sticky top-0 z-50 w-full border-b border-border bg-card transition-all duration-300 ease-in-out ${
+                isVisible ? 'translate-y-0' : '-translate-y-full'
+            } ${isScrolled ? 'shadow-theme-sm' : ''}`}
+        >
             <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center gap-2">
                     <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-primary hover:text-accent transition-colors group">

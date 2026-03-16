@@ -9,7 +9,10 @@ import com.google.cloud.bigquery.QueryJobConfiguration
 import com.techmarket.persistence.crawler.CrawlerSeedRepository
 import com.techmarket.persistence.crawler.CrawlRunRepository
 import com.techmarket.service.CrawlLogService
+import com.techmarket.persistence.job.JobRepository
 import com.techmarket.sync.CompanySyncService
+import com.techmarket.sync.CrawlerDataSyncService
+import com.techmarket.sync.CrawlerJobPersistenceService
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.BeforeEach
@@ -30,6 +33,9 @@ class CrawlerAdminControllerTest {
     private lateinit var crawlRunRepository: CrawlRunRepository
     private lateinit var crawlLogService: CrawlLogService
     private lateinit var companySyncService: CompanySyncService
+    private lateinit var crawlerJobPersistenceService: CrawlerJobPersistenceService
+    private lateinit var crawlerDataSyncService: CrawlerDataSyncService
+    private lateinit var jobRepository: JobRepository
     private val objectMapper: ObjectMapper = jacksonObjectMapper()
 
     @BeforeEach
@@ -40,6 +46,9 @@ class CrawlerAdminControllerTest {
         crawlRunRepository = mockk()
         crawlLogService = mockk()
         companySyncService = mockk()
+        crawlerJobPersistenceService = mockk()
+        crawlerDataSyncService = mockk(relaxed = true)
+        jobRepository = mockk(relaxed = true)
 
         every { bigQueryProvider.ifAvailable } returns bigQuery
 
@@ -49,6 +58,9 @@ class CrawlerAdminControllerTest {
             crawlRunRepository,
             crawlLogService,
             companySyncService,
+            crawlerJobPersistenceService,
+            crawlerDataSyncService,
+            jobRepository,
             objectMapper,
             "test-dataset",
             "http://localhost:8083"
@@ -66,6 +78,9 @@ class CrawlerAdminControllerTest {
             crawlRunRepository,
             crawlLogService,
             companySyncService,
+            crawlerJobPersistenceService,
+            crawlerDataSyncService,
+            jobRepository,
             objectMapper,
             "test-dataset",
             "http://localhost:8083"

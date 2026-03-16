@@ -108,6 +108,28 @@ class CrawlerSeedRepository(
     }
 
     /**
+     * Deletes a single seed by (company_id, url) composite key.
+     */
+    fun delete(companyId: String, url: String) {
+        if (bigQuery == null) {
+            log.warn("BigQuery unavailable — skipping delete for $companyId / $url")
+            return
+        }
+        val sql = "DELETE FROM `$datasetName.$table` WHERE company_id = @company_id AND url = @url"
+        val config = QueryJobConfiguration.newBuilder(sql)
+            .addNamedParameter("company_id", QueryParameterValue.string(companyId))
+            .addNamedParameter("url", QueryParameterValue.string(url))
+            .build()
+        try {
+            bigQuery.query(config)
+            log.info("Deleted crawler_seeds row for $companyId / $url")
+        } catch (e: Exception) {
+            log.error("Failed to delete crawler_seeds for $companyId / $url: ${e.message}", e)
+            throw e
+        }
+    }
+
+    /**
      * Returns all seeds for a given company, ordered by last_crawled_at desc.
      */
     fun findByCompanyId(companyId: String): List<CrawlerSeedRecord> {

@@ -1,27 +1,45 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Terminal, Activity, XCircle } from 'lucide-react';
 import { useCrawlLogs } from '../hooks/useCrawlLogs';
 
+const URL_RE = /https?:\/\/[^\s]+/g;
+
+/** Renders a log message, highlighting any embedded URLs in cyan. */
+function LogMessage({ message }: { message: string }) {
+  const parts: React.ReactNode[] = [];
+  let last = 0;
+  let match: RegExpExecArray | null;
+  URL_RE.lastIndex = 0;
+  while ((match = URL_RE.exec(message)) !== null) {
+    if (match.index > last) parts.push(message.slice(last, match.index));
+    parts.push(
+      <span key={match.index} className="text-cyan-400 break-all">{match[0]}</span>
+    );
+    last = match.index + match[0].length;
+  }
+  if (last < message.length) parts.push(message.slice(last));
+  return <span className="text-gray-300 break-all">{parts}</span>;
+}
+
 export function ActiveCrawlMonitor() {
   const { logs, status, clearLogs } = useCrawlLogs();
-  const [activeCrawls, setActiveCrawls] = useState<Set<string>>(new Set());
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // Auto-scroll to bottom when new logs arrive
   useEffect(() => {
-    // Recompute active crawls based on current log buffer
-    const active = new Set<string>();
-    
-    // Process logs from oldest to newest to track status accurately
-    [...logs].reverse().forEach(log => {
-      if (log.message.includes('Starting')) {
-        if (log.companyId) active.add(log.companyId);
-      } else if (log.message.includes('finished') || log.message.includes('failed')) {
-        if (log.companyId) active.delete(log.companyId);
-      }
-    });
-    
-    setActiveCrawls(active);
+    const el = scrollRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
   }, [logs]);
+
+  // Derive active crawls from log stream
+  const activeCrawls = new Set<string>();
+  [...logs].reverse().forEach(log => {
+    if (log.message.startsWith('Starting crawl')) {
+      if (log.companyId) activeCrawls.add(log.companyId);
+    } else if (log.message.startsWith('Crawl complete') || log.message.startsWith('Crawl failed')) {
+      if (log.companyId) activeCrawls.delete(log.companyId);
+    }
+  });
 
   return (
     <div className="bg-gray-900 rounded-lg border border-gray-800 flex flex-col h-[400px]">
@@ -36,7 +54,7 @@ export function ActiveCrawlMonitor() {
           )}
         </div>
         <div className="flex items-center gap-3">
-          <button 
+          <button
             onClick={clearLogs}
             className="text-[10px] text-gray-500 hover:text-gray-300 transition-colors uppercase font-bold"
           >
@@ -55,7 +73,7 @@ export function ActiveCrawlMonitor() {
         </div>
       </div>
 
-      <div 
+      <div
         ref={scrollRef}
         className="flex-1 overflow-auto p-4 font-mono text-[11px] space-y-1.5 selection:bg-blue-500/30"
       >
@@ -63,17 +81,22 @@ export function ActiveCrawlMonitor() {
           <div className="text-gray-600 italic">Waiting for crawl activity...</div>
         )}
         {logs.map((log, i) => (
-          <div key={i} className="flex gap-2">
+          <div key={i} className={`flex gap-2 rounded px-1 -mx-1 ${
+            log.level === 'ERROR'   ? 'bg-red-950/30' :
+            log.level === 'WARNING' ? 'bg-yellow-950/30' :
+            log.level === 'SUCCESS' ? 'bg-green-950/20' : ''
+          }`}>
             <span className="text-gray-500 shrink-0">
               [{new Date(log.timestamp).toLocaleTimeString([], { hour12: false })}]
             </span>
             <span className={`shrink-0 font-bold ${
-              log.level === 'ERROR' ? 'text-red-400' : 
-              log.level === 'SUCCESS' ? 'text-green-400' : 'text-blue-400'
+              log.level === 'ERROR'   ? 'text-red-400' :
+              log.level === 'SUCCESS' ? 'text-green-400' :
+              log.level === 'WARNING' ? 'text-yellow-400' : 'text-blue-400'
             }`}>
               {(log.companyId || 'SYSTEM').padStart(12)}
             </span>
-            <span className="text-gray-300 break-all">{log.message}</span>
+            <LogMessage message={log.message} />
           </div>
         ))}
       </div>
