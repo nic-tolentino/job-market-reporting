@@ -25,12 +25,21 @@ echo "  Full Deployment: Backend + Crawler"
 echo "========================================"
 echo ""
 
-echo "--- Step 1/2: Backend ---"
-"$DIR/deploy-backend.sh" $CLOUD_FLAG
-
+echo "--- Starting Parallel Deployment: Backend & Crawler ---"
+echo "(Outputs will be interleaved, but this is 2x faster)"
 echo ""
-echo "--- Step 2/2: Crawler Service ---"
-"$DIR/deploy-crawler.sh" $CLOUD_FLAG
+
+# Start backend deployment in background
+"$DIR/deploy-backend.sh" $CLOUD_FLAG &
+BACKEND_PID=$!
+
+# Start crawler deployment in background
+"$DIR/deploy-crawler.sh" $CLOUD_FLAG &
+CRAWLER_PID=$!
+
+# Wait for both to finish
+wait $BACKEND_PID
+wait $CRAWLER_PID
 
 echo ""
 echo "========================================"

@@ -12,7 +12,7 @@
     "test:e2e": "jest --config jest.e2e.config.js",
     "lint": "eslint src --ext .ts",
     "typecheck": "tsc --noEmit",
-    "deploy": "../scripts/deployment/deploy-crawler-vertex.sh"
+    "deploy": "../scripts/deployment/deploy-crawler.sh"
   },
   "dependencies": {
     "axios": "^1.13.6",

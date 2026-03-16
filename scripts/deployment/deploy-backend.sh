@@ -70,7 +70,7 @@ else
 
     echo "📦 Building Docker image locally..."
     # --platform linux/amd64 is crucial for Mac M1/M2/M3 compatibility with Cloud Run
-    docker build --platform linux/amd64 -t "$IMAGE_TAG" .
+    time docker build --platform linux/amd64 -t "$IMAGE_TAG" .
 
     if [ $? -ne 0 ]; then
         echo "❌ Docker build failed."
@@ -79,7 +79,7 @@ else
     fi
 
     echo "📤 Pushing image to Google Artifact Registry..."
-    docker push "$IMAGE_TAG"
+    time docker push "$IMAGE_TAG"
 
     if [ $? -ne 0 ]; then
         echo "❌ Docker push failed."
