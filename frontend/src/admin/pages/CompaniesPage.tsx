@@ -48,7 +48,7 @@ function SortableHeader({
   const active = currentSort === field;
   return (
     <th
-      className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wide cursor-pointer hover:bg-gray-100 transition-colors group"
+      className="px-4 py-2 text-xs font-medium text-muted uppercase tracking-wide cursor-pointer hover:bg-surface-hover transition-colors group"
       onClick={() => onSort(field)}
     >
       <div className="flex items-center gap-1">
@@ -70,7 +70,7 @@ function CompanyRow({
 }) {
   return (
     <tr
-      className="hover:bg-gray-50 cursor-pointer border-b border-gray-100"
+      className="hover:bg-surface-hover cursor-pointer border-b border-border-subtle"
       onClick={onClick}
     >
       <td className="px-4 py-3">
@@ -83,38 +83,38 @@ function CompanyRow({
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
             />
           ) : (
-            <div className="w-6 h-6 rounded bg-gray-200 flex items-center justify-center text-xs text-gray-500">
+            <div className="w-6 h-6 rounded bg-elevated flex items-center justify-center text-xs text-muted">
               {company.name[0]}
             </div>
           )}
           <div>
-            <p className="text-sm font-medium text-gray-900">{company.name}</p>
-            <p className="text-xs text-gray-400 font-mono">{company.companyId}</p>
+            <p className="text-sm font-medium text-primary">{company.name}</p>
+            <p className="text-xs text-muted font-mono">{company.companyId}</p>
           </div>
         </div>
       </td>
       <td className="px-4 py-3">
         <StatusBadge status={company.seedStatus} />
       </td>
-      <td className="px-4 py-3 text-sm text-gray-600">
-        {company.atsProvider ?? <span className="text-gray-300">—</span>}
+      <td className="px-4 py-3 text-sm text-secondary">
+        {company.atsProvider ?? <span className="text-muted">—</span>}
       </td>
-      <td className="px-4 py-3 text-sm text-gray-600">
+      <td className="px-4 py-3 text-sm text-secondary">
         {formatDate(company.lastCrawledAt)}
       </td>
       <td className="px-4 py-3 text-sm">
         {company.seedCount > 0 ? (
-          <span className={company.totalJobsLastRun === 0 ? 'text-orange-500' : 'text-gray-900'}>
+          <span className={company.totalJobsLastRun === 0 ? 'text-orange-500 dark:text-orange-400' : 'text-primary'}>
             {company.totalJobsLastRun}
           </span>
         ) : (
-          <span className="text-gray-300">—</span>
+          <span className="text-muted">—</span>
         )}
       </td>
-      <td className="px-4 py-3 text-sm text-gray-600">
-        {company.hqCountry ?? <span className="text-gray-300">—</span>}
+      <td className="px-4 py-3 text-sm text-secondary">
+        {company.hqCountry ?? <span className="text-muted">—</span>}
       </td>
-      <td className="px-4 py-3 text-sm text-gray-500">
+      <td className="px-4 py-3 text-sm text-muted">
         {company.seedCount}
       </td>
     </tr>
@@ -188,19 +188,19 @@ export function CompaniesPage() {
       {/* Main content */}
       <div className={`flex-1 flex flex-col min-w-0 ${selected ? 'hidden md:flex' : 'flex'}`}>
         {/* Toolbar */}
-        <div className="px-6 py-4 border-b border-gray-200 bg-white space-y-3">
+        <div className="px-6 py-4 border-b border-border bg-card space-y-3">
           <div className="flex items-center gap-3">
             <div className="relative flex-1 max-w-xs">
-              <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400" />
+              <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted" />
               <input
-                className="w-full pl-8 pr-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-8 pr-3 py-1.5 text-sm border border-border bg-card text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                 placeholder="Search companies…"
                 value={search}
                 onChange={(e) => handleSearchChange(e.target.value)}
               />
             </div>
             <select
-              className="text-sm border border-gray-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-sm border border-border bg-card text-primary rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-accent"
               value={seedStatus}
               onChange={(e) => { setSeedStatus(e.target.value); setPage(0); }}
             >
@@ -211,14 +211,14 @@ export function CompaniesPage() {
             {(debouncedSearch || seedStatus) && (
               <button
                 onClick={() => { setSearch(''); setDebouncedSearch(''); setSeedStatus(''); setPage(0); }}
-                className="text-xs text-gray-500 hover:text-gray-800"
+                className="text-xs text-muted hover:text-primary"
               >
                 Clear
               </button>
             )}
             <div className="ml-auto flex items-center gap-2">
               {syncResult && (
-                <span className={`text-xs ${syncResult.startsWith('Error') ? 'text-red-500' : 'text-green-600'}`}>
+                <span className={`text-xs ${syncResult.startsWith('Error') ? 'text-red-500 dark:text-red-400' : 'text-green-600 dark:text-green-400'}`}>
                   {syncResult}
                 </span>
               )}
@@ -226,7 +226,7 @@ export function CompaniesPage() {
                 onClick={handleSyncManifest}
                 disabled={syncing}
                 title="Sync company manifest (reads data/companies/**/*.json → BigQuery)"
-                className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-gray-300 text-gray-600 hover:border-gray-500 hover:text-gray-900 disabled:opacity-50 transition-colors"
+                className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-border text-secondary hover:border-primary hover:text-primary disabled:opacity-50 transition-colors"
               >
                 <RefreshCw size={12} className={syncing ? 'animate-spin' : ''} />
                 Sync manifest
@@ -245,8 +245,8 @@ export function CompaniesPage() {
                 }}
                 className={`text-xs px-3 py-1 rounded-full border transition-colors ${
                   seedStatus === (preset.seedStatus ?? '')
-                    ? 'bg-blue-600 text-white border-blue-600'
-                    : 'border-gray-300 text-gray-600 hover:border-gray-500'
+                    ? 'bg-accent text-inverted border-accent'
+                    : 'border-border text-secondary hover:border-primary'
                 }`}
               >
                 {preset.label}
@@ -258,12 +258,12 @@ export function CompaniesPage() {
         {/* Table */}
         <div className="flex-1 overflow-auto">
           {error && (
-            <div className="p-6 text-red-500 text-sm">
+            <div className="p-6 text-red-500 dark:text-red-400 text-sm">
               Error: {(error as Error).message}
             </div>
           )}
           <table className="w-full text-left">
-            <thead className="sticky top-0 bg-gray-50 border-b border-gray-200 z-10">
+            <thead className="sticky top-0 bg-elevated border-b border-border z-10">
               <tr>
                 <SortableHeader label="Company" field="name" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
                 <SortableHeader label="Seed" field="seedStatus" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
@@ -277,7 +277,7 @@ export function CompaniesPage() {
             <tbody>
               {isLoading && !data && (
                 <tr>
-                  <td colSpan={7} className="px-4 py-12 text-center text-sm text-gray-400">
+                  <td colSpan={7} className="px-4 py-12 text-center text-sm text-muted">
                     Loading…
                   </td>
                 </tr>
@@ -291,7 +291,7 @@ export function CompaniesPage() {
               ))}
               {data?.data.length === 0 && !isLoading && (
                 <tr>
-                  <td colSpan={7} className="px-4 py-12 text-center text-sm text-gray-400">
+                  <td colSpan={7} className="px-4 py-12 text-center text-sm text-muted">
                     No companies found
                   </td>
                 </tr>
@@ -302,22 +302,22 @@ export function CompaniesPage() {
 
         {/* Pagination */}
         {data && totalPages > 1 && (
-          <div className="px-6 py-3 border-t border-gray-200 bg-white flex items-center justify-between">
-            <p className="text-xs text-gray-500">
+          <div className="px-6 py-3 border-t border-border bg-card flex items-center justify-between">
+            <p className="text-xs text-muted">
               {data.total.toLocaleString()} companies · page {page + 1} of {totalPages}
             </p>
             <div className="flex gap-2">
               <button
                 onClick={() => setPage((p) => Math.max(0, p - 1))}
                 disabled={page === 0}
-                className="p-1 rounded text-gray-500 hover:text-gray-800 disabled:opacity-30"
+                className="p-1 rounded text-muted hover:text-primary disabled:opacity-30"
               >
                 <ChevronLeft size={16} />
               </button>
               <button
                 onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
                 disabled={page >= totalPages - 1}
-                className="p-1 rounded text-gray-500 hover:text-gray-800 disabled:opacity-30"
+                className="p-1 rounded text-muted hover:text-primary disabled:opacity-30"
               >
                 <ChevronRight size={16} />
               </button>
@@ -328,7 +328,7 @@ export function CompaniesPage() {
 
       {/* Detail panel (slide-in) */}
       {selected && (
-        <div className="w-full md:w-[480px] border-l border-gray-200 bg-white flex flex-col h-full overflow-hidden">
+        <div className="w-full md:w-[480px] border-l border-border bg-card flex flex-col h-full overflow-hidden">
           <CompanyDetailPanel
             companyId={selected.companyId}
             companyName={selected.name}

@@ -4,12 +4,13 @@ interface StatusBadgeProps {
 }
 
 const statusConfig: Record<string, { bg: string; text: string; label: string }> = {
-  ACTIVE:  { bg: 'bg-green-100',  text: 'text-green-800',  label: 'Active'   },
-  STALE:   { bg: 'bg-yellow-100', text: 'text-yellow-800', label: 'Stale'    },
-  BLOCKED: { bg: 'bg-red-100',    text: 'text-red-800',    label: 'Blocked'  },
-  TIMEOUT: { bg: 'bg-orange-100', text: 'text-orange-800', label: 'Timeout'  },
-  FAILED:  { bg: 'bg-red-100',    text: 'text-red-800',    label: 'Failed'   },
-  NONE:    { bg: 'bg-gray-100',   text: 'text-gray-500',   label: 'No seed'  },
+  ACTIVE:       { bg: 'bg-green-100 dark:bg-green-900/30',   text: 'text-green-800 dark:text-green-300',   label: 'Active'   },
+  STALE:        { bg: 'bg-yellow-100 dark:bg-yellow-900/30', text: 'text-yellow-800 dark:text-yellow-300', label: 'Stale'    },
+  BLOCKED:      { bg: 'bg-red-100 dark:bg-red-900/30',       text: 'text-red-800 dark:text-red-300',       label: 'Blocked'  },
+  TIMEOUT:      { bg: 'bg-orange-100 dark:bg-orange-900/30', text: 'text-orange-800 dark:text-orange-300', label: 'Timeout'  },
+  FAILED:       { bg: 'bg-red-100 dark:bg-red-900/30',       text: 'text-red-800 dark:text-red-300',       label: 'Failed'   },
+  COMPLETED:    { bg: 'bg-green-100 dark:bg-green-900/30',   text: 'text-green-800 dark:text-green-300',   label: 'Done'     },
+  NONE:         { bg: 'bg-elevated',                         text: 'text-muted',                           label: 'No seed'  },
 };
 
 export function StatusBadge({ status, size = 'sm' }: StatusBadgeProps) {

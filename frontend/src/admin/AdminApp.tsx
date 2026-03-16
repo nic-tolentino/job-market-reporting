@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ThemeProvider } from 'next-themes';
 import { isAuthenticated } from './lib/auth';
 import { AdminLayout } from './AdminLayout';
 import { LoginPage } from './pages/LoginPage';
@@ -28,6 +29,7 @@ export function AdminApp() {
   }
 
   return (
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
     <QueryClientProvider client={queryClient}>
       <ActiveCrawlProvider>
         <Routes>
@@ -42,5 +44,6 @@ export function AdminApp() {
         </Routes>
       </ActiveCrawlProvider>
     </QueryClientProvider>
+    </ThemeProvider>
   );
 }

@@ -41,20 +41,20 @@ function SeedRow({
 
   if (editing) {
     return (
-      <div className="border border-blue-200 rounded-lg p-3 bg-blue-50 space-y-2">
+      <div className="border border-blue-200 dark:border-blue-800 rounded-lg p-3 bg-blue-50 dark:bg-blue-900/20 space-y-2">
         <div>
-          <label className="text-xs text-gray-600 block mb-0.5">URL</label>
+          <label className="text-xs text-secondary block mb-0.5">URL</label>
           <input
-            className="w-full text-sm border border-gray-300 rounded px-2 py-1 font-mono"
+            className="w-full text-sm border border-border bg-card text-primary rounded px-2 py-1 font-mono focus:outline-none focus:ring-2 focus:ring-accent"
             value={editUrl}
             onChange={(e) => setEditUrl(e.target.value)}
           />
         </div>
         <div className="flex gap-2">
           <div className="flex-1">
-            <label className="text-xs text-gray-600 block mb-0.5">Category</label>
+            <label className="text-xs text-secondary block mb-0.5">Category</label>
             <select
-              className="w-full text-sm border border-gray-300 rounded px-2 py-1"
+              className="w-full text-sm border border-border bg-card text-primary rounded px-2 py-1"
               value={editCategory}
               onChange={(e) => setEditCategory(e.target.value as any)}
             >
@@ -62,9 +62,9 @@ function SeedRow({
             </select>
           </div>
           <div className="flex-1">
-            <label className="text-xs text-gray-600 block mb-0.5">Status</label>
+            <label className="text-xs text-secondary block mb-0.5">Status</label>
             <select
-              className="w-full text-sm border border-gray-300 rounded px-2 py-1"
+              className="w-full text-sm border border-border bg-card text-primary rounded px-2 py-1"
               value={editStatus}
               onChange={(e) => setEditStatus(e.target.value as any)}
             >
@@ -76,43 +76,43 @@ function SeedRow({
           <button
             onClick={() => mutation.mutate()}
             disabled={mutation.isPending}
-            className="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 disabled:opacity-50"
+            className="text-sm bg-accent text-inverted px-3 py-1 rounded hover:bg-accent-hover disabled:opacity-50"
           >
             {mutation.isPending ? 'Saving…' : 'Save'}
           </button>
           <button
             onClick={() => setEditing(false)}
-            className="text-sm text-gray-600 px-3 py-1 rounded border border-gray-300 hover:bg-gray-100"
+            className="text-sm text-secondary px-3 py-1 rounded border border-border hover:bg-surface-hover"
           >
             Cancel
           </button>
         </div>
         {mutation.isError && (
-          <p className="text-xs text-red-600">{(mutation.error as Error).message}</p>
+          <p className="text-xs text-red-600 dark:text-red-400">{(mutation.error as Error).message}</p>
         )}
       </div>
     );
   }
 
   return (
-    <div className="border border-gray-200 rounded-lg p-3 hover:border-gray-300 transition-colors">
+    <div className="border border-border rounded-lg p-3 hover:border-border transition-colors">
       <div className="flex items-start justify-between gap-2">
         <div className="flex-1 min-w-0">
-          <p className="text-xs font-mono text-gray-700 truncate">{seed.url}</p>
+          <p className="text-xs font-mono text-secondary truncate">{seed.url}</p>
           <div className="flex items-center gap-2 mt-1">
             <StatusBadge status={seed.status} />
             {seed.category && (
-              <span className="text-xs text-gray-500 bg-gray-100 rounded px-1.5 py-0.5">
+              <span className="text-xs text-muted bg-elevated rounded px-1.5 py-0.5">
                 {seed.category}
               </span>
             )}
             {seed.atsProvider && (
-              <span className="text-xs text-purple-700 bg-purple-50 rounded px-1.5 py-0.5">
+              <span className="text-xs text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-900/30 rounded px-1.5 py-0.5">
                 {seed.atsProvider}
               </span>
             )}
           </div>
-          <div className="flex gap-3 mt-1.5 text-xs text-gray-500">
+          <div className="flex gap-3 mt-1.5 text-xs text-muted">
             {seed.lastKnownJobCount !== null && (
               <span>{seed.lastKnownJobCount} jobs</span>
             )}
@@ -120,43 +120,43 @@ function SeedRow({
               <span>crawled {new Date(seed.lastCrawledAt).toLocaleDateString()}</span>
             )}
             {seed.consecutiveZeroYieldCount > 0 && (
-              <span className="text-orange-600">{seed.consecutiveZeroYieldCount}× zero yield</span>
+              <span className="text-orange-600 dark:text-orange-400">{seed.consecutiveZeroYieldCount}× zero yield</span>
             )}
           </div>
           {seed.atsDirectUrl && (
             <div className="mt-1.5 flex items-center gap-1 text-xs">
-              <span className="text-gray-500">ATS hint:</span>
+              <span className="text-muted">ATS hint:</span>
               <a
                 href={seed.atsDirectUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="text-blue-600 underline truncate max-w-[200px]"
+                className="text-blue-600 dark:text-blue-400 underline truncate max-w-[200px]"
               >
                 {seed.atsDirectUrl}
               </a>
               <button
                 onClick={() => onTriggerCrawl(seed.atsDirectUrl!)}
-                className="text-blue-600 hover:text-blue-800 font-medium"
+                className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 font-medium"
               >
                 Use as seed
               </button>
             </div>
           )}
           {seed.errorMessage && (
-            <p className="mt-1 text-xs text-red-500 truncate">{seed.errorMessage}</p>
+            <p className="mt-1 text-xs text-red-500 dark:text-red-400 truncate">{seed.errorMessage}</p>
           )}
         </div>
         <div className="flex gap-1 shrink-0">
           <button
             onClick={() => onTriggerCrawl(seed.url)}
             title="Crawl now"
-            className="p-1 text-gray-400 hover:text-blue-600 rounded"
+            className="p-1 text-muted hover:text-accent rounded"
           >
             <RefreshCw size={14} />
           </button>
           <button
             onClick={() => setEditing(true)}
-            className="text-xs text-gray-500 hover:text-gray-800 px-2 py-1 rounded border border-gray-200 hover:border-gray-400"
+            className="text-xs text-muted hover:text-primary px-2 py-1 rounded border border-border hover:border-primary"
           >
             Edit
           </button>
@@ -222,20 +222,20 @@ export function CompanyDetailPanel({
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="p-4 border-b border-gray-200 bg-white">
+      <div className="p-4 border-b border-border bg-card">
         <div className="flex items-start justify-between">
           <div>
-            <h2 className="font-semibold text-gray-900 text-sm">{data?.name || companyName}</h2>
+            <h2 className="font-semibold text-primary text-sm">{data?.name || companyName}</h2>
             <div className="flex items-center gap-2 mt-0.5">
-              <p className="text-xs text-gray-400 font-mono">{companyId}</p>
+              <p className="text-xs text-muted font-mono">{companyId}</p>
               {data?.website && (
                 <>
-                  <span className="text-gray-300">·</span>
+                  <span className="text-muted">·</span>
                   <a
                     href={data.website}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-xs text-blue-600 hover:underline"
+                    className="text-xs text-blue-600 dark:text-blue-400 hover:underline"
                   >
                     Website
                   </a>
@@ -247,12 +247,12 @@ export function CompanyDetailPanel({
             <button
               onClick={handleOpenCrawlForm}
               disabled={isThisCrawlRunning}
-              className="flex items-center gap-1.5 text-xs px-3 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+              className="flex items-center gap-1.5 text-xs px-3 py-1.5 bg-accent text-inverted rounded-lg hover:bg-accent-hover disabled:opacity-50 transition-colors"
             >
               <RefreshCw size={12} className={isThisCrawlRunning ? 'animate-spin' : ''} />
               {isThisCrawlRunning ? 'Crawling…' : 'Crawl'}
             </button>
-            <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+            <button onClick={onClose} className="text-muted hover:text-secondary">
               <X size={18} />
             </button>
           </div>
@@ -260,27 +260,27 @@ export function CompanyDetailPanel({
 
         {/* Crawl form */}
         {crawlFormOpen && (
-          <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg space-y-2">
+          <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg space-y-2">
             {/* Seed quick-pick */}
             {data?.seeds && data.seeds.length > 0 && (
               <div className="space-y-1">
-                <p className="text-xs font-medium text-gray-700">Crawl a seed</p>
+                <p className="text-xs font-medium text-secondary">Crawl a seed</p>
                 {data.seeds.map((seed) => (
                   <button
                     key={seed.url}
                     onClick={() => handleStartCrawl(seed.url)}
-                    className="w-full text-left text-xs px-2 py-1.5 rounded border border-blue-200 bg-white hover:bg-blue-100 transition-colors flex items-center gap-2"
+                    className="w-full text-left text-xs px-2 py-1.5 rounded border border-blue-200 dark:border-blue-700 bg-card hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors flex items-center gap-2"
                   >
                     <StatusBadge status={seed.status} />
-                    <span className="font-mono truncate text-gray-700">{seed.url}</span>
+                    <span className="font-mono truncate text-secondary">{seed.url}</span>
                   </button>
                 ))}
-                <p className="text-xs text-gray-400 pt-1">— or enter a custom URL —</p>
+                <p className="text-xs text-muted pt-1">— or enter a custom URL —</p>
               </div>
             )}
             {/* Custom URL input */}
             <input
-              className="w-full text-sm border border-gray-300 rounded px-2 py-1.5 font-mono focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full text-sm border border-border bg-card text-primary rounded px-2 py-1.5 font-mono focus:outline-none focus:ring-2 focus:ring-accent"
               placeholder="https://careers.example.com/jobs"
               value={crawlUrl}
               onChange={(e) => setCrawlUrl(e.target.value)}
@@ -290,13 +290,13 @@ export function CompanyDetailPanel({
               <button
                 onClick={() => handleStartCrawl(crawlUrl)}
                 disabled={!crawlUrl.trim()}
-                className="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 disabled:opacity-50"
+                className="text-sm bg-accent text-inverted px-3 py-1 rounded hover:bg-accent-hover disabled:opacity-50"
               >
                 Start crawl
               </button>
               <button
                 onClick={() => setCrawlFormOpen(false)}
-                className="text-sm text-gray-600 px-3 py-1 rounded border border-gray-300 hover:bg-gray-100"
+                className="text-sm text-secondary px-3 py-1 rounded border border-border hover:bg-surface-hover"
               >
                 Cancel
               </button>
@@ -306,15 +306,15 @@ export function CompanyDetailPanel({
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-gray-200 bg-white">
+      <div className="flex border-b border-border bg-card">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
               activeTab === tab.id
-                ? 'border-blue-600 text-blue-600'
-                : 'border-transparent text-gray-500 hover:text-gray-700'
+                ? 'border-accent text-accent'
+                : 'border-transparent text-muted hover:text-secondary'
             }`}
           >
             {tab.label}
@@ -324,9 +324,9 @@ export function CompanyDetailPanel({
 
       {/* Content */}
       <div className="flex-1 overflow-y-auto p-4 space-y-3">
-        {isLoading && <p className="text-sm text-gray-500 text-center py-8">Loading…</p>}
+        {isLoading && <p className="text-sm text-muted text-center py-8">Loading…</p>}
         {error && (
-          <p className="text-sm text-red-500 text-center py-8">
+          <p className="text-sm text-red-500 dark:text-red-400 text-center py-8">
             {(error as Error).message}
           </p>
         )}
@@ -334,9 +334,11 @@ export function CompanyDetailPanel({
         {/* Crawl status banner */}
         {thisCrawlResult && (
           <div className={`text-xs px-3 py-2 rounded flex items-center justify-between gap-2 ${
-            thisCrawlResult.status === 'error' ? 'bg-red-50 text-red-700' :
-            thisCrawlResult.status === 'running' ? 'bg-blue-50 text-blue-700' :
-            'bg-green-50 text-green-700'
+            thisCrawlResult.status === 'error'
+              ? 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300'
+              : thisCrawlResult.status === 'running'
+              ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300'
+              : 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300'
           }`}>
             <span>
               {thisCrawlResult.status === 'running' && `Crawling ${thisCrawlResult.url}…`}
@@ -353,7 +355,7 @@ export function CompanyDetailPanel({
         {activeTab === 'seeds' && data && (
           <>
             {data.seeds.length === 0 && !addingNew && (
-              <p className="text-sm text-gray-500 text-center py-4">No seeds yet</p>
+              <p className="text-sm text-muted text-center py-4">No seeds yet</p>
             )}
             {data.seeds.map((seed) => (
               <SeedRow
@@ -366,16 +368,16 @@ export function CompanyDetailPanel({
 
             {/* Add seed form */}
             {addingNew ? (
-              <div className="border border-blue-200 rounded-lg p-3 bg-blue-50 space-y-2">
-                <p className="text-xs font-medium text-gray-700">New seed</p>
+              <div className="border border-blue-200 dark:border-blue-800 rounded-lg p-3 bg-blue-50 dark:bg-blue-900/20 space-y-2">
+                <p className="text-xs font-medium text-secondary">New seed</p>
                 <input
-                  className="w-full text-sm border border-gray-300 rounded px-2 py-1 font-mono"
+                  className="w-full text-sm border border-border bg-card text-primary rounded px-2 py-1 font-mono focus:outline-none focus:ring-2 focus:ring-accent"
                   placeholder="https://careers.example.com/jobs"
                   value={newUrl}
                   onChange={(e) => setNewUrl(e.target.value)}
                 />
                 <select
-                  className="w-full text-sm border border-gray-300 rounded px-2 py-1"
+                  className="w-full text-sm border border-border bg-card text-primary rounded px-2 py-1"
                   value={newCategory}
                   onChange={(e) => setNewCategory(e.target.value)}
                 >
@@ -385,13 +387,13 @@ export function CompanyDetailPanel({
                   <button
                     onClick={() => addSeedMutation.mutate()}
                     disabled={!newUrl || addSeedMutation.isPending}
-                    className="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 disabled:opacity-50"
+                    className="text-sm bg-accent text-inverted px-3 py-1 rounded hover:bg-accent-hover disabled:opacity-50"
                   >
                     {addSeedMutation.isPending ? 'Saving…' : 'Add'}
                   </button>
                   <button
                     onClick={() => setAddingNew(false)}
-                    className="text-sm text-gray-600 px-3 py-1 rounded border border-gray-300 hover:bg-gray-100"
+                    className="text-sm text-secondary px-3 py-1 rounded border border-border hover:bg-surface-hover"
                   >
                     Cancel
                   </button>
@@ -400,7 +402,7 @@ export function CompanyDetailPanel({
             ) : (
               <button
                 onClick={() => setAddingNew(true)}
-                className="w-full flex items-center justify-center gap-1 text-sm text-blue-600 border border-dashed border-blue-300 rounded-lg py-2 hover:bg-blue-50 transition-colors"
+                className="w-full flex items-center justify-center gap-1 text-sm text-accent border border-dashed border-accent/40 rounded-lg py-2 hover:bg-accent-subtle transition-colors"
               >
                 <Plus size={14} /> Add seed
               </button>
@@ -412,24 +414,24 @@ export function CompanyDetailPanel({
         {activeTab === 'history' && data && (
           <>
             {data.recentRuns.length === 0 && (
-              <p className="text-sm text-gray-500 text-center py-4">No crawl history yet</p>
+              <p className="text-sm text-muted text-center py-4">No crawl history yet</p>
             )}
             {data.recentRuns.map((run) => (
               <div
                 key={run.runId}
-                className="border border-gray-200 rounded-lg p-3 text-xs space-y-1"
+                className="border border-border rounded-lg p-3 text-xs space-y-1"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-500">
+                  <span className="text-muted">
                     {new Date(run.startedAt).toLocaleString()}
                   </span>
                   <StatusBadge status={run.status} />
                 </div>
-                <p className="font-mono text-gray-600 truncate">{run.seedUrl}</p>
-                <div className="flex gap-3 text-gray-500">
+                <p className="font-mono text-secondary truncate">{run.seedUrl}</p>
+                <div className="flex gap-3 text-muted">
                   <span>{run.jobsFinal ?? 0} jobs</span>
                   {(run.jobsRaw !== null || run.jobsValid !== null || run.jobsTech !== null) && (
-                    <span className="text-[10px] bg-gray-100 px-1 rounded">
+                    <span className="text-[10px] bg-elevated px-1 rounded">
                       {run.jobsRaw ?? '?'}/{run.jobsValid ?? '?'}/{run.jobsTech ?? '?'}
                     </span>
                   )}
@@ -438,10 +440,10 @@ export function CompanyDetailPanel({
                   {run.confidenceAvg !== null && run.confidenceAvg !== undefined && (
                     <span>conf {run.confidenceAvg.toFixed(2)}</span>
                   )}
-                  {run.atsProvider && <span className="text-purple-600">{run.atsProvider}</span>}
+                  {run.atsProvider && <span className="text-purple-600 dark:text-purple-400">{run.atsProvider}</span>}
                 </div>
                 {run.errorMessage && (
-                  <p className="text-red-500 truncate">{run.errorMessage}</p>
+                  <p className="text-red-500 dark:text-red-400 truncate">{run.errorMessage}</p>
                 )}
               </div>
             ))}

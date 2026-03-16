@@ -16,13 +16,13 @@ export function AnalyticsPage() {
   });
 
   if (loadingSummary || loadingFeedback) {
-    return <div className="p-6 text-gray-500 text-sm animate-pulse">Loading analytics...</div>;
+    return <div className="p-6 text-muted text-sm animate-pulse">Loading analytics...</div>;
   }
 
   if (errorSummary || errorFeedback) {
     return (
       <div className="p-6">
-        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm flex items-center gap-2">
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 px-4 py-3 rounded-lg text-sm flex items-center gap-2">
           <XCircle size={16} />
           Failed to load analytics data. Please check your connection or permissions.
         </div>
@@ -34,37 +34,37 @@ export function AnalyticsPage() {
     <div className="p-6 space-y-6 max-w-6xl overflow-auto h-full">
       <div className="flex justify-between items-end">
         <div>
-          <h1 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-            <BarChart3 size={20} className="text-blue-600" />
+          <h1 className="text-lg font-semibold text-primary flex items-center gap-2">
+            <BarChart3 size={20} className="text-accent" />
             Analytics & Insights
           </h1>
-          <p className="text-sm text-gray-500 mt-0.5">Platform-wide metrics and user feedback</p>
+          <p className="text-sm text-muted mt-0.5">Platform-wide metrics and user feedback</p>
         </div>
       </div>
 
       {/* Hero Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <MetricCard 
-          label="Total Job Records" 
-          value={summary?.totalJobsInPersistence?.toLocaleString()} 
+        <MetricCard
+          label="Total Job Records"
+          value={summary?.totalJobsInPersistence?.toLocaleString()}
           icon={<Briefcase size={16} />}
           sub="Stored in BigQuery"
         />
-        <MetricCard 
-          label="Active Vacancies" 
-          value={summary?.activeJobs?.toLocaleString()} 
+        <MetricCard
+          label="Active Vacancies"
+          value={summary?.activeJobs?.toLocaleString()}
           icon={<Briefcase size={16} />}
           sub="Currently live"
         />
-        <MetricCard 
-          label="Total Vacancies" 
-          value={summary?.globalStats?.totalVacancies?.toLocaleString()} 
+        <MetricCard
+          label="Total Vacancies"
+          value={summary?.globalStats?.totalVacancies?.toLocaleString()}
           icon={<Briefcase size={16} />}
           sub="Aggregate count"
         />
-        <MetricCard 
-          label="Remote Ratio" 
-          value={`${summary?.globalStats?.remotePercentage}%`} 
+        <MetricCard
+          label="Remote Ratio"
+          value={`${summary?.globalStats?.remotePercentage}%`}
           icon={<Users size={16} />}
           sub="Global average"
         />
@@ -73,26 +73,28 @@ export function AnalyticsPage() {
       <div className="grid md:grid-cols-3 gap-6">
         {/* Recent Ingestions */}
         <div className="md:col-span-2 space-y-4">
-          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <div className="px-4 py-3 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
-              <h2 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+          <div className="bg-card border border-border rounded-lg overflow-hidden">
+            <div className="px-4 py-3 border-b border-border-subtle bg-elevated flex items-center justify-between">
+              <h2 className="text-sm font-semibold text-secondary flex items-center gap-2">
                 <History size={16} />
                 Recent Ingestions
               </h2>
             </div>
-            <div className="divide-y divide-gray-100">
+            <div className="divide-y divide-border-subtle">
               {summary?.recentIngestions?.map((ing: any) => (
-                <div key={ing.datasetId} className="px-4 py-3 hover:bg-gray-50 transition-colors flex items-center justify-between">
+                <div key={ing.datasetId} className="px-4 py-3 hover:bg-surface-hover transition-colors flex items-center justify-between">
                   <div>
-                    <p className="text-xs font-mono text-gray-900">{ing.datasetId}</p>
-                    <p className="text-[10px] text-gray-500 mt-0.5">
+                    <p className="text-xs font-mono text-primary">{ing.datasetId}</p>
+                    <p className="text-[10px] text-muted mt-0.5">
                       {new Date(ing.ingestedAt).toLocaleString()}
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-xs font-semibold text-gray-900">{ing.recordCount} rows</p>
+                    <p className="text-xs font-semibold text-primary">{ing.recordCount} rows</p>
                     <span className={`text-[10px] px-1.5 py-0.5 rounded-full inline-block mt-1 ${
-                      ing.status === 'COMPLETED' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'
+                      ing.status === 'COMPLETED'
+                        ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300'
+                        : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
                     }`}>
                       {ing.status}
                     </span>
@@ -100,7 +102,7 @@ export function AnalyticsPage() {
                 </div>
               ))}
               {(!summary?.recentIngestions || summary.recentIngestions.length === 0) && (
-                <div className="px-4 py-8 text-center text-xs text-gray-400 italic">
+                <div className="px-4 py-8 text-center text-xs text-muted italic">
                   No recent ingestion data available
                 </div>
               )}
@@ -108,29 +110,29 @@ export function AnalyticsPage() {
           </div>
 
           {/* User Feedback */}
-          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <div className="px-4 py-3 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
-              <h2 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+          <div className="bg-card border border-border rounded-lg overflow-hidden">
+            <div className="px-4 py-3 border-b border-border-subtle bg-elevated flex items-center justify-between">
+              <h2 className="text-sm font-semibold text-secondary flex items-center gap-2">
                 <MessageSquare size={16} />
                 Recent Feedback
               </h2>
             </div>
-            <div className="divide-y divide-gray-100">
+            <div className="divide-y divide-border-subtle">
               {feedback?.slice(0, 5).map((f: any, i: number) => (
                 <div key={i} className="px-4 py-3">
                   <div className="flex justify-between items-start">
-                    <p className="text-xs font-medium text-gray-900 truncate max-w-[200px]">
+                    <p className="text-xs font-medium text-primary truncate max-w-[200px]">
                       {f.context || 'General Feedback'}
                     </p>
-                    <p className="text-[10px] text-gray-400">
+                    <p className="text-[10px] text-muted">
                       {new Date(f.timestamp).toLocaleDateString()}
                     </p>
                   </div>
-                  <p className="text-xs text-gray-600 mt-1 line-clamp-2">{f.message}</p>
+                  <p className="text-xs text-secondary mt-1 line-clamp-2">{f.message}</p>
                 </div>
               ))}
               {(!feedback || feedback.length === 0) && (
-                <div className="px-4 py-8 text-center text-xs text-gray-400 italic">
+                <div className="px-4 py-8 text-center text-xs text-muted italic">
                   No feedback received yet
                 </div>
               )}
@@ -140,29 +142,29 @@ export function AnalyticsPage() {
 
         {/* Top Lists */}
         <div className="space-y-6">
-          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <div className="px-4 py-3 border-b border-gray-100 bg-gray-50">
-              <h2 className="text-sm font-semibold text-gray-700">Top Technologies</h2>
+          <div className="bg-card border border-border rounded-lg overflow-hidden">
+            <div className="px-4 py-3 border-b border-border-subtle bg-elevated">
+              <h2 className="text-sm font-semibold text-secondary">Top Technologies</h2>
             </div>
             <div className="p-3 space-y-2">
               {summary?.topTech?.slice(0, 10).map((tech: any) => (
                 <div key={tech.name} className="flex items-center justify-between">
-                  <span className="text-xs text-gray-600">{tech.name}</span>
-                  <span className="text-xs font-medium text-gray-900">{tech.count}</span>
+                  <span className="text-xs text-secondary">{tech.name}</span>
+                  <span className="text-xs font-medium text-primary">{tech.count}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <div className="px-4 py-3 border-b border-gray-100 bg-gray-50">
-              <h2 className="text-sm font-semibold text-gray-700">Market Leaders</h2>
+          <div className="bg-card border border-border rounded-lg overflow-hidden">
+            <div className="px-4 py-3 border-b border-border-subtle bg-elevated">
+              <h2 className="text-sm font-semibold text-secondary">Market Leaders</h2>
             </div>
             <div className="p-3 space-y-2">
               {summary?.topCompanies?.slice(0, 10).map((comp: any) => (
                 <div key={comp.name} className="flex items-center justify-between">
-                  <span className="text-xs text-gray-600 truncate mr-2">{comp.name}</span>
-                  <span className="text-xs font-medium text-gray-900">{comp.activeJobs}</span>
+                  <span className="text-xs text-secondary truncate mr-2">{comp.name}</span>
+                  <span className="text-xs font-medium text-primary">{comp.activeJobs}</span>
                 </div>
               ))}
             </div>
