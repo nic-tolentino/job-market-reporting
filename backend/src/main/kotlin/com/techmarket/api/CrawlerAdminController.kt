@@ -258,14 +258,88 @@ class CrawlerAdminController(
         ).filterValues { it != null }
 
         return try {
-            val result = crawlerServiceRestClient.post()
+            val startedAt = java.time.Instant.now().toString()
+            val resultJson = crawlerServiceRestClient.post()
                 .uri("/crawl")
                 .header("Content-Type", "application/json")
                 .body(objectMapper.writeValueAsString(crawlPayload))
                 .retrieve()
                 .body(String::class.java)
 
-            ResponseEntity.ok(objectMapper.readValue<Map<String, Any>>(result ?: "{}"))
+            val result = objectMapper.readValue<Map<String, Any>>(resultJson ?: "{}")
+
+            // Persist the crawl run to BigQuery
+            @Suppress("UNCHECKED_CAST")
+            val meta = result["crawlMeta"] as? Map<String, Any> ?: emptyMap()
+            @Suppress("UNCHECKED_CAST")
+            val stats = result["extractionStats"] as? Map<String, Any>
+
+            val runId = java.util.UUID.randomUUID().toString()
+            val record = CrawlRunRecord(
+                runId = runId,
+                batchId = "admin-manual",
+                companyId = companyId,
+                seedUrl = body.url,
+                isTargeted = true,
+                startedAt = startedAt,
+                durationMs = (meta["crawlDurationMs"] as? Number)?.toInt(),
+                pagesVisited = (meta["pagesVisited"] as? Number)?.toInt(),
+                jobsRaw = (stats?.get("jobsRaw") as? Number)?.toInt(),
+                jobsValid = (stats?.get("jobsValid") as? Number)?.toInt(),
+                jobsTech = (stats?.get("jobsTech") as? Number)?.toInt(),
+                jobsFinal = (meta["totalJobsFound"] as? Number)?.toInt(),
+                confidenceAvg = (meta["extractionConfidence"] as? Number)?.toDouble(),
+                atsProvider = meta["detectedAtsProvider"] as? String,
+                atsIdentifier = meta["detectedAtsIdentifier"] as? String,
+                atsDirectUrl = meta["atsDirectUrl"] as? String,
+                paginationPattern = meta["pagination_pattern"] as? String,
+                status = (meta["status"] as? String) ?: "COMPLETED",
+                errorMessage = meta["errorMessage"] as? String,
+                modelUsed = meta["extractionModel"] as? String,
+            )
+
+            try {
+                crawlRunRepository.append(record)
+                log.info("Persisted admin crawl run $runId for $companyId")
+            } catch (e: Exception) {
+                log.error("Failed to persist crawl run for $companyId: ${e.message}", e)
+            }
+
+            // Update the seed health in crawler_seeds
+            val existingSeed = try {
+                crawlerSeedRepository.findByCompanyId(companyId).find { it.url == body.url }
+            } catch (e: Exception) { null }
+
+            val jobsFound = (meta["totalJobsFound"] as? Number)?.toInt() ?: 0
+            val zeroYieldCount = if (jobsFound == 0)
+                (existingSeed?.consecutiveZeroYieldCount ?: 0) + 1
+            else 0
+
+            val updatedSeed = CrawlerSeedRecord(
+                companyId = companyId,
+                url = body.url,
+                category = existingSeed?.category ?: (body.seedData?.get("category") as? String),
+                status = (meta["status"] as? String) ?: existingSeed?.status ?: "ACTIVE",
+                paginationPattern = (meta["pagination_pattern"] as? String) ?: existingSeed?.paginationPattern,
+                lastKnownJobCount = jobsFound,
+                lastKnownPageCount = (meta["pagesVisited"] as? Number)?.toInt(),
+                lastCrawledAt = meta["lastCrawledAt"] as? String,
+                lastDurationMs = (meta["crawlDurationMs"] as? Number)?.toInt(),
+                errorMessage = meta["errorMessage"] as? String,
+                consecutiveZeroYieldCount = zeroYieldCount,
+                atsProvider = meta["detectedAtsProvider"] as? String ?: existingSeed?.atsProvider,
+                atsIdentifier = meta["detectedAtsIdentifier"] as? String ?: existingSeed?.atsIdentifier,
+                atsDirectUrl = (meta["atsDirectUrl"] as? String) ?: existingSeed?.atsDirectUrl,
+            )
+
+            try {
+                crawlerSeedRepository.upsert(updatedSeed)
+                log.info("Updated crawler_seeds for $companyId / ${body.url}: ${jobsFound} jobs found")
+            } catch (e: Exception) {
+                log.error("Failed to update crawler_seeds for $companyId: ${e.message}", e)
+            }
+
+            ResponseEntity.ok(result)
         } catch (e: Exception) {
             log.error("Crawl failed for $companyId: ${e.message}", e)
             ResponseEntity.internalServerError().body(mapOf("error" to e.message))

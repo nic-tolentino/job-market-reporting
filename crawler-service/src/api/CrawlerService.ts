@@ -355,6 +355,27 @@ export class CrawlerService {
     const crawler = new PlaywrightCrawler({
       maxRequestsPerCrawl: config.maxPages,
       requestHandlerTimeoutSecs: Math.floor(config.timeout / 1000),
+
+      // Chromium flags that reduce memory usage significantly in containers.
+      // --disable-dev-shm-usage: Cloud Run's /dev/shm is only 64MB; without this
+      //   Chrome spills over into shared memory and causes instability/high RSS.
+      // The rest reduce background processes and GPU overhead.
+      launchContext: {
+        launchOptions: {
+          args: [
+            '--disable-dev-shm-usage',
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-gpu',
+            '--disable-extensions',
+            '--disable-background-networking',
+            '--disable-sync',
+            '--no-first-run',
+            '--mute-audio',
+            '--hide-scrollbars',
+          ],
+        },
+      },
       
       async requestHandler({ request, page, enqueueLinks, log }) {
         const isRequestDiscoveryMode = request.userData.isDiscoveryMode;

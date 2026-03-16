@@ -52,37 +52,20 @@ cd "$PROJECT_ROOT/crawler-service" || exit
 
 # Check if GEMINI_API_KEY is set (only if not using Vertex AI)
 # Note: Vertex AI version uses service account permissions instead
-if [ -z "$GEMINI_API_KEY" ] && [[ "$0" != *"vertex"* ]]; then
-    echo "⚠️  GEMINI_API_KEY not found in environment"
-    echo "Please set it in .env or export it before deploying"
-    echo ""
-    read -p "Do you want to continue without GEMINI_API_KEY? (y/n) " -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        exit 1
-    fi
+if [ -z "$GEMINI_API_KEY" ]; then
+    echo "ℹ️  GEMINI_API_KEY not set locally — will be read from Secret Manager at deploy time."
 fi
 
 if [ "$USE_CLOUD_BUILD" = true ]; then
-    echo "☁️  Starting Cloud Build & Deployment (No local Docker needed)..."
+    echo "☁️  Starting Cloud Build & Deployment (via cloudbuild.yaml)..."
     echo ""
 
-    gcloud run deploy "$CRAWLER_SERVICE_NAME" \
-        --source . \
+    COMMIT_SHA=$(git -C "$PROJECT_ROOT" rev-parse --short HEAD 2>/dev/null || echo "manual")
+    gcloud builds submit \
+        --config cloudbuild.yaml \
         --project "$GCP_PROJECT_ID" \
-        --region "$GCP_REGION" \
-        --allow-unauthenticated \
-        --min-instances 0 \
-        --max-instances 3 \
-        --cpu 1 \
-        --memory 2Gi \
-        --timeout 300 \
-        --port 8080 \
-        --set-env-vars="\
-NODE_ENV=production,\
-PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1" \
-        --set-secrets="\
-GEMINI_API_KEY=GEMINI_API_KEY:latest"
+        --substitutions="_REGION=$GCP_REGION,COMMIT_SHA=$COMMIT_SHA" \
+        .
 else
     echo "🚀 Starting Fast Local Build & Deployment (Requires Docker)..."
 
@@ -118,7 +101,8 @@ else
         --port 8080 \
         --set-env-vars="\
 NODE_ENV=production,\
-PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1" \
+PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1,\
+APIFY_MEMORY_MBYTES=2048" \
         --set-secrets="\
 GEMINI_API_KEY=GEMINI_API_KEY:latest"
 fi
