@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory
 
 private val log: Logger = LoggerFactory.getLogger("BigQueryExtensions")
 
-internal fun BigQuery.ensureTableExists(datasetName: String, tableName: String, schema: Schema) {
+fun BigQuery.ensureTableExists(datasetName: String, tableName: String, schema: Schema) {
     val tableId = TableId.of(datasetName, tableName)
     val table = this.getTable(tableId)
     if (table == null) {

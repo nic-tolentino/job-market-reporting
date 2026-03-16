@@ -9,6 +9,7 @@ import { CompaniesPage } from './pages/CompaniesPage';
 import { CrawlsPage } from './pages/CrawlsPage';
 import { PipelinePage } from './pages/PipelinePage';
 import { AnalyticsPage } from './pages/AnalyticsPage';
+import { ActiveCrawlProvider } from './context/ActiveCrawlContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,16 +29,18 @@ export function AdminApp() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Routes>
-        <Route element={<AdminLayout />}>
-          <Route index element={<DashboardPage />} />
-          <Route path="companies" element={<CompaniesPage />} />
-          <Route path="crawls" element={<CrawlsPage />} />
-          <Route path="pipeline" element={<PipelinePage />} />
-          <Route path="analytics" element={<AnalyticsPage />} />
-          <Route path="*" element={<Navigate to="/admin" replace />} />
-        </Route>
-      </Routes>
+      <ActiveCrawlProvider>
+        <Routes>
+          <Route element={<AdminLayout />}>
+            <Route index element={<DashboardPage />} />
+            <Route path="companies" element={<CompaniesPage />} />
+            <Route path="crawls" element={<CrawlsPage />} />
+            <Route path="pipeline" element={<PipelinePage />} />
+            <Route path="analytics" element={<AnalyticsPage />} />
+            <Route path="*" element={<Navigate to="/admin" replace />} />
+          </Route>
+        </Routes>
+      </ActiveCrawlProvider>
     </QueryClientProvider>
   );
 }

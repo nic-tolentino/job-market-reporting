@@ -9,6 +9,7 @@ import com.google.cloud.bigquery.QueryJobConfiguration
 import com.techmarket.persistence.crawler.CrawlerSeedRepository
 import com.techmarket.persistence.crawler.CrawlRunRepository
 import com.techmarket.service.CrawlLogService
+import com.techmarket.sync.CompanySyncService
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.BeforeEach
@@ -28,6 +29,7 @@ class CrawlerAdminControllerTest {
     private lateinit var crawlerSeedRepository: CrawlerSeedRepository
     private lateinit var crawlRunRepository: CrawlRunRepository
     private lateinit var crawlLogService: CrawlLogService
+    private lateinit var companySyncService: CompanySyncService
     private val objectMapper: ObjectMapper = jacksonObjectMapper()
 
     @BeforeEach
@@ -37,6 +39,7 @@ class CrawlerAdminControllerTest {
         crawlerSeedRepository = mockk()
         crawlRunRepository = mockk()
         crawlLogService = mockk()
+        companySyncService = mockk()
 
         every { bigQueryProvider.ifAvailable } returns bigQuery
 
@@ -45,6 +48,7 @@ class CrawlerAdminControllerTest {
             crawlerSeedRepository,
             crawlRunRepository,
             crawlLogService,
+            companySyncService,
             objectMapper,
             "test-dataset",
             "http://localhost:8083"
@@ -61,6 +65,7 @@ class CrawlerAdminControllerTest {
             crawlerSeedRepository,
             crawlRunRepository,
             crawlLogService,
+            companySyncService,
             objectMapper,
             "test-dataset",
             "http://localhost:8083"
@@ -78,38 +83,34 @@ class CrawlerAdminControllerTest {
         val row1 = mockk<FieldValueList>()
         val row2 = mockk<FieldValueList>()
         
-        every { bigQuery.query(any()) } returns tableResult
-        every { tableResult.iterateAll() } returns listOf(row1, row2)
-
-        // Mock row1
-        every { row1.get("companyId").stringValue } returns "comp1"
-        every { row1.get("name").stringValue } returns "Company 1"
-        every { row1.get("logoUrl").isNull } returns true
-        every { row1.get("hqCountry").isNull } returns true
-        every { row1.get("verificationLevel").isNull } returns true
-        every { row1.get("employeesCount").isNull } returns true
-
-        // Mock row2
-        every { row2.get("companyId").stringValue } returns "comp2"
-        every { row2.get("name").stringValue } returns "Company 2"
-        every { row2.get("logoUrl").isNull } returns true
-        every { row2.get("hqCountry").isNull } returns true
-        every { row2.get("verificationLevel").isNull } returns true
-        every { row2.get("employeesCount").isNull } returns true
-
-        // Mock total count query
+        // Controller runs two queries: data first, then count. Use sequential returns.
+        // BigQuery does the seedStatus filtering in SQL, so the mock returns only row1 for ACTIVE.
         val totalResult = mockk<TableResult>()
         val totalRow = mockk<FieldValueList>()
-        every { totalRow.get("cnt").longValue } returns 2
+        every { totalRow.get("cnt").longValue } returns 1
         every { totalResult.iterateAll() } returns listOf(totalRow)
-        // This is a bit tricky because the same query mock might be used for total count if not careful.
-        // But since we are mocking bigQuery.query(any()), we can use a sequence or matchers.
-        every { bigQuery.query(match { it.query.contains("COUNT(*)") }) } returns totalResult
 
-        every { crawlerSeedRepository.findAggregatedByCompanyIds(any()) } returns mapOf(
-            "comp1" to mockk(relaxed = true) { every { seedStatus } returns "ACTIVE" },
-            "comp2" to mockk(relaxed = true) { every { seedStatus } returns "STALE" }
-        )
+        every { bigQuery.query(any()) } returnsMany listOf(tableResult, totalResult)
+        every { tableResult.iterateAll() } returns listOf(row1)  // SQL filters to ACTIVE only
+
+        fun mockCompanyRow(row: FieldValueList, id: String, name: String, seedStatus: String) {
+            every { row.get("companyId").stringValue } returns id
+            every { row.get("name").stringValue } returns name
+            every { row.get("logoUrl").isNull } returns true
+            every { row.get("hqCountry").isNull } returns true
+            every { row.get("verificationLevel").isNull } returns true
+            every { row.get("employeesCount").isNull } returns true
+            every { row.get("seedStatus").isNull } returns false
+            every { row.get("seedStatus").stringValue } returns seedStatus
+            every { row.get("seedCount").isNull } returns false
+            every { row.get("seedCount").longValue } returns 1L
+            every { row.get("lastCrawledAt").isNull } returns true
+            every { row.get("totalJobsLastRun").isNull } returns true
+            every { row.get("atsProvider").isNull } returns true
+            every { row.get("maxZeroYieldCount").isNull } returns true
+        }
+        mockCompanyRow(row1, "comp1", "Company 1", "ACTIVE")
+        mockCompanyRow(row2, "comp2", "Company 2", "STALE")
 
         // Test filtering for ACTIVE
         mockMvc.perform(get("/api/admin/crawler/companies").param("seedStatus", "ACTIVE"))

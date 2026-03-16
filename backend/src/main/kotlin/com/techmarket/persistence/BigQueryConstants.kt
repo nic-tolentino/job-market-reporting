@@ -23,10 +23,19 @@ object CrawlerSeedFields {
     const val LAST_CRAWLED_AT = "last_crawled_at"
     const val LAST_DURATION_MS = "last_duration_ms"
     const val ERROR_MESSAGE = "error_message"
+    const val UPDATED_AT = "updated_at"
     const val CONSECUTIVE_ZERO_YIELD_COUNT = "consecutive_zero_yield_count"
     const val ATS_PROVIDER = "ats_provider"
     const val ATS_IDENTIFIER = "ats_identifier"
     const val ATS_DIRECT_URL = "ats_direct_url"
+
+    /** All columns in BigQuery table order. Used to validate INSERT statements in tests. */
+    val ALL_COLUMNS = listOf(
+        COMPANY_ID, URL, CATEGORY, STATUS, PAGINATION_PATTERN,
+        LAST_KNOWN_JOB_COUNT, LAST_KNOWN_PAGE_COUNT, LAST_CRAWLED_AT,
+        LAST_DURATION_MS, ERROR_MESSAGE, UPDATED_AT, CONSECUTIVE_ZERO_YIELD_COUNT,
+        ATS_PROVIDER, ATS_IDENTIFIER, ATS_DIRECT_URL
+    )
 }
 
 object CrawlRunFields {

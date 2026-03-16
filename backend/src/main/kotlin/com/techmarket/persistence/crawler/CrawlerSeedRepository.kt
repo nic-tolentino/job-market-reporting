@@ -56,15 +56,21 @@ class CrawlerSeedRepository(
                 last_crawled_at = source.last_crawled_at,
                 last_duration_ms = source.last_duration_ms,
                 error_message = source.error_message,
+                updated_at = CURRENT_TIMESTAMP(),
                 consecutive_zero_yield_count = source.consecutive_zero_yield_count,
                 ats_provider = source.ats_provider,
                 ats_identifier = source.ats_identifier,
                 ats_direct_url = source.ats_direct_url
-            WHEN NOT MATCHED THEN INSERT VALUES (
+            WHEN NOT MATCHED THEN INSERT (
+                company_id, url, category, status, pagination_pattern,
+                last_known_job_count, last_known_page_count, last_crawled_at,
+                last_duration_ms, error_message, updated_at, consecutive_zero_yield_count,
+                ats_provider, ats_identifier, ats_direct_url
+            ) VALUES (
                 source.company_id, source.url, source.category, source.status,
                 source.pagination_pattern, source.last_known_job_count,
                 source.last_known_page_count, source.last_crawled_at,
-                source.last_duration_ms, source.error_message,
+                source.last_duration_ms, source.error_message, CURRENT_TIMESTAMP(),
                 source.consecutive_zero_yield_count, source.ats_provider,
                 source.ats_identifier, source.ats_direct_url
             )

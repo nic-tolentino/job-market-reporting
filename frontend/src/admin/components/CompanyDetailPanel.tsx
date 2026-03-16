@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { X, Plus, RefreshCw } from 'lucide-react';
-import { getCompany, upsertSeed, triggerCrawl } from '../lib/adminApi';
+import { getCompany, upsertSeed } from '../lib/adminApi';
+import { useActiveCrawl } from '../context/ActiveCrawlContext';
 import { StatusBadge } from './StatusBadge';
 import type { CrawlerSeed } from '../types/admin';
 
@@ -174,9 +175,12 @@ export function CompanyDetailPanel({
   const [addingNew, setAddingNew] = useState(false);
   const [newUrl, setNewUrl] = useState('');
   const [newCategory, setNewCategory] = useState('tech-filtered');
-  const [crawlStatus, setCrawlStatus] = useState<string | null>(null);
   const [crawlFormOpen, setCrawlFormOpen] = useState(false);
   const [crawlUrl, setCrawlUrl] = useState('');
+
+  const { activeCrawl, startCrawl, clearCrawl } = useActiveCrawl();
+  const isThisCrawlRunning = activeCrawl?.companyId === companyId && activeCrawl.status === 'running';
+  const thisCrawlResult = activeCrawl?.companyId === companyId ? activeCrawl : null;
 
   const qc = useQueryClient();
 
@@ -195,28 +199,19 @@ export function CompanyDetailPanel({
     },
   });
 
-  const crawlMutation = useMutation({
-    mutationFn: (url: string) => triggerCrawl(companyId, { url }),
-    onMutate: () => {
-      setCrawlStatus('Running…');
-      setCrawlFormOpen(false);
-    },
-    onSuccess: (result: any) => {
-      const stats = result?.crawlMeta?.extractionStats;
-      const meta = result?.crawlMeta;
-      const statsText = stats
-        ? `(${stats.jobsRaw} raw → ${stats.jobsValid} valid → ${stats.jobsTech} tech)`
-        : `${meta?.totalJobsFound ?? 0} jobs`;
-      setCrawlStatus(`Done — ${statsText}, ${meta?.pagesVisited ?? 0} pages`);
-      qc.invalidateQueries({ queryKey: ['admin-company', companyId] });
-      qc.invalidateQueries({ queryKey: ['admin-companies'] });
-    },
-    onError: (e: Error) => setCrawlStatus(`Error: ${e.message}`),
-  });
-
   const handleOpenCrawlForm = () => {
-    setCrawlUrl(data?.website ?? '');
+    // Pre-fill with first active seed URL, or website, or empty
+    const firstActiveSeed = data?.seeds.find(s => s.status === 'ACTIVE')?.url
+      ?? data?.seeds[0]?.url
+      ?? data?.website
+      ?? '';
+    setCrawlUrl(firstActiveSeed);
     setCrawlFormOpen(true);
+  };
+
+  const handleStartCrawl = (url: string) => {
+    setCrawlFormOpen(false);
+    startCrawl(companyId, data?.name ?? companyName, url);
   };
 
   const tabs = [
@@ -251,11 +246,11 @@ export function CompanyDetailPanel({
           <div className="flex items-center gap-2">
             <button
               onClick={handleOpenCrawlForm}
-              disabled={crawlMutation.isPending}
+              disabled={isThisCrawlRunning}
               className="flex items-center gap-1.5 text-xs px-3 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
             >
-              <RefreshCw size={12} className={crawlMutation.isPending ? 'animate-spin' : ''} />
-              {crawlMutation.isPending ? 'Crawling…' : 'Crawl'}
+              <RefreshCw size={12} className={isThisCrawlRunning ? 'animate-spin' : ''} />
+              {isThisCrawlRunning ? 'Crawling…' : 'Crawl'}
             </button>
             <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
               <X size={18} />
@@ -266,18 +261,35 @@ export function CompanyDetailPanel({
         {/* Crawl form */}
         {crawlFormOpen && (
           <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg space-y-2">
-            <label className="text-xs font-medium text-gray-700 block">URL to crawl</label>
+            {/* Seed quick-pick */}
+            {data?.seeds && data.seeds.length > 0 && (
+              <div className="space-y-1">
+                <p className="text-xs font-medium text-gray-700">Crawl a seed</p>
+                {data.seeds.map((seed) => (
+                  <button
+                    key={seed.url}
+                    onClick={() => handleStartCrawl(seed.url)}
+                    className="w-full text-left text-xs px-2 py-1.5 rounded border border-blue-200 bg-white hover:bg-blue-100 transition-colors flex items-center gap-2"
+                  >
+                    <StatusBadge status={seed.status} />
+                    <span className="font-mono truncate text-gray-700">{seed.url}</span>
+                  </button>
+                ))}
+                <p className="text-xs text-gray-400 pt-1">— or enter a custom URL —</p>
+              </div>
+            )}
+            {/* Custom URL input */}
             <input
               className="w-full text-sm border border-gray-300 rounded px-2 py-1.5 font-mono focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="https://careers.example.com/jobs"
               value={crawlUrl}
               onChange={(e) => setCrawlUrl(e.target.value)}
-              autoFocus
+              autoFocus={!data?.seeds?.length}
             />
             <div className="flex gap-2">
               <button
-                onClick={() => crawlMutation.mutate(crawlUrl)}
-                disabled={!crawlUrl.trim() || crawlMutation.isPending}
+                onClick={() => handleStartCrawl(crawlUrl)}
+                disabled={!crawlUrl.trim()}
                 className="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 disabled:opacity-50"
               >
                 Start crawl
@@ -320,11 +332,20 @@ export function CompanyDetailPanel({
         )}
 
         {/* Crawl status banner */}
-        {crawlStatus && (
-          <div className={`text-xs px-3 py-2 rounded ${
-            crawlStatus.startsWith('Error') ? 'bg-red-50 text-red-700' : 'bg-blue-50 text-blue-700'
+        {thisCrawlResult && (
+          <div className={`text-xs px-3 py-2 rounded flex items-center justify-between gap-2 ${
+            thisCrawlResult.status === 'error' ? 'bg-red-50 text-red-700' :
+            thisCrawlResult.status === 'running' ? 'bg-blue-50 text-blue-700' :
+            'bg-green-50 text-green-700'
           }`}>
-            {crawlStatus}
+            <span>
+              {thisCrawlResult.status === 'running' && `Crawling ${thisCrawlResult.url}…`}
+              {thisCrawlResult.status === 'done' && `Done — ${thisCrawlResult.result}`}
+              {thisCrawlResult.status === 'error' && `Error: ${thisCrawlResult.result}`}
+            </span>
+            {thisCrawlResult.status !== 'running' && (
+              <button onClick={clearCrawl} className="shrink-0 opacity-60 hover:opacity-100">✕</button>
+            )}
           </div>
         )}
 
@@ -339,7 +360,7 @@ export function CompanyDetailPanel({
                 key={seed.url}
                 seed={seed}
                 companyId={companyId}
-                onTriggerCrawl={(url) => crawlMutation.mutate(url)}
+                onTriggerCrawl={(url) => startCrawl(companyId, data.name ?? companyName, url)}
               />
             ))}
 

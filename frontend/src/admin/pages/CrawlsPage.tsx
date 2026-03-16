@@ -2,22 +2,57 @@ import { useQuery } from '@tanstack/react-query';
 import { listRuns } from '../lib/adminApi';
 import { StatusBadge } from '../components/StatusBadge';
 import { ActiveCrawlMonitor } from '../components/ActiveCrawlMonitor';
+import { useActiveCrawl } from '../context/ActiveCrawlContext';
+import { RefreshCw } from 'lucide-react';
 
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleString();
 }
 
 export function CrawlsPage() {
-  const { data, isLoading, error } = useQuery({
+  const { activeCrawl } = useActiveCrawl();
+  const isCrawlRunning = activeCrawl?.status === 'running';
+
+  const { data, isLoading, error, refetch, isFetching } = useQuery({
     queryKey: ['admin-runs'],
     queryFn: () => listRuns({ limit: 100 }),
+    // Poll every 5s while a crawl is running so new runs appear automatically
+    refetchInterval: isCrawlRunning ? 5_000 : false,
+    staleTime: 0,
   });
 
   return (
     <div className="flex flex-col h-full">
       <div className="px-6 py-4 border-b border-gray-200 bg-white">
-        <h1 className="text-lg font-semibold text-gray-900">Crawl Runs</h1>
-        <p className="text-sm text-gray-500 mt-0.5">Execution history from crawl_runs</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-lg font-semibold text-gray-900">Crawl Runs</h1>
+            <p className="text-sm text-gray-500 mt-0.5">Execution history from crawl_runs</p>
+          </div>
+          <button
+            onClick={() => refetch()}
+            disabled={isFetching}
+            className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-gray-300 text-gray-600 hover:border-gray-500 disabled:opacity-50"
+          >
+            <RefreshCw size={12} className={isFetching ? 'animate-spin' : ''} />
+            Refresh
+          </button>
+        </div>
+        {activeCrawl && (
+          <div className={`mt-2 text-xs px-3 py-2 rounded flex items-center gap-2 ${
+            activeCrawl.status === 'running' ? 'bg-blue-50 text-blue-700' :
+            activeCrawl.status === 'error' ? 'bg-red-50 text-red-600' :
+            'bg-green-50 text-green-700'
+          }`}>
+            {activeCrawl.status === 'running' && <RefreshCw size={11} className="animate-spin shrink-0" />}
+            <span>
+              <strong>{activeCrawl.companyName}</strong>
+              {activeCrawl.status === 'running' && ` — crawling ${activeCrawl.url}…`}
+              {activeCrawl.status === 'done' && ` — done: ${activeCrawl.result}`}
+              {activeCrawl.status === 'error' && ` — error: ${activeCrawl.result}`}
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="p-6 pb-0">

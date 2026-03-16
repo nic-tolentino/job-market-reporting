@@ -1,6 +1,7 @@
 package com.techmarket.persistence.crawler
 
 import com.google.cloud.bigquery.*
+import com.techmarket.persistence.CrawlerSeedFields
 import io.mockk.*
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
@@ -21,34 +22,87 @@ class CrawlerSeedRepositoryTest {
         repository = CrawlerSeedRepository(bigQueryProvider, "test-dataset")
     }
 
+    private fun aRecord() = CrawlerSeedRecord(
+        companyId = "comp1",
+        url = "http://example.com",
+        category = "tech-filtered",
+        status = "ACTIVE",
+        paginationPattern = null,
+        lastKnownJobCount = null,
+        lastKnownPageCount = null,
+        lastCrawledAt = null,
+        lastDurationMs = null,
+        errorMessage = null,
+        atsProvider = null,
+        atsIdentifier = null,
+        atsDirectUrl = null
+    )
+
     @Test
     fun `upsert calls bigQuery query`() {
-        val record = CrawlerSeedRecord(
-            companyId = "comp1",
-            url = "http://example.com",
-            category = "ENGINEERING",
-            status = "ACTIVE",
-            paginationPattern = null,
-            lastKnownJobCount = null,
-            lastKnownPageCount = null,
-            lastCrawledAt = null,
-            lastDurationMs = null,
-            errorMessage = null,
-            atsProvider = null,
-            atsIdentifier = null,
-            atsDirectUrl = null
-        )
         val tableResult = mockk<TableResult>()
         every { bigQuery.query(any<QueryJobConfiguration>()) } returns tableResult
 
-        repository.upsert(record)
+        repository.upsert(aRecord())
 
         val configSlot = slot<QueryJobConfiguration>()
         verify { bigQuery.query(capture(configSlot)) }
-        
+
         val config = configSlot.captured
         assertTrue(config.query.contains("MERGE `test-dataset.crawler_seeds`"))
         assertEquals("comp1", (config.namedParameters["company_id"] as QueryParameterValue).value)
+    }
+
+    /**
+     * Regression test: INSERT must name columns explicitly (not use positional VALUES)
+     * so that adding a column to the BigQuery table doesn't cause "wrong column count" errors.
+     *
+     * Each column in CrawlerSeedFields.ALL_COLUMNS must appear in the INSERT clause of the
+     * upsert SQL. If a new column is added to the table and ALL_COLUMNS is updated,
+     * this test will fail until the INSERT clause is updated to match.
+     */
+    @Test
+    fun `upsert SQL uses explicit named INSERT columns covering all schema fields`() {
+        val tableResult = mockk<TableResult>()
+        every { bigQuery.query(any<QueryJobConfiguration>()) } returns tableResult
+
+        repository.upsert(aRecord())
+
+        val configSlot = slot<QueryJobConfiguration>()
+        verify { bigQuery.query(capture(configSlot)) }
+        val sql = configSlot.captured.query
+
+        // Must use named column INSERT, not bare INSERT VALUES
+        assertTrue(sql.contains("INSERT ("), "INSERT clause must name columns explicitly, not use positional VALUES")
+        assertFalse(sql.contains("INSERT VALUES"), "Positional INSERT VALUES is not allowed — use INSERT (cols) VALUES (...)")
+
+        // Every column in the schema must appear in the INSERT clause
+        val insertSection = sql.substringAfter("INSERT (").substringBefore(") VALUES")
+        val missingColumns = CrawlerSeedFields.ALL_COLUMNS.filter { col -> !insertSection.contains(col) }
+        assertTrue(missingColumns.isEmpty()) {
+            "These columns from CrawlerSeedFields.ALL_COLUMNS are missing from the INSERT clause: $missingColumns"
+        }
+    }
+
+    /**
+     * Regression test: UPDATE SET must include updated_at so the timestamp stays current on re-upserts.
+     */
+    @Test
+    fun `upsert SQL sets updated_at in both INSERT and UPDATE clauses`() {
+        val tableResult = mockk<TableResult>()
+        every { bigQuery.query(any<QueryJobConfiguration>()) } returns tableResult
+
+        repository.upsert(aRecord())
+
+        val configSlot = slot<QueryJobConfiguration>()
+        verify { bigQuery.query(capture(configSlot)) }
+        val sql = configSlot.captured.query
+
+        val updateSection = sql.substringAfter("WHEN MATCHED THEN UPDATE SET").substringBefore("WHEN NOT MATCHED")
+        assertTrue(updateSection.contains("updated_at"), "UPDATE SET must include updated_at")
+
+        val insertSection = sql.substringAfter("INSERT (").substringBefore(") VALUES")
+        assertTrue(insertSection.contains("updated_at"), "INSERT column list must include updated_at")
     }
 
     @Test
