@@ -118,7 +118,9 @@ This project is optimized for serverless hosting on **Google Cloud Run** and **V
 For full deployment instructions, see the **[Backend Deployment Guide](backend/DEPLOY.md)**.
 We provide several helper scripts to simplify production tasks:
 - `scripts/deployment/setup-env.sh`: Initialize your local `.env` configuration.
-- `scripts/deployment/deploy.sh`: Push updates to Cloud Run.
+- `scripts/deployment/deploy.sh`: Deploy both backend and crawler to Cloud Run.
+- `scripts/deployment/deploy-backend.sh`: Deploy the backend only.
+- `scripts/deployment/deploy-crawler.sh`: Deploy the crawler service only.
 - `scripts/deployment/db-reprocess.sh`: Run historical data migrations.
 - `scripts/deployment/run-tests.sh`: Run all backend unit tests.
 

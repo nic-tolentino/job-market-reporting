@@ -69,7 +69,9 @@ Unlike a traditional REST API, this backend serves specialized DTOs (e.g., `JobP
 For detailed instructions on deploying to Google Cloud, see **[DEPLOY.md](./DEPLOY.md)**.
 
 We provide several utility scripts in the project root to manage the production environment:
-- **`./scripts/deployment/deploy.sh`**: Deploys the current backend to GCP Cloud Run.
+- **`./scripts/deployment/deploy.sh`**: Deploys both the backend and crawler service to GCP Cloud Run.
+- **`./scripts/deployment/deploy-backend.sh`**: Deploys the backend only.
+- **`./scripts/deployment/deploy-crawler.sh`**: Deploys the crawler service only.
 - **`./scripts/deployment/deploy-local.sh`**: Runs the backend locally for development.
 - **`./scripts/deployment/db-drop-silver.sh`**: Safely drops the Silver layer tables for recreation.
 - **`./scripts/deployment/db-reprocess.sh`**: Triggers a full historical re-parse of all raw data.

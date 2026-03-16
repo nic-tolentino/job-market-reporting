@@ -30,7 +30,9 @@ If you are an AI agent working in this repository:
 
 Deployment is managed via scripts in `scripts/deployment/`.
 - `deploy-local.sh`: For local development inside Docker.
-- `deploy.sh`: For production deployments.
+- `deploy.sh`: Deploy both backend and crawler to production.
+- `deploy-backend.sh`: Deploy the backend only.
+- `deploy-crawler.sh`: Deploy the crawler service only.
 
 ---
 *This file was generated with the help of Antigravity to ensure consistent AI-human collaboration.*
