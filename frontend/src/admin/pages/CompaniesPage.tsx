@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { Search, ChevronLeft, ChevronRight, ArrowUp, ArrowDown } from 'lucide-react';
-import { listCompanies } from '../lib/adminApi';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { Search, ChevronLeft, ChevronRight, ArrowUp, ArrowDown, RefreshCw } from 'lucide-react';
+import { listCompanies, syncManifest } from '../lib/adminApi';
 import { StatusBadge } from '../components/StatusBadge';
 import { CompanyDetailPanel } from '../components/CompanyDetailPanel';
 import type { AdminCompany } from '../types/admin';
@@ -129,6 +129,23 @@ export function CompaniesPage() {
   const [selected, setSelected] = useState<AdminCompany | null>(null);
   const [sortBy, setSortBy] = useState('name');
   const [sortOrder, setSortOrder] = useState<'ASC' | 'DESC'>('ASC');
+  const [syncing, setSyncing] = useState(false);
+  const [syncResult, setSyncResult] = useState<string | null>(null);
+  const queryClient = useQueryClient();
+
+  const handleSyncManifest = async () => {
+    setSyncing(true);
+    setSyncResult(null);
+    try {
+      const res = await syncManifest();
+      setSyncResult(res.message ?? 'Sync complete');
+      queryClient.invalidateQueries({ queryKey: ['admin-companies'] });
+    } catch (e) {
+      setSyncResult(`Error: ${(e as Error).message}`);
+    } finally {
+      setSyncing(false);
+    }
+  };
 
   const handleSort = (field: string) => {
     if (sortBy === field) {
@@ -199,6 +216,22 @@ export function CompaniesPage() {
                 Clear
               </button>
             )}
+            <div className="ml-auto flex items-center gap-2">
+              {syncResult && (
+                <span className={`text-xs ${syncResult.startsWith('Error') ? 'text-red-500' : 'text-green-600'}`}>
+                  {syncResult}
+                </span>
+              )}
+              <button
+                onClick={handleSyncManifest}
+                disabled={syncing}
+                title="Sync company manifest (reads data/companies/**/*.json → BigQuery)"
+                className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-gray-300 text-gray-600 hover:border-gray-500 hover:text-gray-900 disabled:opacity-50 transition-colors"
+              >
+                <RefreshCw size={12} className={syncing ? 'animate-spin' : ''} />
+                Sync manifest
+              </button>
+            </div>
           </div>
 
           {/* Preset filters */}

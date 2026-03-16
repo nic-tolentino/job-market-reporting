@@ -13,6 +13,7 @@ import com.techmarket.persistence.crawler.CrawlRunRecord
 import com.techmarket.persistence.crawler.CrawlRunRepository
 import com.techmarket.persistence.crawler.CrawlerSeedRecord
 import com.techmarket.persistence.crawler.CrawlerSeedRepository
+import com.techmarket.sync.CompanySyncService
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
@@ -38,6 +39,7 @@ class CrawlerAdminController(
     private val crawlerSeedRepository: CrawlerSeedRepository,
     private val crawlRunRepository: CrawlRunRepository,
     private val crawlLogService: CrawlLogService,
+    private val companySyncService: CompanySyncService,
     private val objectMapper: ObjectMapper,
     @Value("\${spring.cloud.gcp.bigquery.dataset-name:techmarket}") private val datasetName: String,
     @Value("\${crawler.service.url}") private val crawlerServiceUrl: String
@@ -294,6 +296,23 @@ class CrawlerAdminController(
             "page" to page,
             "limit" to limit,
         ))
+    }
+
+    // ---------------------------------------------------------------------------
+    // POST /api/admin/crawler/sync-manifest
+    // Trigger a full company manifest sync (reads data/companies/**/*.json → BigQuery).
+    // ---------------------------------------------------------------------------
+
+    @PostMapping("/sync-manifest")
+    fun syncManifest(): ResponseEntity<*> {
+        log.info("Admin triggered company manifest sync via admin panel")
+        return try {
+            companySyncService.syncFromManifest()
+            ResponseEntity.ok(mapOf("status" to "ok", "message" to "Company manifest sync completed"))
+        } catch (e: Exception) {
+            log.error("Company manifest sync failed: ${e.message}", e)
+            ResponseEntity.internalServerError().body(mapOf("error" to (e.message ?: "Sync failed")))
+        }
     }
 
     // ---------------------------------------------------------------------------

@@ -35,6 +35,12 @@ fi
 
 cd "$PROJECT_ROOT/backend" || exit
 
+# Copy the root data/companies/ manifest into backend/data/ so it's included in the
+# Docker build context (backend/ dir). Cleaned up automatically on exit.
+echo "📋 Staging company manifest data into build context..."
+cp -r "$PROJECT_ROOT/data/companies" "$PROJECT_ROOT/backend/data/companies"
+trap 'rm -rf "$PROJECT_ROOT/backend/data/companies"' EXIT
+
 if [ "$USE_CLOUD_BUILD" = true ]; then
     echo "☁️  Starting Cloud Build & Deployment (No local Docker needed)..."
     

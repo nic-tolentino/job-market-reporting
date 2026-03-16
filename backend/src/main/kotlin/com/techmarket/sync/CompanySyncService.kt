@@ -119,7 +119,7 @@ class CompanySyncService(
                         companyId = dto.id,
                         url = seedDto.url,
                         category = seedDto.category ?: "unknown",
-                        status = seedDto.status ?: "ACTIVE",
+                        status = (seedDto.status ?: "ACTIVE").uppercase(),
                         paginationPattern = null,
                         lastKnownJobCount = null,
                         lastKnownPageCount = null,

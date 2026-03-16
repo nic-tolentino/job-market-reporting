@@ -41,3 +41,6 @@ nbdist/
 Thumbs.db
 bin/
 
+### Build-time staging (copied from root data/ by deploy.sh) ###
+data/companies/
+

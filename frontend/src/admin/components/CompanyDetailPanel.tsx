@@ -175,6 +175,8 @@ export function CompanyDetailPanel({
   const [newUrl, setNewUrl] = useState('');
   const [newCategory, setNewCategory] = useState('tech-filtered');
   const [crawlStatus, setCrawlStatus] = useState<string | null>(null);
+  const [crawlFormOpen, setCrawlFormOpen] = useState(false);
+  const [crawlUrl, setCrawlUrl] = useState('');
 
   const qc = useQueryClient();
 
@@ -195,22 +197,27 @@ export function CompanyDetailPanel({
 
   const crawlMutation = useMutation({
     mutationFn: (url: string) => triggerCrawl(companyId, { url }),
-    onMutate: () => setCrawlStatus('Running…'),
+    onMutate: () => {
+      setCrawlStatus('Running…');
+      setCrawlFormOpen(false);
+    },
     onSuccess: (result: any) => {
       const stats = result?.crawlMeta?.extractionStats;
       const meta = result?.crawlMeta;
-      const statsText = stats 
-        ? `(${stats.jobsRaw} raw -> ${stats.jobsValid} valid -> ${stats.jobsTech} tech)`
+      const statsText = stats
+        ? `(${stats.jobsRaw} raw → ${stats.jobsValid} valid → ${stats.jobsTech} tech)`
         : `${meta?.totalJobsFound ?? 0} jobs`;
-      
-      setCrawlStatus(
-        `Done — ${statsText}, ${meta?.pagesVisited ?? 0} pages`
-      );
+      setCrawlStatus(`Done — ${statsText}, ${meta?.pagesVisited ?? 0} pages`);
       qc.invalidateQueries({ queryKey: ['admin-company', companyId] });
       qc.invalidateQueries({ queryKey: ['admin-companies'] });
     },
     onError: (e: Error) => setCrawlStatus(`Error: ${e.message}`),
   });
+
+  const handleOpenCrawlForm = () => {
+    setCrawlUrl(data?.website ?? '');
+    setCrawlFormOpen(true);
+  };
 
   const tabs = [
     { id: 'seeds' as const, label: `Seeds (${data?.seeds.length ?? '…'})` },
@@ -220,37 +227,70 @@ export function CompanyDetailPanel({
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
-        <div>
-          <h2 className="font-semibold text-gray-900 text-sm">{data?.name || companyName}</h2>
+      <div className="p-4 border-b border-gray-200 bg-white">
+        <div className="flex items-start justify-between">
+          <div>
+            <h2 className="font-semibold text-gray-900 text-sm">{data?.name || companyName}</h2>
+            <div className="flex items-center gap-2 mt-0.5">
+              <p className="text-xs text-gray-400 font-mono">{companyId}</p>
+              {data?.website && (
+                <>
+                  <span className="text-gray-300">·</span>
+                  <a
+                    href={data.website}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs text-blue-600 hover:underline"
+                  >
+                    Website
+                  </a>
+                </>
+              )}
+            </div>
+          </div>
           <div className="flex items-center gap-2">
-            <p className="text-xs text-gray-400 font-mono">{companyId}</p>
-            {data?.website && (
-              <>
-                <span className="text-gray-300">·</span>
-                <a
-                  href={data.website}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs text-blue-600 hover:underline flex items-center gap-0.5"
-                >
-                   Website
-                </a>
-                <button
-                  onClick={() => crawlMutation.mutate(data.website!)}
-                  disabled={crawlMutation.isPending}
-                  className="text-[10px] bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded hover:bg-blue-100 disabled:opacity-50"
-                  title="Crawl main website"
-                >
-                  {crawlMutation.isPending ? 'Crawling...' : 'Crawl'}
-                </button>
-              </>
-            )}
+            <button
+              onClick={handleOpenCrawlForm}
+              disabled={crawlMutation.isPending}
+              className="flex items-center gap-1.5 text-xs px-3 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+            >
+              <RefreshCw size={12} className={crawlMutation.isPending ? 'animate-spin' : ''} />
+              {crawlMutation.isPending ? 'Crawling…' : 'Crawl'}
+            </button>
+            <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+              <X size={18} />
+            </button>
           </div>
         </div>
-        <button onClick={onClose} className="text-gray-400 hover:text-gray-600 self-start mt-1">
-          <X size={18} />
-        </button>
+
+        {/* Crawl form */}
+        {crawlFormOpen && (
+          <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg space-y-2">
+            <label className="text-xs font-medium text-gray-700 block">URL to crawl</label>
+            <input
+              className="w-full text-sm border border-gray-300 rounded px-2 py-1.5 font-mono focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="https://careers.example.com/jobs"
+              value={crawlUrl}
+              onChange={(e) => setCrawlUrl(e.target.value)}
+              autoFocus
+            />
+            <div className="flex gap-2">
+              <button
+                onClick={() => crawlMutation.mutate(crawlUrl)}
+                disabled={!crawlUrl.trim() || crawlMutation.isPending}
+                className="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 disabled:opacity-50"
+              >
+                Start crawl
+              </button>
+              <button
+                onClick={() => setCrawlFormOpen(false)}
+                className="text-sm text-gray-600 px-3 py-1 rounded border border-gray-300 hover:bg-gray-100"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Tabs */}
