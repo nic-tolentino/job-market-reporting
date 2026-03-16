@@ -48,4 +48,10 @@ interface BronzeRepository {
      * @return true if successful, false otherwise
      */
     fun updateProcessingStatus(datasetId: String, status: ProcessingStatus): Boolean
+
+    /**
+     * Delete a dataset and its associated Bronze files.
+     * @return true if successful, false otherwise
+     */
+    fun deleteDataset(datasetId: String): Boolean
 }

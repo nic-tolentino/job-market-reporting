@@ -279,6 +279,16 @@ class JobDataSyncServiceTest {
         verify(exactly = 0) { companySyncService.syncFromManifest() }
     }
 
+    @Test
+    fun `deleteDataset calls bronzeRepository deleteDataset`() {
+        every { bronzeRepository.deleteDataset("ds-to-delete") } returns true
+        
+        val result = service.deleteDataset("ds-to-delete")
+        
+        assert(result)
+        verify { bronzeRepository.deleteDataset("ds-to-delete") }
+    }
+
     // TODO: Fix test - MockK setup issue with relaxed mocks
     // @Test
     fun `runDataSync marks dataset as FAILED when Silver persistence throws`() {

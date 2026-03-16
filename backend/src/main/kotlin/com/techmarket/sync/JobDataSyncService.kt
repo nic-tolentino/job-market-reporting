@@ -244,7 +244,18 @@ class JobDataSyncService(
             return
         }
 
-        log.info("Historical Data Reprocessing completed successfully.")
+    log.info("Historical Data Reprocessing completed successfully.")
+    }
+
+    /**
+     * Deletes a dataset from the Bronze layer (GCS + Metadata).
+     * Does NOT automatically delete records from Silver layer as they are merged.
+     * To fully remove data, trigger a Historical Reprocess after deletion.
+     */
+    @CacheEvict(value = ["landing", "tech", "company", "search"], allEntries = true)
+    fun deleteDataset(datasetId: String): Boolean {
+        log.info("Request to delete dataset: $datasetId")
+        return bronzeRepository.deleteDataset(datasetId)
     }
 
     /**

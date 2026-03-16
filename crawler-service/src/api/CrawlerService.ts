@@ -203,12 +203,14 @@ export class CrawlerService {
           }
 
           const extracted = extractContent(html);
+          console.log(`[TEXT_CONTENT_PREVIEW] page ${i + 1}: length=${extracted.textContent.length} preview="${extracted.textContent.substring(0, 800)}"`);
           const wrappedContent = wrapContentForLlm(extracted.textContent);
-          
+
           try {
             if (i > 0) await new Promise(resolve => setTimeout(resolve, INTER_EXTRACTION_DELAY_MS));
             const extractionResult = await this.extractionService.extractJobs(wrappedContent, extractionConfig);
-            
+            console.log(`[EXTRACTION_RESULT] page ${i + 1}: jobsRaw=${extractionResult.jobs.length} titles=${JSON.stringify(extractionResult.jobs.slice(0, 3).map(j => j.title))}`);
+
             jobsRaw += extractionResult.jobs.length;
 
             // Post-Extraction Filtering for non-tech seeds
@@ -363,16 +365,16 @@ export class CrawlerService {
       launchContext: {
         launchOptions: {
           args: [
-            '--disable-dev-shm-usage',
+            '--disable-dev-shm-usage',  // Critical: Cloud Run /dev/shm is only 64MB
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-gpu',
-            '--disable-extensions',
-            '--disable-background-networking',
-            '--disable-sync',
             '--no-first-run',
             '--mute-audio',
             '--hide-scrollbars',
+            // NOTE: --disable-background-networking intentionally omitted — it disrupts
+            // AJAX-heavy SPAs (e.g. Cornerstone ATS) that load job data via XHR after
+            // the initial page render.
           ],
         },
       },
@@ -388,8 +390,22 @@ export class CrawlerService {
         // We time-out gracefully so pages with persistent beacons don't stall.
         await page.waitForLoadState('networkidle', { timeout: NETWORK_IDLE_TIMEOUT_MS })
           .catch(() => { /* non-fatal — proceed with whatever has rendered */ });
-        
+
+        // For Cornerstone ATS (*.csod.com), wait for job list items to appear in the
+        // DOM after the AJAX job-data fetch completes. The SPA shell loads fast but
+        // the job cards arrive in a secondary XHR response.
+        if (request.url.includes('.csod.com')) {
+          await page.waitForSelector(
+            '.cs-list-item, [data-row-id], .job-tile, .position-card, [class*="job-card"], [class*="jobCard"]',
+            { timeout: 8000 }
+          ).catch(() => {
+            log.warning(`Cornerstone job selector not found within 8s for ${request.url} — extracting whatever is rendered`);
+          });
+        }
+
         const html = await page.content();
+        const debugText = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 500);
+        log.info(`[CONTENT_PREVIEW] ${request.url.substring(0, 80)}: ${debugText}`);
         results.push(html);
 
         if (isRequestDiscoveryMode) {

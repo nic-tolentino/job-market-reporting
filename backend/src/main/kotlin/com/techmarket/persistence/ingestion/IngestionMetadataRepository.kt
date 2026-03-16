@@ -131,6 +131,31 @@ class IngestionMetadataRepository(
         }
     }
 
+    fun deleteManifest(datasetId: String): Boolean {
+        ensureTable()
+        val query = """
+            DELETE FROM `$datasetName.$tableName`
+            WHERE ${IngestionMetadataFields.DATASET_ID} = @datasetId
+        """.trimIndent()
+
+        val queryConfig = QueryJobConfiguration.newBuilder(query)
+            .addNamedParameter("datasetId", QueryParameterValue.string(datasetId))
+            .build()
+
+        if (bigQuery == null) {
+            log.warn("BigQuery unavailable - cannot delete manifest")
+            return false
+        }
+        return try {
+            bigQuery.query(queryConfig)
+            log.info("Deleted ingestion manifest for dataset $datasetId")
+            true
+        } catch (e: Exception) {
+            log.error("Failed to delete manifest for dataset $datasetId: ${e.message}", e)
+            false
+        }
+    }
+
     fun isDatasetIngested(datasetId: String): Boolean {
         ensureTable()
         val query = """

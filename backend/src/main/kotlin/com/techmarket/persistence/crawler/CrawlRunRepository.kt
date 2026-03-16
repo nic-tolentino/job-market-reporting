@@ -130,7 +130,10 @@ class CrawlRunRepository(
         companyId = row[CrawlRunFields.COMPANY_ID].stringValue,
         seedUrl = row[CrawlRunFields.SEED_URL].stringValue,
         isTargeted = row[CrawlRunFields.IS_TARGETED].booleanValue,
-        startedAt = row[CrawlRunFields.STARTED_AT].stringValue,
+        startedAt = row[CrawlRunFields.STARTED_AT].let { fv ->
+            if (fv.isNull) ""
+            else java.time.Instant.ofEpochMilli(fv.timestampValue / 1000).toString()
+        },
         durationMs = row[CrawlRunFields.DURATION_MS].takeUnless { it.isNull }?.longValue?.toInt(),
         pagesVisited = row[CrawlRunFields.PAGES_VISITED].takeUnless { it.isNull }?.longValue?.toInt(),
         jobsRaw = row[CrawlRunFields.JOBS_RAW].takeUnless { it.isNull }?.longValue?.toInt(),

@@ -124,6 +124,21 @@ class BronzeGcsRepository(
         return metadataRepository.updateProcessingStatus(datasetId, status)
     }
 
+    override fun deleteDataset(datasetId: String): Boolean {
+        val manifest = getManifest(datasetId) ?: run {
+            log.warn("Cannot delete dataset $datasetId: Manifest not found")
+            return false
+        }
+
+        log.info("Deleting Bronze dataset $datasetId and its ${manifest.fileCount} files")
+
+        // 1. Delete files from GCS
+        manifest.files.forEach { deleteFromGcs(it) }
+
+        // 2. Delete metadata from BigQuery
+        return metadataRepository.deleteManifest(datasetId)
+    }
+
     override fun readFile(filePath: String): InputStream {
         val bucket = storage.get(gcsConfig.bucketName)
         val blobName = filePath.removePrefix("gs://${gcsConfig.bucketName}/")

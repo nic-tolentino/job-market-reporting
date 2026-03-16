@@ -59,10 +59,14 @@ const REMOVE_SELECTORS = [
   '.comments',
   '#comments',
   
-  // Forms (except job application forms)
-  'form:not(.apply-form)',
+  // Newsletter/subscription forms only — NOT all forms.
+  // Many ATS platforms (e.g. Cornerstone) wrap their entire job listing inside a
+  // <form> element for filter/search functionality. Removing all forms would strip
+  // the job list entirely.
   '.newsletter',
+  '.newsletter-form',
   '.subscribe',
+  '.subscribe-form',
   
   // Breadcrumbs
   '.breadcrumbs',
@@ -117,9 +121,16 @@ export function sanitizeContent(html: string): string {
 export function extractContent(html: string): ExtractedContent {
   const $ = cheerio.load(html);
   
-  // Remove unwanted elements
+  // Remove unwanted elements — log any selector that removes significant content
   for (const selector of REMOVE_SELECTORS) {
-    $(selector).remove();
+    const els = $(selector);
+    if (els.length > 0) {
+      const removedText = els.text().replace(/\s+/g, ' ').trim().substring(0, 120);
+      if (removedText.length > 20) {
+        console.log(`[EXTRACTOR_STRIP] selector="${selector}" count=${els.length} text="${removedText}"`);
+      }
+    }
+    els.remove();
   }
   
   // Extract metadata
@@ -151,20 +162,32 @@ export function extractContent(html: string): ExtractedContent {
   // Get main content area
   let mainContent = '';
   
-  // Try common main content selectors first
-  const mainSelectors = ['main', '[role="main"]', '.main-content', '.content', '#content'];
+  // Try specific main content selectors (ordered by specificity).
+  // '.content' intentionally excluded — it's too generic and matches small widgets.
+  const mainSelectors = ['main', '[role="main"]', '.main-content', '#content', '#main'];
+  let matchedSelector = 'body (fallback)';
+  const bodyTextLen = $('body').text().replace(/\s+/g, ' ').trim().length;
+
   for (const selector of mainSelectors) {
     const $main = $(selector);
     if ($main.length > 0) {
-      mainContent = $main.html() || '';
-      break;
+      const candidate = $main.html() || '';
+      const candidateTextLen = $main.text().replace(/\s+/g, ' ').trim().length;
+      // Only use this element if it contains at least 40% of the body text — otherwise
+      // it's a small widget (e.g. Cornerstone's "Create an alert" box) not the main listing.
+      if (bodyTextLen > 0 && candidateTextLen / bodyTextLen >= 0.4) {
+        mainContent = candidate;
+        matchedSelector = selector;
+        break;
+      }
     }
   }
-  
+
   // Fallback: use body content
   if (!mainContent) {
     mainContent = $('body').html() || '';
   }
+  console.log(`[EXTRACTOR_MAIN] matched="${matchedSelector}" bodyLen=${bodyTextLen} mainLen=${mainContent.length}`);
   
   // Sanitize the extracted content
   mainContent = sanitizeContent(mainContent);

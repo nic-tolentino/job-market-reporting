@@ -177,6 +177,7 @@ export function CompanyDetailPanel({
   const [newCategory, setNewCategory] = useState('tech-filtered');
   const [crawlFormOpen, setCrawlFormOpen] = useState(false);
   const [crawlUrl, setCrawlUrl] = useState('');
+  const [crawlDiscovery, setCrawlDiscovery] = useState(false);
 
   const { activeCrawl, startCrawl, clearCrawl } = useActiveCrawl();
   const isThisCrawlRunning = activeCrawl?.companyId === companyId && activeCrawl.status === 'running';
@@ -209,9 +210,9 @@ export function CompanyDetailPanel({
     setCrawlFormOpen(true);
   };
 
-  const handleStartCrawl = (url: string) => {
+  const handleStartCrawl = (url: string, discovery?: boolean) => {
     setCrawlFormOpen(false);
-    startCrawl(companyId, data?.name ?? companyName, url);
+    startCrawl(companyId, data?.name ?? companyName, url, { isDiscovery: discovery ?? crawlDiscovery });
   };
 
   const tabs = [
@@ -286,6 +287,16 @@ export function CompanyDetailPanel({
               onChange={(e) => setCrawlUrl(e.target.value)}
               autoFocus={!data?.seeds?.length}
             />
+            <label className="flex items-center gap-2 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={crawlDiscovery}
+                onChange={(e) => setCrawlDiscovery(e.target.checked)}
+                className="rounded border-border accent-accent"
+              />
+              <span className="text-xs text-secondary">Discovery mode</span>
+              <span className="text-xs text-muted">(follow links to find job pages)</span>
+            </label>
             <div className="flex gap-2">
               <button
                 onClick={() => handleStartCrawl(crawlUrl)}

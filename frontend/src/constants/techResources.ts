@@ -238,24 +238,21 @@ export const COMMUNITY_RESOURCES: Record<string, CommunityResources> = {
             { title: "GDG Wellington", url: "https://www.meetup.com/gdg-wellington/", description: "Google Developer Group covering Android & Cloud.", location: "Wellington", countries: ["NZ"] },
             { title: "GDG Auckland", url: "https://www.meetup.com/gdg-auckland/", description: "Monthly meetings for Google tech enthusiasts.", location: "Auckland", countries: ["NZ"] },
             { title: "CoderCamp Hamilton", url: "https://www.meetup.com/codercamp-hamilton/", description: "Hamilton's monthly software developer gathering.", location: "Hamilton", countries: ["NZ"] },
-            
-            // Australia
-            { title: "Sydney Android Developers", url: "https://www.meetup.com/sydney-android-developers/", description: "Australia's largest and most active Android community.", location: "Sydney", countries: ["AU"] },
-            { title: "Melbourne Android Developers", url: "https://www.meetup.com/melbourne-android-developers/", description: "A thriving hub for Android pros in Victoria.", location: "Melbourne", countries: ["AU"] },
-            { title: "GDG Melbourne", url: "https://gdgmelbourne.com/", description: "Flagship Google developer community in Melbourne.", location: "Melbourne", countries: ["AU"] },
-            { title: "GDG Sydney", url: "https://www.meetup.com/gdg-sydney/", description: "The primary Google technology group in Sydney.", location: "Sydney", countries: ["AU"] },
-            { title: "GDG Brisbane", url: "https://www.meetup.com/gdg-brisbane/", description: "Google technology enthusiasts in Queensland.", location: "Brisbane", countries: ["AU"] },
-            { title: "GDG Perth", url: "https://www.meetup.com/gdg-perth/", description: "Western Australia's dedicated Google developer group.", location: "Perth", countries: ["AU"] },
-            { title: "GDG Adelaide", url: "https://www.meetup.com/gdg-adelaide/", description: "Focusing on Android, Cloud, and AI in South Australia.", location: "Adelaide", countries: ["AU"] },
-            { title: "GDG Canberra", url: "https://www.meetup.com/gdg-canberra/", description: "The Google developer community in the ACT.", location: "Canberra", countries: ["AU"] },
-            { title: "Perth Android Developers", url: "https://www.meetup.com/perth-android-developers/", description: "Mobile engineering group in Western Australia.", location: "Perth", countries: ["AU"] },
-            
+
             { title: "CHCH.JS", url: "https://www.meetup.com/chch-js/", description: "JavaScript & Mobile dev community in Christchurch.", location: "Christchurch", countries: ["NZ"] },
             { title: "Waikato Tech", url: "https://www.meetup.com/tech-waikato/", description: "Tech industry group in the Waikato region.", location: "Hamilton", countries: ["NZ"] },
             { title: "Code Craft Dunedin", url: "https://www.meetup.com/code-craft-dunedin/", description: "Dunedin IT development discussion group.", location: "Dunedin", countries: ["NZ"] },
             { title: "Canterbury Tech", url: "https://canterburytech.nz/", description: "The cluster for tech companies in Canterbury.", location: "Christchurch", countries: ["NZ"] },
             { title: "Nelson Dev Group", url: "https://www.meetup.com/nelson-dev/", description: "Tech community in the Nelson region.", location: "Nelson", countries: ["NZ"] },
             { title: "Tauranga Tech", url: "https://www.meetup.com/tauranga-tech/", description: "Growing tech community in the Bay of Plenty.", location: "Tauranga", countries: ["NZ"] },
+            
+            // Australia
+            { title: "GDG Melbourne", url: "https://gdgmelbourne.com/", description: "Flagship Google developer community in Melbourne.", location: "Melbourne", countries: ["AU"] },
+            { title: "GDG Sydney", url: "https://www.meetup.com/gdg-sydney/", description: "The primary Google technology group in Sydney.", location: "Sydney", countries: ["AU"] },
+            { title: "GDG Brisbane", url: "https://www.meetup.com/gdg-brisbane/", description: "Google technology enthusiasts in Queensland.", location: "Brisbane", countries: ["AU"] },
+            { title: "GDG Perth", url: "https://www.meetup.com/gdg-perth/", description: "Western Australia's dedicated Google developer group.", location: "Perth", countries: ["AU"] },
+            { title: "GDG Adelaide", url: "https://www.meetup.com/gdg-adelaide/", description: "Focusing on Android, Cloud, and AI in South Australia.", location: "Adelaide", countries: ["AU"] },
+            { title: "GDG Canberra", url: "https://www.meetup.com/gdg-canberra/", description: "The Google developer community in the ACT.", location: "Canberra", countries: ["AU"] },
 
             // Spain
             { title: "GDG Madrid", url: "https://www.meetup.com/gdg-madrid/", description: "Large Google tech community covering Android, Flutter, Cloud, and AI. Very active with 5,500+ members.", location: "Madrid", countries: ["ES"] },

@@ -167,7 +167,9 @@ class CrawlerSeedRepository(
             companyId to AggregatedSeedHealth(
                 seedStatus = if (!row["seed_status"].isNull) row["seed_status"].stringValue else null,
                 seedCount = row["seed_count"].longValue.toInt(),
-                lastCrawledAt = if (!row["last_crawled_at"].isNull) row["last_crawled_at"].stringValue else null,
+                lastCrawledAt = if (!row["last_crawled_at"].isNull)
+                    java.time.Instant.ofEpochMilli(row["last_crawled_at"].timestampValue / 1000).toString()
+                else null,
                 totalJobsLastRun = row["total_jobs_last_run"].longValue.toInt(),
                 maxZeroYieldCount = row["max_zero_yield_count"].longValue.toInt(),
                 atsProvider = if (!row["ats_provider"].isNull) row["ats_provider"].stringValue else null,
@@ -183,7 +185,9 @@ class CrawlerSeedRepository(
         paginationPattern = row[CrawlerSeedFields.PAGINATION_PATTERN].takeUnless { it.isNull }?.stringValue,
         lastKnownJobCount = row[CrawlerSeedFields.LAST_KNOWN_JOB_COUNT].takeUnless { it.isNull }?.longValue?.toInt(),
         lastKnownPageCount = row[CrawlerSeedFields.LAST_KNOWN_PAGE_COUNT].takeUnless { it.isNull }?.longValue?.toInt(),
-        lastCrawledAt = row[CrawlerSeedFields.LAST_CRAWLED_AT].takeUnless { it.isNull }?.stringValue,
+        lastCrawledAt = row[CrawlerSeedFields.LAST_CRAWLED_AT].takeUnless { it.isNull }?.let {
+            java.time.Instant.ofEpochMilli(it.timestampValue / 1000).toString()
+        },
         lastDurationMs = row[CrawlerSeedFields.LAST_DURATION_MS].takeUnless { it.isNull }?.longValue?.toInt(),
         errorMessage = row[CrawlerSeedFields.ERROR_MESSAGE].takeUnless { it.isNull }?.stringValue,
         consecutiveZeroYieldCount = row[CrawlerSeedFields.CONSECUTIVE_ZERO_YIELD_COUNT].takeUnless { it.isNull }?.longValue?.toInt() ?: 0,

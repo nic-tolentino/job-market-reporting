@@ -138,6 +138,30 @@ export async function getIngestionHistory(): Promise<any> {
   return request('/pipeline/history');
 }
 
+export async function reprocessAll(): Promise<any> {
+  return request('/pipeline/reprocess', { method: 'POST' });
+}
+
+export async function ingestDataset(datasetId: string): Promise<any> {
+  return request(`/pipeline/ingest?datasetId=${datasetId}`, { method: 'POST' });
+}
+
+export async function wipeSilver(): Promise<any> {
+  return request('/pipeline/wipe-silver', { method: 'POST' });
+}
+
+export async function deleteDataset(datasetId: string): Promise<any> {
+  return request(`/pipeline/datasets/${datasetId}`, { method: 'DELETE' });
+}
+
+export async function syncCompanies(): Promise<any> {
+  return request('/pipeline/sync-companies', { method: 'POST' });
+}
+
+export async function runHealthCheck(): Promise<any> {
+  return request('/pipeline/run-health-check', { method: 'POST' });
+}
+
 // ---------------------------------------------------------------------------
 // Analytics
 // ---------------------------------------------------------------------------

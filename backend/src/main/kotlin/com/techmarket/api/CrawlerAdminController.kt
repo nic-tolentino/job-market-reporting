@@ -125,7 +125,9 @@ class CrawlerAdminController(
                     "employeesCount" to (row.get("employeesCount").takeUnless { it.isNull }?.longValue?.toInt()),
                     "seedStatus" to (row.get("seedStatus").takeUnless { it.isNull }?.stringValue),
                     "seedCount" to (row.get("seedCount").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
-                    "lastCrawledAt" to (row.get("lastCrawledAt").takeUnless { it.isNull }?.stringValue),
+                    "lastCrawledAt" to (row.get("lastCrawledAt").takeUnless { it.isNull }?.let {
+                        java.time.Instant.ofEpochMilli(it.timestampValue / 1000).toString()
+                    }),
                     "totalJobsLastRun" to (row.get("totalJobsLastRun").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
                     "atsProvider" to (row.get("atsProvider").takeUnless { it.isNull }?.stringValue),
                     "maxZeroYieldCount" to (row.get("maxZeroYieldCount").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
@@ -259,6 +261,8 @@ class CrawlerAdminController(
 
         return try {
             val startedAt = java.time.Instant.now().toString()
+            crawlLogService.log(companyId, "INFO", "Starting crawl for $companyId at ${body.url}")
+
             val resultJson = crawlerServiceRestClient.post()
                 .uri("/crawl")
                 .header("Content-Type", "application/json")
@@ -298,6 +302,23 @@ class CrawlerAdminController(
                 modelUsed = meta["extractionModel"] as? String,
             )
 
+            val jobsFinalCount = (meta["totalJobsFound"] as? Number)?.toInt() ?: 0
+            val durationSec = ((meta["crawlDurationMs"] as? Number)?.toLong() ?: 0) / 1000
+            val pagesCount = (meta["pagesVisited"] as? Number)?.toInt() ?: 0
+            val crawlStatus = (meta["status"] as? String) ?: "COMPLETED"
+            val crawlError = meta["errorMessage"] as? String
+
+            val logLevel = when {
+                crawlError != null -> "ERROR"
+                jobsFinalCount == 0 -> "WARNING"
+                else -> "SUCCESS"
+            }
+            val summary = when {
+                crawlError != null -> "Crawl failed: $crawlError"
+                else -> "Crawl complete — $jobsFinalCount jobs, $pagesCount pages in ${durationSec}s (status: $crawlStatus)"
+            }
+            crawlLogService.log(companyId, logLevel, summary)
+
             try {
                 crawlRunRepository.append(record)
                 log.info("Persisted admin crawl run $runId for $companyId")
@@ -318,7 +339,9 @@ class CrawlerAdminController(
             val updatedSeed = CrawlerSeedRecord(
                 companyId = companyId,
                 url = body.url,
-                category = existingSeed?.category ?: (body.seedData?.get("category") as? String),
+                category = existingSeed?.category
+                    ?: (body.seedData?.get("category") as? String)
+                    ?: if (body.isDiscovery == true) "homepage" else "general",
                 status = (meta["status"] as? String) ?: existingSeed?.status ?: "ACTIVE",
                 paginationPattern = (meta["pagination_pattern"] as? String) ?: existingSeed?.paginationPattern,
                 lastKnownJobCount = jobsFound,
@@ -342,6 +365,7 @@ class CrawlerAdminController(
             ResponseEntity.ok(result)
         } catch (e: Exception) {
             log.error("Crawl failed for $companyId: ${e.message}", e)
+            crawlLogService.log(companyId, "ERROR", "Crawl request failed: ${e.message}")
             ResponseEntity.internalServerError().body(mapOf("error" to e.message))
         }
     }

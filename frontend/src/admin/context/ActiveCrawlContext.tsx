@@ -12,7 +12,7 @@ export interface ActiveCrawl {
 
 interface ActiveCrawlContextType {
   activeCrawl: ActiveCrawl | null;
-  startCrawl: (companyId: string, companyName: string, url: string) => void;
+  startCrawl: (companyId: string, companyName: string, url: string, options?: { isDiscovery?: boolean }) => void;
   clearCrawl: () => void;
 }
 
@@ -24,13 +24,13 @@ export const ActiveCrawlProvider: React.FC<{ children: React.ReactNode }> = ({ c
   // Prevent double-firing if startCrawl is called while one is already running
   const inFlight = useRef(false);
 
-  const startCrawl = useCallback((companyId: string, companyName: string, url: string) => {
+  const startCrawl = useCallback((companyId: string, companyName: string, url: string, options?: { isDiscovery?: boolean }) => {
     if (inFlight.current) return;
     inFlight.current = true;
 
     setActiveCrawl({ companyId, companyName, url, status: 'running' });
 
-    triggerCrawl(companyId, { url })
+    triggerCrawl(companyId, { url, isDiscovery: options?.isDiscovery })
       .then((result: any) => {
         const stats = result?.crawlMeta?.extractionStats;
         const meta = result?.crawlMeta;
