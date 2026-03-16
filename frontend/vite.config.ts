@@ -7,6 +7,13 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {
+      '/api/admin/crawler/logs': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        // SSE requires no proxy timeout and no response buffering
+        proxyTimeout: 0,
+        timeout: 0,
+      },
       '/api': {
         target: 'http://localhost:8080',
         changeOrigin: true,

@@ -112,33 +112,38 @@ class CrawlerAdminController(
             sortOrder = finalSortOrder
         )
 
-        val results = bigQuery.query(queryConfig).iterateAll().map { row ->
-            mapOf(
-                "companyId" to row.get("companyId").stringValue,
-                "name" to row.get("name").stringValue,
-                "logoUrl" to (row.get("logoUrl").takeUnless { it.isNull }?.stringValue ?: ""),
-                "hqCountry" to (row.get("hqCountry").takeUnless { it.isNull }?.stringValue),
-                "verificationLevel" to (row.get("verificationLevel").takeUnless { it.isNull }?.stringValue),
-                "employeesCount" to (row.get("employeesCount").takeUnless { it.isNull }?.longValue?.toInt()),
-                "seedStatus" to (row.get("seedStatus").takeUnless { it.isNull }?.stringValue),
-                "seedCount" to (row.get("seedCount").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
-                "lastCrawledAt" to (row.get("lastCrawledAt").takeUnless { it.isNull }?.stringValue),
-                "totalJobsLastRun" to (row.get("totalJobsLastRun").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
-                "atsProvider" to (row.get("atsProvider").takeUnless { it.isNull }?.stringValue),
-                "maxZeroYieldCount" to (row.get("maxZeroYieldCount").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
-            )
+        return try {
+            val results = bigQuery.query(queryConfig).iterateAll().map { row ->
+                mapOf(
+                    "companyId" to row.get("companyId").stringValue,
+                    "name" to row.get("name").stringValue,
+                    "logoUrl" to (row.get("logoUrl").takeUnless { it.isNull }?.stringValue ?: ""),
+                    "hqCountry" to (row.get("hqCountry").takeUnless { it.isNull }?.stringValue),
+                    "verificationLevel" to (row.get("verificationLevel").takeUnless { it.isNull }?.stringValue),
+                    "employeesCount" to (row.get("employeesCount").takeUnless { it.isNull }?.longValue?.toInt()),
+                    "seedStatus" to (row.get("seedStatus").takeUnless { it.isNull }?.stringValue),
+                    "seedCount" to (row.get("seedCount").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
+                    "lastCrawledAt" to (row.get("lastCrawledAt").takeUnless { it.isNull }?.stringValue),
+                    "totalJobsLastRun" to (row.get("totalJobsLastRun").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
+                    "atsProvider" to (row.get("atsProvider").takeUnless { it.isNull }?.stringValue),
+                    "maxZeroYieldCount" to (row.get("maxZeroYieldCount").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
+                )
+            }
+
+            // Count total matching the filters
+            val totalSql = buildCompanyCountQuery(searchPattern, hqCountry, seedStatus)
+            val total = bigQuery.query(totalSql).iterateAll().firstOrNull()?.get("cnt")?.longValue?.toInt() ?: 0
+
+            ResponseEntity.ok(mapOf(
+                "data" to results,
+                "page" to page,
+                "limit" to limit,
+                "total" to total,
+            ))
+        } catch (e: Exception) {
+            log.error("BigQuery query failed for listCompanies: ${e.message}", e)
+            ResponseEntity.internalServerError().body(mapOf("error" to (e.message ?: "BigQuery query failed")))
         }
-
-        // Count total matching the filters
-        val totalSql = buildCompanyCountQuery(searchPattern, hqCountry, seedStatus)
-        val total = bigQuery.query(totalSql).iterateAll().firstOrNull()?.get("cnt")?.longValue?.toInt() ?: 0
-
-        return ResponseEntity.ok(mapOf(
-            "data" to results,
-            "page" to page,
-            "limit" to limit,
-            "total" to total,
-        ))
     }
 
     // ---------------------------------------------------------------------------

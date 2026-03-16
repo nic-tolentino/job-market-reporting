@@ -7,7 +7,7 @@ import type {
   TriggerCrawlRequest,
 } from '../types/admin';
 
-const BASE = '/api/admin';
+const BASE = `${import.meta.env.VITE_API_URL || '/api'}/admin`;
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   const fullPath = `${BASE}${path}`;

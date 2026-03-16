@@ -18,7 +18,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
     setError('');
 
     try {
-      const res = await fetch('/api/admin/crawler/health', {
+      const apiBase = import.meta.env.VITE_API_URL || '/api';
+      const res = await fetch(`${apiBase}/admin/crawler/health`, {
         headers: { Authorization: `Bearer ${token.trim()}` },
       });
 
