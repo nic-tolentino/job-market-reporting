@@ -207,6 +207,7 @@ export function CompanyDetailPanel({
         `Done — ${statsText}, ${meta?.pagesVisited ?? 0} pages`
       );
       qc.invalidateQueries({ queryKey: ['admin-company', companyId] });
+      qc.invalidateQueries({ queryKey: ['admin-companies'] });
     },
     onError: (e: Error) => setCrawlStatus(`Error: ${e.message}`),
   });
@@ -221,10 +222,33 @@ export function CompanyDetailPanel({
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
         <div>
-          <h2 className="font-semibold text-gray-900 text-sm">{companyName}</h2>
-          <p className="text-xs text-gray-500 font-mono">{companyId}</p>
+          <h2 className="font-semibold text-gray-900 text-sm">{data?.name || companyName}</h2>
+          <div className="flex items-center gap-2">
+            <p className="text-xs text-gray-400 font-mono">{companyId}</p>
+            {data?.website && (
+              <>
+                <span className="text-gray-300">·</span>
+                <a
+                  href={data.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs text-blue-600 hover:underline flex items-center gap-0.5"
+                >
+                   Website
+                </a>
+                <button
+                  onClick={() => crawlMutation.mutate(data.website!)}
+                  disabled={crawlMutation.isPending}
+                  className="text-[10px] bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded hover:bg-blue-100 disabled:opacity-50"
+                  title="Crawl main website"
+                >
+                  {crawlMutation.isPending ? 'Crawling...' : 'Crawl'}
+                </button>
+              </>
+            )}
+          </div>
         </div>
-        <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+        <button onClick={onClose} className="text-gray-400 hover:text-gray-600 self-start mt-1">
           <X size={18} />
         </button>
       </div>

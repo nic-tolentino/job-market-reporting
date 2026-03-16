@@ -71,6 +71,8 @@ class CrawlerAdminController(
         @RequestParam("search", required = false) search: String?,
         @RequestParam("seedStatus", required = false) seedStatus: String?,
         @RequestParam("hqCountry", required = false) hqCountry: String?,
+        @RequestParam("sortBy", defaultValue = "name") sortBy: String,
+        @RequestParam("sortOrder", defaultValue = "ASC") sortOrder: String,
     ): ResponseEntity<*> {
 
         if (bigQuery == null) {
@@ -86,7 +88,31 @@ class CrawlerAdminController(
         val offset = page * limit
         val searchPattern = search?.let { "%${it.lowercase()}%" }
 
-        val companies = bigQuery.query(buildCompanyQuery(searchPattern, hqCountry, limit, offset)).iterateAll().map { row ->
+        // Sanitize sortOrder
+        val finalSortOrder = if (sortOrder.uppercase() == "DESC") "DESC" else "ASC"
+        // Map frontend sort fields to SQL fields
+        val sortField = when (sortBy) {
+            "name" -> "c.name"
+            "seedStatus" -> "s.seed_status"
+            "atsProvider" -> "s.ats_provider"
+            "lastCrawledAt" -> "s.last_crawled_at"
+            "totalJobsLastRun" -> "s.total_jobs_last_run"
+            "hqCountry" -> "c.hqCountry"
+            "seedCount" -> "s.seed_count"
+            else -> "c.name"
+        }
+
+        val queryConfig = buildCompanyQuery(
+            searchPattern = searchPattern,
+            hqCountry = hqCountry,
+            seedStatus = seedStatus,
+            limit = limit,
+            offset = offset,
+            sortField = sortField,
+            sortOrder = finalSortOrder
+        )
+
+        val results = bigQuery.query(queryConfig).iterateAll().map { row ->
             mapOf(
                 "companyId" to row.get("companyId").stringValue,
                 "name" to row.get("name").stringValue,
@@ -94,39 +120,17 @@ class CrawlerAdminController(
                 "hqCountry" to (row.get("hqCountry").takeUnless { it.isNull }?.stringValue),
                 "verificationLevel" to (row.get("verificationLevel").takeUnless { it.isNull }?.stringValue),
                 "employeesCount" to (row.get("employeesCount").takeUnless { it.isNull }?.longValue?.toInt()),
+                "seedStatus" to (row.get("seedStatus").takeUnless { it.isNull }?.stringValue),
+                "seedCount" to (row.get("seedCount").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
+                "lastCrawledAt" to (row.get("lastCrawledAt").takeUnless { it.isNull }?.stringValue),
+                "totalJobsLastRun" to (row.get("totalJobsLastRun").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
+                "atsProvider" to (row.get("atsProvider").takeUnless { it.isNull }?.stringValue),
+                "maxZeroYieldCount" to (row.get("maxZeroYieldCount").takeUnless { it.isNull }?.longValue?.toInt() ?: 0),
             )
         }
 
-        val companyIds = companies.map { it["companyId"] as String }
-
-        // Fetch aggregated seed health for these companies
-        val seedHealth: Map<String, AggregatedSeedHealth> = try {
-            crawlerSeedRepository.findAggregatedByCompanyIds(companyIds)
-        } catch (e: Exception) {
-            log.warn("crawler_seeds unavailable — returning companies without seed data: ${e.message}")
-            emptyMap()
-        }
-
-        // Apply seedStatus filter post-join (simpler than complex SQL)
-        var results = companies.map { company ->
-            val id = company.get("companyId") as String
-            val health = seedHealth.get(id)
-            company + mapOf(
-                "seedStatus" to health?.seedStatus,
-                "seedCount" to (health?.seedCount ?: 0),
-                "lastCrawledAt" to health?.lastCrawledAt,
-                "totalJobsLastRun" to (health?.totalJobsLastRun ?: 0),
-                "atsProvider" to health?.atsProvider,
-                "maxZeroYieldCount" to (health?.maxZeroYieldCount ?: 0),
-            )
-        }
-
-        if (seedStatus != null) {
-            results = results.filter { it["seedStatus"] == seedStatus }
-        }
-
-        // Count total (simplified — doesn't account for seedStatus filter)
-        val totalSql = buildCompanyCountQuery(searchPattern, hqCountry)
+        // Count total matching the filters
+        val totalSql = buildCompanyCountQuery(searchPattern, hqCountry, seedStatus)
         val total = bigQuery.query(totalSql).iterateAll().firstOrNull()?.get("cnt")?.longValue?.toInt() ?: 0
 
         return ResponseEntity.ok(mapOf(
@@ -146,6 +150,19 @@ class CrawlerAdminController(
     fun getCompany(
         @PathVariable companyId: String,
     ): ResponseEntity<*> {
+        val companyMetadata = bigQuery?.let { bq ->
+            val sql = "SELECT name, website, logoUrl FROM `$datasetName.${BigQueryTables.COMPANIES}` WHERE companyId = @companyId LIMIT 1"
+            val cfg = QueryJobConfiguration.newBuilder(sql)
+                .addNamedParameter("companyId", QueryParameterValue.string(companyId))
+                .build()
+            bq.query(cfg).iterateAll().firstOrNull()?.let { row ->
+                mapOf(
+                    "name" to row.get("name").stringValue,
+                    "website" to (row.get("website").takeUnless { it.isNull }?.stringValue),
+                    "logoUrl" to (row.get("logoUrl").takeUnless { it.isNull }?.stringValue)
+                )
+            }
+        }
 
         val seeds: List<CrawlerSeedRecord> = try {
             crawlerSeedRepository.findByCompanyId(companyId)
@@ -163,10 +180,15 @@ class CrawlerAdminController(
 
         return ResponseEntity.ok(mapOf(
             "companyId" to companyId,
+            "name" to (companyMetadata?.get("name") ?: ""),
+            "website" to companyMetadata?.get("website"),
+            "logoUrl" to companyMetadata?.get("logoUrl"),
             "seeds" to seeds.map { seedToMap(it) },
             "recentRuns" to runs.map { runToMap(it) },
         ))
     }
+
+
 
     // ---------------------------------------------------------------------------
     // PUT /api/admin/crawler/seeds
@@ -308,22 +330,62 @@ class CrawlerAdminController(
      * This keeps the SQL simple and avoids complex joins across potentially large datasets
      * for the admin-only observability view.
      */
-    private fun buildCompanyQuery(search: String?, hqCountry: String?, limit: Int, offset: Int): QueryJobConfiguration {
+    private fun buildCompanyQuery(
+        searchPattern: String?,
+        hqCountry: String?,
+        seedStatus: String?,
+        limit: Int,
+        offset: Int,
+        sortField: String,
+        sortOrder: String
+    ): QueryJobConfiguration {
         val sql = buildString {
-            append("SELECT companyId, name, logoUrl, hqCountry, verificationLevel, employeesCount")
-            append(" FROM `$datasetName.${BigQueryTables.COMPANIES}`")
+            append("WITH seed_health AS (")
+            append("  SELECT company_id,")
+            append("    CASE")
+            append("      WHEN COUNTIF(status = 'ACTIVE') > 0 THEN 'ACTIVE'")
+            append("      WHEN COUNTIF(status = 'STALE') > 0 THEN 'STALE'")
+            append("      WHEN COUNTIF(status = 'BLOCKED') > 0 THEN 'BLOCKED'")
+            append("      WHEN COUNT(*) > 0 THEN MAX(status)")
+            append("      ELSE NULL")
+            append("    END AS seed_status,")
+            append("    COUNT(*) AS seed_count,")
+            append("    MAX(last_crawled_at) AS last_crawled_at,")
+            append("    SUM(COALESCE(last_known_job_count, 0)) AS total_jobs_last_run,")
+            append("    MAX(consecutive_zero_yield_count) AS max_zero_yield_count,")
+            append("    MAX(CASE WHEN status = 'ACTIVE' THEN ats_provider ELSE NULL END) AS ats_provider")
+            append("  FROM `$datasetName.${BigQueryTables.CRAWLER_SEEDS}`")
+            append("  GROUP BY company_id")
+            append(")")
+            append("SELECT c.companyId, c.name, c.logoUrl, c.hqCountry, c.verificationLevel, c.employeesCount,")
+            append("  s.seed_status as seedStatus, s.seed_count as seedCount, s.last_crawled_at as lastCrawledAt,")
+            append("  s.total_jobs_last_run as totalJobsLastRun, s.max_zero_yield_count as maxZeroYieldCount,")
+            append("  s.ats_provider as atsProvider")
+            append(" FROM `$datasetName.${BigQueryTables.COMPANIES}` c")
+            append(" LEFT JOIN seed_health s ON c.companyId = s.company_id")
+            
             val where = mutableListOf<String>()
-            if (search != null) where.add("LOWER(name) LIKE @searchPattern")
-            if (hqCountry != null) where.add("hqCountry = @hqCountry")
+            if (searchPattern != null) where.add("LOWER(c.name) LIKE @searchPattern")
+            if (hqCountry != null) where.add("c.hqCountry = @hqCountry")
+            if (seedStatus != null) {
+                if (seedStatus == "NONE") {
+                    where.add("s.company_id IS NULL")
+                } else {
+                    where.add("s.seed_status = @seedStatus")
+                }
+            }
             if (where.isNotEmpty()) append(" WHERE ${where.joinToString(" AND ")}")
-            append(" ORDER BY name ASC LIMIT @limit OFFSET @offset")
+            
+            append(" ORDER BY $sortField $sortOrder, c.name ASC")
+            append(" LIMIT @limit OFFSET @offset")
         }
 
         val cfg = QueryJobConfiguration.newBuilder(sql)
             .addNamedParameter("limit", QueryParameterValue.int64(limit.toLong()))
             .addNamedParameter("offset", QueryParameterValue.int64(offset.toLong()))
-        if (search != null) cfg.addNamedParameter("searchPattern", QueryParameterValue.string(search))
+        if (searchPattern != null) cfg.addNamedParameter("searchPattern", QueryParameterValue.string(searchPattern))
         if (hqCountry != null) cfg.addNamedParameter("hqCountry", QueryParameterValue.string(hqCountry))
+        if (seedStatus != null && seedStatus != "NONE") cfg.addNamedParameter("seedStatus", QueryParameterValue.string(seedStatus))
         return cfg.build()
     }
 
@@ -331,17 +393,43 @@ class CrawlerAdminController(
      * Builds the SQL query to count total companies matching base filters.
      * Used for pagination calculation.
      */
-    private fun buildCompanyCountQuery(search: String?, hqCountry: String?): QueryJobConfiguration {
+    private fun buildCompanyCountQuery(searchPattern: String?, hqCountry: String?, seedStatus: String?): QueryJobConfiguration {
         val sql = buildString {
-            append("SELECT COUNT(*) AS cnt FROM `$datasetName.${BigQueryTables.COMPANIES}`")
+            if (seedStatus != null) {
+                append("WITH seed_health AS (")
+                append("  SELECT company_id,")
+                append("    CASE")
+                append("      WHEN COUNTIF(status = 'ACTIVE') > 0 THEN 'ACTIVE'")
+                append("      WHEN COUNTIF(status = 'STALE') > 0 THEN 'STALE'")
+                append("      WHEN COUNTIF(status = 'BLOCKED') > 0 THEN 'BLOCKED'")
+                append("      WHEN COUNT(*) > 0 THEN MAX(status)")
+                append("      ELSE NULL")
+                append("    END AS seed_status")
+                append("  FROM `$datasetName.${BigQueryTables.CRAWLER_SEEDS}`")
+                append("  GROUP BY company_id")
+                append(")")
+                append("SELECT COUNT(*) AS cnt FROM `$datasetName.${BigQueryTables.COMPANIES}` c")
+                append(" LEFT JOIN seed_health s ON c.companyId = s.company_id")
+            } else {
+                append("SELECT COUNT(*) AS cnt FROM `$datasetName.${BigQueryTables.COMPANIES}` c")
+            }
+
             val where = mutableListOf<String>()
-            if (search != null) where.add("LOWER(name) LIKE @searchPattern")
-            if (hqCountry != null) where.add("hqCountry = @hqCountry")
+            if (searchPattern != null) where.add("LOWER(c.name) LIKE @searchPattern")
+            if (hqCountry != null) where.add("c.hqCountry = @hqCountry")
+            if (seedStatus != null) {
+                if (seedStatus == "NONE") {
+                    where.add("s.company_id IS NULL")
+                } else {
+                    where.add("s.seed_status = @seedStatus")
+                }
+            }
             if (where.isNotEmpty()) append(" WHERE ${where.joinToString(" AND ")}")
         }
         val cfg = QueryJobConfiguration.newBuilder(sql)
-        if (search != null) cfg.addNamedParameter("searchPattern", QueryParameterValue.string(search))
+        if (searchPattern != null) cfg.addNamedParameter("searchPattern", QueryParameterValue.string(searchPattern))
         if (hqCountry != null) cfg.addNamedParameter("hqCountry", QueryParameterValue.string(hqCountry))
+        if (seedStatus != null && seedStatus != "NONE") cfg.addNamedParameter("seedStatus", QueryParameterValue.string(seedStatus))
         return cfg.build()
     }
 

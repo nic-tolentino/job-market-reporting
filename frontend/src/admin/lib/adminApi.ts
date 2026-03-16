@@ -43,6 +43,8 @@ export interface ListCompaniesParams {
   search?: string;
   seedStatus?: string;
   hqCountry?: string;
+  sortBy?: string;
+  sortOrder?: 'ASC' | 'DESC';
 }
 
 export async function listCompanies(params: ListCompaniesParams = {}): Promise<AdminCompanyListResponse> {
@@ -52,6 +54,8 @@ export async function listCompanies(params: ListCompaniesParams = {}): Promise<A
   if (params.search) qs.set('search', params.search);
   if (params.seedStatus) qs.set('seedStatus', params.seedStatus);
   if (params.hqCountry) qs.set('hqCountry', params.hqCountry);
+  if (params.sortBy) qs.set('sortBy', params.sortBy);
+  if (params.sortOrder) qs.set('sortOrder', params.sortOrder);
   const query = qs.toString() ? `?${qs.toString()}` : '';
   return request<AdminCompanyListResponse>(`/crawler/companies${query}`);
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, ChevronLeft, ChevronRight, ArrowUp, ArrowDown } from 'lucide-react';
 import { listCompanies } from '../lib/adminApi';
 import { StatusBadge } from '../components/StatusBadge';
 import { CompanyDetailPanel } from '../components/CompanyDetailPanel';
@@ -11,10 +11,11 @@ const SEED_STATUS_OPTIONS = [
   { value: 'ACTIVE', label: 'Active' },
   { value: 'STALE', label: 'Stale' },
   { value: 'BLOCKED', label: 'Blocked' },
+  { value: 'NONE', label: 'No seeds (Discovery)' },
 ];
 
 const PRESET_FILTERS: { label: string; seedStatus?: string; description: string }[] = [
-  { label: 'Discovery queue', seedStatus: undefined, description: 'No active seed' },
+  { label: 'Discovery queue', seedStatus: 'NONE', description: 'No seeds yet' },
   { label: 'Needs attention', seedStatus: 'STALE', description: 'STALE seeds' },
   { label: 'Working well', seedStatus: 'ACTIVE', description: 'Active seeds' },
 ];
@@ -29,6 +30,35 @@ function formatDate(iso: string | null): string {
   if (diffDays === 1) return '1d ago';
   if (diffDays < 30) return `${diffDays}d ago`;
   return d.toLocaleDateString();
+}
+
+function SortableHeader({
+  label,
+  field,
+  currentSort,
+  order,
+  onSort,
+}: {
+  label: string;
+  field: string;
+  currentSort: string;
+  order: 'ASC' | 'DESC';
+  onSort: (field: string) => void;
+}) {
+  const active = currentSort === field;
+  return (
+    <th
+      className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wide cursor-pointer hover:bg-gray-100 transition-colors group"
+      onClick={() => onSort(field)}
+    >
+      <div className="flex items-center gap-1">
+        {label}
+        <div className={`transition-opacity ${active ? 'opacity-100' : 'opacity-0 group-hover:opacity-40'}`}>
+          {active && order === 'DESC' ? <ArrowDown size={12} /> : <ArrowUp size={12} />}
+        </div>
+      </div>
+    </th>
+  );
 }
 
 function CompanyRow({
@@ -97,6 +127,18 @@ export function CompaniesPage() {
   const [debouncedSearch, setDebouncedSearch] = useState('');
   const [seedStatus, setSeedStatus] = useState('');
   const [selected, setSelected] = useState<AdminCompany | null>(null);
+  const [sortBy, setSortBy] = useState('name');
+  const [sortOrder, setSortOrder] = useState<'ASC' | 'DESC'>('ASC');
+
+  const handleSort = (field: string) => {
+    if (sortBy === field) {
+      setSortOrder(sortOrder === 'ASC' ? 'DESC' : 'ASC');
+    } else {
+      setSortBy(field);
+      setSortOrder('ASC');
+    }
+    setPage(0);
+  };
 
   // Simple debounce on search
   const handleSearchChange = (val: string) => {
@@ -109,13 +151,15 @@ export function CompaniesPage() {
   };
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ['admin-companies', page, debouncedSearch, seedStatus],
+    queryKey: ['admin-companies', page, debouncedSearch, seedStatus, sortBy, sortOrder],
     queryFn: () =>
       listCompanies({
         page,
         limit: 50,
         search: debouncedSearch || undefined,
         seedStatus: seedStatus || undefined,
+        sortBy,
+        sortOrder,
       }),
     placeholderData: (prev) => prev,
   });
@@ -188,13 +232,13 @@ export function CompaniesPage() {
           <table className="w-full text-left">
             <thead className="sticky top-0 bg-gray-50 border-b border-gray-200 z-10">
               <tr>
-                <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wide">Company</th>
-                <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wide">Seed</th>
-                <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wide">ATS</th>
-                <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wide">Last crawl</th>
-                <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wide">Jobs</th>
-                <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wide">Country</th>
-                <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wide">Seeds</th>
+                <SortableHeader label="Company" field="name" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
+                <SortableHeader label="Seed" field="seedStatus" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
+                <SortableHeader label="ATS" field="atsProvider" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
+                <SortableHeader label="Last crawl" field="lastCrawledAt" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
+                <SortableHeader label="Jobs" field="totalJobsLastRun" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
+                <SortableHeader label="Country" field="hqCountry" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
+                <SortableHeader label="Seeds" field="seedCount" currentSort={sortBy} order={sortOrder} onSort={handleSort} />
               </tr>
             </thead>
             <tbody>

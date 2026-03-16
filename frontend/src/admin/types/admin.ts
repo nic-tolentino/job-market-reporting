@@ -64,6 +64,9 @@ export interface CrawlRun {
 
 export interface AdminCompanyDetail {
   companyId: string;
+  name: string;
+  website: string | null;
+  logoUrl: string | null;
   seeds: CrawlerSeed[];
   recentRuns: CrawlRun[];
 }

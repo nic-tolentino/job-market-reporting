@@ -139,6 +139,8 @@ The frontend is hosted on Vercel and connects to the GCP backend via the `VITE_A
 
 Now:
 
+- Ok I really need an admin panel now - I need a way to understand information like: status of company crawls and seed urls including last run (and ideally analytics like run time, number of jobs found, % of tech jobs out of all jobs processed per company, etc. - we need information to understand the status of the crawling process, as well as stats that can help us detect optimisation opportunities, enable/disable scheduled crawling, feedback submissions, current state of ingestion requests (plus any dead letters), ), status of active crawls, list of datset IDs that have been consumed. A bunch of convenience stuff like: re-process datasets, ingest dataset ID, trigger a crawl for a seed url/company, etc. We should do some brainsotrming on what would be useful to have in an admin panel. 
+
 - Next I need to figure out a staged deployment process - I can't keep breaking and testing in production for frontend and backend services.
 
 - We need to make the landing page better reflect the Discover. Grow. Connect. philosophy.
@@ -146,6 +148,10 @@ Now:
 Later:
 
 - Melbourne tech events calendar: https://calendar.google.com/calendar/u/0/embed?src=741714b060754779a29f37566919b7921ec1133990e4c4021d013e72204f38f9@group.calendar.google.com&ctz=Australia/Melbourne
+
+- Make all constant values in the manifest schema file into ALL CAPS?
+
+- I was thinking: does it make sense to save every ingestion into a separte cold storage file - afterall they shouldn't be accessed often at all, and it also allows us to more easily mamage the data, reduces costs, and we don't need to maintain that table. The cost is performance but does it matter in practice?
 
 - Company level tech stack has a lot of potentail for improvement refer to company-tech-stack-fix.md
 
@@ -156,7 +162,9 @@ Later:
 - Add testing, design, project management, product management???
 - Add a link to the relevant Tech Domain to the tech page, (and Job page?)
 - Identify what the core technology (or multiple??) are for a role - we can use this to sort the roles and other information. May need NLP.
+- The ability to group technologies by category, e.g. cloud, server, database, web, mobile, backend, etc in the landing, and company pages
 
+- Add currency detection and support
 - Add salary analysis on a per country basis, comparing industries and seniorities
 - Add details to the job salary indicatig the source of the info (job listing, vs market data, vs AI estimate) so we can make accurate analysis
 - Add language detection for job listings
@@ -299,6 +307,7 @@ Sat - 4 hrs
 - should the crawler-service/storage folder be added to gitignore?
 - https://www.devassembly.org/company/xero lists 8 jobs, but it's actually just 4 jobs which weren't de-duplicated successfully. We should understand why and fix this issue. 
 - Consider adding a calculation for the total number of jobs listed this month, and this year for each company, and on average how long a job listing exists for (do we ever remove jobs from the database - should we?).
+- Add new scrawler seed categories: homepage?, careers, and reserve tech-filtered for urls that are highly tech focused.
 
 - Xero careers with Engineering + Data Science filter (page 1 of x): https://careers.xero.com/jobs/?team=Data,%20AI%20%26%20Machine%20Learning&team=Engineering&pagesize=20#results 
 - Trade Me careers with Engineering filter: https://trademe.csod.com/ux/ats/careersite/1/home?c=trademe&cfdd[0][id]=241&cfdd[0][options][0]=512
