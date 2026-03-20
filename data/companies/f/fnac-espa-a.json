@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://fnac.talentclue.com/"
+      }
+    ]
   },
-  "description": "FNAC España is a company profile created during backlog processing.",
+  "description": "Fnac Spain is the local division of the major European retailer of cultural and electronic products.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "fnac-espa-a",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFLlUCBrwmsbQ/company-logo_100_100/company-logo_100_100/0/1662968296944/grandes_almacenes_fnac_espaa_s_a__logo?e=1774483200&v=beta&t=LhdP49ZaOK-jRlAeWXXKy2sVG2UDK4iffbgqnxG9nzI",
   "name": "FNAC España",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.138725Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.fnac.es"
 }

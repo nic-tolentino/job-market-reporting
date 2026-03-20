@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "esri",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Esri is a company profile created during backlog processing.",
+  "description": "Esri is the global market leader in geographic information system (GIS) software, location intelligence, and mapping.",
   "employees_count": null,
   "hq_country": "US",
   "id": "esri",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQE7SEkY882aSg/company-logo_100_100/company-logo_100_100/0/1656114632675/esri_logo?e=1774483200&v=beta&t=RJfxfMkIejxx_efvka8bIKXtiGB800aTEZm19oP7RHQ",
   "name": "Esri",
-  "office_locations": [],
+  "office_locations": [
+    "Redlands"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.359601Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.esri.com"
 }

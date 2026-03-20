@@ -11,6 +11,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "unknown",
         "url": "https://www.ole.mx/careers"
       }
     ]

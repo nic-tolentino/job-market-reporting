@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "j4rvis",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://j4rvis.com/careers/"
+      }
+    ]
   },
-  "description": "J4RVIS is a company profile created during backlog processing.",
+  "description": "J4RVIS is a technology consultancy specializing in Salesforce and MuleSoft implementations to drive digital transformation.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "j4rvis",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE-okB9Nlqwbg/company-logo_100_100/company-logo_100_100/0/1683507479024/j4rvis_logo?e=1774483200&v=beta&t=SCuqc_WyolEnJK269KwbnacNt7BYANx7j0ajH2ZJ_Vw",
   "name": "J4RVIS",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.374558Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.j4rvis.com"
 }

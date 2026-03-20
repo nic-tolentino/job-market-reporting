@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "histron",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://join.com/companies/histron"
+      }
+    ]
   },
-  "description": "FABRICADOS HISTRON SL is a company profile created during backlog processing.",
+  "description": "Fabricados Histron specializes in the manufacturing of machinery and technological solutions for vehicle inspection (ITV) and workshops.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "fabricados-histron-sl",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h",
   "name": "FABRICADOS HISTRON SL",
-  "office_locations": [],
+  "office_locations": [
+    "Burgos"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.687695Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://histron.com"
 }

@@ -9,6 +9,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://alan.com/careers"
       }
     ]

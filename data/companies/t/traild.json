@@ -1,11 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "traild",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://traild.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://traild.kula.ai/jobs"
       }
     ]
   },
@@ -32,13 +38,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T12:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.922026Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.921903Z",
+    "notes": "Small fintech. No evidence of sponsorship.",
+    "offered": false,
+    "source": "Fintech AU data",
     "types": []
   },
   "website": "https://traild.com"

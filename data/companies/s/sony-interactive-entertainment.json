@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sonyinteractiveentertainmentglobal",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Sony Interactive Entertainment is a company profile created during backlog processing.",
+  "description": "Sony Interactive Entertainment (SIE) is the global entity behind the PlayStation brand and its gaming ecosystem.",
   "employees_count": null,
   "hq_country": "US",
   "id": "sony-interactive-entertainment",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFJO00VqEb3Vg/company-logo_100_100/company-logo_100_100/0/1630540194089/sony_interactive_entertainment_llc_logo?e=1774483200&v=beta&t=6S4wp6N2tiuSavdKmQu9HTK0uu346lwxOWTyFpwEVkg",
   "name": "Sony Interactive Entertainment",
-  "office_locations": [],
+  "office_locations": [
+    "San Mateo"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.056042Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sonyinteractive.com"
 }

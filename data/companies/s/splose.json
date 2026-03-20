@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "splose",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "splose is a company profile created during backlog processing.",
+  "description": "Splose develops AI-powered practice management software for allied health professionals.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "splose",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFtxJ4qtTZGHw/company-logo_100_100/company-logo_100_100/0/1712647776127/splose_logo?e=1774483200&v=beta&t=trC7jstVeo0LKtyN2KFQhjugCyhsZNw3XYi-xaMUlvA",
   "name": "splose",
-  "office_locations": [],
+  "office_locations": [
+    "Adelaide"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.060835Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.splose.com"
 }

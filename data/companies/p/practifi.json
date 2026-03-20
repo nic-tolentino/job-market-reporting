@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "url": "https://www.practifi.com/company/careers/",
+        "status": "active"
+      }
+    ]
+  },
+  "description": "Practifi is the business management platform powering growing financial advice firms around the world. Manage your pipeline, automate operations, monitor compliance and build deep client relationships, effortlessly.",
+  "hq_country": "AU",
+  "id": "practifi",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Practifi",
+  "verification_level": "unverified",
+  "website": "https://www.practifi.com/company/about-us/"
+}

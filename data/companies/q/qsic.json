@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "qsic",
+    "provider": "LEVER"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "QSIC is a company profile created during backlog processing.",
+  "description": "QSIC is a global leader in AI-driven in-store audio platforms, transforming retail music into a data-driven marketing channel.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "qsic",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHaEAKv7kvA9Q/company-logo_100_100/B56ZXGTAXlHEAU-/0/1742788626643/qsic_logo?e=1774483200&v=beta&t=bJQZoIzXbwyidQvEP09OvAlYBunt6380iKc2M0E6T88",
   "name": "QSIC",
-  "office_locations": [],
+  "office_locations": [
+    "Abbotsford"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.923230Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://getqsic.com"
 }

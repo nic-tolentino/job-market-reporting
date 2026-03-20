@@ -1,0 +1,24 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "blocked",
+        "url": "https://www.arq.group/job-search/"
+      }
+    ]
+  },
+  "description": "Arq Group changes the way businesses do business. From award winning mobile apps, cloud and analytical insights, to design thinking and digital marketing. We define, design and create products and solutions that solve problems, big and small. Arq Group are Australia’s leading experts in Digital Solutions.",
+  "hq_country": "AU",
+  "id": "arq-group",
+  "industries": [
+    "Digital Transformation",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "Arq Group",
+  "verification_level": "unverified",
+  "website": "https://www.arq.group/"
+}

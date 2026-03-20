@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.evotix.com/careers"
+      }
+    ]
   },
-  "description": "Evotix is a company profile created during backlog processing.",
+  "description": "Evotix provides environment, health, safety (EHS), and wellbeing software to help organizations manage risk.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "evotix",
@@ -13,11 +20,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEp625ulRwB8w/company-logo_100_100/company-logo_100_100/0/1702049250603/evotix_logo?e=1774483200&v=beta&t=fgHdlybT4u-N2FQK-rexl94kKX-avutTFDdVog57dH0",
   "name": "Evotix",
-  "office_locations": [],
+  "office_locations": [
+    "London",
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.946298Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.evotix.com"
 }

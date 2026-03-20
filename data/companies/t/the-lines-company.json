@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "the-lines-company",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.thelinescompany.co.nz/about-us/work-for-us/"
+      }
+    ]
   },
-  "description": "The Lines Company is a company profile created during backlog processing.",
+  "description": "The Lines Company (TLC) is an electricity distribution company serving the King Country and Ruapehu regions of New Zealand.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "the-lines-company",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHimqWlLs6T1g/company-logo_100_100/company-logo_100_100/0/1630587893646/the_lines_company_ltd_logo?e=1774483200&v=beta&t=ZsSHL5aTShQ5A79hOrz45RqQWmpy4AtesqNyvs5ph-0",
   "name": "The Lines Company",
-  "office_locations": [],
+  "office_locations": [
+    "Te Kūiti"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.257797Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.thelinescompany.co.nz"
 }

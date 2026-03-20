@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.webbeds.com/careers/"
+      }
+    ]
   },
-  "description": "WebBeds is a company profile created during backlog processing.",
+  "description": "WebBeds is a global B2B provider of accommodation and travel services to the travel industry.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "webbeds",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEiTiBmsO7QSA/company-logo_100_100/B56ZspiuoEJUAU-/0/1765928528785/webbeds_logo?e=1774483200&v=beta&t=p1lTkpTpjJrIZy6lZDUgOTcFoZvbP71kGqNSx6Qa7lc",
   "name": "WebBeds",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:48:35.259066Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.webbeds.com"
 }

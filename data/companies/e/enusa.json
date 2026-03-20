@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "enusa",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.enusa.es/trabaja-con-nosotros/"
+      }
+    ]
   },
-  "description": "ENUSA Industrias Avanzadas, S.A., S.M.E. is a company profile created during backlog processing.",
+  "description": "ENUSA is a Spanish state-owned company specialized in the front end of the nuclear fuel cycle and environmental services.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "enusa",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQF7_yS8uVxa5g/company-logo_100_100/B4DZfj0upvH4AQ-/0/1751873940516/enusa_industrias_avanzadas_sa_logo?e=1774483200&v=beta&t=gddU1ZIsEBvrki-plNMX_vYsAZvM7__1ZWW5zZ3UKnM",
   "name": "ENUSA Industrias Avanzadas, S.A., S.M.E.",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.394673Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.enusa.es"
 }

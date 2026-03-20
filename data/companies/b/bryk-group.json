@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "bryk",
+    "provider": "CUSTOM"
   },
-  "description": "BRYK Group is a company profile created during backlog processing.",
+  "company_type": "Consultancy",
+  "description": "BRYK Group is an Australian technology services provider specializing in software development and digital integration.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "bryk-group",
@@ -13,11 +14,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH4T2PZLNG1zw/company-logo_100_100/company-logo_100_100/0/1696308451231/brykgroup_logo?e=1774483200&v=beta&t=O0Jc3QTzZSDFZux6uCsbXbUFN-xCYNTkxmT-wK_0nIw",
   "name": "BRYK Group",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.832713Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.bryk.com.au"
 }

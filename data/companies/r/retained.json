@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "retained",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Retained is a company profile created during backlog processing.",
+  "description": "Retained is an Australian recruitment firm specializing in SaaS recruitment and executive search.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "retained",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEvV-G09G9oCg/company-logo_100_100/company-logo_100_100/0/1685340584861/retainedsolutions_logo?e=1774483200&v=beta&t=m_Jpy3dOg0PsXvaZIrVfh6v_wEMUf6_QQ5NFbBn0vmQ",
   "name": "Retained",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane, QLD"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:53:24.889361Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.retained.com.au"
 }

@@ -8,8 +8,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.resmed.com/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.resmed.com/en-us/health-professionals/medtrade-2026/"
       }
     ]
   },

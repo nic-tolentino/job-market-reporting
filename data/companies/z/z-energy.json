@@ -2,15 +2,11 @@
   "alternateNames": [
     "Z"
   ],
-  "company_type": "Enterprise",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://z.co.nz/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "z-energy",
+    "provider": "CUSTOM"
   },
+  "company_type": "Enterprise",
   "description": "Z Energy is a major NZ fuel distributor and retailer, investing in digital transformation and energy innovation to power New Zealand's future.",
   "employees_count": 500,
   "hq_country": "NZ",

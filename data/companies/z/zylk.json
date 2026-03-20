@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "zylk",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "ZYLK is a company profile created during backlog processing.",
+  "description": "Zylk is a Spanish technology consultancy specializing in open-source solutions and digital transformation.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "zylk",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGk7HQ4WWkXBA/company-logo_100_100/B4DZfvC5J4G8AQ-/0/1752062203199/zylk_logo?e=1774483200&v=beta&t=5rPf_76HKk3JlNamm5B-PhvLdDi_b9Nplx27SzwfAuc",
   "name": "ZYLK",
-  "office_locations": [],
+  "office_locations": [
+    "Bilbao",
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.252609Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.zylk.net"
 }

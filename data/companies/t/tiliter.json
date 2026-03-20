@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.tiliter.com/careers"
+      }
+    ]
+  },
+  "description": "Sydney-based tech company Tiliter, started with a simple question — how to use technology to identify products without barcodes. This question lead founders Marcel, Chris and Martin to explore the limits of AI by creating solutions that are flexible and scalable for use in retail environments.",
+  "hq_country": "AU",
+  "id": "tiliter",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Tiliter",
+  "verification_level": "unverified",
+  "website": "https://www.tiliter.com/company"
+}

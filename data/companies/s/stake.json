@@ -11,7 +11,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://hellostake.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://hellostake.com/au/careers"
       }
     ]
   },

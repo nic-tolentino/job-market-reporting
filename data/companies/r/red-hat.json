@@ -1,11 +1,22 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "redhat",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
+    "discovery": {
+      "lastAttemptedAt": "2026-03-17",
+      "notes": "Careers page scan detected WORKDAY (redhat) — requires paid/custom integration",
+      "status": "NO_MATCH"
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.redhat.com/careers"
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://redhat.wd5.myworkdayjobs.com/jobs"
       }
     ]
   },

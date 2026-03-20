@@ -11,6 +11,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.cloverhealth.com/careers"
       }
     ]
@@ -36,13 +37,13 @@
     "HK"
   ],
   "remote_policy": "Remote",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.970023Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.970016Z",
+    "notes": "US-based health tech. Remote hiring focus without AU/NZ sponsorship.",
+    "offered": false,
+    "source": "Clover Health Jobs",
     "types": []
   },
   "website": "http://www.cloverhealth.com"

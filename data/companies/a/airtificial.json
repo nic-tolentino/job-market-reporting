@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://airtificial.teamtailor.com/"
+      }
+    ]
   },
-  "description": "AIRTIFICIAL is a company profile created during backlog processing.",
+  "description": "Airtificial is a global technology company specializing in innovative engineering solutions, robotics, and aerospace technology.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "airtificial",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE3HfN7tMrByg/company-logo_100_100/B56ZYffbEDH0AQ-/0/1744285053582/airtificial_logo?e=1774483200&v=beta&t=cRYtbysVw9MKvSX6bRj0nEnnwaRw2RkdIp9TnOY8XnI",
   "name": "AIRTIFICIAL",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.505588Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.airtificial.com"
 }

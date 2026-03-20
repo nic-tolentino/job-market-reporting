@@ -2,12 +2,28 @@
   "alternateNames": [
     "Ernst & Young"
   ],
+  "ats": {
+    "identifier": "ey",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "*?recipient=*&id=*",
+        "*snippet/",
+        "*/noindex/*"
+      ]
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.ey.com/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.ey.com/en_gl/careers"
       }
     ]
   },
@@ -39,13 +55,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T14:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T21:30:05.082345Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:30:05.074823Z",
+    "notes": "Sponsors experienced hires via TSS/SID in AU and Accredited in NZ. Core Consulting AU is Citizen only. Student/Graduate roles usually require residency.",
     "offered": true,
-    "source": null,
+    "source": "EY Careers",
     "types": []
   },
   "website": "http://www.ey.com"

@@ -1,10 +1,26 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "entaingroup",
+    "provider": "WORKABLE"
+  },
   "company_type": "Enterprise",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/cpresources/",
+        "/vendor/",
+        "/.env",
+        "/cache/"
+      ]
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://entaingroup.com.au/careers"
       }
     ]

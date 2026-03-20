@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "tryzens",
+    "provider": "WORKABLE"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "blocked",
+        "url": "https://apply.workable.com/tryzens/"
+      }
+    ]
+  },
+  "description": "Our Mission is to accelerate client success and growth across all channels, leveraging our expertise, insights and digital-first principles, to deliver compelling experiences that delight and engage your customers. We believe that in order to succeed in the long term, businesses should have a digital-first mentality, leveraging multiple channels and approaches to meet the customer wherever and whenever they have the propensity to browse and buy.",
+  "hq_country": "GB",
+  "id": "tryzens",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Tryzens",
+  "verification_level": "unverified",
+  "website": "https://tryzens.com/about-us/"
+}

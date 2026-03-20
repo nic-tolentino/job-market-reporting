@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "rba",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Government",
   "crawler": {
     "seeds": []
   },
-  "description": "Reserve Bank of Australia is a company profile created during backlog processing.",
+  "description": "The Reserve Bank of Australia (RBA) is Australia's central bank and bank note issuing authority.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "reserve-bank-of-australia",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQH_3LTXnp_m-w/company-logo_100_100/company-logo_100_100/0/1663895640779/reservebankau_logo?e=1774483200&v=beta&t=dkx9pFd-RwYRcY-b7ebvS_nENF11o7sdxZhJVNCioKg",
   "name": "Reserve Bank of Australia",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.846732Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.rba.gov.au"
 }

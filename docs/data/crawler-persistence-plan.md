@@ -222,38 +222,46 @@ confidence threshold (e.g., confirmed over multiple runs), and all changes go th
 normal PR review before merging. The Git manifest remains human-curated; BigQuery
 accumulates the operational signal that informs those human decisions.
 
-## 7. Rollout Strategy
+## 7. Rollout Status
 
-1. **Phase 1 — Crawler Side (COMPLETED)**
+1. **Phase 1 — Crawler Side (COMPLETE)**
    Robots.txt enforcement, pagination caps, signal detection (GROWTH/CONTRACTION),
    tech/negative keyword filtering, `atsDirectUrl` hint in `CrawlMeta`,
    `extractionStats` intermediate counts added to `CrawlResponse`. Comprehensive unit
    and integration tests (Phase1Hardening, HardeningVerification).
 
-2. **Phase 2 — Data Definition (COMPLETED)**
+2. **Phase 2 — Data Definition (COMPLETE)**
    JSON schema for `crawler.seeds` defined. Migration script run to prepopulate all
    1,262 companies with heuristic `/careers` seed URLs. Discovery probe runs conducted
    across 20 companies; failing companies annotated with `crawler.discovery.status`.
 
-3. **Phase 3 — Backend Integration (Next)**
-   - Create `crawler_seeds` and `crawl_runs` BigQuery tables via Terraform
-   - Implement `CrawlerSeedRepository` (MERGE upsert) and `CrawlRunRepository`
-     (streaming insert) in Kotlin backend
-   - Update `CrawlerClient` to write both tables after each `CrawlResponse`
-   - Update manifest sync (`CompanySyncService`) to read `crawler.seeds` and
-     `crawler.discovery` from JSON and upsert to `crawler_seeds`
-   - Wire `seedData` from `crawler_seeds` into outbound crawl requests
+3. **Phase 3 — Backend Integration (COMPLETE)**
+   - `crawler_seeds` and `crawl_runs` BigQuery tables created via Terraform ✅
+   - `CrawlerSeedRepository` (MERGE upsert) and `CrawlRunRepository` (streaming insert) implemented ✅
+   - `CrawlerClient` writes both tables after each `CrawlResponse` ✅
+   - `CompanySyncService` reads `crawler.seeds` from manifests and upserts to `crawler_seeds` ✅
+   - `seedData` from `crawler_seeds` wired into outbound crawl requests ✅
+   - `CrawlerJobPersistenceService` maps `NormalizedJobDto` → `JobRecord` and merges into `raw_jobs` ✅
+   - `CrawlerDataSyncService` archives crawl batches to GCS and creates daily dataset manifests ✅
+   - `CrawlerAdminController` exposes REST endpoints for single crawl, batch, seed management ✅
 
-4. **Phase 4 — Sync-Back Script**
-   - Implement `scripts/sync-seeds-from-bq.py`
-   - Pulls ACTIVE confirmations, STALE promotions, and `ats_direct_url` discoveries
-     from `crawler_seeds` and writes them back to the relevant company JSON manifests
-   - Run manually post-batch-crawl; output reviewed as a PR before merge
+   **Known gaps remaining from Phase 3:**
+   - Ingestion guard (`isDatasetIngested`) is implemented for Apify/ATS flows but **not wired
+     into `CrawlerAdminController.triggerCrawl()` or the nightly batch path**. A double-trigger
+     of the same company on the same day could produce duplicate `raw_jobs` rows. Workaround:
+     the silver merger deduplicates on `(companyId, title, location)` so impact is low, but the
+     guard should still be added for correctness.
+   - No Cloud Scheduler trigger configured — the nightly batch code (`syncAllCompanies()`) exists
+     but must be triggered manually via `POST /api/admin/crawler/daily-batch`. Add a Terraform
+     `google_cloud_scheduler_job` resource to automate this.
 
-5. **Phase 5 — Admin Panel**
-   - Admin panel reads `crawl_runs` for history/trend analytics
-   - Admin panel reads `crawler_seeds` for current seed health dashboard
-   - See `docs/admin-panel-plan.md` for full specification
+4. **Phase 4 — Sync-Back Script (COMPLETE)**
+   `scripts/sync-seeds-to-manifests.py` pulls `ACTIVE` seeds from `crawler_seeds` and proposes
+   additions to company JSON manifests. Run manually post-batch-crawl; output reviewed as a PR.
+
+5. **Phase 5 — Admin Panel (COMPLETE)**
+   Admin panel reads `crawl_runs` for history/trend analytics and `crawler_seeds` for current
+   seed health. All endpoints in `CrawlerAdminController` are wired and in production.
 
 ---
 

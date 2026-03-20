@@ -1,10 +1,43 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "Stantec",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/bin/",
+        "/content/dam/stantec/files/*",
+        "/content/dam/stantec",
+        "/content/stantec/en/ideas/topic/*",
+        "/content/stantec/en/ideas/careers/*",
+        "/content/stantec/en/ideas/market/*",
+        "/content/stantec/en/ideas/service/*",
+        "/content/stantec/en/ideas/watch/*",
+        "/content/stantec/en/ideas/spotlight/*",
+        "/content/stantec/fr/ideas/topic/*",
+        "/content/stantec/fr/ideas/market/*",
+        "/content/stantec/fr/ideas/service/*",
+        "/content/stantec/fr/ideas/spotlight/*",
+        "/content/stantec/es/ideas/spotlight/*",
+        "/content/stantec/es/ideas/topic/*",
+        "/content/stantec/nl/ideas/topic/*",
+        "/content/stantec/nl/ideas/market/*",
+        "/content/stantec/nl/ideas/service/*",
+        "/content/stantec/nl/ideas/spotlight/*",
+        "/content/stantec/nl/ideas/watch/*"
+      ]
+    },
     "seeds": [
       {
-        "category": "unknown",
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
         "url": "https://www.stantec.com/careers"
       }
     ]

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "bbraun",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "B. Braun Group is a company profile created during backlog processing.",
+  "description": "B. Braun is a leading global medical device and pharmaceutical company providing products for anesthesia, surgery, and more.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "b-braun-group",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEQH3llYnK1ug/company-logo_100_100/company-logo_100_100/0/1676896484533/bbraun_group_logo?e=1774483200&v=beta&t=iW0ZVUyYGGeG4wuFCKZ5xyhMzmsyA97-l_GvJgfcBTM",
   "name": "B. Braun Group",
-  "office_locations": [],
+  "office_locations": [
+    "Melsungen"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.850284Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.bbraun.com"
 }

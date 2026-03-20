@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "playbook",
+    "provider": "LEVER"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "PLAYBOOK is a company profile created during backlog processing.",
+  "description": "Playbook is a modern creative asset management platform that uses AI to organize and share visual files automatically.",
   "employees_count": null,
   "hq_country": "US",
   "id": "playbook",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHHp-X401G2sw/company-logo_100_100/B56ZZl_suzHsAQ-/0/1745467919678/playbooktalent_logo?e=1774483200&v=beta&t=jgwTblvI8PSD4MSTKu8U-wfivOFjrUFkuMNR39VqS0U",
   "name": "PLAYBOOK",
-  "office_locations": [],
+  "office_locations": [
+    "San Francisco"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.952732Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.playbook.com"
 }

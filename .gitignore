@@ -35,3 +35,4 @@ crawler-service/.env
 *.lock.hcl
 .terraform.lock.hcl
 
+data/Cloud_SQL_Export_2026-03-17.sql

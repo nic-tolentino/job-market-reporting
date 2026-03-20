@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "decskill",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.infojobs.net/decskill-espana-srl/ofertas"
+      }
+    ]
   },
-  "description": "Decskill España is a company profile created during backlog processing.",
+  "description": "Decskill is a European IT services provider offering outsourcing, managed services, and specialized talent solutions.",
   "employees_count": null,
   "hq_country": "PT",
   "id": "decskill-espa-a",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGwfB0vcmomdg/company-logo_100_100/company-logo_100_100/0/1699529644239/decskill_espaa_logo?e=1774483200&v=beta&t=gXcXZ1eZfSvd5xoVkDPERm0e3PnJtd6tqBSMukZi0FA",
   "name": "Decskill España",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.778910Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.decskill.com"
 }

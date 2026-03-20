@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "xaviroca-com",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "xaviroca.com is a company profile created during backlog processing.",
+  "description": "Xavi Roca is a leadership consultant and personal branding expert helping professionals achieve high performance.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "xaviroca-com",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQF07vcIWVoDlA/company-logo_100_100/company-logo_100_100/0/1630578186384?e=1774483200&v=beta&t=GyWRYuo0kFOBgNN4zbeLDsJFrY1-IX4_Gmjs5Fl8XIY",
   "name": "xaviroca.com",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.932927Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://xaviroca.com"
 }

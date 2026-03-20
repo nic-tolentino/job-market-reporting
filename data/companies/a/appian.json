@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "appian",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Appian is a company profile created during backlog processing.",
+  "description": "Appian is a low-code automation platform that enables organizations to rapidly build and deploy custom business applications.",
   "employees_count": null,
   "hq_country": "US",
   "id": "appian",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQF_Xfn1avx-qQ/company-logo_100_100/company-logo_100_100/0/1630632363767/appian_corporation_logo?e=1774483200&v=beta&t=RMVRl6aeqJ8EXlKf0fMhXd2I-5DXImwL_wpwtfZ_6o8",
   "name": "Appian",
-  "office_locations": [],
+  "office_locations": [
+    "McLean"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.498352Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.appian.com"
 }

@@ -2,12 +2,29 @@
   "alternateNames": [
     "Synechron"
   ],
+  "ats": {
+    "identifier": "igreendata",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.igreendata.com.au/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://igreendata.com.au/careers/"
       }
     ]
   },

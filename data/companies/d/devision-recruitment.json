@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "devision-recruitment",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.devisionrecruitment.com.au/current-roles"
+      }
+    ]
   },
-  "description": "DeVision Recruitment is a company profile created during backlog processing.",
+  "description": "DeVision Recruitment is a specialist Australian agency focusing on technology and digital talent acquisition.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "devision-recruitment",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHtSQVod1yWTA/company-logo_100_100/company-logo_100_100/0/1650289952029/devisionrecruitment_logo?e=1774483200&v=beta&t=ouBrG2_Gdb2b3F9oa50x9xLp2eDBhNtjKoftlqgh6F8",
   "name": "DeVision Recruitment",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.754204Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.devisionrecruitment.com.au"
 }

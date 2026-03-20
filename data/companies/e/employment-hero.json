@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "employmenthero",
+    "provider": "SMARTRECRUITERS"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://employmenthero.com/careers/"
+      }
+    ]
+  },
+  "description": "Employment Hero is one Australia’s fastest-growing SaaS companies. Our platform helps small and medium-sized businesses manage all of their HR, payroll, recruitment and employee benefit needs via one beautiful, cloud-based platform.",
+  "hq_country": "AU",
+  "id": "employment-hero",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Employment Hero",
+  "verification_level": "unverified",
+  "website": "https://employmenthero.com/about-us/"
+}

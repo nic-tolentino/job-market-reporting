@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "serco-space",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.serco.com/careers/europe"
+      }
+    ]
   },
-  "description": "Serco Space Services - Europe Careers is a company profile created during backlog processing.",
+  "description": "Serco Space provides critical support services to international space agencies, including operations and data management.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "serco-space",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.099159Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.serco.com"
 }

@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.papercut.com/about/life-at-papercut/"
+      }
+    ]
+  },
+  "description": "PaperCut might've started out small, but today, we're an unstoppable force over 200-strong crafting better environments every day.\\n\\nWe don’t see ourselves as improving just printing, but wherever printing happens: the office, the home, the 3D lab, our green earth.\\n\\nWe make printing better, easier, quicker, and kinder – and that makes every environment a better place to belong to.",
+  "hq_country": "AU",
+  "id": "papercut",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Papercut",
+  "verification_level": "unverified",
+  "website": "https://www.papercut.com/"
+}

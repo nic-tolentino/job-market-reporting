@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sapia",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Sapia.ai is a company profile created during backlog processing.",
+  "description": "Sapia.ai is an ethical AI hiring platform that uses conversational AI to provide fair and fast candidate screening.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "sapia-ai",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGUxYo26NMuxw/company-logo_100_100/company-logo_100_100/0/1713786126947/sapiaai_logo?e=1774483200&v=beta&t=zxVkzl8CBYKdwDmo1DcQ__quiLjL8WaAoD8RgQ8AIzg",
   "name": "Sapia.ai",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.100769Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://sapia.ai"
 }

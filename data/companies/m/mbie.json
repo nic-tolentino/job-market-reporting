@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mbie",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "unknown",
+        "url": "https://careers.mbie.govt.nz/search"
+      }
+    ]
   },
-  "description": "Ministry of Business, Innovation and Employment is a company profile created during backlog processing.",
+  "description": "The Ministry of Business, Innovation and Employment (MBIE) is the public service department of New Zealand responsible for economic development.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "mbie",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFSXl-mtwiVsw/company-logo_100_100/company-logo_100_100/0/1715039213493/ministry_of_business_innovation_and_employment_logo?e=1773878400&v=beta&t=hHIJqQAFMbQRKmA7N4rnSuAgU9qz-jTA8azge0muEOY",
   "name": "Ministry of Business, Innovation and Employment",
-  "office_locations": [],
+  "office_locations": [
+    "Wellington"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.341874Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.mbie.govt.nz"
 }

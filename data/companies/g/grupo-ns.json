@@ -2,11 +2,16 @@
   "alternateNames": [
     "NS"
   ],
+  "ats": {
+    "identifier": "grupons",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.grupons.com/careers"
       }
     ]

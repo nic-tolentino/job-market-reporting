@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "novahiring",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "empty",
+        "url": "https://novahiring.com/"
+      }
+    ]
   },
-  "description": "NovaHiring is a company profile created during backlog processing.",
+  "description": "NovaHiring is a technology recruitment and talent solutions company based in Spain.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "novahiring",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHdvHszIgPHyw/company-logo_100_100/B4DZrpEhdsHsAQ-/0/1764846868887/novahiringcom_logo?e=1774483200&v=beta&t=tC04ZG82pkXmK4p-B1DLSo12_geENlf70iTboG3C4GA",
   "name": "NovaHiring",
-  "office_locations": [],
+  "office_locations": [
+    "Valencia"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.249381Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://novahiring.com"
 }

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "embat",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://embat.factorialhr.com"
+      }
+    ]
   },
-  "description": "Embat is a company profile created during backlog processing.",
+  "description": "Embat is a Spanish fintech providing a real-time treasury management platform to automate banking and financial operations for CFOs.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "embat",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEsZLx2MAETwg/company-logo_100_100/company-logo_100_100/0/1666256686604/embat_io_logo?e=1774483200&v=beta&t=H3Y0wHHRRrZmVePnVQ1XAcjVBRAzOlgUkDbkS2esE8g",
   "name": "Embat",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.373691Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.embat.io"
 }

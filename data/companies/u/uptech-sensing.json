@@ -1,10 +1,15 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "uptech-sensing",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://uptechsensing.com/careers"
       }
     ]

@@ -8,8 +8,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://tripleten.com/careers"
+        "category": "careers",
+        "source": "manual",
+        "status": "empty",
+        "url": "https://www.comeet.com/jobs/tripleten/all"
       }
     ]
   },

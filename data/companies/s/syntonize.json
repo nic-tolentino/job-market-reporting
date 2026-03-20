@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "syntonize",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.syntonize.com/careers"
+      }
+    ]
   },
-  "description": "Syntonize is a company profile created during backlog processing.",
+  "description": "Syntonize is a Spanish digital consultancy specializing in software development, UX design, and digital product strategy.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "syntonize",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEy4iOXwkretw/company-logo_100_100/B4EZu3.wmWKUAQ-/0/1768318241581/syntonize_logo?e=1774483200&v=beta&t=ih9QTyoSoceJeesnRByK-wrpsd7nyz0ABdWA2XCrAb0",
   "name": "Syntonize",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.097448Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://syntonize.com"
 }

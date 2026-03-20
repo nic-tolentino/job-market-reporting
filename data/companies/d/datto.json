@@ -1,0 +1,26 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.datto.com/au/about#careers"
+      }
+    ]
+  },
+  "description": "As the world’s leading provider of cloud-based software and technology solutions purpose-built for delivery by managed service providers (MSPs), Datto offers Unified Continuity, Networking, and Business Management solutions and has created a unique ecosystem of MSP partners.",
+  "hq_country": "US",
+  "id": "datto",
+  "industries": [
+    "MSP",
+    "Backup",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Datto",
+  "notes": "Acquired by Kaseya in 2022.",
+  "verification_level": "unverified",
+  "website": "https://www.datto.com/au/about"
+}

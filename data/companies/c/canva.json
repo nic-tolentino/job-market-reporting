@@ -9,7 +9,14 @@
     "seeds": [
       {
         "category": "tech-filtered",
+        "status": "blocked",
         "url": "https://www.canva.com/careers/"
+      },
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "blocked",
+        "url": "https://www.canva.com/careers/jobs/"
       }
     ]
   },
@@ -38,13 +45,13 @@
     "PH"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:30:05.094276Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:30:05.074829Z",
+    "notes": "Offers relocation and visa sponsorship for experienced Software Engineers in Sydney. Early Talent roles are ineligible.",
     "offered": true,
-    "source": null,
+    "source": "Canva Careers",
     "types": []
   },
   "website": "http://www.canva.com"

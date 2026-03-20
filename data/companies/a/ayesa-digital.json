@@ -8,7 +8,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.ayesa.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.ayesa.com/index.html"
       }
     ]
   },
@@ -37,13 +44,13 @@
     "CO"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T08:55:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.916769Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": false,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.916765Z",
+    "notes": "Large engineering group. Full sponsor for HQP in Spain.",
+    "offered": true,
+    "source": "Ayesa Careers",
     "types": []
   },
   "website": "https://www.ayesa.com"

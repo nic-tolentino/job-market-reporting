@@ -6,8 +6,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.slalom.com/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.slalom.com/us/en/careers"
       }
     ]
   },
@@ -36,13 +38,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T14:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T21:41:07.434568Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:41:07.432222Z",
+    "notes": "Likely. Global policy supports sponsorship in US/UK; significant growth in AU since 2020. Inquire for specific roles.",
     "offered": true,
-    "source": null,
+    "source": "Slalom Global / Industry Trends",
     "types": []
   },
   "website": "https://www.slalom.com"

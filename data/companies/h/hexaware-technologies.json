@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "hexaware",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://jobs.hexaware.com/"
+      }
+    ]
   },
-  "description": "Hexaware Technologies is a company profile created during backlog processing.",
+  "description": "Hexaware Technologies is a leading global provider of IT, BPO, and consulting services headquartered in India.",
   "employees_count": null,
   "hq_country": "IN",
   "id": "hexaware-technologies",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.158976Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://hexaware.com"
 }

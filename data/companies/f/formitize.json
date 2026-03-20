@@ -1,10 +1,27 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "formitize",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.formitize.com/modules/jobs/"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.formitize.com/careers/"
+      }
+    ]
   },
-  "description": "Formitize is a company profile created during backlog processing.",
+  "description": "Formitize provides a mobile-first business platform for automated inspections, paperless forms, and workflow management.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "formitize",
@@ -13,11 +30,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQH0IwkGIXVr8w/company-logo_100_100/company-logo_100_100/0/1641764117808/formitize_logo?e=1774483200&v=beta&t=cw0PGXiVDBVeFTIsGgtE587I4mtMORF5lwWYoKwqqX0",
   "name": "Formitize",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.700818Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.formitize.com"
 }

@@ -1,0 +1,21 @@
+{
+  "ats": {
+    "identifier": "brighte",
+    "provider": "LEVER"
+  },
+  "description": "Brighte is powered by a diverse team of inspired, genuine people that are looking to change the world, one home at a time. In a stage of rapid growth we need sharp, inspired minds to come and be a part of it. Brighte is a forward-thinking, flexible workplace that encourages a healthy work-life balance. Brighte is an equal opportunity employer and values diversity at our company.",
+  "hq_country": "AU",
+  "id": "brighte",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Brighte",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://brighte.com.au/"
+}

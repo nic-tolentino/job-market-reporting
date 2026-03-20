@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "theiconic",
+    "provider": "GREENHOUSE"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.theiconic.com.au/playbook/careers"
+      }
+    ]
+  },
+  "description": "At THE ICONIC our mission is to deliver seamless and inspiring experiences for our customers and our people. We DREAM BIG through collaboration and innovation and are supported to bring incredible ideas to life. We are a group of people believing in making a positive difference in this world and liberating our customers through the power of fashion and sports",
+  "hq_country": "AU",
+  "id": "the-iconic",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "The Iconic",
+  "verification_level": "unverified",
+  "website": "https://www.theiconic.com.au/"
+}

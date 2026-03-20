@@ -3,18 +3,10 @@
     "Tyro"
   ],
   "ats": {
-    "identifier": "www",
-    "provider": "TEAMTAILOR"
+    "identifier": "tyro",
+    "provider": "WORKDAY"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.tyro.com/careers"
-      }
-    ]
-  },
   "description": "Tyro is a major Australian fintech providing integrated payments, banking, and lending solutions to over 76,000 businesses across the country.",
   "employees_count": 600,
   "hq_country": "AU",
@@ -36,13 +28,13 @@
     "AU"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T13:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.900420Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.900412Z",
+    "notes": "Australian fintech. Accredited sponsor with history of 482 sponsorship.",
     "offered": true,
-    "source": null,
+    "source": "Tyro Careers",
     "types": []
   },
   "website": "https://www.tyro.com"

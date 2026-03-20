@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Unknown",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://epi.group/jobs"
+      }
+    ]
   },
-  "description": "EPI Company is a company profile created during backlog processing.",
+  "description": "Epi-interactive (now Epi) is a New Zealand data science and technology firm specializing in interactive dashboards and decision support tools.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "epi-company",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEtVPffOCQg8A/company-logo_100_100/company-logo_100_100/0/1679589398096/epicompany_logo?e=1774483200&v=beta&t=3riXZxLsBupcI5ztgjyTfcGpEOuCi5coYbkTPs8UAT0",
   "name": "EPI Company",
-  "office_locations": [],
+  "office_locations": [
+    "Wellington"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:34.995825Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:41:54.369585Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://epi.group"
 }

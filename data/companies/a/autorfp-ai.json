@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "autorfp-ai",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://autorfp.ai/careers"
+      }
+    ]
   },
-  "description": "AutoRFP.ai is a company profile created during backlog processing.",
+  "description": "AutoRFP.ai provides AI-powered software to automate responses to RFPs, security questionnaires, and RFIs.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "autorfp-ai",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHkEnlJsLGv8g/company-logo_100_100/company-logo_100_100/0/1712635208016/auto_rfp_logo?e=1774483200&v=beta&t=p7Od54j9ICI9FiLQVg452GIMbSBT-m-1LpXDI_fMvqs",
   "name": "AutoRFP.ai",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.118702Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.autorfp.ai"
 }

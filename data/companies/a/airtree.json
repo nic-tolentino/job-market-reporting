@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "airtree",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Social Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Airtree is a company profile created during backlog processing.",
+  "description": "AirTree Ventures is an early-stage venture capital firm investing in technology startups across Australia and New Zealand.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "airtree",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFvV46O6WuhSA/company-logo_100_100/company-logo_100_100/0/1709155502752/airtree_ventures_logo?e=1774483200&v=beta&t=RirQJ8i4cB2mLG9l8UugeWMRLU_xJLERO3GDVGv81XI",
   "name": "Airtree",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.499368Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.airtree.vc"
 }

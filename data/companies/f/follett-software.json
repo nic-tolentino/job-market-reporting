@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "follettsoftware",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Follett Software is a company profile created during backlog processing.",
+  "description": "Follett provides education technology solutions, including library management systems and digital content for K-12 schools.",
   "employees_count": null,
   "hq_country": "US",
   "id": "follett-software",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHcHC6paibYjw/company-logo_100_100/company-logo_100_100/0/1724127534211/follett_learning_logo?e=1774483200&v=beta&t=59Uuni2UVxT8BnP0w5k58vvH3VMhZzZjshNCSsS9z-A",
   "name": "Follett Software",
-  "office_locations": [],
+  "office_locations": [
+    "McHenry"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.691175Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.follettlearning.com"
 }

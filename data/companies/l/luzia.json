@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://luzia.teamtailor.com/"
+      }
+    ]
   },
-  "description": "Luzia is a company profile created during backlog processing.",
+  "description": "Luzia is a popular Spanish AI assistant integrated with WhatsApp and Telegram, providing text and voice interaction services.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "luzia",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFvK8Xm4mJhvg/company-logo_100_100/B4DZm.ATsdGwAQ-/0/1759829376279/luzia_ai_logo?e=1774483200&v=beta&t=mfVLwG3tlYphlLzCyk2xKh2XbJzsyhHJeJIYWlUryLg",
   "name": "Luzia",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.206147Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.luzia.com"
 }

@@ -11,7 +11,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "http://www.beca.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.beca.com/en-au/join-our-team"
       }
     ]
   },
@@ -39,13 +46,13 @@
     "SG"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:36:22.552584Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:36:22.538411Z",
+    "notes": "Dedicated international relocation team. Sponsors many engineering and tech disciplines across AU/NZ.",
     "offered": true,
-    "source": null,
+    "source": "Beca Global",
     "types": []
   },
   "website": "http://www.beca.com"

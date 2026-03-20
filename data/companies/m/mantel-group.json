@@ -1,0 +1,29 @@
+{
+  "ats": {
+    "identifier": "mantel-group",
+    "provider": "CUSTOM"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://mantelgroup.com.au/careers/"
+      }
+    ]
+  },
+  "description": "Mantel Group harnesses technologies that transform business operations in the real world. With capabilities spanning Cloud, Data, Digital and Security, they merge emerging technologies with innovative design and industry expertise to enhance your business. With deep technical specialisation and as leading Amazon, Google and Microsoft cloud partners, the depth and breadth our solutions offer is unparalleled. Mantel Group is your partner for end-to-end digital transformation. Ranked in Australia's top 10 Best Workplaces by Great Place To Work Australia for four years in a row, we are people-focused and uphold strong values. Our culture champions trust, empowerment, and diversity, with a lean structure that emphasises collaboration, direct communication and equity..",
+  "hq_country": "AU",
+  "id": "mantel-group",
+  "industries": [
+    "Cloud",
+    "Data",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "Mantel Group",
+  "verification_level": "unverified",
+  "website": "https://mantelgroup.com.au/"
+}

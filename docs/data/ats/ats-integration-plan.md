@@ -1,6 +1,8 @@
 # ATS Integration Plan — Self-Hosted AI Crawler
 
-A detailed implementation plan for a self-hosted Crawlee + Gemini Flash crawler that provides broad job data coverage across all 1,257 companies, with progressive optimisation as we learn the ATS landscape.
+A detailed implementation plan for a self-hosted Crawlee + Gemini Flash crawler that provides broad job data coverage across all 1,372 companies, with progressive optimisation as we learn the ATS landscape.
+
+> **Last updated: March 2026** — ATS coverage stats reflect the current validated state of 1,372 company manifests after a full enrichment pass and stale-config cleanup.
 
 ---
 
@@ -8,15 +10,30 @@ A detailed implementation plan for a self-hosted Crawlee + Gemini Flash crawler 
 
 ### 1.1 The Problem
 
-87.8% of our 1,257 companies have **no identified ATS**. The current approach — build specific ATS integrations first, add a generic fallback later — is premature optimisation. We're guessing at the distribution before we have data.
+Our ATS landscape as of March 2026:
+
+| Segment | Count | % of total |
+|---------|-------|-----------|
+| Total companies | 1,372 | 100% |
+| Have ATS config | 1,170 | 85.3% |
+| → Crawlable (integrated: GH/LV/AS/SR/TT/WL) | 419 | 30.5% |
+| → Not crawlable via API | 751 | 54.7% |
+| No ATS config at all | 202 | 14.7% |
+
+The **751 companies with ATS configs we can't crawl** break down as:
+- **CUSTOM (620)** — bespoke career pages, proprietary CMS, embedded widgets. No standardised API.
+- **Workday (67)** — per-tenant auth required; no public API.
+- **Smaller ATSs (64)** — SuccessFactors, BambooHR, JobAdder, Personio, Snaphire, and others with low company counts.
+
+The core challenge has shifted: we've solved the "ATS identification" problem (12.2% → 85.3% identified). The remaining gap is **coverage for CUSTOM providers and non-public ATSs**, not identification.
 
 ### 1.2 The Approach
 
-Invert the strategy:
+The crawler strategy remains valid, but with updated motivation:
 
-1. **Phase 1 — General AI Crawler**: Deploy a self-hosted Crawlee + Gemini Flash pipeline that can crawl *any* company's career page and extract structured job data. This gives us immediate broad coverage at minimal cost.
-2. **Phase 2 — Observe & Learn**: The crawler naturally reveals which ATS systems companies use, what page structures are common, and where extraction quality is weakest. Use this data to update company manifests and build a real ATS distribution picture.
-3. **Phase 3 — Targeted Optimisation**: Build specific ATS API integrations (Lever, Ashby) or structured scrapers only where the data proves it's worth it — where API data is meaningfully richer or more reliable than crawled data.
+1. **Phase 1 — General AI Crawler**: Deploy a self-hosted Crawlee + Gemini Flash pipeline that can crawl *any* company's career page and extract structured job data. This targets the 620 CUSTOM companies and 202 with no ATS config — 822 companies in total.
+2. **Phase 2 — Observe & Learn**: The crawler validates our CUSTOM classifications — many "CUSTOM" companies may actually be on known ATS platforms with discoverable slugs. ATS detection feedback loop updates manifests automatically.
+3. **Phase 3 — Targeted Optimisation**: Build specific scrapers (Workday) or further API integrations only where crawl data shows quality gaps justify the effort.
 
 ### 1.3 Why Crawlee + Gemini Flash?
 
@@ -534,7 +551,7 @@ gs://techmarket-bronze-ingestions/
 
 ### 7.2 Dataset Batching Strategy
 
-Rather than creating one dataset per company (which would produce 1,257 tiny files nightly), the crawler **batches all nightly crawl results into a single dataset**:
+Rather than creating one dataset per company (which would produce 1,372 tiny files nightly), the crawler **batches all nightly crawl results into a single dataset**:
 
 | Aspect | Design |
 |:---|:---|
@@ -623,7 +640,7 @@ Because Bronze stores the raw crawler response (including the LLM's structured o
 
 ## 8. Cost Analysis
 
-### 8.1 Crawler Service Costs (1,257 companies nightly)
+### 8.1 Crawler Service Costs (1,372 companies nightly)
 
 | Resource | Monthly Cost | Notes |
 |:---|:---|:---|
@@ -679,7 +696,7 @@ Because Bronze stores the raw crawler response (including the LLM's structured o
 
 ### Phase 2 — Scale & Feedback Loop (1-2 weeks)
 
-**Goal**: Crawl all 1,257 companies. Implement the ATS detection feedback loop.
+**Goal**: Crawl all 1,372 companies. Implement the ATS detection feedback loop.
 
 **🤖 Code tasks:**
 - [ ] 🤖 Implement career page URL discovery (auto-probe `/careers`, `/jobs`, etc.)
@@ -697,7 +714,7 @@ Because Bronze stores the raw crawler response (including the LLM's structured o
 - [ ] 👤 Set up monitoring alerts (crawl failure rate > 20%)
 
 **Estimated effort**: ~5-8 days
-**Coverage result**: All 1,257 companies crawled nightly. ATS distribution data flowing.
+**Coverage result**: All 1,372 companies crawled nightly. ATS distribution data flowing.
 
 ---
 
@@ -1298,7 +1315,7 @@ curl -X POST http://crawler/crawl -d '{"companyId": "airwallex"}'
 
 ### Phase 2 — Scale & Feedback Loop (2-3 weeks)
 
-**Goal**: Crawl all 1,257 companies. Implement the ATS detection feedback loop.
+**Goal**: Crawl all 1,372 companies. Implement the ATS detection feedback loop.
 
 **🤖 Code tasks:**
 - [ ] 🤖 Implement career page URL discovery (auto-probe `/careers`, `/jobs`, etc.)
@@ -1322,7 +1339,7 @@ curl -X POST http://crawler/crawl -d '{"companyId": "airwallex"}'
 - [ ] 👤 Write crawler operations runbook
 
 **Estimated effort**: ~8-12 days
-**Coverage result**: All 1,257 companies crawled nightly. ATS distribution data flowing.
+**Coverage result**: All 1,372 companies crawled nightly. ATS distribution data flowing.
 
 ---
 
@@ -1384,7 +1401,7 @@ curl -X POST http://crawler/crawl -d '{"companyId": "airwallex"}'
 | Phase | What | Coverage | Cost | When |
 |:---|:---|:---:|:---|:---|
 | **Phase 1 (MVP)** | Crawl 50 companies, validate approach | ~4% | ~$2/month | Week 1-3 |
-| **Phase 2 (Scale)** | Crawl all 1,257 companies, ATS feedback loop | 100% | ~$15/month | Week 4-6 |
+| **Phase 2 (Scale)** | Crawl all 1,372 companies, ATS feedback loop | 100% | ~$15/month | Week 4-6 |
 | **Phase 3 (Optimise)** | Build specific integrations where data justifies | 100% (higher quality) | ~$15-25/month | Ongoing |
 
 > [!NOTE]

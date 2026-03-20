@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "investorhub",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "InvestorHub is a company profile created during backlog processing.",
+  "description": "InvestorHub is an Australian investor relations platform that helps listed companies engage and grow their shareholder base.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "investorhub",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGEhpeSPBIiBQ/company-logo_100_100/company-logo_100_100/0/1701306422567/invhub_logo?e=1774483200&v=beta&t=DG1DXW97bAEUPA4BkKg-FYqbFelGbyyNzEiThmpiD1I",
   "name": "InvestorHub",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.084454Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://investorhub.com"
 }

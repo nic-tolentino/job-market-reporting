@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "arcus-recruitment",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Arcus Recruitment is a company profile created during backlog processing.",
+  "description": "Arcus Recruitment is a specialist technical recruitment firm focused on algorithmic trading and low-latency engineering roles.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "arcus-recruitment",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHlHznB9b9vEg/company-logo_100_100/company-logo_100_100/0/1737081334284/arcus_recruitment_logo?e=1774483200&v=beta&t=Mixc7apPxODph_xOtZRUIz8Etx_mxaOF2n0WQuyVCow",
   "name": "Arcus Recruitment",
-  "office_locations": [],
+  "office_locations": [
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:17:27.287232Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.arcusrecruitment.com"
 }

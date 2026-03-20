@@ -8,7 +8,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.lyssna.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.lyssna.com/careers/"
       }
     ]
   },

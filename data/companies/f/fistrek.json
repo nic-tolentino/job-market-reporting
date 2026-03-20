@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "fistrek",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Fistrek is a company profile created during backlog processing.",
+  "description": "Fistrek provides civil engineering, BIM modeling, and project management services for infrastructure and urban planning.",
   "employees_count": null,
   "hq_country": "IN",
   "id": "fistrek",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGSYO6dQacKdw/company-logo_100_100/B4EZl1.tvSGoAU-/0/1758621000268?e=1774483200&v=beta&t=4rbodrEJBcyWb9J-x-iASBmAMeu3-E4iF7VnGfJZU9w",
   "name": "Fistrek",
-  "office_locations": [],
+  "office_locations": [
+    "Manlleu"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.703569Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://fistrek.es"
 }

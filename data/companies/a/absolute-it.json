@@ -2,12 +2,26 @@
   "alternateNames": [
     "Absolute IT Limited"
   ],
+  "ats": {
+    "identifier": "absolute-it",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/wp-admin/"
+      ]
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.absoluteit.co.nz/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://absoluteit.co.nz/it-jobs/"
       }
     ]
   },

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sonyinteractiveentertainmentglobal",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "PlayStation is a company profile created during backlog processing.",
+  "description": "PlayStation is a major global gaming brand and subsidiary of Sony Interactive Entertainment, developing consoles and games.",
   "employees_count": null,
   "hq_country": "US",
   "id": "playstation",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.967256Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.playstation.com"
 }

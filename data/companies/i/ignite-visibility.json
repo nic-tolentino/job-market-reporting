@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ignite-visibility",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://ignitevisibility.com/careers/"
+      }
+    ]
   },
-  "description": "Ignite Visibility is a company profile created during backlog processing.",
+  "description": "Ignite Visibility is a full-service digital marketing agency specializing in SEO, PPC, and social media.",
   "employees_count": null,
   "hq_country": "US",
   "id": "ignite-visibility",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQGc9GkRwzMj7g/company-logo_100_100/company-logo_100_100/0/1631432810914?e=1774483200&v=beta&t=M9JYoAa3R-X7xOCcJ-ApIrUE1m5Hev0-78d9J0uirFY",
   "name": "Ignite Visibility",
-  "office_locations": [],
+  "office_locations": [
+    "San Diego"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.858799Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://ignitevisibility.com"
 }

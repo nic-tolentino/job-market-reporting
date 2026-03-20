@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "alea",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://alea.teamtailor.com/jobs"
+      }
+    ]
   },
-  "description": "Alea is a company profile created during backlog processing.",
+  "description": "Alea Soluciones is a Spanish technology company specializing in telecommunications and GPON network solutions.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "alea",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHa4aJ724f6xQ/company-logo_100_100/company-logo_100_100/0/1630626709172/alea_logo?e=1774483200&v=beta&t=L6GGq6LVZMViWusJh_Tz0YT3w_KNr3rMonNwYmoNKSo",
   "name": "Alea",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.117340Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://aleasoluciones.com"
 }

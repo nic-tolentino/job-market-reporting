@@ -1,11 +1,22 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nuvia",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://nuvia.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.nuvia.com/join-us/"
       }
     ]
   },

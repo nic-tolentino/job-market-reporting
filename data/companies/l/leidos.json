@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "leidos",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.leidos.com/company/global/australia/careers"
+      }
+    ]
   },
-  "description": "Leidos is a company profile created during backlog processing.",
+  "description": "Leidos is a global leader in science and technology solutions for the defense, intelligence, civil, and health markets.",
   "employees_count": null,
   "hq_country": "US",
   "id": "leidos",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHTor-P1DNHaw/company-logo_100_100/company-logo_100_100/0/1704390469533/leidos_logo?e=1774483200&v=beta&t=1VW07jrLOXs2h2Y4L_fBMFmfQcf6H8eeZLRSvzcV1FY",
   "name": "Leidos",
-  "office_locations": [],
+  "office_locations": [
+    "Reston"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.227915Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.leidos.com"
 }

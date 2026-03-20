@@ -2,11 +2,16 @@
   "alternateNames": [
     "F&P"
   ],
+  "ats": {
+    "identifier": "fp",
+    "provider": "LEVER"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.fisherpaykel.com/careers"
       }
     ]

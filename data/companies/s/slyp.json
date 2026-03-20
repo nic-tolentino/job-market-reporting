@@ -1,0 +1,14 @@
+{
+  "ats": {
+    "identifier": "slyp",
+    "provider": "SMARTRECRUITERS"
+  },
+  "description": "Slyp smart receipts enables customers to pay with their bank card and automatically receive an itemised tax receipt inside their banking app.",
+  "hq_country": "AU",
+  "id": "slyp",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Slyp",
+  "verification_level": "unverified",
+  "website": "https://www.slyp.com.au/about"
+}

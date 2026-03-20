@@ -9,6 +9,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.plain.com/careers"
       }
     ]

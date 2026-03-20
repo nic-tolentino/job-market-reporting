@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "odoo",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.odoo.com/jobs"
+      }
+    ]
   },
-  "description": "Odoo is a company profile created during backlog processing.",
+  "description": "Odoo is a suite of open-source business apps that cover all your company needs: CRM, E-commerce, accounting, and more.",
   "employees_count": null,
   "hq_country": "BE",
   "id": "odoo",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQF91OMQCIi4dQ/company-logo_100_100/company-logo_100_100/0/1691657301051/odoo_logo?e=1774483200&v=beta&t=CkOCMePIE-1e7Krzs_9cIBMTZZWikmLW_9Sl-SEJQmM",
   "name": "Odoo",
-  "office_locations": [],
+  "office_locations": [
+    "Grand-Rosière"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:28:11.627765Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.odoo.com"
 }

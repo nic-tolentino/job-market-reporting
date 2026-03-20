@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "neotalent-conclusion",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Neotalent Conclusion is a company profile created during backlog processing.",
+  "description": "Neotalent Conclusion is an IT and engineering services company based in Portugal, focusing on staffing and software development.",
   "employees_count": null,
   "hq_country": "PT",
   "id": "neotalent-conclusion",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFPg0TIrO53Qw/company-logo_100_100/company-logo_100_100/0/1720087357986/neotalentconclusion_logo?e=1774483200&v=beta&t=_Sv2eZ1rUKs6xJok9LnrVh0_kSVUPqCrwiCI4F4ciww",
   "name": "Neotalent Conclusion",
-  "office_locations": [],
+  "office_locations": [
+    "Lisbon"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:03:22.227381Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.neotalent.pt"
 }

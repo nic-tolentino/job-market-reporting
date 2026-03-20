@@ -4,8 +4,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.thedrivegroup.com.au/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.thedrivegroup.com.au/jobs/"
       }
     ]
   },
@@ -27,8 +29,13 @@
     "AU"
   ],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:45:00Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-16T21:36:22.561585Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-16T21:36:22.538416Z",
+    "notes": "Tech recruitment agency in Sydney. Focuses on matching talent with sponsoring companies.",
+    "offered": false,
+    "source": "Agency Profile"
+  },
   "website": "https://www.thedrivegroup.com.au"
 }

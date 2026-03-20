@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "semrush",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Semrush is a company profile created during backlog processing.",
+  "description": "Semrush is a leading online visibility management and content marketing SaaS platform used by millions of marketers.",
   "employees_count": null,
   "hq_country": "US",
   "id": "semrush",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.095562Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.semrush.com"
 }

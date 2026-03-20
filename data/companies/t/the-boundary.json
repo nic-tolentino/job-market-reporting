@@ -1,10 +1,15 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "TheBoundary",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.the-boundary.com/careers"
       }
     ]

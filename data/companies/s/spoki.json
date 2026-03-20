@@ -4,7 +4,7 @@
   "crawler": {
     "seeds": []
   },
-  "description": "Spoki is a company profile created during backlog processing.",
+  "description": "Spoki is an Italian conversational marketing platform that helps businesses communicate with customers via WhatsApp.",
   "employees_count": null,
   "hq_country": "IT",
   "id": "spoki",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQET6q_ibEsn-Q/company-logo_100_100/company-logo_100_100/0/1700747482192/spokiapp_logo?e=1774483200&v=beta&t=CByDjR_fDKpLEYfB2OE11jty-0KeriuUNAHE_vMO7yM",
   "name": "Spoki",
-  "office_locations": [],
+  "office_locations": [
+    "Padua"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.111431Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.spoki.it"
 }

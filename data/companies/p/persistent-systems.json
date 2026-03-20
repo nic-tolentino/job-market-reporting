@@ -2,12 +2,31 @@
   "alternateNames": [
     "Persistent"
   ],
+  "ats": {
+    "identifier": "persistent-systems",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/wp-admin/",
+        "/blogs/tag/",
+        "/wp-content/plugins/",
+        "/*feed/$",
+        "/*feed/rss2/$",
+        "/wp-content/uploads/pdfs/"
+      ]
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.persistent.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://persistent.darwinbox.com/ms/candidate/careers"
       }
     ]
   },

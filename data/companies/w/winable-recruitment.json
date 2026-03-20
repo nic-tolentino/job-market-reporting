@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "winable-recruitment",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.seek.com.au/Winable-Recruitment-jobs"
+      }
+    ]
   },
-  "description": "Winable Recruitment is a company profile created during backlog processing.",
+  "description": "Winable is a talent services consultancy in Australia focusing on sourcing and recruiting top-tier professionals.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "winable-recruitment",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHkhyGdpzmBTg/company-logo_100_100/company-logo_100_100/0/1679545887474?e=1774483200&v=beta&t=MTMbfbvfiwvMdxFBOBo71i9bgQSD6ldyH0FSzbsfZUg",
   "name": "Winable Recruitment",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:48:35.264837Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://winable.in"
 }

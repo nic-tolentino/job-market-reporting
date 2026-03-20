@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "uvesolutions",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "UVE Solutions is a company profile created during backlog processing.",
+  "description": "UVE Solutions provides cloud-based marketing and sales intelligence for the CPG industry.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "uve-solutions",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGxrraLPgf7wA/company-logo_100_100/company-logo_100_100/0/1665236426658/uvesolutions_logo?e=1774483200&v=beta&t=3gtb3y3oZksbkGACJNSQA-wbIwetIwxuD1foY6WnghU",
   "name": "UVE Solutions",
-  "office_locations": [],
+  "office_locations": [
+    "Manresa",
+    "Sant Cugat del Vallès"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.853726Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://uvesolutions.com"
 }

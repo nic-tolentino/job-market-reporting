@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "creditorwatch",
+    "provider": "WORKABLE"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "CreditorWatch is a company profile created during backlog processing.",
+  "description": "CreditorWatch is an Australian commercial credit reporting bureau providing credit management tools for businesses.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "creditorwatch",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQH0CPCv__D8nQ/company-logo_100_100/company-logo_100_100/0/1652928553868/creditor_watch_logo?e=1774483200&v=beta&t=i_ak25vYkH_BY8gcVZxzm8Snw_ItWTRxuQHhBnGZ4uk",
   "name": "CreditorWatch",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.171734Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.creditorwatch.com.au"
 }

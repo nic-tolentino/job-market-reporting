@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mri-software",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://mrisoftware.wd501.myworkdayjobs.com/External_CareerSite"
+      }
+    ]
   },
-  "description": "MRI Software is a company profile created during backlog processing.",
+  "description": "MRI Software is a global leader in real estate software, providing solutions for property management and investment.",
   "employees_count": null,
   "hq_country": "US",
   "id": "mri-software",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHU1TNSPfTnHw/company-logo_100_100/B56ZfMKjKTHoAY-/0/1751477007335/mri_software_llc_logo?e=1774483200&v=beta&t=PUd5wB1n1XrT9OkoZtciyAeb75V253d7QJav3iIaMPw",
   "name": "MRI Software",
-  "office_locations": [],
+  "office_locations": [
+    "Solon"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.362651Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.mrisoftware.com"
 }

@@ -7,7 +7,20 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://www.tiktok.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.tiktok.com/404?fromUrl=/jobs"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "blocked",
+        "url": "https://www.tiktok.com/404?fromUrl=/careers"
       }
     ]
   },

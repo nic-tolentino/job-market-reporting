@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "spendesk",
+    "provider": "LEVER"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Spendesk is a company profile created during backlog processing.",
+  "description": "Spendesk is a leading fintech company specializing in spend management and procurement platforms.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "spendesk",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFFeMQrjo82xg/company-logo_100_100/company-logo_100_100/0/1630591211329/spendesk_logo?e=1774483200&v=beta&t=rKF8SiubJYLSUtu7yuZhoH4JWzhNDgCnzxks17NDXaE",
   "name": "Spendesk",
-  "office_locations": [],
+  "office_locations": [
+    "Paris"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.515660Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.spendesk.com"
 }

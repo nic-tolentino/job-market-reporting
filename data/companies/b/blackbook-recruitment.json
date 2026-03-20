@@ -2,12 +2,18 @@
   "alternateNames": [
     "Blackbook"
   ],
+  "ats": {
+    "identifier": "blackbook",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://blackbookexecutive.com.au/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://blackbookexecutive.com.au/jobs/"
       }
     ]
   },

@@ -2,12 +2,24 @@
   "alternateNames": [
     "Infortec"
   ],
+  "ats": {
+    "identifier": "infortec",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.infortec.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.infortec.com/unete-a-nuestro-equipo/"
       }
     ]
   },

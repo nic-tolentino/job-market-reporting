@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "white-fox-boutique",
+    "provider": "WORKABLE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "White Fox Boutique is a company profile created during backlog processing.",
+  "description": "White Fox Boutique is a leading Australian fashion brand and online retailer known for its trend-setting apparel and accessories.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "white-fox-boutique",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEugQZpV_XvhA/company-logo_100_100/B56Zl0ELN4HMAQ-/0/1758588876110/white_fox_boutique_logo?e=1774483200&v=beta&t=5wB-xNPNCpNpy3tbDwhX1HQGY-G-3S7vljGiKf3FAz8",
   "name": "White Fox Boutique",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:48:35.245513Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://whitefoxboutique.com"
 }

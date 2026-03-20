@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "open",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Open is a company profile created during backlog processing.",
+  "description": "Open is an Australian fintech company providing white-label insurance-as-a-service for global brands.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "open",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFV7w7xcCDxSA/company-logo_100_100/company-logo_100_100/0/1663109050704/openinsurancegroup_logo?e=1774483200&v=beta&t=15r53Rp3zxuEXVgeqU1gZ21h8SAf4v3ybOkK4vvkgnk",
   "name": "Open",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.149219Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://open.insure"
 }

@@ -2,14 +2,18 @@
   "alternateNames": [
     "Textil Santanderina"
   ],
+  "ats": {
+    "identifier": "textil-santanderina",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "http://www.textilsantanderina.com/careers"
-      }
-    ]
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    }
   },
   "description": "Santanderina Group is a leading industrial and technology group in Cantabria, betting on innovation and continuous improvement in textiles and digital products.",
   "employees_count": 1000,

@@ -10,8 +10,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.hcltech.com/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.hcltech.com/about-us"
       }
     ]
   },

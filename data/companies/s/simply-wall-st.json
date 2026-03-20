@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "simply-wall-st",
+    "provider": "ASHBY"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://simplywall.st/careers"
+      }
+    ]
   },
-  "description": "Simply Wall St is a company profile created during backlog processing.",
+  "description": "Simply Wall St is an investment analysis platform that simplifies long-term investing through clear, visual financial data.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "simply-wall-st",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGcY8D9yR2iEg/company-logo_100_100/B56Zxt6sZIIAAQ-/0/1771370629248/simply_wall_st_logo?e=1774483200&v=beta&t=bowGzyYwJKICjGJY1WgwAs-3_jSbXUy5w19VTkedH2Y",
   "name": "Simply Wall St",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.400474Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://simplywall.st"
 }

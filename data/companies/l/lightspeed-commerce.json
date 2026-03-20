@@ -5,11 +5,13 @@
     "seeds": [
       {
         "category": "tech-filtered",
+        "status": "empty",
         "url": "https://www.lightspeedhq.com/careers/openings/?department=technology"
       },
       {
-        "url": "https://www.lightspeedhq.com/careers/",
-        "category": "general"
+        "category": "general",
+        "status": "empty",
+        "url": "https://www.lightspeedhq.com/careers/"
       }
     ]
   },

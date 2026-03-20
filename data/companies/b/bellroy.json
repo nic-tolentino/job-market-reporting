@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "bellroy",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Bellroy is a company profile created during backlog processing.",
+  "description": "Bellroy is a world-renowned Australian brand designing carry goods, including wallets, bags, and accessories.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "bellroy",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGwPSjdy-mSYA/company-logo_100_100/B56ZaylXl4GgAY-/0/1746752863274/bellroy_logo?e=1774483200&v=beta&t=VFavsyMsq31PD5Jvxo10MeNkk4XTRfh3fY7JoQXo5fY",
   "name": "Bellroy",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.829734Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://bellroy.com"
 }

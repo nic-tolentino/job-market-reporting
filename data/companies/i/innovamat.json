@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.innovamat.com/careers"
+      }
+    ]
   },
-  "description": "Innovamat is a company profile created during backlog processing.",
+  "description": "Innovamat is a Spanish ed-tech company that provides a transformative approach to learning mathematics in schools.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "innovamat",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQE9-Cg8ZFQLQg/company-logo_100_100/company-logo_100_100/0/1713772034858/innovamat_education_logo?e=1774483200&v=beta&t=YK6grmAL14OEvoQI9hhsh8hBNJSiBuM82Vc2z-7iq3A",
   "name": "Innovamat",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.085895Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.innovamat.com"
 }

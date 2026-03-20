@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "annalise",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://jobs.lever.co/annalise"
+      }
+    ]
+  },
+  "description": "Working at the intersection of human empathy and artificial intelligence, we fuse the highest quality imaging data with cutting edge computer science. The result? A world-first CXR AI with the most comprehensive analysis available. Proudly clinician–led, our patient–first approach comes from a deep understanding of the challenges faced in medical imaging. Now with AI, we are providing clinicians with another set of eyes that allows them to detect and protect with confidence and drive better health outcomes for patients from all walks of life. As a joint venture between healthcare technology company Harrison.ai, and one of the world’s largest radiology companies, I–MED Radiology Network, the partnership extends the capability of imaging analysis AI to deliver a more extensive set of findings.",
+  "hq_country": "AU",
+  "id": "annalise-ai",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Annalise.ai",
+  "verification_level": "unverified",
+  "website": "https://annalise.ai/"
+}

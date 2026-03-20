@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "true-blue",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://trueblueitnt.com.au/"
+      }
+    ]
   },
-  "description": "True Blue is a company profile created during backlog processing.",
+  "description": "True Blue IT Services is a Darwin-based provider of IT support, software development, and managed technology solutions.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "true-blue",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQG-JBX_x69duA/company-logo_100_100/company-logo_100_100/0/1738482445797/true_blue_it_services_logo?e=1774483200&v=beta&t=5BCJPQLT3_DIpOahxl-h56uf8UDNhoCUzB0ahvDJPmI",
   "name": "True Blue",
-  "office_locations": [],
+  "office_locations": [
+    "Darwin, NT"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:18:19.576463Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://trueblueitnt.com.au"
 }

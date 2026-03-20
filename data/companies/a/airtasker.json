@@ -1,0 +1,31 @@
+{
+  "ats": {
+    "identifier": "airtasker",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.airtasker.com/careers/#careers-listings"
+      }
+    ]
+  },
+  "description": "Airtasker is a trusted community platform that connects people who need to outsource tasks and find local services, with people who are looking to earn money and ready to work.\\r\\n\\r\\nFrom simple to complicated tasks, Airtasker can help you complete your home cleaning, handyman jobs, admin work, photography, graphic design or even build a website.\\r\\n\\r\\nGo online or download the app and Airtasker will take you from 'things to do' to 'everything's done'.\\r\\n\\r\\nAirtasker. Get More Done.",
+  "hq_country": "AU",
+  "id": "airtasker",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Airtasker",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://www.airtasker.com"
+}

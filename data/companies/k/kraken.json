@@ -8,14 +8,6 @@
     "provider": "LEVER"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://kraken.tech/careers"
-      }
-    ]
-  },
   "description": "Kraken Technologies provides a cloud-native platform for utilities to manage energy and customer data.",
   "employees_count": null,
   "hq_country": "UK",
@@ -39,13 +31,13 @@
     "JP"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.956088Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.956082Z",
+    "notes": "Crypto exchange. Explicitly states they currently cannot sponsor visas.",
+    "offered": false,
+    "source": "Kraken Careers",
     "types": []
   },
   "website": "https://kraken.tech"

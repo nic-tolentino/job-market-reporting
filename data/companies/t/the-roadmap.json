@@ -1,23 +1,42 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "the-roadmap",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://theroadmap.co/careers/"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://theroadmap.co/jobs/"
+      }
+    ]
   },
-  "description": "The Roadmap is a company profile created during backlog processing.",
+  "description": "The Roadmap is a digital marketing agency that specializes in building tailored growth strategies and digital solutions for businesses.",
   "employees_count": null,
-  "hq_country": "AU",
+  "hq_country": "ES",
   "id": "the-roadmap",
   "industries": [],
   "is_agency": true,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHYg11AztcXfA/company-logo_100_100/company-logo_100_100/0/1684514182084/theroadmap_logo?e=1774483200&v=beta&t=djPRcPMFdn-RvTGlztCmmFrjRPzfOxIzb9JRQJXOw34",
   "name": "The Roadmap",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:18:19.575862Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://theroadmap.co"
 }

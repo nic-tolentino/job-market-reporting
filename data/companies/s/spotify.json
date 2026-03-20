@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Enterprise",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "spotify",
+    "provider": "LEVER"
   },
-  "description": "Spotify is a company profile created during backlog processing.",
+  "company_type": "Enterprise",
+  "description": "Spotify is a world-leading audio streaming service, providing millions of tracks and podcasts to users globally.",
   "employees_count": null,
   "hq_country": "SE",
   "id": "spotify",
@@ -16,8 +17,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.092733Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.spotify.com"
 }

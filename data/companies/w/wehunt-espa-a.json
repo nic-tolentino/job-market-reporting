@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "wehunt-espa-a",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://we-hunt.es/vacantes"
+      }
+    ]
   },
-  "description": "WeHunt España is a company profile created during backlog processing.",
+  "description": "WeHunt is a Spanish recruitment boutique specialized in identifying and selecting professional and management talent.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "wehunt-espa-a",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEcF-Mp-_tnNw/company-logo_100_100/company-logo_100_100/0/1678361545036?e=1774483200&v=beta&t=TllzRPi-tICtFElEgHYUVaSEGzV33wBo-x93GobJTeE",
   "name": "WeHunt España",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:48:35.266679Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://we-hunt.es"
 }

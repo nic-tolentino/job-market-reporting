@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "quantumblack-ai-by-mckinsey",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "unknown",
+        "url": "https://www.mckinsey.com/careers/ai-careers"
+      }
+    ]
   },
-  "description": "QuantumBlack, AI by McKinsey is a company profile created during backlog processing.",
+  "description": "QuantumBlack is the specialized AI and advanced analytics division of McKinsey & Company.",
   "employees_count": null,
   "hq_country": "US",
   "id": "quantumblack-ai-by-mckinsey",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQG12pQe_GvUbQ/company-logo_100_100/company-logo_100_100/0/1651050740774/quantumblack_logo?e=1774483200&v=beta&t=-lHhByOXBa4vUxzQlmAvpwXOC6ziPpTBR85TJ15fZDw",
   "name": "QuantumBlack, AI by McKinsey",
-  "office_locations": [],
+  "office_locations": [
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.927429Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.quantumblack.com"
 }

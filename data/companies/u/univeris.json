@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "univeris",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://ca.indeed.com/cmp/Univeris/jobs"
+      }
+    ]
   },
-  "description": "Univeris is a company profile created during backlog processing.",
+  "description": "Univeris is a Canadian enterprise wealth management software provider.",
   "employees_count": null,
   "hq_country": "CA",
   "id": "univeris",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFThxh9GTuXpg/company-logo_100_100/company-logo_100_100/0/1688151900592/univeris_logo?e=1774483200&v=beta&t=-vGnkZK08mL57EYiFAbsTD3K2UNuS0WfnW1ei03QYF8",
   "name": "Univeris",
-  "office_locations": [],
+  "office_locations": [
+    "Toronto"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.851887Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.univeris.com"
 }

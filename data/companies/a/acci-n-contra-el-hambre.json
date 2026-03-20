@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Social Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.actionagainsthunger.org/careers/current-openings"
+      }
+    ]
   },
-  "description": "Acción contra el Hambre is a company profile created during backlog processing.",
+  "description": "Acción contra el Hambre is an international humanitarian NGO dedicated to fighting hunger and malnutrition globally.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "acci-n-contra-el-hambre",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEstcuyVMMIZg/company-logo_100_100/company-logo_100_100/0/1631337437883?e=1774483200&v=beta&t=kmtikWbBCKgiEKbWrd5Rhc_E7NKh7hTZ_eketoPjR1Y",
   "name": "Acción contra el Hambre",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.107969Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.accioncontraelhambre.org"
 }

@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "innovation-group-spain",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "active",
+        "url": "https://www.innovation.group/careers"
+      }
+    ]
   },
-  "description": "Innovation Group Spain is a company profile created during backlog processing.",
+  "description": "Innovation Group provides technology-led insurance and fleet services global solutions.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "innovation-group-spain",
@@ -13,11 +23,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGvjWfsO7LB5Q/company-logo_100_100/B4DZxmb6FXG8AQ-/0/1771245119555/innovation_group_spain_logo?e=1774483200&v=beta&t=Kf9Zbt-XT8MXIAtVZfxuV4wPS5G7q8Drfi5BUszcDT0",
   "name": "Innovation Group Spain",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid",
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.860472Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.innovation.group/es/"
 }

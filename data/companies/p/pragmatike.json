@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "pragmatike",
+    "provider": "ASHBY"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Pragmatike is a company profile created during backlog processing.",
+  "description": "Pragmatike is a French technology company providing HR recruitment solutions and digital talent management services.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "pragmatike",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE3Psl7I4KFdQ/company-logo_100_100/company-logo_100_100/0/1736269088036/pragmatikee_logo?e=1774483200&v=beta&t=A3plX_sKBOr30dTjh24u2SbDJWk1FUGjK8DSDi7B-3Y",
   "name": "Pragmatike",
-  "office_locations": [],
+  "office_locations": [
+    "Paris"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.958852Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://pragmatike.com"
 }

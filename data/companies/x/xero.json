@@ -5,7 +5,7 @@
   ],
   "ats": {
     "identifier": "xero",
-    "provider": "GREENHOUSE"
+    "provider": "ASHBY"
   },
   "company_type": "Product",
   "crawler": {
@@ -47,13 +47,13 @@
     "CA"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:38:43.982259Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:38:43.978302Z",
+    "notes": "Major sponsor in NZ (Accredited) with relocation/immigration support. Sponsors experienced roles in AU (case-by-case).",
     "offered": true,
-    "source": null,
+    "source": "Xero Careers",
     "types": []
   },
   "website": "http://www.xero.com"

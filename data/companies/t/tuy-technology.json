@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "tuy-technology",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://tuyu.es/unete-a-nosotros/"
+      }
+    ]
   },
-  "description": "TUYÚ Technology is a company profile created during backlog processing.",
+  "description": "TUYÚ Technology is a Spanish IT services company providing digital transformation, cybersecurity, and managed services.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "tuy-technology",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGo7c2Y9oJUjA/company-logo_100_100/B4DZiDvv6TH8AU-/0/1754556989476/tuyutechnology_logo?e=1774483200&v=beta&t=oeDKfBXbaxtDKVisDgTFIjj30taK2iiVkgU3mOaaafo",
   "name": "TUYÚ Technology",
-  "office_locations": [],
+  "office_locations": [
+    "Las Rozas de Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:18:19.581119Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://tuyu.es"
 }

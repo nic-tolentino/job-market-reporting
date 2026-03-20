@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "afiansys",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://join.com/companies/afiansys"
+      }
+    ]
   },
-  "description": "Afiansys is a company profile created during backlog processing.",
+  "description": "Afiansys is a Spanish technology consultancy specialized in information systems and security.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "afiansys",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEyvwRc_ObsrQ/company-logo_100_100/company-logo_100_100/0/1630580466784/afiansys_logo?e=1774483200&v=beta&t=FBOlwe4BxX-BpUrXPmMfUOGrZ6dTy142LspEkrCaMNc",
   "name": "Afiansys",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.125233Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://afiansys.com"
 }

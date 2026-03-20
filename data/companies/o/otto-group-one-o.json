@@ -10,8 +10,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.ottogroup.com/careers"
+        "category": "careers",
+        "source": "homepage-scan",
+        "status": "active",
+        "url": "https://www.ottogroup.com/de/karriere/jobs/"
       }
     ]
   },

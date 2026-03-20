@@ -1,0 +1,36 @@
+{
+  "alternateNames": [
+    "Workyard Holdings"
+  ],
+  "ats": {
+    "identifier": "workyard",
+    "provider": "ASHBY"
+  },
+  "company_type": "Product",
+  "crawler": {
+    "seeds": []
+  },
+  "description": "Workyard provides workforce management software built for construction and field services, offering GPS time tracking, job scheduling, cost management, and labour compliance tools for contractors.",
+  "employees_count": 50,
+  "hq_country": "US",
+  "id": "workyard",
+  "industries": [
+    "SaaS",
+    "HR Tech"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": null,
+  "name": "Workyard",
+  "office_locations": [
+    "San Mateo"
+  ],
+  "operating_countries": [
+    "US"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-17T00:00:00Z",
+  "verification_level": "unverified",
+  "visa_sponsorship": null,
+  "website": "https://www.workyard.com"
+}

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "appdrawn",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.indeed.com/cmp/Appdrawn/jobs"
+      }
+    ]
   },
-  "description": "Appdrawn Software Development is a company profile created during backlog processing.",
+  "description": "Appdrawn is a UK-based software development agency specializing in custom web and mobile applications.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "appdrawn-software-development",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHyWJTtIuBVUg/company-logo_100_100/company-logo_100_100/0/1685460189331/appdrawn_software_development_logo?e=1774483200&v=beta&t=SkL-6RCSuZELik5EXSpIO4CO3-fu27GRqSh_-zGQ_4Y",
   "name": "Appdrawn Software Development",
-  "office_locations": [],
+  "office_locations": [
+    "Watford"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.127306Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.appdrawn.com"
 }

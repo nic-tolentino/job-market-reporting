@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.markssattin.co.uk/join-the-team"
+      }
+    ]
   },
-  "description": "Marks Sattin is a company profile created during backlog processing.",
+  "description": "Marks Sattin is a specialist recruitment consultancy focusing on finance, accounting, technology, and legal sectors.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "marks-sattin",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFkwmXtXhqSeA/company-logo_100_100/company-logo_100_100/0/1649058693055/marks_sattin_logo?e=1774483200&v=beta&t=rxKiBdOyxqyWxE7IfwvhRLf27HRKbzfeGncAnGvi-y8",
   "name": "Marks Sattin",
-  "office_locations": [],
+  "office_locations": [
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.363458Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.markssattin.co.uk"
 }

@@ -4,10 +4,39 @@
   ],
   "company_type": "Product",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/files/",
+        "/fb/",
+        "/preview/",
+        "/n/*",
+        "*/calendar/*atom*",
+        "*/calendar/*rss*",
+        "*/calendar/*xml*",
+        "*/events/atom/*",
+        "*/events/rss/*",
+        "*/events/xml/*",
+        "*/rsvps/*atom*",
+        "*/rsvps/*rss*",
+        "*/rsvps/*xml*",
+        "*/newest/*atom*",
+        "*/newest/*rss*",
+        "*/newest/*xml*",
+        "/meetup_api/?",
+        "/meetup_api?",
+        "/*/meetup_api/",
+        "/*/meetup_api?"
+      ]
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.meetup.com/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.meetup.com/work-with-us/"
       }
     ]
   },

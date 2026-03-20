@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "australian-payments-plus",
+    "provider": "CUSTOM"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://auspayplus.com.au/careers"
+      }
+    ]
+  },
+  "description": "We are Australian Payments Plus (AP+) Australia’s domestic payment companies BPAY Group, eftpos and NPP Australia have come together to shape the future of payments for Australia. Working together benefits Australia’s consumers, businesses and government, creating opportunities above and beyond the needs of payments users of all kinds. We’re inspired by what’s possible today. And what could be possible beyond tomorrow.",
+  "hq_country": "AU",
+  "id": "australian-payments-plus",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Australian Payments Plus",
+  "verification_level": "unverified",
+  "website": "https://auspayplus.com.au/"
+}

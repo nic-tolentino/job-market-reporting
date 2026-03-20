@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "SeaToSummitPtyLtd",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Sea to Summit is a company profile created during backlog processing.",
+  "description": "Sea to Summit is an Australian manufacturer of high-quality outdoor and adventure equipment.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "sea-to-summit",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFkZpOPTOm7JQ/company-logo_100_100/company-logo_100_100/0/1733795677060/seatosummit_logo?e=1774483200&v=beta&t=v32mT6FyBNik2cYsPJJHgNQYE8goe9AQp-eMohHwCpI",
   "name": "Sea to Summit",
-  "office_locations": [],
+  "office_locations": [
+    "Perth"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:03:22.242508Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.seatosummit.com.au"
 }

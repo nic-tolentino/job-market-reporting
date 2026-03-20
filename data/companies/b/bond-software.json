@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "bond",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Bond Software is a company profile created during backlog processing.",
+  "description": "Bond Software provides member-centric CRM and membership experience platforms for associations and unions.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "bond-software",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGknQ-yB7ldZg/company-logo_100_100/company-logo_100_100/0/1688977296665/bond_software_logo?e=1774483200&v=beta&t=qbaY_8lhfkDlMYNI8fM0FNhUoWy2uLeFozamEjCk5rI",
   "name": "Bond Software",
-  "office_locations": [],
+  "office_locations": [
+    "South Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.823738Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://bond.software"
 }

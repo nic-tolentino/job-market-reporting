@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sap-fioneer",
+    "provider": "WORKABLE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "SAP Fioneer is a company profile created during backlog processing.",
+  "description": "SAP Fioneer is a global joint venture between SAP and DEDIQ, providing software solutions for the financial services industry.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "sap-fioneer",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGLG_THMIur_g/company-logo_100_100/company-logo_100_100/0/1723031133697/fioneer_logo?e=1774483200&v=beta&t=OCvF6oRZTFHhpgfpNW7osEObd9hdjUQlIX5-jmnRUeY",
   "name": "SAP Fioneer",
-  "office_locations": [],
+  "office_locations": [
+    "Walldorf"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.094545Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sapfioneer.com"
 }

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "msd-australia-new-zealand",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://jobs.merck.com/"
+      }
+    ]
   },
-  "description": "MSD Australia & New Zealand is a company profile created during backlog processing.",
+  "description": "MSD (known as Merck in the US) is a leading global biopharmaceutical company developing innovative medicines and vaccines.",
   "employees_count": null,
   "hq_country": "US",
   "id": "msd-australia-new-zealand",
@@ -13,11 +24,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHiD9K8xTsbPw/company-logo_100_100/company-logo_100_100/0/1719793502817/msd_australia_logo?e=1774483200&v=beta&t=Ao5FoeBbuY8MgHMuqhsKF-TY788WlBWdgTb1Ybh5Oic",
   "name": "MSD Australia & New Zealand",
-  "office_locations": [],
+  "office_locations": [
+    "Macquarie Park",
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.354713Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.msd-australia.com.au"
 }

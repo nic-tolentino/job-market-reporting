@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "verisure",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Verisure is a company profile created during backlog processing.",
+  "description": "Verisure is Europe's leading provider of professionally monitored security systems for homes and small businesses.",
   "employees_count": null,
   "hq_country": "SE",
   "id": "verisure",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFzt8xtrvaTDg/company-logo_100_100/B4DZYkbQG4HIAQ-/0/1744367846197/verisure_logo?e=1774483200&v=beta&t=ijE22FwyP24oK22JGGKBt3AtDGuXAYsT_A9wVzL9ZJo",
   "name": "Verisure",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid",
+    "Malm\u00f6"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.912664Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.verisure.com"
 }

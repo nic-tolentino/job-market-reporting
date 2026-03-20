@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "applinet",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://join.com/companies/applinet"
+      }
+    ]
   },
-  "description": "Applinet SL is a company profile created during backlog processing.",
+  "description": "Applinet is a Spanish technology company providing managed services and cloud solutions for businesses.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "applinet-sl",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHyNMQMX0yafQ/company-logo_100_100/company-logo_100_100/0/1722626903048/applinet_software_logo?e=1774483200&v=beta&t=olorsHKf7D9yhtwmt4XziODk_0P88BP8ZpxABm5-Is0",
   "name": "Applinet SL",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.124382Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://applinet.es"
 }

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "lago-s-p-a",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.lago.it/"
+      }
+    ]
   },
-  "description": "Lago S.p.a. is a company profile created during backlog processing.",
+  "description": "LAGO is an innovative Italian furniture brand known for its suspended designs and high-quality modular living solutions.",
   "employees_count": null,
   "hq_country": "IT",
   "id": "lago-s-p-a",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQG4G_LMDSaBbw/company-logo_100_100/company-logo_100_100/0/1630625269807/lago_spa_logo?e=1774483200&v=beta&t=CApH2k4gkIAX-au-WD3oWMAXfXVVzS6PYJee4UmJw-w",
   "name": "Lago S.p.a.",
-  "office_locations": [],
+  "office_locations": [
+    "Villa del Conte"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.204089Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.lago.it"
 }

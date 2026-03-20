@@ -1,10 +1,15 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "vast-data",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.vastdata.com/careers"
       }
     ]

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "emetel",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "EMETEL is a company profile created during backlog processing.",
+  "description": "Emetel is a Spanish technology consultancy specializing in cybersecurity, communications infrastructure, and digital transformation.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "emetel",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHqDtulXUUemA/company-logo_100_100/company-logo_100_100/0/1726643605586/emetel_logo?e=1774483200&v=beta&t=B2uvAy9bB70LhSO1X_qULD7uqUSgrYtkoBFcyAHsO94",
   "name": "EMETEL",
-  "office_locations": [],
+  "office_locations": [
+    "A Coru\u00f1a"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.365353Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.emetel.net"
 }

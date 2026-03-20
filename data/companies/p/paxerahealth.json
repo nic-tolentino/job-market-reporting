@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "paxerahealth",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://paxerahealth.com/careers/"
+      }
+    ]
   },
-  "description": "PaxeraHealth is a company profile created during backlog processing.",
+  "description": "PaxeraHealth provides an industry-leading AI-powered enterprise imaging platform for hospitals and imaging centers.",
   "employees_count": null,
   "hq_country": "US",
   "id": "paxerahealth",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFgoiAj4Z_3ZQ/company-logo_100_100/B56ZkvrQLEG0AQ-/0/1757441491966/paxerahealthcorp_logo?e=1774483200&v=beta&t=erBAo3aPHEe2gCeCQcFe-XeC9LzTHowQIztP0EyQ7aE",
   "name": "PaxeraHealth",
-  "office_locations": [],
+  "office_locations": [
+    "Newton"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.931810Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://paxerahealth.com"
 }

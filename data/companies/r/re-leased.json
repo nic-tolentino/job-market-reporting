@@ -1,15 +1,18 @@
 {
   "alternateNames": [],
-  "ats": {
-    "identifier": "released",
-    "provider": "GREENHOUSE"
-  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.re-leased.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.re-leased.com/"
       }
     ]
   },

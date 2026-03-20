@@ -2,11 +2,24 @@
   "alternateNames": [
     "AECOM New Zealand"
   ],
+  "ats": {
+    "identifier": "aecom",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/content/"
+      ]
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://aecom.com/careers"
       }
     ]

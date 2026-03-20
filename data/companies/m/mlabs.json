@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mlabs",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "MLabs is a company profile created during backlog processing.",
+  "description": "MLabs is a global software consultancy specializing in high-assurance software development using Haskell, Rust, and blockchain technologies.",
   "employees_count": null,
   "hq_country": "PT",
   "id": "mlabs",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.345094Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://mlabs.city"
 }

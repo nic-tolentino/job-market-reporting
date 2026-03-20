@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mediamarkt",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "MediaMarkt España is a company profile created during backlog processing.",
+  "description": "MediaMarkt is a leading European retailer for consumer electronics and household appliances with a strong presence in Spain.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "mediamarkt-espa-a",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFylX_VEN5IuQ/company-logo_100_100/company-logo_100_100/0/1707426438014?e=1774483200&v=beta&t=hB214xBCJYKc_6plWYTXxX8YTSXsn5QKFNcDxth5LAc",
   "name": "MediaMarkt España",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.354596Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.mediamarkt.es"
 }

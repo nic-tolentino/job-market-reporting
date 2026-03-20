@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "vasion",
+    "provider": "WORKABLE"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Vasion is a company profile created during backlog processing.",
+  "description": "Vasion provides a digital transformation platform that automates workflows and manages documents and print infrastructures.",
   "employees_count": null,
   "hq_country": "US",
   "id": "vasion",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHv_JN-fUviVw/company-logo_100_100/company-logo_100_100/0/1703104441184/vasion_software_logo?e=1774483200&v=beta&t=HjdHly_P5oC9kIVne-YrQhFScomNuDaCI_7u5FhJ2bQ",
   "name": "Vasion",
-  "office_locations": [],
+  "office_locations": [
+    "Saint George"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.903646Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.vasion.com"
 }

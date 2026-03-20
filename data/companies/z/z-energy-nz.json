@@ -6,8 +6,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.z.co.nz/careers"
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://www.careers.ampol.com/jobs?options=3143"
       }
     ]
   },

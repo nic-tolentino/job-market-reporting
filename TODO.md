@@ -2,6 +2,13 @@
 
 Now:
 
+- We should update the admin dashboard to show the % of manifests which have an ATS, and also a graph showing % of companies have been crawled in the past 7 days?
+
+- I need to understand how we handle various ingress and update processes. Eg, if we ingest a new company from LinkedIn, how or when do we create a new company manifest / profile? Then when and how do we flesh out that company's detauls including ATS identification? Then how do we keep the seeds up to date, or other data up to date, like num employees or visa support?
+
+- Use https://stackshare.io/ to verify the tech that companies use
+- Check builtin.com and https://stackshare.io/ for ATS identification
+
 - Ok I really need an admin panel now - I need a way to understand information like: status of company crawls and seed urls including last run (and ideally analytics like run time, number of jobs found, % of tech jobs out of all jobs processed per company, etc. - we need information to understand the status of the crawling process, as well as stats that can help us detect optimisation opportunities, enable/disable scheduled crawling, feedback submissions, current state of ingestion requests (plus any dead letters), ), status of active crawls, list of datset IDs that have been consumed. A bunch of convenience stuff like: re-process datasets, ingest dataset ID, trigger a crawl for a seed url/company, etc. We should do some brainsotrming on what would be useful to have in an admin panel. 
 
 - Next I need to figure out a staged deployment process - I can't keep breaking and testing in production for frontend and backend services.
@@ -16,6 +23,12 @@ Now:
 
 - The search box breaks after pressing enter / making a custom search
 - We also need to search over the job descriptions and show search results? Also search over tech domains. Should also search over learning / community resources.
+
+- we have orphaned jobs due to company id changes.
+
+- build gdg pages for each city? So we can find companies currently hiring in that space.
+
+- We can use https://www.immigration.govt.nz/work/requirements-for-work-visas/approved-employers/accredited-employer-list/?page=1 to find companies that sponsor visas for NZ companies only, but there may be other websites for AU and Spain.
 
 Later:
 
@@ -175,3 +188,69 @@ Pushpay: https://pushpay.com/company/careers
 Halter: https://halter.com/careers/
 Tracksuit: https://www.tracksuit.com/careers/jobs
 Vend/Lightspeed: https://www.lightspeedhq.com/careers/
+
+---
+
+Company website identification outcome:
+
+Uncertain Cases to Review
+
+REGENERA: Energy vs Health ambiguity preserved.
+Great Value Hiring: Website found but content generic.
+onthaast en geniet: Skipped.
+Verse: Closed.
+Evolution Australia: Evolution Jobs.
+EPI Company: Epi-interactive.
+Breaker: Skipped.
+KD: Updated as KD Semiconductor (kd.tech) in Madrid.
+ParallaxOS: Skipped.
+Generic/Undisclosed: Skipped files like undisclosed-employer.json, manufacturing.json, and confidential-careers.json.
+
+Statistics
+Total companies missing websites identified: 847
+Companies processed and updated: 839
+Companies skipped (Generic/Unactionable): 8
+Status: Completion Achieved
+I am ready to process more companies in batches. Please let me know if you have a specific list or if I should continue through the alphabetical list.
+
+---
+
+From the 145 SQL companies, we extracted 1 new valid ATS config
+  (macquarie-group → LEVER/macquarietechnologygroup). The 2 remaining
+  "candidates" (pet-circle LEVER and open→openai match) are rejected by
+  live API validation.
+
+- Consider: Build probe_search_api.py using Brave Search free tier
+  (2,000/month) — highest ROI, fully automated, reusable every month as
+  new companies are added.
+
+[Pasted text #6 +4 lines] can we please resolve this? you mentioned doing a one off BQ fix previously. Then we can update the ATS of those companies confidently. 
+
+ - Seeding — already handled by CompanySyncService.syncFromManifest().
+  Run POST /api/admin/pipeline/sync-companies to push all 153 configs to
+   BigQuery, then POST /api/internal/ats-sync-all to kick off the first
+  extraction.
+
+
+  pull jobs from??? https://www.ycombinator.com/companies/rever/jobs/CjCpj0t-backend-engineer?utm_source=syn_li
+
+---
+
+LinkedIn url analysis which may allow us to easily ingest jobs from comapnies that don't have career pages. The &f_C=10424439 parameter appears to match to a specific company. We should be able to extract this parameter from the url and use it to find jobs for that company.
+
+https://www.linkedin.com/jobs/search?keywords=Alan&location=Spain&geoId=105646813
+&f_TPR=
+&f_C=10424439
+&position=1
+&pageNum=0
+
+https://www.linkedin.com/jobs/search?keywords=Alan&location=Spain&geoId=105646813
+&f_C=11016997
+&f_TPR=
+&position=1
+&pageNum=0
+
+
+Au cxVx5TgHwARQ8f79g
+nz kcDYvHh5956pKCjb7
+sp 6dWGtKSBpgZA9va8Q

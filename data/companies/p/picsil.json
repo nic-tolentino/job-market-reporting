@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "picsil",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "PICSIL is a company profile created during backlog processing.",
+  "description": "PICSIL is a Spanish sports equipment company specializing in high-performance gear for Crossfit, weightlifting, and gymnastics.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "picsil",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHMDzqqGQrNXw/company-logo_100_100/B4DZm5XPs7G8AQ-/0/1759751503042/picsil_logo?e=1774483200&v=beta&t=gOZs39JRrXhy-lNxi6kGpmOR-MLK1z98-vcJ7Bmlgos",
   "name": "PICSIL",
-  "office_locations": [],
+  "office_locations": [
+    "Cintru\u00e9nigo"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.926513Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://picsilsport.com"
 }

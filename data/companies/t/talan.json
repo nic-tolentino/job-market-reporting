@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "talan",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Talan is a company profile created during backlog processing.",
+  "description": "Talan is an international consulting and technology group specializing in digital transformation.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "talan",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHLUnOa9M0qTA/company-logo_100_100/company-logo_100_100/0/1731454594342/talan_logo?e=1774483200&v=beta&t=9Fm00aoi1UrNQrtcA4b6M-BG_pT6odEZn5UIKYik5vM",
   "name": "Talan",
-  "office_locations": [],
+  "office_locations": [
+    "Paris"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.393411Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://talan.com"
 }

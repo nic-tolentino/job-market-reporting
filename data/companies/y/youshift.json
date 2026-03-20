@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "youshift",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.ycombinator.com/companies/youshift/jobs"
+      }
+    ]
   },
-  "description": "YouShift is a company profile created during backlog processing.",
+  "description": "YouShift is an Australian workforce management platform that helps businesses schedule and manage flexible staff.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "youshift",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQE_shlVS_7EwQ/company-logo_100_100/company-logo_100_100/0/1686911281304/you_shift_logo?e=1774483200&v=beta&t=UDdU1ieOcbMNeC-7hzNVVD5SPnVefkmgo1GOf41G78o",
   "name": "YouShift",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.183315Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://youshift.io"
 }

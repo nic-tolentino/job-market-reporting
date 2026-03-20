@@ -1,13 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "preacta",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.preacta.com/careers"
-      }
-    ]
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": 3,
+      "disallow_patterns": [
+        "/calendar/action*",
+        "/events/action*",
+        "/*?"
+      ]
+    }
   },
   "description": "Preacta is a specialized tech recruitment and talent consultancy partnering with Australia's leading financial institutions and enterprise software providers.",
   "employees_count": 50,

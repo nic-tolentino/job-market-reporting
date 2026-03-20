@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.epson.com.au/careers/"
+      }
+    ]
   },
-  "description": "Epson Australia is a company profile created during backlog processing.",
+  "description": "Epson Australia provides a broad range of technology products including printers, projectors, and scanners for home and business.",
   "employees_count": null,
   "hq_country": "JP",
   "id": "epson-australia",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE1rVSIKNXUbw/company-logo_100_100/B56ZWMz2YWGUAU-/0/1741824159092/epson_australia_logo?e=1774483200&v=beta&t=UfclFBliQB_6Q90UjTvVNoWxFa-ix-eZS_aVAlFzRI0",
   "name": "Epson Australia",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.362394Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.epson.com.au"
 }

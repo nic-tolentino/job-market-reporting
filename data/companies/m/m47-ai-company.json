@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "m47-ai-company",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.m47labs.com/artificial-intelligence-careers"
+      }
+    ]
   },
-  "description": "M47 - AI Company is a company profile created during backlog processing.",
+  "description": "M47 AI Company (M47 Labs) provides high-quality data labeling and AI training services to help companies build robust machine learning models.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "m47-ai-company",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGidAIKqSiVZQ/company-logo_100_100/B4EZc1wrstHIAY-/0/1748953644453/m47_labs_logo?e=1774483200&v=beta&t=qM7EuxgDn2igqGHhtdipRRkYjcbztcYW-hezGdLA_lk",
   "name": "M47 - AI Company",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.340752Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.m47labs.com"
 }

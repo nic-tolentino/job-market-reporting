@@ -7,14 +7,6 @@
     "provider": "TEAMTAILOR"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://clue.aero/careers"
-      }
-    ]
-  },
   "description": "Clue Technologies manufactures high-performance computing technologies and modular avionics for next-generation intelligent systems in aerospace and defence.",
   "employees_count": 50,
   "hq_country": "ES",

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "aircall",
+    "provider": "LEVER"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Aircall is a company profile created during backlog processing.",
+  "description": "Aircall is a cloud-based phone system and communication platform integrated with popular CRM and helpdesk tools.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "aircall",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQELdXZIqmS2Bw/company-logo_100_100/company-logo_100_100/0/1731685847737/aircall_logo?e=1774483200&v=beta&t=Z6MMIbc8M4bffUSllMLC8RgFrosDdd4iXka1EgebeSk",
   "name": "Aircall",
-  "office_locations": [],
+  "office_locations": [
+    "Paris"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.123077Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://aircall.io"
 }

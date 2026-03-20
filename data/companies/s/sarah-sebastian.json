@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sarah-sebastian",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.sarahandsebastian.com/pages/careers"
+      }
+    ]
   },
-  "description": "SARAH & SEBASTIAN is a company profile created during backlog processing.",
+  "description": "SARAH & SEBASTIAN is an Australian fine jewelry brand known for its conceptual designs and ethically sourced gemstones.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "sarah-sebastian",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFUqitSfEKLIQ/company-logo_100_100/company-logo_100_100/0/1729650963155/sarahandsebastian_logo?e=1774483200&v=beta&t=jkOcLKan0QbOv_dqXi94mwRV4wgo4xuRyrfbNAm3SmI",
   "name": "SARAH & SEBASTIAN",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.404950Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sarahandsebastian.com"
 }

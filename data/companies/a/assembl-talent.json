@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "assembl-talent",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Assembl Talent is a company profile created during backlog processing.",
+  "description": "Assembl Talent is an Australian recruitment firm specializing in the technology and digital advertising sectors.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "assembl-talent",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF1jpxwqZv9gQ/company-logo_100_100/B56ZfK97G6HoAQ-/0/1751456920608?e=1774483200&v=beta&t=bHHZAeRwLArtUstsqwm43rQIt9-Ppg9kYT9pBb2OOYk",
   "name": "Assembl Talent",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.129093Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.assembltalent.com.au"
 }

@@ -1,11 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "les-mills-brasil",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://lesmills.com/br/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://careers.lesmills.com/jobs"
       }
     ]
   },

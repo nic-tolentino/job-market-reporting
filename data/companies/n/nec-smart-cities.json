@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nec",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "manual",
+        "status": "empty",
+        "url": "https://nec.wd3.myworkdayjobs.com/External"
+      }
+    ]
   },
-  "description": "NEC Smart Cities is a company profile created during backlog processing.",
+  "description": "NEC Smart Cities is a division of NEC Corporation providing advanced technology for urban development and digital governance.",
   "employees_count": null,
   "hq_country": "JP",
   "id": "nec-smart-cities",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGk5vQ38qLrPQ/company-logo_100_100/company-logo_100_100/0/1657903941122/nec_smart_cities_logo?e=1774483200&v=beta&t=0s1cQ1a_x4B3J48uySmqfD-x1YCJU-zH0bHhKO51kwU",
   "name": "NEC Smart Cities",
-  "office_locations": [],
+  "office_locations": [
+    "Tokyo"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.248701Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.nec.com"
 }

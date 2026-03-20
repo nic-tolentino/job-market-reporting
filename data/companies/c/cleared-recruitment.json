@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "cleared",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.clearedrecruitment.com.au/jobs"
+      }
+    ]
   },
-  "description": "Cleared Recruitment is a company profile created during backlog processing.",
+  "description": "Cleared Recruitment is a specialist Australian agency providing talent solutions for the defense and national security sectors.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "cleared-recruitment",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQE3RQJbbKpXBw/company-logo_100_100/company-logo_100_100/0/1630658978086/cleared_ict_logo?e=1774483200&v=beta&t=PCQsBH3RRjo7IVtzRGXGD8n-OeHR1pN2eDQEKQ0c2Fk",
   "name": "Cleared Recruitment",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.911770Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.clearedrecruitment.com.au"
 }

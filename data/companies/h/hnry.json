@@ -6,8 +6,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.hnry.co.nz/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://hnry.co.nz/careers"
       }
     ]
   },

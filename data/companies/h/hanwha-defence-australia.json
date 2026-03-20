@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "hanwha",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.hanwha-defence.com.au/careers"
+      }
+    ]
   },
-  "description": "Hanwha Defence Australia is a company profile created during backlog processing.",
+  "description": "Hanwha Defence Australia is the local subsidiary of the Korean defense giant, building sovereign capabilities for the ADF.",
   "employees_count": null,
   "hq_country": "KR",
   "id": "hanwha-defence-australia",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFYUHlhzofYAA/company-logo_100_100/company-logo_100_100/0/1708058313133/hanwha_defense_australia_logo?e=1774483200&v=beta&t=M50Tt77f7g6-lQWFxwiDwovS2t-Qhgn56Z-aVwLQ_Fs",
   "name": "Hanwha Defence Australia",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.150644Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.hanwha-defence.com.au"
 }

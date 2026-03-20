@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ormco",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://ormco.com/en-us/system/404"
+      }
+    ]
   },
-  "description": "Ormco is a company profile created during backlog processing.",
+  "description": "Ormco is a global leader in orthodontic products, known for innovative braces, wires, and aligner systems.",
   "employees_count": null,
   "hq_country": "US",
   "id": "ormco",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHB7N7Bq_9aTQ/company-logo_100_100/company-logo_100_100/0/1630529081148/ormco_logo?e=1774483200&v=beta&t=z1t4CdJp2Zn7sKqICmjnIbIp30KQlGXX_lsrB6kHrC0",
   "name": "Ormco",
-  "office_locations": [],
+  "office_locations": [
+    "Brea"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:28:11.624512Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ormco.com"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "zvoove",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "zvoove is a company profile created during backlog processing.",
+  "description": "zvoove is a leading German provider of software solutions for the staffing and service industries.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "zvoove",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQH9ZVH2DDiktw/company-logo_100_100/company-logo_100_100/0/1737374657288/zvoove_germany_logo?e=1774483200&v=beta&t=mCQG5Xylvvpuqjd7cyDta7CBY27yUSTBW3EsfN5am5k",
   "name": "zvoove",
-  "office_locations": [],
+  "office_locations": [
+    "Wietmarschen"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.252002Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://zvoove.com"
 }

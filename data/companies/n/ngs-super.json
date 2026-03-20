@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ngs-super",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "empty",
+        "url": "https://ngssuper.elmotalent.com.au/"
+      }
+    ]
   },
-  "description": "NGS Super is a company profile created during backlog processing.",
+  "description": "NGS Super is an Australian industry superannuation fund primarily serving the education and community sectors.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "ngs-super",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQG_1xl_sPdldg/company-logo_100_100/company-logo_100_100/0/1631323233935?e=1774483200&v=beta&t=13hexJY2ctKe1iw-66xi04c4ZxQ-0zInE-_4j9GhZMg",
   "name": "NGS Super",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.994609Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ngssuper.com.au"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nextplay",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "NextPlay is a company profile created during backlog processing.",
+  "description": "NextPlay Technologies is a technology solutions company specializing in games, in-game advertising, and travel booking.",
   "employees_count": null,
   "hq_country": "US",
   "id": "nextplay",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEJPxFBxSaJTg/company-logo_100_100/company-logo_100_100/0/1733998501963/nextplayco_logo?e=1774483200&v=beta&t=n5_tSJg0Yt6Pm0ffqJ55iIsM3wKvDAKwVxm0lJvAfNY",
   "name": "NextPlay",
-  "office_locations": [],
+  "office_locations": [
+    "Sunrise, FL"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.982076Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://nextplaytechnologies.com"
 }

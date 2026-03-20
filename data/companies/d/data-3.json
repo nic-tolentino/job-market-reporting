@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "data3",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.data3.com/careers/"
+      }
+    ]
   },
-  "description": "Data#3 is a company profile created during backlog processing.",
+  "description": "Data#3 is a leading Australian IT solutions provider delivering digital transformation through consulting and technology services.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "data-3",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGWvA10NpYbMg/company-logo_100_100/B56ZuLROqqJMAQ-/0/1767568108620/data3_logo?e=1774483200&v=beta&t=i-WCSZpJrJmNYremBf22RaCJMM3QNqTH2wkTA3LLQTU",
   "name": "Data#3",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.772382Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.data3.com"
 }

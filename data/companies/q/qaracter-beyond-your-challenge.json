@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "qaracter-beyond-your-challenge",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Qaracter - Beyond your Challenge is a company profile created during backlog processing.",
+  "description": "Qaracter is a global technology and business consulting firm specializing in the financial services and banking sector.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "qaracter-beyond-your-challenge",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEu4mQIjaGb1A/company-logo_100_100/company-logo_100_100/0/1698059452188/qaracter___beyond_your_challenge_logo?e=1774483200&v=beta&t=8bMDnjEcLWszn0f8KdYtwhCTb7QtG1_SvETOGYKSGns",
   "name": "Qaracter - Beyond your Challenge",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.919776Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.qaracter.com"
 }

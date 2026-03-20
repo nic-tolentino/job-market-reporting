@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "vmia",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.vmia.vic.gov.au/careers"
+      }
+    ]
   },
-  "description": "Victorian Managed Insurance Authority is a company profile created during backlog processing.",
+  "description": "The Victorian Managed Insurance Authority (VMIA) is the Victorian Government’s insurer and risk adviser.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "vmia",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQE1j_ne_V6yvA/company-logo_100_100/company-logo_100_100/0/1630592645500/victorian_managed_insurance_authority_logo?e=1774483200&v=beta&t=q6AgyUqCStU3wIGg4I1-UkYVMisZ7Eqvm_Qri1OkSlI",
   "name": "Victorian Managed Insurance Authority",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.794841Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.vmia.vic.gov.au"
 }

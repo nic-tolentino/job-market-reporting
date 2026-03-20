@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "tranetechnologies",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Trane Technologies is a company profile created during backlog processing.",
+  "description": "Trane Technologies is a global climate innovator providing sustainable heating, cooling, and transport refrigeration solutions.",
   "employees_count": null,
   "hq_country": "US",
   "id": "trane-technologies",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQH-dHrFPlFFbg/company-logo_100_100/company-logo_100_100/0/1630610252826/tranetechnologies_logo?e=1774483200&v=beta&t=T7E62-hXZ5OC3zFb8PS2TdIB1cl1z9bF8cP1Lx3RCi4",
   "name": "Trane Technologies",
-  "office_locations": [],
+  "office_locations": [
+    "Davidson, NC",
+    "Dublin, IE"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.265705Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.tranetechnologies.com"
 }

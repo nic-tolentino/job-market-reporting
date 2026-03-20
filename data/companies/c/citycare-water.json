@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "citycare",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.citycarewater.co.nz/careers"
+      }
+    ]
   },
-  "description": "Citycare Water is a company profile created during backlog processing.",
+  "description": "Citycare Water is a leading provider of water infrastructure services in New Zealand, managing critical water networks.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "citycare-water",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHDx8gCXbkSEw/company-logo_100_100/company-logo_100_100/0/1668481391967?e=1774483200&v=beta&t=SKumGVUWFkCqlo6U_CtrxpwthLv3n3EchHmwwcHVQ64",
   "name": "Citycare Water",
-  "office_locations": [],
+  "office_locations": [
+    "Christchurch"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.890868Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.citycarewater.co.nz"
 }

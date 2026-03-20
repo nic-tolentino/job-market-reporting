@@ -8,8 +8,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.bookboost.io/careers"
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://bookboost.jobs.personio.com/"
       }
     ]
   },

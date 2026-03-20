@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "huttcity",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://huttcity.govt.nz/council/working-at-council/jobs/"
+      }
+    ]
   },
-  "description": "Hutt City Council is a company profile created during backlog processing.",
+  "description": "Hutt City Council is the local government authority for Lower Hutt, New Zealand, providing community services and infrastructure.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "hutt-city-council",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHDD7d8ogGpxg/company-logo_100_100/company-logo_100_100/0/1725317936038/hutt_city_council_logo?e=1774483200&v=beta&t=T7OkicWD_9ryLXMOGqaxpqsr-iDny60wGDx3D0K37qs",
   "name": "Hutt City Council",
-  "office_locations": [],
+  "office_locations": [
+    "Lower Hutt"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.344851Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.huttcity.govt.nz"
 }

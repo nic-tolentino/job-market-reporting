@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "interface-agency-australia",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Interface Agency Australia is a company profile created during backlog processing.",
+  "description": "Interface Agency is a specialist recruitment firm focused on Technology & Transformation.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "interface-agency-australia",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGgX6Gx1cw_yw/company-logo_100_100/company-logo_100_100/0/1641358957751/interface_agency_australia_logo?e=1774483200&v=beta&t=40ymjVWaZ8ntUwaOfosPjXyTmtF10fFyRrYGRThth4Q",
   "name": "Interface Agency Australia",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.860849Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://interface-agency.com"
 }

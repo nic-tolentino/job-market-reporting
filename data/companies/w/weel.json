@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "weel",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://letsweel.com/careers"
+      }
+    ]
   },
-  "description": "Weel is a company profile created during backlog processing.",
+  "description": "Weel (formerly DiviPay) is an all-in-one spend management platform that helps Australian businesses manage corporate cards and expenses.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "weel",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHc1um1_nL5Kw/company-logo_100_100/company-logo_100_100/0/1662335954956/divipay_logo?e=1774483200&v=beta&t=iWoFa2GcPEUJBG31rhS79B_e_n14lRd9IABffLLLRQY",
   "name": "Weel",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:48:35.260725Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://letsweel.com"
 }

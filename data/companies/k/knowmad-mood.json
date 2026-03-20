@@ -1,15 +1,13 @@
 {
   "alternateNames": [],
-  "ats": {
-    "identifier": "knowmadmood",
-    "provider": "TEAMTAILOR"
-  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.knowmadmood.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://knowmadmood.teamtailor.com/jobs"
       }
     ]
   },
@@ -31,8 +29,14 @@
     "ES"
   ],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:30:00Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-17T00:13:42.807791Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-17T00:13:42.807777Z",
+    "notes": "Major Spanish IT consultancy. Full sponsor for HQP/PAC roles.",
+    "offered": true,
+    "source": "General Spain tech",
+    "types": []
+  },
   "website": "https://www.knowmadmood.com"
 }

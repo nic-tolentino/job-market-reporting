@@ -1,11 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "Sodexo",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.sodexo.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "unknown",
+        "url": "https://sodexo.jobs/"
       }
     ]
   },

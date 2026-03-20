@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "Checkbox Technology",
+    "provider": "ASHBY"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Checkbox is a company profile created during backlog processing.",
+  "description": "Checkbox is a no-code automation platform that enables legal, HR, and compliance teams to automate complex manual processes.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "checkbox",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH6WH3b_5uXbg/company-logo_100_100/company-logo_100_100/0/1718661748276/checkboxai_logo?e=1774483200&v=beta&t=cBSTj7NOciKRcTjJGox8g6BClHveDdV_AiJgJS_hwHM",
   "name": "Checkbox",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.874046Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.checkbox.ai"
 }

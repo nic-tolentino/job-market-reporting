@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "jimenez-mana",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "CORPORACIÓN JIMÉNEZ MAÑA is a company profile created during backlog processing.",
+  "description": "Corporaci\u00f3n Jim\u00e9nez Ma\u00f1a is a prominent Spanish business group primarily involved in automotive parts distribution and management services.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "corporaci-n-jim-nez-ma-a",
@@ -12,12 +16,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFuv2kgvUv5kQ/company-logo_100_100/company-logo_100_100/0/1631367683005/corporacin_jimnez_maa_logo?e=1774483200&v=beta&t=_xhJwUpofBWB5A5XH1FgkN85Alj7SJZPt5RgmUUPhTQ",
-  "name": "CORPORACIÓN JIMÉNEZ MAÑA",
-  "office_locations": [],
+  "name": "CORPORACI\u00d3N JIM\u00c9NEZ MA\u00d1A",
+  "office_locations": [
+    "Seville"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.868709Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.corporacionjimenezmana.com"
 }

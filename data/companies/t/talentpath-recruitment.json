@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "talentpath-recruitment",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "homepage-scan",
+        "status": "active",
+        "url": "https://talentpath.com.au/jobs-search"
+      }
+    ]
   },
-  "description": "Talentpath Recruitment is a company profile created during backlog processing.",
+  "description": "Talentpath is an Australian-owned recruitment agency specializing in accounting, finance, HR, and technology talent.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "talentpath-recruitment",
@@ -13,11 +24,15 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH3LKwBBi9GDw/company-logo_100_100/company-logo_100_100/0/1735283267680/talentpath_logo?e=1774483200&v=beta&t=Nl13dthDHnrUHn43eCEkyI0qoVREQSvkjQepHvij02M",
   "name": "Talentpath Recruitment",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane",
+    "Sydney",
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.267149Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://talentpath.com.au"
 }

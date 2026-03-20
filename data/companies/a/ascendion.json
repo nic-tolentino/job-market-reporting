@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ascendion",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://ascendion.com/careers/"
+      }
+    ]
   },
-  "description": "Ascendion is a company profile created during backlog processing.",
+  "description": "Ascendion is a digital engineering services company providing AI-first software engineering, data, and platform services.",
   "employees_count": null,
   "hq_country": "US",
   "id": "ascendion",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEjwUhLqLGaAQ/company-logo_100_100/B56Zc2XoO0HEAU-/0/1748963853609/ascendion_logo?e=1774483200&v=beta&t=X8aR6oWxAHZxxcmj-HEtKpQWDqzKr3odoGLD0BSJTpo",
   "name": "Ascendion",
-  "office_locations": [],
+  "office_locations": [
+    "Basking Ridge"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:17:27.289493Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://ascendion.com"
 }

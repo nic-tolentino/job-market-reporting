@@ -36,8 +36,8 @@ export class VertexAIClient {
       );
     }
     
-    // Use global endpoint as confirmed by user to work with gemini-2.5-flash-lite
-    const url = `https://aiplatform.googleapis.com/v1/publishers/google/models/${this.model}:streamGenerateContent?key=${this.apiKey}&alt=sse`;
+    // Use Gemini Developer API endpoint (works with AIzaSy API keys)
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${this.model}:streamGenerateContent?key=${this.apiKey}&alt=sse`;
 
     const response = await fetch(url, {
       method: 'POST',

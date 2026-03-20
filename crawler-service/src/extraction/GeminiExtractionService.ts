@@ -33,6 +33,8 @@ export interface ExtractionConfig {
   officeLocations?: string[];
   prompt?: string;
   extractionHints?: Record<string, string>;
+  /** The URL of the page being extracted, used to resolve relative job links. */
+  listingUrl?: string;
 }
 
 /**
@@ -69,7 +71,7 @@ export class GeminiExtractionService {
       }
 
       const llmJobs = this.parseJobsFromResponse(cleanText);
-      const jobs = llmJobs.map(job => this.toNormalizedJob(job, config.companyName));
+      const jobs = llmJobs.map(job => this.toNormalizedJob(job, config.companyName, config.listingUrl));
 
       return {
         jobs,
@@ -124,16 +126,40 @@ export class GeminiExtractionService {
     }
   }
 
-  private toNormalizedJob(llmJob: LlmJobData, companyName?: string): NormalizedJob {
+  /**
+   * Normalizes a raw LLM enum value to the closest allowed value, or null.
+   * Handles common variants: "Full Time" → "Full-time", "on_site" → "On-site", etc.
+   */
+  private normalizeEnum<T extends string>(value: unknown, allowed: readonly T[]): T | null {
+    if (!value || typeof value !== 'string') return null;
+    const raw = value.trim();
+    // Exact match first
+    if (allowed.includes(raw as T)) return raw as T;
+    // Normalize separators then case-insensitive match
+    const normalized = raw.toLowerCase().replace(/[-_\s]+/g, '-');
+    return allowed.find(v => v.toLowerCase().replace(/[-_\s]+/g, '-') === normalized) ?? null;
+  }
+
+  private toNormalizedJob(llmJob: LlmJobData, companyName?: string, listingUrl?: string): NormalizedJob {
     const slug = llmJob.title.toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '')
       .slice(0, 50);
-    
-    const dateStr = llmJob.postedAt 
-      ? (llmJob.postedAt as string).slice(0, 10) 
+
+    const dateStr = llmJob.postedAt
+      ? (llmJob.postedAt as string).slice(0, 10)
       : new Date().toISOString().split('T')[0];
     const platformId = llmJob.platformId as string || `${slug}-${dateStr.replace(/-/g, '')}`;
+
+    const EMPLOYMENT_TYPES = ['Full-time', 'Part-time', 'Contract', 'Internship', 'Temporary', 'Permanent'] as const;
+    const WORK_MODELS = ['Remote', 'Hybrid', 'On-site'] as const;
+    const SENIORITY_LEVELS = ['Junior', 'Mid', 'Senior', 'Lead', 'Principal', 'Director', 'VP', 'Lead/Principal'] as const;
+
+    // Resolve relative URLs against the listing page origin so detail-page
+    // enrichment can follow them, and interpret relative date expressions
+    // ("Today", "2 Days Ago") into ISO dates rather than discarding them.
+    const rawApplyUrl = this.resolveUrl(llmJob.applyUrl, listingUrl) || null;
+    const rawPostedAt = this.resolveDate(llmJob.postedAt as string | undefined) || null;
 
     return {
       platformId,
@@ -146,14 +172,93 @@ export class GeminiExtractionService {
       salaryMin: llmJob.salaryMin || null,
       salaryMax: llmJob.salaryMax || null,
       salaryCurrency: llmJob.salaryCurrency || null,
-      employmentType: llmJob.employmentType || null,
-      seniorityLevel: llmJob.seniorityLevel || null,
-      workModel: llmJob.workModel || null,
+      employmentType: this.normalizeEnum(llmJob.employmentType, EMPLOYMENT_TYPES),
+      seniorityLevel: this.normalizeEnum(llmJob.seniorityLevel, SENIORITY_LEVELS),
+      workModel: this.normalizeEnum(llmJob.workModel, WORK_MODELS),
       department: llmJob.department || null,
-      postedAt: llmJob.postedAt ? (llmJob.postedAt as string).slice(0, 10) : null,
-      applyUrl: llmJob.applyUrl || null,
-      platformUrl: null
+      postedAt: rawPostedAt,
+      applyUrl: rawApplyUrl,
+      platformUrl: rawApplyUrl,
     };
+  }
+
+  /**
+   * Resolves a URL to an absolute https URL.
+   * - Already-absolute URLs are returned as-is (after validation).
+   * - Relative paths (e.g. "/careers/123") are resolved against the listing page
+   *   origin so detail-page enrichment can follow them.
+   * - Unparseable strings return null.
+   */
+  private resolveUrl(url: unknown, listingUrl?: string): string | null {
+    if (!url || typeof url !== 'string') return null;
+    const raw = url.trim();
+    try {
+      const u = new URL(raw);
+      return u.protocol === 'http:' || u.protocol === 'https:' ? u.toString() : null;
+    } catch {
+      // Not an absolute URL — try resolving relative to the listing page
+      if (listingUrl && raw.startsWith('/')) {
+        try {
+          return new URL(raw, listingUrl).toString();
+        } catch {
+          return null;
+        }
+      }
+      return null;
+    }
+  }
+
+  /**
+   * Converts a date string to YYYY-MM-DD format.
+   * - Already-ISO dates are returned as-is.
+   * - Relative expressions ("Today", "Yesterday", "2 Days Ago", "3 Weeks Ago")
+   *   are resolved against the current date so freshness data is preserved.
+   * - Unrecognised strings return null.
+   */
+  private resolveDate(date: string | undefined): string | null {
+    if (!date) return null;
+    const raw = date.trim();
+
+    // Already ISO YYYY-MM-DD
+    if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw;
+
+    // ISO with time component — strip to date
+    if (/^\d{4}-\d{2}-\d{2}T/.test(raw)) return raw.slice(0, 10);
+
+    const lower = raw.toLowerCase();
+    const today = new Date();
+    today.setUTCHours(0, 0, 0, 0);
+
+    if (lower === 'today' || lower === 'just posted' || lower === 'posted today') {
+      return today.toISOString().slice(0, 10);
+    }
+    if (lower === 'yesterday') {
+      today.setUTCDate(today.getUTCDate() - 1);
+      return today.toISOString().slice(0, 10);
+    }
+
+    // "X days ago" / "posted X days ago"
+    const daysMatch = lower.match(/(\d+)\s+days?\s+ago/);
+    if (daysMatch) {
+      today.setUTCDate(today.getUTCDate() - parseInt(daysMatch[1], 10));
+      return today.toISOString().slice(0, 10);
+    }
+
+    // "X weeks ago"
+    const weeksMatch = lower.match(/(\d+)\s+weeks?\s+ago/);
+    if (weeksMatch) {
+      today.setUTCDate(today.getUTCDate() - parseInt(weeksMatch[1], 10) * 7);
+      return today.toISOString().slice(0, 10);
+    }
+
+    // "X months ago" — approximate
+    const monthsMatch = lower.match(/(\d+)\s+months?\s+ago/);
+    if (monthsMatch) {
+      today.setUTCMonth(today.getUTCMonth() - parseInt(monthsMatch[1], 10));
+      return today.toISOString().slice(0, 10);
+    }
+
+    return null;
   }
 }
 

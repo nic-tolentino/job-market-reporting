@@ -1,11 +1,22 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "talenza",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://talenza.com.au/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://talenza.com.au/about-us/careers/"
       }
     ]
   },

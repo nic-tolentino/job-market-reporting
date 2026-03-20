@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "torch-professional-services",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://torchps.com.au/"
+      }
+    ]
   },
-  "description": "Torch Professional Services is a company profile created during backlog processing.",
+  "description": "Torch Professional Services is an Australian recruitment agency specializing in IT and executive search.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "torch-professional-services",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGgjmA2ZK7bwQ/company-logo_100_100/company-logo_100_100/0/1630545933236/torch_professional_services_logo?e=1774483200&v=beta&t=Ijiahg8uiNsXoF4_QodqoONY6oZypbrHFVwjJBukk_s",
   "name": "Torch Professional Services",
-  "office_locations": [],
+  "office_locations": [
+    "Parramatta, NSW"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.387441Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://torchps.com.au"
 }

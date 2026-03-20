@@ -2,12 +2,18 @@
   "alternateNames": [
     "CSA Associats"
   ],
+  "ats": {
+    "identifier": "csa",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.csa.cat/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://careers.csassociats.com"
       }
     ]
   },

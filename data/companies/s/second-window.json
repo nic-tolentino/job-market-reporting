@@ -1,11 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "second-window",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.secondwindow.es/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.secondwindow.es/ofertas-de-empleo/"
       }
     ]
   },
@@ -30,13 +36,13 @@
     "Worldwide"
   ],
   "remote_policy": "Remote",
-  "updated_at": "2026-03-10T11:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.834557Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": false,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.834546Z",
+    "notes": "Tech consulting firm in Madrid. Confirmed to offer sponsorship for senior dev roles.",
+    "offered": true,
+    "source": "Madrid tech listings",
     "types": []
   },
   "website": "https://www.secondwindow.es"

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "corde",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://corde.nz/jobs/"
+      }
+    ]
   },
-  "description": "CORDE is a company profile created during backlog processing.",
+  "description": "CORDE is a New Zealand civil construction and engineering firm specializing in infrastructure, roading, and subdivision projects.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "corde",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGgdyLeeyGPVQ/company-logo_100_100/company-logo_100_100/0/1643615659453/blakely_construction_logo?e=1774483200&v=beta&t=DA_4khk-oWES0K0ct7wsikHka-bI4UTZ7wvwn00bCI8",
   "name": "CORDE",
-  "office_locations": [],
+  "office_locations": [
+    "Rolleston"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.612806Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://corde.nz"
 }

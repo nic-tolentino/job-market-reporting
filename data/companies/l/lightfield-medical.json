@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "lightfield-medical",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Lightfield Medical is a company profile created during backlog processing.",
+  "description": "Lightfield Medical is an innovative medical technology company developing automated slit lamps to digitize and enhance eye exams.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "lightfield-medical",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.215284Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://lightfieldmedical.com"
 }

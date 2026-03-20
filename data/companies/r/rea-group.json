@@ -1,0 +1,40 @@
+{
+  "alternateNames": [
+    "REAGroup",
+    "realestate.com.au"
+  ],
+  "ats": {
+    "identifier": "REA_Group_Careers",
+    "provider": "WORKDAY"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.rea-group.com/careers/jobs/"
+      }
+    ]
+  },
+  "description": "REA Group started as a seedling of an\\r\\nidea: could the internet change the way\\r\\nthe world experiences property?\\r\\nIn 1995, in a garage in the eastern suburbs of Melbourne (and with the internet still a new concept to many), our founders could never have predicted just how much their idea would change the way people experience property.\\r\\n\\r\\nToday, REA Group is one of the great Australian start-up success stories. Spanning eight countries and with more than 1,400 people, we’re re-imagining what’s possible and delivering exceptional experiences to both our customers and consumers every day.\\r\\n\\r\\nWe’re excited by the future and how we can shape it. But we also know it’s important to remember where we’ve come from.",
+  "hq_country": "AU",
+  "id": "rea-group",
+  "industries": [
+    "PropTech",
+    "Marketplace",
+    "Real Estate"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "REA Group",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://www.rea-group.com/"
+}

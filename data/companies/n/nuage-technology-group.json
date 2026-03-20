@@ -2,12 +2,18 @@
   "alternateNames": [
     "Nuage"
   ],
+  "ats": {
+    "identifier": "nuage-technology-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.nuagetech.com.au/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.linkedin.com/company/nuage-technology-group/jobs/"
       }
     ]
   },

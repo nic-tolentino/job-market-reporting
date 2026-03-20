@@ -10,8 +10,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.pss-ti.com/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.pss-ti.com/en/join-us/"
       }
     ]
   },

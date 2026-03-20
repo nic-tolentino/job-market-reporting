@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
-  "company_type": "Unknown",
+  "ats": {
+    "identifier": "codurance",
+    "provider": "WORKABLE"
+  },
+  "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Codurance is a company profile created during backlog processing.",
+  "description": "Codurance is a global technology consultancy focused on software craftsmanship, clean code, and technical excellence.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "codurance",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQH3gr8OWWkJAQ/company-logo_100_100/company-logo_100_100/0/1722270110702/codurance_logo?e=1774483200&v=beta&t=TDQwBpAcBZGJuQwJlSBNqdgTh3QKnIBkULikBDYZKBM",
   "name": "Codurance",
-  "office_locations": [],
+  "office_locations": [
+    "London",
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:35.006925Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:34:56.623357Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.codurance.com"
 }

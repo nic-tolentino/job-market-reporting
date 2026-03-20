@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "hotdoc",
+    "provider": "CUSTOM"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://practices.hotdoc.com.au/careers/"
+      }
+    ]
+  },
+  "description": "HotDoc is largest and most trusted patient engagement platform of Australia with over 21,000 listed doctors and 6 million active patients. More than 1 in 4 Australians use HotDoc to connect with their preferred doctor. Patients use the platform to book online and better manage their (and their family’s) health. While practices and practitioners use HotDoc as an all-in-one solution to connect with new and existing patients.",
+  "hq_country": "AU",
+  "id": "hotdoc",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Hotdoc",
+  "verification_level": "unverified",
+  "website": "https://practices.hotdoc.com.au/about/"
+}

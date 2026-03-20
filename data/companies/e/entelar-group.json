@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "entelar-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.entelar.co.nz/entelar-group/"
+      }
+    ]
   },
-  "description": "Entelar Group is a company profile created during backlog processing.",
+  "description": "Entelar Group is a leading New Zealand technology distribution and services provider focusing on telecommunications and IT.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "entelar-group",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH-Smo6y4q4SA/company-logo_100_100/B56ZuwCmEmGwAY-/0/1768185029295/entelargroupnz_logo?e=1774483200&v=beta&t=ARoQS4JDI9b0Pv_EOSUy3qTkPtcaBMxHAnT7mRvZWio",
   "name": "Entelar Group",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.949404Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://entelar.co.nz"
 }

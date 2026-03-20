@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "careersatcouncil",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.careersatcouncil.com.au/wp-content/uploads/2022/01/Career-Advisor-A4-Flyer.pdf"
+      }
+    ]
   },
-  "description": "Careers at Council is a company profile created during backlog processing.",
+  "description": "Careers at Council is the premier job board for local government roles across Australia and New Zealand.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "careers-at-council",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.164234Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.careersatcouncil.com.au"
 }

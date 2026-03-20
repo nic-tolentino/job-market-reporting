@@ -1,10 +1,27 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "new-world-consulting",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://newworldconsulting.com.au/jobs"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://newworldconsulting.com.au/careers"
+      }
+    ]
   },
-  "description": "New World Consulting is a company profile created during backlog processing.",
+  "description": "New World Consulting is a specialist technical recruitment agency focusing on technology and transformation.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "new-world-consulting",
@@ -13,11 +30,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFEnoCHaITstg/company-logo_100_100/B56ZiXy2D1HUAQ-/0/1754893346585/new_world_consulting_recruitment_logo?e=1774483200&v=beta&t=Zn9czKvuC3C6lfrQRclUabsWTmR9TCTnI47X6jk-dYg",
   "name": "New World Consulting",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.989198Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://newworldconsulting.com.au"
 }

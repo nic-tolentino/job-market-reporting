@@ -2,12 +2,23 @@
   "alternateNames": [
     "Macquarie"
   ],
+  "ats": {
+    "identifier": "macquarie-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.macquarie.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.macquarie.com/au/en/careers.html"
       }
     ]
   },

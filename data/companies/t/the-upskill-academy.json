@@ -1,10 +1,7 @@
 {
   "alternateNames": [],
   "company_type": "Enterprise",
-  "crawler": {
-    "seeds": []
-  },
-  "description": "The Upskill Academy is a company profile created during backlog processing.",
+  "description": "Upskilled is a leading Registered Training Organisation (RTO) in Australia providing online education and vocational training.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "the-upskill-academy",
@@ -13,11 +10,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF37C12eDUToA/company-logo_100_100/B56Zgn0MqiH0Ac-/0/1753014652843/getupskilled_logo?e=1774483200&v=beta&t=qnSDggoJzjwDqMftKEcX518MTGyKnDxgq53FHE9e8Bc",
   "name": "The Upskill Academy",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney, NSW"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.265066Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.upskilled.edu.au"
 }

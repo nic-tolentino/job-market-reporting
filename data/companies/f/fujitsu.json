@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Enterprise",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.fujitsu.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "fujitsu",
+    "provider": "SMARTRECRUITERS"
   },
+  "company_type": "Enterprise",
   "description": "Fujitsu is a global leader in technology and business solutions, offering a comprehensive range of IT products, services, and consulting globally.",
   "employees_count": 120000,
   "hq_country": "JP",

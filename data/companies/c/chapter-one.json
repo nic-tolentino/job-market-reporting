@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "chapterone",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://wellfound.com/company/chapter-one-1/jobs"
+      }
+    ]
   },
-  "description": "Chapter One is a company profile created during backlog processing.",
+  "description": "Chapter One is a technology-focused venture capital firm investing in early-stage startups and Web3 innovations.",
   "employees_count": null,
   "hq_country": "US",
   "id": "chapter-one",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.901161Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.chapterone.com"
 }

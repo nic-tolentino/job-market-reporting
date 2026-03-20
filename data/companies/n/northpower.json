@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "northpower",
+    "provider": "PAGEUP"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "empty",
+        "url": "https://northpower.pageuppeople.com/"
+      }
+    ]
   },
-  "description": "Northpower is a company profile created during backlog processing.",
+  "description": "Northpower is a New Zealand electricity and fibre utility provider serving the Northland region.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "northpower",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQENPc8rNKMefQ/company-logo_100_100/company-logo_100_100/0/1630579362430/northpower_logo?e=1774483200&v=beta&t=R6VCPKJpV02A3rQ78YDCzI6R-Sili4osqvJyyZm3rfc",
   "name": "Northpower",
-  "office_locations": [],
+  "office_locations": [
+    "Whangārei"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.979673Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://northpower.nz"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "chubb",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Unknown",
   "crawler": {
     "seeds": []
   },
-  "description": "Chubb is a company profile created during backlog processing.",
+  "description": "Chubb is the world's largest publicly traded property and casualty insurance company, providing diverse insurance solutions in New Zealand.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "chubb",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEAl4UqQUBngw/company-logo_100_100/B4EZp.iTGWHUAQ-/0/1763059512052/chubb_logo?e=1774483200&v=beta&t=1jewpvnqNvCKlVnPR3tm8qen8yo0JTj7JwhmOACi-bo",
   "name": "Chubb",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:34.964399Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:34:56.602866Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.chubb.com/nz"
 }

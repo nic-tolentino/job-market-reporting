@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sateliot",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Sateliot is a company profile created during backlog processing.",
+  "description": "Sateliot is a satellite telecommunications operator providing 5G IoT connectivity through a LEO nanosatellite constellation.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "sateliot",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQF1BylP03KI9Q/company-logo_100_100/B4DZql_vAkKIAQ-/0/1763721541487/sateliot_logo?e=1774483200&v=beta&t=toNwVYW55D5YkoebTtCIfYG_jhcNT-OlFe_boamuqd0",
   "name": "Sateliot",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.416626Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://sateliot.space"
 }

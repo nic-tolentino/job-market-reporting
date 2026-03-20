@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.iconplc.com/careers"
+      }
+    ]
   },
-  "description": "PRA is a company profile created during backlog processing.",
+  "description": "PRA Health Sciences was a US-based clinical research organization, now part of ICON plc following its acquisition in 2021.",
   "employees_count": null,
   "hq_country": "US",
   "id": "pra",
@@ -16,8 +23,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:54:52.223067Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.iconplc.com"
 }

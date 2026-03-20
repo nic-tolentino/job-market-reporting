@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://tryzens.com/careers/"
+      }
+    ]
   },
-  "description": "Tryzens Global is a company profile created during backlog processing.",
+  "description": "Tryzens Global is a digital commerce agency helping brands accelerate growth through e-commerce solutions.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "tryzens-global",
@@ -13,11 +20,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGwFmsGvBmlvw/company-logo_100_100/B4EZuNRSUrJwAQ-/0/1767601678146/tryzens_logo?e=1774483200&v=beta&t=BWl0_c5bwpCWlDerfhrPQnHTLweKR41TpPxB-bFurtw",
   "name": "Tryzens Global",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne",
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.383394Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://tryzens.com"
 }

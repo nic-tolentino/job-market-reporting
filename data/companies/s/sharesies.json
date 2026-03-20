@@ -9,7 +9,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "http://www.sharesies.nz/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.sharesies.nz/careers"
       }
     ]
   },

@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Enterprise",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "http://www.thetradedesk.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "thetradedesk",
+    "provider": "GREENHOUSE"
   },
+  "company_type": "Enterprise",
   "description": "The Trade Desk is a company profile created during backlog processing.",
   "employees_count": null,
   "hq_country": "US",

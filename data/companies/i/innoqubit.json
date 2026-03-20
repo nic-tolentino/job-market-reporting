@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "innoqubit",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://join.com/companies/innoqubit"
+      }
+    ]
   },
-  "description": "InnoQubit is a company profile created during backlog processing.",
+  "description": "InnoQubit is a Spanish software firm developing solutions to automate business processes and digitalize organizations.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "innoqubit",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFTPratRmCRhg/company-logo_100_100/company-logo_100_100/0/1733901833209/innoqubit_logo?e=1774483200&v=beta&t=e8Zqprfs3BdLvKUnVNbgYGHdrhCvB-zE0vKZ33CU6Fw",
   "name": "InnoQubit",
-  "office_locations": [],
+  "office_locations": [
+    "Castellón"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.084799Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.innoqubit.com"
 }

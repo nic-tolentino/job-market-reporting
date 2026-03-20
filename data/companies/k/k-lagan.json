@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "k-lagan",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.k-lagan.com/talent-hub/job-offers"
+      }
+    ]
   },
-  "description": "K-LAGAN is a company profile created during backlog processing.",
+  "description": "K-LAGAN is a Spanish technology consultancy providing services in software engineering, digital transformation, and business strategy.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "k-lagan",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFGprmo_JqM8w/company-logo_100_100/company-logo_100_100/0/1728457802660/k_lagan_logo?e=1774483200&v=beta&t=Fe1BUvPf-R90mTWHzFhvEKQhyMPUKj4akPCyup_DpzI",
   "name": "K-LAGAN",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.180776Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.k-lagan.com"
 }

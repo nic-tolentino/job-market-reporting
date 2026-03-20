@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "spacespecialists-ltd",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "SpaceSpecialists Ltd is a company profile created during backlog processing.",
+  "description": "SpaceSpecialists is a consultancy specializing in the space industry, providing talent scouting and training.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "spacespecialists-ltd",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHePXSaELqn6w/company-logo_100_100/company-logo_100_100/0/1630571016097/spaceraystott_logo?e=1774483200&v=beta&t=ceMw8NWQCq5-jUceEBBfnQvmafOA0pFIkNbghZeBgKY",
   "name": "SpaceSpecialists Ltd",
-  "office_locations": [],
+  "office_locations": [
+    "Cheshire"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.526834Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.spacespecialists.com"
 }

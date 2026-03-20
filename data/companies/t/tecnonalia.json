@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "tecnonalia",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.tecnalia.com/en/join-our-team/job-vacancies"
+      }
+    ]
   },
-  "description": "Tecnonalia is a company profile created during backlog processing.",
+  "description": "Tecnalia is a leading private research and technological development center in Europe, based in Spain.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "tecnonalia",
@@ -12,12 +23,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHMXwHxlMPVkw/company-logo_100_100/company-logo_100_100/0/1715066970093?e=1774483200&v=beta&t=KFO0YMAgfOhsAtQJSD7u7i3WTvvetp8rAXa9nZ-6K0k",
-  "name": "Tecnonalia",
-  "office_locations": [],
+  "name": "Tecnalia",
+  "office_locations": [
+    "Derio, Bizkaia"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.258571Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.tecnalia.com"
 }

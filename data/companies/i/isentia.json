@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://isentia.teamtailor.com/jobs"
+      }
+    ]
+  },
+  "description": "Isentia is your cutting-edge media intelligence and insights solution, driving decisions and opening possibilities.\\r\\n\\r\\nIsentia was founded to address a growing need for better media monitoring.\\r\\n\\r\\nAt Isentia, we create an environment where people can be themselves, collaborate freely and bring unique viewpoints that allow us to go further, creating exceptional products and services for our clients across APAC.\\r\\n\\r\\nWe work together with a shared vision and are redefining the way organisations monitor, analyse, experience and respond to media challenges. Do what you do best, and have fun along the way.",
+  "hq_country": "AU",
+  "id": "isentia",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Isentia",
+  "verification_level": "unverified",
+  "website": "https://www.isentia.com/"
+}

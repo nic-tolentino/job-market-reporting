@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "constructortech",
+    "provider": "GREENHOUSE"
   },
-  "description": "Constructor Tech is a company profile created during backlog processing.",
+  "company_type": "Product",
+  "description": "Constructor Tech provides an AI-powered software platform for the full lifecycle of education and scientific research.",
   "employees_count": null,
   "hq_country": "CH",
   "id": "constructor-tech",
@@ -13,11 +14,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGf42Bx3DsNgg/company-logo_100_100/company-logo_100_100/0/1729248537657/constructortech_logo?e=1774483200&v=beta&t=w56jq3eRI06UMIO9hsv_mAu0ixmv2TnxKOriY_axp0k",
   "name": "Constructor Tech",
-  "office_locations": [],
+  "office_locations": [
+    "Schaffhausen"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.627762Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://constructor.tech"
 }

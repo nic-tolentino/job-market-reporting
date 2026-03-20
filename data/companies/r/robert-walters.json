@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Agency",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.robertwalters.co.nz/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "robertwalters",
+    "provider": "SMARTRECRUITERS"
   },
+  "company_type": "Agency",
   "description": "Robert Walters is a global talent solutions business providing specialist recruitment and advisory services to high-growth firms and enterprises worldwide.",
   "employees_count": 4000,
   "hq_country": "GB",

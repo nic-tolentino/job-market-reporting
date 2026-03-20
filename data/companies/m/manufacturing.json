@@ -1,5 +1,9 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "manufacturing",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []

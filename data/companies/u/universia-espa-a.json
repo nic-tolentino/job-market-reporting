@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "universia-espa-a",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.universia.net/careers"
+      }
+    ]
   },
-  "description": "Universia España is a company profile created during backlog processing.",
+  "description": "Universia is a global network of universities and a leading portal for employment and internships, supported by Banco Santander.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "universia-espa-a",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGHWZiBeflcpw/company-logo_100_100/company-logo_100_100/0/1703680984731/universia_espana_logo?e=1774483200&v=beta&t=s-p_wZghEZHSIMeYe-1Yplp0xqUmL8kbRfZ1rgc_LFM",
   "name": "Universia España",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.851316Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.universia.net"
 }

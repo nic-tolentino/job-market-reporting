@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.xplortechnologies.com/careers/"
+      }
+    ]
   },
-  "description": "Xplor Search is a company profile created during backlog processing.",
+  "description": "Xplor Technologies is a global platform that integrates software, payments, and commerce-enabling solutions for 'everyday life' industries.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "xplor-search",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFEfyHU3w3mDQ/company-logo_100_100/B56ZVfAKvKGQAQ-/0/1741055634806?e=1774483200&v=beta&t=lMuqlj_LePaj9p7_GaXtVQcnunhBMlqHdnrhLmkYqUY",
   "name": "Xplor Search",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:54:52.217909Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.xplortechnologies.com"
 }

@@ -1,0 +1,26 @@
+{
+  "ats": {
+    "identifier": "digio",
+    "provider": "CUSTOM"
+  },
+  "description": "We make it our business to build knowledge and capability in others by sharing skills, information and experiences that encourage learning and progress.\\r\\n\\r\\nAll along the way we’re on hand for leadership, guidance and support when you need it. This human approach, supported by design thinking, means everything we plan, build and deliver has a focus on the people who’ll actually use it.\\r\\n",
+  "hq_country": "AU",
+  "id": "digio",
+  "industries": [
+    "Cloud",
+    "DevOps",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "DigIO",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://digio.com.au/"
+}

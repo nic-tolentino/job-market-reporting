@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "reason",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Reason Group is a company profile created during backlog processing.",
+  "description": "Reason Group is an Australian technology services firm specializing in digital government solutions and modernization.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "reason-group",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQG19gtVEcZqrw/company-logo_100_100/B56ZfOd2Z2GoAQ-/0/1751515621426/reasongroup_logo?e=1774483200&v=beta&t=i3vvLpf_e3_2eOPzt0y3jzid0su79-74UskR26WKDsI",
   "name": "Reason Group",
-  "office_locations": [],
+  "office_locations": [
+    "Canberra",
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:57:50.506858Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://reason.com.au"
 }

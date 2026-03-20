@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "swipejobs",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "url": "https://swipejobs.breezy.hr/",
+        "status": "active"
+      }
+    ]
   },
-  "description": "swipejobs is a company profile created during backlog processing.",
+  "description": "Swipejobs is an on-demand labor technology platform that connects workers with jobs via a mobile app and AI matching.",
   "employees_count": null,
   "hq_country": "US",
   "id": "swipejobs",
@@ -13,11 +24,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHvuP_2Qkj16g/company-logo_100_100/B56ZX_RC9PH0AU-/0/1743744414686/swipejobs_logo?e=1774483200&v=beta&t=oGulVStnfy9hFWYXOmUDRJLlu_samNUNH0pC86-SncM",
   "name": "swipejobs",
-  "office_locations": [],
+  "office_locations": [
+    "Dallas",
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.041974Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.swipejobs.com"
 }

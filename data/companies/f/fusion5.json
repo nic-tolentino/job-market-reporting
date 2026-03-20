@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "fusion5",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Fusion5 is a company profile created during backlog processing.",
+  "description": "Fusion5 is a leading provider of business applications and IT solutions across Australia and New Zealand.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "fusion5",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGBR2FPYadt1w/company-logo_100_100/B56Zah_wyvGkAU-/0/1746474569238/fusion5_logo?e=1774483200&v=beta&t=xQSFfNqUOBIFWbMiYBXY3yQS7z7fmqWoSr-Av5gfNFM",
   "name": "Fusion5",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.699954Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.fusion5.co.nz"
 }

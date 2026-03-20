@@ -2,12 +2,49 @@
   "alternateNames": [
     "Ratonga Matihiko"
   ],
+  "ats": {
+    "identifier": "otago",
+    "provider": "ORACLE_TALEO"
+  },
   "company_type": "Government",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/*?sq_content_src=",
+        "/about/support-and-sponsorship-grids",
+        "/about/support-and-sponsorship",
+        "/future-students/about-dunedin",
+        "/transform/about/cosc",
+        "/future-students/subjects/dclindent",
+        "/christchurch/research/cardioendocrine",
+        "/christchurch/departments/mihi/professor-suzanne-pitama",
+        "/transform/christchurch/study/papers/admin",
+        "/accessibility",
+        "/marketing-services/accessibility",
+        "/coronavirus/information-for-staff",
+        "/courses/qualifications/mpharm",
+        "/courses/qualifications/mscicomm",
+        "/courses/qualifications/pgdippharm",
+        "/courses/subjects-and-papers",
+        "/resources/@humannutrition/images/profile-silhouette.png",
+        "/study/discontinued-programmes/",
+        "/currentstudents/discontinued-programmes",
+        "/currentstudents/discontinued-programmes/discontinued-programme-master-of-applied-science-mappsc-in-creative-non-fiction-writing-in-science"
+      ]
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://www.otago.ac.nz/careers"
+      },
+      {
+        "category": "careers",
+        "status": "active",
+        "url": "https://otago.taleo.net/careersection/2/jobsearch.ftl"
       }
     ]
   },

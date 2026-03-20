@@ -2,12 +2,18 @@
   "alternateNames": [
     "Weta Digital"
   ],
+  "ats": {
+    "identifier": "w-t-fx",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.wetafx.co.nz/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://careers.wetafx.co.nz/"
       }
     ]
   },

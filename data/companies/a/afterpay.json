@@ -1,0 +1,31 @@
+{
+  "alternateNames": [
+    "AfterpayTouch",
+    "Afterpay Touch",
+    "Block"
+  ],
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.afterpay.com/global/country-select"
+      }
+    ]
+  },
+  "description": "Welcome to the Rocketship! We’re a rapidly-growing team with one vision: to become the world’s most loved way to pay. Our Australian-made buy now pay later service has revolutionised the retail sector by allowing our customers to receive their purchases and then pay them off in instalments, all without having to pay upfront fees and interest.\\r\\n \\r\\nIn the Afterpay Touch universe, work is extremely fast-paced, and roles are always evolving. There's plenty of opportunity in the roadmap ahead as our millennial brand expands into the US and beyond. You’ve got to have drive, tenacity, commitment to culture and good ideas, and you’ll find your hard work pays off with the tangible impact of your contribution as you directly shape the business.",
+  "hq_country": "AU",
+  "id": "afterpay",
+  "industries": [
+    "Fintech",
+    "Payments",
+    "BNPL"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Afterpay",
+  "notes": "Rebranded from AfterpayTouch; acquired by Block (formerly Square) in 2022.",
+  "verification_level": "unverified",
+  "website": "https://www.afterpay.com"
+}

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "tgw-ib-rica",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.tgw-group.com/en/career/jobs"
+      }
+    ]
   },
-  "description": "TGW Ibérica is a company profile created during backlog processing.",
+  "description": "TGW Ibérica is the Spanish division of TGW Logistics, a global provider of highly automated intralogistics solutions.",
   "employees_count": null,
   "hq_country": "AT",
   "id": "tgw-ib-rica",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQF6_8GGxAhHxQ/company-logo_100_100/company-logo_100_100/0/1738573965712/tgw_espana_logo?e=1774483200&v=beta&t=c1SZ-chlybFQbfR1r3vQ9IZHkzi2AILWt0TbcGuW_Ew",
   "name": "TGW Ibérica",
-  "office_locations": [],
+  "office_locations": [
+    "Sant Just Desvern, Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.257195Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.tgw-group.com"
 }

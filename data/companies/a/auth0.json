@@ -1,0 +1,29 @@
+{
+  "alternateNames": [
+    "Auth0 by Okta"
+  ],
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://www.okta.com/company/careers/job-listing/"
+      }
+    ]
+  },
+  "description": "We solve the most complex and large-scale identity use cases for global enterprises with our extensible and easy-to-integrate platform, securing billions of logins every year.",
+  "hq_country": "US",
+  "id": "auth0",
+  "industries": [
+    "Identity",
+    "Security",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Auth0",
+  "notes": "AU engineering hub; acquired by Okta in 2021.",
+  "verification_level": "unverified",
+  "website": "https://auth0.com/about"
+}

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "gispert",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "gs is a company profile created during backlog processing.",
+  "description": "GISPERT is a technology company providing IT solutions, cybersecurity, and managed services for businesses.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "gs",
@@ -12,12 +16,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEuxL8U2HsowQ/company-logo_100_100/company-logo_100_100/0/1630557232051/gispert_logo?e=1774483200&v=beta&t=9i1WAXgwg6LgnOTtZWmX7Cr92WpmPjsp3CAr3EWM9uM",
-  "name": "gs",
-  "office_locations": [],
+  "name": "GISPERT",
+  "office_locations": [
+    "Alcantarilla, Murcia"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.900897Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.gispert.eu"
 }

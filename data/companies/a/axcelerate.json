@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "axcelerate",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.axcelerate.com.au/careers"
+      }
+    ]
   },
-  "description": "aXcelerate is a company profile created during backlog processing.",
+  "description": "aXcelerate is a leading student management system and learning management system for the Australian VET sector.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "axcelerate",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFkqTiqyX06eg/company-logo_100_100/company-logo_100_100/0/1736124770595/axcelerate_student_training_rto_management_systems_logo?e=1774483200&v=beta&t=Sb4yzuzuRtmOd7kfCQZiLrsSoBfvGOSbfn_AJeuM5FU",
   "name": "aXcelerate",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:17:27.294234Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.axcelerate.com.au"
 }

@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "RIB_Careers",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "blocked",
+        "url": "https://ribsoftware.wd3.myworkdayjobs.com/RIB_Careers"
+      }
+    ]
   },
-  "description": "RIB Software is a company profile created during backlog processing.",
+  "description": "RIB Software is a pioneer in the construction industry, providing 5D BIM enterprise revolutionary software for construction enterprises.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "rib-software",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEAcLCsjCUx5w/company-logo_100_100/company-logo_100_100/0/1675178824933/rib_software_logo?e=1774483200&v=beta&t=i0OR9JUOwlxe1Jz77CP9d_yRP10KOydPhGkI0B79IXw",
   "name": "RIB Software",
-  "office_locations": [],
+  "office_locations": [
+    "Stuttgart"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:57:50.505739Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.rib-software.com"
 }

@@ -7,14 +7,6 @@
     "provider": "WORKABLE"
   },
   "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.alphero.com/careers"
-      }
-    ]
-  },
   "description": "New Zealand's leading digital product agency specialising in mobile and web experiences.",
   "employees_count": 50,
   "hq_country": "NZ",

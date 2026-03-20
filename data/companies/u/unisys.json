@@ -9,7 +9,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.unisys.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.unisys.com/careers/"
       }
     ]
   },

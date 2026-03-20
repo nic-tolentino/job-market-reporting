@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Enterprise",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.inetum.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "inetum",
+    "provider": "SMARTRECRUITERS"
   },
+  "company_type": "Enterprise",
   "description": "Inetum is a European leader in digital services and solutions, helping companies and public sector entities achieve a sustainable digital impact.",
   "employees_count": 28000,
   "hq_country": "FR",

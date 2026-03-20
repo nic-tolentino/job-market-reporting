@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "black-sash",
+    "provider": "CUSTOM"
+  },
   "company_type": "Social Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.blacksash.org.za/careers/"
+      }
+    ]
   },
-  "description": "Black Sash is a company profile created during backlog processing.",
+  "description": "Black Sash is a non-profit human rights organization in South Africa focused on social justice and constitutional rights.",
   "employees_count": null,
   "hq_country": "ZA",
   "id": "black-sash",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGPl9_Yx1RiAQ/company-logo_100_100/B4DZvfS1NlHYAQ-/0/1768977814933/black_sash_logo?e=1774483200&v=beta&t=A0n8GlXkHasrpv-VKhJMtluMknILdoTitbq04UaJDgA",
   "name": "Black Sash",
-  "office_locations": [],
+  "office_locations": [
+    "Cape Town"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.844456Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.blacksash.org.za"
 }

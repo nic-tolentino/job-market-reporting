@@ -2,12 +2,26 @@
   "alternateNames": [
     "Serem Consultoría"
   ],
+  "ats": {
+    "identifier": "serem-consultor-a-empresarial",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/suggest/?*"
+      ]
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.serem.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.serem.com/ofertas-de-empleo/"
       }
     ]
   },

@@ -9,6 +9,7 @@
     "seeds": [
       {
         "category": "tech-filtered",
+        "status": "empty",
         "url": "https://trademe.csod.com/ux/ats/careersite/1/home?c=trademe&cfdd[0][id]=241&cfdd[0][options][0]=512"
       }
     ]
@@ -34,13 +35,13 @@
     "NZ"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-14T10:00:00Z",
+  "updated_at": "2026-03-16T21:41:07.440622Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:41:07.432226Z",
+    "notes": "Accredited Employer in NZ. Sponsoring hub for skilled engineers; associated with many Green List role listings.",
     "offered": true,
-    "source": null,
+    "source": "Trade Me Careers / INZ",
     "types": []
   },
   "website": "https://www.trademe.co.nz"

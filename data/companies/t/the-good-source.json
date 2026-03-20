@@ -1,10 +1,27 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "the-good-source",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "blocked",
+        "url": "https://thegoodsource.nz/jobs"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "blocked",
+        "url": "https://thegoodsource.nz/careers"
+      }
+    ]
   },
-  "description": "The Good Source is a company profile created during backlog processing.",
+  "description": "The Good Source is an executive search and recruitment consultancy specializing in tech and diversity hiring.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "the-good-source",
@@ -13,11 +30,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFR0svYByer-A/company-logo_100_100/company-logo_100_100/0/1675886681093?e=1774483200&v=beta&t=XQQwLmc6n_W7v3g3HGEVEuRoHWLW-_ba1gMXLdSTMvY",
   "name": "The Good Source",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.392133Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://thegoodsource.nz"
 }

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "seven-west-media",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "blocked",
+        "url": "https://sevenwestmedia.wd105.myworkdayjobs.com/en-GB"
+      }
+    ]
   },
-  "description": "Seven West Media is a company profile created during backlog processing.",
+  "description": "Seven West Media is one of Australia's leading integrated media companies across broadcast, print, and digital.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "seven-west-media",
@@ -13,11 +24,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEnCGbnY4RU_w/company-logo_100_100/company-logo_100_100/0/1630650164344/sevenwestmedia_logo?e=1774483200&v=beta&t=pCUE0lJc1hmYEDlxgpo270gOvsz5ZMF4pluGlHTAolw",
   "name": "Seven West Media",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney",
+    "Perth"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.385879Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sevenwestmedia.com.au"
 }

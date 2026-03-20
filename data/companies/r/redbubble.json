@@ -1,0 +1,27 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.linkedin.com/company/redbubble/jobs"
+      }
+    ]
+  },
+  "description": "Redbubble was born in 2006 in Melbourne, Australia. The dream was simple. Give independent artists a meaningful new way to sell their creations. Today, we connect over 700,000 artists and designers across the planet with millions of passionate fans. A brave (and dare we say stylish) new world of self expression.",
+  "hq_country": "AU",
+  "id": "redbubble",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Redbubble",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://www.redbubble.com/about"
+}

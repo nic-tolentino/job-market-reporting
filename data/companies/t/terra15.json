@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "terra15",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://terra15.com.au/contact/"
+      }
+    ]
   },
-  "description": "terra15 is a company profile created during backlog processing.",
+  "description": "Terra15 provides fiber-optic vibration and acoustic sensing technology for industrial monitoring.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "terra15",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFVjW9mMnlnwQ/company-logo_100_100/company-logo_100_100/0/1668150361761/terra15_logo?e=1774483200&v=beta&t=EnuLvB1qhUl08kqpdk4BzRIanzbpnZowyLI2SkwihGc",
   "name": "terra15",
-  "office_locations": [],
+  "office_locations": [
+    "Perth"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.395383Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://terra15.com.au"
 }

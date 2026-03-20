@@ -11,7 +11,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "http://www.workday.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.workday.com/en-us/company/careers/overview.html"
       }
     ]
   },

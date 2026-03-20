@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "murphyai",
+    "provider": "OTHER"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "active",
+        "url": "https://careers.getmurphy.ai/"
+      }
+    ]
   },
-  "description": "Murphy AI is a company profile created during backlog processing.",
+  "description": "Murphy AI provides an AI-powered debt collection platform that optimizes recovery rates through automated, personalized communication.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "murphy-ai",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHcus_yeQmSYA/company-logo_100_100/B4DZov9litH4AQ-/0/1761741265751/murphy_ai_logo?e=1774483200&v=beta&t=gucLk8c-J25KERwVkolSOnNgBfebQAUpO-03M5n5-ek",
   "name": "Murphy AI",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.358781Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.getmurphy.ai"
 }

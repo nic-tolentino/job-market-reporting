@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "devo",
+    "provider": "JOBVITE"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.devo.com/careers"
+      }
+    ]
   },
-  "description": "Devo is a company profile created during backlog processing.",
+  "description": "Devo is a cloud-native logging and security analytics platform that helps organizations maximize the value of their data.",
   "employees_count": null,
   "hq_country": "US",
   "id": "devo",
@@ -13,11 +24,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHEz3QURPDk3w/company-logo_100_100/company-logo_100_100/0/1722356669836/devoinc_logo?e=1774483200&v=beta&t=MT586EIULYBspDhVTB4IMDNDAZPIHZOlM3OQuCDRB1M",
   "name": "Devo",
-  "office_locations": [],
+  "office_locations": [
+    "Cambridge",
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.757351Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.devo.com"
 }

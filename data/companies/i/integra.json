@@ -2,15 +2,11 @@
   "alternateNames": [
     "Integra"
   ],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.integra.es/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "integra",
+    "provider": "GREENHOUSE"
   },
+  "company_type": "Consultancy",
   "description": "Integra Tecnología is a global technology consultancy providing specialized services in digital transformation and business process automation.",
   "employees_count": 500,
   "hq_country": "ES",

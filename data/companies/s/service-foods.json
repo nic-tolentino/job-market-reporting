@@ -5,6 +5,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.servicefoods.co.nz/careers"
       }
     ]

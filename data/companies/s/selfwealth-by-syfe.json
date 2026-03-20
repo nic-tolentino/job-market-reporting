@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "selfwealth-by-syfe",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Selfwealth by Syfe is a company profile created during backlog processing.",
+  "description": "Selfwealth (by Syfe) is an Australian online brokerage offering flat-fee share trading for local and global markets.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "selfwealth-by-syfe",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGda2gJJ04oWA/company-logo_100_100/company-logo_100_100/0/1711419115961/selfwealth_logo?e=1774483200&v=beta&t=m1c_liUzInsP5J4zIpaFpcTt3lhxuNA8mP5J1lh3qF8",
   "name": "Selfwealth by Syfe",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.521363Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.selfwealth.com.au"
 }

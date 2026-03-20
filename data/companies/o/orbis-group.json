@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "orbis-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.orbisgroup.co.uk/job-board"
+      }
+    ]
   },
-  "description": "Orbis Group is a company profile created during backlog processing.",
+  "description": "Orbis Group is a specialist technology recruitment consultancy based in the UK and operating globally.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "orbis-group",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.148051Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.orbisgroup.co.uk"
 }

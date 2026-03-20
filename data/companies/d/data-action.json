@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Enterprise",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "data-action",
+    "provider": "CUSTOM"
   },
-  "description": "Data Action is a company profile created during backlog processing.",
+  "company_type": "Enterprise",
+  "description": "Data Action provides core banking and digital technology solutions for credit unions and smaller financial institutions in Australia.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "data-action",
@@ -13,11 +14,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQFwiNVGejks_Q/company-logo_100_100/company-logo_100_100/0/1631401867893/data_action_logo?e=1774483200&v=beta&t=gMA8i9Bu8BONZ_uvNfPIOEtemCMBPZMGxey6YDAulIc",
   "name": "Data Action",
-  "office_locations": [],
+  "office_locations": [
+    "Adelaide"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.764016Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.dataaction.com.au"
 }

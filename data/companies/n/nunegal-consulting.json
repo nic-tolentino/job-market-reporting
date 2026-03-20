@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nunegal-consulting",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Nunegal Consulting is a company profile created during backlog processing.",
+  "description": "Nunegal Consulting provides IT services, software development, and strategic consulting for businesses.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "nunegal-consulting",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFzD1k2psIiDA/company-logo_100_100/company-logo_100_100/0/1630599380497/nunegal_logo?e=1774483200&v=beta&t=2Dd9MzJWQk9UfqjABBTxuCrd9UdSZNuarQi1ox7Kmfo",
   "name": "Nunegal Consulting",
-  "office_locations": [],
+  "office_locations": [
+    "A Coru\u00f1a"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.899431Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.nunegal.com"
 }

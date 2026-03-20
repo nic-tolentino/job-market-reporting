@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "experian",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Experian Asia Pacific is a company profile created during backlog processing.",
+  "description": "Experian is a global information services company providing data analytics and credit reporting solutions across the Asia-Pacific region.",
   "employees_count": null,
   "hq_country": "IE",
   "id": "experian-asia-pacific",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGEZDm_owOb9A/company-logo_100_100/company-logo_100_100/0/1687828126439/experian_asia_pacific_logo?e=1774483200&v=beta&t=7GbfPIikuyUobkrz8VE5rYyKewRoPYARJg0-oqSORkk",
   "name": "Experian Asia Pacific",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney",
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.363877Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.experian.com.au"
 }

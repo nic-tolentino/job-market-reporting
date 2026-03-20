@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://careers.wexinc.com/search/"
+      }
+    ]
+  },
+  "description": "eNett International was established to tackle the issue of complicated travel payments head-on. Combining decades of payment expertise with in-depth travel industry knowledge, we are one of the leading payment companies in developing innovative business-to-business payment solutions that make payments simple, efficient and rewarding. The result? You spend less time on payments, and more time with your customers.",
+  "hq_country": "AU",
+  "id": "enett",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "eNett",
+  "verification_level": "unverified",
+  "website": "https://www.enett.com/"
+}

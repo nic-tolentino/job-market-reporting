@@ -4,7 +4,7 @@
   "crawler": {
     "seeds": []
   },
-  "description": "Minsait is a company profile created during backlog processing.",
+  "description": "Minsait, an Indra company, is a leading digital transformation and IT consultancy, providing innovative business solutions.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "minsait",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHygzCeD_On8w/company-logo_100_100/B4EZvqQjJxHkAQ-/0/1769161765891/minsait_logo?e=1774483200&v=beta&t=1gkrvbYpya632EuxDC33-7-M6kdF8yahG437GOhF8P4",
   "name": "Minsait",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.363905Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.minsait.com"
 }

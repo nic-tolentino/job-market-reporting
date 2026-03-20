@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "computershare",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Computershare Australia is a company profile created during backlog processing.",
+  "description": "Computershare is a global leader in financial administration, providing registry services and employee equity plan management.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "computershare-australia",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQH7E40rIA_koQ/company-logo_100_100/B4EZU35Oy6HUAY-/0/1740399505453/computershare_australia_logo?e=1774483200&v=beta&t=3MwtazRiGhkLZOEZsUc4yNUfIRYTmAuVwAQlv3OWcyA",
   "name": "Computershare Australia",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.622148Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.computershare.com/au"
 }

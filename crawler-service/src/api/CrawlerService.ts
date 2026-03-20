@@ -211,6 +211,7 @@ export class CrawlerService {
         const extractionConfig: ExtractionConfig = {
           prompt: crawlConfig.extractionPrompt || undefined,
           companyName: companyId,
+          listingUrl: effectiveUrl,
           extractionHints: crawlConfig.extractionHints?.reduce((acc, hint) => {
             acc[hint.key] = hint.value;
             return acc;
@@ -576,6 +577,18 @@ export class CrawlerService {
             { timeout: 8000 }
           ).catch(() => {
             log.warning(`Cornerstone job selector not found within 8s for ${request.url} — extracting whatever is rendered`);
+          });
+        }
+
+        // For Workday ATS (*.myworkdayjobs.com), the React shell renders first and
+        // job cards arrive via a secondary XHR. networkidle alone is insufficient —
+        // we wait explicitly for the Workday job item data-automation-id attribute.
+        if (request.url.includes('myworkdayjobs.com')) {
+          await page.waitForSelector(
+            '[data-automation-id="jobItem"], [data-automation-id="jobResults"], [data-automation-id="job-search-results"]',
+            { timeout: 15000 }
+          ).catch(() => {
+            log.warning(`Workday job selector not found within 15s for ${request.url} — extracting whatever is rendered`);
           });
         }
 

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "kaimate",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "KaiMate NZ Ltd. is a company profile created during backlog processing.",
+  "description": "Kaimata Petfood is a New Zealand producer of premium raw and natural pet food and treats.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "kaimate-nz-ltd",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHafVctFLj0XA/company-logo_100_100/B56ZfD_WG8GoAU-/0/1751339853455?e=1773878400&v=beta&t=GYJjPaKMc0HYMdaORuILrfi5h_Yw4aCJSNrMOLHQpTA",
   "name": "KaiMate NZ Ltd.",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.865852Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.kaimatapet.co.nz"
 }

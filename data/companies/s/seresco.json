@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "seresco",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://seresco.es/careers/"
+      }
+    ]
   },
-  "description": "Seresco is a company profile created during backlog processing.",
+  "description": "Seresco is a leading Spanish IT services company specializing in payroll solutions, HR, and digital transformation.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "seresco",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGPFr9qzamskw/company-logo_100_100/B4DZahv26.GwAQ-/0/1746470400063/seresco_logo?e=1774483200&v=beta&t=vB-KPqpd28fjZNwGidtWknuuaBy0jelgUPpdZInLwjA",
   "name": "Seresco",
-  "office_locations": [],
+  "office_locations": [
+    "Oviedo"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.055215Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.seresco.es"
 }

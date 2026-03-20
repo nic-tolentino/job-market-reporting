@@ -1,0 +1,27 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://ailo.io/careers"
+      }
+    ]
+  },
+  "description": "Ailo  is a data-powered platform which makes the property management experience extraordinary. Utilising the largest single set of property management data, Ailo's technology empowers property management professionals to drive growth, improve their performance and increase profits. At Ailo our vision is to use our industry leading data insights and technology to reimagine the property management experience for agencies, landlords and tenants.",
+  "hq_country": "AU",
+  "id": "ailo",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Ailo",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://ailo.io/about-us/"
+}

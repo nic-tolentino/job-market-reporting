@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "asic",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.asic.gov.au/jobs"
+      }
+    ]
   },
-  "description": "ASIC is a company profile created during backlog processing.",
+  "description": "The Australian Securities and Investments Commission (ASIC) is Australia's integrated corporate, markets, and financial services regulator.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "asic",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGpsyIQs6NnCg/company-logo_100_100/company-logo_100_100/0/1630512620640/asic_logo?e=1774483200&v=beta&t=rBwQCUoiBqEQS_ANk_o-Sat8GLvSqz2CHrW-899KL0A",
   "name": "ASIC",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.115462Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://asic.gov.au"
 }

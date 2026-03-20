@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "salt",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://welovesalt.com/jobs"
+      }
+    ]
   },
-  "description": "Salt is a company profile created during backlog processing.",
+  "description": "Salt is a global digital recruitment agency specializing in technology, marketing, and creative talent.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "salt",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.105662Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.welovesalt.com"
 }

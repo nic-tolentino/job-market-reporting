@@ -1,13 +1,9 @@
 {
-  "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.ndeva.com.au/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "ndeva",
+    "provider": "CUSTOM"
   },
+  "company_type": "Product",
   "description": "Ndeva is a tech-focused firm specializing in mission-critical IoT platforms and building safety SaaS solutions with a dominant market share in Australia.",
   "employees_count": 100,
   "hq_country": "AU",

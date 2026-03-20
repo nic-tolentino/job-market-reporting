@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "the-comfort-group-asia-pacific",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.thecomfortgroup.co/careers/"
+      }
+    ]
   },
-  "description": "The Comfort Group - Asia Pacific is a company profile created during backlog processing.",
+  "description": "The Comfort Group is Australasia's largest mattress and foam manufacturer, home to brands like Sleepyhead and SleepMaker.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "the-comfort-group-asia-pacific",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFmIMZrlnuing/company-logo_100_100/company-logo_100_100/0/1631332444280?e=1773878400&v=beta&t=Cq6dx8T2Q6g6vGz0wKjAQCI4-omQuHj00A8KS-psQic",
   "name": "The Comfort Group - Asia Pacific",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.256474Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.thecomfortgroup.co"
 }

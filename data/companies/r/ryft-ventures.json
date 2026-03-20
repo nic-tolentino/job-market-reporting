@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ryft-ventures",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Ryft Ventures is a company profile created during backlog processing.",
+  "description": "Ryft Ventures is a venture studio that partners with founders to build and scale technology companies.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "ryft-ventures",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEZuZUj6SZr1w/company-logo_100_100/company-logo_100_100/0/1711514542951/ryft_ventures_logo?e=1773878400&v=beta&t=zPZhGmvbzIwL54obimMCYMxohUx19cF75HtlldZYs2Y",
   "name": "Ryft Ventures",
-  "office_locations": [],
+  "office_locations": [
+    "Takapuna, Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:53:24.881548Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ryft.vc"
 }

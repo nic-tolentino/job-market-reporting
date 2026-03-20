@@ -5,6 +5,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://bendingspoons.com/careers"
       }
     ]

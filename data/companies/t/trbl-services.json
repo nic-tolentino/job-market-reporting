@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "trbl-services",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "TRBL Services is a company profile created during backlog processing.",
+  "description": "TRBL Services specializes in software development and intellectual property services for tech companies.",
   "employees_count": null,
   "hq_country": "US",
   "id": "trbl-services",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQE7pAMSQx_-JQ/company-logo_100_100/company-logo_100_100/0/1695380196743/trbl_services_eu_logo?e=1774483200&v=beta&t=AoPvw4OE4QMSSz5JvBJHGr2P_rJlFgQarusrSepKHXA",
   "name": "TRBL Services",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.380368Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://trbl-services.com"
 }

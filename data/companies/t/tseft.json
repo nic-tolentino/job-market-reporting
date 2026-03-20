@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "tseft",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "TSEFT is a company profile created during backlog processing.",
+  "description": "The Australian Institute of Emotion Focused Therapy (AIEFT) provides training and resources for EFT practitioners.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "tseft",
@@ -12,12 +16,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h",
-  "name": "TSEFT",
-  "office_locations": [],
+  "name": "Australian Institute of Emotion Focused Therapy",
+  "office_locations": [
+    "South Yarra, VIC"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.373860Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.aieft.org.au"
 }

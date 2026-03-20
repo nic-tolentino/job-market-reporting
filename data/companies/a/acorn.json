@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.seek.co.nz/Acorn-Group-jobs"
+      }
+    ]
   },
-  "description": "Acorn is a company profile created during backlog processing.",
+  "description": "The Acorn Group is a New Zealand recruitment and talent acquisition specialist with over 30 years of industry experience.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "acorn",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH0iXdKzRIdYg/company-logo_100_100/B56Zi_1OYdHMAg-/0/1755565062602/acorn_plms_logo?e=1774483200&v=beta&t=qGAgdVLwR3lbMP6FKwg3eGB_drX5MiztdF6byjm6FTc",
   "name": "Acorn",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.502896Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.acorngroup.co.nz"
 }

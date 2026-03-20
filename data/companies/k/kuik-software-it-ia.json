@@ -2,11 +2,16 @@
   "alternateNames": [
     "Kuik"
   ],
+  "ats": {
+    "identifier": "kuik-software-it-ia",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://www.kuik.es/careers"
       }
     ]

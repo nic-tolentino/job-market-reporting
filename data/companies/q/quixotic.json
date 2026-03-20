@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "quixotic",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "QUIXOTIC is a company profile created during backlog processing.",
+  "description": "Quixotic is a Spanish technology firm provides a SaaS platform for energy retailers to automate billing and operations.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "quixotic",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQF6c9L4h5827w/company-logo_100_100/company-logo_100_100/0/1656499989733/quixotic360_logo?e=1774483200&v=beta&t=pcAkUy4LN-sS_Pm-j70fjNcFcxcc1lBVczKPjjLsgtU",
   "name": "QUIXOTIC",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.926074Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.quixotic.technology"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "avanceservices",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Avance Consulting is a company profile created during backlog processing.",
+  "description": "Avance Consulting is a global recruitment and talent solution firm specializing in IT staffing and executive search.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "avance-consulting",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGMIJDpByu3MA/company-logo_100_100/company-logo_100_100/0/1693915285116/avance_services_logo?e=1774483200&v=beta&t=j5yFHZfEFyEYUKV_Uuyt_39OWWuSQVUyu3121OCfHZw",
   "name": "Avance Consulting",
-  "office_locations": [],
+  "office_locations": [
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:17:27.284985Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.avanceservices.com"
 }

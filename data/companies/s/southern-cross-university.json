@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.scu.edu.au/current-students/services-and-support/careers/"
+      }
+    ]
   },
-  "description": "Southern Cross University is a company profile created during backlog processing.",
+  "description": "Southern Cross University is a progressive Australian public university with campuses in Lismore, Coffs Harbour, and Gold Coast.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "southern-cross-university",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHmILJIpcJOcg/company-logo_100_100/company-logo_100_100/0/1630599348639/southern_cross_university_logo?e=1774483200&v=beta&t=_qGg-DjTJL3iDp0-gxLzM5-BeypAd19SNJacdzTFyyI",
   "name": "Southern Cross University",
-  "office_locations": [],
+  "office_locations": [
+    "Lismore"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.104828Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.scu.edu.au"
 }

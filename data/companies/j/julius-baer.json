@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "juliusbaer",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "empty",
+        "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US"
+      }
+    ]
   },
-  "description": "Julius Baer is a company profile created during backlog processing.",
+  "description": "Julius Baer is the leading Swiss wealth management group, focusing on providing expert advice to private clients globally.",
   "employees_count": null,
   "hq_country": "CH",
   "id": "julius-baer",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHB87NKuiKYWg/company-logo_100_100/company-logo_100_100/0/1719989312633/julius_baer_logo?e=1774483200&v=beta&t=-PuHUN1iy-vFUAwNpL5bi663WC-K9MEOO2VXjtE7FuY",
   "name": "Julius Baer",
-  "office_locations": [],
+  "office_locations": [
+    "Zurich"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.370769Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.juliusbaer.com"
 }

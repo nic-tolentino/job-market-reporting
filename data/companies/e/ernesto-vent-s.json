@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ernesto-ventos",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.ventos.com/company/working-positions"
+      }
+    ]
   },
-  "description": "Ernesto Ventós is a company profile created during backlog processing.",
+  "description": "Ernesto Ventós is a Spanish leader in the distribution of raw materials for the fragrance and flavor industries.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "ernesto-vent-s",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQF2qshd7STSvQ/company-logo_100_100/company-logo_100_100/0/1678357641592/ventos_logo?e=1774483200&v=beta&t=J0ILm_j1uYINuF8UUm9LfdAUATSEhWB5za3mwtU4oyY",
   "name": "Ernesto Ventós",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.950779Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ventos.com"
 }

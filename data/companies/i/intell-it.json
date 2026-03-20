@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "intell-it",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Intell-IT is a company profile created during backlog processing.",
+  "description": "INTELLTECH is an IT services provider in India focusing on contract staff augmentation and specialized technology talent.",
   "employees_count": null,
   "hq_country": "IN",
   "id": "intell-it",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:54:52.223900Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "http://intelltech.in"
 }

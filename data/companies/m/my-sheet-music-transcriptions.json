@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "my-sheet-music-transcriptions",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.mysheetmusictranscriptions.com/careers"
+      }
+    ]
   },
-  "description": "My Sheet Music Transcriptions is a company profile created during backlog processing.",
+  "description": "My Sheet Music Transcriptions is a Spanish company that provides professional music transcription services for musicians.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "my-sheet-music-transcriptions",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHQTgA7IFU5kg/company-logo_100_100/B4DZcL4VweGcAQ-/0/1748251009041/my_sheet_music_transcriptions_logo?e=1774483200&v=beta&t=ukJ3hAYoKakKsNe8lxDo2ffKjGnTZi5sAakvH_F9OFM",
   "name": "My Sheet Music Transcriptions",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.161599Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.mysheetmusictranscriptions.com"
 }

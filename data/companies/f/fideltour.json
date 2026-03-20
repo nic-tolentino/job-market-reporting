@@ -4,7 +4,7 @@
   "crawler": {
     "seeds": []
   },
-  "description": "Fideltour is a company profile created during backlog processing.",
+  "description": "Fideltour is a comprehensive CRM and marketing automation platform specifically designed for the hotel and hospitality industry.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "fideltour",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFBQkQ0LoGy5w/company-logo_100_100/company-logo_100_100/0/1698675457343/fideltour_logo?e=1774483200&v=beta&t=NE9hQQcBZ9mmBlbOw_SMsOflDp6KPCBxwd27R5MGoeo",
   "name": "Fideltour",
-  "office_locations": [],
+  "office_locations": [
+    "Palma"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.699033Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.fideltour.com"
 }

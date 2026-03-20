@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "bluecurrent",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Bluecurrent Australia & New Zealand is a company profile created during backlog processing.",
+  "description": "Bluecurrent is a leading smart metering and energy management service provider across Australia and New Zealand.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "bluecurrent-australia-new-zealand",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHWhSid0NBjiw/company-logo_100_100/B56ZjOw6jMHAAQ-/0/1755815586409/bluecurrentaunz_logo?e=1774483200&v=beta&t=TO3dCdEH8Ac0Bzeue8f9aeGJ-WESDawinqryDnLCiRs",
   "name": "Bluecurrent Australia & New Zealand",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney",
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.404440Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.bluecurrent.com.au"
 }

@@ -11,7 +11,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.kamiapp.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.kamiapp.com/careers/"
       }
     ]
   },

@@ -1,10 +1,27 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "aubay-spain",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.aubay.es/work-with-us"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.aubay.es/careers"
+      }
+    ]
   },
-  "description": "Aubay Spain is a company profile created during backlog processing.",
+  "description": "Aubay Spain is part of the Aubay Group, a leading European technology consultancy and digital services firm.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "aubay-spain",
@@ -13,11 +30,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGmE3vqUUvDvA/company-logo_100_100/B4DZpTLF2xGwAQ-/0/1762332009076/aubay_spain_logo?e=1774483200&v=beta&t=-vyCEiRTGvVDY3_T5EEoofq9RAwbJ_o98N-zC9_HbkY",
   "name": "Aubay Spain",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.128229Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.aubay.es"
 }

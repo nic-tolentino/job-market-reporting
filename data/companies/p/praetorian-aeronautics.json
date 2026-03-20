@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "praetorian-aeronautics",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.praetorian-aeronautics.com/positions"
+      }
+    ]
   },
-  "description": "Praetorian Aeronautics is a company profile created during backlog processing.",
+  "description": "Praetorian Aeronautics is an Australian defense technology company specializing in autonomous platforms and counter-UAS interceptors.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "praetorian-aeronautics",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFC006C7Ge-tg/company-logo_100_100/B56Zau2v9vGsAQ-/0/1746690310450/praetorian_aeronautics_logo?e=1774483200&v=beta&t=pKxrxqNlopPVv0r-mQBTDGJos09Pbzq7Hgw0xdp_Ioo",
   "name": "Praetorian Aeronautics",
-  "office_locations": [],
+  "office_locations": [
+    "Hendon"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.974348Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.praetorian-aeronautics.com"
 }

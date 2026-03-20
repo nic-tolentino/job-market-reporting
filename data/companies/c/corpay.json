@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "corpay",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://corpay.wd103.myworkdayjobs.com/Ext_001"
+      }
+    ]
   },
-  "description": "Corpay is a company profile created during backlog processing.",
+  "description": "Corpay is a global leader in business payments, helping companies track, manage, and pay their expenses efficiently.",
   "employees_count": null,
   "hq_country": "US",
   "id": "corpay",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQENrubQSmTghA/company-logo_100_100/B4EZwzUyWmHcAQ-/0/1770387613677/corpay_logo?e=1773878400&v=beta&t=5n-c7v7UiXJebm4YQbjHc6d1BMQMdqCmi1IZT7ZPX6w",
   "name": "Corpay",
-  "office_locations": [],
+  "office_locations": [
+    "Atlanta"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.906103Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.corpay.com"
 }

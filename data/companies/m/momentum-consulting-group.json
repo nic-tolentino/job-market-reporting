@@ -6,8 +6,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.momentum.co.nz/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.momentum.co.nz/your-next-job"
       }
     ]
   },

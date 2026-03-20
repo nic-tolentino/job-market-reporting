@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "virtually-human-studio",
+    "provider": "WORKABLE"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://apply.workable.com/virtually-human-studio/"
+      }
+    ]
+  },
+  "description": "Virtually Human develops superior consumer-first entertainment experiences with emerging technologies like blockchain to drive widespread user adoption. Our mission is to take these emerging technologies and package them in a creative and user friendly solution that makes it usable for everyone.",
+  "hq_country": "AU",
+  "id": "virtually-human-studio",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Virtually Human Studio",
+  "verification_level": "unverified",
+  "website": "https://www.vhslab.com/contact-us"
+}

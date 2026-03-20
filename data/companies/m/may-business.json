@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "may-business",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "May Business Consulting (Spain) by Izertis is a company profile created during backlog processing.",
+  "description": "May Business Consulting, part of Izertis, provides strategic business consulting and technological transformation services.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "may-business",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEEjP92Ukmb1A/company-logo_100_100/company-logo_100_100/0/1732272763113/may_business_consulting_logo?e=1774483200&v=beta&t=2ddBIyBllNriHRKhaAIgYjFWLmGsS8mCswpT1xcaDc4",
   "name": "May Business Consulting (Spain) by Izertis",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.342888Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://may-bc.com"
 }

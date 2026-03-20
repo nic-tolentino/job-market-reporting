@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "kogan",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://careers.kogan.com/"
+      }
+    ]
+  },
+  "description": "Kogan.com is a portfolio of retail and services businesses including Kogan Retail (the Kogan.com and DickSmith.com.au retail websites), Kogan Marketplace, Kogan Mobile, Kogan Internet, Kogan Insurance, Kogan Travel and Kogan Money. The Kogan brand is renowned for price leadership through digital efficiency. The company is focused on making in-demand products and services more affordable and accessible. Kogan.com is headquartered in Melbourne, Australia.",
+  "hq_country": "AU",
+  "id": "kogan",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Kogan",
+  "verification_level": "unverified",
+  "website": "https://www.kogan.com/au/about/"
+}

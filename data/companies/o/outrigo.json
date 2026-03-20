@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.outrigo.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "outrigo",
+    "provider": "OTHER"
   },
+  "company_type": "Consultancy",
   "description": "Outrigo is a technology firm specializing in AI/ML engineering and the development of digital solutions for complex engineering and simulation workflows.",
   "employees_count": 50,
   "hq_country": "ES",

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "cambrian-intelligence",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Cambrian Intelligence SL is a company profile created during backlog processing.",
+  "description": "Cambrian Intelligence specializes in advanced AI, computer vision, and geospatial intelligence solutions for complex environments.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "cambrian-intelligence-sl",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFzXj3DYQhCkg/company-logo_100_100/company-logo_100_100/0/1631350902944?e=1774483200&v=beta&t=Sb9uLYaKUo3_JnZnK5C_PQ5FAmf7G-Xr0QNIagndvnA",
   "name": "Cambrian Intelligence SL",
-  "office_locations": [],
+  "office_locations": [
+    "Seville"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.881984Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.cambrianintelligence.com"
 }

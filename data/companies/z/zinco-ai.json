@@ -1,10 +1,7 @@
 {
   "alternateNames": [],
   "company_type": "Startup",
-  "crawler": {
-    "seeds": []
-  },
-  "description": "Zinco AI is a company profile created during backlog processing.",
+  "description": "Zinco AI is a technology company specializing in artificial intelligence and machine learning solutions.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "zinco-ai",
@@ -13,11 +10,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEV_dhS98qb7Q/company-logo_100_100/B4DZo6LUbLH4AU-/0/1761912637955/zinco_ai_logo?e=1774483200&v=beta&t=1gYKrRS2s_QGo0S4Dk5Dk_-Jx5KI0a0sHFwrZ9zM4so",
   "name": "Zinco AI",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.901192Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.zinco.ai"
 }

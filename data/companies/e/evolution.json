@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "evolution",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Evolution is a company profile created during backlog processing.",
+  "description": "Evolution is a world-leading developer of B2B online casino solutions, specializing in high-quality live dealer gaming.",
   "employees_count": null,
   "hq_country": "SE",
   "id": "evolution",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFQpykTmBIGuQ/company-logo_100_100/company-logo_100_100/0/1677164108092/evolution_recruitment_logo?e=1774483200&v=beta&t=2aJB1ZSmfn8ADuODfHzXsF79i9ZfNPnfiaU51Hzi1kc",
   "name": "Evolution",
-  "office_locations": [],
+  "office_locations": [
+    "Stockholm"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.397445Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.evolution.com"
 }

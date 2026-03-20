@@ -1,11 +1,16 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "lawvu",
+    "provider": "OTHER"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://lawvu.com?utm_campaign=&utm_medium=organic&utm_source=LinkedIn&utm_content=company-page/careers"
+        "category": "careers",
+        "status": "empty",
+        "url": "https://lawvu.com/careers"
       }
     ]
   },

@@ -1,12 +1,18 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "bendigo-advertiser",
+    "provider": "CUSTOM"
+  },
   "blocked_reason": "Data collision: Scraper likely misattributed external tech jobs to this media outlet.",
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.bendigoadvertiser.com.au/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.bendigoadvertiser.com.au/jobs"
       }
     ]
   },

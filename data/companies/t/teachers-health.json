@@ -8,8 +8,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.teachershealth.com.au/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.teachershealth.com.au/about-us/careers/"
       }
     ]
   },

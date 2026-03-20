@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://www.sine.co/jobs/"
+      }
+    ]
+  },
+  "description": "At Sine, we find solutions to everyday workplace issues. We thrive on helping the largest corporates, through to the local school, find an easier way to streamline their workplace with paperless, secure and easy to use solutions that save time.\\r\\n\\r\\nOur mission is to make it really easy for visitors, contractors and staff to “check-in” using their smartphone, an iPad or the web to the everyday locations they attend. We want to make our customers operations safer and save visitors, contractors and staff valuable time. Sine has been rolled out to 1000’s of companies around the world and is used at locations such as schools, sports stadiums, offices, industrial, medical, retail and commercial facilities.\\r\\n",
+  "hq_country": "AU",
+  "id": "sine",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Sine",
+  "verification_level": "unverified",
+  "website": "https://www.sine.co/"
+}

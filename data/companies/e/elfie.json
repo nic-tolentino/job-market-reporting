@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "elfie",
+    "provider": "LEVER"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Elfie is a company profile created during backlog processing.",
+  "description": "Elfie is a gamified health app designed to help patients manage chronic diseases through rewards and monitoring.",
   "employees_count": null,
   "hq_country": "SG",
   "id": "elfie",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGk62MwFLOWSg/company-logo_100_100/company-logo_100_100/0/1630666230155/elfieco_logo?e=1774483200&v=beta&t=0mPwwhvOt71wSO4g3-eYIOJnEVqKCGYujE8RYnEO_eA",
   "name": "Elfie",
-  "office_locations": [],
+  "office_locations": [
+    "Singapore"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.370969Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.elfie.co"
 }

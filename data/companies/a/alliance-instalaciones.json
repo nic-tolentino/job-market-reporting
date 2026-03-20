@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "alliance",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Alliance Instalaciones y Mantenimientos is a company profile created during backlog processing.",
+  "description": "Alliance Instalaciones y Mantenimientos provides installation and maintenance for electrical, mechanical, and solar systems.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "alliance-instalaciones",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGNErmi5sHtmw/company-logo_100_100/company-logo_100_100/0/1664271594023/gr_alliance_logo?e=1774483200&v=beta&t=FwYoZwhAZOCfsvW3P7ujMtFVlZQ8lmaQPzElzE5xUo8",
   "name": "Alliance Instalaciones y Mantenimientos",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:17:27.295966Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.alliance.es"
 }

@@ -1,10 +1,15 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "recordpoint",
+    "provider": "LEVER"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.recordpoint.com/careers"
       }
     ]
@@ -35,13 +40,13 @@
     "Worldwide"
   ],
   "remote_policy": "Remote",
-  "updated_at": "2026-03-10T10:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.855737Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.855733Z",
+    "notes": "Data governance tech. Prefers local hire or permanent work rights.",
+    "offered": false,
+    "source": "Industry Trends",
     "types": []
   },
   "website": "https://www.recordpoint.com"

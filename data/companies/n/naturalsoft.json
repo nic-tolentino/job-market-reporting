@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "naturalsoft",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Naturalsoft is a company profile created during backlog processing.",
+  "description": "Naturalsoft specializes in medical and clinic management software solutions in Spain.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "naturalsoft",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQH5vQ1XpMW__w/company-logo_100_100/company-logo_100_100/0/1731923163577/naturalsoft_solutions_logo?e=1774483200&v=beta&t=7N5jtEIL2fcApeG9IdFsaNtCibJVBU-4FxEc3-DaJvk",
   "name": "Naturalsoft",
-  "office_locations": [],
+  "office_locations": [
+    "Granada"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.990205Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.naturalsoft.es"
 }

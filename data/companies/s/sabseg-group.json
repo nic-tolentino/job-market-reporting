@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sabseg-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.sabseg.com/en/working-at-sabseg/work-at-sabseg"
+      }
+    ]
   },
-  "description": "SABSEG GROUP is a company profile created during backlog processing.",
+  "description": "SABSEG Group is a leading insurance brokerage firm in Portugal providing risk management services.",
   "employees_count": null,
   "hq_country": "PT",
   "id": "sabseg-group",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGQCKqBSaDJAA/company-logo_100_100/company-logo_100_100/0/1737968291650/sabseg_group_logo?e=1774483200&v=beta&t=7KyqJdio978jgO7OgUJ1UBmE0flqrQyVJcniClP6mE0",
   "name": "SABSEG GROUP",
-  "office_locations": [],
+  "office_locations": [
+    "Lisbon"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.523574Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sabseg.com"
 }

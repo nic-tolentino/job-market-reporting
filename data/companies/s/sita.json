@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.sita.aero/404?aspxerrorpath=/jobs"
+      }
+    ]
   },
-  "description": "SITA is a company profile created during backlog processing.",
+  "description": "SITA is a multinational IT company providing telecommunications and IT services to the air transport industry.",
   "employees_count": null,
   "hq_country": "CH",
   "id": "sita",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEct2bplOS3Uw/company-logo_100_100/company-logo_100_100/0/1713242143215/sita_logo?e=1774483200&v=beta&t=k0UEcmKZUBqjX-kqbEGqDSqFGZV9CXKXZEqstUXfxss",
   "name": "SITA",
-  "office_locations": [],
+  "office_locations": [
+    "Geneva"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.052181Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sita.aero"
 }

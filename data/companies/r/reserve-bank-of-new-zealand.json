@@ -2,12 +2,23 @@
   "alternateNames": [
     "RBNZ"
   ],
+  "ats": {
+    "identifier": "rbnz",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "http://www.rbnz.govt.nz/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "blocked",
+        "url": "https://www.rbnz.govt.nz/about-us/careers"
       }
     ]
   },

@@ -1,0 +1,47 @@
+{
+  "alternateNames": [
+    "ImmutableX",
+    "Immutable X",
+    "Immutable Pty Ltd"
+  ],
+  "ats": {
+    "identifier": "immutable",
+    "provider": "LEVER"
+  },
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://immutable.com/careers"
+      }
+    ]
+  },
+  "description": "Immutable is a global leader in Web3 gaming, providing blockchain infrastructure for digital asset ownership in games via Immutable zkEVM and Immutable X, its Layer 2 scaling solution on Ethereum.",
+  "employees_count": 240,
+  "hq_country": "AU",
+  "id": "immutable",
+  "industries": [
+    "Gaming",
+    "Software Development"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": null,
+  "name": "Immutable",
+  "office_locations": [
+    "Sydney"
+  ],
+  "operating_countries": [
+    "AU",
+    "US",
+    "GB"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-17T00:00:00Z",
+  "verification_level": "unverified",
+  "visa_sponsorship": null,
+  "website": "https://www.immutable.com"
+}

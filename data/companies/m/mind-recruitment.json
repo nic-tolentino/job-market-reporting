@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mind-recruitment",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Mind Recruitment | specialists in Technology, Executive & IT Sales recruitment is a company profile created during backlog processing.",
+  "description": "Mind Recruitment is an Australian agency specializing in technology, executive search, and IT sales recruitment.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "mind-recruitment",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGhG2VVsXGazw/company-logo_100_100/company-logo_100_100/0/1631303747130?e=1774483200&v=beta&t=gSL7xB24UTB9PwzP7ghQFuShzoozzn7XT-8Tg2WcNuY",
   "name": "Mind Recruitment | specialists in Technology, Executive & IT Sales recruitment",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.347311Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.mindrecruitment.com"
 }

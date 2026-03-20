@@ -1,0 +1,22 @@
+{
+  "alternateNames": [
+    "Veeva"
+  ],
+  "ats": {
+    "identifier": "veeva",
+    "provider": "LEVER"
+  },
+  "description": "Veeva maintains a comprehensive security program based on ISO 27001 to ensure the confidentiality, integrity, and availability of customer data. Veeva is committed to ensuring our services are available for operation and use at times set forth in service-level agreements, protected against unauthorized physical and logical access – including biometric entry authentication and 24/7/365 onsite monitoring – and that our system processing is complete, accurate, timely, and authorized.",
+  "hq_country": "US",
+  "id": "veeva",
+  "industries": [
+    "Life Sciences",
+    "SaaS",
+    "CRM"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Veeva Systems",
+  "verification_level": "unverified",
+  "website": "https://www.veeva.com/meet-veeva/team/"
+}

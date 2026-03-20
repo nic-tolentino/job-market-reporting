@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://lnw.wd5.myworkdayjobs.com/LightWonderExternalCareers"
+      }
+    ]
   },
-  "description": "Light & Wonder is a company profile created during backlog processing.",
+  "description": "Light & Wonder is a global leader in cross-platform games and entertainment, providing content and hardware for land-based and digital gaming.",
   "employees_count": null,
   "hq_country": "US",
   "id": "light-wonder",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE_b5uJ7F58GQ/company-logo_100_100/company-logo_100_100/0/1719861106621/lightnwonder_logo?e=1774483200&v=beta&t=gdj1nPmtOQkozhTCwZtMIhFfSywcNy4e0MTK9DyC5oA",
   "name": "Light & Wonder",
-  "office_locations": [],
+  "office_locations": [
+    "Las Vegas"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.225732Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.lnw.com"
 }

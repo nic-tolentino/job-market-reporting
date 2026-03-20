@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "cubewire",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Cubewire is a company profile created during backlog processing.",
+  "description": "Cubewire is a unified blockchain platform redefining payments and finance using Web3 technologies and secure MPC protocols.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "cubewire",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.618666Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://cubewire.com"
 }

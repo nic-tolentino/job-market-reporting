@@ -7,14 +7,6 @@
     "provider": "ASHBY"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.travelperk.com/careers"
-      }
-    ]
-  },
   "description": "TravelPerk is a leading intelligent platform for business travel and spend management, helping 10,000+ companies automate bookings and expenses globally.",
   "employees_count": 1000,
   "hq_country": "ES",

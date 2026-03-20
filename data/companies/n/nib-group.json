@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nib-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.nib.com.au/careers"
+      }
+    ]
   },
-  "description": "nib Group is a company profile created during backlog processing.",
+  "description": "nib Group is a leading Australian health insurer providing health, life, and travel insurance to millions of people.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "nib-group",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHieZ_nZohVZA/company-logo_100_100/company-logo_100_100/0/1643342582657/nib_health_funds_logo?e=1774483200&v=beta&t=eipbQcjbWtM_I3wqRBx3y7uLob-CsEW1iIGDHXoSBDE",
   "name": "nib Group",
-  "office_locations": [],
+  "office_locations": [
+    "Newcastle, NSW"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.890113Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.nib.com.au"
 }

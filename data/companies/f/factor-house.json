@@ -1,10 +1,15 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "factorhouse",
+    "provider": "ASHBY"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://factorhouse.io/careers"
       }
     ]

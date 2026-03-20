@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ing",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "ING España&Portugal is a company profile created during backlog processing.",
+  "description": "ING España & Portugal is the Spanish and Portuguese arm of the global ING Group financial institution.",
   "employees_count": null,
   "hq_country": "NL",
   "id": "ing-espa-a-portugal",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQELxy9p2kwOEg/company-logo_100_100/B4EZfjvKWDHwAQ-/0/1751872481084/ing_espana_portugal_logo?e=1774483200&v=beta&t=EVDg5lw0LVXK-H_avjFRPn33vcyCiK2mTM16_6yIO00",
   "name": "ING España&Portugal",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.863788Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ing.es"
 }

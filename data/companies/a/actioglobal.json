@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "actioglobal",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "ActioGlobal® is a company profile created during backlog processing.",
+  "description": "ActioGlobal is a Spanish business transformation consultancy focused on organizational agility and digital strategy.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "actioglobal",
@@ -12,12 +16,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQG7jaJmCJjO6Q/company-logo_100_100/company-logo_100_100/0/1639418309347/actioglobal_logo?e=1774483200&v=beta&t=glqNLyvXzyUuvCdf0xvai77gl8E-8tQ8JfJ3Imsd-h8",
-  "name": "ActioGlobal®",
-  "office_locations": [],
+  "name": "ActioGlobal\u00ae",
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.123515Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://actioglobal.com"
 }

@@ -1,0 +1,31 @@
+{
+  "ats": {
+    "identifier": "qwilr",
+    "provider": "ASHBY"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://qwilr.com/jobs/"
+      }
+    ]
+  },
+  "description": "Great looking docs, at speed. Design-perfect proposals, quotes, client updates and more — created in a flash with Qwilr. try it free 14 day free trial. No credit card required. companies ♥ qwilr Wow, you look great. While others are sending out stale, static documents, your Qwilr Pages are interactive, beautiful, and mobile-responsive\\r\\n\\r\\nQwilr has set documents free from the skeuomorphs. We believe that the future of documents is online. Not as sharable A4 documents, but as webpages. Not as things we print out (and eventually put into landfill), but as things we view on smartphones, tablets & desktops.\\r\\n\\r\\nOur work has a singular focus: to make it easier for individuals and businesses to create beautiful web docs with Qwilr. We want to set people – and their ideas and messages – free from static docs that are still at best an updated spin on a 1980s technology. We do this because we know that when you embrace the web, you can do so much more.\\r\\n\\r\\nWe’re committed to this vision because we want to see a world where people at work spend time on the core parts of their job. The parts that make them happy. The parts that bring in the dollars. We want to set sales people free from fiddling with Powerpoint. We want to see producers uninhibited in indesign. We want to see the graphic designer unchained from changing templates, and unleashed on the most valuable projects.",
+  "hq_country": "AU",
+  "id": "qwilr",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Qwilr",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://qwilr.com/"
+}

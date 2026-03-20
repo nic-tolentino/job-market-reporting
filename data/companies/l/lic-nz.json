@@ -1,14 +1,12 @@
 {
-  "ats": {
-    "identifier": "www",
-    "provider": "TEAMTAILOR"
-  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.lic.co.nz/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://careers.lic.co.nz/jobs"
       }
     ]
   },

@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ormazabal",
+    "provider": "OTHER"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "empty",
+        "url": "https://careers.ormazabal.com/"
+      }
+    ]
   },
-  "description": "Ormazabal is a company profile created during backlog processing.",
+  "description": "Ormazabal, part of Velatia, provides high-tech electrical equipment and solutions for the digitalization of the power grid.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "ormazabal",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHeEhxkHdvV5w/company-logo_100_100/B4DZfpHOuxHkAQ-/0/1751962676656/ormazabal_logo?e=1774483200&v=beta&t=wyA0E2lcuKcafgMs_E2JqagE83y6gZA1W9asQbICy6M",
   "name": "Ormazabal",
-  "office_locations": [],
+  "office_locations": [
+    "Derio"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:28:11.617842Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ormazabal.com"
 }

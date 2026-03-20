@@ -8,14 +8,6 @@
     "provider": "GREENHOUSE"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "tech-filtered",
-        "url": "https://www.rocketlabusa.com/careers/"
-      }
-    ]
-  },
   "description": "Rocket Lab is an aerospace manufacturer and launch service provider, known for its Electron orbital rocket.",
   "employees_count": null,
   "hq_country": "US",
@@ -39,13 +31,13 @@
     "CA"
   ],
   "remote_policy": "On-site",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:41:07.432907Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:41:07.431782Z",
+    "notes": "Accredited Employer in NZ; relocation for engineers. ITAR restrictions apply (Nationality checks required).",
     "offered": true,
-    "source": null,
+    "source": "Rocket Lab Careers",
     "types": []
   },
   "website": "https://rocketlabcorp.com"

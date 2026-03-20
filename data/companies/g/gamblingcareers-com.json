@@ -1,10 +1,15 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "gamblingcareers",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://www.gamblingcareers.com/careers"
       }
     ]
@@ -27,8 +32,13 @@
     "GB"
   ],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:30:00Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-16T21:32:28.023909Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-16T21:32:27.991026Z",
+    "notes": "Specialized job board. Does not sponsor directly, but hosts roles from employers who do.",
+    "offered": false,
+    "source": "GamblingCareers Info"
+  },
   "website": "https://www.gamblingcareers.com"
 }

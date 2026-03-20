@@ -1,7 +1,7 @@
 {
   "alternateNames": [],
   "ats": {
-    "identifier": "heidihealth",
+    "identifier": "heidihealth.com.au",
     "provider": "ASHBY"
   },
   "company_type": "Product",
@@ -9,6 +9,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.heidihealth.com/careers"
       }
     ]
@@ -31,8 +32,13 @@
     "AU"
   ],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:30:00Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-16T21:32:28.005187Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-16T21:32:27.990999Z",
+    "notes": "Asks about future sponsorship in applications. Fast-growing AI health startup based in Melbourne/Sydney.",
+    "offered": true,
+    "source": "Heidi Health Recruitment"
+  },
   "website": "https://www.heidihealth.com"
 }

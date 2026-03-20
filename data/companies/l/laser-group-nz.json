@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "laser-group-nz",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.lasergroup.co.nz/careers"
+      }
+    ]
   },
-  "description": "Laser® Group NZ is a company profile created during backlog processing.",
+  "description": "Laser Group NZ is New Zealand's largest network of plumbing and electrical contractors, providing quality services nationwide.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "laser-group-nz",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGQyx8F7oC58Q/company-logo_100_100/company-logo_100_100/0/1631344374090?e=1774483200&v=beta&t=3usa0fZFnz1NDxnN9YSdojlUawF1wZjEwyqyJCWayLo",
   "name": "Laser® Group NZ",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.241772Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.lasergroup.co.nz"
 }

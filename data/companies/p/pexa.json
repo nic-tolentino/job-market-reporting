@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "pexa",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.pexa.com.au/company/#careers-company"
+      }
+    ]
+  },
+  "description": "PEXA pioneered an electronic lodgement solution that simplifies property transactions – we’re a national online property settlements platform. Since starting life in 2010, we now employ a team of 350 people working across 5 states. Today, we help 20,000 families settle their property safely each week.",
+  "hq_country": "AU",
+  "id": "pexa",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Pexa",
+  "verification_level": "unverified",
+  "website": "https://www.pexa.com.au/company/#about-pexa-company"
+}

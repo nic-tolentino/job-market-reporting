@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "auren",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "AUREN is a company profile created during backlog processing.",
+  "description": "Auren is a multidisciplinary professional services firm providing audit, legal, and consulting services in Spain.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "auren",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFuDoo4wy31iw/company-logo_100_100/B4DZfj9WkwGUAU-/0/1751876201134/aurenspainserviciosprofesionales_logo?e=1774483200&v=beta&t=z4qPdCmt_8JlRQW2uYvEv7xcDzTqQ0ERyxof3fGb_xE",
   "name": "AUREN",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:17:27.298400Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.auren.com"
 }

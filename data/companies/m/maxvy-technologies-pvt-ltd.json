@@ -2,11 +2,16 @@
   "alternateNames": [
     "Maxvy"
   ],
+  "ats": {
+    "identifier": "maxvy-technologies-pvt-ltd",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.maxvy.com/careers"
       }
     ]

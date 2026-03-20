@@ -50,6 +50,21 @@ admin:
   panel:
     token: ${ADMIN_PANEL_TOKEN:}
 
+greenhouse:
+  base-url: ${GREENHOUSE_BASE_URL:https://boards-api.greenhouse.io/v1}
+
+lever:
+  base-url: ${LEVER_BASE_URL:https://api.lever.co/v0}
+
+ashby:
+  base-url: ${ASHBY_BASE_URL:https://api.ashbyhq.com}
+
+smartrecruiters:
+  base-url: ${SMARTRECRUITERS_BASE_URL:https://api.smartrecruiters.com}
+
+workable:
+  base-url: ${WORKABLE_BASE_URL:https://apply.workable.com}
+
 crawler:
   service:
     url: ${CRAWLER_SERVICE_URL:http://localhost:8083}

@@ -2,12 +2,23 @@
   "alternateNames": [
     "Westpac Group"
   ],
+  "ats": {
+    "identifier": "westpac-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.westpac.com.au/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.westpac.com.au/about-westpac/careers/?wbc-vnty=www.westpac.com.au/careers"
       }
     ]
   },
@@ -36,13 +47,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T13:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.852812Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.852806Z",
+    "notes": "Major AU sponsor (TSS/482). Covers subsidiaries like St. George Bank.",
     "offered": true,
-    "source": null,
+    "source": "Westpac Group Careers",
     "types": []
   },
   "website": "https://www.westpac.com.au"

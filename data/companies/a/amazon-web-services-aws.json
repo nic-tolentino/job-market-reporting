@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://aws.amazon.com/careers/"
+      }
+    ]
   },
-  "description": "Amazon Web Services (AWS) is a company profile created during backlog processing.",
+  "description": "Amazon Web Services (AWS) is a global leader in on-demand cloud computing platforms and APIs.",
   "employees_count": null,
   "hq_country": "US",
   "id": "amazon-web-services-aws",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFqdm1TZ-RZKQ/company-logo_100_100/B4EZgOay6gHEAY-/0/1752588562343/amazon_web_services_logo?e=1774483200&v=beta&t=ZgHAdcNFdFZC-cUtz79JiILKlm4PJzrnSoQJXv7Xdsc",
   "name": "Amazon Web Services (AWS)",
-  "office_locations": [],
+  "office_locations": [
+    "Seattle"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.510857Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://aws.amazon.com"
 }

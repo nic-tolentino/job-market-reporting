@@ -2,12 +2,18 @@
   "alternateNames": [
     "SKL"
   ],
+  "ats": {
+    "identifier": "skl-technology",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.skltechnology.com.au/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://skltechnology.com.au/who-we-are/join-us/"
       }
     ]
   },

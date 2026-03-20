@@ -11,6 +11,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "http://www.auror.co/careers"
       }
     ]
@@ -38,13 +39,13 @@
     "UK"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.845746Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.845735Z",
+    "notes": "Accredited Employer (NZ). Fast-growing crime-fight tech hub.",
     "offered": true,
-    "source": null,
+    "source": "Auror Careers",
     "types": []
   },
   "website": "http://www.auror.co"

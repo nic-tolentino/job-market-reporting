@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.lumi.com.au/careers/"
+      }
+    ]
   },
-  "description": "Lumi is a company profile created during backlog processing.",
+  "description": "Lumi is an Australian fintech company providing fast and flexible business loans and lines of credit to SMEs.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "lumi",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEpY9SZj51ttQ/company-logo_100_100/B56ZlQ60tBHUAQ-/0/1757999222193/lumi_finance_logo?e=1774483200&v=beta&t=C7GIEzmj6YUonTwHhGKg9CVN_0asMhue4gl_rtgxUwI",
   "name": "Lumi",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.210225Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.lumi.com.au"
 }

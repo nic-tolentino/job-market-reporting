@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "teamupdraft",
+    "provider": "WORKABLE"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "TeamUpdraft is a company profile created during backlog processing.",
+  "description": "TeamUpdraft is the group behind popular WordPress plugins, providing tools for site management, backups, and optimization.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "teamupdraft",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQG2NzemxC3Ijw/company-logo_100_100/B4DZW0PeNYG8AU-/0/1742485710177/teamupdraft_logo?e=1774483200&v=beta&t=0MlNC7LDajY_bRGIYShbmckujVp1WhcO5q2nEX9n5bI",
   "name": "TeamUpdraft",
-  "office_locations": [],
+  "office_locations": [
+    "London (Global Team)"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:18:19.576837Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://teamupdraft.com"
 }

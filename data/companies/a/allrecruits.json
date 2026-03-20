@@ -1,13 +1,32 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "allrecruits",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "http://www.allrecruits.nz/careers"
-      }
-    ]
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/admin$",
+        "/admin/",
+        "/users$",
+        "/users/",
+        "/tools$",
+        "/tools/",
+        "/*.php$",
+        "/shop/checkout$",
+        "/shop/checkout/",
+        "/shop/basket$",
+        "/shop/basket/",
+        "/shop/add/",
+        "/shop/reorder/",
+        "/shop/load-cart/"
+      ]
+    }
   },
   "description": "AllRecruits is a New Zealand-based recruitment agency connecting talent with employers across various industries.",
   "employees_count": null,

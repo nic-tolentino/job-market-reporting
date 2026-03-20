@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "marsh-risk",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.marsh.com/us/en/careers.html"
+      }
+    ]
   },
-  "description": "Marsh Risk is a company profile created during backlog processing.",
+  "description": "Marsh is the world's leading insurance broker and risk advisor, providing risk management and insurance solutions to global businesses.",
   "employees_count": null,
   "hq_country": "US",
   "id": "marsh-risk",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHGl0dIt5kXvw/company-logo_100_100/B4EZu5yrWJJ0AQ-/0/1768348628644/marshrisk_logo?e=1774483200&v=beta&t=YwqICD5v68_lSBUnOdTEe9BECNdwCATzM-JFoiywJO0",
   "name": "Marsh Risk",
-  "office_locations": [],
+  "office_locations": [
+    "New York"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.343880Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.marsh.com"
 }

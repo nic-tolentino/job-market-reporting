@@ -1,0 +1,29 @@
+{
+  "ats": {
+    "identifier": "servian",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://jobs.lever.co/servian/"
+      }
+    ]
+  },
+  "description": "At Servian, we design, deliver and manage innovative data & analytics, digital, customer engagement and cloud solutions that help you sustain competitive advantage.\\r\\n\\r\\nData is our heritage and has always been at the core of everything we do at Servian. Our mission is to enable our customers to use their data and analytics to build competitive advantage. Our expertise in data and analytics strengthens our ability to provide data-driven solutions for our Digital and Customer Engagement services, aided by our expertise in Cloud & Technology.",
+  "hq_country": "AU",
+  "id": "servian",
+  "industries": [
+    "Data Engineering",
+    "Cloud",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "Servian",
+  "verification_level": "unverified",
+  "website": "https://www.servian.com/"
+}

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "alpaca",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Alpaca is a company profile created during backlog processing.",
+  "description": "Alpaca is a developer-first API and brokerage platform for algorithmic trading and financial application development.",
   "employees_count": null,
   "hq_country": "US",
   "id": "alpaca",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFV91nqVMKLlQ/company-logo_100_100/company-logo_100_100/0/1659022454906/alpacadb_inc__logo?e=1774483200&v=beta&t=5Iz1oRI2zGPHwfpiTTlZt2u32IvmOfhqv8LvCnq-wJQ",
   "name": "Alpaca",
-  "office_locations": [],
+  "office_locations": [
+    "San Mateo"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.496198Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://alpaca.markets"
 }

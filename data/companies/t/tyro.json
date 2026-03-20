@@ -1,0 +1,21 @@
+{
+  "ats": {
+    "identifier": "tyro",
+    "provider": "WORKDAY"
+  },
+  "description": "Launching in 2003, Tyro has grown to become Australia's largest EFTPOS provider of all ADI's outside of the big 4 banks. With almost 500 employees, $13.4 billion in transactions in 2018, we are much more than an EFTPOS provider - Tyro is an ASX listed Australian bank and operates under the supervision of the Australian Prudential Regulation Authority (APRA).\\n\\nWith 10 industry firsts to market, we're giving the business banking world a good shake up, with smart technology that saves Australian businesses time and money. Come and be a part of the Tyro journey.",
+  "hq_country": "AU",
+  "id": "tyro",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "tyro",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://www.tyro.com"
+}

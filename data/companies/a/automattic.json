@@ -1,0 +1,30 @@
+{
+  "ats": {
+    "identifier": "automatticcareers",
+    "provider": "GREENHOUSE"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://automattic.com/work-with-us/"
+      }
+    ]
+  },
+  "description": "We are the people behind WordPress.com, WooCommerce, Jetpack, Simplenote, Longreads, VaultPress, Akismet, Gravatar, Crowdsignal, Cloudup, Tumblr, Day One, Pocket Casts and more. We believe in making the web a better place.",
+  "hq_country": "US",
+  "id": "automattic",
+  "industries": [
+    "Open Source",
+    "SaaS",
+    "CMS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Automattic",
+  "remote_policy": "Remote",
+  "verification_level": "unverified",
+  "website": "https://automattic.com/about/"
+}

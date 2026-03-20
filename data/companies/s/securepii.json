@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "securepii",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "SecurePII is a company profile created during backlog processing.",
+  "description": "SecurePII is an Australian cybersecurity company focused on protecting personally identifiable information and data privacy.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "securepii",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEZh_NBDHCXqw/company-logo_100_100/B56ZxBjL9sK4AQ-/0/1770626269465/securepii_logo?e=1774483200&v=beta&t=STXQWHR5j-VTPkFLkGfFngSV3c-uiWw1qF4yyfA87j4",
   "name": "SecurePII",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.109984Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://securepii.com.au"
 }

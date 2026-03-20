@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "iscarem",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "empty",
+        "url": "https://www.iscarem.com/procesos-de-seleccion/"
+      }
+    ]
   },
-  "description": "ISCAREM Human Resources, S.L. is a company profile created during backlog processing.",
+  "description": "ISCAREM Human Resources is a recruitment firm specializing in technology and engineering talent.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "iscarem-human-resources-s-l",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGzsj8Pc6aBJw/company-logo_100_100/company-logo_100_100/0/1630556713092/iscarem_human_resources_s_l__logo?e=1774483200&v=beta&t=oaC3vYxIVadO65GuVIEerhSF-ogw8VnH8VvRxvK0UD8",
   "name": "ISCAREM Human Resources, S.L.",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.855821Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://iscarem.com"
 }

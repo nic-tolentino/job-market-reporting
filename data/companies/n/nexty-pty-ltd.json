@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nexty-pty-ltd",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.nexty.com.au/career"
+      }
+    ]
   },
-  "description": "Nexty Pty Ltd is a company profile created during backlog processing.",
+  "description": "Nexty Australia is an integrated branding and advertising agency focusing on digital solutions and marketing.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "nexty-pty-ltd",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFgPMKd7hyZuA/company-logo_100_100/company-logo_100_100/0/1631359174323?e=1774483200&v=beta&t=zoXyCTSoR_M_LEew25ec7YTKFpZSzR0cE6uDZnWUHCg",
   "name": "Nexty Pty Ltd",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:03:22.230989Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.nexty.com.au"
 }

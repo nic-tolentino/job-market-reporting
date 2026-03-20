@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "vellum-esg-pty-ltd",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://vellum.com.au/"
+      }
+    ]
   },
-  "description": "Vellum ESG Pty Ltd is a company profile created during backlog processing.",
+  "description": "Vellum is an Australian sustainable investment firm focused on ESG-driven commercial real estate and infrastructure.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "vellum-esg-pty-ltd",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h",
   "name": "Vellum ESG Pty Ltd",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.917375Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.vellum.com.au"
 }

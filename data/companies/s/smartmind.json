@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "smartmind",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://join.com/companies/smartmind"
+      }
+    ]
   },
-  "description": "SmartMind is a company profile created during backlog processing.",
+  "description": "SmartMind is a Spanish ed-tech company providing innovative e-learning solutions and digital training platforms.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "smartmind",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGItKxza3hlKg/company-logo_100_100/company-logo_100_100/0/1630493695479/smartmind_logo?e=1774483200&v=beta&t=3y5xa4l33TDx6UQ4_-6N4ZtzbFmB-MWX9JKhY7l2dsk",
   "name": "SmartMind",
-  "office_locations": [],
+  "office_locations": [
+    "Gijón"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.108201Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://smartmind.es"
 }

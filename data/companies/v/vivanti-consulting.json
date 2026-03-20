@@ -2,15 +2,11 @@
   "alternateNames": [
     "Vivanti Consulting"
   ],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.vivanti.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "vivanti-consulting",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "Vivanti is a high-growth global tech consultancy helping the world's biggest businesses bring their data, AI, cloud, and digital solutions to life.",
   "employees_count": 150,
   "hq_country": "AU",

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "keysight-technologies",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://jobs.keysight.com/list-all-available-positions"
+      }
+    ]
   },
-  "description": "Keysight Technologies is a company profile created during backlog processing.",
+  "description": "Keysight Technologies is a leading technology company that delivers advanced design and validation solutions to the global electronics market.",
   "employees_count": null,
   "hq_country": "US",
   "id": "keysight-technologies",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQE0N64B9-dx0A/company-logo_100_100/company-logo_100_100/0/1688574562558/keysight_technologies_logo?e=1774483200&v=beta&t=D6q_CVfJKuFIvj_r_sV1SLw91ggPiCg-9wOpIDYQlrA",
   "name": "Keysight Technologies",
-  "office_locations": [],
+  "office_locations": [
+    "Santa Rosa"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.871935Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.keysight.com"
 }

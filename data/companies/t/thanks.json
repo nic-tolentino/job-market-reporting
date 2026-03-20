@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "thanks",
+    "provider": "WORKABLE"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Thanks is a company profile created during backlog processing.",
+  "description": "Thanks is an Australian loyalty platform and retail media ad network providing personalized rewards and consumer insights.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "thanks",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEv6maZIqbmlQ/company-logo_100_100/company-logo_100_100/0/1691634191271/thanksad_logo?e=1774483200&v=beta&t=CS1swsXd5SSNbFptEou531avFUaE5j9CWr06zVftVfY",
   "name": "Thanks",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney, NSW"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.259215Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://thanks.co"
 }

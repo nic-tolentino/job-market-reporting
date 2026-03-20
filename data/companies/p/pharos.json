@@ -2,11 +2,16 @@
   "alternateNames": [
     "Pharos Systems"
   ],
+  "ats": {
+    "identifier": "pharos",
+    "provider": "ASHBY"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.pharos.com/careers"
       }
     ]

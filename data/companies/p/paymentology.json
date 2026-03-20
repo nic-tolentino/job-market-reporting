@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.paymentology.com/en/about-us/careers"
+      }
+    ]
   },
-  "description": "Paymentology is a company profile created during backlog processing.",
+  "description": "Paymentology is the first truly global payment issuer-processor, enabling banks and fintechs to deploy advanced payment programs.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "paymentology",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQElp3TW0MqyPg/company-logo_100_100/B4DZboOSGTHsAQ-/0/1747652781170/paymentology_logo?e=1774483200&v=beta&t=6UZFxExgV9ZM1wZcU8rpqOdzNFSQ2lEIzUnR5pJ5W30",
   "name": "Paymentology",
-  "office_locations": [],
+  "office_locations": [
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.933420Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.paymentology.com"
 }

@@ -2,12 +2,18 @@
   "alternateNames": [
     "ALTECH Solutions and Consulting"
   ],
+  "ats": {
+    "identifier": "altech",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://altech.es/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://altech.es/trabaja-con-nosotros/"
       }
     ]
   },

@@ -9,7 +9,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.evercommerce.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.evercommerce.com/about-us/careers/"
       }
     ]
   },

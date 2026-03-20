@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Social Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.antler.co/careers"
+      }
+    ]
   },
-  "description": "Antler is a company profile created during backlog processing.",
+  "description": "Antler is a global early-stage venture capital firm that partners with exceptional founders to build and invest in technology companies.",
   "employees_count": null,
   "hq_country": "SG",
   "id": "antler",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGcO8WhScYJvg/company-logo_100_100/company-logo_100_100/0/1630652634929/antlerglobal_logo?e=1774483200&v=beta&t=r6a6I-xiP3Pe1aKQZZxZez0bls5P-xR2syIK9Sj_HZw",
   "name": "Antler",
-  "office_locations": [],
+  "office_locations": [
+    "Singapore"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.120566Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.antler.co"
 }

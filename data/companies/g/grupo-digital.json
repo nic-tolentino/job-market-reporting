@@ -1,11 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "grupo-digital",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.grupodigital.eu/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.grupodigital.eu/ofertas-de-empleo"
       }
     ]
   },
@@ -30,13 +36,13 @@
     "ES"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T09:10:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.858826Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": false,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.858814Z",
+    "notes": "Major Spanish IT consulting. Handles HQP for specialized missions.",
+    "offered": true,
+    "source": "Grupo Digital Rec",
     "types": []
   },
   "website": "https://www.grupodigital.eu"

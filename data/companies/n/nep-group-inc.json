@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.nepgroup.com/career/careers"
+      }
+    ]
   },
-  "description": "NEP Group, Inc. is a company profile created during backlog processing.",
+  "description": "NEP Group provides technology and services for live broadcasting, studios, and production services globally.",
   "employees_count": null,
   "hq_country": "US",
   "id": "nep-group-inc",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFS7t0c5Y2jvw/company-logo_100_100/B56ZvB8ubHIoAU-/0/1768485480683/nep_group_inc_logo?e=1774483200&v=beta&t=xtGcwCtuE3NdrD-epet9XVKS2jj4H-MVkbQ1arxdp4k",
   "name": "NEP Group, Inc.",
-  "office_locations": [],
+  "office_locations": [
+    "Pittsburgh"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.988700Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.nepgroup.com"
 }

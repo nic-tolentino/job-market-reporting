@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "techdotbit",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://techdotbit.com/jobs/"
+      }
+    ]
   },
-  "description": "Techdotbit is a company profile created during backlog processing.",
+  "description": "TechDotBit is a global custom software development and AI agency providing bespoke technology solutions.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "techdotbit",
@@ -13,11 +24,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGchHPdL5bD9g/company-logo_100_100/company-logo_100_100/0/1679038520324?e=1774483200&v=beta&t=HR1FtNlpz5E-l-GXB2Krug5nMV8dR0J02QdGgXNWkts",
   "name": "Techdotbit",
-  "office_locations": [],
+  "office_locations": [
+    "Canberra",
+    "Noida"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.263498Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://techdotbit.com"
 }

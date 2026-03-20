@@ -3,12 +3,36 @@
     "G+D",
     "G+D Mobile Security"
   ],
+  "ats": {
+    "identifier": "gieseckedevrient",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": 1,
+      "disallow_patterns": [
+        "/typo3/",
+        "/*/podigee-theme.html",
+        "/corporate/Group/Downloaddokumente/MWC23/",
+        "/corporate/files/*",
+        "/*/jobs-detail-view/*/pdf",
+        "/*/downloadcenterlayer.html"
+      ]
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.gi-de.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.gi-de.com/en/careers"
       }
     ]
   },

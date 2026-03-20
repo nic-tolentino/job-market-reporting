@@ -1,0 +1,43 @@
+{
+  "alternateNames": [
+    "The Athletic Media Company",
+    "theathletic"
+  ],
+  "ats": {
+    "identifier": "theathletic",
+    "provider": "LEVER"
+  },
+  "company_type": "Platform",
+  "crawler": {
+    "seeds": []
+  },
+  "description": "The Athletic is a subscription-based sports media company providing in-depth journalism covering 250+ professional and collegiate sports teams across North America, the UK, and Europe. Acquired by The New York Times Company in 2022.",
+  "employees_count": 890,
+  "hq_country": "US",
+  "id": "the-athletic",
+  "industries": [
+    "Entertainment",
+    "Software Development"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": null,
+  "name": "The Athletic",
+  "office_locations": [
+    "San Francisco",
+    "New York",
+    "London",
+    "Melbourne"
+  ],
+  "operating_countries": [
+    "US",
+    "CA",
+    "GB",
+    "AU"
+  ],
+  "remote_policy": "Remote",
+  "updated_at": "2026-03-17T00:00:00Z",
+  "verification_level": "unverified",
+  "visa_sponsorship": null,
+  "website": "https://theathletic.com"
+}

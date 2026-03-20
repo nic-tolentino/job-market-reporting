@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://apply.workable.com/echobase/"
+      }
+    ]
   },
-  "description": "Echo Base Global is a company profile created during backlog processing.",
+  "description": "Echo Base is a specialist recruitment consultancy in Australia focusing on supply chain, logistics, and data analytics talent.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "echo-base-global",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFRWareYQjovw/company-logo_100_100/company-logo_100_100/0/1737570191113/echobase_global_logo?e=1774483200&v=beta&t=FXtARhsWONI80q9QEYFJGPVF7-fkGObH9REf3_ZkVeE",
   "name": "Echo Base Global",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.356681Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.echobase.com.au"
 }

@@ -1,13 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "xpt-software",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "http://www.xptsoftware.com/careers"
-      }
-    ]
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    }
   },
   "description": "XPT Software is a company profile created during backlog processing.",
   "employees_count": null,

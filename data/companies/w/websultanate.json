@@ -2,15 +2,11 @@
   "alternateNames": [
     "Websultanate Software Technologies"
   ],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.websultanate.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "websultanate",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "Websultanate is a collaborative technology company building intuitive mobile and web applications using React Native and modern frontend frameworks for global clients.",
   "employees_count": 100,
   "hq_country": "IN",

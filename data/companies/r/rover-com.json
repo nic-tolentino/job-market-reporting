@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "rover",
+    "provider": "LEVER"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Rover.com is a company profile created during backlog processing.",
+  "description": "Rover.com is an online marketplace for people to buy and sell pet care services, including pet sitting, dog walking, and doggy day care.",
   "employees_count": null,
   "hq_country": "US",
   "id": "rover-com",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQH5Nj0Zf25Qbw/company-logo_100_100/company-logo_100_100/0/1631330746176?e=1774483200&v=beta&t=6vnspmGP0q6V5wv8fJgQk0_XgPeyzIHqAJ8iFn2nNsk",
   "name": "Rover.com",
-  "office_locations": [],
+  "office_locations": [
+    "Seattle, WA"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:53:24.883259Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://rover.com"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "unison",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Unison Group is a company profile created during backlog processing.",
+  "description": "Unison Group is a New Zealand electricity distribution company serving the Hawke's Bay, Rotorua, and Taupō regions.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "unison-group",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGlzlSIbTXdSQ/company-logo_100_100/B56ZjprMjDHUAQ-/0/1756267072180/unison_consulting_pte_ltd_logo?e=1774483200&v=beta&t=UlTgcyq6b0-UdAUcmDnqSVZAhGA0wZnivexIrkDUrHQ",
   "name": "Unison Group",
-  "office_locations": [],
+  "office_locations": [
+    "Hastings"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.848765Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.unison.co.nz"
 }

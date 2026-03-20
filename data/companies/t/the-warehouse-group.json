@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "thewarehousegroup",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "The Warehouse Group is a company profile created during backlog processing.",
+  "description": "The Warehouse Group is New Zealand's largest general merchandise retailer, with brands like The Warehouse and Noel Leeming.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "the-warehouse-group",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQF_pOj7aCADeg/company-logo_100_100/company-logo_100_100/0/1630663928028/the_warehouse_group_logo?e=1774483200&v=beta&t=8dc0d8oms82htzfUkP-ZNPM_Cx5lbVVJIf7tmf5I-Rw",
   "name": "The Warehouse Group",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.898075Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.thewarehousegroup.co.nz"
 }

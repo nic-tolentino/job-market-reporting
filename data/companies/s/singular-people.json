@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "singular-people",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "homepage-scan",
+        "status": "active",
+        "url": "https://www.sngular.com/talent-and-culture/jobs"
+      }
+    ]
   },
-  "description": "Singular People is a company profile created during backlog processing.",
+  "description": "Sngular is an international technology consultancy providing digital capabilities in AI, cloud, and engineering.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "singular-people",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGYMObODvmjCQ/company-logo_100_100/company-logo_100_100/0/1642877757026?e=1774483200&v=beta&t=LKGvc0ekV_IfXYUNkkf_F6zgNh67YEaYV1gPo5Z6uC8",
   "name": "Singular People",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.106507Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sngular.com"
 }

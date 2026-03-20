@@ -2,11 +2,16 @@
   "alternateNames": [
     "Leonardo"
   ],
+  "ats": {
+    "identifier": "leonardo.ai",
+    "provider": "ASHBY"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://leonardo.ai/careers"
       }
     ]

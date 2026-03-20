@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "vincci-hoteles",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Vincci Hoteles is a company profile created during backlog processing.",
+  "description": "Vincci Hoteles is a Spanish luxury hotel chain known for its unique properties and high standards of service.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "vincci-hoteles",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFjp5ZRlDmBUQ/company-logo_100_100/company-logo_100_100/0/1630530237912/vincci_hoteles_logo?e=1774483200&v=beta&t=ras3IDczmr3Vj5qnlEolFqq8fU2UtPmzzRblu7YXcdY",
   "name": "Vincci Hoteles",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.915440Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.vinccihoteles.com"
 }

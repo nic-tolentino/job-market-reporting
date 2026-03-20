@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "newspace-research-and-technologies",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
     "seeds": []
   },
-  "description": "NewSpace Research and Technologies is a company profile created during backlog processing.",
+  "description": "NewSpace Research and Technologies is an aerospace and defense R&D company specializing in advanced unmanned systems.",
   "employees_count": null,
   "hq_country": "IN",
   "id": "newspace-research-and-technologies",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQGxXS3lSn7K_Q/company-logo_100_100/company-logo_100_100/0/1631415683101/newspacert_logo?e=1774483200&v=beta&t=IpNsD726ygN_P7yA0BaFSihesMFjvMl7vMo42adt_CU",
   "name": "NewSpace Research and Technologies",
-  "office_locations": [],
+  "office_locations": [
+    "Bengaluru"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.900410Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.newspace.co.in"
 }

@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://dentsuaegis.wd3.myworkdayjobs.com/DAN_GLOBAL"
+      }
+    ]
   },
-  "description": "Merkle Aotearoa is a company profile created during backlog processing.",
+  "description": "Merkle Aotearoa is a leading data-driven customer experience management company and part of the Dentsu group.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "merkle-aotearoa",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHMV6alJHQ__Q/company-logo_100_100/B56ZVegs_fGoAU-/0/1741047386434/merkle_aotearoa_logo?e=1774483200&v=beta&t=PfelynyjFBEsbW7AP-jljAq_ztEPfj1ksAxr28_0Fiw",
   "name": "Merkle Aotearoa",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.353597Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.merkle.com/nz"
 }

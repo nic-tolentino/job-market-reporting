@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "caixabank-asset-management",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "CaixaBank Asset Management is a company profile created during backlog processing.",
+  "description": "CaixaBank Asset Management is the leading investment fund manager in Spain, providing expert wealth and asset management services.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "caixabank-asset-management",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFfQBd1pexnAQ/company-logo_100_100/company-logo_100_100/0/1709653218825/caixabankam_logo?e=1774483200&v=beta&t=ujYN9oRO1pJAtU89lXnpGIzSWyko4U2APp1YH40Gf8U",
   "name": "CaixaBank Asset Management",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.625548Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.caixabankassetmanagement.com"
 }

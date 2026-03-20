@@ -1,10 +1,26 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "morsemicro",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "active",
+        "url": "https://boards.greenhouse.io/morsemicro"
+      },
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.morsemicro.com/careers/"
+      }
+    ]
   },
-  "description": "Morse Micro is a company profile created during backlog processing.",
+  "description": "Morse Micro is a semiconductor company specializing in Wi-Fi HaLow technology for long-range, low-power IoT connectivity.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "morse-micro",
@@ -13,11 +29,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFaVowr2meV2w/company-logo_100_100/B56ZkTIqNmHIAY-/0/1756962661680/morse_micro_logo?e=1774483200&v=beta&t=7cVgsJU2YWxUBsK5t9yPRX_rhVbdtDNtrfZwxF55VRk",
   "name": "Morse Micro",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.361103Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.morsemicro.com"
 }

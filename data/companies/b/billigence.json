@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "blocked",
+        "url": "https://billigence.com/careers/"
+      }
+    ]
   },
-  "description": "Billigence is a company profile created during backlog processing.",
+  "description": "Billigence is an Australian Business Intelligence and data analytics consultancy helping organizations leverage data as a strategic asset.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "billigence",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHGfbgiwC0ulg/company-logo_100_100/company-logo_100_100/0/1631311562520?e=1774483200&v=beta&t=pv8A82IPYWkp6ADupr552pmGzoJI9iu4cVX4ORbvxT8",
   "name": "Billigence",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.402937Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.billigence.com"
 }

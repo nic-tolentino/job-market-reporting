@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://airtificial.teamtailor.com/jobs"
+      }
+    ]
   },
-  "description": "Airtificial Intelligent Robots is a company profile created during backlog processing.",
+  "description": "Airtificial Intelligent Robots designs and manufactures advanced robotic systems and assembly solutions for industrial automation.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "airtificial-intelligent-robots",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFZdr9Co676_g/company-logo_100_100/B56ZYfikWRHQAc-/0/1744285878089/airtificial_intelligent_robots_logo?e=1774483200&v=beta&t=fH0PvvbPZqE_nnnj30FnSMWbaJuuYbSqI-807Pp11wo",
   "name": "Airtificial Intelligent Robots",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.500988Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.airtificial.com"
 }

@@ -2,11 +2,16 @@
   "alternateNames": [
     "Tait"
   ],
+  "ats": {
+    "identifier": "taitcommunications",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://taitcommunications.com/careers"
       }
     ]

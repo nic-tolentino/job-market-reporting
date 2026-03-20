@@ -1,0 +1,14 @@
+{
+  "ats": {
+    "identifier": "mydeal",
+    "provider": "CUSTOM"
+  },
+  "description": "MyDeal.com.au is Australia’s most trusted online marketplace, giving our customers the best products from their favourite retailers, all in one place.",
+  "hq_country": "AU",
+  "id": "mydeal",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "MyDeal",
+  "verification_level": "unverified",
+  "website": "https://www.mydeal.com.au/info/aboutus"
+}

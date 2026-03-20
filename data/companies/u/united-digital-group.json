@@ -8,6 +8,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.udg.de/careers"
       }
     ]

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "itg",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "ITG Technology Center is a company profile created during backlog processing.",
+  "description": "ITG (Instituto Tecnológico de Galicia) is a technology center specializing in AI, robotics, and energy systems.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "itg-technology-center",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFC9fi6-IjtRQ/company-logo_100_100/company-logo_100_100/0/1707988601256/itg_technology_center_logo?e=1774483200&v=beta&t=yBQFV2lDN_LfYILwY6nFVYRCTipJPzsj2BsPUaCdUa4",
   "name": "ITG Technology Center",
-  "office_locations": [],
+  "office_locations": [
+    "A Coruña"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.859325Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://itg.es"
 }

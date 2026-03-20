@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "health",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Government",
   "crawler": {
     "seeds": []
   },
-  "description": "NSW Health is a company profile created during backlog processing.",
+  "description": "NSW Health is the public health system of the New South Wales Government, managing hospitals and public health services.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "nsw-health",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF0-ijZvgusig/company-logo_100_100/B56ZypmxTgJMAQ-/0/1772372039992/nsw_health_logo?e=1774483200&v=beta&t=zzPkuz_OVuUZopoN4WqxxSNWOpf2N7W_r-hBQhPDfzw",
   "name": "NSW Health",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:03:22.230458Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.health.nsw.gov.au"
 }

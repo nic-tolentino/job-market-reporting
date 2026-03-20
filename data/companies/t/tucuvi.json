@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "tucuvi",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://tucuvipeople.factorialhr.com"
+      }
+    ]
   },
-  "description": "Tucuvi is a company profile created during backlog processing.",
+  "description": "Tucuvi is a health tech company that automates clinical phone conversations through an empathetic AI voice agent.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "tucuvi",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEMVtWdlBCxBQ/company-logo_100_100/B4DZcWY0YYGgAQ-/0/1748427294589/tucuvi_logo?e=1774483200&v=beta&t=KUsamSWRm_cJy8C8iosnK2tTdwPbEW-SErJ1LYYbiY8",
   "name": "Tucuvi",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.379506Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.tucuvi.com"
 }

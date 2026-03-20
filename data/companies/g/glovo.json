@@ -5,7 +5,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://glovoapp.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://glovoapp.com/en"
       }
     ]
   },

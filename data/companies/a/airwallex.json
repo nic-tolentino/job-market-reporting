@@ -7,14 +7,6 @@
     "provider": "ASHBY"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.airwallex.com/careers"
-      }
-    ]
-  },
   "description": "A fintech unicorn providing global payments and financial platform for modern businesses.",
   "employees_count": 1500,
   "hq_country": "AU",

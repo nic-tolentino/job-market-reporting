@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "catalystfm",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Catalyst Funds Management is a company profile created during backlog processing.",
+  "description": "Catalyst Funds Management is an Australian boutique fund manager specializing in listed property and real estate securities.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "catalyst-funds-management",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEfePgn_mPK7w/company-logo_100_100/company-logo_100_100/0/1630670719261?e=1774483200&v=beta&t=P0hlz7hZCGoexTfU2fN9AJBHi5lojX-C3rVpTOkfph8",
   "name": "Catalyst Funds Management",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.632570Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://catalystfm.com.au"
 }

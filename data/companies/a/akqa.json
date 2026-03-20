@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "akqa",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "AKQA is a company profile created during backlog processing.",
+  "description": "AKQA is a global design and innovation agency that uses creativity and technology to build iconic brands.",
   "employees_count": null,
   "hq_country": "US",
   "id": "akqa",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.121315Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.akqa.com"
 }

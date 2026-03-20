@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://flowww.teamtailor.com"
+      }
+    ]
   },
-  "description": "flowww is a company profile created during backlog processing.",
+  "description": "flowww is a leading Spanish software provider for the aesthetics, beauty, and health sectors.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "flowww",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGIYezr6__SKw/company-logo_100_100/company-logo_100_100/0/1652106876106/flowww_digital_ecosystem_logo?e=1774483200&v=beta&t=jmJ1ovoUJdm0-yWGfo1SSKylAnhUgdYQvufvPEKkrao",
   "name": "flowww",
-  "office_locations": [],
+  "office_locations": [
+    "Oviedo"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.131603Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.flowww.net"
 }

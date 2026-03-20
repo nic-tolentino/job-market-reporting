@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "itcinfotech",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "ITC Infotech is a company profile created during backlog processing.",
+  "description": "ITC Infotech is a global technology services and solutions provider, part of ITC Limited.",
   "employees_count": null,
   "hq_country": "IN",
   "id": "itc-infotech",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHChIp3T3c83w/company-logo_100_100/company-logo_100_100/0/1631308626797?e=1774483200&v=beta&t=57yuwevLSbZbwSbBFpbkF8_4GySJ_xJJQkxigPgInFk",
   "name": "ITC Infotech",
-  "office_locations": [],
+  "office_locations": [
+    "Bangalore"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.859820Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.itcinfotech.com"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "align-talent",
+    "provider": "CUSTOM"
+  },
   "company_type": "Unknown",
   "crawler": {
     "seeds": []
   },
-  "description": "Align Talent is a company profile created during backlog processing.",
+  "description": "Align Recruitment is a New Zealand agency specializing in global search and placement of candidates across various sectors.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "align-talent",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE0Q6rSCwCX9w/company-logo_100_100/company-logo_100_100/0/1738297909956/aligntalent_logo?e=1774483200&v=beta&t=1eomR7ULqXAOxR1o0m81-aq4KD1v4RoILtQ84ZXB8s0",
   "name": "Align Talent",
-  "office_locations": [],
+  "office_locations": [
+    "Christchurch",
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:34.990720Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:17:27.300216Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.alignrecruitment.com"
 }

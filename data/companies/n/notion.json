@@ -1,15 +1,13 @@
 {
   "alternateNames": [],
-  "ats": {
-    "identifier": "notion",
-    "provider": "ASHBY"
-  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.notion.so/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.notion.so/work-with-us"
       }
     ]
   },

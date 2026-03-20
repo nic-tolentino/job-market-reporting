@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "alvac-s-a",
+    "provider": "CUSTOM"
+  },
   "company_type": "Unknown",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://join.com/companies/alvac"
+      }
+    ]
   },
-  "description": "ALVAC S.A. is a company profile created during backlog processing.",
+  "description": "ALVAC S.A. specializes in the construction, repair, and maintenance of public infrastructure and civil works.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "alvac-s-a",
@@ -13,11 +24,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHa1qrk2dabVw/company-logo_100_100/company-logo_100_100/0/1631313490904?e=1774483200&v=beta&t=tm_BALVwpxVMN5laKfLqkrf8t5nX--rerfaKE2xlOwQ",
   "name": "ALVAC S.A.",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid",
+    "Segovia"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:34.965908Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:17:27.288385Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.alvac.es"
 }

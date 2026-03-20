@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mosaic-factor",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.mosaicfactor.com/team/"
+      }
+    ]
   },
-  "description": "MOSAIC FACTOR is a company profile created during backlog processing.",
+  "description": "Mosaic Factor is an AI and Big Data partner focusing on data science solutions for mobility, logistics, and sustainability.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "mosaic-factor",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQH2SHmfySxYHw/company-logo_100_100/company-logo_100_100/0/1631338119054?e=1774483200&v=beta&t=cVvaL24f_BPe9Yjm_n5S4kyLECFdEUttQihyXnFTRPE",
   "name": "MOSAIC FACTOR",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.349820Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.mosaicfactor.com"
 }

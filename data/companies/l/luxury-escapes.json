@@ -1,11 +1,45 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "luxuryescapes",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Product",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/api/*",
+        "/*/booking/*",
+        "/*/account",
+        "/*/account/*",
+        "/*/flights-search-results",
+        "/*/flights-search",
+        "/*/unique-stays",
+        "/*/unique-stays/*",
+        "/*/homepage-preview",
+        "/*/destination-landing-page-preview/*",
+        "/inspiration/wp-admin/",
+        "/inspiration/wp-includes/",
+        "/inspiration/wp-login.php",
+        "/inspiration/?s=",
+        "/inspiration/search/",
+        "/*/refer/*"
+      ]
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.luxuryescapes.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://luxuryescapes.com/au/about-us#careers"
       }
     ]
   },

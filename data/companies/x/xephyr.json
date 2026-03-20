@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "xephyr",
+    "provider": "ASHBY"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Xephyr is a company profile created during backlog processing.",
+  "description": "Xephyr is an Australian technology studio providing creative digital solutions and software development services.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "xephyr",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.931529Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://xephyr.com.au"
 }

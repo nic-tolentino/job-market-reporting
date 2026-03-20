@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://app.jazzhr.com/ats/careers/v2/careers-page.action?companyId=66000000000000000000000000000000&from=widget"
+      }
+    ]
   },
-  "description": "STERRY is a company profile created during backlog processing.",
+  "description": "STERRY is a growth marketing agency specializing in crowdfunding and digital marketing solutions.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "sterry",
@@ -13,11 +20,15 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGYFYzn1CM4pg/company-logo_100_100/company-logo_100_100/0/1696314737181/sterryio_logo?e=1774483200&v=beta&t=zKBwGzbCNmxOGOtTqQmjd_kB2ubgmb39ao0ZqS8vGPw",
   "name": "STERRY",
-  "office_locations": [],
+  "office_locations": [
+    "Shenzhen",
+    "Hong Kong",
+    "Dubai"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.526019Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://sterry.io"
 }

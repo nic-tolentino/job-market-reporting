@@ -1,0 +1,31 @@
+{
+  "ats": {
+    "identifier": "domain",
+    "provider": "CUSTOM"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://domaingroup.csod.com/ux/ats/careersite/4/home?c=domaingroup"
+      }
+    ]
+  },
+  "description": "As one of Australia's leading property portals and most recognisable brands, we've made a name for ourselves helping people find a place to call home. And now, we want to help you find your place too; a place to do your best work, a place to commute to, a place to celebrate your career milestones with cake and coffee and a team that cares. We are bursting with incredible talent who are just as passionate about their craft as you are, making this more than just a workplace. Whether you're an engineer, account manager, marketer, designer, finance analyst or product manager (just to name a few) you might just find your place right here at Domain, because we're not just Australia's home of property... We're your home, too.",
+  "hq_country": "AU",
+  "id": "domain",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Domain",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://www.domain.com.au/"
+}

@@ -2,15 +2,11 @@
   "alternateNames": [
     "Manbau Consulting & Advisory"
   ],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.manbau.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "manbau",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "Manbau is a private equity consulting firm specializing in impactful transformation strategies, blending M&A, turnarounds, and technological precision for global portfolio companies.",
   "employees_count": 50,
   "hq_country": "ES",

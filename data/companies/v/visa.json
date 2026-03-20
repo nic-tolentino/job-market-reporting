@@ -12,6 +12,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://visa.com/careers"
       }
     ]
@@ -36,13 +37,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.841592Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.841589Z",
+    "notes": "Sponsors experienced fintech/engineering roles in Australia and globally.",
     "offered": true,
-    "source": null,
+    "source": "Visa Careers",
     "types": []
   },
   "website": "https://visa.com"

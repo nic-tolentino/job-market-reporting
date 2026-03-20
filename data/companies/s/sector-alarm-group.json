@@ -6,8 +6,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.sectoralarm.com/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.sectoralarm.com/work-with-us/"
       }
     ]
   },

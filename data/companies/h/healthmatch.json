@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://healthmatch.io/careers"
+      }
+    ]
+  },
+  "description": "Our mission is to allow for faster and more efficient access to innovative therapies and life-saving medication through our sophisticated technology and data insights - ultimately driving healthcare breakthroughs.\\r\\n \\r\\nHaving launched in Australia in January 2019, we have expanded to New Zealand and Hong Kong with plans for further rapid global expansion in the coming year. HealthMatch has global ambitions to improve healthcare outcomes for all and following a recent capital raise is well funded to execute on this vision.\\r\\n \\r\\nAt HealthMatch we are patient first, always.",
+  "hq_country": "AU",
+  "id": "healthmatch",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Healthmatch",
+  "verification_level": "unverified",
+  "website": "https://healthmatch.io/"
+}

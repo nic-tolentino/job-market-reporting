@@ -7,14 +7,6 @@
     "provider": "FACTORIAL"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://factorialhr.com/careers"
-      }
-    ]
-  },
   "description": "All-in-one business management software unifying HR, finance, payroll, time management, and talent management. Serving 15,000+ companies.",
   "employees_count": null,
   "hq_country": "ES",

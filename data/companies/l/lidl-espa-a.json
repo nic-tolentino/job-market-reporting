@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "lidl",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Lidl España is a company profile created during backlog processing.",
+  "description": "Lidl Spain is the local division of the major European discount supermarket chain, operating over 600 stores in the country.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "lidl-espa-a",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGaqL3klqZbPg/company-logo_100_100/B4DZfpF9jYHAAQ-/0/1751962344035/lidl_espana_logo?e=1774483200&v=beta&t=02oSi0NvLkHzrNiELIb_t1RmmZLDgaSBxvu7A4bej8A",
   "name": "Lidl España",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.238209Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.lidl.es"
 }

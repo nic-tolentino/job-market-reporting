@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nuix",
+    "provider": "OTHER"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "active",
+        "url": "https://careers.nuix.com/"
+      }
+    ]
   },
-  "description": "Nuix is a company profile created during backlog processing.",
+  "description": "Nuix is an Australian technology company specializing in investigative analytics and intelligence software for big data.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "nuix",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEy4Kk5cA4Z_A/company-logo_100_100/company-logo_100_100/0/1673476486678/nuix_logo?e=1774483200&v=beta&t=ywwoYxXa6lhZNJWny5sdJgoWUU2v1N944oqYN_PM1QY",
   "name": "Nuix",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney, NSW"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.892015Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.nuix.com"
 }

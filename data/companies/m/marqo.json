@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "marqo",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Marqo is a company profile created during backlog processing.",
+  "description": "Marqo is an open-source vector search engine designed to power AI-driven applications with semantic search capabilities.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "marqo",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEOPKrpeYQ9VA/company-logo_100_100/company-logo_100_100/0/1661436852164/marqo_io_logo?e=1774483200&v=beta&t=FCfbu9uMJzNlzYz3PWkTUnV_sDbksvPY0VSo3trKPlQ",
   "name": "Marqo",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.366952Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.marqo.ai"
 }

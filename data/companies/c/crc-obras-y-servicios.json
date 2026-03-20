@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "crc-obras",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "CRC Obras y Servicios is a company profile created during backlog processing.",
+  "description": "CRC Obras y Servicios is a Spanish construction company specializing in civil engineering, building, and urban maintenance.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "crc-obras-y-servicios",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGUE7WxI5jhaA/company-logo_100_100/company-logo_100_100/0/1631388923902?e=1774483200&v=beta&t=mlIdEfSqkG9KMZfi7uuXI0bB0xAg8eU6BNsd4PPbaj0",
   "name": "CRC Obras y Servicios",
-  "office_locations": [],
+  "office_locations": [
+    "Siero"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.893763Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.crc-obras.com"
 }

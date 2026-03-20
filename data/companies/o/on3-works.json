@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "on3-works",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "ON3 WORKS is a company profile created during backlog processing.",
+  "description": "ON3 Works provides AI-driven recruiting and bench optimization software to maximize efficiency for people-based businesses.",
   "employees_count": null,
   "hq_country": "US",
   "id": "on3-works",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFZToS2kmkfhw/company-logo_100_100/company-logo_100_100/0/1721384678168/on3works_logo?e=1774483200&v=beta&t=G_VQI86QKSrRy6wG60mv_a2MCPctyCRrU-nW3P_nlWc",
   "name": "ON3 WORKS",
-  "office_locations": [],
+  "office_locations": [
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:28:11.630266Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.on3works.com"
 }

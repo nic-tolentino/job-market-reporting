@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "careerus",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "CareerUS Solutions is a company profile created during backlog processing.",
+  "description": "CareerUS Solutions is an Indian recruitment firm providing talent acquisition and workforce solutions for various industries.",
   "employees_count": null,
   "hq_country": "IN",
   "id": "careerus-solutions",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFs8h7EcJLvlg/company-logo_100_100/company-logo_100_100/0/1703449400722/careerus_solutions_logo?e=1774483200&v=beta&t=5HW2Rd-mqUzBKgzeMhLU6iAUQY7S7jpgTtMzoAzh_VI",
   "name": "CareerUS Solutions",
-  "office_locations": [],
+  "office_locations": [
+    "Noida"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.630174Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://careerus.in"
 }

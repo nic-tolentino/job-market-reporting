@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.dispensed.com.au/work-with-us"
+      }
+    ]
   },
-  "description": "Dispensed Global is a company profile created during backlog processing.",
+  "description": "Dispensed is an Australian telehealth platform specializing in personalized medical treatments and wellness solutions.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "dispensed-global",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQENoceUq7jfsw/company-logo_100_100/company-logo_100_100/0/1706156604136/dispensed_logo?e=1774483200&v=beta&t=wlTLDS-tMEogFWjyC2s1rCOadJcD0U0msvuUTTvGYHc",
   "name": "Dispensed Global",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.776316Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.dispensed.com.au"
 }

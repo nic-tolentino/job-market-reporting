@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.encompasstech.com/careers"
+      }
+    ]
   },
-  "description": "Encompass Technologies is a company profile created during backlog processing.",
+  "description": "Encompass Technologies provides a comprehensive cloud-based CRM and ERP platform for the beverage distribution industry.",
   "employees_count": null,
   "hq_country": "US",
   "id": "encompass-technologies",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEVJdhTxnLRZA/company-logo_100_100/company-logo_100_100/0/1683673369113/encompasstechnologies_logo?e=1774483200&v=beta&t=YM_wTnEQ3a34Q5odyEJ88Ej3G8vLkOXDKFDYKuedr-0",
   "name": "Encompass Technologies",
-  "office_locations": [],
+  "office_locations": [
+    "Fort Collins"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.372270Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.encompasstech.com"
 }

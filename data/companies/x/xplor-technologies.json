@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "Xplor",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Xplor Technologies is a company profile created during backlog processing.",
+  "description": "Xplor Technologies provides cloud-based software and payment solutions for 'everyday life' businesses like fitness and childcare.",
   "employees_count": null,
   "hq_country": "US",
   "id": "xplor-technologies",
@@ -13,11 +17,19 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFBHkJv9Rf9Jw/company-logo_100_100/company-logo_100_100/0/1719839367932/xplor_technologies_logo?e=1774483200&v=beta&t=5HEKAi-NLwlRwGZe16XCElTjG7P4-4brG_Tos1_92XE",
   "name": "Xplor Technologies",
-  "office_locations": [],
+  "office_locations": [
+    "Atlanta",
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
-  "website": null
+  "updated_at": "2026-03-16T21:41:07.439210Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-16T21:41:07.432225Z",
+    "notes": "Likely. Large tech footprint in Melbourne with global team focus. No explicit public policy but hire internationally.",
+    "offered": true,
+    "source": "Xplor Profile"
+  },
+  "website": "https://www.xplortechnologies.com"
 }

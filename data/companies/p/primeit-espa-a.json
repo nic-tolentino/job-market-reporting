@@ -2,11 +2,16 @@
   "alternateNames": [
     "PrimeIT España"
   ],
+  "ats": {
+    "identifier": "primeit",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://primeit.es/careers"
       }
     ]
@@ -42,13 +47,13 @@
     "Worldwide"
   ],
   "remote_policy": "Remote",
-  "updated_at": "2026-03-10T10:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T21:38:43.995479Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-16T21:38:43.979363Z",
+    "notes": "Explicitly states they are unable to sponsor or take over sponsorship of employment visas at this time.",
+    "offered": false,
+    "source": "PrimeIT Careers Spain",
     "types": []
   },
   "website": "https://primeit.es"

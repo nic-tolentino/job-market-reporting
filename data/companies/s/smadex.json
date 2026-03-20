@@ -2,12 +2,18 @@
   "alternateNames": [
     "Smadex (by Entravision)"
   ],
+  "ats": {
+    "identifier": "smadex",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://smadex.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://landing.jobs/companies/smadex"
       }
     ]
   },

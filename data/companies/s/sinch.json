@@ -5,7 +5,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.sinch.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "http://sinch.com/careers/"
       }
     ]
   },

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "d-Matrix",
+    "provider": "ASHBY"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "d-Matrix is a company profile created during backlog processing.",
+  "description": "d-Matrix is a US startup developing innovative chiplet-based AI compute platforms for data center inference.",
   "employees_count": null,
   "hq_country": "US",
   "id": "d-matrix",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQG2y-Q7JIVLlg/company-logo_100_100/company-logo_100_100/0/1646844327256/d_matrix_logo?e=1774483200&v=beta&t=Dihu0LGDg4zPluY3f8eHpHzcvxCZLUwmhQFFJZctk7U",
   "name": "d-Matrix",
-  "office_locations": [],
+  "office_locations": [
+    "Santa Clara"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.178502Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://d-matrix.ai"
 }

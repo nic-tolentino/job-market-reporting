@@ -4,7 +4,7 @@
   "crawler": {
     "seeds": []
   },
-  "description": "Wise Security Global is a company profile created during backlog processing.",
+  "description": "Wise Security Global is a Spanish cybersecurity firm providing advanced solutions in digital identity and information security.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "wise-security-global",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGBh9gVSdMrkw/company-logo_100_100/company-logo_100_100/0/1705304035501/wise_security_global_logo?e=1774483200&v=beta&t=wHkufnDkuqOGZWW1QEtAv4dJiTP0tI5NegKgAGZClZY",
   "name": "Wise Security Global",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:48:35.257477Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.wisesecurity.io"
 }

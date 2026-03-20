@@ -1,11 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "entelect",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.entelect.co.nz/careers"
+        "category": "careers",
+        "source": "manual",
+        "status": "excluded",
+        "url": "https://culture.entelect.co.za/"
       }
     ]
   },
@@ -36,13 +42,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T14:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.961047Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.961044Z",
+    "notes": "Global consultancy. Sponsors Senior Devs for AU-based roles.",
     "offered": true,
-    "source": null,
+    "source": "Entelect Careers",
     "types": []
   },
   "website": "https://www.entelect.co.nz"

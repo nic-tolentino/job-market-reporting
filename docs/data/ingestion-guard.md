@@ -1,7 +1,12 @@
 # Ingestion Guard: Preventing Duplicate Dataset Processing (Single Table Approach)
 
+**Implementation status (March 2026):**
+- ✅ Implemented for Apify (LinkedIn scraper) and ATS sync flows
+- ⚠️ **Not yet wired** into `CrawlerAdminController.triggerCrawl()` or `CrawlerDataSyncService.createDailyDataset()`'s nightly batch path
+- The silver merger deduplicates by `(companyId, title, location)` so the practical risk of double-writes is low, but the guard should still be added to the crawler flows for correctness and cost control
+
 ## Context
-Our data pipeline currently ingests datasets from Apify (LinkedIn scrapers) and direct ATS integrations. A common scenario is that the same dataset ID might be triggered multiple times, either manually through the Admin UI or automatically via webhooks. 
+Our data pipeline ingests datasets from Apify (LinkedIn scrapers), direct ATS integrations, and the crawler service. A common scenario is that the same dataset ID might be triggered multiple times, either manually through the Admin UI or automatically via webhooks.
 
 While our Silver layer handles deduplication, re-processing the same data is inefficient and increases GCP costs. We want a way to skip redundant ingestions while ensuring traceability.
 

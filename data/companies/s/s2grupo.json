@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "s2grupo",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://s2grupo.es/ofertas-empleo"
+      }
+    ]
   },
-  "description": "S2GRUPO is a company profile created during backlog processing.",
+  "description": "S2 Grupo is a Spanish leader in cybersecurity and critical infrastructure protection, providing advanced security services.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "s2grupo",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEti-t9UebJ5w/company-logo_100_100/company-logo_100_100/0/1732610407261/s2grupo_logo?e=1774483200&v=beta&t=orUnxPkDHAi-2rqeH2wxdLYAW4s0jpIJDeQ7uz8kA6o",
   "name": "S2GRUPO",
-  "office_locations": [],
+  "office_locations": [
+    "Valencia"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.091653Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://s2grupo.es"
 }

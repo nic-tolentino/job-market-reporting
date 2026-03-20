@@ -4,7 +4,7 @@
   "crawler": {
     "seeds": []
   },
-  "description": "Pathify is a company profile created during backlog processing.",
+  "description": "Pathify is a leading higher-ed portal that provides students with a unified digital experience to manage their academic life.",
   "employees_count": null,
   "hq_country": "US",
   "id": "pathify",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEtJPfn7-6OrQ/company-logo_100_100/B4DZpU4O9qJcAQ-/0/1762360619309/pathifyeducation_logo?e=1774483200&v=beta&t=eB-S1OvD_tkX-3SIIZy4fV0CIt38UsMIx-ylBMyhxpE",
   "name": "Pathify",
-  "office_locations": [],
+  "office_locations": [
+    "Denver"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.970816Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://pathify.com"
 }

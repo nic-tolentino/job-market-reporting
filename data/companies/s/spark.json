@@ -11,8 +11,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.spark.co.nz/careers"
+        "category": "careers",
+        "source": "manual",
+        "status": "blocked",
+        "url": "https://sparknz.wd3.myworkdayjobs.com/External"
       }
     ]
   },

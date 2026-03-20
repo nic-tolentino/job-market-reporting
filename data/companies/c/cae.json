@@ -9,7 +9,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://www.cae.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.cae.com/careers/"
       }
     ]
   },

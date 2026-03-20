@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sap",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "SAP Business ByDesign - France is a company profile created during backlog processing.",
+  "description": "SAP Business ByDesign is a cloud ERP solution by SAP, specifically tailored for mid-market companies in France and globally.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "sap-business-bydesign-france",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:54:52.216189Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sap.com/france"
 }

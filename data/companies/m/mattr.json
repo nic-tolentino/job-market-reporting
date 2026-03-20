@@ -8,8 +8,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://mattr.global/careers"
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "empty",
+        "url": "https://mattr.bamboohr.com/careers"
       }
     ]
   },

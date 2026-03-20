@@ -7,14 +7,6 @@
     "provider": "GREENHOUSE"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "general",
-        "url": "https://pushpay.com/company/careers"
-      }
-    ]
-  },
   "description": "Pushpay provides mobile commerce and engagement solutions for faith-based organizations and non-profits.",
   "employees_count": null,
   "hq_country": "US",
@@ -36,13 +28,13 @@
     "US"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.973756Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.973752Z",
+    "notes": "Accredited Employer in NZ. Sponsoring hub for donor management tech.",
     "offered": true,
-    "source": null,
+    "source": "Pushpay Careers",
     "types": []
   },
   "website": "https://pushpay.com/"

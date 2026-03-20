@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "dx1",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.dx1app.com/about/company/careers"
+      }
+    ]
   },
-  "description": "DX1 is a company profile created during backlog processing.",
+  "description": "DX1 provides a complete dealership management platform for the powersports and marine industries.",
   "employees_count": null,
   "hq_country": "US",
   "id": "dx1",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHALht8GQj_Dw/company-logo_100_100/B56ZxMoQtAH0AU-/0/1770812148950/devops1_au_logo?e=1774483200&v=beta&t=vi7r_OlwiYrkPCIEc7FCGXDLzYsLO5Ltxn0rKsKpv4Q",
   "name": "DX1",
-  "office_locations": [],
+  "office_locations": [
+    "Norfolk"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.786211Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.dx1app.com"
 }

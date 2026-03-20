@@ -1,5 +1,9 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "iag",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "discovery": {
@@ -9,8 +13,10 @@
     },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.iag.com.au/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://careers.iag.com.au/jobs"
       }
     ]
   },

@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.homagames.com/careers"
+      }
+    ]
   },
-  "description": "Homa is a company profile created during backlog processing.",
+  "description": "Homa (formerly Homa Games) is a leading platform for developing and publishing mobile hyper-casual games.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "homa",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHL7CaOw9-IJA/company-logo_100_100/company-logo_100_100/0/1673518085687/homa_games_logo?e=1774483200&v=beta&t=Imbup6DFRgkdRsjXpfawqaEs5PpVAP2cqKPOYyTMo5I",
   "name": "Homa",
-  "office_locations": [],
+  "office_locations": [
+    "Paris"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.153202Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.homagames.com"
 }

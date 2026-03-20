@@ -7,14 +7,6 @@
     "provider": "WORKABLE"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://fergus.com/careers"
-      }
-    ]
-  },
   "description": "Fergus provides automated job management software for tradespeople (plumbers, electricians, etc.).",
   "employees_count": null,
   "hq_country": "NZ",

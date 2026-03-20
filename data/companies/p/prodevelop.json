@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "prodevelop",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://prodevelop.jobs.personio.com"
+      }
+    ]
   },
-  "description": "Prodevelop is a company profile created during backlog processing.",
+  "description": "Prodevelop is a Spanish technology company specializing in maritime logistics and port management software systems.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "prodevelop",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFW_ICckjTCqg/company-logo_100_100/B4DZZidDs_H4AU-/0/1745408507080/prodevelop_logo?e=1774483200&v=beta&t=L6AcHflQjuhLIk_IcGQhrhqRM68wvYw5nauQRVKMcN0",
   "name": "Prodevelop",
-  "office_locations": [],
+  "office_locations": [
+    "Valencia"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.965585Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.prodevelop.es"
 }

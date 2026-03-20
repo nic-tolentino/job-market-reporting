@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "microsoft",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Microsoft AI is a company profile created during backlog processing.",
+  "description": "Microsoft AI is the division of Microsoft dedicated to developing advanced artificial intelligence technologies and platforms.",
   "employees_count": null,
   "hq_country": "US",
   "id": "microsoft-ai",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHFvUw9m77CbA/company-logo_100_100/B56ZnovjGLIsAQ-/0/1760546414603/microsoft_ai_logo?e=1774483200&v=beta&t=nhv8KyVI7JXVSuPz9Gb7aW2sZjYVqr79CAVTcLYAHNg",
   "name": "Microsoft AI",
-  "office_locations": [],
+  "office_locations": [
+    "Redmond"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.361393Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.microsoft.com/ai"
 }

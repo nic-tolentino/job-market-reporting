@@ -2,14 +2,18 @@
   "alternateNames": [
     "The Skills Organisation"
   ],
+  "ats": {
+    "identifier": "skills-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Social Enterprise",
   "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://skills-group.org/careers"
-      }
-    ]
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    }
   },
   "description": "Skills Group is an international expert in vocational education, workforce development, and workplace wellbeing, helping nations build economic growth.",
   "employees_count": 250,

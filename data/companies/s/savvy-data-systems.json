@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "savvy-data-systems",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.savvydatasystems.com/es/inicio"
+      }
+    ]
   },
-  "description": "SAVVY DATA SYSTEMS is a company profile created during backlog processing.",
+  "description": "Savvy Data Systems specializes in industrial data analytics, assisting industrial companies with digital transformation.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "savvy-data-systems",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHfpEkVu2DizQ/company-logo_100_100/company-logo_100_100/0/1631784422677/savvy_data_systems_sl_logo?e=1774483200&v=beta&t=PhTi25833_1_NFB3TSoJ4M-fi-IMq8SbWGpjUbXopUg",
   "name": "SAVVY DATA SYSTEMS",
-  "office_locations": [],
+  "office_locations": [
+    "San Sebastián"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.402354Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.savvydatasystems.com"
 }

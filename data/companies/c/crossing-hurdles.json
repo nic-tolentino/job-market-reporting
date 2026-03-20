@@ -1,11 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "crossing-hurdles",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.crossinghurdles.com/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.crossinghurdles.com/physicsexpert"
       }
     ]
   },
@@ -30,13 +36,13 @@
     "Worldwide"
   ],
   "remote_policy": "Remote",
-  "updated_at": "2026-03-10T09:05:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.802754Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": false,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.802747Z",
+    "notes": "Global recruitment firm that explicitly places candidates into sponsored roles in AU/NZ.",
+    "offered": true,
+    "source": "Crossing Hurdles Listings",
     "types": []
   },
   "website": "https://www.crossinghurdles.com"

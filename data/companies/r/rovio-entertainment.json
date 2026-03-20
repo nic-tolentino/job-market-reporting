@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "rovio-2",
+    "provider": "LEVER"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Rovio Entertainment is a company profile created during backlog processing.",
+  "description": "Rovio Entertainment is a Finnish game developer best known for creating the Angry Birds franchise.",
   "employees_count": null,
   "hq_country": "FI",
   "id": "rovio-entertainment",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFFSLAQ7eA53Q/company-logo_100_100/B4DZTvPT6KG8AQ-/0/1739180556326/rovio_logo?e=1774483200&v=beta&t=ilzMCbZdDLrn8itfsw5-tFo-FnhLPFusRiP9FwXS584",
   "name": "Rovio Entertainment",
-  "office_locations": [],
+  "office_locations": [
+    "Espoo"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:57:50.505942Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.rovio.com"
 }

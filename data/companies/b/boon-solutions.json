@@ -4,7 +4,7 @@
   "crawler": {
     "seeds": []
   },
-  "description": "Boon Solutions is a company profile created during backlog processing.",
+  "description": "Boon Solutions is an Australian IT consulting firm specializing in data analytics, AI, and cloud integration.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "boon-solutions",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEcScM1pSv66Q/company-logo_100_100/B4DZq5V.dQGwAQ-/0/1764046138994/boon_solutions_logo?e=1774483200&v=beta&t=W0cZTu59MsDdno6AtsKm8PrUWDVFXMA9_WVLfeE2w94",
   "name": "Boon Solutions",
-  "office_locations": [],
+  "office_locations": [
+    "Perth"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.843108Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.boon.com.au"
 }

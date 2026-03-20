@@ -4,8 +4,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.plexus.es/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.plexus.es/unete-al-equipo/"
       }
     ]
   },
@@ -28,8 +30,13 @@
     "ES"
   ],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:30:00Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-16T21:30:05.085923Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-16T21:30:05.074825Z",
+    "notes": "Highly likely to support Highly Qualified Professional (PAC) status in Spain for state-of-the-art tech roles. Inquire for specific projects.",
+    "offered": true,
+    "source": "General Tech Sector Spain"
+  },
   "website": "https://www.plexus.es"
 }

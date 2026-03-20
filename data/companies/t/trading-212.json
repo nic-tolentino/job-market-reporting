@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "trading212",
+    "provider": "ASHBY"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Trading 212 is a company profile created during backlog processing.",
+  "description": "Trading 212 is a London-based fintech company democratizing the financial markets with free, smart and easy-to-use apps.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "trading-212",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGPDLuZVfRWNg/company-logo_100_100/company-logo_100_100/0/1723555966279/trading212_logo?e=1774483200&v=beta&t=3djSg3ioKLxP-wjFs0KwwH7XCavI6_lj5nfopiu-ZXM",
   "name": "Trading 212",
-  "office_locations": [],
+  "office_locations": [
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.261042Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.trading212.com"
 }

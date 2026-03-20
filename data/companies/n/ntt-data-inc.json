@@ -10,8 +10,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.nttdata.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://nttdata.eightfold.ai/careers/"
       }
     ]
   },
@@ -36,8 +38,13 @@
     "NZ"
   ],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:45:00Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-16T21:41:07.441731Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-16T21:41:07.432227Z",
+    "notes": "Likely. Standard global practice in other regions (US/India); large scale IT services hub. Check role-specific rights.",
+    "offered": true,
+    "source": "NTT DATA Global Policy"
+  },
   "website": "https://www.nttdata.com"
 }

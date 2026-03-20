@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "synchronise-resourcing",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Synchronise Resourcing is a company profile created during backlog processing.",
+  "description": "Synchronise Resourcing Solutions is a recruitment and talent resourcing company operating across Australia.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "synchronise-resourcing",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF-r_wRhlgv4g/company-logo_100_100/B56ZhVkZjLHQAQ-/0/1753782262719/synchroniseresourcing_logo?e=1774483200&v=beta&t=enlZdOHAAdpYXiGBUJQFPMA4vMtHB36ntC88JBQkftE",
   "name": "Synchronise Resourcing",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.519662Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.synchroniseresourcing.com.au"
 }

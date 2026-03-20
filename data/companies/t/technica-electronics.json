@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "technica-electronics",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "empty",
+        "url": "https://technicaelectronics.recruitee.com"
+      }
+    ]
   },
-  "description": "Technica Electronics is a company profile created during backlog processing.",
+  "description": "Technica Electronics is the R&D center for automotive communication technology based in Barcelona.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "technica-electronics",
@@ -12,12 +23,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQE46t0fsXg8jw/company-logo_100_100/company-logo_100_100/0/1691051544150/technica_electronics_logo?e=1774483200&v=beta&t=mBGBOyl8hBJOn2SEhnbnoyfRdWP7J3NdMID_1kX8hPs",
-  "name": "Technica Electronics",
-  "office_locations": [],
+  "name": "Technica Electronics Barcelona",
+  "office_locations": [
+    "Sant Cugat del Vallès, Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.392755Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.technica-engineering.com"
 }

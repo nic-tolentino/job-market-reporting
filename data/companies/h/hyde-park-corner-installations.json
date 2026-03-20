@@ -3,12 +3,23 @@
     "Hyde Park Corner",
     "HPC"
   ],
+  "ats": {
+    "identifier": "hydeparkcorner",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.hydeparkcorner.net/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://hydeparkcorner.net/careers/"
       }
     ]
   },

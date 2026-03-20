@@ -2,14 +2,17 @@
   "alternateNames": [
     "Nuix Discover"
   ],
+  "ats": {
+    "identifier": "nuix",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.nuix.com/careers"
-      }
-    ]
+    "discovery": {
+      "lastAttemptedAt": "2026-03-17",
+      "notes": "Careers page scan detected TEAMTAILOR — requires paid/custom integration",
+      "status": "NO_MATCH"
+    }
   },
   "description": "Nuix is a pioneer in investigative analytics and intelligence software, providing IT leaders with proactive insights to see, diagnose, and fix issues at scale.",
   "employees_count": 500,
@@ -35,13 +38,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T10:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.971548Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.971544Z",
+    "notes": "Major data/investigation tech. History of sponsoring high-skill roles in AU.",
     "offered": true,
-    "source": null,
+    "source": "Nuix Careers",
     "types": []
   },
   "website": "https://www.nuix.com"

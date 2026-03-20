@@ -3,12 +3,18 @@
     "Microsoft Corporation",
     "Microsoft NZ"
   ],
+  "ats": {
+    "identifier": "microsoft",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://news.microsoft.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://careers.microsoft.com"
       }
     ]
   },
@@ -33,14 +39,14 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:32:28.000399Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:32:27.990606Z",
+    "notes": "Verified visa sponsor for some roles in AU (Senior SWE), and widespread sponsored roles for partners/projects in NZ. Global Talent focus.",
     "offered": true,
-    "source": null,
+    "source": "Microsoft/Third-party sites",
     "types": []
   },
-  "website": "https://news.microsoft.com/"
+  "website": "https://www.microsoft.com"
 }

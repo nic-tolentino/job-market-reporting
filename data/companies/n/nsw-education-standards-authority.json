@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nsw-education-standards-authority",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://iworkfor.nsw.gov.au/"
+      }
+    ]
   },
-  "description": "NSW Education Standards Authority is a company profile created during backlog processing.",
+  "description": "The NSW Education Standards Authority (NESA) is the statutory body responsible for teaching and learning standards in New South Wales.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "nsw-education-standards-authority",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFl3cFH3wn1fA/company-logo_100_100/B56ZyrrkO7KkAQ-/0/1772406850902/nsw_education_standards_authority_logo?e=1774483200&v=beta&t=mZ39KBwzCBMxOnpcnEvPqXlAOW6rN5d9g-cBp6pXSEs",
   "name": "NSW Education Standards Authority",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.980412Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.educationstandards.nsw.edu.au"
 }

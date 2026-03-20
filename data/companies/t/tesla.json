@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "tesla",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "blocked",
+        "url": "https://tesla.com/careers"
+      }
+    ]
   },
-  "description": "Tesla is a company profile created during backlog processing.",
+  "description": "Tesla is an American multinational automotive and clean energy company that designs and manufactures electric vehicles and solar products.",
   "employees_count": null,
   "hq_country": "US",
   "id": "tesla",
@@ -13,11 +23,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHUcu98SZ2TVw/company-logo_100_100/company-logo_100_100/0/1630576446368/tesla_motors_logo?e=1774483200&v=beta&t=mKzqwIWG_sJiJI_Ro-JB1y_IDMmhooe7VEhFR3lMKhM",
   "name": "Tesla",
-  "office_locations": [],
+  "office_locations": [
+    "Austin, TX",
+    "Palo Alto, CA"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.897122Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.tesla.com"
 }

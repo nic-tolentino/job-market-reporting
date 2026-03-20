@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "panthr",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Panthr is a company profile created during backlog processing.",
+  "description": "Panthr is a Spanish boutique digital transformation consultancy focusing on high-impact technology projects.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "panthr",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHt2qBTXqb1HQ/company-logo_100_100/company-logo_100_100/0/1733313669876/panthrxyz_logo?e=1774483200&v=beta&t=DXkRhvMQ5N1olKJOGWwliR3JMO0zjFHQ6fdz21uSnaE",
   "name": "Panthr",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.955415Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://panthr.io"
 }

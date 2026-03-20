@@ -2,12 +2,24 @@
   "alternateNames": [
     "Advantive Software"
   ],
+  "ats": {
+    "identifier": "advantive",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.advantive.com/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.advantive.com/about/careers/"
       }
     ]
   },

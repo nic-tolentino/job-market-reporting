@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "neurored-tms-scm",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Neurored TMS & SCM is a company profile created during backlog processing.",
+  "description": "Neurored provides a Salesforce-native solution for Transportation Management Systems (TMS) and Supply Chain Management (SCM).",
   "employees_count": null,
   "hq_country": "ES",
   "id": "neurored-tms-scm",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQH6CIFLguPeLw/company-logo_100_100/company-logo_100_100/0/1696851591010/neurored_logo?e=1774483200&v=beta&t=ZO96-1B2JHmATxpyu17sD2FCKIXYO5iFiXX3cUV4UII",
   "name": "Neurored TMS & SCM",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:03:22.228082Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.neurored.com"
 }

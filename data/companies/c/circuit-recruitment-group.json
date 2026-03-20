@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "circuit",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.circuitrecruitment.com.au/support-infrastructure"
+      }
+    ]
   },
-  "description": "Circuit Recruitment Group is a company profile created during backlog processing.",
+  "description": "Circuit Recruitment is an Australian specialist technology recruitment firm connecting top digital talent with employers.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "circuit-recruitment-group",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFP0ES3yRMNBw/company-logo_100_100/company-logo_100_100/0/1697157975096/circuit_recruitment_group_logo?e=1774483200&v=beta&t=NxKblnGYG_0qp0eXKx6WoBDzEylpMowwMjM3bKAoDgQ",
   "name": "Circuit Recruitment Group",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.175766Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.circuitrecruitment.com.au"
 }

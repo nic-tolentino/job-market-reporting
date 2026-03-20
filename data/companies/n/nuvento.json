@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nuvento",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Nuvento is a company profile created during backlog processing.",
+  "description": "Nuvento is a big data engineering and software consulting firm specializing in government and enterprise projects.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "nuvento",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEIu5PrbHmbSA/company-logo_100_100/company-logo_100_100/0/1669764860771/nuvento_au_logo?e=1774483200&v=beta&t=mmwA4UfL2lZqoW6BnO4GZNmJMdDfkHo0l9mE_BcZ1qg",
   "name": "Nuvento",
-  "office_locations": [],
+  "office_locations": [
+    "Canberra",
+    "Queanbeyan"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.995246Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.nuvento.com"
 }

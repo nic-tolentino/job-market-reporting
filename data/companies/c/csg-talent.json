@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "csg-talent",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.csgtalent.com/about-us/careers/"
+      }
+    ]
   },
-  "description": "CSG Talent is a company profile created during backlog processing.",
+  "description": "CSG Talent is a global executive search firm specializing in senior-level recruitment across niche technical and commercial sectors.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "csg-talent",
@@ -13,11 +24,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEmX_CmOyRRMw/company-logo_100_100/company-logo_100_100/0/1712744874460/csg_talent_logo?e=1774483200&v=beta&t=nHlIK9OGkCx_6chge3IfoSNor0ZXA9aTkBGZiYU3ZYo",
   "name": "CSG Talent",
-  "office_locations": [],
+  "office_locations": [
+    "Leeds",
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.619806Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.csgtalent.com"
 }

@@ -11,7 +11,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.solera.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.solera.com/careers/"
       }
     ]
   },
@@ -41,13 +48,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T11:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.964852Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.964848Z",
+    "notes": "Global auto tech. Actively uses HQP visa for tech talent in Spain.",
     "offered": true,
-    "source": null,
+    "source": "Solera Careers",
     "types": []
   },
   "website": "https://www.solera.com"

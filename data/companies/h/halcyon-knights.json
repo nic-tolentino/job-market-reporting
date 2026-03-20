@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Agency",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.halcyonknights.com.au/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "halcyonknights",
+    "provider": "SMARTRECRUITERS"
   },
+  "company_type": "Agency",
   "description": "Halcyon Knights is a company profile created during backlog processing.",
   "employees_count": null,
   "hq_country": "AU",

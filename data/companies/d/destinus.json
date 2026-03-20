@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://destinus.com/careers"
+      }
+    ]
   },
-  "description": "Destinus is a company profile created during backlog processing.",
+  "description": "Destinus is a Swiss European aerospace company developing hypersonic aircraft for ultra-fast transportation and clean hydrogen propulsion.",
   "employees_count": null,
   "hq_country": "CH",
   "id": "destinus",
@@ -13,11 +20,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGopNF2N2H1eA/company-logo_100_100/B4DZvXMtMnKQAQ-/0/1768841991315/destinus1_logo?e=1774483200&v=beta&t=Ygmp77Ae_gApIerMtx2zHp-nDI8elayTKXmsO5UK3W8",
   "name": "Destinus",
-  "office_locations": [],
+  "office_locations": [
+    "Payerne",
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.769269Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://destinus.com"
 }

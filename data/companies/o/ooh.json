@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ooh",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://oohmedia.com.au/careers/"
+      }
+    ]
   },
-  "description": "oOh! is a company profile created during backlog processing.",
+  "description": "oOh!media is Australia's leading Out Home media company, with an extensive network of billboards and signs.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "ooh",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHRBVbjNg3_BA/company-logo_100_100/company-logo_100_100/0/1709513913225/ooh_media_logo?e=1774483200&v=beta&t=yXYeVUj2J_Wz1WoT0BJWKMM29U-UwAOHSG5wnrLqWHU",
   "name": "oOh!",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.143548Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.oohmedia.com.au"
 }

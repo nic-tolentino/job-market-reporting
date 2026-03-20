@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "intrec-ai",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.intrec.io/career"
+      }
+    ]
   },
-  "description": "IntRec AI Recruitment is a company profile created during backlog processing.",
+  "description": "IntRec is a technology-led recruitment firm that utilizes AI-driven software to optimize the hiring process.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "intrec-ai-recruitment",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.083754Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.intrec.io"
 }

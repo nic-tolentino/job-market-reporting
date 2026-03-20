@@ -9,7 +9,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.synechron.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.synechron.com/careers"
       }
     ]
   },
@@ -40,13 +47,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T14:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T21:32:28.008364Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:32:27.991003Z",
+    "notes": "Accredited visa sponsor in AU. Some roles PR-only, others (like Tech Analyst) open to sponsorship.",
     "offered": true,
-    "source": null,
+    "source": "Synechron Careers",
     "types": []
   },
   "website": "http://www.synechron.com"

@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Enterprise",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "microchip",
+    "provider": "SMARTRECRUITERS"
   },
-  "description": "Microchip Technology Inc. is a company profile created during backlog processing.",
+  "company_type": "Enterprise",
+  "description": "Microchip Technology is a leading provider of smart, connected, and secure embedded control solutions.",
   "employees_count": null,
   "hq_country": "US",
   "id": "microchip-technology-inc",
@@ -13,11 +14,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFajoqqZYfHYQ/company-logo_100_100/company-logo_100_100/0/1631310605581?e=1774483200&v=beta&t=-5lSHK2Nwg7n60soQOpKBlXHp4GWoQrxuPWrFtguv9Y",
   "name": "Microchip Technology Inc.",
-  "office_locations": [],
+  "office_locations": [
+    "Chandler"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.357473Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.microchip.com"
 }

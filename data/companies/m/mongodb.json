@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mongodb",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://www.mongodb.com/company/careers/teams"
+      }
+    ]
   },
-  "description": "MongoDB is a company profile created during backlog processing.",
+  "description": "MongoDB is a leading developer data platform, known for its scalable and flexible document-oriented database.",
   "employees_count": null,
   "hq_country": "US",
   "id": "mongodb",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFKe8PwqzyHyA/company-logo_100_100/company-logo_100_100/0/1635171226992/mongodbinc_logo?e=1774483200&v=beta&t=Ghm-RfHLYhazYVyzejgYr_V18S-CSbQFh0sdOXOSUVA",
   "name": "MongoDB",
-  "office_locations": [],
+  "office_locations": [
+    "New York"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.359136Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.mongodb.com"
 }

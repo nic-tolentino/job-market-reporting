@@ -2,15 +2,11 @@
   "alternateNames": [
     "Recmatrix"
   ],
-  "company_type": "Agency",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "http://www.recmatrix.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "recmatrix-consulting",
+    "provider": "CUSTOM"
   },
+  "company_type": "Agency",
   "description": "Recmatrix is a specialized recruitment consultancy focused on Digital, Data, Cloud, and AI talent across NZ, Australia, and India.",
   "employees_count": 20,
   "hq_country": "NZ",

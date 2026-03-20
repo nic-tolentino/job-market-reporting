@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "digicert",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "DigiCert is a company profile created during backlog processing.",
+  "description": "DigiCert is a global leader in digital security, providing SSL certificates and PKI solutions for identity and encryption.",
   "employees_count": null,
   "hq_country": "US",
   "id": "digicert",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGAw3CKMFrR4g/company-logo_100_100/B56ZxIzoQeH0AQ-/0/1770748021229/digicert_inc__logo?e=1774483200&v=beta&t=7j8MInAonNwxKcBppllHkNsPxIT7gJBHySLLhxmeePo",
   "name": "DigiCert",
-  "office_locations": [],
+  "office_locations": [
+    "Lehi"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.775045Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.digicert.com"
 }

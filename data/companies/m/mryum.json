@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.meandu.com/careers"
+      }
+    ]
+  },
+  "description": "On a mission to support hospitality & entertainment. A passionate team across Australia, the US, UK and Asia, with a shared goal of supporting the industries we love with world-class products.",
+  "hq_country": "AU",
+  "id": "mryum",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "MrYum",
+  "verification_level": "unverified",
+  "website": "https://www.mryum.com/company"
+}

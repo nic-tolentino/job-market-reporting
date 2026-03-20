@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "octopus",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://octopus.com/company/careers"
+      }
+    ]
+  },
+  "description": "We make Octopus Deploy, software that enables teams to deliver working software to production. We've become the \\\"best in class\\\" tool in our category by focusing on doing one thing and doing it very well. Founded in 2012, we now have over 25,000 happy customers around the world, and we employ 70+ wonderful people.",
+  "hq_country": "AU",
+  "id": "octopus-deploy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Octopus Deploy",
+  "verification_level": "unverified",
+  "website": "https://octopus.com/"
+}

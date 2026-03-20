@@ -2,15 +2,11 @@
   "alternateNames": [
     "Kairós DS"
   ],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.kairosds.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "kairos-digital-solutions",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "Kairós Digital Solutions is a leading technology consultancy focusing on digital products, architecture, and personal/professional growth, recognized as a Great Place to Work.",
   "employees_count": 800,
   "hq_country": "ES",
@@ -34,13 +30,13 @@
     "CO"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T09:20:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.863262Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": false,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.863255Z",
+    "notes": "Global tech consultancy. Highly active sponsor in Spain.",
+    "offered": true,
+    "source": "KAIROS Careers",
     "types": []
   },
   "website": "https://www.kairosds.com"

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "eisi-soft",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://join.com/companies/eisisoft"
+      }
+    ]
   },
-  "description": "EISI SOFT is a company profile created during backlog processing.",
+  "description": "EISI SOFT provides cloud-based facility management and digitalization software specifically designed for the hotel and healthcare industries.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "eisi-soft",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFaqoEx_OfyRA/company-logo_100_100/company-logo_100_100/0/1688375493695/eisisoft_logo?e=1774483200&v=beta&t=H1psxL_6nW4W9WEGCP20lIAyUiW_mp7c1Waf-RDBWb4",
   "name": "EISI SOFT",
-  "office_locations": [],
+  "office_locations": [
+    "Palma"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.376319Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.eisisoft.com"
 }

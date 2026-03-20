@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "australian-retirement-trust",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.australianretirementtrust.com.au/careers"
+      }
+    ]
   },
-  "description": "Australian Retirement Trust is a company profile created during backlog processing.",
+  "description": "Australian Retirement Trust is one of Australia's largest superannuation funds, formed by the merger of Sunsuper and QSuper.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "australian-retirement-trust",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGQ8NbfVoEteQ/company-logo_100_100/company-logo_100_100/0/1638741349385/australian_retirement_trust_logo?e=1774483200&v=beta&t=V0H7gh65cYBUE5ifj7c0mMafdQ5n28ai4f5-xM8h-eA",
   "name": "Australian Retirement Trust",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.117729Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.australianretirementtrust.com.au"
 }

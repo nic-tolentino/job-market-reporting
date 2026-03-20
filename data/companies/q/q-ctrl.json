@@ -9,7 +9,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://q-ctrl.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://q-ctrl.com/careers/"
       }
     ]
   },

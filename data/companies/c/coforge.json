@@ -2,14 +2,25 @@
   "alternateNames": [
     "NIIT Technologies"
   ],
+  "ats": {
+    "identifier": "coforge",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.coforge.com/careers"
-      }
-    ]
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/_hcms/mem/login",
+        "/_hcms/preview/",
+        "/hs/manage-preferences/",
+        "/hs/preferences-center/",
+        "/*?*hs_preview=*",
+        "/*?*hsCacheBuster=*"
+      ]
+    }
   },
   "description": "Coforge is a global digital services and solutions provider that leverages emerging technologies and domain expertise to deliver real-world business impact.",
   "employees_count": 25000,

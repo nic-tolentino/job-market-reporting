@@ -1,11 +1,22 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "twirll",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://twirll.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.twirll.com/careers"
       }
     ]
   },

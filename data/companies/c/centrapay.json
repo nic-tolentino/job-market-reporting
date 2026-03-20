@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "centrapay",
+    "provider": "WORKABLE"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "centrapay is a company profile created during backlog processing.",
+  "description": "Centrapay provides a payments and rewards platform that enables digital transactions and asset transfers using QR technology.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "centrapay",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGH7NfepGU41A/company-logo_100_100/B56ZrdsS.vK4AQ-/0/1764655968569/centrapay_logo?e=1774483200&v=beta&t=IaIBZA40C9S0COLOH4QJ5EhI-jmXslyKdQvm6k1uXOk",
   "name": "centrapay",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.880577Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://centrapay.com"
 }

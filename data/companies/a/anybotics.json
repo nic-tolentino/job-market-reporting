@@ -9,6 +9,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://www.anybotics.com/careers"
       }
     ]

@@ -5,7 +5,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.tomoro.ai/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://tomoro.ai/careers"
       }
     ]
   },

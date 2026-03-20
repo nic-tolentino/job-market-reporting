@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ambition",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Unknown",
   "crawler": {
     "seeds": []
   },
-  "description": "Ambition is a company profile created during backlog processing.",
+  "description": "Ambition is a global boutique recruitment firm specializing in finance, technology, and digital talent acquisition in New Zealand.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "ambition",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGPjDTyzCYsEA/company-logo_100_100/company-logo_100_100/0/1689043128968/ambitionrecruitment_logo?e=1774483200&v=beta&t=WEexrERgUW0muu9KbwZXFjuxlzUT43mgBkDyy5tL3-U",
   "name": "Ambition",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:34.992064Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:21:07.507497Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ambition.co.nz"
 }

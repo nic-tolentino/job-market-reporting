@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.dds-it.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "dds-it",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "DDS IT is a New Zealand-based IT services provider delivering managed services, cloud solutions, and enterprise support with a focus on people.",
   "employees_count": 80,
   "hq_country": "NZ",

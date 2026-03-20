@@ -3,7 +3,7 @@
     "CT"
   ],
   "ats": {
-    "identifier": "j",
+    "identifier": "ct",
     "provider": "WORKABLE"
   },
   "company_type": "Consultancy",
@@ -11,6 +11,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.ct.com.au/careers"
       }
     ]

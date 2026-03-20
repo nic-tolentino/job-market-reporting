@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
   "company_type": "Enterprise",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "tmgm",
+    "provider": "WORKABLE"
   },
-  "description": "TMGM is a company profile created during backlog processing.",
+  "description": "TMGM (Trademax Global Markets) is a leading provider of online trading services and a CFD brokerage.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "tmgm",
@@ -13,11 +14,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGj_DpNUJqaUA/company-logo_100_100/B56Zjqc_rtHUAg-/0/1756280126634/tmgmgroup_logo?e=1774483200&v=beta&t=dpbVVq5xFVwOtE-O8vUud-7Pjz15WiDrgsiGde2s58w",
   "name": "TMGM",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney",
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.269280Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.tmgm.com"
 }

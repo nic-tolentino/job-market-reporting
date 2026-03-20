@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "globant",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Globant is a company profile created during backlog processing.",
+  "description": "Globant is a digitally native company that helps organizations reinvent themselves and unleash their potential through technology.",
   "employees_count": null,
   "hq_country": "AR",
   "id": "globant",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHupr1U3gIQKA/company-logo_100_100/company-logo_100_100/0/1719839010650/globant_logo?e=1774483200&v=beta&t=3AovvLOuR56JC-PWABa3-mO7-rtlWlU7ZkXxGUnvPnA",
   "name": "Globant",
-  "office_locations": [],
+  "office_locations": [
+    "Buenos Aires"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.895082Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.globant.com"
 }

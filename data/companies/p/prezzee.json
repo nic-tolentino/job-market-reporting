@@ -1,0 +1,23 @@
+{
+  "ats": {
+    "identifier": "prezzee",
+    "provider": "GREENHOUSE"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://flayr.breezy.hr/"
+      }
+    ]
+  },
+  "description": "In 2014 our co-founders were shopping in Bondi Junction. Matt turned to Claire and said \\\"I'm sure I've got a Gift Card but I've left it at home.\\\" And that was their \\\"Ah-ha\\\" moment. It was this very problem that Prezzee is now solving - and so much more. Plastic Gift Cards are easily lost, often left at home and add unnecessary weight to your wallet. What's more Gift Cards can lack meaning and personalisation.\\r\\n\\r\\nThat's why, in December 2015, Prezzee launched Australia's first Gift Card app. Prezzee allows customers to buy, send, store and redeem Gift Cards all via their mobile phone so you will never miss an opportunity to redeem a Gift Card again. With additional features to add your own greeting card and personalise the Prezzee Card (which allows you to choose any Gift Card on the platform) Prezzee is changing how we buy, send and store Gift Cards.",
+  "hq_country": "AU",
+  "id": "prezzee",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Prezzee",
+  "verification_level": "unverified"
+}

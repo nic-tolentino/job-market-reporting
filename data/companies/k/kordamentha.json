@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "kordamentha",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "empty",
+        "url": "https://careers.smartrecruiters.com/kordamentha"
+      }
+    ]
   },
-  "description": "KordaMentha is a company profile created during backlog processing.",
+  "description": "KordaMentha is an advisory and investment firm providing restructuring, forensic, and real estate services in Australia.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "kordamentha",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEZI9DAz-yfqg/company-logo_100_100/B56ZoDjwb0HAAQ-/0/1760996296965/kordamentha_logo?e=1774483200&v=beta&t=5wi8_GuqpFMB70hsIVt8SmNJVHKd_zXbN5euaUxPb20",
   "name": "KordaMentha",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.867365Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.kordamentha.com"
 }

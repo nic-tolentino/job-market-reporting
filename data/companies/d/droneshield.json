@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "droneshield",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
+        "url": "https://www.droneshield.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
         "url": "https://www.droneshield.com/careers"
       }
     ]

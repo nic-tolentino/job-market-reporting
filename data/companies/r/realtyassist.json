@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "realtyassist",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "RealtyAssist is a company profile created during backlog processing.",
+  "description": "RealtyAssist is an Australian real estate financial technology company providing digital payment and settlement solutions.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "realtyassist",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFexmKR2oaTGw/company-logo_100_100/company-logo_100_100/0/1729662926900/realtyassist_logo?e=1774483200&v=beta&t=LQMvOV4_pmks85ZrZwHrEw7QyowoGcvm3_zNxBxrhx8",
   "name": "RealtyAssist",
-  "office_locations": [],
+  "office_locations": [
+    "Perth, WA"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:57:50.507087Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.realtyassist.com.au"
 }

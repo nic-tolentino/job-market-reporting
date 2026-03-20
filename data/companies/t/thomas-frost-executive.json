@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "thomas-frost-executive",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Thomas Frost Executive is a company profile created during backlog processing.",
+  "description": "Thomas Frost Executive is an executive search and recruitment firm based in Australia and the US.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "thomas-frost-executive",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQEMFRbnveqQ7g/company-logo_100_100/company-logo_100_100/0/1630599751235/thomas_frost_executive_logo?e=1774483200&v=beta&t=cvRoejnjoX-5Cko8YCfzHcvgYv9vmxE7qAcHgqPv1lE",
   "name": "Thomas Frost Executive",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne",
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.372465Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.thomasfrost.com"
 }

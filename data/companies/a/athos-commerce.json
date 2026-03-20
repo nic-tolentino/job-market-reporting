@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "athos",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Athos Commerce is a company profile created during backlog processing.",
+  "description": "Athos is an Australian-based commerce platform providing integrated solutions for digital and retail businesses.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "athos-commerce",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.119254Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://athos.io"
 }

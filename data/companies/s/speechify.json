@@ -9,6 +9,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://speechify.com/careers"
       }
     ]
@@ -39,13 +40,13 @@
     "Worldwide"
   ],
   "remote_policy": "Remote",
-  "updated_at": "2026-03-10T11:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.957207Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.957202Z",
+    "notes": "Remote-first audio tech. No active sponsorship program found.",
+    "offered": false,
+    "source": "Speechify FAQ",
     "types": []
   },
   "website": "https://speechify.com"

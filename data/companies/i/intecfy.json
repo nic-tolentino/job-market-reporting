@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "intecfy",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.intecfy.com/jobs/"
+      }
+    ]
   },
-  "description": "Intecfy is a company profile created during backlog processing.",
+  "description": "Intecfy is a Spanish IT recruitment agency connecting businesses with top freelance tech talent across Europe.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "intecfy",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHLEcCmBzR_VA/company-logo_100_100/company-logo_100_100/0/1733682939153?e=1774483200&v=beta&t=9vDVkAsDyHMHt5e3IcyrOlUn1PjWMLq0vS1Q4cRIFjs",
   "name": "Intecfy",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.084113Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://intecfy.com"
 }

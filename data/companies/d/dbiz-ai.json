@@ -3,11 +3,16 @@
     "dbiz.ai",
     "Digital Biz Solutions Pty Ltd"
   ],
+  "ats": {
+    "identifier": "dbiz",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://dbiz.ai/careers"
       }
     ]

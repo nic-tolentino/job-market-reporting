@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "northius",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://northius.com/work-at-northius/"
+      }
+    ]
   },
-  "description": "Northius is a company profile created during backlog processing.",
+  "description": "Northius is a leading digital education platform in Spain, specializing in vocational and professional training.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "northius",
@@ -13,11 +24,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQH-VdpLKhzd9A/company-logo_100_100/company-logo_100_100/0/1652341824712/northius_logo?e=1774483200&v=beta&t=-6mQOkf-Y54xYOb8fk6Pc-XI6qILROrQVmEoixu6AUQ",
   "name": "Northius",
-  "office_locations": [],
+  "office_locations": [
+    "A Coruña",
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.898785Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://northius.com"
 }

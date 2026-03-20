@@ -1,23 +1,36 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "appointrecruit",
+    "provider": "CUSTOM"
+  },
   "company_type": "Unknown",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://appointrecruit.com.au/jobs/"
+      }
+    ]
   },
-  "description": "Appoint Pty Ltd is a company profile created during backlog processing.",
+  "description": "Appoint Recruit is a specialist recruitment firm providing talent acquisition services for various industry sectors.",
   "employees_count": null,
-  "hq_country": "NZ",
+  "hq_country": "AU",
   "id": "appoint-pty-ltd",
   "industries": [],
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEdcD-sPVy_Eg/company-logo_100_100/company-logo_100_100/0/1701727917183/appoint_pty_ltd_logo?e=1774483200&v=beta&t=0E5wBGhqtOgbMlJP1DsvfenWLwmtl0YehDK_ziarLVw",
   "name": "Appoint Pty Ltd",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:34.992181Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:21:07.504751Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.appointrecruit.com.au"
 }

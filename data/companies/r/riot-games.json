@@ -1,7 +1,7 @@
 {
   "alternateNames": [],
   "ats": {
-    "identifier": "embed",
+    "identifier": "riotgames",
     "provider": "GREENHOUSE"
   },
   "company_type": "Product",
@@ -9,6 +9,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.riotgames.com/careers"
       }
     ]

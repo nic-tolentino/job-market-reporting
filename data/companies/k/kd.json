@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "kd",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://kd.tech/careers/"
+      }
+    ]
   },
-  "description": "KD is a company profile created during backlog processing.",
+  "description": "KD (Knowledge Development) is a Spanish semiconductor company specializing in high-speed optical networking for harsh environments.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "kd",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHrJKjAS-LVvA/company-logo_100_100/company-logo_100_100/0/1720167692615/kd_corp_logo?e=1774483200&v=beta&t=JDHNh53E-M_IJKUqAjslsuaNvBOPONwC2lcYcTt-KIw",
   "name": "KD",
-  "office_locations": [],
+  "office_locations": [
+    "Tres Cantos"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.189242Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://kd.tech"
 }

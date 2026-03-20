@@ -10,8 +10,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://welcome.jbtmarel.com/careers"
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "blocked",
+        "url": "https://jbtm.wd108.myworkdayjobs.com/en-US"
       }
     ]
   },

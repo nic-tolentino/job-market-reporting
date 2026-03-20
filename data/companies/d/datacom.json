@@ -11,6 +11,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://datacom.com/careers"
       }
     ]
@@ -41,13 +42,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T09:05:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T21:30:05.089153Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:30:05.074826Z",
+    "notes": "Major sponsor in NZ (Accredited). Also offers sponsorship for specific roles and early career pathways in AU with job offer.",
     "offered": true,
-    "source": null,
+    "source": "Datacom Careers",
     "types": []
   },
   "website": "https://datacom.com"

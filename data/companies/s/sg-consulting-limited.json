@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://nz.indeed.com/cmp/SG-Consulting-Limited/jobs"
+      }
+    ]
   },
-  "description": "SG Consulting Limited is a company profile created during backlog processing.",
+  "description": "SG Consulting Limited provides custom software development, e-business solutions, and IT consulting services in New Zealand.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "sg-consulting-limited",
@@ -13,11 +20,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQHaki3WhHzYZw/company-logo_100_100/company-logo_100_100/0/1630610915085/crescent_technologies_ltd_logo?e=1773878400&v=beta&t=8xnye60eJMBOmCcv1lNZJ-wYlOHUE28VTwSMTE0Nitc",
   "name": "SG Consulting Limited",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland",
+    "Hamilton"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:03:22.241652Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sgbconsulting.co.nz"
 }

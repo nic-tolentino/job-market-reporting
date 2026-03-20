@@ -2,12 +2,23 @@
   "alternateNames": [
     "Komodo"
   ],
+  "ats": {
+    "identifier": "komodo-wellbeing",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "http://www.komodowellbeing.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.komodowellbeing.com/careers"
       }
     ]
   },

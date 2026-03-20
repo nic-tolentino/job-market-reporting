@@ -2,12 +2,17 @@
   "alternateNames": [
     "Southern Cross"
   ],
+  "ats": {
+    "identifier": "SCHS",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.southerncross.co.nz/careers"
+        "category": "careers",
+        "status": "empty",
+        "url": "https://southerncross.wd3.myworkdayjobs.com/SCHS"
       }
     ]
   },

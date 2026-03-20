@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "viterbit",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://app.viterbit.com/jobs-widget/WPHzvZfPnPf/open-url/"
+      }
+    ]
   },
-  "description": "Viterbit is a company profile created during backlog processing.",
+  "description": "Viterbit is an AI-powered recruitment platform (ATS) that optimizes talent acquisition and improves candidate experience.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "viterbit",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFw3lrALqkk2g/company-logo_100_100/company-logo_100_100/0/1666342562096/viterbit_logo?e=1774483200&v=beta&t=ITuhqB6_mlRuAiviGA9GFy0h0sN5k9mo0vQRWciroyA",
   "name": "Viterbit",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.797822Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://viterbit.com"
 }

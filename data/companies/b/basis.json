@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "basis",
+    "provider": "LEVER"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Basis is a company profile created during backlog processing.",
+  "description": "Basis is a New Zealand engineering firm specializing in solar, electrical, and sustainable energy solutions.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "basis",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQG0sFbBqx7Rsg/company-logo_100_100/company-logo_100_100/0/1682646298881/basishq_logo?e=1773878400&v=beta&t=ptzIq9tFQaXYrMETlyUqPT5uOQmswHv1-_H3wm0fZjQ",
   "name": "Basis",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.825193Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.basisnz.co.nz"
 }

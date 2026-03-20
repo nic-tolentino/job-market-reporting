@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "apollinaris",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Apollinaris is a company profile created during backlog processing.",
+  "description": "Apollinaris is a premium German mineral water brand, part of the Coca-Cola Company portfolio.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "apollinaris",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEqpyPllvSt5g/company-logo_100_100/company-logo_100_100/0/1718750378311/apollinarisnz_logo?e=1774483200&v=beta&t=cYq8Rv4HtYgHTp8Oi9Ih61hx7VkYpMkz9t8k3YKDBa0",
   "name": "Apollinaris",
-  "office_locations": [],
+  "office_locations": [
+    "Bad Neuenahr-Ahrweiler"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.492795Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.apollinaris.de"
 }

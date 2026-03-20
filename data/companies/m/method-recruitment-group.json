@@ -1,11 +1,22 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "method-recruitment-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.methodrecruitment.com.au/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://methodrecruitment.com.au/careers-bjarke-ingels-classification/"
       }
     ]
   },

@@ -11,8 +11,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.accenture.co.nz/careers"
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://accenture.wd103.myworkdayjobs.com/AccentureCareers"
       }
     ]
   },
@@ -38,13 +40,13 @@
     "NZ"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T05:30:58.400150Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.820766Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.820761Z",
+    "notes": "Accredited Employer (NZ). Major global sponsor for skilled consulting roles.",
     "offered": true,
-    "source": null,
+    "source": "Accenture Careers",
     "types": []
   },
   "website": "https://www.accenture.co.nz"

@@ -1,5 +1,9 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "onthaast-en-geniet",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []

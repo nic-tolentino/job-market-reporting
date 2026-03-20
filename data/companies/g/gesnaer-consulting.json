@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "gesnaer",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://join.com/companies/gesnaer"
+      }
+    ]
   },
-  "description": "Gesnaer Consulting is a company profile created during backlog processing.",
+  "description": "Gesnaer Consulting is an engineering and technology company specializing in airport, air navigation, and transport sectors.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "gesnaer-consulting",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFTcMy2yDQ3bg/company-logo_100_100/company-logo_100_100/0/1630581651618/gesnaer_logo?e=1774483200&v=beta&t=-srCUF0Ep_KXzE__5Igqm4LAUEL_RduTKopNBgBEYMQ",
   "name": "Gesnaer Consulting",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:10:46.159639Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://gesnaer.es"
 }

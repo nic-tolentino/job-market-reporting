@@ -3,14 +3,6 @@
     "Acento Recruitment"
   ],
   "company_type": "Agency",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://acento.be/careers"
-      }
-    ]
-  },
   "description": "Acento is an international recruitment and staffing agency specializing in connecting tech talent with European institutions and global enterprises.",
   "employees_count": 50,
   "hq_country": "BE",

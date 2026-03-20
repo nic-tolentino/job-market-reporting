@@ -1,11 +1,22 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mainfreight",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "general",
+        "status": "empty",
         "url": "https://www.mainfreight.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.mainfreight.com/global/en-nz/mainfreight-careers"
       }
     ]
   },
@@ -33,13 +44,13 @@
     "AS"
   ],
   "remote_policy": "On-site",
-  "updated_at": "2026-03-14T10:00:00Z",
+  "updated_at": "2026-03-16T21:41:07.437365Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-16T21:41:07.432224Z",
+    "notes": "Graduate programs and general recruitment focus on NZ Citizens/Residents. Promotes from within global talent pool.",
+    "offered": false,
+    "source": "Mainfreight Careers",
     "types": []
   },
   "website": "https://www.mainfreight.com"

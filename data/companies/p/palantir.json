@@ -1,0 +1,29 @@
+{
+  "ats": {
+    "identifier": "palantir",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://www.palantir.com/careers/"
+      }
+    ]
+  },
+  "description": "To achieve our best outcomes, Palantir needs people who bring a wide range of backgrounds, perspectives, and lived experiences. We believe that all Palantirians share the responsibility of upholding our values of equity and inclusion. Our Diversity, Equity & Inclusion (DEI) team takes the lead in working to increase awareness and accountability and promote active allyship throughout Palantir.",
+  "hq_country": "US",
+  "id": "palantir",
+  "industries": [
+    "Data Analytics",
+    "AI",
+    "Defence"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Palantir",
+  "verification_level": "unverified",
+  "website": "https://www.palantir.com/about/"
+}

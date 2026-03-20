@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "quadrivia",
+    "provider": "ASHBY"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Quadrivia AI is a company profile created during backlog processing.",
+  "description": "Quadrivia AI is a health technology company providing clinical AI assistants to support healthcare professionals.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "quadrivia-ai",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.921658Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://quadrivia.ai"
 }

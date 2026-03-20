@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "airzone-control",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "blocked",
+        "url": "https://airzonecontrol.wd103.myworkdayjobs.com/es"
+      }
+    ]
   },
-  "description": "Airzone Control is a company profile created during backlog processing.",
+  "description": "Airzone designs and manufactures intelligent HVAC control systems for residential and commercial energy efficiency.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "airzone-control",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHSGB72RGXFCg/company-logo_100_100/company-logo_100_100/0/1630652642957/airzonecontrol_logo?e=1774483200&v=beta&t=TGJOS4n86nXP0_MR-xqBQMrNVPwgxgbDb3ntJxCIWeQ",
   "name": "Airzone Control",
-  "office_locations": [],
+  "office_locations": [
+    "Málaga"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.106753Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.airzonecontrol.com"
 }

@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "moodle",
+    "provider": "WORKABLE"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "blocked",
+        "url": "https://moodle.com/careers/"
+      }
+    ]
+  },
+  "description": "The mission of the Moodle project is to empower educators to improve our world by building the most efficient platform for teaching, learning and collaborating online.",
+  "hq_country": "AU",
+  "id": "moodle",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Moodle",
+  "verification_level": "unverified",
+  "website": "https://moodle.com/about/"
+}

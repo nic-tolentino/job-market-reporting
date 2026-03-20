@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "fusionhit",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "FusionHit is a company profile created during backlog processing.",
+  "description": "FusionHit is a software development outsourcing company providing Agile teams and high-quality software solutions.",
   "employees_count": null,
   "hq_country": "US",
   "id": "fusionhit",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFKAiCy2Fft0Q/company-logo_100_100/company-logo_100_100/0/1633025489433/fusionhit_logo?e=1774483200&v=beta&t=HiERx7oXFgImR7RJuTEoIrKqDKatTGS80jgrP8Z2opQ",
   "name": "FusionHit",
-  "office_locations": [],
+  "office_locations": [
+    "San José"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.702704Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.fusionhit.com"
 }

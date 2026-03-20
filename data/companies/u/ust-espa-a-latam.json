@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ust",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "UST España & Latam is a company profile created during backlog processing.",
+  "description": "UST is a global digital transformation company providing technology services and solutions.",
   "employees_count": null,
   "hq_country": "US",
   "id": "ust-espa-a-latam",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGOXgcV6VVx3g/company-logo_100_100/company-logo_100_100/0/1630627554965/ustespana_logo?e=1774483200&v=beta&t=Rb6Z0MEWWYbFDzDH8auzN3ofbXD5v9kdMSPiGqmqsQw",
   "name": "UST España & Latam",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.853399Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ust.com/es"
 }

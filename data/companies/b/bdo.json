@@ -13,6 +13,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://www.bdo.nz/careers"
       }
     ]

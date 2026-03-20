@@ -1,11 +1,27 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "cba",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
+    "discovery": {
+      "lastAttemptedAt": "2026-03-17",
+      "notes": "Careers page scan detected WORKDAY (cba) — requires paid/custom integration",
+      "status": "NO_MATCH"
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.commbank.com.au/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.commbank.com.au/about-us/careers.html"
       }
     ]
   },
@@ -23,8 +39,14 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-17T00:13:42.855054Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-17T00:13:42.855040Z",
+    "notes": "Sponsors experienced hires in AU. Graduate programs are strictly residency-based.",
+    "offered": true,
+    "source": "CBA Careers",
+    "types": []
+  },
   "website": "http://www.commbank.com.au/"
 }

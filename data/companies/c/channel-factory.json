@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://channelfactory.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "channelfactory",
+    "provider": "SMARTRECRUITERS"
   },
+  "company_type": "Product",
   "description": "Channel Factory is a global technology platform that maximizes the suitability and performance of social video advertising for brands on platforms like YouTube.",
   "employees_count": 400,
   "hq_country": "US",

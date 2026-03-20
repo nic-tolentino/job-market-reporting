@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "crescenta",
+    "provider": "CUSTOM"
+  },
   "company_type": "Unknown",
   "crawler": {
     "seeds": []
   },
-  "description": "Crescenta is a company profile created during backlog processing.",
+  "description": "Crescenta is Spain's first digital fund manager for Private Equity, democratizing access to high-yield private market investments.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "crescenta",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFxYeZFhvCbSA/company-logo_100_100/B4DZd.ycdLGUAQ-/0/1750178842805/crescenta_logo?e=1774483200&v=beta&t=k02ualwbjpUO05fTQb-_uwyneNij-_CjoFjiD9FpBsg",
   "name": "Crescenta",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:34.962465Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:34:56.628946Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.crescenta.com"
 }

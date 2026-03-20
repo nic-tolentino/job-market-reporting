@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "the-west-australian",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "blocked",
+        "url": "https://sevenwestmedia.wd105.myworkdayjobs.com/en-GB"
+      }
+    ]
   },
-  "description": "The West Australian is a company profile created during backlog processing.",
+  "description": "The West Australian is a leading daily newspaper based in Perth, Western Australia, part of Seven West Media.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "the-west-australian",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQE7O6nHv3n3pA/company-logo_100_100/company-logo_100_100/0/1630564253323/west_australian_newspapers_logo?e=1774483200&v=beta&t=rv9ymfoq8rO8m3pJzWj-9DnrRDtpHAcoz_QPGBCMfWU",
   "name": "The West Australian",
-  "office_locations": [],
+  "office_locations": [
+    "Perth"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.388278Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://thewest.com.au"
 }

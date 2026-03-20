@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "starboard-maritime-intelligence",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Starboard Maritime Intelligence is a company profile created during backlog processing.",
+  "description": "Starboard Maritime Intelligence provides global maritime domain awareness and vessel analysis software.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "starboard-maritime-intelligence",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEx1THhCSnktA/company-logo_100_100/B56Zm7fVeRKAAU-/0/1759787178309/starboard_nz_logo?e=1774483200&v=beta&t=EVu3xqTwHbKyluIS8IDdKYCx2MV80bJ1wr9ABH1larE",
   "name": "Starboard Maritime Intelligence",
-  "office_locations": [],
+  "office_locations": [
+    "Wellington"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.414202Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://starboard.nz"
 }

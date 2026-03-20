@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "grupo-alonso",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Grupo Alonso is a company profile created during backlog processing.",
+  "description": "Grupo Alonso is a Spanish logistics and transport group with global presence and a focus on sustainability and innovation.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "grupo-alonso",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEQTUUDatJdZg/company-logo_100_100/B4EZxHn2qdHkAQ-/0/1770728156238/grupoalonso_logo?e=1774483200&v=beta&t=utE-ox_EP77Yiy02_-JEURXdhCk3bVWaCbqxbppDOpc",
   "name": "Grupo Alonso",
-  "office_locations": [],
+  "office_locations": [
+    "Valencia"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:10:46.156666Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://grupo-alonso.com"
 }

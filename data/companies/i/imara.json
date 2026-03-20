@@ -11,7 +11,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "http://www.imara.co.nz/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.imara.co.nz/jobs/"
       }
     ]
   },

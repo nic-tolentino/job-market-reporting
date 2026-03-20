@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "machines-at-work",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Machines at Work is a company profile created during backlog processing.",
+  "description": "Machines at Work specializes in autonomous agricultural robotics and technology for orchards and vineyards.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "machines-at-work",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHn_tYUenmJDQ/company-logo_100_100/company-logo_100_100/0/1637286865156/machinesatwork_logo?e=1774483200&v=beta&t=T9CF-aW_Xmy9q7vAUs4EHAtY6YI-b3WAZteKpIqbBG0",
   "name": "Machines at Work",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.372666Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.machinesatwork.com.au"
 }

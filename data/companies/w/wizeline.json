@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "wizeline",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Wizeline is a company profile created during backlog processing.",
+  "description": "Wizeline is a global technology services company that builds high-quality digital products and provides AI-driven solutions.",
   "employees_count": null,
   "hq_country": "US",
   "id": "wizeline",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQF3qibfOQpIVQ/company-logo_100_100/company-logo_100_100/0/1656716553491/wizeline_logo?e=1774483200&v=beta&t=cjIA_8H9RAa7vwI_jVRw4XSpkhVxBKcAH8TCL6VT_Ug",
   "name": "Wizeline",
-  "office_locations": [],
+  "office_locations": [
+    "San Francisco"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:48:35.252337Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.wizeline.com"
 }

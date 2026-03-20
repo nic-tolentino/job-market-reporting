@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "catemo",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://catemo.es/seleccion-vacantes-abiertas/"
+      }
+    ]
   },
-  "description": "Catemo is a company profile created during backlog processing.",
+  "description": "Catemo provides business services and technological support in Spain, focusing on professional management and consulting.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "catemo",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGTXOBoEasy1w/company-logo_100_100/company-logo_100_100/0/1630629852725/catemo_logo?e=1774483200&v=beta&t=9uIfaKVkw3_2hQhnS4FeXzIbEKelHg_ekeaU9OBHcoY",
   "name": "Catemo",
-  "office_locations": [],
+  "office_locations": [
+    "A Coruña"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.626623Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://catemo.es"
 }

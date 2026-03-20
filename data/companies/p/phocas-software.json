@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "phocassoftware",
+    "provider": "WORKABLE"
   },
-  "description": "Phocas Software is a company profile created during backlog processing.",
+  "company_type": "Product",
+  "description": "Phocas Software is an Australian-founded business intelligence firm providing data analytics and financial reporting solutions.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "phocas-software",
@@ -13,11 +14,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHywld87bn8pQ/company-logo_100_100/company-logo_100_100/0/1719257435160/phocas_2_logo?e=1774483200&v=beta&t=QS4MwmHvLBZw_vXBfspO1AwCpOFjxBEtwcjkuDsaoAg",
   "name": "Phocas Software",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney",
+    "Orange"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.949676Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.phocassoftware.com"
 }

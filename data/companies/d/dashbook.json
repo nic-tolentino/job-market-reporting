@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "dashbook",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://dashbook.com/careers"
+      }
+    ]
   },
-  "description": "DashBook is a company profile created during backlog processing.",
+  "description": "DashBook provides royalty accounting software for book publishers and rights holders to manage complex payments.",
   "employees_count": null,
   "hq_country": "US",
   "id": "dashbook",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFTOUrVriGzuA/company-logo_100_100/company-logo_100_100/0/1712831235561/dashbook_logo?e=1774483200&v=beta&t=_Wk1GktYlP1kx8OIoFImT2gOXFvLt4WF5A5G297rKk0",
   "name": "DashBook",
-  "office_locations": [],
+  "office_locations": [
+    "Las Vegas"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.789258Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://dashbook.com"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "jjungles",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "JJungles™ AgencyOS is a company profile created during backlog processing.",
+  "description": "JJungles provides AgencyOS, a comprehensive operating system designed to automate workflows for digital agencies.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "jjungles-agencyos",
@@ -12,12 +16,14 @@
   "is_agency": true,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEqZBbX5jidbA/company-logo_100_100/company-logo_100_100/0/1678062661038?e=1774483200&v=beta&t=_VFx6u2Z8QAR0GDEYNfc99TxS0xgD46lYcfK6a0u4HQ",
-  "name": "JJungles™ AgencyOS",
-  "office_locations": [],
+  "name": "JJungles\u2122 AgencyOS",
+  "office_locations": [
+    "Sunshine Coast"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.375794Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://jjungles.com"
 }

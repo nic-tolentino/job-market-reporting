@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "spaceship",
+    "provider": "GREENHOUSE"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.spaceship.com.au/careers/"
+      }
+    ]
+  },
+  "description": "Spaceship was founded in 2016 with a single mission: to enable you to invest in your future, so you can live the life you want to live.",
+  "hq_country": "AU",
+  "id": "spaceship",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Spaceship",
+  "verification_level": "unverified",
+  "website": "https://www.spaceship.com.au/about/"
+}

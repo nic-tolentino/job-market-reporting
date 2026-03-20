@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "bureauveritas",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Bureau Veritas North America is a company profile created during backlog processing.",
+  "description": "Bureau Veritas is a world leader in testing, inspection, and certification (TIC) services across multiple industries.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "bureau-veritas-north-america",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.845807Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.bureauveritas.com"
 }

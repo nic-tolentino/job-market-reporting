@@ -2,11 +2,16 @@
   "alternateNames": [
     "One NZ"
   ],
+  "ats": {
+    "identifier": "one",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.one.nz/careers"
       }
     ]

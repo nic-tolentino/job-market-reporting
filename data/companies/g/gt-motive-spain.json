@@ -1,11 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "gtmotive",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.gtmotive.com/careers"
+      },
+      {
+        "category": "careers",
+        "status": "empty",
+        "url": "https://gtmotive.com/en/careers/"
       }
     ]
   },

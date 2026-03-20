@@ -11,7 +11,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.dxc.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://dxc.com/careers"
       }
     ]
   },
@@ -41,13 +48,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T14:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T21:36:22.556932Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:36:22.538413Z",
+    "notes": "Offers sponsorship for experienced tech roles in AU. Graduate programs are strictly restricted to Citizens/PR.",
     "offered": true,
-    "source": null,
+    "source": "DXC Careers",
     "types": []
   },
   "website": "http://www.dxc.com"

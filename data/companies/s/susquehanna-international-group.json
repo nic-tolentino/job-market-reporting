@@ -2,11 +2,27 @@
   "alternateNames": [
     "SIG"
   ],
+  "ats": {
+    "identifier": "sig",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/404",
+        "/searchsite/",
+        "/extra/",
+        "/documents/"
+      ]
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://sig.com/careers"
       }
     ]
@@ -37,13 +53,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T11:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.839857Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.839851Z",
+    "notes": "Global finance firm. Sponsors high-end Quant/SRE roles in Sydney.",
     "offered": true,
-    "source": null,
+    "source": "SIG Careers",
     "types": []
   },
   "website": "https://sig.com"

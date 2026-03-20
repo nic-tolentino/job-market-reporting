@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "engenious",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://engenious.io/en/careers"
+      }
+    ]
   },
-  "description": "Engenious is a company profile created during backlog processing.",
+  "description": "Engenious is an AI-native software engineering firm that helps companies build and scale digital products faster.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "engenious",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.385865Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.engenious.io"
 }

@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "blocked",
+        "url": "https://blackroc.co/careers"
+      }
+    ]
   },
-  "description": "BLACKROC Recruitment is a company profile created during backlog processing.",
+  "description": "BLACKROC is a specialist technology and digital recruitment agency based in Queensland, Australia.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "blackroc-recruitment",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGby46hQr2Xhw/company-logo_100_100/company-logo_100_100/0/1715228756555/blackroc_logo?e=1774483200&v=beta&t=wh0IQnxExZqKX6OzADFATgKuoGtmhMUuDcGsII6lqls",
   "name": "BLACKROC Recruitment",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.838947Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://blackroc.co"
 }

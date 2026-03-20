@@ -11,6 +11,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "http://www.cin7.com/careers"
       }
     ]

@@ -2,15 +2,11 @@
   "alternateNames": [
     "Southern Cross Health Society"
   ],
-  "company_type": "Enterprise",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.southerncross.co.nz/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "southern-cross",
+    "provider": "CUSTOM"
   },
+  "company_type": "Enterprise",
   "description": "Southern Cross is New Zealand's leading provider of health insurance and healthcare services, helping more than 900,000 Kiwis with their wellbeing.",
   "employees_count": 1000,
   "hq_country": "NZ",

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "eucalyptus",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://eucalyptus.recruitee.com/"
+      }
+    ]
   },
-  "description": "Eucalyptus is a company profile created during backlog processing.",
+  "description": "Eucalyptus is an Australian health-tech house building and running consumer healthcare brands powered by technology.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "eucalyptus",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHuadfQHOi8cQ/company-logo_100_100/company-logo_100_100/0/1730271884802/eucalyptusvc_logo?e=1774483200&v=beta&t=uwx4aKBQz7eJPY2nA6oa9meGQlCqDz0RSMkuYc2Y3GE",
   "name": "Eucalyptus",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.944211Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://eucalyptus.vc"
 }

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "schwarz-digits",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.schwarz-digits.de/jobsearch"
+      }
+    ]
   },
-  "description": "Schwarz Digits is a company profile created during backlog processing.",
+  "description": "Schwarz Digits is the IT and digital division of the Schwarz Group, providing cloud, cybersecurity, and e-commerce solutions.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "schwarz-digits",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGdxKlR6l_pfg/company-logo_100_100/company-logo_100_100/0/1695921076971?e=1774483200&v=beta&t=NsN6hj2n8Fyj0EnpGD9jrzWZz7peJp5caPU3ayAD-Q0",
   "name": "Schwarz Digits",
-  "office_locations": [],
+  "office_locations": [
+    "Neckarsulm"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.412572Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.schwarz-digits.de"
 }

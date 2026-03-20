@@ -1,23 +1,29 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "agscent",
+    "provider": "CUSTOM"
+  },
   "company_type": "Unknown",
   "crawler": {
     "seeds": []
   },
-  "description": "Agscent is a company profile created during backlog processing.",
+  "description": "Agscent is an Australian agritech company developing non-invasive livestock breath diagnostics technology.",
   "employees_count": null,
-  "hq_country": "NZ",
+  "hq_country": "AU",
   "id": "agscent",
   "industries": [],
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEs8AFCSxfReQ/company-logo_100_100/company-logo_100_100/0/1660696937811?e=1774483200&v=beta&t=GckbPe3zJ5EENXZugo-BrFrk6A_BP2iIrEc4u0zqqKQ",
   "name": "Agscent",
-  "office_locations": [],
+  "office_locations": [
+    "Carwoola"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:34.991844Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:21:07.497365Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.agscent.com"
 }

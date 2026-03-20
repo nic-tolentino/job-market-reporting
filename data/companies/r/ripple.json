@@ -2,11 +2,16 @@
   "alternateNames": [
     "Ripple Labs"
   ],
+  "ats": {
+    "identifier": "ripple",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://ripple.com/careers"
       }
     ]

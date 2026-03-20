@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://apply.workable.com/gramian-consulting-group/"
+      }
+    ]
   },
-  "description": "Gramian Consulting is a company profile created during backlog processing.",
+  "description": "Gramian Consulting Group is a technology consultancy providing IT professional services and engineering talent solutions.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "gramian-consulting",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEMwKq5Apt29A/company-logo_100_100/B4EZl6ck5TKsAU-/0/1758695936047/gramian_consulting_logo?e=1774483200&v=beta&t=9KOmAN7Nr7-JuKdSxSQQBXhgT2Wi4acbskWH6QVm3Ag",
   "name": "Gramian Consulting",
-  "office_locations": [],
+  "office_locations": [
+    "Remote-first"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:10:46.158949Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://gramianconsulting.com"
 }

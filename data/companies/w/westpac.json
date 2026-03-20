@@ -2,12 +2,23 @@
   "alternateNames": [
     "Westpac Group"
   ],
+  "ats": {
+    "identifier": "westpac",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.westpac.com.au/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.westpac.com.au/about-westpac/careers/?wbc-vnty=www.westpac.com.au/careers"
       }
     ]
   },
@@ -37,13 +48,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T14:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T21:30:05.078621Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:30:05.074523Z",
+    "notes": "Approved sponsor in AU (TSS/482) and Accredited in NZ. Relocation assistance may be offered. Graduate programs usually require residency/citizenship.",
     "offered": true,
-    "source": null,
+    "source": "Westpac Careers",
     "types": []
   },
   "website": "https://www.westpac.com.au"

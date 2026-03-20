@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "hub24",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://hub24management.wd105.myworkdayjobs.com/HUB24_Careers"
+      }
+    ]
   },
-  "description": "HUB24 Limited is a company profile created during backlog processing.",
+  "description": "HUB24 is an Australian fintech service provider and operator of an investment platform for financial advisors.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "hub24-limited",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHI8yEZ0hsrJw/company-logo_100_100/company-logo_100_100/0/1631357683618?e=1774483200&v=beta&t=_XE9_TMzs6Zj--qOMj_8kPQ6_2wByjq1ORPugNuCado",
   "name": "HUB24 Limited",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.154231Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.hub24.com.au"
 }

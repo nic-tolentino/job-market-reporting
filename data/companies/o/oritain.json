@@ -1,10 +1,10 @@
 {
-  "alternateNames": [],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "oritain",
+    "provider": "WORKABLE"
   },
-  "description": "Oritain is a company profile created during backlog processing.",
+  "company_type": "Product",
+  "description": "Oritain is a global leader in forensic science, providing traceability solutions to verify the origin of products and raw materials.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "oritain",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE04u99z66EOg/company-logo_100_100/B56ZpWBjz3I8AQ-/0/1762379841972/oritain_logo?e=1774483200&v=beta&t=pXrb1gl_WLaZX90fg3Knshh_BATKZ42t7hnwNAICltk",
   "name": "Oritain",
-  "office_locations": [],
+  "office_locations": [
+    "Dunedin"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:28:11.629038Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://oritain.com"
 }

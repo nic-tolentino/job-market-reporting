@@ -2,12 +2,28 @@
   "alternateNames": [
     "Navico"
   ],
+  "ats": {
+    "identifier": "brunswick",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
+    "discovery": {
+      "lastAttemptedAt": "2026-03-17",
+      "notes": "Careers page scan detected WORKDAY (brunswick) — requires paid/custom integration",
+      "status": "NO_MATCH"
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.navico.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.navico.com/careers"
       }
     ]
   },

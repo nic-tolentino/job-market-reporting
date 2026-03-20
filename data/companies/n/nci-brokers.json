@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nci-brokers",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.nci.com.au/careers"
+      }
+    ]
   },
-  "description": "National Credit Insurance (Brokers) Pty Ltd is a company profile created during backlog processing.",
+  "description": "NCI (National Credit Insurance) is a specialist trade credit insurance broker in Australia.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "nci-brokers",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEV2ZBLrSW0Aw/company-logo_100_100/company-logo_100_100/0/1631359045125?e=1774483200&v=beta&t=E-NXILnmuim8UOUdH2oEtLC6OUBMm88gT2wK3VqA7qY",
   "name": "National Credit Insurance (Brokers) Pty Ltd",
-  "office_locations": [],
+  "office_locations": [
+    "Adelaide"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.991711Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.nci.com.au"
 }

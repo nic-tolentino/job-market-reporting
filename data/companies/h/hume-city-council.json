@@ -1,10 +1,20 @@
 {
-  "company_type": "Enterprise",
+  "alternateNames": [],
+  "ats": {
+    "identifier": "HumeCityCouncil",
+    "provider": "SMARTRECRUITERS"
+  },
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://www.hume.vic.gov.au/careers"
+      },
+      {
+        "category": "careers",
+        "status": "blocked",
+        "url": "https://careers.smartrecruiters.com/HumeCityCouncil"
       }
     ]
   },

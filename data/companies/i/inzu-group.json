@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "inzu-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "INZU Group is a company profile created during backlog processing.",
+  "description": "INZU Group is an international industrial group based in Spain specializing in high-value manufacturing solutions and R&D.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "inzu-group",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFG273Y07SEmA/company-logo_100_100/company-logo_100_100/0/1630547899623?e=1774483200&v=beta&t=acjIkS1KDntFZt0cJVTg0UxSRsq1kZFO6RslRep2KLo",
   "name": "INZU Group",
-  "office_locations": [],
+  "office_locations": [
+    "Elgoibar"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.082883Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.inzugroup.com"
 }

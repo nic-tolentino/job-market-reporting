@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nttdata",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "NTT DATA is a company profile created during backlog processing.",
+  "description": "NTT DATA is a top-tier global IT services and consulting company.",
   "employees_count": null,
   "hq_country": "JP",
   "id": "ntt-data",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQG7jRpN_AlTzQ/company-logo_100_100/B4EZfDWLjTHgAQ-/0/1751329061728/nttdata_logo?e=1774483200&v=beta&t=7Kh5uczeUTJQCn6q-NqOtyrhofrM3jUTbZv8aXH6ehA",
   "name": "NTT DATA",
-  "office_locations": [],
+  "office_locations": [
+    "Tokyo"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.988038Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.nttdata.com"
 }

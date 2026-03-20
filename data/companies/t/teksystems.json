@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "teksystems",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Agency",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.teksystems.com/careers"
       }
     ]
@@ -35,13 +46,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T14:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.818177Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.818172Z",
+    "notes": "Recruitment agency. Does not sponsor directly for its client placements.",
+    "offered": false,
+    "source": "Agency Policy",
     "types": []
   },
   "website": "https://www.teksystems.com"

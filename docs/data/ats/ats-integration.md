@@ -2,6 +2,8 @@
 
 This document defines the strategy for integrating with Applicant Tracking System (ATS) providers and supplementary job data sources (scrapers, job boards) to build a comprehensive, multi-source job data pipeline. It reflects the current state of the codebase as of **March 2026** and prioritizes ATS systems based on our real-world company roster analysis.
 
+> **Status update (March 2026):** Greenhouse, Lever, Ashby, SmartRecruiters, TeamTailor, and Workable are all fully implemented. 419 companies (30.5% of 1,372) are now covered by direct ATS API integrations. The remaining coverage challenge is the **620 CUSTOM** companies and **67 Workday** companies — see `uncrawled-coverage-strategies.md` for the full roadmap.
+
 ---
 
 ## 1. Current State
@@ -12,109 +14,97 @@ The backend has a functional ATS integration framework with the following compon
 
 | Component | Path | Status |
 |:---|:---|:---|
-| `AtsProvider` enum | `sync/ats/AtsProvider.kt` | ✅ Implemented (6 ATS + Apify) |
+| `AtsProvider` enum | `sync/ats/AtsProvider.kt` | ✅ Implemented |
 | `AtsClient` interface | `sync/ats/AtsClient.kt` | ✅ Implemented |
 | `AtsNormalizer` interface | `sync/ats/AtsNormalizer.kt` | ✅ Implemented |
 | `NormalizedJob` model | `sync/ats/model/NormalizedJob.kt` | ✅ Implemented |
 | `AtsClientFactory` | `sync/ats/AtsClientFactory.kt` | ✅ Implemented |
 | `AtsNormalizerFactory` | `sync/ats/AtsNormalizerFactory.kt` | ✅ Implemented |
-| `GreenhouseClient` | `sync/ats/greenhouse/GreenhouseClient.kt` | ✅ Implemented |
-| `GreenhouseNormalizer` | `sync/ats/greenhouse/GreenhouseNormalizer.kt` | ✅ Implemented |
+| `GreenhouseClient` + `GreenhouseNormalizer` | `sync/ats/greenhouse/` | ✅ Implemented |
+| `LeverClient` + `LeverNormalizer` | `sync/ats/lever/` | ✅ Implemented |
+| `AshbyClient` + `AshbyNormalizer` | `sync/ats/ashby/` | ✅ Implemented (v1+v2 API) |
+| `SmartRecruitersClient` + `SmartRecruitersNormalizer` | `sync/ats/smartrecruiters/` | ✅ Implemented |
+| `TeamTailorClient` + `TeamTailorNormalizer` | `sync/ats/teamtailor/` | ✅ Implemented |
+| `WorkableClient` + `WorkableNormalizer` | `sync/ats/workable/` | ✅ Implemented |
 | `AtsJobDataSyncService` | `sync/AtsJobDataSyncService.kt` | ✅ Implemented (full Bronze→Silver flow) |
 | `AtsJobDataMapper` | `sync/AtsJobDataMapper.kt` | ✅ Implemented |
 | `CompanyAtsConfig` model | `persistence/model/CompanyAtsConfig.kt` | ✅ Implemented |
 | `AtsConfigBigQueryRepository` | `persistence/ats/AtsConfigBigQueryRepository.kt` | ✅ Implemented |
 | `AtsSyncController` | `api/AtsSyncController.kt` | ✅ Implemented |
 | `TechRoleClassifier` | Used in sync pipeline | ✅ Filters non-tech roles |
-| Lever/Ashby/JobAdder/EH/SnapHire clients | — | ❌ Not yet implemented |
 
 **Key insight**: The infrastructure is provider-agnostic. Adding a new ATS only requires implementing `AtsClient` and `AtsNormalizer` — everything downstream (Bronze persistence, Silver mapping, dedup, merge) already works.
 
 ### What We Know About Our Companies
 
-A full database scan across **1,257 companies** produced the following ATS identification results (see `ats-identification-findings.md`):
+As of March 2026, **1,372 companies** with all ATS configs validated (199 stale entries cleaned up):
 
-| Provider | Companies | % of Database | API Type | Integration Effort |
+| Provider | Companies | % of total | API Type | Integration Status |
 |:---|:---:|:---:|:---|:---|
-| **NONE (unidentified)** | 1104 | 87.8% | — | Requires scraping or NLP |
-| **Workday** | 23 | 1.8% | ⚠️ Restricted (requires auth per tenant) | High |
-| **Lever** | 21 | 1.7% | ✅ Public (v0 Postings API) | Low |
-| **Workable** | 16 | 1.3% | ⚠️ API token required per tenant | Medium |
-| **Greenhouse** | 15 | 1.2% | ✅ Public (Boards API) | ✅ Done |
-| **Ashby** | 13 | 1.0% | ✅ Public (Posting API) | Low |
-| **Teamtailor** | 12 | 1.0% | ⚠️ API key or XML feed per tenant | Medium |
-| **SmartRecruiters** | 10 | 0.8% | ⚠️ Job Board API (requires auth) | Medium |
-| **SuccessFactors** | 8 | 0.6% | ⚠️ Enterprise only (SAP integration) | Very High |
-| **JobAdder** | 6 | 0.5% | ⚠️ OAuth 2.0 (partner registration) | High |
-| **BambooHR** | 6 | 0.5% | ⚠️ API key per tenant (no public API) | Medium |
-| **SnapHire** | 4 | 0.3% | ⚠️ HMAC via TAS developer portal | High |
-| **Other** (Factorial, Personio, Join, etc.) | 19 | 1.5% | Varies | Case-by-case |
-| **Total** | **1,257** | **100%** | | |
+| **CUSTOM** | 620 | 45.2% | — | ❌ Requires crawler/scraper |
+| **SmartRecruiters** | 145 | 10.6% | ✅ Public (Job Board API) | ✅ Integrated |
+| **Greenhouse** | 79 | 5.8% | ✅ Public (Boards API) | ✅ Integrated |
+| **Workable** | 76 | 5.5% | ✅ Public (POST /jobs) | ✅ Integrated |
+| **Lever** | 75 | 5.5% | ✅ Public (v0 Postings API) | ✅ Integrated |
+| **Workday** | 67 | 4.9% | ⚠️ Restricted (per-tenant auth) | ❌ Scraper needed |
+| **Ashby** | 40 | 2.9% | ✅ Public (Posting API) | ✅ Integrated |
+| **OTHER** | 14 | 1.0% | — | ❌ No identifier |
+| **SuccessFactors** | 8 | 0.6% | ⚠️ Enterprise only | ❌ Scraper needed |
+| **JobAdder** | 6 | 0.4% | ⚠️ OAuth 2.0 | Low priority |
+| **BambooHR** | 6 | 0.4% | ⚠️ API key per tenant | Low priority |
+| **TeamTailor** | 4 | 0.3% | ✅ Public (feed/jobs.json) | ✅ Integrated |
+| **Other** (Personio, Snaphire, Join, etc.) | 27 | 2.0% | Varies | Low priority |
+| **No ATS config** | 202 | 14.7% | — | ❌ Requires crawler |
+| **Total** | **1,372** | **100%** | | |
 
-> [!WARNING]
-> Only **153 of 1,257 companies** (12.2%) have an identified ATS. The remaining 1,104 use unknown systems or rely on job boards that hide the underlying ATS. URL-pattern-matching has clear limits — the "long tail" requires a hybrid discovery approach.
+**Coverage summary:**
+- **419 companies (30.5%)** are covered by direct ATS API integrations
+- **751 companies (54.7%)** have ATS configs we cannot crawl via API
+- **202 companies (14.7%)** have no ATS config at all
 
 ---
 
 ## 2. Tiered Integration Strategy
 
-Based on the data above, we propose a **four-tier** approach that balances coverage, effort, and cost.
+### Tier 1: Public APIs — ✅ COMPLETE
 
-### Tier 1: Public APIs (Low Effort, High Value) — 49 companies, 3.9%
+All six public API providers are now integrated:
 
-These ATS providers have public, unauthenticated APIs. We need only the company's board token or slug to fetch all their jobs.
+| Provider | Companies | Status |
+|:---|:---:|:---|
+| **Greenhouse** | 79 | ✅ `GreenhouseClient` + `GreenhouseNormalizer` |
+| **SmartRecruiters** | 145 | ✅ `SmartRecruitersClient` + `SmartRecruitersNormalizer` |
+| **Workable** | 76 | ✅ `WorkableClient` + `WorkableNormalizer` |
+| **Lever** | 75 | ✅ `LeverClient` + `LeverNormalizer` |
+| **Ashby** | 40 | ✅ `AshbyClient` + `AshbyNormalizer` (v1 + v2) |
+| **TeamTailor** | 4 | ✅ `TeamTailorClient` + `TeamTailorNormalizer` |
 
-| Provider | Companies | Status | Effort |
-|:---|:---:|:---|:---|
-| **Lever** | 21 | ❌ Needs `LeverClient` + `LeverNormalizer` | ~1 day |
-| **Greenhouse** | 15 | ✅ Client + Normalizer built | Done |
-| **Ashby** | 13 | ❌ Needs `AshbyClient` + `AshbyNormalizer` | ~1 day |
-
-**Combined coverage**: 49 companies (3.9% of database)
-
----
-
-### Tier 2: Authenticated APIs (Medium Effort) — 44 companies, 3.5%
-
-These providers require per-tenant API keys, OAuth, or partner registration. Each company must independently authorize our access.
-
-| Provider | Companies | Auth Model | Notes |
-|:---|:---:|:---|:---|
-| **Workable** | 16 | API token (per account) | REST API with `r_jobs` permission. |
-| **Teamtailor** | 12 | API key or XML feed | Client API with token auth. |
-| **SmartRecruiters** | 10 | Job Board API key | Requires integration approval per company. |
-| **BambooHR** | 6 | API key (per subdomain) | No public careers API. |
-
-**Combined coverage**: 44 companies (3.5%)
-
-> [!IMPORTANT]
-> Tier 2 integrations have a **per-company onboarding cost**. Each company must grant us API access, which means manual outreach and configuration. For 25 companies, this is manageable. At scale (500+ companies), consider a unified ATS middleware service (see Section 6).
+**Combined coverage**: 419 companies (30.5% of total)
 
 ---
 
-### Tier 3: Complex / Enterprise APIs (High Effort) — 41 companies, 3.2%
+### Tier 2: Complex / Enterprise APIs — Scrape Instead
 
-These providers are enterprise platforms with restricted APIs, complex auth, or sparse documentation.
+These providers require per-tenant auth or have no practical public API.
 
 | Provider | Companies | Challenge | Recommendation |
 |:---|:---:|:---|:---|
-| **Workday** | 23 | Requires per-tenant Staffing API auth. | **Scrape instead** (see Section 5) |
-| **SuccessFactors** (SAP) | 8 | Enterprise SAP integration. | **Scrape instead** |
-| **JobAdder** | 6 | OAuth 2.0 with partner registration. | Build if demand warrants; otherwise scrape. |
-| **SnapHire** | 4 | HMAC via TAS developer portal. NZ-only. | **Scrape instead** — 4 companies doesn't justify integration effort. |
-
-**Combined coverage**: 41 companies (3.2%)
+| **Workday** | 67 | Per-tenant Staffing API auth | **Scrape** — predictable URL: `{slug}.wd{N}.myworkdayjobs.com` |
+| **SuccessFactors** | 8 | Enterprise SAP integration | **Scrape** |
+| **JobAdder** | 6 | OAuth 2.0 partner registration | Low priority — 6 companies |
+| **BambooHR** | 6 | API key per tenant | Low priority — 6 companies |
+| **Snaphire/Personio/Others** | ~27 | Varies | Low priority |
 
 > [!CAUTION]
-> **Workday** is 13.7% of our companies and 22%+ of global ATS market share. However, its API is tenant-gated — there is no public Workday jobs API. Each company's HR system admin would need to create an integration user for us. This is impractical at scale. **Scraping Workday career pages** (via Apify or a custom crawler) is the pragmatic path. Each company's Workday instance follows a predictable URL pattern: `{slug}.wd{N}.myworkdayjobs.com`.
+> **Workday (67 companies, 4.9%)** is the most impactful remaining target. Its API is tenant-gated but career pages follow predictable URL patterns. A dedicated Workday scraper is the pragmatic path — see `uncrawled-coverage-strategies.md`.
 
 ---
 
-### Tier 4: Generic Fallback — 1,145+ companies, 91.1%
+### Tier 3: Generic Fallback — 822 companies (59.9%)
 
-These companies include the **1,104 unidentified (NONE)** companies plus those on Tier 3 platforms we've opted to scrape. They either use no identifiable ATS, use proprietary career pages, or rely exclusively on job boards (like LinkedIn Easy Apply) that hide the ATS.
+These include the **620 CUSTOM** companies (proprietary career pages, embedded widgets, bespoke CMS) and the **202 with no ATS config**. They need the AI crawler.
 
-See **Sections 4** (Generic NLP) and **Section 5** (Scraping Services) for how to cover this tier.
+See **Sections 4–5** (NLP extraction and scraping services) and `uncrawled-coverage-strategies.md` for the full roadmap.
 
 ---
 
@@ -542,88 +532,54 @@ Jobs from different sources for the same company need deduplication. Our existin
 
 ---
 
-## 9. Implementation Phases (Updated)
+## 9. Implementation Phases (Updated March 2026)
 
-### Phase 1 — Complete Tier 1 (Lever + Ashby)
+### Phase 1 — Tier 1 Public APIs ✅ COMPLETE
 
-**Scope:** Finish the public API integrations. Total: 3 providers covering 28 companies.
-
-**🤖 Code tasks:**
-- [ ] 🤖 Implement `LeverClient` + `LeverNormalizer`
-- [ ] 🤖 Implement `AshbyClient` + `AshbyNormalizer`
-- [ ] 🤖 Seed `company_ats_configs` in BigQuery for all validated Lever + Ashby identifiers
-- [ ] 🤖 Integration test with validated companies (e.g., Halter/Ashby, Tracksuit/Lever)
-
-**👤 Your tasks:**
-- [ ] 👤 Full validation sweep — run `validate_ats.sh` across all 92 identified companies
-- [ ] 👤 Verify all Lever/Ashby identifiers from `ats-identification-findings.md` are still active
-
-**Estimated effort:** ~2-3 days
-**Coverage result:** 28 companies (15.3%) with direct ATS integration
+All six public API providers (GH, LV, AS, SR, TT, WL) are built and wired into the ATS sync pipeline. 419 companies covered.
 
 ---
 
-### Phase 2 — Seek + Workday Scraping
+### Phase 2 — Scheduling + AI Crawler (current)
 
-**Scope:** Add Seek as a major new data source. Add Workday career page scraping. This addresses the two largest coverage gaps.
-
-**🤖 Code tasks:**
-- [ ] 🤖 Build `SeekClient` wrapper around Apify Seek Job Scraper actor
-- [ ] 🤖 Build `SeekNormalizer` to map Seek data → `NormalizedJob`
-- [ ] 🤖 Build `WorkdayScraperClient` (using Apify Workday actor or Crawlee)
-- [ ] 🤖 Build `WorkdayNormalizer`
-- [ ] 🤖 Integrate both into the existing `AtsJobDataSyncService` flow
-- [ ] 🤖 Update deduplication to handle LinkedIn ↔ Seek ↔ Workday overlaps
-
-**👤 Your tasks:**
-- [ ] 👤 Define Seek search parameters (keywords, locations, categories for NZ/AU tech jobs)
-- [ ] 👤 Compile list of Workday slugs from the 25 identified companies
-
-**Estimated effort:** ~3-5 days
-**Coverage result:** Seek adds potentially 500+ new tech roles; Workday covers 25 additional companies
-
----
-
-### Phase 3 — Scheduling + LLM Fallback
-
-**Scope:** Automate polling via Cloud Scheduler + Cloud Tasks. Build generic LLM extraction for the unidentified companies.
+**Scope:** Automate nightly polling via Cloud Scheduler + Cloud Tasks. Build the AI crawler for CUSTOM and no-ATS-config companies.
 
 **🤖 Code tasks:**
 - [ ] 🤖 Set up Cloud Scheduler → Cloud Tasks → Cloud Run sync pipeline
-- [ ] 🤖 Build `GenericCareerPageScraper` using Crawlee (fetches + renders career pages)
-- [ ] 🤖 Build `LlmJobExtractor` service (sends page content to Gemini Flash for structured extraction)
-- [ ] 🤖 Wire `LlmJobExtractor` output into `NormalizedJob` pipeline
-- [ ] 🤖 Add extraction quality validation (reject records failing minimum thresholds)
-- [ ] 🤖 Build career page URL discovery (look up `data/companies.json` websites + common `/careers` paths)
+- [ ] 🤖 Build Crawlee + Gemini Flash crawler service (see `ats-integration-plan.md`)
+- [ ] 🤖 Build `CrawlerClient` + `CrawlerNormalizer` in Kotlin backend
+- [ ] 🤖 Add career page URL discovery (probe `/careers`, `/jobs`, etc. from manifest `website`)
+- [ ] 🤖 Add extraction quality validation and confidence scoring
 
 **👤 Your tasks:**
 - [ ] 👤 Set up Cloud Scheduler cron job (nightly 2am NZST)
-- [ ] 👤 Set up Cloud Tasks queue with retry policy
-- [ ] 👤 Manually verify career page URLs for top 20 unidentified companies
+- [ ] 👤 Verify career page URLs for top 50 CUSTOM companies
+- [ ] 👤 Deploy crawler service to Cloud Run
 
-**Estimated effort:** ~5-7 days
-**Coverage result:** Automated nightly sync for all sources; ~50%+ of "unidentified" companies now covered via LLM extraction
+**Coverage result:** 822 additional companies (CUSTOM + no-config) targeted by crawler
 
 ---
 
-### Phase 4 — Tier 2 ATS + Polish
+### Phase 3 — Workday Scraper + Job Boards
 
-**Scope:** Build clients for higher-value authenticated ATS providers. Only pursue if the per-company onboarding effort is justified.
+**Scope:** Dedicated Workday scraper for 67 companies. Add Seek as a broad ANZ data source.
+
+**🤖 Code tasks:**
+- [ ] 🤖 Build `WorkdayScraperClient` (Crawlee targeting `{slug}.wd{N}.myworkdayjobs.com`)
+- [ ] 🤖 Build `SeekClient` wrapper around Apify Seek Job Scraper actor
+- [ ] 🤖 Update deduplication to handle ATS ↔ Seek ↔ Workday overlaps
+
+**Coverage result:** +67 Workday companies; Seek adds potentially 500+ ANZ tech roles
+
+---
+
+### Phase 4 — Polish + Data Quality
 
 **🤖 Code tasks (build on demand):**
-- [ ] 🤖 Implement `WorkableClient` + `WorkableNormalizer` (8 companies)
-- [ ] 🤖 Implement `SmartRecruitersClient` + `SmartRecruitersNormalizer` (7 companies)
-- [ ] 🤖 Implement `TeamtailorClient` + `TeamtailorNormalizer` (4 companies)
 - [ ] 🤖 Build `/api/admin/sync-status` dashboard endpoint
 - [ ] 🤖 Add data quality metrics (missing fields, parse failures per source)
 - [ ] 🤖 Connect multi-source data to Gold layer trend tables
-
-**👤 Your tasks:**
-- [ ] 👤 Reach out to companies for API access (Workable, SmartRecruiters, Teamtailor)
-- [ ] 👤 Evaluate whether Fantastic.jobs aggregation is cheaper than direct integrations
-- [ ] 👤 Write onboarding documentation for adding new companies
-
-**Estimated effort:** ~2-3 weeks (spread over time, per-company)
+- [ ] 🤖 Evaluate Fantastic.jobs aggregation vs maintaining individual small-ATS clients
 
 ---
 
@@ -693,13 +649,12 @@ Given our Cloud Run deployment and "$0/month" cost goal, the approach is **Cloud
 
 ## 13. Summary: Path to 90%+ Coverage
 
-| What | Companies | Coverage | When |
+| What | Companies | Direct API coverage | When |
 |:---|:---:|:---:|:---|
-| **Current (Greenhouse + Apify)** | All via Apify; 15 via Greenhouse | ~100% (Apify), ~1.2% (ATS direct) | Now |
-| **+ Phase 1 (Lever + Ashby)** | +34 via ATS direct | 3.9% (ATS direct) | +2-3 days |
-| **+ Phase 2 (Seek + Workday)** | +23 Workday; 1,000+ Seek jobs | 15%+ (ATS/scrapers direct) | +1-2 weeks |
-| **+ Phase 3 (LLM extraction)** | +50% of unidentified | 60%+ coverage | +2-3 weeks |
-| **+ Phase 4 (Tier 2 ATS)** | +44 authenticated ATS | 90%+ coverage | Ongoing |
+| **✅ Phase 1 (All Tier 1 APIs)** | 419 via ATS direct | 30.5% | Done |
+| **+ Phase 2 (AI Crawler)** | +822 CUSTOM/no-config | ~90% (ATS + crawl) | Q2 2026 |
+| **+ Phase 3 (Workday + Seek)** | +67 Workday; broad ANZ | ~95% | Q3 2026 |
+| **+ Phase 4 (Data quality)** | All 1,372 | 95%+ | Ongoing |
 
 > [!NOTE]
-> **100% coverage is not feasible via ATS integration alone** — 87.8% of companies have no identified ATS. The hybrid approach (ATS APIs + Seek/Apify scraping + LLM-based extraction) is how we get to 90%+ coverage at a sustainable cost.
+> **100% coverage via ATS APIs alone is not feasible** — 45.2% of companies use CUSTOM career pages with no public API. The hybrid approach (ATS direct APIs + AI crawler + Seek/Apify) is how we get to 90%+ coverage at a sustainable cost (~$15-20/month).

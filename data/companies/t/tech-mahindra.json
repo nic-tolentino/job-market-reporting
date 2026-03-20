@@ -2,11 +2,16 @@
   "alternateNames": [
     "TechM"
   ],
+  "ats": {
+    "identifier": "tech-mahindra",
+    "provider": "WORKABLE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "unknown",
         "url": "www.techmahindra.com/careers"
       }
     ]

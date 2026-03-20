@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "adp",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://jobs.adp.com/en/jobs/"
+      }
+    ]
   },
-  "description": "ADP is a company profile created during backlog processing.",
+  "description": "ADP is a global leader in cloud-based human capital management (HCM) solutions, including payroll, HR, and benefits.",
   "employees_count": null,
   "hq_country": "US",
   "id": "adp",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQE2ALnzsL9mlw/company-logo_100_100/B4EZXS9EdvHMAU-/0/1743000979692/adp_logo?e=1774483200&v=beta&t=sy9QlGLPvJt-d-K4-c2Bmr6JlMk5SFNedDiN9VFxAKA",
   "name": "ADP",
-  "office_locations": [],
+  "office_locations": [
+    "Roseland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.510029Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.adp.com"
 }

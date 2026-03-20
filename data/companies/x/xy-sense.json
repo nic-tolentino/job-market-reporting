@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "xysense",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "XY Sense is a company profile created during backlog processing.",
+  "description": "XY Sense provides smart sensor technology and workplace analytics to help companies optimize office space and occupancy.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "xy-sense",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQF21sFzVz626w/company-logo_100_100/company-logo_100_100/0/1631307703019?e=1774483200&v=beta&t=cT56h5B-lweDyo2FiZhWtzl55MkGnzBkB5eyMJXtAuM",
   "name": "XY Sense",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.935823Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.xysense.com"
 }

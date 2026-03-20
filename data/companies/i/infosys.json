@@ -1,10 +1,15 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "infosys",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
+        "category": "careers",
+        "status": "blocked",
         "url": "https://www.infosys.com/careers"
       }
     ]
@@ -36,13 +41,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T14:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T21:36:22.557787Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:36:22.538413Z",
+    "notes": "Actively sponsors Software Engineers, Lead Data Engineers, and SAP Consultants in AU/NZ.",
     "offered": true,
-    "source": null,
+    "source": "Infosys Recruitment",
     "types": []
   },
   "website": "https://www.infosys.com"

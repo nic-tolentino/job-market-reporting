@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "fsjd",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
     "seeds": []
   },
-  "description": "Fundació de Recerca Sant Joan de Déu is a company profile created during backlog processing.",
+  "description": "Fundaci\u00f3 de Recerca Sant Joan de D\u00e9u is a research foundation focused on pediatric medicine, maternal health, and social exclusion.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "fsjd",
@@ -12,12 +16,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFfNslu0eeCVA/company-logo_100_100/company-logo_100_100/0/1630671564992/fundaci_sant_joan_de_d_u_logo?e=1774483200&v=beta&t=h__tJF2WCyt_0CiqqncVrM0fP2y1QzMhYcw6zn50ke4",
-  "name": "Fundació de Recerca Sant Joan de Déu",
-  "office_locations": [],
+  "name": "Fundaci\u00f3 de Recerca Sant Joan de D\u00e9u",
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.694899Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.fsjd.org"
 }

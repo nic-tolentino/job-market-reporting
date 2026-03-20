@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.propellerhead.co.nz/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "propellerhead",
+    "provider": "LEVER"
   },
+  "company_type": "Consultancy",
   "description": "Propellerhead is a New Zealand-based technology partner crafting complex software solutions for major organizations, driven by principles of design excellence and user sovereignty.",
   "employees_count": 100,
   "hq_country": "NZ",

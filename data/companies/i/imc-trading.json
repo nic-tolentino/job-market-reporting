@@ -2,11 +2,16 @@
   "alternateNames": [
     "IMC"
   ],
+  "ats": {
+    "identifier": "imc",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.imc.com/careers"
       }
     ]

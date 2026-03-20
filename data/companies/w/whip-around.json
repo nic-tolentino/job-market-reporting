@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://whiparound.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "whip-around",
+    "provider": "WORKABLE"
   },
+  "company_type": "Product",
   "description": "Whip Around is a leading fleet maintenance software company helping drivers and managers improve vehicle uptime through easy-to-use digital compliance tools.",
   "employees_count": 100,
   "hq_country": "NZ",

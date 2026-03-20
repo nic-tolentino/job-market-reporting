@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://b2brouter.teamtailor.com/jobs"
+      }
+    ]
   },
-  "description": "B2Brouter is a company profile created during backlog processing.",
+  "description": "B2Brouter is a cloud-based platform for electronic invoicing and business management, supporting global EDI standards.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "b2brouter",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFsnwnrBB7ujQ/company-logo_100_100/company-logo_100_100/0/1645449558780/b2brouter_logo?e=1774483200&v=beta&t=7nM8-FiP3gps8mwxFueU8zwnujGKJB5NCFQ0XUwxLE4",
   "name": "B2Brouter",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.847508Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.b2brouter.net"
 }

@@ -1,10 +1,27 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "wegive",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "blocked",
+        "url": "https://www.wegive.com/careers/"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.wegive.com/careers"
+      }
+    ]
   },
-  "description": "WeGive is a company profile created during backlog processing.",
+  "description": "WeGive is a fundraising and donor engagement platform that helps non-profits build deeper relationships with their supporters.",
   "employees_count": null,
   "hq_country": "US",
   "id": "wegive",
@@ -13,11 +30,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFoNpWdb6eWiQ/company-logo_100_100/company-logo_100_100/0/1636401518355/givelist_logo?e=1774483200&v=beta&t=RoLdX3BsrPBo9x05fWo-OLLSVlT-ec4KR5tKQg1vL2s",
   "name": "WeGive",
-  "office_locations": [],
+  "office_locations": [
+    "Charleston"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:48:35.250657Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.wegive.com"
 }

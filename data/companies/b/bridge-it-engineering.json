@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "bridge-it",
+    "provider": "CUSTOM"
+  },
   "company_type": "Unknown",
   "crawler": {
     "seeds": []
   },
-  "description": "Bridge IT Engineering is a company profile created during backlog processing.",
+  "description": "Bridge IT is a New Zealand recruitment and consulting firm specializing in engineering and technical talent.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "bridge-it-engineering",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQF1oexz3Nnr1g/company-logo_100_100/company-logo_100_100/0/1700095064171/bridge_it_engineering_logo?e=1774483200&v=beta&t=slDDeLf2MAvo-YtpLCDTkzgxR1aBCkLf9Oh7ANdU9LY",
   "name": "Bridge IT Engineering",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:34.993175Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:43:50.834252Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://bridgeit.co.nz"
 }

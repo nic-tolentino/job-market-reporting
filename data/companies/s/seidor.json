@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "seidor",
+    "provider": "WORKABLE"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "SEIDOR is a company profile created during backlog processing.",
+  "description": "SEIDOR is a global technology consulting firm and a leading SAP Platinum Partner.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "seidor",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGzP_yKTdMF4g/company-logo_100_100/B4EZYzV0g.HMAQ-/0/1744618080696/seidor_logo?e=1774483200&v=beta&t=ZXzqNPG4a3urGiORYkW24TCj4Ggm4CvH7mZxHDU96Ww",
   "name": "SEIDOR",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.522536Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.seidor.com"
 }

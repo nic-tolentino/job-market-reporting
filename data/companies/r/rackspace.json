@@ -1,0 +1,28 @@
+{
+  "ats": {
+    "identifier": "rackspace",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "active",
+        "url": "https://jobs.lever.co/rackspace"
+      }
+    ]
+  },
+  "description": "At Rackspace Technology, we are the multicloud solutions experts. Our technical acumen with the world’s leading technologies — across your applications, data and security — enables you to grow your business, increase efficiency and deliver the future. We solve more than workload problems; we create business advantages. Our multicloud solutions expertise means you’re empowered to work faster, smarter and ahead of what’s next.",
+  "hq_country": "US",
+  "id": "rackspace",
+  "industries": [
+    "Cloud",
+    "Managed Services",
+    "Infrastructure"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Rackspace",
+  "verification_level": "unverified",
+  "website": "https://www.rackspace.com/en-au/about"
+}

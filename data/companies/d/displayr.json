@@ -10,13 +10,7 @@
       "lastAttemptedAt": "2026-03-14",
       "notes": "Workable widget detected on homepage but identifier slug unknown (null) so atsDirectUrl cannot be constructed. No careers nav link exists to follow. Needs manual investigation to find the Workable board URL.",
       "status": "NO_MATCH"
-    },
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.displayr.com/careers"
-      }
-    ]
+    }
   },
   "description": "Displayr is a data science and reporting platform that makes it easy to find and share stories in data, from simple tables and dashboards to advanced machine learning and PowerPoint automation.",
   "employees_count": 80,

@@ -11,7 +11,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "unknown",
         "url": "https://www.autodesk.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://autodesk.wd1.myworkdayjobs.com/Ext"
       }
     ]
   },

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "oif-ventures",
+    "provider": "ASHBY"
+  },
   "company_type": "Social Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "OIF Ventures is a company profile created during backlog processing.",
+  "description": "OIF Ventures is a leading Australian venture capital firm that partners with high-growth technology companies.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "oif-ventures",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGBvHq5igLHDg/company-logo_100_100/company-logo_100_100/0/1645927847345/oifventures_logo?e=1774483200&v=beta&t=LzcFEz5dGiUohg-eEyTLaI-0bbb_3GO6jVvtyAQ3Tl8",
   "name": "OIF Ventures",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:28:11.631287Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.oifventures.com.au"
 }

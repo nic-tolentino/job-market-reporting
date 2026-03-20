@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "wisr",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://wisr.com.au/careers"
+      }
+    ]
+  },
+  "description": "Wisr is Australia's first neo-lender and FinTech pioneer in the rapidly growing Australian consumer finance market.As a technology company we’re committed to building products, apps and services to help Australians do more with their money. Our promise is to provide a smarter, fairer, wiser financial alternative for all Australians.",
+  "hq_country": "AU",
+  "id": "wisr",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Wisr",
+  "verification_level": "unverified",
+  "website": "https://wisr.com.au/about-wisr"
+}

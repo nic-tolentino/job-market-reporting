@@ -9,6 +9,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.megaport.com/careers"
       }
     ]

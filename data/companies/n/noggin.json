@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.noggin.io/careers/how-we-hire"
+      }
+    ]
+  },
+  "description": "Noggin is a company with some 90 staff globally, with offices in North America, Europe, and Australia. In 2009, Noggin turned to solve the big problem of incident management and organizational resilience. Our goal was to help people manage disruption, smarter. We wanted to do it exceptionally, and make a difference along the way.\\r\\n\\r\\nWe bootstrapped it, off our own initiative, and have a formidable software product and reputation. We've topped analyst reports into crisis management, and won resilience awards. And more importantly we've enjoyed ourselves, and we've met a lot of really great people along the way.\\r\\n\\r\\nWe look to the best and brightest to help us fulfil our vision of managing disruption smarter. That takes dedication, intelligence and generally awesome staff. Noggins work hard, and are committed to going further for our customers, but above all, strive for personal excellence.",
+  "hq_country": "AU",
+  "id": "noggin",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Noggin",
+  "verification_level": "unverified",
+  "website": "https://www.noggin.io/about-us"
+}

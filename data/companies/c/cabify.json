@@ -7,14 +7,6 @@
     "provider": "GREENHOUSE"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://cabify.com/careers"
-      }
-    ]
-  },
   "description": "Multi-mobility platform offering ride-hailing, delivery, and corporate transport solutions across 6 countries.",
   "employees_count": null,
   "hq_country": "ES",

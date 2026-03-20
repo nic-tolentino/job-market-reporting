@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "kore",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.kore.ai/careers"
+      }
+    ]
   },
-  "description": "KORE is a company profile created during backlog processing.",
+  "description": "Kore.ai is a leading enterprise conversational AI platform that helps companies automate interactions through intelligent virtual assistants.",
   "employees_count": null,
   "hq_country": "US",
   "id": "kore",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQE70UGwSnFhFw/img-crop_100/B4EZfq4tYAHsAQ-/0/1751992427660?e=1774483200&v=beta&t=J_--x0OjSiJF6jkTPPYXTdKZqba7XKUXwII30IphsFw",
   "name": "KORE",
-  "office_locations": [],
+  "office_locations": [
+    "Orlando"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.177885Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://kore.ai"
 }

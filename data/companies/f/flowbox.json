@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "flowbox",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://flowbox.teamtailor.com/jobs"
+      }
+    ]
   },
-  "description": "Flowbox is a company profile created during backlog processing.",
+  "description": "Flowbox is a leading SaaS platform for User-Generated Content (UGC), enabling brands to leverage social media content in their marketing.",
   "employees_count": null,
   "hq_country": "SE",
   "id": "flowbox",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHXknNHrZ1Pow/company-logo_100_100/company-logo_100_100/0/1715002632110/flowbox_ab_logo?e=1774483200&v=beta&t=dSBCgKG0ZwMRb52LCzgctadgrX9epPgs5Ff0cEL9eo0",
   "name": "Flowbox",
-  "office_locations": [],
+  "office_locations": [
+    "Stockholm"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.684756Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://getflowbox.com"
 }

@@ -2,11 +2,16 @@
   "alternateNames": [
     "Sandfield Information Systems"
   ],
+  "ats": {
+    "identifier": "sandfield",
+    "provider": "WORKABLE"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.sandfield.co.nz/careers"
       }
     ]

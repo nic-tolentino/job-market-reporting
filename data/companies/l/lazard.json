@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "lazard",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Lazard is a company profile created during backlog processing.",
+  "description": "Lazard is a global preeminent financial advisory and asset management firm with a presence in all major financial centers.",
   "employees_count": null,
   "hq_country": "US",
   "id": "lazard",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQE7TGT3iHT0Rg/company-logo_100_100/company-logo_100_100/0/1703878635328/lazard_logo?e=1774483200&v=beta&t=T0ZRXOrRITxLDwCoZYA8UNYx3sPdoyNDC_ZY24Qy4kM",
   "name": "Lazard",
-  "office_locations": [],
+  "office_locations": [
+    "New York"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.194098Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.lazard.com"
 }

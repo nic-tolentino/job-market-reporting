@@ -9,6 +9,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "unknown",
         "url": "https://www.prosper-ai.com/careers"
       }
     ]

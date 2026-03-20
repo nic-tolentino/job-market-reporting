@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "easygo",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "blocked",
+        "url": "https://easygo.io/careers"
+      }
+    ]
   },
-  "description": "Easygo is a company profile created during backlog processing.",
+  "description": "Easygo is an Australian technology startup specializing in high-performance digital products and operator of major online gaming platforms.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "easygo",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGEgi8vL2b0Zw/company-logo_100_100/company-logo_100_100/0/1727847573718/easygo_au_logo?e=1774483200&v=beta&t=HQbU6_6ZpfpJjCUykCqkkCMdHN_wiX0G19tqLmA_rVk",
   "name": "Easygo",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.351752Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://easygo.io"
 }

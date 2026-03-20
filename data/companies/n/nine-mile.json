@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nine-mile",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.nmftrading.com/careers"
+      }
+    ]
   },
-  "description": "Nine Mile is a company profile created during backlog processing.",
+  "description": "Nine Mile (nmftrading.com) is an electronic principal trading firm focused on market making and arbitrage.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "nine-mile",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQG4CBAu8yi1iw/company-logo_100_100/company-logo_100_100/0/1667515145064/nine_mile_financial_pty_limited_logo?e=1774483200&v=beta&t=CbSa3NMu7R0ZXDDB8blVk7aEnFjghCyUTLwXrPnmsuo",
   "name": "Nine Mile",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.984686Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.nmftrading.com"
 }

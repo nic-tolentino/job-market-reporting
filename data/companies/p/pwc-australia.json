@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "pwc",
+    "provider": "OTHER"
   },
-  "description": "PwC Australia is a company profile created during backlog processing.",
+  "company_type": "Consultancy",
+  "description": "PwC Australia is part of the global network of professional services firms providing audit, tax, and consulting services.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "pwc-australia",
@@ -13,11 +14,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQELqXkoSBsRtA/company-logo_100_100/B56ZaB40ixHgAU-/0/1745935878725/pwc_australia_logo?e=1774483200&v=beta&t=TaDCyZqK5tc8LA8xzsjcg2bn6tWiD_WWdT2U_gkCfvY",
   "name": "PwC Australia",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney",
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.957092Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.pwc.com.au"
 }

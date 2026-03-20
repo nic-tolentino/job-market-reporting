@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "general",
-        "url": "https://www.tracksuit.com/careers/jobs"
-      }
-    ]
+  "ats": {
+    "identifier": "tracksuit-limited",
+    "provider": "LEVER"
   },
+  "company_type": "Product",
   "description": "Tracksuit is a high-growth brand tracking platform providing companies with a common language to measure and communicate the value of brand through data.",
   "employees_count": 100,
   "hq_country": "NZ",

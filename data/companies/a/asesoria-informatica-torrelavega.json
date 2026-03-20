@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "asesoria-informatica",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://join.com/companies/aitt"
+      }
+    ]
   },
-  "description": "Asesoria Informatica Torrelavega is a company profile created during backlog processing.",
+  "description": "Asesoría Informática Torrelavega (AIT) provides comprehensive IT services, system maintenance, and digital transformation solutions.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "asesoria-informatica-torrelavega",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h",
   "name": "Asesoria Informatica Torrelavega",
-  "office_locations": [],
+  "office_locations": [
+    "Torrelavega"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.124790Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.aitt.es"
 }

@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "omadahealth",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "active",
+        "url": "https://boards.greenhouse.io/omadahealth"
+      }
+    ]
   },
-  "description": "Omada is a company profile created during backlog processing.",
+  "description": "Omada is a global leader in Identity Governance and Administration (IGA) and Identity Access Management (IAM) software.",
   "employees_count": null,
   "hq_country": "DK",
   "id": "omada",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFtpVZDlfg16A/company-logo_100_100/B4DZfEzHMwGUAU-/0/1751353423150/omada_as_logo?e=1774483200&v=beta&t=Jv6YJqQoZbvGUqhoMX95gmYJQLN335ACtqvLNKdu4W0",
   "name": "Omada",
-  "office_locations": [],
+  "office_locations": [
+    "Copenhagen"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:28:11.614907Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.omadaidentity.com"
 }

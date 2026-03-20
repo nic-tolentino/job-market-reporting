@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "abc",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Government",
   "crawler": {
     "seeds": []
   },
-  "description": "Australian Broadcasting Corporation (ABC) is a company profile created during backlog processing.",
+  "description": "The Australian Broadcasting Corporation (ABC) is the national broadcaster of Australia, providing news and entertainment.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "abc-au",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEFcCNAAvCsdg/company-logo_100_100/company-logo_100_100/0/1631314267300?e=1774483200&v=beta&t=fMIiwXZZb7VmfFo9FpQx3Ge92WTp0xKxX7yQ2w6RXPY",
   "name": "Australian Broadcasting Corporation (ABC)",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.120272Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.abc.net.au"
 }

@@ -1,0 +1,31 @@
+{
+  "ats": {
+    "identifier": "elmo",
+    "provider": "CUSTOM"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://elmosoftware.com.au/jobs/"
+      }
+    ]
+  },
+  "description": "Founded in 2002, ELMO (ASX:ELO) is Australia and New Zealand’s only integrated cloud HR, payroll and rostering / time & attendance solution, offering you:\\r\\n\\r\\nONE vendor\\r\\nONE dashboard\\r\\nONE user-experience.\\r\\nELMO is the fastest growing HR Tech company in the region. We provide innovative cloud HR, payroll and rostering / time & attendance technology to more than 1000 organisations across APAC, helping them to manage, engage, and inspire their people. Our innovative solutions are at the forefront of a disruptive technology industry, driven by the transition of organisations towards online systems which automate processes and aggregate information in new and intelligent ways.\\r\\n\\r\\nELMO’s suite of HR, payroll and rostering / time & attendance solutions can be used together or stand-alone, and are configurable according to your organisation’s processes and workflows. The ELMO solution allows organisations to manage their HR and payroll processes within one simple platform, with a single dashboard and reporting suite.",
+  "hq_country": "AU",
+  "id": "elmo",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Elmo",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://elmosoftware.com.au/"
+}

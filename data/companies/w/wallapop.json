@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://wallapop.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "wallapop",
+    "provider": "GREENHOUSE"
   },
+  "company_type": "Product",
   "description": "Leading second-hand marketplace app for buying and selling items locally across Europe.",
   "employees_count": null,
   "hq_country": "ES",

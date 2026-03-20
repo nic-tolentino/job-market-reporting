@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.transmax.com.au/current-opportunities/"
+      }
+    ]
   },
-  "description": "Transmax Pty Ltd is a company profile created during backlog processing.",
+  "description": "Transmax is a full-service Intelligent Transport Systems (ITS) solution provider based in Australia.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "transmax-pty-ltd",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHwgpn_1J-fxg/company-logo_100_100/company-logo_100_100/0/1631352524904?e=1774483200&v=beta&t=PosTZSg0ReaKuMko9HMbBIMn0T5jtkADXt9AAlbcc08",
   "name": "Transmax Pty Ltd",
-  "office_locations": [],
+  "office_locations": [
+    "Milton, QLD"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:18:19.575530Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.transmax.com.au"
 }

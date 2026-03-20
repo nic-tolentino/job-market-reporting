@@ -2,12 +2,23 @@
   "alternateNames": [
     "Salient Group"
   ],
+  "ats": {
+    "identifier": "salient-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.salient.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.salient.com/careers/"
       }
     ]
   },
@@ -31,13 +42,13 @@
     "AU"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T11:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.959361Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.959356Z",
+    "notes": "Recruitment agency. Does not sponsor directly.",
+    "offered": false,
+    "source": "Agency Profile",
     "types": []
   },
   "website": "https://www.salient.com"

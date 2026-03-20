@@ -9,6 +9,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://www.jobgether.com/careers"
       }
     ]
@@ -30,13 +31,13 @@
     "Worldwide"
   ],
   "remote_policy": "Remote Only",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.797592Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.797577Z",
+    "notes": "Portal/Aggregator. Does not sponsor directly; refers to partner policies.",
     "offered": false,
-    "source": null,
+    "source": "Portal Profile",
     "types": []
   },
   "website": "https://www.jobgether.com"

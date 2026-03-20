@@ -6,9 +6,13 @@
 
 ## Context
 
-87.8% of our 1,257 target companies have **no identified ATS** (Applicant Tracking System). Our current approach of building specific ATS integrations first (Greenhouse, Lever, Ashby) and adding a generic fallback later is premature optimization—we're guessing at the distribution before we have data.
+As of March 2026, we have **1,372 companies** with ATS configs for 1,170 of them (85.3%). Six ATS providers are integrated (Greenhouse, Lever, Ashby, SmartRecruiters, TeamTailor, Workable), covering 419 companies (30.5%). The remaining 953 companies break down as:
+- **620 CUSTOM** — proprietary career pages with no standardised API
+- **202 no ATS config** — career page URL unknown
+- **67 Workday** — per-tenant auth blocks API access
+- **64 other small ATSs** — low company count, not worth dedicated clients
 
-The existing Apify-based LinkedIn scraping covers only ~30% of companies directly, with the rest requiring fallback mechanisms. Building 12+ individual ATS clients would be high maintenance for uncertain coverage.
+The primary coverage gap has shifted from "unidentified ATS" to "CUSTOM career pages and no-API providers." A generic AI crawler addresses both — it can extract structured job data from any career page without requiring ATS-specific code.
 
 ## Decision
 

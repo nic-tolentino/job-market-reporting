@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.shipco.com/careers"
+      }
+    ]
   },
-  "description": "Shipco IT is a company profile created during backlog processing.",
+  "description": "Shipco IT is the technology division of Shipco Transport, one of the world's leading neutral NVOCCs.",
   "employees_count": null,
   "hq_country": "DK",
   "id": "shipco-it",
@@ -16,8 +23,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.096467Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.shipco.com"
 }

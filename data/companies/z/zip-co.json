@@ -2,11 +2,31 @@
   "alternateNames": [
     "Zip Co"
   ],
+  "ats": {
+    "identifier": "zipcolimited",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Product",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/au/create-an-account?m*",
+        "/login"
+      ]
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
+        "url": "https://zip.co/careers"
+      },
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "blocked",
         "url": "https://zip.co/careers"
       }
     ]

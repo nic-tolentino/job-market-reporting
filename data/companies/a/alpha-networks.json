@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "alpha-networks",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Alpha Networks is a company profile created during backlog processing.",
+  "description": "Alpha Networks provides modular TV software and SaaS video platforms for OTT and IPTV solutions globally.",
   "employees_count": null,
   "hq_country": "BE",
   "id": "alpha-networks",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHM18EOnk5lUg/company-logo_100_100/company-logo_100_100/0/1692266708712/alphanetworks_logo?e=1774483200&v=beta&t=F3UflPBpvGyrnvi26DUM-HmeMWkf-ZGwU1TDCy3oEfI",
   "name": "Alpha Networks",
-  "office_locations": [],
+  "office_locations": [
+    "Braine-l'Alleud"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.503811Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.alphanetworks.tv"
 }

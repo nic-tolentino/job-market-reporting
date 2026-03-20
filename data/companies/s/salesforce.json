@@ -9,7 +9,14 @@
     "seeds": [
       {
         "category": "general",
+        "status": "active",
         "url": "https://www.salesforce.com/company/careers/"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.salesforce.com/company/careers/?bc=OTH"
       }
     ]
   },

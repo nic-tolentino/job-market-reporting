@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://tranzita.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "tranzita",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "Tranzita is an engineering-led technology partner crafting efficient and scalable backend systems using Node.js and Python for diverse global clients.",
   "employees_count": 50,
   "hq_country": "ES",

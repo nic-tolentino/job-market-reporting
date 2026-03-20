@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "seres-docaposte-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://recruiting.paylocity.com/recruiting/jobs/All/02111111-1111-1111-1111-111111111111/Seres-Engineering-Services-LLC"
+      }
+    ]
   },
-  "description": "Seres (Docaposte Group) is a company profile created during backlog processing.",
+  "description": "Seres is a global leader in e-invoicing and digital document exchange services, part of the Docaposte Group.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "seres-docaposte-group",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.098374Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.groupseres.com"
 }

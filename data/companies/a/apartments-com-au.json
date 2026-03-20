@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "apartments-com-au",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.costargroup.com/careers"
+      }
+    ]
   },
-  "description": "Apartments.com.au is a company profile created during backlog processing.",
+  "description": "Apartments.com.au is an Australian property portal focusing on new and off-the-plan apartment developments.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "apartments-com-au",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHGTTjsg6TvqA/company-logo_100_100/B56ZfiZd7YHoAU-/0/1751850017006/apartmentcomau_logo?e=1774483200&v=beta&t=3w9Mj57Bd0IvxieHBGGvDe9fWvHh7vBdSofIXqfPzg0",
   "name": "Apartments.com.au",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.113659Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.apartments.com.au"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ilerna",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "iLERNA is a company profile created during backlog processing.",
+  "description": "iLERNA is a leading Spanish vocational training center offering a wide range of official online and on-site programs.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "ilerna",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEWuHJzQ3jZ8g/company-logo_100_100/B4EZvkiIBuHUAQ-/0/1769065710056/ilerna_fp_logo?e=1774483200&v=beta&t=ceDTwSslxn7NpodGrHknsgCQ8mg4NQe0_EdTI_3GKNs",
   "name": "iLERNA",
-  "office_locations": [],
+  "office_locations": [
+    "Lleida"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.085505Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ilerna.es"
 }

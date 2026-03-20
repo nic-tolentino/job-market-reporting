@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "targetjobs-uk",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "targetjobs UK is a company profile created during backlog processing.",
+  "description": "targetjobs is a leading UK graduate careers platform providing advice, jobs, and internships.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "targetjobs-uk",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHTUPZD9dL2Tw/company-logo_100_100/B4EZgeutFNHoAQ-/0/1752862217192?e=1774483200&v=beta&t=WRoTAIVCLE75VyGsCrOJ7m_xuIUs0iCiD9kEVYD8X5s",
   "name": "targetjobs UK",
-  "office_locations": [],
+  "office_locations": [
+    "Wallingford, Oxfordshire"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.378734Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://targetjobs.co.uk"
 }

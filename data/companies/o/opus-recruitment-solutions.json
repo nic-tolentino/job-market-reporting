@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Agency",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "opus-talent-solutions-1",
+    "provider": "WORKABLE"
   },
-  "description": "Opus Recruitment Solutions is a company profile created during backlog processing.",
+  "company_type": "Agency",
+  "description": "Opus Recruitment Solutions is a multi-award-winning global technology recruitment firm.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "opus-recruitment-solutions",
@@ -16,8 +17,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.139842Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.opusrs.com"
 }

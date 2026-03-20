@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "civica",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Civica is a company profile created during backlog processing.",
+  "description": "Civica is a global leader in public sector software, providing critical technology solutions to improve public services.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "civica",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFRBPN-8NrmRQ/company-logo_100_100/company-logo_100_100/0/1719921416264/civica_logo?e=1774483200&v=beta&t=RLu03rYiaE_gV0zVllPBdW8JBEXVPuoo_KVowJLdG1A",
   "name": "Civica",
-  "office_locations": [],
+  "office_locations": [
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.907775Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.civica.com"
 }

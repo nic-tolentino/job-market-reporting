@@ -2,11 +2,16 @@
   "alternateNames": [
     "Dawn"
   ],
+  "ats": {
+    "identifier": "dawnaerospace",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://dawnaerospace.com/careers"
       }
     ]

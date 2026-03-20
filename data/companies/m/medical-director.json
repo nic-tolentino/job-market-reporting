@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "medicaldirector",
+    "provider": "SMARTRECRUITERS"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.medicaldirector.com/careers"
+      }
+    ]
+  },
+  "description": "Each of us can make a difference. Together, we can do so much more. Imagine going to a place where you love what you do, collaborating with people who have the same passion, vision and drive. And what brings you together is that you’re a part of something bigger.\\nTogether, you’re helping transform the health system for the better.",
+  "hq_country": "AU",
+  "id": "medical-director",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Medical Director",
+  "verification_level": "unverified",
+  "website": "https://www.medicaldirector.com/purpose"
+}

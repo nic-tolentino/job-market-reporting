@@ -1,11 +1,30 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "xpt-software-australia",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/wp-content/uploads/wc-logs/",
+        "/wp-content/uploads/woocommerce_transient_files/",
+        "/wp-content/uploads/woocommerce_uploads/",
+        "/*?add-to-cart=",
+        "/*?*add-to-cart=",
+        "/wp-admin/"
+      ]
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://xptsoftware.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.indeed.com/cmp/XPT-Software-Australia-Pty-Ltd/jobs"
       }
     ]
   },

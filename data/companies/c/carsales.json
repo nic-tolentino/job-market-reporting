@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "carsales",
+    "provider": "SMARTRECRUITERS"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://careers.carsales.com.au/"
+      }
+    ]
+  },
+  "description": "Welcome to carsales, your go-to digital auto marketplace. For over a quarter of a century, we’ve been transforming the way Australians buy and sell vehicles. Our journey began in 1997 with a bold idea to digitise print classifieds, and today, we’re part of CAR Group Limited - a global leader in digital marketplaces. At carsales, we’re driven by a simple yet powerful mission: to make buying and selling a great experience. This commitment drives our innovation where we leverage rich data and expertise to craft effective solutions to seamlessly connect buyers and sellers. The carsales network of sites extends beyond cars, encompassing bikes, boats, caravans, trucks, farm and constructions equipment and more. So, we’ve got Australians covered, no matter how they move through life.",
+  "hq_country": "AU",
+  "id": "carsales",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Carsales",
+  "verification_level": "unverified",
+  "website": "https://www.carsales.com.au"
+}

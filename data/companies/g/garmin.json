@@ -3,12 +3,33 @@
     "Garmin",
     "Garmin New Zealand"
   ],
+  "ats": {
+    "identifier": "garmin",
+    "provider": "WORKDAY"
+  },
   "company_type": "Product",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/products/comparison.jsp",
+        "/dealerResource/*",
+        "/lbt/*",
+        "/account/"
+      ]
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.garmin.com/en-NZ/careers"
+      },
+      {
+        "category": "careers",
+        "status": "empty",
+        "url": "https://garmin.com/careers"
       }
     ]
   },

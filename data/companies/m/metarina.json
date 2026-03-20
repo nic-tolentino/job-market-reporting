@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "metarina",
+    "provider": "OTHER"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "url": "https://join.com/companies/metarina",
+        "status": "active"
+      }
+    ]
   },
-  "description": "Metarina is a company profile created during backlog processing.",
+  "description": "Metarina provides a digital platform and marina management software to connect boaters with marina services efficiently.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "metarina",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQF3eId7xcPYLA/company-logo_100_100/company-logo_100_100/0/1630646486980/metarina_logo?e=1774483200&v=beta&t=Pzg9u_ht6Oe9ZBTIPUQcVwmVXUPBq7Nd-3-tXdjn3gY",
   "name": "Metarina",
-  "office_locations": [],
+  "office_locations": [
+    "Samerberg"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.352513Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.metarina.com"
 }

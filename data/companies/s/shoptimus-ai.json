@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "shoptimus-ai",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Shoptimus AI is a company profile created during backlog processing.",
+  "description": "Shoptimus AI provides e-commerce optimization for grocery retailers using artificial intelligence.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "shoptimus-ai",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGqZ8jXCgTVsg/company-logo_100_100/company-logo_100_100/0/1728285762727/shoptimusai_logo?e=1774483200&v=beta&t=rkTCyrlhWFAphO5xJx5ZIEZmqu-9Ox5c-o_BVsz6x5M",
   "name": "Shoptimus AI",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.060105Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.shoptimus.ai"
 }

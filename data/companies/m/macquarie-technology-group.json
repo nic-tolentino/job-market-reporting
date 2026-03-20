@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "macquarietechnologygroup",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://macquarietechnologygroup.com/careers/"
+      }
+    ]
+  },
+  "description": "We are Australias datacentre, cloud, cyber security and telecom company for mid-large business and government customers. Macquarie Technology Group has a long history of being a challenger in the IT industry, with a commitment to differentiated customer service and innovation, continuously reshaping and reimagining. The industry was dominated by the monopolist Telstra who called customers “subscribers”, tried to crush competition wherever it emerged and delayed the introduction of new technologies that would erode their profits. We were the challenger who fought for deregulation, to bring down prices and launch new innovative technology for our customers. We still are.",
+  "hq_country": "AU",
+  "id": "macquarie-technology-group",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Macquarie Technology Group",
+  "verification_level": "unverified",
+  "website": "https://macquarietechnologygroup.com/"
+}

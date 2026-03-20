@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sanlucar-company",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://sanlucar.com/karriere/stellenangebote-deutschland/"
+      }
+    ]
   },
-  "description": "SanLucar Company is a company profile created during backlog processing.",
+  "description": "SanLucar is a global premium fruit and vegetable brand producing over 100 varieties of produce.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "sanlucar-company",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFzDcNDtcnnmw/company-logo_100_100/company-logo_100_100/0/1650879405525/sanlucar_logo?e=1774483200&v=beta&t=DEk6io6qMxYL_-TImmWslWtojtuO6k01KOLXsKvmyfQ",
   "name": "SanLucar Company",
-  "office_locations": [],
+  "office_locations": [
+    "Valencia"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:17:27.282622Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sanlucar.com"
 }

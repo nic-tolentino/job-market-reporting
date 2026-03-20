@@ -8,8 +8,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.pasiona.com/careers"
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://pasiona.jobs.personio.com"
       }
     ]
   },

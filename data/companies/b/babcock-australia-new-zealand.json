@@ -2,11 +2,16 @@
   "alternateNames": [
     "Babcock"
   ],
+  "ats": {
+    "identifier": "babcock",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "http://www.babcock.com.au/careers"
       }
     ]

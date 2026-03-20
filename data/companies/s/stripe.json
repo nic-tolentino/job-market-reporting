@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Enterprise",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "stripe",
+    "provider": "GREENHOUSE"
   },
-  "description": "Stripe is a company profile created during backlog processing.",
+  "company_type": "Enterprise",
+  "description": "Stripe is a multinational financial services and software as a service (SaaS) company providing payment-processing software.",
   "employees_count": null,
   "hq_country": "US",
   "id": "stripe",
@@ -13,11 +14,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE2ZfJyfn-VCg/company-logo_100_100/B56ZlyKwpUKIAQ-/0/1758557047806/stripe_logo?e=1774483200&v=beta&t=JcTdlu0G-UDXWtfnMLOrsHGq24Ss9RpBXZXTIoGosAs",
   "name": "Stripe",
-  "office_locations": [],
+  "office_locations": [
+    "South San Francisco"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.518348Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.stripe.com"
 }

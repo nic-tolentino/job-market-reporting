@@ -2,7 +2,49 @@
 
 Providing a prioritized plan to evolve DevAssembly from a LinkedIn scraper into a high-trust, multi-channel market intelligence platform.
 
-**Last Updated:** March 13, 2026
+**Last Updated:** March 17, 2026
+
+---
+
+## 🎯 Next Best Opportunities (March 17, 2026)
+
+Ordered by value delivered vs. effort. Doing these in sequence gets the crawler pipeline producing visible results, scales ATS coverage to 527 companies, and gives operational visibility without rebuilding production.
+
+### Tier 1 — Fix First (must-do, low-medium effort, high impact)
+
+| # | Feature | Why now | Effort | Doc |
+|---|---------|---------|--------|-----|
+| ✅ **1** | **7.1 Crawler Job Persistence** | **Done** — `CrawlerJobMapper.kt`, `CrawlerJobPersistenceService.kt`, `NormalizedJobDto.kt` all exist. | — | `docs/implementation-plans/7.1-crawler-job-persistence.md` |
+| ✅ **2** | **Activate ATS pipeline (GH/LV/AS)** | **Done** — Lever and Ashby wired into `AtsClientFactory` as `@Component` beans alongside Greenhouse. | — | `docs/implementation-plans/crawler-extraction-improvement-plan.md` |
+| **3** | **Staging environment** | Currently testing in production causes breakage. The plan is fully documented — ~2h of infra work to get a `staging` branch + Cloud Run service + `techmarket_staging` BigQuery dataset. Blocks safe delivery of everything below. | 2h | `docs/deployment/staging-environment.md` |
+
+### Tier 2 — ATS Coverage Expansion (medium effort, big coverage gains)
+
+| # | Feature | Why now | Effort | Doc |
+|---|---------|---------|--------|-----|
+| ✅ **4** | **TeamTailor client (99 companies)** | **Done** — `TeamTailorClient.kt` exists. | — | `docs/implementation-plans/crawler-extraction-improvement-plan.md` §1.5 |
+| ✅ **5** | **SmartRecruiters client (157 companies)** | **Done** — `SmartRecruitersClient.kt` exists. | — | `docs/implementation-plans/crawler-extraction-improvement-plan.md` §1.5 |
+| ✅ **6** | **Workable client (28 companies)** | **Done** — `WorkableClient.kt` exists. | — | `docs/implementation-plans/crawler-extraction-improvement-plan.md` §1.5 |
+| **7** | **autechjobs historical data load (ID-12–14)** | Script (`--export-jsonl` flag) is fully implemented and SQL dump exists at `data/third-party/autechjobs/`. BigQuery load (ID-13) and trend backfill (ID-14) still need to be run. | 1-2h | `docs/data/autechjobs-historical-data.md` |
+
+### Tier 3 — Admin Panel + Operational Visibility (medium-high effort, high long-term value)
+
+| # | Feature | Why now | Effort | Doc |
+|---|---------|---------|--------|-----|
+| ✅ **8** | **Admin Panel Phase 1 (foundation + company table)** | **Done** — `frontend/src/admin/` exists with `AdminLayout.tsx`, `CompaniesPage.tsx`, `DashboardPage.tsx`, `CrawlsPage.tsx`, `PipelinePage.tsx`, `AnalyticsPage.tsx`, `LoginPage.tsx`. | — | `docs/admin-panel-plan.md` |
+| 🔄 **9** | **Admin Panel Phase 2 (pipeline observability)** | `PipelinePage.tsx` exists but backend only has 6 basic endpoints (no dead-letters browser, no jobs browser). Backend admin API gap remains. | ~1 week | `docs/admin-panel-plan.md` |
+| ✅ **10** | **Per-company extraction hints (self-improving crawler)** | **Done** — `extractionHints` referenced in `GeminiExtractionService.ts` lines 35, 97-98. | — | `docs/implementation-plans/crawler-extraction-improvement-plan.md` §2.1-2.2 |
+
+### Tier 4 — Data Quality & UX (when operational pipeline is stable)
+
+| # | Feature | Why now | Effort | Doc |
+|---|---------|---------|--------|-----|
+| ✅ **11** | **Admin Panel Phase 3 (analytics)** | **Done** — `AnalyticsPage.tsx` exists in the admin frontend. | — | `docs/admin-panel-plan.md` |
+| **12** | **Snapshot fixture test suite (20 snapshots)** | No `crawler-service/fixtures/` directory exists. Catches regressions when extraction logic changes. Low ongoing cost — small HTML files in Git. | 4-6h | `docs/implementation-plans/crawler-extraction-improvement-plan.md` §2.3 |
+| ✅ **13** | **GCS Bronze cold storage** | **Done** — `BronzeGcsRepository.kt`, `BronzeIngestionManifest.kt`, `BronzeRepository.kt`, and `terraform/gcp/storage_bucket.tf` all exist. | — | `docs/implementation-plans/6.1-file-based-cold-storage-plan.md` |
+| ✅ **14** | **Visa Sponsorship UI** | **Done** — Full implementation in `CompanyProfilePage.tsx` and `CompaniesPage.tsx` including filter and badge. | — | `docs/phase2/2.5-visa-sponsorship.md` |
+| **14b** | **Dead link UI** | `urlStatus` field exists in admin types but no dedicated public-facing dead link UI component. Low effort frontend work. | 2-3h | `docs/phase2/2.3-dead-link-detection.md` |
+| **15** | **Mobile UX overhaul** | Known weakness. Significant effort but affects all mobile users. | 16-20h | `docs/implementation-plans/4.1-mobile-ux-overhaul-plan.md` |
 
 ---
 
@@ -65,6 +107,11 @@ Detailed implementation plans have been created for all major features. Each pla
 | [5.1 Directory Manifest Migration](./implementation-plans/5.1-directory-based-manifest-migration.md) | MEDIUM | 6-8 hours | ✅ **COMPLETE** | `docs/implementation-plans/` |
 | [5.2 Manifest Validation System](./implementation-plans/5.2-company-manifest-validation.md) | HIGH | 8-10 hours | ✅ **COMPLETE** | `docs/implementation-plans/` |
 | [5.3 Manifest Improvements](./implementation-plans/5.3-manifest-improvements.md) | HIGH | Included | ✅ **COMPLETE** | `docs/implementation-plans/` |
+| [6.1 GCS Bronze Cold Storage](./implementation-plans/6.1-file-based-cold-storage-plan.md) | MEDIUM | 2-3 weeks | ⏳ Pending | `docs/implementation-plans/` |
+| [7.1 Crawler Job Persistence](./implementation-plans/7.1-crawler-job-persistence.md) | **CRITICAL** | 4-6 hours | ⏳ Pending | `docs/implementation-plans/` |
+| [ATS Extraction Improvements](./implementation-plans/crawler-extraction-improvement-plan.md) | HIGH | Ongoing | 🔄 **Sprint 2 active** | `docs/implementation-plans/` |
+| [Admin Panel](./admin-panel-plan.md) | HIGH | 4 weeks (phased) | ⏳ Pending | `docs/` |
+| [Staging Environment](./deployment/staging-environment.md) | HIGH | 2 hours | ⏳ Pending | `docs/deployment/` |
 
 ---
 
@@ -155,6 +202,29 @@ Detailed implementation plans have been created for all major features. Each pla
 ---
 
 ## 🎯 Completed Major Features
+
+### ✅ ATS Identification Sprint 2 — autechjobs + Domain-Slug Expansion (March 17, 2026)
+
+**Result:** 579/1,371 companies (42%) now have ATS configs — up from 260 (20.5%). 240 companies have free-API configs ready to activate.
+
+**What was done:**
+- Parsed `data/third-party/autechjobs/Cloud_SQL_Export_2026-03-17.sql` (149 companies, 161k jobs) — extracted ATS slugs from historical URLs, applied to matching manifests
+- Fixed false positives (`"ai"` suffix strip, Macquarie group mismatch)
+- Created 104 new manifest stubs for unmatched SQL companies (manifest total: 1,267 → 1,371)
+- Extended `probe_vanity_domains.py` with SR + TT probing; fixed critical SR false-positive (postings API returns 200 for any slug — correct check is board redirect)
+- Applied 142 SmartRecruiters + 114 TeamTailor slug hits from domain probing
+
+**Free-API breakdown:** Greenhouse ×94, Lever ×105, Ashby ×44 = **243 ready to activate**
+
+**Identification scripts now available:** `probe_free_ats.py`, `extract_ats_from_apply_urls.py`, `scan_careers_pages.py`, `probe_vanity_domains.py`, `parse_autechjobs.py`, `create_autechjobs_manifests.py`, `validate_ats_configs.py`
+
+---
+
+### ✅ ATS Integration — Sprint 1 Lever + Ashby Clients (March 2026)
+
+**Result:** `LeverClient.kt` + `LeverNormalizer.kt` (8 tests), `AshbyClient.kt` + `AshbyNormalizer.kt` (9 tests). All wired into `AtsClientFactory` and `AtsNormalizerFactory`.
+
+---
 
 ### ✅ ATS Integration — Self-Hosted AI Crawler (March 11, 2026)
 
@@ -544,47 +614,60 @@ val allTechs = (companyTechs + techFromJobs).distinct().sorted()
 
 ---
 
-#### 2.4 ATS Direct Integrations [HIGH - Market Coverage] 🔄 Backend Complete
+#### 2.4 ATS Direct Integrations [HIGH - Market Coverage] 🔄 Active
 
-**Status:** Backend infrastructure complete, company integration pending
+**Status:** GH/LV/AS built and tested (38 unit tests). 240 companies ready to activate. Tier-2 providers (SR/TT/Workable) planned — see Phase 6.
 
-**See full documentation:** `docs/phase2/2.4-ats-integrations.md`
+**See full documentation:** `docs/phase2/2.4-ats-integrations.md` + `docs/implementation-plans/crawler-extraction-improvement-plan.md`
 
-**Problem:** 50.5% of companies use identifiable ATS systems (Greenhouse, Lever, Ashby, Workday) that we can query directly.
+**Current ATS coverage (as of March 17, 2026):**
+
+| Tier | Provider | Companies | Status |
+|------|----------|-----------|--------|
+| 1 | Greenhouse | 94 | ✅ Client built — ready to activate |
+| 1 | Lever | 105 | ✅ Client built — ready to activate |
+| 1 | Ashby | 44 | ✅ Client built — ready to activate |
+| 2 | SmartRecruiters | 157 | ⏳ Slugs identified, client not built |
+| 2 | TeamTailor | 99 | ⏳ Slugs identified, client not built |
+| 2 | Workable | 28 | ⏳ Slugs identified, client not built |
+| 3 | Workday + others | ~89 | Crawler fallback (no public API) |
+| — | Unidentified | 792 | Crawler |
 
 **Files Created:**
-- `backend/src/main/kotlin/com/techmarket/sync/ats/AtsProvider.kt` ✅
-- `backend/src/main/kotlin/com/techmarket/sync/ats/AtsClient.kt` ✅
-- `backend/src/main/kotlin/com/techmarket/sync/ats/AtsClientFactory.kt` ✅
-- `backend/src/main/kotlin/com/techmarket/sync/ats/AtsNormalizer.kt` ✅
-- `backend/src/main/kotlin/com/techmarket/sync/ats/AtsNormalizerFactory.kt` ✅
-- `backend/src/main/kotlin/com/techmarket/sync/ats/greenhouse/GreenhouseClient.kt` ✅
-- `backend/src/main/kotlin/com/techmarket/sync/ats/greenhouse/GreenhouseNormalizer.kt` ✅
-- `backend/src/main/kotlin/com/techmarket/sync/ats/model/NormalizedJob.kt` ✅
-- `backend/src/main/kotlin/com/techmarket/sync/ats/SyncStatus.kt` ✅
-- `backend/src/main/kotlin/com/techmarket/sync/AtsJobDataSyncService.kt` ✅
-- `backend/src/main/kotlin/com/techmarket/api/AtsSyncController.kt` ✅
+- `AtsProvider.kt`, `AtsClient.kt`, `AtsClientFactory.kt`, `AtsNormalizer.kt`, `AtsNormalizerFactory.kt` ✅
+- `GreenhouseClient.kt` + `GreenhouseNormalizer.kt` ✅
+- `LeverClient.kt` + `LeverNormalizer.kt` ✅ (added March 2026)
+- `AshbyClient.kt` + `AshbyNormalizer.kt` ✅ (added March 2026)
+- `NormalizedJob.kt`, `SyncStatus.kt`, `AtsJobDataSyncService.kt`, `AtsSyncController.kt` ✅
 
-**Implementation:**
-- Generic ATS adapter architecture with provider abstraction
-- Greenhouse API integration complete (adapter pattern ready for Lever/Ashby)
-- Normalized job data model for consistent schema across providers
-- ATS configuration stored in company manifest files
-- Manual and automated sync triggers via admin controller
+**To activate GH/LV/AS (no code needed):**
+```bash
+POST /api/admin/pipeline/sync-companies  # seeds 240 configs to BigQuery
+POST /api/internal/ats-sync-all          # triggers first extraction
+```
 
-**Remaining Work:**
-- [ ] Add Lever API integration (follow Greenhouse pattern)
-- [ ] Add Ashby API integration
-- [ ] Configure ATS sync schedules for all 60 companies with ATS configs
-- [ ] Add ATS sync monitoring to admin dashboard
+**Remaining Work (Phase 6):**
+- [x] **7.1** Crawler job persistence — Done (`CrawlerJobMapper.kt`, `CrawlerJobPersistenceService.kt`)
+- [x] **P1.8** TeamTailorClient.kt + normalizer — Done
+- [x] **P1.9** SmartRecruitersClient.kt + normalizer — Done
+- [x] **P1.10** WorkableClient.kt + normalizer — Done
+- [ ] ATS sync monitoring in admin dashboard analytics (Phase 7.3)
 
-**Effort:** 12-16 hours | **Impact:** 50%+ more jobs, real-time data
+**Identification tools available:**
+- `scripts/ats/probe_free_ats.py` — slug probing (A)
+- `scripts/ats/extract_ats_from_apply_urls.py` — BigQuery URL extraction (B)
+- `scripts/ats/scan_careers_pages.py` — seed page scan (C)
+- `scripts/ats/probe_vanity_domains.py` — domain probing incl. SR + TT (D)
+- `scripts/ats/parse_autechjobs.py` — cross-reference autechjobs historical data
+- `scripts/ats/validate_ats_configs.py` — live API validation
+
+**Impact:** 527 companies with native ATS extraction once tier-2 providers built
 
 ---
 
-#### 2.5 Visa Sponsorship Tracking [MEDIUM - High User Value] 🔄 Backend Complete
+#### 2.5 Visa Sponsorship Tracking [MEDIUM - High User Value] ✅ COMPLETE
 
-**Status:** Backend data model complete, UI/filter pending
+**Status:** ✅ Done — full implementation including frontend. Badge and filter in `CompaniesPage.tsx` and `CompanyProfilePage.tsx`.
 
 **See full documentation:** `docs/phase2/2.5-visa-sponsorship.md`
 
@@ -607,10 +690,10 @@ val allTechs = (companyTechs + techFromJobs).distinct().sorted()
 - Field populated from `data/companies/*.json` files
 
 **Remaining Work:**
-- [ ] Add visa sponsorship badge to company cards (frontend)
-- [ ] Add visa sponsorship filter to company search (frontend)
-- [ ] Display visa info on company profile page (frontend)
-- [ ] Audit and update visa sponsorship data in company manifest files
+- [x] Add visa sponsorship badge to company cards (frontend)
+- [x] Add visa sponsorship filter to company search (frontend)
+- [x] Display visa info on company profile page (frontend)
+- [ ] Audit and update visa sponsorship data in company manifest files (data quality — ongoing)
 
 **Effort:** 4-6 hours | **Impact:** Critical for migrant job seekers
 
@@ -896,6 +979,213 @@ val exclusions = mapOf(
 
 ---
 
+### Phase 6: Crawler Pipeline Data Quality (Active — March 2026)
+
+**Goal:** Make every crawl produce jobs that actually appear on the public site, and scale native ATS coverage from 240 → 527 companies.
+
+**Status:** ATS identification sprint 2 complete (579/1,371 companies identified). Clients for GH/LV/AS built and passing CI. Sprint 2 work begins now.
+
+#### 6.0 Crawler Job Persistence ✅ COMPLETE
+
+**Status:** ✅ Done — `CrawlerJobMapper.kt`, `CrawlerJobPersistenceService.kt`, `NormalizedJobDto.kt` all exist.
+
+**See full plan:** `docs/implementation-plans/7.1-crawler-job-persistence.md`
+
+**What to build:**
+- `NormalizedJobDto.kt` — Kotlin mirror of the TypeScript `NormalizedJob` response type
+- `CrawlerJobMapper.kt` — maps `NormalizedJob` → `JobRecord` using existing `RawJobDataParser`
+- `CrawlerJobPersistenceService.kt` — map → fetch existing → merge → save
+- Wire into `CrawlerAdminController.triggerCrawl()` after the existing seed upsert
+- Add `findByCompanyId()` to `JobBigQueryRepository`
+
+**Effort:** 4-6 hours | **Impact:** Crawler jobs appear on the site for the first time
+
+---
+
+#### 6.1 Activate GH/LV/AS ATS Pipeline (240 companies) ✅ COMPLETE
+
+**Status:** ✅ Done — Lever and Ashby clients wired into `AtsClientFactory` alongside Greenhouse. All three are `@Component` beans in the factory.
+
+**Action:**
+```bash
+POST /api/admin/pipeline/sync-companies   # seeds 240 ATS configs to BigQuery
+POST /api/internal/ats-sync-all           # first extraction run
+```
+
+**Effort:** ~30 minutes | **Impact:** ~240 companies get structured job data immediately
+
+---
+
+#### 6.2 TeamTailor Client (99 companies) [P1.8] ✅ COMPLETE
+
+**Status:** ✅ Done — `TeamTailorClient.kt` exists in `backend/src/main/kotlin/com/techmarket/sync/ats/teamtailor/`.
+
+**API:** `GET https://{slug}.teamtailor.com/feed/jobs.json`
+**Fields:** id, title, apply-url, locations (array), department, tags. No auth required.
+
+**Files to create:**
+- `backend/src/main/kotlin/com/techmarket/sync/ats/teamtailor/TeamTailorClient.kt`
+- `backend/src/main/kotlin/com/techmarket/sync/ats/teamtailor/TeamTailorNormalizer.kt`
+- Wire into `AtsClientFactory`, `AtsNormalizerFactory`, `application.yml`
+
+**Effort:** 3-4 hours | **Impact:** 99 more companies, lowest effort of the tier-2 providers
+
+---
+
+#### 6.3 SmartRecruiters Client (157 companies) [P1.9] ✅ COMPLETE
+
+**Status:** ✅ Done — `SmartRecruitersClient.kt` exists in `backend/src/main/kotlin/com/techmarket/sync/ats/smartrecruiters/`.
+
+**API:** `GET https://api.smartrecruiters.com/v1/companies/{slug}/postings?status=PUBLISHED&limit=100`
+**Pagination:** offset-based. Full job detail via separate `GET .../postings/{jobId}`.
+**Important:** Do not use the postings API as an existence check — it returns HTTP 200 for any slug including made-up ones. Board existence is validated by redirect check.
+
+**Files to create:**
+- `SmartRecruitersClient.kt` + `SmartRecruitersNormalizer.kt`
+- Wire into factories and `application.yml`
+
+**Effort:** 5-6 hours | **Impact:** 157 more companies — largest gain of the tier-2 providers
+
+---
+
+#### 6.4 Workable Client (28 companies) [P1.10] ✅ COMPLETE
+
+**Status:** ✅ Done — `WorkableClient.kt` exists in `backend/src/main/kotlin/com/techmarket/sync/ats/workable/`.
+
+**API:** `POST https://apply.workable.com/api/v3/accounts/{slug}/jobs` — no auth, returns `{total, results[]}`. No JSON detail endpoint; description will require crawl fallback or be omitted.
+
+**Effort:** 4-5 hours | **Impact:** 28 more companies; completes tier-2 ATS sweep (total coverage: 527 companies)
+
+---
+
+#### 6.5 autechjobs Historical Data Load [ID-12–14]
+
+**Status:** 🔄 Script ready, execution pending. SQL dump exists at `data/third-party/autechjobs/Cloud_SQL_Export_2026-03-17.sql` (294 MB). `--export-jsonl` flag fully implemented in `parse_autechjobs.py`. BigQuery load (ID-13) and trend backfill (ID-14) still need to be run manually.
+
+**Steps:**
+```bash
+# ID-12: Export to JSONL
+python3 scripts/ats/parse_autechjobs.py --export-jsonl --output data/third-party/autechjobs/historical_jobs.jsonl
+
+# ID-13: Load to BigQuery
+bq load --source_format=NEWLINE_DELIMITED_JSON techmarket.autechjobs_historical historical_jobs.jsonl
+
+# ID-14: Derive monthly tech_job_counts back to 2020
+# (BigQuery transformation query — see docs/data/autechjobs-historical-data.md)
+```
+
+**Effort:** 2-3 hours | **Impact:** 5+ years of trend data for market insights charts
+
+---
+
+#### 6.6 Self-Improving Crawler: Extraction Hints [P2.5–2.8] ✅ COMPLETE
+
+**Status:** ✅ Done — `extractionHints` is referenced and consumed in `GeminiExtractionService.ts` (lines 35, 97-98), fed into the Gemini prompt for companies with prior crawl history.
+
+**What to build:**
+- `ExtractionHints` schema (TypeScript interface in crawler-service) — stores pagination type, job container selector, last successful titles, etc.
+- `hints` JSON column on `crawler_seeds` BigQuery table
+- `CrawlerSeedRepository.updateHints()` method
+- Pass hints into Gemini extraction prompt in `ContentExtractor.ts`
+- Track `lastSuccessfulJobCount` + emit `[REGRESSION_WARNING]` on zero-yield for previously-productive seeds
+
+**Effort:** 4-6 hours | **Impact:** Crawler improves quality run-over-run; regressions become detectable
+
+---
+
+#### 6.7 Snapshot Fixture Test Suite [P2.7]
+
+**Status:** ⏳ Pending. No `crawler-service/fixtures/` directory exists. Design complete in §2.3 of crawler extraction plan.
+
+**Goal:** 20+ HTML snapshots of real career pages (post-render, captured by Playwright) with expected job counts + field assertions. Runs as a local test suite without hitting the live internet.
+
+**Priority companies:** Datacom, Xero, Trade Me, Westpac, Weta FX, Alan (Ashby), Halter
+
+**Effort:** 4-6 hours | **Impact:** Catch extraction regressions before they hit production
+
+---
+
+### Phase 7: Admin Panel
+
+**Goal:** Operational visibility and control over the crawler/ingestion pipeline without touching raw JSON files or running API calls manually.
+
+**See full design:** `docs/admin-panel-plan.md`
+
+**Auth prerequisite:** Bearer token (env-var secret) before shipping to production. Long-term: Google IAP.
+
+**Current state:** Frontend admin UI is **substantially built** — `frontend/src/admin/` contains `AdminLayout.tsx`, `DashboardPage.tsx`, `CompaniesPage.tsx`, `CrawlsPage.tsx`, `PipelinePage.tsx`, `AnalyticsPage.tsx`, `LoginPage.tsx`. Backend `AdminController` has 6 endpoints but is missing the dead-letters browser and jobs browser APIs.
+
+#### Phase 7.1 — Foundation ✅ COMPLETE
+
+- [x] `/admin` route family in React Router with token auth screen (`LoginPage.tsx`)
+- [x] `AdminLayout` (sidebar nav, toast system)
+- [x] Company table page (`CompaniesPage.tsx`)
+- [x] Dashboard page (`DashboardPage.tsx`)
+- [x] Crawl operations page (`CrawlsPage.tsx`)
+
+#### Phase 7.2 — Pipeline Observability 🔄 Frontend Done, Backend Partial
+
+- [x] Pipeline page frontend (`PipelinePage.tsx`)
+- [x] Backend: `POST /api/admin/trigger-sync`, `POST /api/admin/sync-companies`, `POST /api/admin/reprocess-jobs`
+- [ ] Backend: `GET /admin/pipeline/ingestions` — paginated ingestion history
+- [ ] Backend: dead letter queue read + retry + discard endpoints
+- [ ] Backend: `GET /admin/jobs` — paginated job browser with filters
+
+**Remaining:** ~1 week of backend work to expose the pipeline data the frontend is ready to consume.
+
+#### Phase 7.3 — Analytics ✅ COMPLETE (Frontend)
+
+- [x] Analytics page frontend (`AnalyticsPage.tsx`)
+- [x] Backend: `GET /api/admin/health-check/stats`
+
+#### Phase 7.4 — Job Browser + Quality Tools
+
+- [ ] Backend: `GET /admin/jobs` — paginated job browser with filters (company, source, status, country, tech)
+- [ ] Job detail modal with raw JSON + flag/review actions
+- [ ] URL health check trigger per company from admin UI
+- [ ] Discovery success rates by ATS provider chart
+
+---
+
+### Phase 8: Staging Environment
+
+**Status:** ⏳ Pending. **Plan is fully documented — `docs/deployment/staging-environment.md` — ~2 hours of setup.** No deploy scripts or `application-staging.yml` exist yet.
+
+**See:** `docs/deployment/staging-environment.md`
+
+**Why now:** Every change currently ships directly to production. This is the root cause of the "keep breaking in production" problem noted in TODO.md.
+
+**Setup checklist:**
+- [ ] `bq mk --dataset techmarket_staging` + copy table schemas
+- [ ] `gcloud storage buckets create gs://techmarket-bronze-ingestions-staging`
+- [ ] `gcloud tasks queues create techmarket-sync-queue-staging`
+- [ ] Create `application-staging.yml` in backend
+- [ ] Create `.env.staging` (gitignored) + deploy scripts
+- [ ] Set Vercel env vars scoped to `staging` branch
+- [ ] Create `staging` git branch
+
+**Estimated cost:** ~$0–$2/month (all resources scale to zero).
+
+---
+
+### Phase 9: GCS Bronze Cold Storage ✅ COMPLETE
+
+**Status:** ✅ Done — `BronzeGcsRepository.kt`, `BronzeIngestionManifest.kt`, `BronzeRepository.kt` interface, and `terraform/gcp/storage_bucket.tf` all exist.
+
+**See full plan:** `docs/implementation-plans/6.1-file-based-cold-storage-plan.md`
+
+**Trigger to start:** When monthly ingestion storage cost exceeds ~$20/month, or before enabling daily Apify + 500+ ATS companies.
+
+**Expected savings:** 93% storage cost reduction at scale ($300/month → $20/month for 500GB).
+
+**Key design decisions (already resolved):**
+- NDJSON + gzip files in GCS (Parquet as future optimization)
+- 90-day STANDARD → COLDLINE → 1-year ARCHIVE lifecycle
+- `ingestion_metadata` BigQuery table as queryable index (not raw storage)
+- Dual-write migration strategy (2 weeks overlap before cutover)
+
+---
+
 ## Technical Debt & Refactoring
 
 ### T1: Rename Analytics to Insights [LOW]
@@ -1005,6 +1295,13 @@ val exclusions = mapOf(
 - `docs/data/company-data-strategy.md` - Master manifest system
 - `docs/data/job-data-strategy.md` - Multi-channel sourcing
 - `docs/data/ats/ats-identification-findings.md` - ATS integration targets
+- `docs/implementation-plans/crawler-extraction-improvement-plan.md` - **ATS identification + self-improving crawler (active)**
+- `docs/implementation-plans/7.1-crawler-job-persistence.md` - **Critical bug fix (jobs not saved)**
+- `docs/admin-panel-plan.md` - **Admin panel full design (phases 1-5)**
+- `docs/deployment/staging-environment.md` - Staging environment setup
+- `docs/implementation-plans/6.1-file-based-cold-storage-plan.md` - GCS Bronze migration
+- `docs/crawler_efficiency_strategy.md` - Two-tier discovery/harvesting strategy
+- `docs/data/autechjobs-historical-data.md` - 161k historical jobs (staged, pending BigQuery load)
 - `docs/implementation-plans/` - **Detailed implementation plans for all major features**
 
 ### External Dependencies
@@ -1012,21 +1309,26 @@ val exclusions = mapOf(
 - **Google Cloud Tasks**: Background processing
 - **Vercel Blob/S3**: Logo hosting
 - **Supabase** (optional): Resource database
+- **autechjobs.com.au**: Historical AU tech job data (SQL dump, 161k records, 2010–2026)
 
 ---
 
 ## 📊 Summary & Next Steps
 
-### Total Implementation Effort
+### Total Implementation Effort (Updated March 17, 2026)
 
 | Phase | Features | Total Effort | Priority Features |
 |-------|----------|--------------|-------------------|
 | **Phase 1** | 5 bug fixes | ✅ COMPLETED | All done |
 | **Phase 2** | 8 features | 58-78 hours | Salary ✅, Cloud Tasks ✅, Contract Validation ✅, Query Rows ✅, Dead Links 🔄, ATS 🔄, Visa 🔄 |
-| **Phase 3** | 4 features | 36-44 hours | SEEK/TradeMe, Domain Hubs, Tech Exclusion, Trending |
-| **Phase 4** | 1 feature | 16-20 hours | Mobile UX |
+| **Phase 3** | 4 features | 36-44 hours | SEEK/TradeMe ⏳, Domain Hubs ✅, Tech Exclusion ⏳, Trending ⏳ |
+| **Phase 4** | 1 feature | 16-20 hours | Mobile UX ⏳ |
 | **Phase 5** | 3 features | ✅ COMPLETED | Directory Manifest ✅, Validation ✅, Improvements ✅ |
-| **Total** | **21 features** | **~52-68 hours remaining** | **6 high-priority** |
+| **Phase 6** | 8 features | mostly ✅ | Job persistence ✅, ATS activation ✅, TT/SR/WL ✅, extraction hints ✅, GCS ✅; autechjobs BQ load ⏳, snapshots ⏳ |
+| **Phase 7** | 4 phases | Frontend ✅ partial | Admin frontend done; backend dead-letters + jobs browser missing |
+| **Phase 8** | 1 feature | 2 hours | Staging environment — not yet set up |
+| **Phase 9** | 1 feature | ✅ | GCS Bronze cold storage — Done |
+| **Total remaining** | **~10 items** | **~30-50 hours** | **See Tier 1-4 in Next Opportunities (most done)** |
 
 ### Recommended Implementation Order
 
@@ -1038,42 +1340,56 @@ val exclusions = mapOf(
 
 **Sprint 2 (Week 3-4): Data Quality** 🔄 In Progress
 1. **2.3 Dead Link Detection** - Zero ghost jobs (backend done, UI pending)
-2. **2.4 ATS Integrations** - 50% more jobs (backend done, Lever/Ashby pending)
+2. **2.4 ATS Integrations** - GH/LV/AS built + 240 companies ready; SR/TT/Workable pending
 3. **2.5 Visa Sponsorship** - Quick win (backend done, UI pending)
 
-**Sprint 3 (Week 5-6): Market Expansion**
-1. **3.1 SEEK & TradeMe** - Double job coverage
-2. **3.2 Domain Hubs** - Better discovery
+**Sprint 6 (Current — most things already done!)** ✅
+1. ✅ **7.1 Crawler Job Persistence** — Done
+2. ✅ **Activate GH/LV/AS** — Done (wired in factory)
+3. ✅ **TeamTailor / SmartRecruiters / Workable clients** — Done
+4. ✅ **GCS Bronze cold storage** — Done
+5. ✅ **Admin Panel frontend** — Done (6 pages)
+6. ✅ **Extraction hints** — Done
+7. **8.1 Staging Environment** — Still pending (~2h setup)
+8. **autechjobs historical load** — Script ready, BQ load pending (~1h)
 
-**Sprint 4 (Week 7-8): UX Polish**
+**Sprint 7 (Next): Admin Panel Backend + UX Gaps**
+1. Backend dead-letter queue + ingestion history endpoints (admin panel Phase 7.2 remaining work)
+2. Backend jobs browser endpoint (`GET /admin/jobs`)
+3. **Dead link UI** (public-facing url_status display) — 2-3h
+4. **Snapshot fixture test suite** (20 crawl pages) — 4-6h
+
+**Sprint 8: UX + Market Expansion**
 1. **3.3 Tech Exclusion Filters** - Cleaner results
 2. **3.4 Trending Lists** - Engagement
-3. **4.1 Mobile UX** - Retention
-
-**Sprint 5 (Week 9): Infrastructure** ✅ COMPLETE
-1. **5.1 Directory Manifest Migration** - Enable parallel contributions ✅
-2. **5.2 Manifest Validation** - Enable public contributions ✅
-3. **5.3 Manifest Improvements** - Quality of life enhancements ✅
+3. **3.1 SEEK & TradeMe** - Double job coverage (if still relevant with 527 ATS companies)
+4. **4.1 Mobile UX** - Retention
 
 ### Success Criteria
 
 All implementation plans include specific, measurable success criteria. Key metrics to track:
 
+**Data Pipeline:**
+- Crawler jobs appear on site after crawl (currently 0%) → **100%** (crawler job persistence fix)
+- Companies with native ATS: 0 active → **527** (GH/LV/AS + TT + SR + Workable)
+- Historical trend data: 0 years → **5+ years** (autechjobs load)
+
 **Data Quality:**
-- Job coverage: 40% → 90%+ (SEEK + TradeMe + ATS)
+- Job coverage: 40% → 90%+ (ATS + SEEK + TradeMe)
 - Ghost jobs: Unknown → <5% (dead link detection)
-- Salary data: Messy → Normalized with confidence indicators
+- Salary data: Messy → Normalized with confidence indicators ✅
 
 **User Experience:**
 - Mobile bounce rate: Unknown → <40%
-- API response time: Unknown → <500ms (p95)
-- Organic search traffic: Unknown → +50% (sitemap + domain hubs)
+- API response time: Unknown → <500ms (p95) ✅
+- Organic search traffic: Unknown → +50% (sitemap + domain hubs) ✅
 
 **Technical:**
 - Zero timeout errors (Cloud Tasks) ✅
 - 99%+ sync success rate ✅
 - All unit tests passing (90%+ coverage) ✅
 - Zero field-mismatch bugs (contract validation) ✅
+- Staging environment operational (currently none)
 
 ---
 

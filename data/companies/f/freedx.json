@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "freedx",
+    "provider": "WORKABLE"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Freedx is a company profile created during backlog processing.",
+  "description": "Freedx is a Spanish technology consultancy focusing on digital transformation and innovative business solutions.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "freedx",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQE5fkwSxBg0RQ/company-logo_100_100/B4DZhCACEGGsAQ-/0/1753453962068/freedx_logo?e=1774483200&v=beta&t=CgVqIMIAH0MfO8WFL36pMOfRXem1mQXWFc9n6hJXUHc",
   "name": "Freedx",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.135213Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://freedx.co"
 }

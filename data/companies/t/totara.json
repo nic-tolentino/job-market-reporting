@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "totara",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://totara-learning-solutions.breezy.hr"
+      }
+    ]
   },
-  "description": "Totara is a company profile created during backlog processing.",
+  "description": "Totara Learning provides open-source learning, performance, and engagement platforms for global organizations.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "totara",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGdViy3GfLlhg/company-logo_100_100/company-logo_100_100/0/1630522977394/totaralearning_logo?e=1773878400&v=beta&t=7mpZOQvpbtXgCXuTy_yrNPPjTHtqjNAdjXOmGYVA3dE",
   "name": "Totara",
-  "office_locations": [],
+  "office_locations": [
+    "Wellington"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.382719Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.totara.com"
 }

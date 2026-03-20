@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "fpcm",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.fpcm.es/empleo/"
+      }
+    ]
   },
-  "description": "Fundación Parque Científico de Madrid is a company profile created during backlog processing.",
+  "description": "Fundación Parque Científico de Madrid is a non-profit foundation that supports R&D, innovation, and technology-based entrepreneurship.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "fpcm-madrid",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGxUHHfNWsTRA/company-logo_100_100/B4DZkU_r3TIEAg-/0/1756993863465/parque_cientifico_de_madrid_logo?e=1774483200&v=beta&t=88W7WuG8uk-nCs2uve2t86t951ML0hKcGHVePpBl508",
   "name": "Fundación Parque Científico de Madrid",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.688821Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.fpcm.es"
 }

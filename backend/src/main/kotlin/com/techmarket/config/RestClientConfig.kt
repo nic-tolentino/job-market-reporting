@@ -21,4 +21,30 @@ class RestClientConfig {
     ): RestClient {
         return builder.baseUrl(properties.baseUrl).build()
     }
+
+    @Bean
+    fun leverRestClient(builder: RestClient.Builder, properties: LeverProperties): RestClient {
+        return builder.baseUrl(properties.baseUrl).build()
+    }
+
+    @Bean
+    fun ashbyRestClient(builder: RestClient.Builder, properties: AshbyProperties): RestClient {
+        return builder.baseUrl(properties.baseUrl).build()
+    }
+
+    @Bean
+    fun smartRecruitersRestClient(builder: RestClient.Builder, properties: SmartRecruitersProperties): RestClient {
+        return builder.baseUrl(properties.baseUrl).build()
+    }
+
+    /** TeamTailor uses company-specific subdomains; no fixed base URL. */
+    @Bean
+    fun teamTailorRestClient(builder: RestClient.Builder): RestClient {
+        return builder.build()
+    }
+
+    @Bean
+    fun workableRestClient(builder: RestClient.Builder, properties: WorkableProperties): RestClient {
+        return builder.baseUrl(properties.baseUrl).build()
+    }
 }

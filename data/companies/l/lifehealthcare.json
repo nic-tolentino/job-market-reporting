@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "lifehealthcare",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "LifeHealthcare is a company profile created during backlog processing.",
+  "description": "LifeHealthcare is one of Australia’s leading independent medical device distributors, representing global innovative manufacturers.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "lifehealthcare",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHsUSaXQX95kA/company-logo_100_100/company-logo_100_100/0/1646606801982/lifehealthcare_logo?e=1773878400&v=beta&t=cz1FgznHWi8U63tMDrVqhKpx-VR3Tg-783a813QNZdM",
   "name": "LifeHealthcare",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.198161Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.lifehealthcare.com.au"
 }

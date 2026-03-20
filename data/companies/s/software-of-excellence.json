@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "software-of-excellence",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://henryscheinone.applytojob.com/apply/"
+      }
+    ]
   },
-  "description": "Software of Excellence is a company profile created during backlog processing.",
+  "description": "Software of Excellence is a global leader in dental practice management software, part of Henry Schein.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "software-of-excellence",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.104062Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.softwareofexcellence.com"
 }

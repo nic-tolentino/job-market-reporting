@@ -2,12 +2,23 @@
   "alternateNames": [
     "BMM Compliance"
   ],
+  "ats": {
+    "identifier": "bmm",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://bmm.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://bmm.com/careers/"
       }
     ]
   },

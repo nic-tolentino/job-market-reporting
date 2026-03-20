@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "colabyr",
+    "provider": "CUSTOM"
+  },
   "company_type": "Unknown",
   "crawler": {
     "seeds": []
   },
-  "description": "Colabyr is a company profile created during backlog processing.",
+  "description": "Colabyr is a New Zealand software consultancy focusing on collaborative technology and digital transformation.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "colabyr",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGJg1gb2aOVxA/company-logo_100_100/B56ZuX0XASGwAQ-/0/1767778645063/colabyr_logo?e=1774483200&v=beta&t=sJIFhV8EfcZJoZX0v7D9I8Aeh_cdMD0gQDLNXOeuX0o",
   "name": "Colabyr",
-  "office_locations": [],
+  "office_locations": [
+    "Wellington"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:34.962012Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:52:50.173141Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://colabyr.co.nz"
 }

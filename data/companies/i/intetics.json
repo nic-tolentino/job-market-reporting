@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "intetics",
+    "provider": "WORKABLE"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "empty",
+        "url": "https://apply.workable.com/intetics/"
+      }
+    ]
   },
-  "description": "Intetics is a company profile created during backlog processing.",
+  "description": "Intetics is a leading global technology company providing custom software application development and distributed teams.",
   "employees_count": null,
   "hq_country": "US",
   "id": "intetics",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGPo4xi1y3FaA/company-logo_100_100/B4DZc10aZbGUAQ-/0/1748954621937/intetics_logo?e=1774483200&v=beta&t=vmJYrG9VSmSSblgrTGxlY1dldjbF3Ixe-ezfqt5Jl0E",
   "name": "Intetics",
-  "office_locations": [],
+  "office_locations": [
+    "Naples, FL"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.086678Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://intetics.com"
 }

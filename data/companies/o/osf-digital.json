@@ -2,15 +2,11 @@
   "alternateNames": [
     "OSF Global Services"
   ],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://osf.digital/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "osf",
+    "provider": "SMARTRECRUITERS"
   },
+  "company_type": "Consultancy",
   "description": "OSF Digital is a global digital transformation specialist and commerce solutions provider.",
   "employees_count": null,
   "hq_country": "CA",

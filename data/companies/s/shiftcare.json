@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "shiftcare",
+    "provider": "WORKABLE"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "ShiftCare is a company profile created during backlog processing.",
+  "description": "ShiftCare provides NDIS care management software for disability and aged care providers in Australia.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "shiftcare",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFWVG7zpokbzA/company-logo_100_100/company-logo_100_100/0/1693458448714/shiftcare_logo?e=1774483200&v=beta&t=g1UT5bJfiR5piNnniAFn7Zk-AOD6dAohWP5qzALtaCQ",
   "name": "ShiftCare",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:03:22.243289Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.shiftcare.com"
 }

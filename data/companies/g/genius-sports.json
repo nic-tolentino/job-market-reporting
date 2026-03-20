@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "geniussports",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Genius Sports is a company profile created during backlog processing.",
+  "description": "Genius Sports is a global leader in sports data and technology, providing data-driven solutions for the sports, betting, and media industries.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "genius-sports",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQECVe0MtzRTyw/company-logo_100_100/company-logo_100_100/0/1630542077380/geniussports_logo?e=1774483200&v=beta&t=5zEl4UvPZuN_g0lJP7SOCKHRBlVyYqnqtpTlFruDKRo",
   "name": "Genius Sports",
-  "office_locations": [],
+  "office_locations": [
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.894521Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.geniussports.com"
 }

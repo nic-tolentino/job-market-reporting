@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "un-common",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://noescomun.com/careers"
+      }
+    ]
   },
-  "description": "UN/COMMON is a company profile created during backlog processing.",
+  "description": "UN/COMMON (noescomun.com) is a strategy and product innovation consultancy based in Spain and Latin America.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "un-common",
@@ -12,12 +23,14 @@
   "is_agency": true,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFnZdTGOiG_lw/company-logo_100_100/company-logo_100_100/0/1704897469429/noticed_logo?e=1774483200&v=beta&t=Hks6H8ZFjnGlIECUnUUFsvcLDbhhnCzEo3oQQynqNAI",
-  "name": "UN/COMMON",
-  "office_locations": [],
+  "name": "UN/COMMON España",
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.850423Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://noescomun.com"
 }

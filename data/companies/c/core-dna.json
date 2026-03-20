@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "core-dna",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.coredna.com/careers"
+      }
+    ]
   },
-  "description": "Core dna is a company profile created during backlog processing.",
+  "description": "Core dna is an Australian-developed all-in-one digital experience platform (DXP) for e-commerce and marketing.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "core-dna",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEYFFrKoU9KFA/company-logo_100_100/company-logo_100_100/0/1631342806425?e=1774483200&v=beta&t=_V4g7U8bq-eVpNu85ICd7PJZo6Wz90nw8uxV8rrL3rw",
   "name": "Core dna",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.165657Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.coredna.com"
 }

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "tf-bank-ab-publ",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://tfbank.teamtailor.com/jobs"
+      }
+    ]
   },
-  "description": "TF Bank AB (publ) is a company profile created during backlog processing.",
+  "description": "TF Bank is a Swedish digital bank providing consumer loans and savings products in multiple European markets.",
   "employees_count": null,
   "hq_country": "SE",
   "id": "tf-bank-ab-publ",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGvmjn0T751eA/company-logo_100_100/company-logo_100_100/0/1630513627826/tf_bank_logo?e=1774483200&v=beta&t=fNjMe1J3i9UdhHnpsRFlwteBBxYlvMGNXOXhRrxe3JE",
   "name": "TF Bank AB (publ)",
-  "office_locations": [],
+  "office_locations": [
+    "Borås"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:18:19.580852Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://tfbankgroup.com"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "komvida-organic-kombucha",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Komvida Organic Kombucha is a company profile created during backlog processing.",
+  "description": "Komvida is a Spanish manufacturer of organic kombucha, known for its traditional brewing methods and quality ingredients.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "komvida-organic-kombucha",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFTAqMXyivC3g/company-logo_100_100/company-logo_100_100/0/1706868103466/komvidaorganickombucha_logo?e=1774483200&v=beta&t=qvN8RbsMCPYZMNkZG_7HqgxjfLL0fGiHJzIdOuyDodw",
   "name": "Komvida Organic Kombucha",
-  "office_locations": [],
+  "office_locations": [
+    "Fregenal de la Sierra"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.856844Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://komvida.com"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "makereatu-technology",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Makereatu Technology is a company profile created during backlog processing.",
+  "description": "Makereatu Technology is an innovative firm providing AI-powered infrastructure advisory and custom software solutions.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "makereatu-technology",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h",
   "name": "Makereatu Technology",
-  "office_locations": [],
+  "office_locations": [
+    "Dunedin"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.369536Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.makereatu.com"
 }

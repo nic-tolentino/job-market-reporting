@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "go1au",
+    "provider": "GREENHOUSE"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.go1.com/en-au/careers-go1"
+      }
+    ]
+  },
+  "description": "Go1 is on a mission to unlock positive potential through a love of learning. The Go1 platform makes learning easy with thousands of learning resources in one simple solution. Since our founding in 2015, we have grown to an organization of 200+ in 9 global offices. At Go1, we pursue excellence through planning, action, communication and learning. It is with this spirit that we are driving hypergrowth and international expansion.",
+  "hq_country": "AU",
+  "id": "go1",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Go1",
+  "verification_level": "unverified",
+  "website": "https://www.go1.com/en-au/about-us"
+}

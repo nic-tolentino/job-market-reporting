@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "dronedeploy",
+    "provider": "LEVER"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "DroneDeploy is a company profile created during backlog processing.",
+  "description": "DroneDeploy is a leading aerial reality capture platform that provides drone mapping and site documentation software.",
   "employees_count": null,
   "hq_country": "US",
   "id": "dronedeploy",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQESF0Xp13c_Ag/company-logo_100_100/company-logo_100_100/0/1665423654437/dronedeploy_logo?e=1774483200&v=beta&t=TsUMyuTyg1Jj8nFiUe2gQN9IaQPFcI8Kku7LhUVjGtw",
   "name": "DroneDeploy",
-  "office_locations": [],
+  "office_locations": [
+    "San Francisco"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.762659Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.dronedeploy.com"
 }

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "dataengine",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://dataengine.co.nz/careers/"
+      }
+    ]
   },
-  "description": "dataengine is a company profile created during backlog processing.",
+  "description": "dataengine is a New Zealand data consultancy specializing in data engineering, analytics, and cloud-based data platforms.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "dataengine",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFKsROSea5FBw/company-logo_100_100/company-logo_100_100/0/1709518821401/dataenginenz_logo?e=1773878400&v=beta&t=-Uep4nDBJKHa8XxK9_WeULJ2mv2d_9HqTzPFKcJsnUA",
   "name": "dataengine",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.765389Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.dataengine.co.nz"
 }

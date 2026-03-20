@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "aut",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://careers.aut.ac.nz/search"
+      }
+    ]
   },
-  "description": "",
+  "description": "Auckland University of Technology (AUT) is a leading New Zealand university known for its focus on technology and industry-aligned research.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "auckland-university-of-technology",
@@ -15,11 +26,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQG03-BVh9a1pQ/company-logo_100_100/company-logo_100_100/0/1630646230931/autuni_logo?e=1774483200&v=beta&t=WsMXNHxLb47rzNOv-0J-RYykqlFfLFUBlAiv_AGS9LY",
   "name": "Auckland University of Technology",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.491245Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.aut.ac.nz"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "careers-at-sleek",
+    "provider": "WORKABLE"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Sleek is a company profile created during backlog processing.",
+  "description": "Sleek provides corporate services, accounting, and payroll platform solutions for startups and SMEs.",
   "employees_count": null,
   "hq_country": "SG",
   "id": "sleek",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHWI-zSES4n-w/company-logo_100_100/company-logo_100_100/0/1630897356530/sleekcorp_logo?e=1774483200&v=beta&t=0Xy8nuDA8uiRtjNvTMJGah2y0uvRdyERiNJVWcmIAqc",
   "name": "Sleek",
-  "office_locations": [],
+  "office_locations": [
+    "Singapore"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.061600Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://sleek.com"
 }

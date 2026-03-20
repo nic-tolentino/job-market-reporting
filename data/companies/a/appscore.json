@@ -1,0 +1,25 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.seek.com.au/Appscore-jobs"
+      }
+    ]
+  },
+  "description": "Appscore was originally founded as a mobile development house in 2010, tailored to meet the ever-growing demand for accelerating digital engagement. As digital environments become increasingly complex, we’ve taken on the mission to simplify digital experiences across mobile, cloud and web.",
+  "hq_country": "AU",
+  "id": "appscore",
+  "industries": [
+    "Mobile",
+    "Software Development",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "Appscore",
+  "verification_level": "unverified",
+  "website": "https://www.appscore.com.au/about/"
+}

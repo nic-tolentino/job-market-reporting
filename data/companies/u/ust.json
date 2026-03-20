@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ust",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "UST is a company profile created during backlog processing.",
+  "description": "UST is a global technology company specializing in digital transformation and innovation.",
   "employees_count": null,
   "hq_country": "US",
   "id": "ust",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEr-ib3Nn15Aw/company-logo_100_100/company-logo_100_100/0/1648787427825/ustglobal_logo?e=1774483200&v=beta&t=zx0Hj2uLy8gmA9PYf3sEDimRH0EtclC83twL-MvaQD8",
   "name": "UST",
-  "office_locations": [],
+  "office_locations": [
+    "Aliso Viejo, CA"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.854351Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ust.com"
 }

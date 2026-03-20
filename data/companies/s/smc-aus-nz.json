@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "smc-aus-nz",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.smcanz.com/careers"
+      }
+    ]
   },
-  "description": "SMC Corporation Australia and New Zealand is a company profile created during backlog processing.",
+  "description": "SMC Corporation Australia New Zealand is a leader in pneumatic technology and industrial automation products.",
   "employees_count": null,
   "hq_country": "JP",
   "id": "smc-aus-nz",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEmyIUVu2a27w/company-logo_100_100/B56ZXzgivHGcAU-/0/1743547149800/smc_corporation_australia_new_zealand_group_logo?e=1774483200&v=beta&t=YZ6xsTiEWS3YmeNHI43TrYP2Ypw-QTzcsYH4dFOGWKg",
   "name": "SMC Corporation Australia and New Zealand",
-  "office_locations": [],
+  "office_locations": [
+    "Castle Hill"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.414930Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.smcanz.com"
 }

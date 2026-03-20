@@ -1,11 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "n2s-global",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.n2s-global.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.indeed.com/cmp/N2s.Global/jobs"
       }
     ]
   },
@@ -32,13 +38,13 @@
     "US"
   ],
   "remote_policy": "Remote",
-  "updated_at": "2026-03-10T09:40:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T21:32:28.022619Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-16T21:32:27.991025Z",
+    "notes": "Staffing agency/workforce solutions. Connects talent with sponsors but does not typically sponsor directly.",
+    "offered": false,
+    "source": "N2S.Global Profile",
     "types": []
   },
   "website": "https://www.n2s-global.com"

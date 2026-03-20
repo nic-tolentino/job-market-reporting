@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "protoinfo",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Protoinfo is a company profile created during backlog processing.",
+  "description": "Protoinfo is a Spanish technology company providing specialized IT services and systems maintenance.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "protoinfo",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFdYbbrDb6vpg/company-logo_100_100/company-logo_100_100/0/1715844553437/proto_info_logo?e=1774483200&v=beta&t=7DadDddsXrRTq-nT2sTB-m5VNJo5PArXrGG44erdj54",
   "name": "Protoinfo",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.951226Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://protoinfo.es"
 }

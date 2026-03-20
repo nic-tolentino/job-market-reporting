@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "credera",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Credera is a company profile created during backlog processing.",
+  "description": "Credera is a global consulting firm focused on digital transformation, data, and technology strategy.",
   "employees_count": null,
   "hq_country": "US",
   "id": "credera",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFLSfeRjK0icQ/company-logo_100_100/B56ZonmD8lHkAU-/0/1761600881184/credera_logo?e=1774483200&v=beta&t=nDZeFOshM7VC2ybL4Wqh9DprE5wmxiF6yNvYi9csCdY",
   "name": "Credera",
-  "office_locations": [],
+  "office_locations": [
+    "Dallas"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.870091Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.credera.com"
 }

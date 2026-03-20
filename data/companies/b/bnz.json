@@ -11,7 +11,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "http://www.bnz.co.nz/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.bnz.co.nz/about-us/careers"
       }
     ]
   },
@@ -34,13 +41,13 @@
     "NZ"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:38:43.984563Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:38:43.979357Z",
+    "notes": "Accredited Employer (INZ). Major tech team (1200+) in NZ. Supports international candidates for skilled roles.",
     "offered": true,
-    "source": null,
+    "source": "BNZ Careers",
     "types": []
   },
   "website": "http://www.bnz.co.nz"

@@ -2,11 +2,16 @@
   "alternateNames": [
     "Eurofins Scientific"
   ],
+  "ats": {
+    "identifier": "eurofins",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.eurofins.com/careers"
       }
     ]

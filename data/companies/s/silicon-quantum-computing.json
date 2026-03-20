@@ -4,7 +4,7 @@
   "crawler": {
     "seeds": []
   },
-  "description": "Silicon Quantum Computing is a company profile created during backlog processing.",
+  "description": "Silicon Quantum Computing (SQC) is commercializing world-leading quantum computing research from UNSW Sydney.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "silicon-quantum-computing",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGsgm0OKPWOhA/company-logo_100_100/B4DZbv73OHGYAY-/0/1747782169961/silicon_quantum_computing_pty_ltd_logo?e=1774483200&v=beta&t=hygsniUV3ODRpd0SnRrbOSwiZEAgB0kixMnbzK8CUuY",
   "name": "Silicon Quantum Computing",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.533000Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sqc.com.au"
 }

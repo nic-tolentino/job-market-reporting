@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "studiosity",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.studiosity.com/about/jobs"
+      }
+    ]
   },
-  "description": "Studiosity is a company profile created during backlog processing.",
+  "description": "Studiosity is an online student support platform that partners with educational institutions to provide academic assistance and feedback.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "studiosity",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFkLklE0M2Ojg/company-logo_100_100/B56ZjgU84aHUAY-/0/1756110245871/studiosity_logo?e=1774483200&v=beta&t=DgAveJNTMGbKso6O6bGo56piYWUkaa1Aj19_d429fhE",
   "name": "Studiosity",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:17:27.280900Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.studiosity.com"
 }

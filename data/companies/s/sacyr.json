@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://sacyr.com/empleo"
+      }
+    ]
   },
-  "description": "SACYR is a company profile created during backlog processing.",
+  "description": "Sacyr is a global infrastructure operator and developer involved in construction, concessions, and services.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "sacyr",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGeiOURPAny6w/company-logo_100_100/B4DZV_LY8uG8AY-/0/1741595447505/sacyr_logo?e=1774483200&v=beta&t=GJuirwN1YXxUW4K0uzmA2dDNJ3ACUEzkFLcefD_QiYY",
   "name": "SACYR",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.044031Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sacyr.com"
 }

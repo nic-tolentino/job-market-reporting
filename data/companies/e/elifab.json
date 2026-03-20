@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "elifab",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://trabajoelifab.factorialhr.com"
+      }
+    ]
   },
-  "description": "Elifab is a company profile created during backlog processing.",
+  "description": "Elifab is a Spanish technology company specializing in high-speed fruit sorting and grading machinery using advanced vision systems.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "elifab",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGRrQslZ4YOBQ/company-logo_100_100/company-logo_100_100/0/1631401694289/elifab_solutions_logo?e=1774483200&v=beta&t=EREhgJ5uGRP8UJzEm3kYV9PfZ6B-jfsz3Gs5WhodjfM",
   "name": "Elifab",
-  "office_locations": [],
+  "office_locations": [
+    "Murcia"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.353808Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.elifab.com"
 }

@@ -7,14 +7,6 @@
     "provider": "LEVER"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.veepee.com/careers"
-      }
-    ]
-  },
   "description": "Veepee is a pioneer of European e-commerce and flash sales, collaborating with 7,000 brands to deliver high-performing digital shopping experiences.",
   "employees_count": 5000,
   "hq_country": "FR",

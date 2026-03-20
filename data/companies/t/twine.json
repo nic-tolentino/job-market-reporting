@@ -2,11 +2,16 @@
   "alternateNames": [
     "Twine.net"
   ],
+  "ats": {
+    "identifier": "twine",
+    "provider": "ASHBY"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.twine.net/careers"
       }
     ]
@@ -28,13 +33,13 @@
     "Worldwide"
   ],
   "remote_policy": "Remote Only",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.788638Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.788633Z",
+    "notes": "Freelance marketplace. No direct sponsorship for contractors.",
     "offered": false,
-    "source": null,
+    "source": "Twine FAQ",
     "types": []
   },
   "website": "https://www.twine.net"

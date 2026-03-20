@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "scg-midlands",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://teamscg.bamboohr.com/careers/"
+      }
+    ]
   },
-  "description": "SCG Midlands is a company profile created during backlog processing.",
+  "description": "SCG Midlands provides technology and communications solutions, including IT, cybersecurity, and voice services.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "scg-midlands",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGxgse1veT2FA/company-logo_100_100/B4EZUUMvUOH0AU-/0/1739800639808/scgmidlands_logo?e=1774483200&v=beta&t=465jOaWQLOkF-pQXUay0MPzx2Z7A_IBJO_gAHEsxP9U",
   "name": "SCG Midlands",
-  "office_locations": [],
+  "office_locations": [
+    "Birmingham"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.524498Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://midlands.scgconnected.co.uk"
 }

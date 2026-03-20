@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.kelea.io/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "kelea",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "Kelea is a technology consultancy specializing in organizational transformation, data engineering, and production-ready AI solutions for large enterprises.",
   "employees_count": 100,
   "hq_country": "ES",

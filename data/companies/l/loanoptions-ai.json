@@ -1,10 +1,23 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "loanoptions-ai",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
+    "robots": {
+      "blocked": true,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/"
+      ]
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://loanoptions.ai/careers"
       }
     ]

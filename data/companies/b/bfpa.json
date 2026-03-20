@@ -2,12 +2,23 @@
   "alternateNames": [
     "BFPA"
   ],
+  "ats": {
+    "identifier": "bfpa",
+    "provider": "CUSTOM"
+  },
   "company_type": "Non-profit",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://bfpa.co.uk/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://bfpa.co.uk/careers/"
       }
     ]
   },

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "recovo",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://wellfound.com/company/recovo/jobs"
+      }
+    ]
   },
-  "description": "Recovo is a company profile created during backlog processing.",
+  "description": "Recovo is a B2B platform for circular fashion that connects textile waste with manufacturers and brands to give it a second life.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "recovo",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHkgKG0BAMZLw/company-logo_100_100/company-logo_100_100/0/1709909510412/recovo_logo?e=1774483200&v=beta&t=8bC5GESV-K_u27qnGWvfdov8IIuDXEU5fZqI1wcdWpk",
   "name": "Recovo",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:55:47.204377Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://recovo.co"
 }

@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://sitemate.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "Sitemate",
+    "provider": "ASHBY"
   },
+  "company_type": "Product",
   "description": "Sitemate is a company profile created during backlog processing.",
   "employees_count": null,
   "hq_country": "AU",

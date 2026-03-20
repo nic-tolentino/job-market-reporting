@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sika",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Sika is a company profile created during backlog processing.",
+  "description": "Sika is a global specialty chemicals company providing products for bonding, sealing, and reinforcing in construction.",
   "employees_count": null,
   "hq_country": "CH",
   "id": "sika",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHLb11dz4mjIw/company-logo_100_100/company-logo_100_100/0/1630636626339/sika_logo?e=1774483200&v=beta&t=DzAv3o2eq42bYsryt9emK2fX8EqaODN3tU6dz1ZIb4k",
   "name": "Sika",
-  "office_locations": [],
+  "office_locations": [
+    "Baar"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.405942Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sika.com"
 }

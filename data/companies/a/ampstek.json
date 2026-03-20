@@ -2,11 +2,16 @@
   "alternateNames": [
     "AmpsTek"
   ],
+  "ats": {
+    "identifier": "ampstek",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.ampstek.com/careers"
       }
     ]

@@ -1,0 +1,56 @@
+{
+  "total": 3,
+  "results": [
+    {
+      "id": "wl-job-001",
+      "shortcode": "ABC123",
+      "title": "Software Engineer",
+      "remote": false,
+      "location": {
+        "country": "Australia",
+        "countryCode": "AU",
+        "city": "Sydney",
+        "region": "New South Wales"
+      },
+      "locations": [],
+      "state": "published",
+      "type": "PF",
+      "department": ["Engineering"],
+      "workplace": "onsite"
+    },
+    {
+      "id": "wl-job-002",
+      "shortcode": "DEF456",
+      "title": "Senior Designer",
+      "remote": true,
+      "location": {
+        "country": "Australia",
+        "countryCode": "AU",
+        "city": "",
+        "region": ""
+      },
+      "locations": [],
+      "state": "published",
+      "type": "PF",
+      "department": ["Design"],
+      "workplace": "remote"
+    },
+    {
+      "id": "wl-job-003",
+      "shortcode": "GHI789",
+      "title": "Marketing Coordinator",
+      "remote": false,
+      "location": {
+        "country": "Australia",
+        "countryCode": "AU",
+        "city": "Melbourne",
+        "region": "Victoria"
+      },
+      "locations": [],
+      "state": "published",
+      "type": "PP",
+      "department": ["Marketing"],
+      "workplace": "hybrid"
+    }
+  ]
+}

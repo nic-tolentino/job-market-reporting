@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "merchantspring",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "MerchantSpring is a company profile created during backlog processing.",
+  "description": "MerchantSpring provides marketplace analytics and reporting solutions to help agencies and brands optimize their online marketplace performance.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "merchantspring",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQF0iq1ROWJOcg/company-logo_100_100/company-logo_100_100/0/1642443048659/merchantspring_logo?e=1774483200&v=beta&t=d6ZdU0Ugz_B9XKRrFY3N4XMIVyhA61fe-CPP4t0lW2Q",
   "name": "MerchantSpring",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.365861Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.merchantspring.io"
 }

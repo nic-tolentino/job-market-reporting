@@ -2,11 +2,16 @@
   "alternateNames": [
     "Alphabet"
   ],
+  "ats": {
+    "identifier": "google",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.google.com/careers"
       }
     ]
@@ -33,8 +38,13 @@
     "AU"
   ],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:30:00Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-16T21:30:05.092344Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-16T21:30:05.074828Z",
+    "notes": "Case-by-case basis. Some senior Software/Network Engineer roles are eligible for sponsorship in AU, while others require existing work rights.",
+    "offered": true,
+    "source": "Google Careers"
+  },
   "website": "https://www.google.com"
 }

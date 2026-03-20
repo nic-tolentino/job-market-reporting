@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sealedair",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Sealed Air Corporation is a company profile created during backlog processing.",
+  "description": "Sealed Air Corporation is a global packaging leader known for Cryovac and Bubble Wrap products.",
   "employees_count": null,
   "hq_country": "US",
   "id": "sealed-air-corporation",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGim3Wqq-MSlQ/company-logo_100_100/B4EZWF54xiGgAU-/0/1741708299866/sealed_air_corporation_logo?e=1774483200&v=beta&t=inYA33qmCZqDmXXIuhxtsdaJQaWhDkswnwBYHMnLiHM",
   "name": "Sealed Air Corporation",
-  "office_locations": [],
+  "office_locations": [
+    "Charlotte"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.049905Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sealedair.com"
 }

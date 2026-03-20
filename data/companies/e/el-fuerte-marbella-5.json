@@ -3,11 +3,16 @@
     "El Fuerte Marbella",
     "Fuerte Group Hotels"
   ],
+  "ats": {
+    "identifier": "el-fuerte-marbella",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "unknown",
         "url": "https://www.fuertehoteles.com/careers"
       }
     ]

@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "blocked",
+        "url": "https://tillpayments.com/careers.php"
+      }
+    ]
+  },
+  "description": "Australian born, we are revolutionising payments and the systems that surround them, in constant favour of merchants. Every day we process payments in Australia and in twelve countries across the globe, partnering with over 350 organisations. We enable better customer experiences with solutions across online, instore and unattended.",
+  "hq_country": "AU",
+  "id": "till-payments",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Till Payments",
+  "verification_level": "unverified",
+  "website": "https://tillpayments.com/ourstory.php"
+}

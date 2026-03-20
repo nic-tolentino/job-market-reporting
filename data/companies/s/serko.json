@@ -2,11 +2,22 @@
   "alternateNames": [
     "Serko Limited"
   ],
+  "ats": {
+    "identifier": "serko-ltd",
+    "provider": "WORKABLE"
+  },
   "company_type": "Product",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.serko.com/careers"
       }
     ]

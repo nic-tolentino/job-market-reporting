@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.skutopia.com/careers"
+      }
+    ]
+  },
+  "description": "SKUTOPIA is a fast-growing Australian deep technology logistics startup. We’re building innovative ecosystems that power the booming e-commerce industry. Our team is driven to create innovative products, a sustainable planet and society, and on a mission to democratise and decarbonise logistics. At SKUTOPIA, we offer unique products that are revolutionizing the e-commerce industry. Our SaaS solution empowers businesses to efficiently manage orders, inventory, shipping, and warehousing across multiple storefronts. Our RaaS (Robotics as a Service) solution, a testament to our deep technology focus, enables merchants to fulfil online orders at unprecedented speed and quality, leveraging our in-house software, AI, and computer vision technologies.",
+  "hq_country": "AU",
+  "id": "skutopia",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "SKUTOPIA",
+  "verification_level": "unverified",
+  "website": "https://www.skutopia.com/"
+}

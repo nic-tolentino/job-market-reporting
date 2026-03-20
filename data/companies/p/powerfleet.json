@@ -4,7 +4,7 @@
   "crawler": {
     "seeds": []
   },
-  "description": "Powerfleet is a company profile created during backlog processing.",
+  "description": "Powerfleet is a global leader in IoT software-as-a-service (SaaS) solutions for optimizing mobile assets and fleets.",
   "employees_count": null,
   "hq_country": "US",
   "id": "powerfleet",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGbhhteHKke0A/company-logo_100_100/company-logo_100_100/0/1663606653168/powerfleet_inc_logo?e=1774483200&v=beta&t=JjLok1IVRGbtw6uMPp7OZvelh6kA_JS1PWF34FxcClw",
   "name": "Powerfleet",
-  "office_locations": [],
+  "office_locations": [
+    "Woodcliff Lake"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.963940Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.powerfleet.com"
 }

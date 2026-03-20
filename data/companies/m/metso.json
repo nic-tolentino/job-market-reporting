@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "metso",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.metso.com/careers/open-jobs/"
+      }
+    ]
   },
-  "description": "Metso is a company profile created during backlog processing.",
+  "description": "Metso is a global leader in sustainable technologies, end-to-end solutions, and services for the aggregates, minerals processing, and metals refining industries.",
   "employees_count": null,
   "hq_country": "FI",
   "id": "metso",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHRLCwOnAAuyw/company-logo_100_100/company-logo_100_100/0/1683187411494/metso_logo?e=1774483200&v=beta&t=NMn2go1SPAf5mn1etNl7K1u45jVOXhPnpxQvUggF5ws",
   "name": "Metso",
-  "office_locations": [],
+  "office_locations": [
+    "Espoo"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.337251Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.metso.com"
 }

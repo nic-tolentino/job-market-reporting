@@ -1,0 +1,29 @@
+{
+  "ats": {
+    "identifier": "contino",
+    "provider": "WORKABLE"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "unknown",
+        "url": "https://www.contino.io/join-us"
+      }
+    ]
+  },
+  "description": "Contino is committed to encouraging the equality and diversity of our workforce and eliminating any unlawful discrimination. We aim for Contino to be truly representative of all sections of society and our customers and for each employee to feel respected and able to give their best.",
+  "hq_country": "GB",
+  "id": "contino",
+  "industries": [
+    "Cloud",
+    "DevOps",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "Contino",
+  "verification_level": "unverified",
+  "website": "https://www.contino.io/about"
+}

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "market-control",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://join.com/companies/market-control"
+      }
+    ]
   },
-  "description": "Market Control is a company profile created during backlog processing.",
+  "description": "Market Control provides retail analytics and sales optimization software for the consumer goods and pharmaceutical sectors.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "market-control",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHxVRCO7qAKuw/company-logo_100_100/company-logo_100_100/0/1649410643421/market_control_logo?e=1774483200&v=beta&t=LA2b7ETwioPRE7zSnQ9RnOuLDfWzp4OkqvwmS_gleKk",
   "name": "Market Control",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.364995Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.marketcontrol.com"
 }

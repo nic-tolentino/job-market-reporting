@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "drees-sommer",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://career.dreso.com/de/en/job-opportunities#entrylevel=&jobarea=&country=Spain&region=&city=&timelimit=&corporateGroup=&query="
+      }
+    ]
   },
-  "description": "Drees & Sommer España is a company profile created during backlog processing.",
+  "description": "Drees & Sommer is a leading European consulting, planning, and project management enterprise for the construction and real estate sector.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "drees-sommer-espa-a",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGIJZSjxr1bXw/company-logo_100_100/B4EZuX3Gp6IQAQ-/0/1767779363963/drees_sommer_espaa_logo?e=1774483200&v=beta&t=Oztj0oeVTgX_TTizvLb8OfFvqdIcnj5DGLMYYxg_v9A",
   "name": "Drees & Sommer España",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.780129Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.dreso.es"
 }

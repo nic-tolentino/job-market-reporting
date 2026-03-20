@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "redslim",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://redslim.net/wp-content/uploads/2024/05/careers.webp"
+      }
+    ]
   },
-  "description": "Redslim is a company profile created during backlog processing.",
+  "description": "Redslim specializes in data harmonization and provides market intelligence solutions for global organizations.",
   "employees_count": null,
   "hq_country": "CH",
   "id": "redslim",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGwLDvtxZ7hyQ/company-logo_100_100/company-logo_100_100/0/1688375954637/redslim_logo?e=1774483200&v=beta&t=RzWFkzEKhrIUEBMMQoYB5C27mjXs0gaUxXfxv8OA0a4",
   "name": "Redslim",
-  "office_locations": [],
+  "office_locations": [
+    "Zug"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:53:24.884497Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.redslim.net"
 }

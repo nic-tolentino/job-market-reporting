@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "general-technologies-consulting",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "General Technologies Consulting is a company profile created during backlog processing.",
+  "description": "General Technologies Consulting (GTC) is a Spanish firm specializing in software development and technology consulting services.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "general-technologies-consulting",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQFgnIT0iAl4PQ/company-logo_100_100/company-logo_100_100/0/1630552297642/general_technologies_consulting_logo?e=1774483200&v=beta&t=6YPcUJ6MPLou3RsLzrLALMe57d7ra1CU4LnocsScmbc",
   "name": "General Technologies Consulting",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:18:19.573381Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "http://www.generalsw.com"
 }

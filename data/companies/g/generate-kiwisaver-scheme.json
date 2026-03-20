@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "generate-kiwisaver",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://employmenthero.com/jobs/organisations/9ei3s6lxz9/"
+      }
+    ]
   },
-  "description": "Generate KiwiSaver Scheme is a company profile created during backlog processing.",
+  "description": "Generate is a specialist New Zealand KiwiSaver and wealth management provider with a focus on investment performance and service.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "generate-kiwisaver-scheme",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHrLUMc9TW8wA/company-logo_100_100/B56ZU6zMI1HQAQ-/0/1740448252827/generate_kiwisaver_scheme_logo?e=1774483200&v=beta&t=maUd_BV1fl3iWpUwKjT3M2uk6gvG7d2oDG0lLOKy8-Y",
   "name": "Generate KiwiSaver Scheme",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:18:19.573919Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.generatewealth.co.nz"
 }

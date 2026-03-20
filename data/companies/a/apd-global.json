@@ -4,7 +4,7 @@
   "crawler": {
     "seeds": []
   },
-  "description": "APD Global is a company profile created during backlog processing.",
+  "description": "APD (now part of GrowthOps) is a marketing transformation agency providing digital strategy and experiences across APAC.",
   "employees_count": null,
   "hq_country": "PH",
   "id": "apd-global",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHZX_oiVmFzHg/company-logo_100_100/company-logo_100_100/0/1734323159804/apdglobal_logo?e=1774483200&v=beta&t=ZRD0QfToJ7DHUIKm6dQvJVD3-UMXLQt7zmNbcEyYp58",
   "name": "APD Global",
-  "office_locations": [],
+  "office_locations": [
+    "Makati"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:17:27.295056Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://growthops.asia"
 }

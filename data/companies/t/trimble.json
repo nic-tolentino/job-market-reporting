@@ -4,11 +4,16 @@
     "Trimble Navigation",
     "Trimble Inc."
   ],
+  "ats": {
+    "identifier": "trimble",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.trimble.com/careers"
       }
     ]
@@ -33,13 +38,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:32:28.016665Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:32:27.991024Z",
+    "notes": "Facilitates international hiring; has Global Mobility Immigration Specialist on staff. High demand for geo-spatial tech experts.",
     "offered": true,
-    "source": null,
+    "source": "Trimble Global Mobility",
     "types": []
   },
   "website": "https://www.trimble.com"

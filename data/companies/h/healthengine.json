@@ -1,0 +1,21 @@
+{
+  "ats": {
+    "identifier": "healthengine",
+    "provider": "SMARTRECRUITERS"
+  },
+  "description": "The HealthEngine Network is Australia’s largest patient network. Where patients are connecting online with all their favourite healthcare providers. We’re talking upwards of 7 million Australians who’ve made more than 30 million bookings online via HealthEngine.\\r\\n\\r\\nAnd we’ve got a whole raft of time, cost and effort-saving tools that make it easier for practices to meet their patients’ growing demands, improve their experience, increase their engagement and win their loyalty.",
+  "hq_country": "AU",
+  "id": "healthengine",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "HealthEngine",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://www.healthengine.com.au/"
+}

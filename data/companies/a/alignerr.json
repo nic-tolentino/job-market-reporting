@@ -4,10 +4,21 @@
   ],
   "company_type": "Platform",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/cgi-bin/",
+        "/*.pdf$"
+      ]
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.alignerr.com/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.alignerr.com/jobs"
       }
     ]
   },
@@ -29,13 +40,13 @@
     "Worldwide"
   ],
   "remote_policy": "Remote Only",
-  "updated_at": "2026-03-10T05:30:58.400163Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T21:32:28.020063Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:32:27.991025Z",
+    "notes": "Alignerr uses independent contractors. They explicitly state they do NOT sponsor work visas.",
     "offered": false,
-    "source": null,
+    "source": "Alignerr FAQ",
     "types": []
   },
   "website": "https://www.alignerr.com"

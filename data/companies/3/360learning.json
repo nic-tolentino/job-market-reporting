@@ -5,14 +5,6 @@
     "provider": "LEVER"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://360learning.com/careers"
-      }
-    ]
-  },
   "description": "360Learning is a global collaborative learning platform that enables companies to upskill from within by turning experts into champions.",
   "employees_count": 400,
   "hq_country": "FR",

@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "blocked",
+        "url": "https://www.capgemini.com/careers/"
+      }
+    ]
   },
-  "description": "Capgemini Invent is a company profile created during backlog processing.",
+  "description": "Capgemini Invent is the digital innovation, consulting, and transformation brand of the Capgemini Group.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "capgemini-invent",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGYK0d4dpYiXA/company-logo_100_100/B4DZoqnFRxIkAQ-/0/1761651480246/capgemini_invent_logo?e=1774483200&v=beta&t=MKxG2uB45aMX5bofL-FNaZl4M1FeDkD6dym41wzS2hc",
   "name": "Capgemini Invent",
-  "office_locations": [],
+  "office_locations": [
+    "Paris"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.899677Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.capgemini.com"
 }

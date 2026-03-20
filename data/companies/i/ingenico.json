@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ingenico",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Ingenico is a company profile created during backlog processing.",
+  "description": "Ingenico is a global leader in seamless payment solutions, providing smart, trusted and secure solutions to empower commerce.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "ingenico",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEYgELXPGVFbQ/company-logo_100_100/B56ZfEht0NH8AU-/0/1751348862782/ingenico_logo?e=1774483200&v=beta&t=k0Iw4k3V5P1qt8RZn00IjT8V8HtFe7li0CS7AvTxUh8",
   "name": "Ingenico",
-  "office_locations": [],
+  "office_locations": [
+    "Paris"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.085170Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ingenico.com"
 }

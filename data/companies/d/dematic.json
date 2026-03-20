@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "kion-group",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://kiongroup.wd3.myworkdayjobs.com/KION_SCS"
+      }
+    ]
   },
-  "description": "Dematic is a company profile created during backlog processing.",
+  "description": "Dematic is a global leader in intelligent automated solutions for manufacturing, warehouse, and distribution environments.",
   "employees_count": null,
   "hq_country": "US",
   "id": "dematic",
@@ -13,11 +24,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEDgdD2upqIcg/company-logo_100_100/company-logo_100_100/0/1688395931188?e=1774483200&v=beta&t=tHpF3cCRWNc5p_Hv3QkWn1exIhl2pg2UrITz7e26-Zc",
   "name": "Dematic",
-  "office_locations": [],
+  "office_locations": [
+    "Atlanta",
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.790582Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.dematic.com"
 }

@@ -1,18 +1,6 @@
 {
   "alternateNames": [],
-  "ats": {
-    "identifier": "na",
-    "provider": "TEAMTAILOR"
-  },
   "company_type": "Agency",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.talentconnect.es/careers"
-      }
-    ]
-  },
   "description": "Talent Connect is a specialized tech recruitment partner building core engineering teams for leading financial institutions, focusing on AI and modern frontend tech.",
   "employees_count": 50,
   "hq_country": "ES",

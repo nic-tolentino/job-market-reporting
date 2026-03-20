@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "trc",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "TRC is a company profile created during backlog processing.",
+  "description": "TRC is a Spanish technology company specializing in IT infrastructure, cybersecurity, and digital transformation.",
   "employees_count": null,
   "hq_country": "US",
   "id": "trc",
@@ -12,12 +16,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEyf5adCATi-w/company-logo_100_100/company-logo_100_100/0/1695036677709/grupo_trc_logo?e=1774483200&v=beta&t=6oud-jD3G0mE1da67dq-t8cN-qJZtA6cqKpXqKznXgo",
-  "name": "TRC",
-  "office_locations": [],
+  "name": "TRC Inform\u00e1tica",
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.381891Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.grupotrc.com"
 }

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "stolen-girlfriends-club",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://stolenstores.com/pages/join-the-family"
+      }
+    ]
   },
-  "description": "Stolen Girlfriends Club is a company profile created during backlog processing.",
+  "description": "Stolen Girlfriends Club is a New Zealand fashion brand known for its edgy rock 'n' roll aesthetic.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "stolen-girlfriends-club",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEpIX60z-uczA/company-logo_100_100/company-logo_100_100/0/1659840352094/stolen_girlfriends_club_logo?e=1774483200&v=beta&t=qI1NboUJkPx6XDhaVMRJfZtFnqnlsJW2BoXVUobFj44",
   "name": "Stolen Girlfriends Club",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.045380Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://stolengirlfriendsclub.com"
 }

@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Agency",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://valepartners.com.au/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "vale-partners",
+    "provider": "CUSTOM"
   },
+  "company_type": "Agency",
   "description": "VALE Partners is a specialized tech recruitment consultancy partnering with high-performing Australian product companies to find elite engineering talent.",
   "employees_count": 20,
   "hq_country": "AU",

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "upwork",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Upwork is a company profile created during backlog processing.",
+  "description": "Upwork is a leading global freelancing platform connecting businesses with independent talent.",
   "employees_count": null,
   "hq_country": "US",
   "id": "upwork",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFHVb6ZSCipCw/company-logo_100_100/company-logo_100_100/0/1727104517379/upwork_logo?e=1774483200&v=beta&t=BhfU55uysZL7yIlOLl4kvWl9eFT-uzkBbcXcxy9q5Ds",
   "name": "Upwork",
-  "office_locations": [],
+  "office_locations": [
+    "Palo Alto"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.852472Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.upwork.com"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "emmbr",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Emmbr is a company profile created during backlog processing.",
+  "description": "Emmbr is an Australian recruitment agency focusing on digital, technology, and project management talent solutions.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "emmbr",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHfClpMl5bwcQ/company-logo_100_100/B56ZuLnU08K8AQ-/0/1767573902038/emmbr_logo?e=1774483200&v=beta&t=zKA_ahNhjDYDIUbLUWg739b1swn-_-Ky0b-cN_OkVdc",
   "name": "Emmbr",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.355201Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.emmbr.com.au"
 }

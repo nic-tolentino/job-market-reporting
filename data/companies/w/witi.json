@@ -3,11 +3,22 @@
     "Women in Technical Infrastructure",
     "Bending Spoons"
   ],
+  "ats": {
+    "identifier": "witi",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Non-profit",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://witi.com/careers"
       }
     ]

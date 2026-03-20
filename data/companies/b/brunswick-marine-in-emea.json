@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "brunswick",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://brunswick.wd1.myworkdayjobs.com/SearchEMEA"
+      }
+    ]
   },
-  "description": "Brunswick Marine in EMEA is a company profile created during backlog processing.",
+  "description": "Brunswick Marine is a leader in the global marine industry, providing propulsion systems, boats, and parts/accessories.",
   "employees_count": null,
   "hq_country": "US",
   "id": "brunswick-marine-in-emea",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.401250Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.brunswick.com"
 }

@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "netapp",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "blocked",
+        "url": "https://netapp.wd1.myworkdayjobs.com/External_Careers"
+      }
+    ]
   },
-  "description": "NetApp is a company profile created during backlog processing.",
+  "description": "NetApp is a global cloud-led, data-centric software company that helps organizations lead with data in the hybrid cloud.",
   "employees_count": null,
   "hq_country": "US",
   "id": "netapp",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQF9CVZrvp6uLw/company-logo_100_100/B4DZnjqBAhKsAQ-/0/1760461066775/netapp_logo?e=1774483200&v=beta&t=J8RO5d8bDyww9AV49FQFjra27jAjXSrTPRLcw-GYGRc",
   "name": "NetApp",
-  "office_locations": [],
+  "office_locations": [
+    "San Jose, CA"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.891339Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.netapp.com"
 }

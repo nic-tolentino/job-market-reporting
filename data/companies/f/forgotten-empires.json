@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "forgotten-empires",
+    "provider": "WORKABLE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Forgotten Empires is a company profile created during backlog processing.",
+  "description": "Forgotten Empires is an independent game developer specializing in real-time strategy games, notably the Age of Empires series.",
   "employees_count": null,
   "hq_country": "US",
   "id": "forgotten-empires",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGUY7xy9i0R2g/company-logo_100_100/company-logo_100_100/0/1631350207141?e=1774483200&v=beta&t=Juc1-fzz8-YErSGguWZgguQ5GWQVkQ38K6JBHfwIzKA",
   "name": "Forgotten Empires",
-  "office_locations": [],
+  "office_locations": [
+    "Cincinnati"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.696910Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.forgottenempires.net"
 }

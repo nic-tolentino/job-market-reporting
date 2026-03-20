@@ -1,0 +1,31 @@
+{
+  "ats": {
+    "identifier": "finder",
+    "provider": "CUSTOM"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.finder.com.au/careers"
+      }
+    ]
+  },
+  "description": "Millions of people worldwide trust Finder to help them make better decisions. We can help you too.\\r\\n\\r\\nWe understand that making everyday life decisions such as finding a credit card, buying a home and getting health insurance can be daunting.\\r\\n\\r\\nThat's why we're here. Our goal is to help you navigate those complex decisions by making them less of a chore (and hopefully less of a bore, too!)",
+  "hq_country": "AU",
+  "id": "finder",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Finder",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://www.finder.com.au/"
+}

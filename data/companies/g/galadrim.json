@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "galadrim",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "active",
+        "url": "https://www.welcometothejungle.com/fr/companies/galadrim/jobs"
+      }
+    ]
   },
-  "description": "Galadrim is a company profile created during backlog processing.",
+  "description": "Galadrim is a French technology company specializing in the design and development of web, mobile, and AI solutions.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "galadrim",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHIDgXgN703ow/company-logo_100_100/B4EZgyjO.wHEAY-/0/1753194754447/galadrim_logo?e=1774483200&v=beta&t=hEdw8npkgAKe3Ra7uItdONkR-dS7M3oxKoM8pwSsQxo",
   "name": "Galadrim",
-  "office_locations": [],
+  "office_locations": [
+    "Paris"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:10:46.158606Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://galadrim.fr"
 }

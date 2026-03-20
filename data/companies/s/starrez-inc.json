@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "starrez",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "active",
+        "url": "https://boards.greenhouse.io/starrez"
+      }
+    ]
   },
-  "description": "StarRez, Inc. is a company profile created during backlog processing.",
+  "description": "StarRez provides cloud-based residential community management software for student housing and off-campus housing.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "starrez-inc",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHPwfnGZJe-4g/company-logo_100_100/company-logo_100_100/0/1724183583622/starrez_logo?e=1774483200&v=beta&t=YTV3as2wZgpUGzTuXwTRuELh8e7qZra012Z3ir_dA8k",
   "name": "StarRez, Inc.",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.057072Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.starrez.com"
 }

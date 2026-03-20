@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "resonate",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Resonate CX is a company profile created during backlog processing.",
+  "description": "Resonate CX offers an AI-powered Customer Experience (CX) and Voice of the Customer (VoC) management platform.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "resonate-cx",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH2FQk-n-Qn5A/company-logo_100_100/company-logo_100_100/0/1703111578030/resonate_solutions_logo?e=1774483200&v=beta&t=bToar6cJ2W4nQADcTdZGWMwZiiTIAFBe6sddEiv_enU",
   "name": "Resonate CX",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney, NSW"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:55:47.207106Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.resonate.cx"
 }

@@ -2,15 +2,11 @@
   "alternateNames": [
     "Weave"
   ],
-  "company_type": "Agency",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.weave.com.au/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "weave",
+    "provider": "GREENHOUSE"
   },
+  "company_type": "Agency",
   "description": "Weave Recruitment is a specialized tech recruitment agency partnering with Australia's Top 4 Banks and high-engagement startups to deliver elite engineering talent.",
   "employees_count": 20,
   "hq_country": "AU",

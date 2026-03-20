@@ -2,9 +2,15 @@
   "alternateNames": [],
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "empty",
+        "url": "https://apply.workable.com/infatica-io/"
+      }
+    ]
   },
-  "description": "Infatica.io is a company profile created during backlog processing.",
+  "description": "Infatica provides proxy networks and web scraping solutions for data extraction and market research.",
   "employees_count": null,
   "hq_country": "SG",
   "id": "infatica-io",
@@ -13,11 +19,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEy69eS0agxjA/company-logo_100_100/company-logo_100_100/0/1724160749505/infatica_logo?e=1774483200&v=beta&t=Ws0k7oVj-iiTBN_HgIsMkWXkB2LiqwzWxI8VbLsenYg",
   "name": "Infatica.io",
-  "office_locations": [],
+  "office_locations": [
+    "Singapore"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.862990Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://infatica.io"
 }

@@ -1,23 +1,36 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "zeo-technology",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://join.com/companies/zeotechnology"
+      }
+    ]
   },
-  "description": "ZEO Technology is a company profile created during backlog processing.",
+  "description": "ZEO Technology is a company specializing in agile technology and industrial digitalization solutions.",
   "employees_count": null,
-  "hq_country": "AU",
+  "hq_country": "ES",
   "id": "zeo-technology",
   "industries": [],
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFfscHj-8-4IA/company-logo_100_100/company-logo_100_100/0/1630646619302/zeotechnology_logo?e=1774483200&v=beta&t=v-6l1zxNSm3Xo_TP9R0ubTNX6DrYEWHkn7Ce6inofUo",
   "name": "ZEO Technology",
-  "office_locations": [],
+  "office_locations": [
+    "Tajonar, Navarra"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.251385Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://zeotechnology.com"
 }

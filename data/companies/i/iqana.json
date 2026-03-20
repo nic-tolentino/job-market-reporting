@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "iqana",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Iqana is a company profile created during backlog processing.",
+  "description": "Iqana is an Austrian company specializing in high-performance radio frequency (RF) solutions for wireless communications.",
   "employees_count": null,
   "hq_country": "AT",
   "id": "iqana",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQE4DcTudDwp6Q/company-logo_100_100/company-logo_100_100/0/1709484685476/iqana_logo?e=1774483200&v=beta&t=pMvS09ZYEcAqmxFSoSgmSa2aovJ_jxONmXeY2sTyRew",
   "name": "Iqana",
-  "office_locations": [],
+  "office_locations": [
+    "Vienna"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.087094Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.iqana.at"
 }

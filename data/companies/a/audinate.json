@@ -1,0 +1,14 @@
+{
+  "ats": {
+    "identifier": "audinate",
+    "provider": "LEVER"
+  },
+  "description": "Audinate is the leading provider of professional digital audio networking technologies globally. Dante platform distributes digital audio signals over computer networks, and is designed to bring the benefits of IT networking to the professional AV industry.  Using Dante-enabled products ensures interoperability between audio devices and allows end users to enjoy high quality, flexible solutions—typically with a lower total cost of ownership.",
+  "hq_country": "AU",
+  "id": "audinate",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Audinate",
+  "verification_level": "unverified",
+  "website": "https://audinate.com"
+}

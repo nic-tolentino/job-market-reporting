@@ -1,0 +1,14 @@
+{
+  "ats": {
+    "identifier": "nextgen",
+    "provider": "SMARTRECRUITERS"
+  },
+  "description": "NextGen.Net® is the leading technology provider of Australia to the mortgage lending industry. We create state-of-the-art solutions, from loan application through to processing and settlement. Our mission is to provide lenders, aggregators and brokers an easier and more efficient way to deliver for their customers. Our focus on the mortgage lending business and strong relationships with all industry participants has ensured we know what is next when it comes to technology. Our strong track record of industry firsts has led to 97% of all Australian mortgage brokers and over 50 lenders using our electronic lodgement platform, ApplyOnline®.",
+  "hq_country": "AU",
+  "id": "nextgen",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "NextGen",
+  "verification_level": "unverified",
+  "website": "https://www.nextgen.net/#!/about"
+}

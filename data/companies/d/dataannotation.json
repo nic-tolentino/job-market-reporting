@@ -2,12 +2,18 @@
   "alternateNames": [
     "DataAnnotation.tech"
   ],
+  "ats": {
+    "identifier": "dataannotation",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://dataannotation.tech/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://app.dataannotation.tech/worker_signup"
       }
     ]
   },
@@ -33,13 +39,13 @@
     "CA"
   ],
   "remote_policy": "Remote Only",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.811487Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.811480Z",
+    "notes": "Freelance/Contract platform only. No sponsorship offered.",
     "offered": false,
-    "source": null,
+    "source": "DataAnnotation FAQ",
     "types": []
   },
   "website": "https://dataannotation.tech"

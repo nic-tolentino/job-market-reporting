@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "fluendo",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://fluendo.com/"
+      }
+    ]
   },
-  "description": "Fluendo is a company profile created during backlog processing.",
+  "description": "Fluendo is a Spanish multimedia software company specializing in legal video and audio codecs for Linux and other platforms.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "fluendo",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGCuK3yqn9X2Q/company-logo_100_100/company-logo_100_100/0/1680078967555/fluendo_logo?e=1774483200&v=beta&t=MUOY2aZ812vayDyQfY0NFHtbLmmUGI3J5HGl8ymhutA",
   "name": "Fluendo",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.134052Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.fluendo.com"
 }

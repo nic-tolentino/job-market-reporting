@@ -11,8 +11,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.tower.co.nz/careers"
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://careers.tower.co.nz/search"
       }
     ]
   },

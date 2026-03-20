@@ -1,10 +1,22 @@
 {
+  "ats": {
+    "identifier": "kaliba",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.kaliba.com.au/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.kaliba.com.au/job-results"
       }
     ]
   },

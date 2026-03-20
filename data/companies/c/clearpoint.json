@@ -1,0 +1,28 @@
+{
+  "ats": {
+    "identifier": "clearpoint",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://clearpoint.digital/current-opportunities/"
+      }
+    ]
+  },
+  "description": "ClearPoint is New Zealand's most trusted and inspiring digital design and engineering company. At ClearPoint, we strive to be the best using our fresh thinking to make a difference for ourselves, our teams, our clients and community.",
+  "hq_country": "NZ",
+  "id": "clearpoint",
+  "industries": [
+    "Digital Transformation",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "ClearPoint",
+  "verification_level": "unverified",
+  "website": "https://clearpoint.digital/"
+}

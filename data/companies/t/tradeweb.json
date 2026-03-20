@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.tradeweb.com/who-we-are/careers"
+      }
+    ]
   },
-  "description": "Tradeweb is a company profile created during backlog processing.",
+  "description": "Tradeweb Markets is a leading global operator of electronic marketplaces for rates, credit, and equities.",
   "employees_count": null,
   "hq_country": "US",
   "id": "tradeweb",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQErnhT8N8dPFw/company-logo_100_100/B4EZpQnwwoGUAQ-/0/1762289192283/tradeweb_logo?e=1774483200&v=beta&t=xTFlggH-Fyg1LEv_oJ8kcrTTbxf8c23p3_Ge6XwbdbA",
   "name": "Tradeweb",
-  "office_locations": [],
+  "office_locations": [
+    "New York"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.396017Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.tradeweb.com"
 }

@@ -11,8 +11,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.jadethirdeye.com/careers"
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "empty",
+        "url": "https://jadeworld.bamboohr.com/careers"
       }
     ]
   },

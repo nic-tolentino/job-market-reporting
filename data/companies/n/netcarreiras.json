@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "netcarreiras",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://netcarreiras.com.br"
+      }
+    ]
   },
-  "description": "NetCarreiras is a company profile created during backlog processing.",
+  "description": "NetCarreiras is a Brazilian HR and technology company specializing in career management and recruitment solutions.",
   "employees_count": null,
   "hq_country": "BR",
   "id": "netcarreiras",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHoJ8uaTknMog/company-logo_100_100/company-logo_100_100/0/1630570916430?e=1774483200&v=beta&t=yw667sMjCBHZi0ph_958egzy2ubcQW6dFsqrPMxfNYo",
   "name": "NetCarreiras",
-  "office_locations": [],
+  "office_locations": [
+    "São Paulo"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.247509Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://netcarreiras.com.br"
 }

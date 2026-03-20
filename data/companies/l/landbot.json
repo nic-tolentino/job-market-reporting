@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "landbot",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "blocked",
+        "url": "https://careers.smartrecruiters.com/landbot"
+      }
+    ]
   },
-  "description": "Landbot is a company profile created during backlog processing.",
+  "description": "Landbot is a no-code chatbot platform that helps businesses build interactive conversational experiences to convert more leads.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "landbot",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHYUR1kv6lwMQ/company-logo_100_100/company-logo_100_100/0/1684510788150/landbot_io_logo?e=1774483200&v=beta&t=1R7i7ZSPIx7jtMPi62bWb2vAgQYQLLTMHGqhLk_PlEM",
   "name": "Landbot",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.240062Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://landbot.io"
 }

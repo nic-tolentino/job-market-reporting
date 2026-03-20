@@ -3,12 +3,23 @@
     "Cognex",
     "Cognex Corp"
   ],
+  "ats": {
+    "identifier": "cognex",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.cognex.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.cognex.com/careers"
       }
     ]
   },

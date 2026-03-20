@@ -9,6 +9,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://neonone.com/careers"
       }
     ]
@@ -32,13 +33,13 @@
     "NZ"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.876244Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.876238Z",
+    "notes": "USA-based. US focus or remote via EOR for international hires.",
+    "offered": false,
+    "source": "Neon One Careers",
     "types": []
   },
   "website": "https://neonone.com/"

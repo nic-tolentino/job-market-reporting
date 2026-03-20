@@ -8,14 +8,6 @@
     "provider": "WORKABLE"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "http://vista.co/careers"
-      }
-    ]
-  },
   "description": "Vista is the world's leading supplier of software to the global cinema industry.",
   "employees_count": null,
   "hq_country": "NZ",
@@ -40,13 +32,13 @@
     "CN"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:32:28.012164Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:32:27.991005Z",
+    "notes": "Often associated with visa sponsorship for tech roles in NZ. Global leader in cinema software.",
     "offered": true,
-    "source": null,
+    "source": "Vista Group Careers",
     "types": []
   },
   "website": "http://vista.co"

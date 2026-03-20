@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "compass",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Compass Education is a company profile created during backlog processing.",
+  "description": "Compass Education provides a comprehensive school management platform to streamline administration and enhance communication.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "compass-education",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEPteSL3sE1ew/company-logo_100_100/company-logo_100_100/0/1630605619791/compasseducation_logo?e=1774483200&v=beta&t=9sxEjj2NO8e8-rY36LBe173_gq6mxBPbm-dWraMTqPQ",
   "name": "Compass Education",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.606043Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.compass.education"
 }

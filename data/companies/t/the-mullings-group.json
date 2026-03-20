@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "the-mullings-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "The Mullings Group is a company profile created during backlog processing.",
+  "description": "The Mullings Group is a premier recruiting firm specializing in medtech, biotech, and healthtech sectors.",
   "employees_count": null,
   "hq_country": "US",
   "id": "the-mullings-group",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHRf123d_0AWg/company-logo_100_100/company-logo_100_100/0/1670447025233/the_mullings_group_logo?e=1774483200&v=beta&t=xkeVwUyj9fIerixXuTmL4Cq1EKLkiU8UwFzhsdpF2as",
   "name": "The Mullings Group",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney (APAC)"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.377132Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://mullingsgroup.com"
 }

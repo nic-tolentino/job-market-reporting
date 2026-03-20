@@ -1,0 +1,26 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://woolworths.wd3.myworkdayjobs.com/Careers"
+      }
+    ]
+  },
+  "description": "MILKRUN is flipping the grocery game on its head with 10-minute delivery. Yep, you read that correctly. Get fresh produce direct from Aussie farmers and thousands of your favourite brands at supermarket prices, delivered to your door in 10 minutes or less.",
+  "hq_country": "AU",
+  "id": "milkrun",
+  "industries": [
+    "Delivery",
+    "Q-Commerce",
+    "Marketplace"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "MILKRUN",
+  "notes": "Acquired by DoorDash in 2023.",
+  "verification_level": "unverified",
+  "website": "https://www.milk.run"
+}

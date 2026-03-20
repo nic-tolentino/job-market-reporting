@@ -1,14 +1,6 @@
 {
   "alternateNames": [],
   "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.holaconsultores.com/careers"
-      }
-    ]
-  },
   "description": "Hola Consultores is a specialized IT services and engineering firm providing custom software solutions and management consulting for businesses.",
   "employees_count": 50,
   "hq_country": "ES",

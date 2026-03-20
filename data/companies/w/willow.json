@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "willowinc",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.willowinc.com/about/careers/"
+      }
+    ]
+  },
+  "description": "Willow is the digital twin for the built world.\\r\\n\\r\\nWe create virtual representations of physical assets, overlaid with real-time information from devices, equipment, people and places. Our solution enables owners and operators of major portfolios and infrastructure to manage with greater efficiency, drive operational improvements at scale, and provide their occupants or users with an enhanced experience.\\r\\n\\r\\nWillow is a global technology company with offices in Sydney, Melbourne, Seattle, New York, London, Utrecht, Manila, Tel Aviv, and Moscow.",
+  "hq_country": "US",
+  "id": "willow",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Willow",
+  "verification_level": "unverified",
+  "website": "https://www.willowinc.com/"
+}

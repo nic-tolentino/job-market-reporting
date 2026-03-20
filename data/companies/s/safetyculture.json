@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "safetyculture-2",
+    "provider": "LEVER"
   },
-  "description": "SafetyCulture is a company profile created during backlog processing.",
+  "company_type": "Product",
+  "description": "SafetyCulture is a global technology company providing digital tools to help frontline teams improve safety and quality.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "safetyculture",
@@ -13,11 +14,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFMxR0B_JddtQ/company-logo_100_100/company-logo_100_100/0/1688336869599/safetyculturehq_logo?e=1774483200&v=beta&t=23F8Y3AXsOamNyO1nilh0w9GVJydc-FIg0xWt1jKb7A",
   "name": "SafetyCulture",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney",
+    "Townsville"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:31:24.112990Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://safetyculture.com"
 }

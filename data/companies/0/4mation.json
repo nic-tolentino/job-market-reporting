@@ -1,0 +1,24 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.linkedin.com/company/4mation-technologies"
+      }
+    ]
+  },
+  "description": "We're a custom web and software development company based in Sydney. We help our clients succeed by identifying opportunities and delivering solutions that people love to use.\\r\\n\\r\\nOur unique recruitment process enables us to rapidly identify the top 5% of software development talent based on not just technical skills, but attitude, communication and values. \\r\\n\\r\\nOur award-winning culture has attracted a team of strategists, designers and developers committed to lifelong learning, who want to work with the best in the industry.\\r\\nWe hire only proven, local, full-time staff, eliminating the risks commonly associated with the alternative: contractors, freelancers and offshore teams.",
+  "hq_country": "AU",
+  "id": "4mation",
+  "industries": [
+    "Software Development",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "4mation",
+  "verification_level": "unverified",
+  "website": "https://www.4mation.com.au/"
+}

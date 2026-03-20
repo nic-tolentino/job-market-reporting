@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "changerecruitment",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.changerecruitment.com.au/jobs"
+      }
+    ]
   },
-  "description": "Change Recruitment is a company profile created during backlog processing.",
+  "description": "Change Recruitment is an Australian consultancy specializing in accounting, finance, and technical recruitment.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "change-recruitment",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEOuklbedBAHA/company-logo_100_100/company-logo_100_100/0/1732857589704/change_recruitment_logo?e=1774483200&v=beta&t=FTQhg3mlqySj2d_zUMM8aNww5L76Kxd7q-EX8BWOA40",
   "name": "Change Recruitment",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.866706Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.changerecruitment.com.au"
 }

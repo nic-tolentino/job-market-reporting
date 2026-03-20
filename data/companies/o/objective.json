@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "objective",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.objective.com.au/about/careers"
+      }
+    ]
+  },
+  "description": "At Objective, it is our many colours that make us special.\\r\\nEvery time someone joins Objective, our culture and way of thinking is strengthened with their contributions.\\r\\n\\r\\nOur products are constantly evolving to meet the changing needs of our customer’s worlds. This evolution is driven by a melting pot of amazing people who have brought different skills, experiences and perspectives into our organisation.\\r\\n\\r\\nHere, you will be challenged and supported to do the very best work of your life. Come and add your uniqueness - we are waiting for you!",
+  "hq_country": "AU",
+  "id": "objective",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Objective",
+  "verification_level": "unverified",
+  "website": "https://www.objective.com.au/"
+}

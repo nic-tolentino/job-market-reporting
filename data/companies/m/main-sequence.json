@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://apply.workable.com/main-sequence/"
+      }
+    ]
   },
-  "description": "Main Sequence is a company profile created during backlog processing.",
+  "description": "Main Sequence is an Australian venture capital firm founded by CSIRO to invest in deep tech companies solving global challenges.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "main-sequence",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE1FYEjSzrlEw/company-logo_100_100/company-logo_100_100/0/1733097425778/mainsequence_logo?e=1774483200&v=beta&t=L83bNI7v3Vj88bqZA0oj88sEXnW_n98tu0xcpdoXJOs",
   "name": "Main Sequence",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.336006Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.mainsequence.vc"
 }

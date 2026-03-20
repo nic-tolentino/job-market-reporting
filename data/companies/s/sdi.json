@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sdi",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.sdi.com.au/au/careers-with-sdi/"
+      }
+    ]
   },
-  "description": "SDi is a company profile created during backlog processing.",
+  "description": "SDI Limited is an Australian company specializing in the research, development, and manufacturing of dental materials.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "sdi",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFqpUdFFP7h_Q/company-logo_100_100/B4DZbXs8Z4HEAU-/0/1747375605994/somos_sdi_logo?e=1774483200&v=beta&t=13pfI_I0vbG10B57Bd09SQ4mkKIpJjgRMtl4OO8yrfI",
   "name": "SDi",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.415759Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sdi.com.au"
 }

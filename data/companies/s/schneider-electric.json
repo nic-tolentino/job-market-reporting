@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "schneider-electric",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://careers-se.icims.com/connect"
+      }
+    ]
   },
-  "description": "Schneider Electric is a company profile created during backlog processing.",
+  "description": "Schneider Electric is a global leader in energy management and automation, driving digital transformation in industry.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "schneider-electric",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.110707Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.se.com"
 }

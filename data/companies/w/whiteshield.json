@@ -9,6 +9,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.whiteshield.com/careers"
       }
     ]
@@ -37,13 +38,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T14:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.868965Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.868953Z",
+    "notes": "Sponsors senior AI/Strategy roles in Australia (Verified 482 history).",
     "offered": true,
-    "source": null,
+    "source": "Recruitment Data",
     "types": []
   },
   "website": "https://www.whiteshield.com"

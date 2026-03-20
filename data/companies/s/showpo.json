@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "showpo-2",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.linkedin.com/company/showpo/jobs/?trk=nav_type_jobs"
+      }
+    ]
+  },
+  "description": "Showpo is Australia’s leading global fashion company focused on the next generation of young women. We exist for women who want to embrace who they are by having fun with fashion and a sprinkle of memes.\\r\\n\\r\\nWhat started in Sydney with a laptop and two shelves is now a global fashion empire shipping to more than 100 countries, with over 4 million followers across social. We entertain, empower and inspire our community through diverse and optimistic fashion, storytelling and experiences.",
+  "hq_country": "AU",
+  "id": "showpo",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "ShowPo",
+  "verification_level": "unverified",
+  "website": "https://www.showpo.com/"
+}

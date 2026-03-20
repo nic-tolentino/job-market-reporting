@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "palex-espa-a",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Palex España is a company profile created during backlog processing.",
+  "description": "Palex Medical is the leading supplier of advanced medical solutions for the hospital and healthcare sector in Spain and Portugal.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "palex-espa-a",
@@ -12,12 +16,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGi2XL9pC5xFA/company-logo_100_100/company-logo_100_100/0/1630579674250/palex_medical_logo?e=1774483200&v=beta&t=gIhm3x-LampDOPUOgJwhVwlhS5GUoTiNSbL3xQc9ybc",
-  "name": "Palex España",
-  "office_locations": [],
+  "name": "Palex Espa\u00f1a",
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.924122Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.palexmedical.com"
 }

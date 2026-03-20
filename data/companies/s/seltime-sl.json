@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "seltime-sl",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.seltime.es/carrera-profesional/"
+      }
+    ]
   },
-  "description": "Seltime SL is a company profile created during backlog processing.",
+  "description": "Seltime specializes in information and communication technologies, IT services, and technical recruitment in Spain.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "seltime-sl",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEHDRT0JM_P2w/company-logo_100_100/company-logo_100_100/0/1665765993578?e=1774483200&v=beta&t=lRCBH8dyaV5LOUvY6iciQ85GJ35hASeRB9MAblTjcaQ",
   "name": "Seltime SL",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.530736Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.seltime.es"
 }

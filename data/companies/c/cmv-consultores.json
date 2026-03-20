@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.cmv-consultores.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "cmv",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "CMV Consultores is a Spanish IT consultancy providing specialized talent and technical solutions in backend development, cybersecurity, and AI for enterprise clients.",
   "employees_count": 300,
   "hq_country": "ES",

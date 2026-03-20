@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "1inch",
+    "provider": "LEVER"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "1inch is a company profile created during backlog processing.",
+  "description": "1inch is a decentralized exchange aggregator that sources liquidity from various exchanges to provide the best rates.",
   "employees_count": null,
   "hq_country": "KY",
   "id": "1inch",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEKeteZjzD5OA/company-logo_100_100/B4DZy0C4b5H4AQ-/0/1772547180678/1inchcom_logo?e=1774483200&v=beta&t=Ulm9qBYejd2ELcHkFumu8xlFCVhvbD7Ytala3OTlBhI",
   "name": "1inch",
-  "office_locations": [],
+  "office_locations": [
+    "British Virgin Islands (Remote-first)"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.253888Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://1inch.io"
 }

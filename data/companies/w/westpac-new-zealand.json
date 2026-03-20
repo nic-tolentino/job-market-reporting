@@ -2,12 +2,34 @@
   "alternateNames": [
     "Westpac NZ"
   ],
+  "ats": {
+    "identifier": "westpac-new-zealand",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
+    "discovery": {
+      "lastAttemptedAt": "2026-03-17",
+      "notes": "Careers page scan detected WORKDAY (westpacnz) — requires paid/custom integration",
+      "status": "NO_MATCH"
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.westpac.co.nz/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.westpac.co.nz/about-us/careers/?vanity=/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.westpac.co.nz/about-us/careers/"
       }
     ]
   },
@@ -33,13 +55,13 @@
     "NZ"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T14:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.837258Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.837253Z",
+    "notes": "Accredited Employer (NZ). Sponsors skilled tech/risk roles (AEWV).",
     "offered": true,
-    "source": null,
+    "source": "Westpac Careers",
     "types": []
   },
   "website": "http://www.westpac.co.nz"

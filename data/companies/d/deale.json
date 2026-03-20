@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "deale",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.deale.es"
+      }
+    ]
   },
-  "description": "Deale is a company profile created during backlog processing.",
+  "description": "Deale is a digital M&A platform that connects SMEs with investors and advisors to streamline the business sale process.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "deale",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGcG_IlEl5mnw/company-logo_100_100/B4EZudsi6MJQAQ-/0/1767877259414/dealeapp_logo?e=1774483200&v=beta&t=RoLaUnfD1z5WYc7k6mL9ccbKGwVsJuL2nSLQRr1dU0k",
   "name": "Deale",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.760039Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.deale.es"
 }

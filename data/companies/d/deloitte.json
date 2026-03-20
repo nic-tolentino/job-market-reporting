@@ -12,6 +12,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "http://www.deloitte.com/careers"
       }
     ]
@@ -40,13 +41,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:30:05.095827Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:30:05.074830Z",
+    "notes": "Significant user of TSS/ENS in AU and Accredited in NZ. NZ sponsorship requires proof role can't be filled by local talent.",
     "offered": true,
-    "source": null,
+    "source": "Deloitte Careers",
     "types": []
   },
   "website": "http://www.deloitte.com/"

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "akens-nordburg",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.akens-nordburg.com/jobs"
+      }
+    ]
   },
-  "description": "Akens\\Nordburg is a company profile created during backlog processing.",
+  "description": "Akens Nordburg is an executive search and HR consultancy firm connecting talent between Spain and the DACH region.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "akens-nordburg",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQH4612VKdy-fA/company-logo_100_100/company-logo_100_100/0/1684852398987/akens_nordburg_logo?e=1774483200&v=beta&t=s_l2XGl7KY8KEy7Ydt8pJ9oqLtKyuiU3YN3-iFAsXak",
   "name": "Akens\\Nordburg",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.114644Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.akens-nordburg.com"
 }

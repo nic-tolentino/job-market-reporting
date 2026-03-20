@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "avanade",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Avanade is a company profile created during backlog processing.",
+  "description": "Avanade is a global professional services firm specializing in digital, cloud, and advisory services on the Microsoft ecosystem.",
   "employees_count": null,
   "hq_country": "US",
   "id": "avanade",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQH9oEH9vWAthw/company-logo_100_100/B4DZf0WkqfH8AY-/0/1752151247860/avanade_logo?e=1774483200&v=beta&t=tByRxuKKq_kgj6ln-C4qoRo3Tz4X3qPli-OFDzVnorI",
   "name": "Avanade",
-  "office_locations": [],
+  "office_locations": [
+    "Seattle"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.495189Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.avanade.com"
 }

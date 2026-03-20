@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "lorikeet",
+    "provider": "ASHBY"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.lorikeetcx.ai/careers"
+      }
+    ]
+  },
+  "description": "Lorikeet is the most powerful customer support AI for complex businesses like fintechs, healthtechs, marketplaces and delivery services. We’re doing this by building ground up from the premise that most support responses should be automated with transparent, customizable AI, and that support teams should spend their time managing automation and engaging with complex cases, not grinding through high volumes of simple tickets. Once teams are freed from reactive support, we want to help them tackle what’s next: providing personalized concierge services to their customers.",
+  "hq_country": "AU",
+  "id": "lorikeet",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Lorikeet",
+  "verification_level": "unverified",
+  "website": "https://www.lorikeetcx.ai/"
+}

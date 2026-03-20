@@ -1,0 +1,26 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.pluralsight.com/careers/"
+      }
+    ]
+  },
+  "description": "The Leader in Cloud Learning, Learn by doing with A Cloud Guru - Learn faster. Move faster. Transform now with courses and real hands-on labs in AWS, Azure, Google Cloud, and beyond.",
+  "hq_country": "AU",
+  "id": "a-cloud-guru",
+  "industries": [
+    "EdTech",
+    "Cloud",
+    "SaaS"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "A Cloud Guru",
+  "notes": "AU-founded; acquired by Pluralsight in 2021.",
+  "verification_level": "unverified",
+  "website": "https://acloudguru.com/"
+}

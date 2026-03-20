@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Enterprise",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "jfrog",
+    "provider": "GREENHOUSE"
   },
-  "description": "JFrog is a company profile created during backlog processing.",
+  "company_type": "Enterprise",
+  "description": "JFrog is a leading provider of end-to-end software supply chain platforms and DevOps solutions for continuous software delivery.",
   "employees_count": null,
   "hq_country": "US",
   "id": "jfrog",
@@ -13,11 +14,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFpViwOvj1AAA/company-logo_100_100/B56ZVF1XR6GsAU-/0/1740633372049/jfrog_ltd_logo?e=1774483200&v=beta&t=OP3jWLfLbf99ra118d-MWVmi1xih9zFTkeVPOo6pQO0",
   "name": "JFrog",
-  "office_locations": [],
+  "office_locations": [
+    "Sunnyvale"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.600238Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://jfrog.com"
 }

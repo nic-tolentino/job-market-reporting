@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "gopro",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://gopro.com/en/us/careers/all-openings"
+      }
+    ]
   },
-  "description": "GoPro is a company profile created during backlog processing.",
+  "description": "GoPro is an American technology company that manufactures action cameras and develops its own video-editing software and mobile apps.",
   "employees_count": null,
   "hq_country": "US",
   "id": "gopro",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEAM6SAnJzEeQ/company-logo_100_100/company-logo_100_100/0/1719271743674/gopro_3_logo?e=1774483200&v=beta&t=OYlWZEME48-KORr0yQN0uNGQ62UnPzrU-9GZaFyFOp8",
   "name": "GoPro",
-  "office_locations": [],
+  "office_locations": [
+    "San Mateo, CA"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.894129Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://gopro.com"
 }

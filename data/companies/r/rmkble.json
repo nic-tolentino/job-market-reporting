@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Agency",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "rmkble",
+    "provider": "WORKABLE"
   },
-  "description": "Rmkble is a company profile created during backlog processing.",
+  "company_type": "Agency",
+  "description": "Rmkble is an Australian consulting company specializing in business process improvement and technology solutions.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "rmkble",
@@ -13,11 +14,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE69AQCt8YH8A/company-logo_100_100/company-logo_100_100/0/1730709916308/rmkble_logo?e=1774483200&v=beta&t=nEUzkujjnDvGwGzl5zLnCBeXQrsYPez0BaLidi8_pBY",
   "name": "Rmkble",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne",
+    "Perth"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:53:24.892511Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.rmkble.com.au"
 }

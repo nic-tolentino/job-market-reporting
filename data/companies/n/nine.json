@@ -12,6 +12,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "unknown",
         "url": "https://www.nineforbrands.com.au/careers"
       }
     ]

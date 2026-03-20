@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "Zeller",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.myzeller.com/careers"
+      }
+    ]
+  },
+  "description": "Levelling the playing field for Australian businesses. Accepting payments, managing your finances, and paying recipients should be simple. Unfortunately this isn’t always the case. Finding integrated financial solutions to help your business thrive often requires you to weave together multiple products from different providers. While a small group of large enterprises enjoy the privilege of financial solutions tailored for their needs, the vast majority of Australian businesses are underserved through a lack of innovation, disparate providers, opaque pricing, and restrictive contracts. We believe in a level playing field where all businesses benefit from access to smarter payments technology and integrated financial services that enables them to accelerate their cash flow. So we’re hard at work building the tools to accomplish this.",
+  "hq_country": "AU",
+  "id": "zeller",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Zeller",
+  "verification_level": "unverified",
+  "website": "https://www.myzeller.com/about"
+}

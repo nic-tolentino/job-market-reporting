@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "caterpillar",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Caterpillar Inc. is a company profile created during backlog processing.",
+  "description": "Caterpillar is the world's leading manufacturer of construction and mining equipment, diesel and natural gas engines, and industrial gas turbines.",
   "employees_count": null,
   "hq_country": "US",
   "id": "caterpillar-inc",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGezvfCH-inoA/company-logo_100_100/B4EZuz4cAhKgAU-/0/1768249475691/caterpillar_inc_logo?e=1773878400&v=beta&t=QOEovMMxQMqOToR2uScHs8bjQiKoWRU-xuUQ66on6cM",
   "name": "Caterpillar Inc.",
-  "office_locations": [],
+  "office_locations": [
+    "Irving"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.888831Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.caterpillar.com"
 }

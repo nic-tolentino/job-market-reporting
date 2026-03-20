@@ -1,0 +1,27 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://shippit.com/careers"
+      }
+    ]
+  },
+  "description": "Shippit is a powerful technology engine that is revolutionising how the world sends anything, to anyone, located anywhere. Logistics infrastructure is a complex beast and we’re not only enhancing the experience for everyone involved, we’re impacting the planet in a positive manner. Our deliveries are already 100% Carbon Neutral. While Australian founded, we’re truly global in our approach and have the benefit of being a free moving startup yet with the security of impacting a thriving  industry that needs some love and attention.",
+  "hq_country": "AU",
+  "id": "shippit",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Shippit",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://shippit.com"
+}

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ingrammicro",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Ingram Micro is a company profile created during backlog processing.",
+  "description": "Ingram Micro is the world's largest technology distributor and a leading provider of supply chain and mobile device lifecycles.",
   "employees_count": null,
   "hq_country": "US",
   "id": "ingram-micro",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.081920Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ingrammicro.com"
 }

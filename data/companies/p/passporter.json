@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "passporter",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://www.careers-page.com/passporter"
+      }
+    ]
   },
-  "description": "Passporter is a company profile created during backlog processing.",
+  "description": "Passporter is a travel tech startup that allows users to plan, organize, and share their trips through a visual and social platform.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "passporter",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFd3CoK4tzzFQ/company-logo_100_100/company-logo_100_100/0/1630640322786?e=1774483200&v=beta&t=-PzTwscrS4Y3tQIPWqKUZbNJqMsH4jz9SnlK9ZVYW5k",
   "name": "Passporter",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.930073Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://passporterapp.com"
 }

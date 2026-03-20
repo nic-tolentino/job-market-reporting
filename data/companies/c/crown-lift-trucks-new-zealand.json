@@ -2,10 +2,30 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
+    "discovery": {
+      "lastAttemptedAt": "2026-03-17",
+      "notes": "Careers page scan detected WORKABLE (crown-equipment-limited-nz) — requires paid/custom integration",
+      "status": "NO_MATCH"
+    },
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/content/staging*",
+        "/staging*"
+      ]
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.crown.com/en-nz/careers"
+        "category": "discovered",
+        "status": "active",
+        "url": "https://apply.workable.com/crown-equipment-limited-nz/"
+      },
+      {
+        "category": "discovered",
+        "status": "active",
+        "url": "https://apply.workable.com/crown-equipment-limited-nz/?lng=en"
       }
     ]
   },

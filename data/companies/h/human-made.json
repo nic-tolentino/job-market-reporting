@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "human-made",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://humanmade.com/careers/"
+      }
+    ]
   },
-  "description": "Human Made is a company profile created during backlog processing.",
+  "description": "Human Made is a global technology consultancy and agency specializing in enterprise WordPress and digital experience platforms.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "human-made",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEOlmiuZ7YINA/company-logo_100_100/B4EZhlF_vAGYAU-/0/1754042728738/human_made_limited_logo?e=1774483200&v=beta&t=h2NZDccYSWl7t3Qt5xmI1oCbXaExxClMGtJWVxY_H2w",
   "name": "Human Made",
-  "office_locations": [],
+  "office_locations": [
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.343773Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://humanmade.com"
 }

@@ -4,7 +4,7 @@
   "crawler": {
     "seeds": []
   },
-  "description": "Sopra Steria is a company profile created during backlog processing.",
+  "description": "Sopra Steria is a European leader in consulting, digital services, and software development.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "sopra-steria",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQF_0JqR2CRpJw/company-logo_100_100/company-logo_100_100/0/1688571543420/soprasteria_logo?e=1774483200&v=beta&t=uYvVReKrLhiI0bMp92hCcdWIrpj0BHGujyN_HLUW5D0",
   "name": "Sopra Steria",
-  "office_locations": [],
+  "office_locations": [
+    "Paris"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.527542Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.soprasteria.com"
 }

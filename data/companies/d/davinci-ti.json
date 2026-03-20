@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "davinci-ti",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Davinci TI is a company profile created during backlog processing.",
+  "description": "Davinci TI is an IT consulting firm specializing in secure digital platforms, cloud architecture, and data analytics.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "davinci-ti",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGhFlvVAzwERw/company-logo_100_100/B4DZcLyE0cHMAU-/0/1748249366166/davinciti_logo?e=1774483200&v=beta&t=sRpMiSsCcq5X9eCNDg3ivLCC-1UerODZ8q9HWh5Nxcg",
   "name": "Davinci TI",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.752226Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.davinciti.com"
 }

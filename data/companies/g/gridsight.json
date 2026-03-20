@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Startup",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "gridsight",
+    "provider": "RIPPLING"
   },
-  "description": "GRIDSIGHT is a company profile created during backlog processing.",
+  "company_type": "Startup",
+  "description": "GRIDSIGHT provides grid analytics software to help electrical utilities manage the transition to a decentralized and renewable energy future.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "gridsight",
@@ -13,11 +14,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFxqSsF2l7vMQ/company-logo_100_100/company-logo_100_100/0/1630642649503/gridsight_logo?e=1774483200&v=beta&t=AtNav8ScUexakankXkgpbdDZ8ZxpdOoEorzHBpulxPE",
   "name": "GRIDSIGHT",
-  "office_locations": [],
+  "office_locations": [
+    "Wollongong, NSW"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:18:19.573673Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://gridsight.ai"
 }

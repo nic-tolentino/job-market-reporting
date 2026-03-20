@@ -11,6 +11,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.canonical.com/careers"
       }
     ]
@@ -36,13 +37,13 @@
     "AU"
   ],
   "remote_policy": "Remote Only",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.792273Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.792267Z",
+    "notes": "Remote-first. Sponsors in UK/Dubai/SA but generally not in AU/NZ/US.",
+    "offered": false,
+    "source": "Canonical Careers",
     "types": []
   },
   "website": "http://www.canonical.com/"

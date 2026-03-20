@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://secture.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "secture",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "Secture is a technology development team committed to software quality and innovation, building specialized digital products and services for various industries.",
   "employees_count": 50,
   "hq_country": "ES",

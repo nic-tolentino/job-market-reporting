@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "practiv",
+    "provider": "WORKABLE"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Practiv is a company profile created during backlog processing.",
+  "description": "Practiv is a New Zealand-based software development and systems integration company specialized in cloud-native delivery.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "practiv",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFPdAeDjKxLbA/company-logo_100_100/company-logo_100_100/0/1631314287161?e=1774483200&v=beta&t=DBwVwSbyiyQ2865OKUzXFtdPRNgxtQu3GlZy_FA6b-E",
   "name": "Practiv",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.260670Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://practiv.com"
 }

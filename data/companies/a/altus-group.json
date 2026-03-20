@@ -2,12 +2,18 @@
   "alternateNames": [
     "Altus Group Limited"
   ],
+  "ats": {
+    "identifier": "AltusGroup",
+    "provider": "WORKDAY"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.altusgroup.com/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.altusgroup.com/about-us/"
       }
     ]
   },

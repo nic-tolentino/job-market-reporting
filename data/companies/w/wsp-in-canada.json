@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "WSP_Careers",
+    "provider": "WORKDAY"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.wsp.com/en-ca/careers/job-opportunities"
+      }
+    ]
   },
-  "description": "WSP in Canada is a company profile created during backlog processing.",
+  "description": "WSP is one of the world's leading professional services firms, providing engineering and design services for the built environment.",
   "employees_count": null,
   "hq_country": "CA",
   "id": "wsp-in-canada",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHcaoM8kEaAGw/company-logo_100_100/company-logo_100_100/0/1719923517122/wsp_in_canada_logo?e=1774483200&v=beta&t=EBta190nzZWgQF9PQTLOt7COZmbDBb6-xWgp12Wsxss",
   "name": "WSP in Canada",
-  "office_locations": [],
+  "office_locations": [
+    "Montreal"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:48:35.254155Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.wsp.com"
 }

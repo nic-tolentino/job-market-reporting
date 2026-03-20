@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "pet-circle",
+    "provider": "ASHBY"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.petcircle.com.au/careers"
+      }
+    ]
   },
-  "description": "Pet Circle is a company profile created during backlog processing.",
+  "description": "Pet Circle is Australia’s largest online pet supplies retailer, providing food, health products, and pet care advice.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "pet-circle",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFeqHP7X8r84w/company-logo_100_100/B56ZyroYqsK0AQ-/0/1772406017174/petcircle_logo?e=1774483200&v=beta&t=dKrzVREswD2IQNymRMMAAyEVJm-_t3cnGDVc9G7J2Wg",
   "name": "Pet Circle",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.972564Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.petcircle.com.au"
 }

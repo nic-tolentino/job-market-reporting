@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "simur",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "SIMUR is a company profile created during backlog processing.",
+  "description": "SIMUR provides security software specializing in biometric identification and identity verification.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "simur",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHijZmWOOvrWA/company-logo_100_100/company-logo_100_100/0/1691408398494/simur_logo?e=1774483200&v=beta&t=bO-4P0CjBXVtctCMT6WaCuiDS95d6hr5D8AqLAkzTnE",
   "name": "SIMUR",
-  "office_locations": [],
+  "office_locations": [
+    "M\u00e1laga"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.062324Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://simurspaces.com"
 }

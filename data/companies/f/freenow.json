@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "freenow",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Freenow is a company profile created during backlog processing.",
+  "description": "FREE NOW is a leading European mobility platform offering ride-hailing, taxis, and micromobility services.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "freenow",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGa8iZtGIZRLw/company-logo_100_100/B4EZjrHxzZGcAY-/0/1756291341930/freenow_logo?e=1774483200&v=beta&t=j2OlvK-tpaN1SfnZeb3mDIhpOZ_CiPof_w7xU3r17Qw",
   "name": "Freenow",
-  "office_locations": [],
+  "office_locations": [
+    "Hamburg"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.694061Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.free-now.com"
 }

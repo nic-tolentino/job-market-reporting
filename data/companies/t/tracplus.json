@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "tracplus",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "TracPlus is a company profile created during backlog processing.",
+  "description": "TracPlus provides real-time tracking, management, and monitoring solutions for land, sea, and air operations.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "tracplus",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHBXWp58NNOiA/company-logo_100_100/B56ZqOuKvvI8AQ-/0/1763331059152/tracplus_logo?e=1774483200&v=beta&t=h_iG4V7oEjSdLRKfPMicrEFevgXKt5whIoVtpGOUHwE",
   "name": "TracPlus",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland",
+    "Dunedin"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.264226Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.tracplus.com"
 }

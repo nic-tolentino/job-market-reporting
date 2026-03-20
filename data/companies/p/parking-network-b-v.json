@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "parking-network-b-v",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.parking-network.com/careers"
+      }
+    ]
   },
-  "description": "Parking Network B.V. is a company profile created during backlog processing.",
+  "description": "Parking Network is the leading information platform for the global parking industry, connecting professionals and sharing news.",
   "employees_count": null,
   "hq_country": "NL",
   "id": "parking-network-b-v",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHQSuQnV5iWOA/company-logo_100_100/company-logo_100_100/0/1729062360583/parking_network_logo?e=1774483200&v=beta&t=wtDRSCicKqjQSmEC8cZ-Erbuout9fFVJKPdW1yMaB5M",
   "name": "Parking Network B.V.",
-  "office_locations": [],
+  "office_locations": [
+    "The Hague"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.921579Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.parking-network.com"
 }

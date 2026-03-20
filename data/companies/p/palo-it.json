@@ -8,8 +8,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.palo-it.com/careers"
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://www.palo-it.com/en/career"
       }
     ]
   },
@@ -41,13 +43,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T10:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.849646Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.849635Z",
+    "notes": "Innovation consultancy. Sydney office explicitly welcomes international relocation.",
     "offered": true,
-    "source": null,
+    "source": "PALO IT Mobility",
     "types": []
   },
   "website": "https://www.palo-it.com"

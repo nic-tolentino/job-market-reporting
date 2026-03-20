@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "caixabank-tech",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.caixabanktech.com/en/join-us"
+      }
+    ]
   },
-  "description": "CaixaBank Tech is a company profile created during backlog processing.",
+  "description": "CaixaBank Tech is the technology branch of the CaixaBank Group, driving digital transformation and innovation in financial services.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "caixabank-tech",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHBtkCOhmuguA/company-logo_100_100/company-logo_100_100/0/1630472408057/cabktech_logo?e=1774483200&v=beta&t=6r_IvPEKvERxFd_f8BNjv3qAWLXj9zlleoBgfyO9kiI",
   "name": "CaixaBank Tech",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.914174Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.caixabanktech.com"
 }

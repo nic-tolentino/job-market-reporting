@@ -1,0 +1,45 @@
+{
+  "alternateNames": [
+    "Xpansiv CBL",
+    "Xpansiv"
+  ],
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "unknown",
+        "status": "active",
+        "url": "https://www.xpansiv.com/careers"
+      }
+    ]
+  },
+  "description": "Xpansiv operates the world's largest open and neutral market infrastructure for environmental commodities, including verified carbon credits, renewable energy certificates, and clean fuel credits.",
+  "employees_count": 224,
+  "hq_country": "US",
+  "id": "xpansiv",
+  "industries": [
+    "Finance",
+    "Software Development"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": null,
+  "name": "Xpansiv",
+  "office_locations": [
+    "New York",
+    "San Francisco",
+    "Sydney",
+    "London"
+  ],
+  "operating_countries": [
+    "US",
+    "AU",
+    "CA",
+    "GB"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-17T00:00:00Z",
+  "verification_level": "unverified",
+  "visa_sponsorship": null,
+  "website": "https://www.xpansiv.com"
+}

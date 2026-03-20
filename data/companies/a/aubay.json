@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "aubay",
+    "provider": "CUSTOM"
+  },
   "company_type": "Unknown",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.aubay.com/en/join-aubay/"
+      }
+    ]
   },
-  "description": "Aubay is a company profile created during backlog processing.",
+  "description": "Aubay is a pan-European digital services company providing IT consulting, application services, and digital transformation.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "aubay",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQG5UZ9zudc09Q/company-logo_100_100/company-logo_100_100/0/1642171379742/aubay_logo?e=1774483200&v=beta&t=KeVfD9YS4cR0IXaeUENYptlMD9dTssZPlIlnUN_duAo",
   "name": "Aubay",
-  "office_locations": [],
+  "office_locations": [
+    "Boulogne-Billancourt"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:35.000058Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:23:00.109115Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.aubay.com"
 }

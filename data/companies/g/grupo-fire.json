@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "fire",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://fire.es/trabaja-con-grupo-fire/"
+      }
+    ]
   },
-  "description": "Grupo Fire is a company profile created during backlog processing.",
+  "description": "Grupo Fire specializes in fire protection systems, offering installation, maintenance, and technical services across Spain.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "grupo-fire",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFc-kEjw5xnTg/company-logo_100_100/company-logo_100_100/0/1713198623379/firebusiness_logo?e=1774483200&v=beta&t=zsqt0D3d5efmhPmzvfB9KEGsKR-INbKPqqVfbyt-sok",
   "name": "Grupo Fire",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:10:46.157953Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://fire.es"
 }

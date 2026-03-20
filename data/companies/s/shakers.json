@@ -8,8 +8,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://shakersworks.com/careers"
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "blocked",
+        "url": "https://shakers.factorialhr.com"
       }
     ]
   },
@@ -31,8 +33,14 @@
     "ES"
   ],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:45:00Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-17T00:13:42.915453Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-17T00:13:42.915445Z",
+    "notes": "Tech talent marketplace for freelancers (autónomos). No employment sponsorship.",
+    "offered": false,
+    "source": "Shakers.works",
+    "types": []
+  },
   "website": "https://shakersworks.com"
 }

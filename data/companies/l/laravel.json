@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "laravel",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://laravel.com/careers"
+      }
+    ]
   },
-  "description": "Laravel is a company profile created during backlog processing.",
+  "description": "Laravel is a popular open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications.",
   "employees_count": null,
   "hq_country": "US",
   "id": "laravel",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.223720Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://laravel.com"
 }

@@ -1,13 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "vermont-solutions",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://vermont-solutions.com/careers"
-      }
-    ]
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    }
   },
   "description": "A company specializing in IT consulting, high-performance computing, and digital transformation.",
   "employees_count": null,
@@ -28,8 +32,14 @@
     "ES"
   ],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:45:00Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-17T00:13:42.829220Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-17T00:13:42.829215Z",
+    "notes": "Tech recruitment/consulting. No evidence of sponsorship.",
+    "offered": false,
+    "source": "Agency Profile",
+    "types": []
+  },
   "website": "https://vermont-solutions.com"
 }

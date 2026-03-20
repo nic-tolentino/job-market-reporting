@@ -1,11 +1,26 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "pearson-carter",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/wp-admin/",
+        "*.recwebsv3.com"
+      ]
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.pearsoncarter.com/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.pearsoncarter.com/jobs/"
       }
     ]
   },

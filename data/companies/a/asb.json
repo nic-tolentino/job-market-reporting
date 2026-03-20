@@ -12,6 +12,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "unknown",
         "url": "https://www.asb.co.nz/careers"
       }
     ]
@@ -38,13 +39,13 @@
     "NZ"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:30:05.090660Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:30:05.074827Z",
+    "notes": "Government-verified visa sponsor and Accredited Employer in NZ (AEWV).",
     "offered": true,
-    "source": null,
+    "source": "ASB Careers",
     "types": []
   },
   "website": "https://www.asb.co.nz"

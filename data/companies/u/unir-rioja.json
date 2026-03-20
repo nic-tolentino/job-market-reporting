@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.grupoproeduca.com/vacantes/"
+      }
+    ]
   },
-  "description": "UNIR | Universidad Internacional de La Rioja is a company profile created during backlog processing.",
+  "description": "UNIR (Universidad Internacional de La Rioja) is a private online university based in Spain.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "unir-rioja",
@@ -13,11 +20,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGI0JpR0Hjq1w/company-logo_100_100/company-logo_100_100/0/1710853486221?e=1774483200&v=beta&t=IBvKHGoLsELUu-zrIelRnUPvh-ntwmiUFrlMgsRjP_4",
   "name": "UNIR | Universidad Internacional de La Rioja",
-  "office_locations": [],
+  "office_locations": [
+    "Logroño",
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.852171Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.unir.net"
 }

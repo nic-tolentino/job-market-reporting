@@ -10,8 +10,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.idexx.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://careers.idexx.com"
       }
     ]
   },
@@ -35,13 +37,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:30:05.096390Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:30:05.074831Z",
+    "notes": "Likely. Listed as Health Care and Social Assistance sponsor in AU. Supports international professionals.",
     "offered": true,
-    "source": null,
+    "source": "IDEXX Careers",
     "types": []
   },
   "website": "http://www.idexx.com"

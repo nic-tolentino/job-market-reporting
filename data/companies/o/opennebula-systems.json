@@ -1,10 +1,7 @@
 {
   "alternateNames": [],
   "company_type": "Product",
-  "crawler": {
-    "seeds": []
-  },
-  "description": "OpenNebula Systems is a company profile created during backlog processing.",
+  "description": "OpenNebula is a powerful open-source platform for building and managing private and hybrid clouds and edge computing.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "opennebula-systems",
@@ -13,11 +10,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEyC7aSS-jwMQ/company-logo_100_100/B56ZxSePuSJAAU-/0/1770910187063/opennebula_logo?e=1774483200&v=beta&t=MjoVWjhkpUWhSfry6Ex7dbNs1i3pa2kLuMppdKZTUQc",
   "name": "OpenNebula Systems",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:28:11.625510Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://opennebula.io"
 }

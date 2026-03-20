@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "zendesk",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Zendesk is a company profile created during backlog processing.",
+  "description": "Zendesk is a service-first CRM company that builds software designed to improve customer relationships.",
   "employees_count": null,
   "hq_country": "US",
   "id": "zendesk",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQH_bC13eyDqjw/company-logo_100_100/company-logo_100_100/0/1684356295421/zendesk_logo?e=1774483200&v=beta&t=W1gv-QiP6bVP4nkY7VSIca82wl9YwvWaTXAzsaSIUK8",
   "name": "Zendesk",
-  "office_locations": [],
+  "office_locations": [
+    "San Francisco, CA"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.896019Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.zendesk.com"
 }

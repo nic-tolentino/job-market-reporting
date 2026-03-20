@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "action1",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Action1 is a company profile created during backlog processing.",
+  "description": "Action1 provides a cloud-based endpoint management platform for automated patch management and remote desktop access.",
   "employees_count": null,
   "hq_country": "US",
   "id": "action1",
@@ -16,8 +20,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.130460Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.action1.com"
 }

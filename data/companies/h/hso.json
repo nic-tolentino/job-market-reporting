@@ -2,11 +2,16 @@
   "alternateNames": [
     "HSO International"
   ],
+  "ats": {
+    "identifier": "hso",
+    "provider": "LEVER"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.hso.com/careers"
       }
     ]

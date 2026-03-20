@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "kasada",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://kasada.io/careers/"
+      }
+    ]
+  },
+  "description": "Kasada provides the only online traffic integrity solution that accurately detects and defends against bot attacks across web, mobile and API channels. We restore trust in the Internet by foiling even the stealthiest cyber threats, from credential abuse to data scraping. Our solution invisibly stops automated threats while inflicting financial damage to attackers, destroying their ROI. With the ability to onboard in minutes, Kasada ensures immediate and long-lasting protection while empowering enterprises with optimal online activity.",
+  "hq_country": "AU",
+  "id": "kasada",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Kasada",
+  "verification_level": "unverified",
+  "website": "https://kasada.io/"
+}

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "zuru",
+    "provider": "LEVER"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "ZURU Toys is a company profile created during backlog processing.",
+  "description": "ZURU is a global toy and consumer products company known for its innovation, manufacturing, and brands like Bunch O Balloons.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "zuru-toys",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHT5v8-2gE0gA/company-logo_100_100/company-logo_100_100/0/1700775323210/zuru_logo?e=1774483200&v=beta&t=nOR0g0CmgdD_9OWAYzWrHdjcP9LuBY3FVcyQAtngIHs",
   "name": "ZURU Toys",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.895483Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://zuru.com"
 }

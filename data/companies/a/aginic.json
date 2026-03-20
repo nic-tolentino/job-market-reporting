@@ -1,0 +1,25 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://mantelgroup.com.au/careers/"
+      }
+    ]
+  },
+  "description": "Our organisational beliefs define us as a company and as professionals. Additionally, they are the single most important aspect of our approach to quality. They guide us elegantly to quality outcomes, even when we are faced with challenging situations or when we are pushing the boundaries of what is possible.",
+  "hq_country": "AU",
+  "id": "aginic",
+  "industries": [
+    "Data Analytics",
+    "AI",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "Aginic",
+  "verification_level": "unverified",
+  "website": "https://aginic.com/our-values/"
+}

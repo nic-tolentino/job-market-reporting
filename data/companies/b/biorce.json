@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://biorce.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "Biorce",
+    "provider": "LEVER"
   },
+  "company_type": "Product",
   "description": "Biorce is a healthtech company dedicated to revolutionizing clinical research and drug development through the power of Artificial Intelligence.",
   "employees_count": 50,
   "hq_country": "ES",

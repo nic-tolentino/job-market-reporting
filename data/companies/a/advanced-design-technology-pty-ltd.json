@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "adtechnology",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Advanced Design Technology Pty Ltd is a company profile created during backlog processing.",
+  "description": "Advanced Design Technology is an Australian provider of specialized engineering and design software solutions.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "advanced-design-technology-pty-ltd",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFl1CXvCJzKSA/company-logo_100_100/company-logo_100_100/0/1630582744410?e=1774483200&v=beta&t=AV_stkEMJp8bUo5xUW4gakEmcaKFcDOxG87BygYyErs",
   "name": "Advanced Design Technology Pty Ltd",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.113779Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.adtechnology.com.au"
 }

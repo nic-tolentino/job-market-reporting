@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "skedulo",
+    "provider": "WORKABLE"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.skedulo.com/careers/"
+      }
+    ]
+  },
+  "description": "Skedulo creates cloud-based software to allow any company in any industry to schedule, manage, engage, and analyze their deskless workforce.",
+  "hq_country": "AU",
+  "id": "skedulo",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Skedulo",
+  "verification_level": "unverified",
+  "website": "https://www.skedulo.com/about-us/"
+}

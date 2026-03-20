@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ryman-healthcare",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://careers.rymanhealthcare.com/home"
+      }
+    ]
   },
-  "description": "Ryman Healthcare is a company profile created during backlog processing.",
+  "description": "Ryman Healthcare is a major provider of aged care services in New Zealand, offering retirement village living and nursing care.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "ryman-healthcare",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFKcl3KClnRRw/company-logo_100_100/company-logo_100_100/0/1630666214888/ryman_healthcare_logo?e=1774483200&v=beta&t=mOgm2naaXqeE4Nbbq1QABuz_QvCtAQrjC4utgOKCV8c",
   "name": "Ryman Healthcare",
-  "office_locations": [],
+  "office_locations": [
+    "Christchurch"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:55:47.205631Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.rymanhealthcare.co.nz"
 }

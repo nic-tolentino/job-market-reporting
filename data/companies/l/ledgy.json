@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ledgy",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "active",
+        "url": "https://boards.greenhouse.io/ledgy"
+      }
+    ]
   },
-  "description": "Ledgy is a company profile created during backlog processing.",
+  "description": "Ledgy is an equity management platform for high-growth startups and scale-ups, helping them manage cap tables and employee participation.",
   "employees_count": null,
   "hq_country": "CH",
   "id": "ledgy",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQETPi103CC1cA/company-logo_100_100/company-logo_100_100/0/1687851681238/ledgy_logo?e=1774483200&v=beta&t=oND-A1pYX2njV8GR9sXMaaFWBNCU_MR9Tr0LVr-xqyo",
   "name": "Ledgy",
-  "office_locations": [],
+  "office_locations": [
+    "Zurich"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.218657Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ledgy.com"
 }

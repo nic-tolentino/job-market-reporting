@@ -12,6 +12,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.lendigroup.com.au/careers"
       }
     ]

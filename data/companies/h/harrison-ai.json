@@ -1,0 +1,27 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.harrison.ai/careers"
+      }
+    ]
+  },
+  "description": "Harrison.ai is a clinician-led healthcare artificial intelligence (AI) company founded by Aengus Tran and Dimitry Tran. Our mission is to continuously innovate and commercialise more efficient and more affordable healthcare products and services to healthcare providers and patients. ​ Harrison.ai empowers physicians and healthcare providers with customised AI-enabled tools that integrate into existing clinical workflows which ultimately lead to improved patient outcomes.",
+  "hq_country": "AU",
+  "id": "harrison-ai",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Harrison.ai",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://www.harrison.ai/"
+}

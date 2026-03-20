@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "zhejiang-hr",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Zhejiang Zongheng Human Resources Co., Ltd. is a company profile created during backlog processing.",
+  "description": "Zhejiang Zongheng Human Resources is a Chinese firm providing comprehensive HR and talent management services.",
   "employees_count": null,
   "hq_country": "CN",
   "id": "zhejiang-hr",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQG5Pg3U-mYGOQ/company-logo_100_100/B56ZVBhazYGUAQ-/0/1740561034920?e=1774483200&v=beta&t=MQ1ly1kaNfI06KlhrDDgWTINN40h_EdD9Fiij6qGnUw",
   "name": "Zhejiang Zongheng Human Resources Co., Ltd.",
-  "office_locations": [],
+  "office_locations": [
+    "Zhejiang"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.250560Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "http://cn.cnzjzongheng.com"
 }

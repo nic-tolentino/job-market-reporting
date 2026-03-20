@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "gensrv",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "GenSrv Pty Ltd is a company profile created during backlog processing.",
+  "description": "GenSrv Pty Ltd is a technology company specializing in power generation services, thermal design, and electrical engineering.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "gensrv-pty-ltd",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGxVDGVgk47qg/company-logo_100_100/company-logo_100_100/0/1631368138013?e=1774483200&v=beta&t=ZNCU52CAlySsR8XIKrIHqaiDOSvB_lfdVKSWdAqTaKE",
   "name": "GenSrv Pty Ltd",
-  "office_locations": [],
+  "office_locations": [
+    "Coomera, QLD"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:10:46.159235Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://gensrv.com"
 }

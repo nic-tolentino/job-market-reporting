@@ -1,11 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "autograb",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://autograb.com.au/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://autograb.com.au/work-with-us/"
       }
     ]
   },

@@ -1,0 +1,27 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://www.siteminder.com/jobs/"
+      }
+    ]
+  },
+  "description": "Ever booked hotel accommodation on Booking.com, Expedia or TripAdvisor? Chances are, you’ve used SiteMinder. Our goal is to liberate hoteliers with technology that makes a world of difference, and we do that by helping them find and acquire guests online.\\r\\n\\r\\nWe are the world’s leading guest acquisition platform for hotels, supporting 35,000 hotels in 160 countries to generate more than 87 million reservations on our platform each year.",
+  "hq_country": "AU",
+  "id": "siteminder",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Siteminder",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://www.siteminder.com/"
+}

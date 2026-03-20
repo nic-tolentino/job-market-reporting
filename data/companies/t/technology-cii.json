@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "http://www.ciitechknow.com/technology-summit.php/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "technology-cii",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "Technology CII is a company profile created during backlog processing.",
   "employees_count": null,
   "hq_country": "AU",

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "societegenerale",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Societe Generale is a company profile created during backlog processing.",
+  "description": "Société Générale is a leading French multinational investment bank and financial services company.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "societe-generale",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEGbq0lpQiZXA/company-logo_100_100/company-logo_100_100/0/1630637825727/societe_generale_logo?e=1774483200&v=beta&t=8ZxZCgnEJD0Ngzf7Yz0TCAn8f-xv1yFk3D4bIB_skXw",
   "name": "Societe Generale",
-  "office_locations": [],
+  "office_locations": [
+    "Paris"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.413388Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.societegenerale.com"
 }

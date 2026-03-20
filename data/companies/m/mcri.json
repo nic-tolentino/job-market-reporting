@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mcri",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.mcri.edu.au/careers"
+      }
+    ]
   },
-  "description": "Murdoch Children's Research Institute (MCRI) is a company profile created during backlog processing.",
+  "description": "The Murdoch Children's Research Institute (MCRI) is the largest child health research institute in Australia.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "mcri",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGuWfITMdO4iA/company-logo_100_100/company-logo_100_100/0/1660805684774/murdoch_childrens_research_institute_logo?e=1774483200&v=beta&t=fyFf2Y3vAq0adoDOuK4hixWOUXsRuCxFQe_VdclSEyw",
   "name": "Murdoch Children's Research Institute (MCRI)",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.351259Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.mcri.edu.au"
 }

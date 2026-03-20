@@ -1,11 +1,26 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ofload",
+    "provider": "WORKABLE"
+  },
   "company_type": "Startup",
   "crawler": {
+    "discovery": {
+      "lastAttemptedAt": "2026-03-17",
+      "notes": "Careers page scan detected WORKABLE (ofload) — requires paid/custom integration",
+      "status": "NO_MATCH"
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "http://www.ofload.com.au/careers"
+      },
+      {
+        "category": "discovered",
+        "status": "active",
+        "url": "https://apply.workable.com/ofload/"
       }
     ]
   },

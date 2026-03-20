@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "davidson",
+    "provider": "CUSTOM"
+  },
   "company_type": "Unknown",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.davidsonwp.com/job-results"
+      }
+    ]
   },
-  "description": "Davidson is a company profile created during backlog processing.",
+  "description": "Davidson is a leading recruitment and workplace performance consultancy operating across Australia and New Zealand.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "davidson",
@@ -13,11 +24,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGDpk3B0JJLJQ/company-logo_100_100/company-logo_100_100/0/1630655102042/davidsongroup_logo?e=1774483200&v=beta&t=5QEzoWyzzoEiGO4L6zKDD8C_zxskP-Z_XtVR5h0MbjE",
   "name": "Davidson",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane",
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:34.989385Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:38:16.773730Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.davidsonwp.com"
 }

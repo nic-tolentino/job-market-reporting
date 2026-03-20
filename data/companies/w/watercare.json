@@ -12,7 +12,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.watercare.co.nz/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.watercare.co.nz/home/careers"
       }
     ]
   },
@@ -35,13 +42,13 @@
     "NZ"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.925764Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.925758Z",
+    "notes": "NZ Accredited Employer. Utility provider sponsoring skilled engineering.",
     "offered": true,
-    "source": null,
+    "source": "Watercare Careers",
     "types": []
   },
   "website": "https://www.watercare.co.nz/"

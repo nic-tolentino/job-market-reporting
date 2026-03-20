@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "randstad-digital-new-zealand",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "homepage-scan",
+        "status": "active",
+        "url": "https://www.randstaddigital.com/careers/"
+      }
+    ]
   },
-  "description": "Randstad Digital New Zealand is a company profile created during backlog processing.",
+  "description": "Randstad Digital New Zealand is a digital enablement partner connecting IT and digital talent with businesses in the region.",
   "employees_count": null,
   "hq_country": "NL",
   "id": "randstad-digital-new-zealand",
@@ -13,11 +24,15 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQErHiZbioYBnQ/company-logo_100_100/company-logo_100_100/0/1713310658410/randstad_digital_new_zealand_logo?e=1774483200&v=beta&t=W0zGPDxo4jyqZKEQRZAtfxRio1Xceum_741MOFgHoxQ",
   "name": "Randstad Digital New Zealand",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland",
+    "Christchurch",
+    "Wellington"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:57:50.507325Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.randstaddigital.com/about/locations/offices-new-zealand/"
 }

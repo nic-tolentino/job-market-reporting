@@ -1,0 +1,25 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://jobs.deel.com/job-boards/klarna"
+      }
+    ]
+  },
+  "description": "Klarna was founded in 2005 in Stockholm, Sweden with the aim of making it easier for people to shop online. In the last 15 years, technology has evolved, excited and transformed the world around us, yet our mission remains as relevant as ever, to make paying as simple, safe and above all, smoooth as possible.",
+  "hq_country": "SE",
+  "id": "klarna",
+  "industries": [
+    "Fintech",
+    "Payments",
+    "BNPL"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Klarna",
+  "verification_level": "unverified",
+  "website": "https://www.klarna.com/international/about-us/"
+}

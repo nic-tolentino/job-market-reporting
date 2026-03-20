@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "cisco",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Cisco is a company profile created during backlog processing.",
+  "description": "Cisco is a global leader in networking, security, and unified communications technology helping businesses connect and protect their digital assets.",
   "employees_count": null,
   "hq_country": "US",
   "id": "cisco",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFYnR_Zrm87Dg/company-logo_100_100/B56ZnMyVr4HUAQ-/0/1760077372453/cisco_logo?e=1774483200&v=beta&t=U7eRwBv0pEVhLVDRAtMnnpRbNygJcs0XQ2Mi0UmOX8k",
   "name": "Cisco",
-  "office_locations": [],
+  "office_locations": [
+    "San Jose"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.617534Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.cisco.com"
 }

@@ -8,8 +8,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.pinchaaqui.es/careers"
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://pinchaaqui.zohorecruit.com/jobs/Careers"
       }
     ]
   },

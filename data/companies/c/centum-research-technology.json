@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "centum",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://careers.centum-rt.com/jobs"
+      }
+    ]
   },
-  "description": "CENTUM research & technology is a company profile created during backlog processing.",
+  "description": "CENTUM RT is a Spanish technology company specializing in airborne mission systems and cellular location technology.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "centum-research-technology",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQH8yaxdT_Og8Q/company-logo_100_100/company-logo_100_100/0/1731429446459/centum_rt_logo?e=1774483200&v=beta&t=KUve_p0b3od17I8i3zoAkq6usbWnlWcpyLFowNFV-Ew",
   "name": "CENTUM research & technology",
-  "office_locations": [],
+  "office_locations": [
+    "Vigo"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.168628Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.centum-rt.com"
 }

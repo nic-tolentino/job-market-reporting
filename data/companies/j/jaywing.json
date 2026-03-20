@@ -1,0 +1,29 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "url": "https://jaywing.com.au/careers/",
+        "status": "active"
+      }
+    ]
+  },
+  "ats": {
+    "identifier": "jaywing",
+    "provider": "CUSTOM"
+  },
+  "description": "Jaywing is one of Australia’s fastest growing agencies. Our award-winning proposition integrates data-centricity, creative excellence and a results-driven approach to digital media. We build partnerships with some of the world’s most exciting brands by providing more than services, but strategic support, consultation and technical capabilities. Globally, we employ over 300 experts, but in Australia we are a close-knit, highly flexible, high-performance team of strategists, creatives, analysts and marketers.",
+  "hq_country": "AU",
+  "id": "jaywing",
+  "industries": [
+    "Marketing",
+    "Data Analytics",
+    "Agency"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "Jaywing",
+  "verification_level": "unverified",
+  "website": "https://jaywing.com.au/"
+}

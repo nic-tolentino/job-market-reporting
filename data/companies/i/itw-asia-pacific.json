@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ITWConstructionAsiaPacific",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "blocked",
+        "url": "https://careers.smartrecruiters.com/ITWConstructionAsiaPacific"
+      }
+    ]
   },
-  "description": "ITW Construction Products - Asia Pacific is a company profile created during backlog processing.",
+  "description": "ITW Construction Asia Pacific is a leading manufacturer of construction materials and fastening systems.",
   "employees_count": null,
   "hq_country": "US",
   "id": "itw-asia-pacific",
@@ -12,12 +22,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQE1aqluc8O2Wg/company-logo_100_100/company-logo_100_100/0/1630672470342/itw_construction_products_asia_pacific_logo?e=1773878400&v=beta&t=f4y9HVKMqcGNBGmiuGEmkYtkx1Gl8vKw-0MRuHTsUDE",
-  "name": "ITW Construction Products - Asia Pacific",
-  "office_locations": [],
+  "name": "ITW Construction Asia Pacific",
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.862357Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.itwcap.com"
 }

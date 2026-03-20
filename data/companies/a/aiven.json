@@ -4,9 +4,25 @@
   ],
   "company_type": "Product",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/developer/search",
+        "/search"
+      ]
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
+        "url": "https://aiven.io/careers"
+      },
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
         "url": "https://aiven.io/careers"
       }
     ]

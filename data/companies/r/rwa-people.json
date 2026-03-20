@@ -2,15 +2,11 @@
   "alternateNames": [
     "RWA"
   ],
-  "company_type": "Agency",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "http://www.rwa.co.nz/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "rwa-people",
+    "provider": "CUSTOM"
   },
+  "company_type": "Agency",
   "description": "RWA People is a trusted NZ recruitment partner specializing in connecting technology and digital talent with high-performing organizations.",
   "employees_count": 30,
   "hq_country": "NZ",

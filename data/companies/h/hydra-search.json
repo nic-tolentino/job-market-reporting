@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Agency",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://hydrasearch.com.au/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "hydrasearch",
+    "provider": "CUSTOM"
   },
+  "company_type": "Agency",
   "description": "Hydra Search is a company profile created during backlog processing.",
   "employees_count": null,
   "hq_country": "AU",

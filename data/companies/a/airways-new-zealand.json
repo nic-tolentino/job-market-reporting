@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "airways-new-zealand",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.airways.co.nz/work-with-us"
+      }
+    ]
   },
-  "description": "Airways New Zealand is a company profile created during backlog processing.",
+  "description": "Airways New Zealand is the national air navigation service provider, managing all air traffic across New Zealand.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "airways-new-zealand",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEqDZ5WPqrWpQ/company-logo_100_100/company-logo_100_100/0/1719434086133?e=1774483200&v=beta&t=OLj3epR6UGVTeK2k-67nPnaW_R4AfDy5eMIcDs-u770",
   "name": "Airways New Zealand",
-  "office_locations": [],
+  "office_locations": [
+    "Christchurch"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.112640Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.airways.co.nz"
 }

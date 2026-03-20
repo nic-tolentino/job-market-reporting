@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Platform",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://mindrift.ai/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "mindrift",
+    "provider": "WORKABLE"
   },
+  "company_type": "Platform",
   "description": "Welcome to Mindrift — a space where innovation meets opportunity. We’re a pioneering platform dedicated to advancing the field of artificial intelligence through collaborative online projects. Our focus lies in creating data for generative AI, offering a unique chance for freelancers to contribute to AI development from anywhere, at any time.\n\nAt Mindrift, we believe in the power of collective intelligence to shape the future of AI. Our platform allows users to dive into a variety of tasks — ranging from creating training prompts for AI models to refining AI responses for greater relevance.\n\nLet’s build the future of AI together, one task at a time.\n",
   "employees_count": null,
   "hq_country": "US",
@@ -24,8 +20,13 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-16T21:38:43.992972Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-16T21:38:43.979362Z",
+    "notes": "Freelance/Contractor platform only. No sponsorship offered for AI training roles.",
+    "offered": false,
+    "source": "Mindrift Profile"
+  },
   "website": "https://mindrift.ai"
 }

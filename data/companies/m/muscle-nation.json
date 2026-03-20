@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "muscle-nation",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Muscle Nation is a company profile created during backlog processing.",
+  "description": "Muscle Nation is one of Australia's leading fitness clothing and supplement brands, known for its community-driven approach.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "muscle-nation",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEF97GGOsCVrw/company-logo_100_100/company-logo_100_100/0/1719256068391?e=1774483200&v=beta&t=RYRzdN4mAsDqXsQq9oS4na9X79PGcp5DRJ7omYVRvEE",
   "name": "Muscle Nation",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.352522Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://musclenation.org"
 }

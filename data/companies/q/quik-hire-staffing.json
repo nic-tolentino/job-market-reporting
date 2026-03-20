@@ -4,12 +4,22 @@
   ],
   "company_type": "Agency",
   "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://quikhire.ca/careers"
-      }
-    ]
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/tilda/form*",
+        "/tilda/rec*",
+        "/tilda/click*",
+        "/tilda/scroll*",
+        "/tilda/popup*",
+        "/tilda/cart*",
+        "/tilda/product*",
+        "/tilda/event*",
+        "/*_escaped_fragment_*"
+      ]
+    }
   },
   "description": "A staffing and recruitment company providing human resources and staffing solutions.",
   "employees_count": null,
@@ -30,8 +40,14 @@
     "US"
   ],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:30:00Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-17T00:13:42.787535Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-17T00:13:42.787319Z",
+    "notes": "Staffing/Recruitment agency. Does not typically sponsor.",
+    "offered": false,
+    "source": "Agency Profile",
+    "types": []
+  },
   "website": "https://quikhire.ca"
 }

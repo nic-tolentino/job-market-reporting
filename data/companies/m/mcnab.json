@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mcnab",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.mcnab.net.au/work-with-us"
+      }
+    ]
   },
-  "description": "McNab is a company profile created during backlog processing.",
+  "description": "McNab is a leading Australian construction and development company known for high-quality commercial and residential projects.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "mcnab",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE6MUEGJ6IjsQ/company-logo_100_100/B56ZXrAQ6eGQAQ-/0/1743404470537/mcnab_logo?e=1774483200&v=beta&t=wFOG83RGuK3CECVH3Cnpo1MZxxM6NO3XxWucgSu5vx0",
   "name": "McNab",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:30:39.366135Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.mcnab.net.au"
 }

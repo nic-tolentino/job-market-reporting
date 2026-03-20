@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "relevanceai",
+    "provider": "ASHBY"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://relevanceai.com/careers"
+      }
+    ]
+  },
+  "description": "At Relevance AI, we’re building the home of the AI workforce, a new generation of automation built for real work. Our mission is simple: empower every team to delegate meaningful work to AI agents that think, act, and collaborate like experts. With Relevance AI, anyone can create and manage intelligent agents that handle workflows, decisions, and cross-team collaboration, all within one unified platform.",
+  "hq_country": "AU",
+  "id": "relevance-ai",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Relevance AI",
+  "verification_level": "unverified",
+  "website": "https://relevanceai.com/"
+}

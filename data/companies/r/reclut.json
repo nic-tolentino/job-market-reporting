@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "unknown",
+        "url": "https://reclut.es/vacantes"
+      }
+    ]
   },
-  "description": "Reclut is a company profile created during backlog processing.",
+  "description": "Reclut is a boutique recruitment and headhunting consultancy specializing in personnel selection and career guidance in Spain.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "reclut",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFOG327q2Dfiw/company-logo_100_100/B4EZtnJODTJwAQ-/0/1766962029110/reclut1_logo?e=1774483200&v=beta&t=QCR5ZEjPY3PZ5wlRZ9kZQxUP35R1rQ2fP5qEpnFMlL4",
   "name": "Reclut",
-  "office_locations": [],
+  "office_locations": [
+    "Murcia"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:53:24.888934Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://reclut.es"
 }

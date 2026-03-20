@@ -5,6 +5,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://www.idealista.com/careers"
       }
     ]
@@ -31,13 +32,13 @@
     "PT"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-07T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.962204Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.962200Z",
+    "notes": "Real estate portal. Sponsors HQP (Highly Skilled) in Spain.",
     "offered": true,
-    "source": null,
+    "source": "idealista Careers",
     "types": []
   },
   "website": "https://www.idealista.com"

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "complexio",
+    "provider": "WORKABLE"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Complexio is a company profile created during backlog processing.",
+  "description": "Complexio develops an AI integrated platform to automate complex business processes and data analysis for global commerce and shipping.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "complexio",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGoqWLDPKvPIA/company-logo_100_100/company-logo_100_100/0/1714401301135?e=1774483200&v=beta&t=tCXIXckiTEQ6JFlPNbnZQK4rRRcA1Nw_k9nSKo1m_k0",
   "name": "Complexio",
-  "office_locations": [],
+  "office_locations": [
+    "Copenhagen",
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.616388Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://complexio.com"
 }

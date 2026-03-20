@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://palta.com/careers"
+      }
+    ]
   },
-  "description": "Palta is a company profile created during backlog processing.",
+  "description": "Palta is a global health and well-being technology company that co-founds and scales impactful digital products like Flo and Simple.",
   "employees_count": null,
   "hq_country": "MT",
   "id": "palta",
@@ -16,8 +23,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.943239Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://palta.com"
 }

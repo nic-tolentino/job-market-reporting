@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "motorola-solutions",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.motorolasolutions.com/en_us/about/careers.html"
+      }
+    ]
   },
-  "description": "Motorola Solutions is a company profile created during backlog processing.",
+  "description": "Motorola Solutions is a global leader in public safety and enterprise security, providing mission-critical communications and video solutions.",
   "employees_count": null,
   "hq_country": "US",
   "id": "motorola-solutions",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQE4yt5Gz-3KGQ/company-logo_100_100/company-logo_100_100/0/1631305138860?e=1774483200&v=beta&t=X8ItSyY-FM0ait_OPb3LltIIq2mfgOxzf2Bnw8cMTPg",
   "name": "Motorola Solutions",
-  "office_locations": [],
+  "office_locations": [
+    "Chicago"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.350268Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.motorolasolutions.com"
 }

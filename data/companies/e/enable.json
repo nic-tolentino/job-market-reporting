@@ -12,6 +12,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://enable.com/careers"
       }
     ]
@@ -42,13 +43,13 @@
     "Worldwide"
   ],
   "remote_policy": "Flexible",
-  "updated_at": "2026-03-10T09:10:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.873332Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.873325Z",
+    "notes": "ServiceNow partner (Fujitsu). Accredited sponsor for AU/NZ consulting roles.",
     "offered": true,
-    "source": null,
+    "source": "Enable Careers",
     "types": []
   },
   "website": "https://enable.com"

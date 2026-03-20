@@ -1,0 +1,27 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://hipagesgroup.com.au/careers/"
+      }
+    ]
+  },
+  "description": "Hipages provides a better, smarter way to connect tradies and consumers and get the job done well.\\r\\n\\r\\nOur purpose is to make home improvement effortlessly efficient, creating happier homes. We build technology that solves the frictions of an industry ready for optimisation. We’re on a mission to bring simplicity, trust and a seamless experience for our tradies and homeowners.\\r\\n\\r\\nTo date, over two million Australians have changed the way they find, hire and manage trusted tradies to get a job done around their home by using hipages, Australia's number 1 site to hire qualified, trusted and verified tradies.\\r\\n\\r\\nhipages. Change the way you tradie!",
+  "hq_country": "AU",
+  "id": "hipages",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Hipages",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://hipages.com.au/"
+}

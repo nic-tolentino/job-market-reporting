@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "securitease",
+    "provider": "CUSTOM"
   },
-  "description": "SecuritEase is a company profile created during backlog processing.",
+  "company_type": "Product",
+  "description": "SecuritEase provides comprehensive stockbroking and wealth management software systems for capital markets.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "securitease",
@@ -13,11 +14,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGN3pcGmj7cQA/company-logo_100_100/B4DZoRBp3KJMAY-/0/1761222238201/securitease_logo?e=1774483200&v=beta&t=gL_FYjX7Ihx4t7KSEZTzWreTYn5h9Y_OZggzj0urbyU",
   "name": "SecuritEase",
-  "office_locations": [],
+  "office_locations": [
+    "Wellington"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.418116Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.securitease.com"
 }

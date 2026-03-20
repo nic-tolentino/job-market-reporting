@@ -4,7 +4,7 @@
   "crawler": {
     "seeds": []
   },
-  "description": "LifeByte Systems is a company profile created during backlog processing.",
+  "description": "LifeByte is a high-growth fintech company in Sydney providing innovative digital solutions for global financial markets.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "lifebyte-systems",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEhHOv0ZE-gkw/company-logo_100_100/company-logo_100_100/0/1722484184906/lifebyte_logo?e=1774483200&v=beta&t=_3GMhwBlqfMp09NI-Hk1elSOvm3oA7Nrdka8QyZHoAA",
   "name": "LifeByte Systems",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.232930Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://lifebyte.io"
 }

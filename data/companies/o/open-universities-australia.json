@@ -1,0 +1,25 @@
+{
+  "alternateNames": [],
+  "ats": {
+    "identifier": "OpenUniversitiesAustralia",
+    "provider": "SMARTRECRUITERS"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "blocked",
+        "url": "https://careers.smartrecruiters.com/OpenUniversitiesAustralia"
+      }
+    ]
+  },
+  "description": "Open Universities Australia (OUA) is the destination for online higher education. We’re a platform that helps students explore hundreds of degrees from leading Australian universities online. As a not-for-profit organisation, we’ve got students’ best interests at heart and champion everyone who wants to learn. It is this approach that has led us to be the longest established and most recalled brand in online education in Australia.",
+  "hq_country": "AU",
+  "id": "open-universities-australia",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Open Universities Australia",
+  "verification_level": "unverified",
+  "website": "https://www.open.edu.au/about-us"
+}

@@ -1,0 +1,52 @@
+{
+  "apiVersion": "2025-01",
+  "organization": {
+    "name": "Relevance AI",
+    "jobBoard": {
+      "name": "Relevance AI Job Board"
+    }
+  },
+  "jobs": [
+    {
+      "id": "c1d2e3f4-a5b6-7890-cdef-012345678901",
+      "title": "Senior Full Stack Engineer",
+      "team": "Engineering",
+      "location": "Sydney, NSW, Australia",
+      "secondaryLocations": ["Remote, Australia"],
+      "isRemote": false,
+      "workplaceType": "Hybrid",
+      "employmentType": "FullTime",
+      "publishedAt": "2026-02-01T09:00:00.000Z",
+      "jobUrl": "https://jobs.ashbyhq.com/relevanceai/c1d2e3f4-a5b6-7890-cdef-012345678901",
+      "applyUrl": "https://jobs.ashbyhq.com/relevanceai/c1d2e3f4-a5b6-7890-cdef-012345678901/application",
+      "descriptionHtml": "<div><p>We are building the future of AI agents. Join our engineering team.</p></div>",
+      "descriptionPlain": "We are building the future of AI agents. Join our engineering team.",
+      "compensation": {
+        "currency": "AUD",
+        "summaryComponents": [
+          {
+            "label": "Base Salary",
+            "minValue": 150000.0,
+            "maxValue": 220000.0,
+            "interval": "YEARLY"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d2e3f4a5-b6c7-8901-defa-123456789012",
+      "title": "AI Research Engineer",
+      "team": "Research",
+      "location": "Remote",
+      "secondaryLocations": [],
+      "isRemote": true,
+      "workplaceType": "Remote",
+      "employmentType": "FullTime",
+      "publishedAt": "2026-02-10T09:00:00.000Z",
+      "jobUrl": "https://jobs.ashbyhq.com/relevanceai/d2e3f4a5-b6c7-8901-defa-123456789012",
+      "applyUrl": "https://jobs.ashbyhq.com/relevanceai/d2e3f4a5-b6c7-8901-defa-123456789012/application",
+      "descriptionHtml": "<div><p>Research and implement novel AI algorithms.</p></div>",
+      "descriptionPlain": "Research and implement novel AI algorithms."
+    }
+  ]
+}

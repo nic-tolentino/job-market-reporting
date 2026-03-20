@@ -1,10 +1,15 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "maincode",
+    "provider": "ASHBY"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://maincode.com/careers"
       }
     ]

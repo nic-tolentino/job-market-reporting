@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "onyx-gaming",
+    "provider": "CUSTOM"
   },
-  "description": "Onyx Gaming is a company profile created during backlog processing.",
+  "company_type": "Product",
+  "description": "Onyx Gaming is an Australian licensed supplier of gaming machines and systems for the hospitality industry.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "onyx-gaming",
@@ -13,11 +14,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHqXWDNdpK5CA/company-logo_100_100/company-logo_100_100/0/1709079324887/onyx_gaming_pty_ltd_logo?e=1774483200&v=beta&t=GTELPxUks-zKMIWfQh1a4CQiqnnT3PHsVxmcL5CWKUE",
   "name": "Onyx Gaming",
-  "office_locations": [],
+  "office_locations": [
+    "Port Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.145679Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://onyxgaming.com.au"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "servicerocket",
+    "provider": "LEVER"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "ServiceRocket is a company profile created during backlog processing.",
+  "description": "ServiceRocket is a tech-enabled services company and a global leader in software implementation and adoption.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "servicerocket",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEcA4_pbkzsWQ/company-logo_100_100/B4EZipTk6FHgAY-/0/1755187138818/servicerocket_logo?e=1774483200&v=beta&t=ubzM15pq7MMiq8OVhVk9IT1K05rhmR2yygfPM6pN1CY",
   "name": "ServiceRocket",
-  "office_locations": [],
+  "office_locations": [
+    "Palo Alto",
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.403488Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.servicerocket.com"
 }

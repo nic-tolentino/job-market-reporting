@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "v-p-nandakumar",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "V.P. Nandakumar is a company profile created during backlog processing.",
+  "description": "V.P. Nandakumar is the Chairman of Manappuram Finance Ltd, one of India's leading non-banking financial companies.",
   "employees_count": null,
   "hq_country": "IN",
   "id": "v-p-nandakumar",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH85ba4M1_-Wg/company-logo_100_100/company-logo_100_100/0/1721797605406/v_p_nandakumar_logo?e=1774483200&v=beta&t=pkdnWlgC9DGuSMxASzwt92XprnEkHuSUeMZeKBovAvU",
   "name": "V.P. Nandakumar",
-  "office_locations": [],
+  "office_locations": [
+    "Valapad"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.908933Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.manappuram.com"
 }

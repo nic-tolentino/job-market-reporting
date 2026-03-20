@@ -5,7 +5,14 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "http://www.wearetogether.co.nz/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://wearetogether.co.nz/careers"
       }
     ]
   },

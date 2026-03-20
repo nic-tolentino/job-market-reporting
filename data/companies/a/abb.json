@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "global",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "ABB is a company profile created during backlog processing.",
+  "description": "ABB is a technology leader in electrification and automation, enabling a more sustainable and resource-efficient future.",
   "employees_count": null,
   "hq_country": "CH",
   "id": "abb",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHPGAMgqJMBZQ/company-logo_100_100/company-logo_100_100/0/1630579606103/abb_logo?e=1774483200&v=beta&t=b1hrp0cLnewA5pq-kalryY1Gz0O6xSd7GJEpp0mtiUI",
   "name": "ABB",
-  "office_locations": [],
+  "office_locations": [
+    "Zurich"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.116651Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://global.abb"
 }

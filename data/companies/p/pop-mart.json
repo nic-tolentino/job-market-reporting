@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "pop-mart",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.popmart.com/au/join-us"
+      }
+    ]
   },
-  "description": "POP MART is a company profile created during backlog processing.",
+  "description": "POP MART is a leading Chinese pop culture and designer toy brand, famous for its blind box collections.",
   "employees_count": null,
   "hq_country": "CN",
   "id": "pop-mart",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.188124Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.popmart.com"
 }

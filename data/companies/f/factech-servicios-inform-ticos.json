@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "factech",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Factech Servicios Informáticos is a company profile created during backlog processing.",
+  "description": "Factech is a Spanish IT services firm specializing in remote software development and professional staffing for large enterprises.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "factech-servicios-inform-ticos",
@@ -12,12 +16,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQERKtgeacusDg/company-logo_100_100/B4EZxIWnx1H8AQ-/0/1770740415954/factech_logo?e=1774483200&v=beta&t=GON0LVvXicbCwz9-pPnqV-XdQPi9sy4zfqR16Tnsr9A",
-  "name": "Factech Servicios Informáticos",
-  "office_locations": [],
+  "name": "Factech Servicios Inform\u00e1ticos",
+  "office_locations": [
+    "Gav\u00e0"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.701767Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.factech.es"
 }

@@ -4,7 +4,7 @@
   "crawler": {
     "seeds": []
   },
-  "description": "Logisfashion is a company profile created during backlog processing.",
+  "description": "Logisfashion is a global logistics operator specialized in fashion, providing end-to-end supply chain solutions for the apparel industry.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "logisfashion",
@@ -13,11 +13,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQG7phmNHnJQJw/company-logo_100_100/company-logo_100_100/0/1631389188096?e=1774483200&v=beta&t=AZ94x7AW3jkfKND9cG86-AmQ7kyt7NF1ro3rVjTYyWI",
   "name": "Logisfashion",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.216959Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.logisfashion.com"
 }

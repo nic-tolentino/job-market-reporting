@@ -2,15 +2,11 @@
   "alternateNames": [
     "HOPLA"
   ],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.hoplasoftware.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "hopla",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "HOPLA! Software specializes in modernizing applications and infrastructure using Open Source technologies, microservices, and cloud solutions.",
   "employees_count": 100,
   "hq_country": "ES",

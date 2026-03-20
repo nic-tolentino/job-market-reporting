@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "hi-iberia",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.hi-iberia.es/careers"
+      }
+    ]
   },
-  "description": "HI Iberia Ingeniería y Proyectos is a company profile created during backlog processing.",
+  "description": "HI Iberia is a technology consultancy specializing in R&D, software engineering, and innovative IT solutions.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "hi-iberia-ingenier-a-y-proyectos",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQENbDBlQVZ3Zw/company-logo_100_100/company-logo_100_100/0/1644325264931/hi_iberia_ingenier_a_y_proyectos_logo?e=1774483200&v=beta&t=asXj3CH7zYAGqT2atf4E9hGrW3dusEKqBhCpZT5DeQk",
   "name": "HI Iberia Ingeniería y Proyectos",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:28:11.639263Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.hi-iberia.es"
 }

@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "zoomo",
+    "provider": "WORKABLE"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://apply.workable.com/zoomo/"
+      }
+    ]
+  },
+  "description": "Zoomo is the world's leader for utility e-bikes and after-market servicing, built on the experience of thousands of riders around the world. Engineered in Australia and operating across the United States, the United Kingdom and Australia, our bikes are built for durability & performance. Our flexible subscriptions services allow 1000s of riders around the world to access the best vehicles. Our mission is to sustainably transition billions of urban delivery miles from bikes, cars and trucks to light electric vehicles.",
+  "hq_country": "AU",
+  "id": "zoomo",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Zoomo",
+  "verification_level": "unverified",
+  "website": "https://www.ridezoomo.com/au/contact"
+}

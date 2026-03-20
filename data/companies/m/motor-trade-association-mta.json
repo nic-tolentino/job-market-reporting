@@ -1,9 +1,14 @@
 {
+  "ats": {
+    "identifier": "mta",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.mta.org.nz/careers"
       }
     ]

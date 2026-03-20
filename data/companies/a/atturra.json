@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "atturra",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Atturra is a company profile created during backlog processing.",
+  "description": "Atturra is an ASX-listed Australian technology services business specializing in advisory, business applications, and IT solutions.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "atturra",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHYIYirykihtA/company-logo_100_100/company-logo_100_100/0/1719794600021/atturra_logo?e=1774483200&v=beta&t=VV0YjK-qKb4xKv2jTlNvlTSphGDLkd2DUQbBG8tUQ_E",
   "name": "Atturra",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.104946Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://atturra.com"
 }

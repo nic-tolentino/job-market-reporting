@@ -1,11 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "woolworths-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.woolworthsgroup.com.au/careers"
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://careers.woolworthsgroup.com.au/en_GB/apply/search-jobs"
       }
     ]
   },
@@ -23,8 +29,13 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T03:36:42.903748Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-16T21:38:43.991487Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-16T21:38:43.979361Z",
+    "notes": "Typically requires existing Australian/NZ work rights. Refugee program available but no general sponsorship for overseas tech hires.",
+    "offered": false,
+    "source": "Woolworths Careers"
+  },
   "website": "http://www.woolworthsgroup.com.au"
 }

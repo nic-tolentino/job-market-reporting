@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "harvey",
+    "provider": "ASHBY"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Harvey. is a company profile created during backlog processing.",
+  "description": "Harvey Recruitment is an Australian specialist firm focusing on mining, engineering, and digital talent.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "harvey",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEuYeR9snQU_Q/company-logo_100_100/company-logo_100_100/0/1630633855676/harveyau_logo?e=1774483200&v=beta&t=gT8Sp_Fie5ba3wetozfo-dEoSsUTd6XkrIbRx1wPQYE",
   "name": "Harvey.",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.157745Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://hrecruitment.com.au"
 }

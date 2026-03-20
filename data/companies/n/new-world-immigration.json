@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "new-world-immigration",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://careers-page.com/new-world-immigration"
+      }
+    ]
   },
-  "description": "New World Immigration is a company profile created during backlog processing.",
+  "description": "New World Immigration is a leading immigration consultancy specializing in visa services for South Africa, Australia, Canada, and other countries.",
   "employees_count": null,
   "hq_country": "ZA",
   "id": "new-world-immigration",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQF6103xCnS4og/company-logo_100_100/company-logo_100_100/0/1714034083253/nwivisas_logo?e=1774483200&v=beta&t=tNfQyrKb0VpPBie8C131Ib15MPcs68sHISgMnnscpIc",
   "name": "New World Immigration",
-  "office_locations": [],
+  "office_locations": [
+    "Cape Town"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:18:19.572078Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://nwivisas.com"
 }

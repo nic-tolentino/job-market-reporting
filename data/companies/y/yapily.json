@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.yapily.com/company/careers"
+      }
+    ]
   },
-  "description": "Yapily is a company profile created during backlog processing.",
+  "description": "Yapily is a leading open banking infrastructure provider that allows businesses to access financial data and initiate payments.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "yapily",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHqoRWx7Udnxg/company-logo_100_100/B4EZfGyMslGcAQ-/0/1751386737986/yapily_logo?e=1774483200&v=beta&t=ANhDdLo9d3pesBHPJqqH2Uu-_aQS21YwQO1pv9YelYk",
   "name": "Yapily",
-  "office_locations": [],
+  "office_locations": [
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.185241Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.yapily.com"
 }

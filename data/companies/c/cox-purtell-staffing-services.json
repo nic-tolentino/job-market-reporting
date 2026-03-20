@@ -2,12 +2,18 @@
   "alternateNames": [
     "Cox Purtell"
   ],
+  "ats": {
+    "identifier": "cox-purtell",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.coxpurtell.com.au/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.seek.com.au/Cox-Purtell-Staffing-Services-jobs"
       }
     ]
   },

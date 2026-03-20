@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mitsui-chemicals-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Mitsui Chemicals Group is a company profile created during backlog processing.",
+  "description": "Mitsui Chemicals Group is a leading Japanese chemical company providing innovative materials for automotive, healthcare, and packaging.",
   "employees_count": null,
   "hq_country": "JP",
   "id": "mitsui-chemicals-group",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEglapOJA11hA/company-logo_100_100/company-logo_100_100/0/1631333685847?e=1774483200&v=beta&t=NGP84tpDKrU8PYnwx5HU_kKJvZVyfQ8AnkpC9YJjI4w",
   "name": "Mitsui Chemicals Group",
-  "office_locations": [],
+  "office_locations": [
+    "Tokyo"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.364784Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://mitsuichemicals.com"
 }

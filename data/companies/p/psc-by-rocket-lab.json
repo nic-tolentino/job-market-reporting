@@ -6,8 +6,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.rocketlabusa.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://boards.greenhouse.io/rocketlab"
       }
     ]
   },
@@ -35,13 +37,13 @@
     "Worldwide"
   ],
   "remote_policy": "On-site",
-  "updated_at": "2026-03-10T14:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.817139Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.817133Z",
+    "notes": "Part of Rocket Lab (Accredited). Follows group relocation/sponsorship policies. ITAR applies.",
     "offered": true,
-    "source": null,
+    "source": "Rocket Lab Group",
     "types": []
   },
   "website": "https://www.rocketlabusa.com"

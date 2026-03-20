@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "gofacing",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.talent.com/view?id=18808-ljbffr"
+      }
+    ]
   },
-  "description": "goFacing, Cloud videoconference & Collaboration is a company profile created during backlog processing.",
+  "description": "goFacing offers Cloud videoconference and collaboration solutions compatible with Microsoft Teams and Google Meet.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "gofacing",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQFETJudrYsZeA/company-logo_100_100/company-logo_100_100/0/1631341445036?e=1774483200&v=beta&t=68JISirbSNf7z2u1_ifo78FmgLD9Mwe9_Fr5ZnEjMC4",
   "name": "goFacing, Cloud videoconference & Collaboration",
-  "office_locations": [],
+  "office_locations": [
+    "Spain"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:10:46.159843Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://gofacing.com"
 }

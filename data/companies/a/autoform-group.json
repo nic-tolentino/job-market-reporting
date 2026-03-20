@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "autoform-group",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.autoform.com/en/error/"
+      }
+    ]
   },
-  "description": "AutoForm Group is a company profile created during backlog processing.",
+  "description": "AutoForm Group is a global leader in software solutions for metal forming simulation and die-making industries.",
   "employees_count": null,
   "hq_country": "CH",
   "id": "autoform-group",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQE51YVSvhgBRQ/company-logo_100_100/company-logo_100_100/0/1668770284939/autoform_engineering_logo?e=1774483200&v=beta&t=FvlOe9AxBrAg5iEATEgggIUsfkPkUwimL5CmalLQAM4",
   "name": "AutoForm Group",
-  "office_locations": [],
+  "office_locations": [
+    "Pfäffikon"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:21:07.508302Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.autoform.com"
 }

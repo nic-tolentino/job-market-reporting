@@ -1,0 +1,28 @@
+{
+  "ats": {
+    "identifier": "thiga",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://thiga.co/int/become-a-thiguy/"
+      }
+    ]
+  },
+  "description": "Thiga is a team of passionate experts in Product Management and Product Design. It combines the sharp expertise of a consulting firm with the agility of a startup.\\r\\n\\r\\nWe are passionate and generous. We love to share our experience, question what we know. Always hungry for knowledge.\\r\\n\\r\\nProduct Management, Product Design, Product Ownership, Data, Growth: we have a wide range of expertise.\\r\\n\\r\\nWe guarantee that we’ll find you a Product assignment. A beautiful Product role that showcases who we are and what we love to do.\\r\\n\\r\\nWe work with a variety of companies from hyper-growth startups to large corporations who really want to accelerate their Product culture.\\r\\n\\r\\nWe always evaluate the quality of the mission itself, the environment in which the client team operates, and the impact you will have.",
+  "hq_country": "FR",
+  "id": "thiga",
+  "industries": [
+    "Product Management",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "Thiga",
+  "verification_level": "unverified",
+  "website": "https://thiga.co/"
+}

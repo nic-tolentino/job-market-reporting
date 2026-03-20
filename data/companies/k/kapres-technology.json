@@ -1,14 +1,11 @@
 {
   "alternateNames": [],
-  "ats": {
-    "identifier": "kapres",
-    "provider": "TEAMTAILOR"
-  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "blocked",
         "url": "https://www.kapres.com/careers"
       }
     ]

@@ -1,11 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "waikato",
+    "provider": "PAGEUP"
+  },
   "company_type": "Government",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.waikato.ac.nz/careers"
+      },
+      {
+        "category": "careers",
+        "status": "empty",
+        "url": "https://waikato.pageuppeople.com/"
       }
     ]
   },

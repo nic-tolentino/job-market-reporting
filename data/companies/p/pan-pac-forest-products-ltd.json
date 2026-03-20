@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.panpac.co.nz/people/careers/"
+      }
+    ]
   },
-  "description": "Pan Pac Forest Products Ltd is a company profile created during backlog processing.",
+  "description": "Pan Pac Forest Products is a major New Zealand producer of high-quality wood products for global markets.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "pan-pac-forest-products-ltd",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQGTf4Ytg4bpIQ/company-logo_100_100/company-logo_100_100/0/1630630850811/pan_pac_forest_products_logo?e=1774483200&v=beta&t=r3_Xn7NLzmCDD6FA-tajzOH32Qc4I5kyFTz5SUi38DY",
   "name": "Pan Pac Forest Products Ltd",
-  "office_locations": [],
+  "office_locations": [
+    "Napier"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.946508Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.panpac.co.nz"
 }

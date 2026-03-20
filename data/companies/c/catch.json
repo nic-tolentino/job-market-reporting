@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.catch.com.au/careers"
+      }
+    ]
+  },
+  "description": "Catch, the trusted place where Australians start their shopping journey. We’re not just one of the country’s top eCommerce players, with a proven track record of growth, an award-winning digital platform and second to none customer experience offering.",
+  "hq_country": "AU",
+  "id": "catch",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Catch",
+  "verification_level": "unverified",
+  "website": "https://www.catch.com.au/about-us"
+}

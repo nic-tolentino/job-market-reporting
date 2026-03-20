@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "kordia",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.kordia.co.nz/careers"
+      }
+    ]
   },
-  "description": "Kordia is a company profile created during backlog processing.",
+  "description": "Kordia is a leading New Zealand provider of mission-critical technology solutions including network, cyber, and ICT services.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "kordia",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFEbADRHCBH0A/company-logo_100_100/B56ZoTzusoHAAQ-/0/1761268919548/kordia_logo?e=1774483200&v=beta&t=D1qggc53aYRxlia4dUom-JSvqisgGxABf2CElbZzIwU",
   "name": "Kordia",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.184346Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.kordia.co.nz"
 }

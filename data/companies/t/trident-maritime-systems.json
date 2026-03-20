@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "trident-maritime-systems",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Trident Maritime Systems is a company profile created during backlog processing.",
+  "description": "Trident Maritime Systems provides integrated maritime solutions and engineering services for naval and commercial vessels.",
   "employees_count": null,
   "hq_country": "US",
   "id": "trident-maritime-systems",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQG64a3E4jWvqA/company-logo_100_100/company-logo_100_100/0/1688129367914/trident_maritime_systems_llc_logo?e=1774483200&v=beta&t=YRR_Uy-I9pnaqY5Tk28l71kbSjxL3vM9GS9YV2berfY",
   "name": "Trident Maritime Systems",
-  "office_locations": [],
+  "office_locations": [
+    "Arlington, VA"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:18:19.581355Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://tridentmaritimesystems.com"
 }

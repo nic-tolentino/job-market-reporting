@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "hellofresh",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "HelloFresh is a company profile created during backlog processing.",
+  "description": "HelloFresh is the world's leading meal kit company, providing fresh ingredients and recipes delivered to customers' doors.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "hellofresh",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQF8SiXS1EPqrQ/company-logo_100_100/B4EZoVxFx4HEAQ-/0/1761301782009/hellofresh_logo?e=1774483200&v=beta&t=bcwdp1upztgeRvCkSE61Rr59F_3rdd0v84XjD6x-QpA",
   "name": "HelloFresh",
-  "office_locations": [],
+  "office_locations": [
+    "Berlin"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:28:11.632531Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.hellofresh.com"
 }

@@ -9,7 +9,14 @@
     "seeds": [
       {
         "category": "tech-filtered",
+        "status": "active",
         "url": "https://www.atlassian.com/company/careers/all-jobs?team=Engineering%2CData%2C%20Analytics%20%26%20Research%2CDesign&location=&search="
+      },
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://www.atlassian.com/company/careers/all-jobs?team=&location=Sydney&search="
       }
     ]
   },
@@ -40,13 +47,13 @@
     "IN"
   ],
   "remote_policy": "Remote",
-  "updated_at": "2026-03-14T10:00:00Z",
+  "updated_at": "2026-03-17T00:13:42.939415Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.939409Z",
+    "notes": "Major Global/AU sponsor. Guaranteed relocation and sponsorship for many tech roles.",
     "offered": true,
-    "source": null,
+    "source": "Atlassian Careers",
     "types": []
   },
   "website": "https://www.atlassian.com"

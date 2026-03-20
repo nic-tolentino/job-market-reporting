@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "auckland-airport",
+    "provider": "WORKABLE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Auckland Airport is a company profile created during backlog processing.",
+  "description": "Auckland Airport is New Zealand's largest and busiest international gateway, welcoming millions of passengers annually.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "auckland-airport",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQH4jKJw-J3qpg/company-logo_100_100/B4EZy2hZeLHMAQ-/0/1772588735532/auckland_airport_logo?e=1774483200&v=beta&t=PafB9drEDiXhdY_cJlcNnNRJOidmJl9uPAXCKcpw5oM",
   "name": "Auckland Airport",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.114919Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.aucklandairport.co.nz"
 }

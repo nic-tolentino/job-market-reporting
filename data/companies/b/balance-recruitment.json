@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "balance-recruitment",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.balancerecruitment.com.au/vacancies/"
+      }
+    ]
   },
-  "description": "Balance Recruitment and Balance Consulting is a company profile created during backlog processing.",
+  "description": "Balance Recruitment is a specialist Australian recruitment agency providing talent solutions for the tech and business sectors.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "balance-recruitment",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEsAXf60hbBBA/company-logo_100_100/company-logo_100_100/0/1697086128175/balance_recruitment_logo?e=1774483200&v=beta&t=aWEW7hbeAi-PoeLVcrcCskiiYUSjcwl5s_xAhKjKypc",
   "name": "Balance Recruitment and Balance Consulting",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.855131Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.balancerecruitment.com.au"
 }

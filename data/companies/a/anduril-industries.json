@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "andurilindustries",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Unknown",
   "crawler": {
     "seeds": []
   },
-  "description": "Anduril Industries is a company profile created during backlog processing.",
+  "description": "Anduril is a defense technology company building autonomous systems and software for military and national security.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "anduril-industries",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQE_NOVau3lvmw/company-logo_100_100/company-logo_100_100/0/1630637180845/andurilindustries_logo?e=1774483200&v=beta&t=cWSjQ7iTiUyr0Pf3evcSlSPbfzIwNtynTTf2tU_pI6M",
   "name": "Anduril Industries",
-  "office_locations": [],
+  "office_locations": [
+    "Costa Mesa",
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:34.963645Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:17:27.296765Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.anduril.com"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "delfos-energy",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Delfos Energy is a company profile created during backlog processing.",
+  "description": "Delfos is a Spanish energy software company providing AI-powered predictive maintenance and asset management for renewables.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "delfos-energy",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQES0uA4GjcfFg/company-logo_100_100/company-logo_100_100/0/1705430584864/delfos_intelligent_maintenance_logo?e=1774483200&v=beta&t=1CdZTpVvLWP5JRIAOgvDfv3Qbo8HDdCDyPJTwzc_3UI",
   "name": "Delfos Energy",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:38:16.782493Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://delfos.energy"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "white-bay",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "White Bay is a company profile created during backlog processing.",
+  "description": "White Bay Beer Co is a popular Sydney-based craft brewery known for its range of quality lagers and ales.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "white-bay",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHSwc_bi8zLyg/company-logo_100_100/company-logo_100_100/0/1630657576531/white_bay_search_logo?e=1774483200&v=beta&t=r0bsPawBavqcgGKyXLvXfRRsZaxAOcYy1MOt4SzN1FQ",
   "name": "White Bay",
-  "office_locations": [],
+  "office_locations": [
+    "Rozelle"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:48:35.262880Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://whitebay.beer"
 }

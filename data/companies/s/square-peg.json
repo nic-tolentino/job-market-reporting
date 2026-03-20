@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "squarepeg",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Social Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Square Peg is a company profile created during backlog processing.",
+  "description": "Square Peg is a venture capital firm investing in emerging technology companies across the internet economy.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "square-peg",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGDmy6V0Nnypg/company-logo_100_100/company-logo_100_100/0/1726371590734/square_peg_capital_logo?e=1774483200&v=beta&t=wbQ2HuP9cn-HvCCeV8v5BzVlqgLcBTw0xsRnBWFbNV8",
   "name": "Square Peg",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne",
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:06:37.530039Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.squarepeg.vc"
 }

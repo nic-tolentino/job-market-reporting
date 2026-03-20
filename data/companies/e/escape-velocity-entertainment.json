@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://eve.games/home/careers/"
+      }
+    ]
   },
-  "description": "Escape Velocity Entertainment is a company profile created during backlog processing.",
+  "description": "Escape Velocity Entertainment is a modern game development studio focused on inclusive and innovative gaming experiences.",
   "employees_count": null,
   "hq_country": "US",
   "id": "escape-velocity-entertainment",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFgZiueEUYu3g/company-logo_100_100/company-logo_100_100/0/1696621475246/escape_velocity_entertainment_logo?e=1774483200&v=beta&t=1KnWr-Z8oEKVCstFkvrud-ZP_K3Jwx1IXAPGKxQj7c8",
   "name": "Escape Velocity Entertainment",
-  "office_locations": [],
+  "office_locations": [
+    "Los Angeles"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.942447Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://eve.games"
 }

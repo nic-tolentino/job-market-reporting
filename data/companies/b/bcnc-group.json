@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://bcncgroup.com/jobs/"
+      }
+    ]
   },
-  "description": "BCNC GROUP is a company profile created during backlog processing.",
+  "description": "BCNC Group is a Spanish IT services and engineering consultancy focusing on digital talent and software solutions.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "bcnc-group",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGazCeqzcFxZQ/company-logo_100_100/company-logo_100_100/0/1630537025989/bcn_consulting_group_logo?e=1774483200&v=beta&t=UdOSCh0AnOywk6pnREXpplyYSy8obQPKmXAulvL8-lk",
   "name": "BCNC GROUP",
-  "office_locations": [],
+  "office_locations": [
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.840367Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://bcncgroup.com"
 }

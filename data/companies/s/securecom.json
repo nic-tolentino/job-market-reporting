@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "securecom",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "unknown",
+        "url": "https://www.securecom.co.nz/careers/"
+      }
+    ]
   },
-  "description": "Securecom is a company profile created during backlog processing.",
+  "description": "Securecom provides managed IT services, cloud solutions, and cybersecurity for New Zealand businesses.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "securecom",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHNzOukauX9Ow/company-logo_100_100/company-logo_100_100/0/1652996294549/securecom_limited_logo?e=1773878400&v=beta&t=RZ_-uhU45C46z0JKqrqC-WvsqFocguramT4ynBd4FSM",
   "name": "Securecom",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.063764Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.securecom.co.nz"
 }

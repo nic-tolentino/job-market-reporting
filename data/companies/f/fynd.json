@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "fynd",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "blocked",
+        "url": "https://www.fynd.com/careers"
+      }
+    ]
   },
-  "description": "Fynd is a company profile created during backlog processing.",
+  "description": "Fynd is a global platform for finding and hiring talent, as well as an e-commerce platform for fashion and lifestyle.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "fynd",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.136607Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.fynd.com"
 }

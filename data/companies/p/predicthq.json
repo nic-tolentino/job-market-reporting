@@ -4,17 +4,9 @@
   ],
   "ats": {
     "identifier": "predicthq",
-    "provider": "TEAMTAILOR"
+    "provider": "WORKABLE"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "http://www.predicthq.com/careers"
-      }
-    ]
-  },
   "description": "PredictHQ is a demand intelligence platform that helps companies predict and utilize external events.",
   "employees_count": null,
   "hq_country": "NZ",

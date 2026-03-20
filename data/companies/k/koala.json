@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "koala",
+    "provider": "CUSTOM"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://koala.com/en-au/careers"
+      }
+    ]
+  },
+  "description": "Koala’s mission is to become the smartest way to buy high-quality furniture online. Combining customer-centric products, a world-class technology and fulfilment platform, and incredible customer service, we’ve set out to change the way people buy and enjoy furniture. Better furniture by Australia, for the world.",
+  "hq_country": "AU",
+  "id": "koala",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Koala",
+  "verification_level": "unverified",
+  "website": "https://koala.com/en-au/about-us"
+}

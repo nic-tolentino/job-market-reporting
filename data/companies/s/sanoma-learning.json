@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sanomalearning",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Sanoma Learning is a company profile created during backlog processing.",
+  "description": "Sanoma Learning is a leading European K12 learning company providing digital platforms and educational content.",
   "employees_count": null,
   "hq_country": "FI",
   "id": "sanoma-learning",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQEwPqpVtuP2pg/company-logo_100_100/company-logo_100_100/0/1710410692575/sanoma_learning__literature_logo?e=1774483200&v=beta&t=CAkAcGckitGcE_n2JNc12XD0xTG9x2j3VDiwMAKlToQ",
   "name": "Sanoma Learning",
-  "office_locations": [],
+  "office_locations": [
+    "Helsinki"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.047619Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sanomalearning.com"
 }

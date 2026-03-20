@@ -2,15 +2,11 @@
   "alternateNames": [
     "eXperience IT"
   ],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.experience-it.es/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "experience-it",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "Experience IT Solutions specializes in digital transformation, process automation, and intelligent conversational interfaces for enterprise clients using AI.",
   "employees_count": 100,
   "hq_country": "ES",
@@ -31,13 +27,13 @@
     "ES"
   ],
   "remote_policy": "Remote",
-  "updated_at": "2026-03-10T09:10:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.950124Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": false,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.950116Z",
+    "notes": "Specialized IT consultancy in Spain. Uses HQP path for tech talent.",
+    "offered": true,
+    "source": "eXperience IT Rec",
     "types": []
   },
   "website": "https://www.experience-it.es"

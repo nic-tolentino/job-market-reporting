@@ -2,9 +2,15 @@
   "alternateNames": [],
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "active",
+        "url": "https://zipline.com/careers"
+      }
+    ]
   },
-  "description": "Zipline.io is a company profile created during backlog processing.",
+  "description": "Zipline.io provides compliance management solutions for the healthcare, aged care, and hospital sectors.",
   "employees_count": null,
   "hq_country": "US",
   "id": "zipline-io",
@@ -13,11 +19,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQF51QBA2Vohyw/company-logo_100_100/company-logo_100_100/0/1636607401438/zipline_app_logo?e=1774483200&v=beta&t=iZAIaHQ_MhFx9TXvZrdBXC9--lB0FXqGB8RdeiSR2O0",
   "name": "Zipline.io",
-  "office_locations": [],
+  "office_locations": [
+    "Australia"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.253086Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://zipline.io"
 }

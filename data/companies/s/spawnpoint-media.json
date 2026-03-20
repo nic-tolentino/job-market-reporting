@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://spawnpointmedia.teamtailor.com/"
+      }
+    ]
   },
-  "description": "Spawnpoint Media is a company profile created during backlog processing.",
+  "description": "Spawnpoint Media is an Australian production company specializing in family-friendly gaming content for digital platforms.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "spawnpoint-media",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGRP6WDhb6z9g/company-logo_100_100/B4EZxvUxL0IcAQ-/0/1771394241854/spawnpoint_media_logo?e=1774483200&v=beta&t=rge8sfpr-XMRYM2ERRA2HjlnI2NSNYSvMPnK1E1sqhI",
   "name": "Spawnpoint Media",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.046422Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.spawnpointmedia.com"
 }

@@ -2,12 +2,18 @@
   "alternateNames": [
     "Enatel Limited"
   ],
+  "ats": {
+    "identifier": "enatel",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.enatel.net/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.enatel.net/about-us/careers/"
       }
     ]
   },

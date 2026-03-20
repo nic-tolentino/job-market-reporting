@@ -3,12 +3,18 @@
     "Sourced",
     "Sourced IT"
   ],
+  "ats": {
+    "identifier": "sourced-it-recruitment",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://sourced.nz/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://sourced.nz/job-search/"
       }
     ]
   },

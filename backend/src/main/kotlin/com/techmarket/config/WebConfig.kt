@@ -24,9 +24,10 @@ class WebConfig(
                 .allowedOrigins(
                         "http://localhost:5173", // Local frontend
                         "https://devassembly.org", // Production
+                        "https://www.devassembly.org", // Production (www)
                         *extraOrigins
                 )
-                .allowedOriginPatterns("https://*.vercel.app") // Vercel Preview Deployments
+                .allowedOriginPatterns("https://*.vercel.app", "https://*.devassembly.org") // Vercel Preview Deployments and subdomains
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true)

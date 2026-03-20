@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "kpmg-espa-a",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "KPMG España is a company profile created during backlog processing.",
+  "description": "KPMG Spain is the local member firm of the global network of professional services firms providing audit, tax, and advisory services.",
   "employees_count": null,
   "hq_country": "NL",
   "id": "kpmg-espa-a",
@@ -12,12 +16,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFn1bTyRkp0CA/company-logo_100_100/B4DZWpUbMMG4AQ-/0/1742302460930/kpmg_espana_logo?e=1774483200&v=beta&t=ylbeX4iCtRj_34CYKrS8W64xyP8yTD1RTIAvdvtb1co",
-  "name": "KPMG España",
-  "office_locations": [],
+  "name": "KPMG Espa\u00f1a",
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.858915Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.kpmg.es"
 }

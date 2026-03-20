@@ -2,15 +2,11 @@
   "alternateNames": [
     "Talent"
   ],
-  "company_type": "Agency",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.talentinternational.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "talent",
+    "provider": "GREENHOUSE"
   },
+  "company_type": "Agency",
   "description": "Talent International is a premier global tech recruitment firm partnering with major banks and professional services to deliver elite engineering and AI talent.",
   "employees_count": 500,
   "hq_country": "AU",
@@ -40,13 +36,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T12:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T21:36:22.560866Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-16T21:36:22.538415Z",
+    "notes": "Global digital/tech recruitment agency. Helps candidates find sponsors.",
+    "offered": false,
+    "source": "Agency Profile",
     "types": []
   },
   "website": "https://www.talentinternational.com"

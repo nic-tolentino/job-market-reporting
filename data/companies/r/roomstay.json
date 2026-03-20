@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "roomstay",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://daydreamisland.com/booking-terms-conditions#careers"
+      }
+    ]
   },
-  "description": "Roomstay is a company profile created during backlog processing.",
+  "description": "Roomstay is an accommodation booking engine platform designed to help lodging providers increase direct bookings.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "roomstay",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHQ8t9S4YQfMA/company-logo_100_100/company-logo_100_100/0/1630635892919/roomstay_logo?e=1774483200&v=beta&t=4WzMySPfzN7FDc5944AuWAMopc-yStODwuGBNCIuF0I",
   "name": "Roomstay",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney, NSW"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:55:47.206159Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://roomstay.io"
 }

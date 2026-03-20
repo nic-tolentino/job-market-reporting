@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "wisetechglobal",
+    "provider": "SMARTRECRUITERS"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.wisetechglobal.com/careers/join-us/"
+      }
+    ]
+  },
+  "description": "We invest relentlessly in product development, building the best technology and prioritizing highly scalable, long-term solutions. We bring meaningful, continual improvement to the world’s supply chains. Replacing ageing, legacy, proprietary and domestic systems with efficient, highly automated and integrated global capabilities. Our breakthrough software solutions are renowned for their powerful productivity, extensive functionality, comprehensive integration, deep compliance capabilities and truly global reach. Our people and teams around the world are aligned in our strong vision to be the operating system for global logistics. We are evolving rapidly. Expanding into more products, deeper functionality, more geographies and adjacencies, driving our long-term growth and market position with each new innovation and acquisition.",
+  "hq_country": "AU",
+  "id": "wisetech-global",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Wisetech Global",
+  "verification_level": "unverified",
+  "website": "https://www.wisetechglobal.com/"
+}

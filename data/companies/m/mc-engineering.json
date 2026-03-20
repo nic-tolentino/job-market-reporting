@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mc-engineering",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "unknown",
+        "url": "https://www.mc-engineering.com/lavora-con-noi/"
+      }
+    ]
   },
-  "description": "MC Engineering is a company profile created during backlog processing.",
+  "description": "MC Engineering is a global technology consultancy providing integrated engineering and digital solutions for complex industries.",
   "employees_count": null,
   "hq_country": "IT",
   "id": "mc-engineering",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGP-mV2vWJ6Aw/company-logo_100_100/company-logo_100_100/0/1721397588306/mcengineering_logo?e=1774483200&v=beta&t=A-wnug4cpNpzt5eCGFp3luIWYD4TsAmYWKig0wdbJnE",
   "name": "MC Engineering",
-  "office_locations": [],
+  "office_locations": [
+    "Milan"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.362254Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.mc-engineering.com"
 }

@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "ninjatech",
+    "provider": "OTHER"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "url": "https://ninjatech.ai/careers",
+        "status": "active"
+      }
+    ]
   },
-  "description": "NinjaTech AI is a company profile created during backlog processing.",
+  "description": "NinjaTech AI develops next-generation generative AI solutions and personal AI agents for productivity and automation.",
   "employees_count": null,
   "hq_country": "US",
   "id": "ninjatech-ai",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHmfJDTMQDznA/company-logo_100_100/B56ZWLZy3vGsAU-/0/1741800550097/ninjatech_ai_logo?e=1774483200&v=beta&t=LXrHRLVTcf6xCnIar9p-wn1QRoLgV8u9MF-y_wOz0-4",
   "name": "NinjaTech AI",
-  "office_locations": [],
+  "office_locations": [
+    "Palo Alto, CA"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:06:14.890938Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://ninjatech.ai"
 }

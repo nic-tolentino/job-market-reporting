@@ -4,11 +4,16 @@
     "Apple Spain",
     "Apple NZ"
   ],
+  "ats": {
+    "identifier": "apple",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.apple.com/careers"
       }
     ]

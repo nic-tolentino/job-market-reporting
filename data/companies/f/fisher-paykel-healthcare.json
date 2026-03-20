@@ -10,8 +10,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "general",
-        "url": "https://www.fphcare.com/us/careers/"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.fphcare.com/au/corporate/careers/"
       }
     ]
   },
@@ -33,13 +35,13 @@
     "Worldwide"
   ],
   "remote_policy": "On-site",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:41:07.435882Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:41:07.432223Z",
+    "notes": "Accredited Employer (NZ). Sponsors AEWV and offers relocation for digital/cloud/data roles.",
     "offered": true,
-    "source": null,
+    "source": "F&P Healthcare Careers",
     "types": []
   },
   "website": "http://www.fphcare.com"

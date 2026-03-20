@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://tether.to/careers"
+      }
+    ]
   },
-  "description": "Tether is a company profile created during backlog processing.",
+  "description": "Tether is the pioneer of the stablecoin technology, issuing USD₮ and other fiat-pegged digital assets.",
   "employees_count": null,
   "hq_country": "VG",
   "id": "tether",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQGygA-6X4O0zg/company-logo_100_100/B4DZgY0mmSGgAU-/0/1752763100027/tetherev_logo?e=1774483200&v=beta&t=qrBKigZl0RSZbgKjFB9OZ1hit2IDDYZROEOs4ZTynIo",
   "name": "Tether",
-  "office_locations": [],
+  "office_locations": [
+    "San Salvador"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.267896Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://tether.to"
 }

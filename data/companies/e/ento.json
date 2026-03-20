@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://ento.notion.site/careers`"
+      }
+    ]
+  },
+  "description": "Ento was founded in Australia in 2009 to help businesses manage rostering, leave, attendance and communication within their workforce. Since then we’ve become the chosen solution in over 1,500 workplaces across retail, hospitality, health, community, and more; rostering more than 30 million shifts for businesses ranging in size from 10 to 2,000+ staff. Our software is part of the next generation of workforce management tools; cloud-based, accessible via a smartphone, tablet or desktop, and integrated with leading HR, POS and payroll systems.",
+  "hq_country": "AU",
+  "id": "ento",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Ento",
+  "verification_level": "unverified",
+  "website": "https://ento.com/"
+}

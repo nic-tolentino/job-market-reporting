@@ -1,10 +1,36 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "tradify",
+    "provider": "WORKABLE"
+  },
   "company_type": "Product",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/wp-includes",
+        "/d/",
+        "/feed",
+        "/resetpassword",
+        "/forgottenlogin",
+        "/blog/author/*/pages",
+        "/blog/topic/*",
+        "/btt-videos/*",
+        "/btt-downloads/*",
+        "/_hcms/preview/",
+        "/hs/manage-preferences/",
+        "/hs/preferences-center/",
+        "/*?*hs_preview=*",
+        "/*?*hsCacheBuster=*"
+      ]
+    },
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "http://www.tradifyhq.com/careers"
       }
     ]

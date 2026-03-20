@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "yuno",
+    "provider": "LEVER"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Yuno is a company profile created during backlog processing.",
+  "description": "Yuno is a global payment orchestration platform that allows merchants to manage all their payment methods and providers in one place.",
   "employees_count": null,
   "hq_country": "CO",
   "id": "yuno",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQGe-nlKrCnIpg/company-logo_100_100/B56Zcy8UdyHoAU-/0/1748906363071/yunopay_logo?e=1774483200&v=beta&t=ugQ27IF49v4hEbFomlIxce8cC6IJ8P9zXbkUz_q3Pf8",
   "name": "Yuno",
-  "office_locations": [],
+  "office_locations": [
+    "Bogota"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.248711Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.yuno.com"
 }

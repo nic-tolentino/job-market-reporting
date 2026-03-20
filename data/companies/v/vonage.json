@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "vonage",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Vonage is a company profile created during backlog processing.",
+  "description": "Vonage (an Ericsson company) is a global leader in cloud communications, providing APIs and unified communication solutions.",
   "employees_count": null,
   "hq_country": "US",
   "id": "vonage",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHAjkQnOKbUzw/company-logo_100_100/company-logo_100_100/0/1701277430733/vonage_logo?e=1774483200&v=beta&t=rUX0e2rAdcb3U2jeKtcONrpVqnDJAIVBj_3BdVX6YIM",
   "name": "Vonage",
-  "office_locations": [],
+  "office_locations": [
+    "Holmdel"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.911355Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.vonage.com"
 }

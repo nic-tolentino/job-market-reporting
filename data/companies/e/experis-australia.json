@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "experis",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []
   },
-  "description": "Experis Australia is a company profile created during backlog processing.",
+  "description": "Experis is a global leader in IT professional resourcing and project-based solutions, part of the ManpowerGroup.",
   "employees_count": null,
   "hq_country": "US",
   "id": "experis-australia",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQG8dR_rOQbjEg/company-logo_100_100/company-logo_100_100/0/1720408814616/experis_australia_logo?e=1774483200&v=beta&t=8mNhHFINwno5YZo_zc46SnjiLyx_I8rwYVsynjEICjc",
   "name": "Experis Australia",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.940689Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.experis.com.au"
 }

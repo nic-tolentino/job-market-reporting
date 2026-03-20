@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "copreci",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.copreci.com/careers"
+      }
+    ]
   },
-  "description": "Copreci is a company profile created during backlog processing.",
+  "description": "Copreci is a Spanish cooperative and global leader in the design and manufacture of components for household appliances.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "copreci",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEdHXSVUFUObQ/company-logo_100_100/B4DZbn2QV4IABc-/0/1747646482127/copreci_logo?e=1774483200&v=beta&t=_I9mnDE0qLgimIePiDazoNlLR9_tm5rbTBj-fLOKpHQ",
   "name": "Copreci",
-  "office_locations": [],
+  "office_locations": [
+    "Aretxabaleta"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:36:17.897581Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.copreci.com"
 }

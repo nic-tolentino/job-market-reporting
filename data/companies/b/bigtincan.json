@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "bigtincan",
+    "provider": "SMARTRECRUITERS"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://apply.workable.com/bigtincan/"
+      }
+    ]
+  },
+  "description": "Bigtincan is the Sales Enablement Automation Company. Our software is purpose-built to create digital experiences personalized to individuals with intelligent recommendations, and custom-tailored for leading global brands.",
+  "hq_country": "AU",
+  "id": "bigtincan",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Bigtincan",
+  "verification_level": "unverified",
+  "website": "https://www.bigtincan.com/company/"
+}

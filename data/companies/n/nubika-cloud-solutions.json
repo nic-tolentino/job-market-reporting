@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nubika-cloud-solutions",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://nubika.com/careers"
+      }
+    ]
   },
-  "description": "Nubika - Cloud Solutions is a company profile created during backlog processing.",
+  "description": "Nubika is a strategic digital consultancy and prominent Salesforce partner in Spain.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "nubika-cloud-solutions",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEsFlOP7gl07Q/company-logo_100_100/company-logo_100_100/0/1721129683986/nubika_consulting_sl_logo?e=1774483200&v=beta&t=6WZ90LR83Sn4e6ZRaUn7kBZ7HsbJYTtA40UGGVvIY5s",
   "name": "Nubika - Cloud Solutions",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.991238Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://nubika.com"
 }

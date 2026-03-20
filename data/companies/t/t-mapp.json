@@ -1,14 +1,6 @@
 {
   "alternateNames": [],
   "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.t-mapp.com/careers"
-      }
-    ]
-  },
   "description": "T-mapp is a global technology partner specializing in high-performance Java backend solutions for international electric markets and financial trading systems.",
   "employees_count": 100,
   "hq_country": "US",

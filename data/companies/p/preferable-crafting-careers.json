@@ -3,12 +3,23 @@
     "Preferable",
     "Preferable Crafting Careers"
   ],
+  "ats": {
+    "identifier": "preferable-crafting-careers",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.eilglobal.com.au/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://eilglobal.com.au/about-us-old/careers/"
       }
     ]
   },

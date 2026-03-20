@@ -1,0 +1,46 @@
+[
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "text": "Backend Engineer - Personalization",
+    "categories": {
+      "commitment": "Full-time",
+      "department": "Engineering",
+      "location": "Stockholm, Sweden",
+      "team": "Personalization"
+    },
+    "content": {
+      "description": "We are looking for a Backend Engineer to join the Personalization team.",
+      "descriptionHtml": "<div><p>We are looking for a <strong>Backend Engineer</strong> to join the Personalization team.</p></div>",
+      "lists": [],
+      "closing": "",
+      "closingHtml": ""
+    },
+    "createdAt": 1705276800000,
+    "updatedAt": 1707955200000,
+    "hostedUrl": "https://jobs.lever.co/spotify/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "applyUrl": "https://jobs.lever.co/spotify/a1b2c3d4-e5f6-7890-abcd-ef1234567890/apply",
+    "salaryRange": {
+      "min": 120000,
+      "max": 180000,
+      "currency": "SEK",
+      "interval": "per-year-salary"
+    }
+  },
+  {
+    "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "text": "iOS Engineer - Consumer",
+    "categories": {
+      "commitment": "Full-time",
+      "location": "London, UK",
+      "team": "Consumer iOS"
+    },
+    "content": {
+      "description": "Build the Spotify iOS app used by millions.",
+      "descriptionHtml": "<div><p>Build the Spotify iOS app used by <strong>millions</strong>.</p></div>"
+    },
+    "createdAt": 1706486400000,
+    "updatedAt": 1708041600000,
+    "hostedUrl": "https://jobs.lever.co/spotify/b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "applyUrl": "https://jobs.lever.co/spotify/b2c3d4e5-f6a7-8901-bcde-f12345678901/apply"
+  }
+]

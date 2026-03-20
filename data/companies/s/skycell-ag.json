@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "skycell-ag",
+    "provider": "WORKABLE"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "SkyCell AG is a company profile created during backlog processing.",
+  "description": "SkyCell provides smart, temperature-controlled containers for the global transport of life-saving biopharmaceuticals.",
   "employees_count": null,
   "hq_country": "CH",
   "id": "skycell-ag",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHCtG7rr9fnxA/company-logo_100_100/company-logo_100_100/0/1630608322770/skycell_ag_logo?e=1774483200&v=beta&t=V_rdrzdRE21GF7WOSCBTQ6kEd_3roRDq_1oG4DvUZw0",
   "name": "SkyCell AG",
-  "office_locations": [],
+  "office_locations": [
+    "Zurich"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.102492Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.skycell.ch"
 }

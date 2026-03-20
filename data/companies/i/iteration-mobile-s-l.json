@@ -2,12 +2,18 @@
   "alternateNames": [
     "Radarbot"
   ],
+  "ats": {
+    "identifier": "iteration-mobile",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.iteration-mobile.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.iteration-mobile.com/empleo"
       }
     ]
   },

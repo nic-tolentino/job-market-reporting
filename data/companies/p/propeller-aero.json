@@ -1,0 +1,31 @@
+{
+  "ats": {
+    "identifier": "propeller-aero",
+    "provider": "CUSTOM"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://www.propelleraero.com/jobs/"
+      }
+    ]
+  },
+  "description": "Propeller Aero’s cloud-based visualization and analytics solutions give worksites the power to measure and manage themselves.\\r\\nEvery day, thousands of professionals in mining, aggregates, waste management, and construction operations worldwide trust Propeller to capture, analyze, and share accurate data about their worksites and assets.\\r\\nWe help you improve worksite management and efficiency with tools that let you see how fast you’re working, how much you’ve done, and if you’re on budget and to spec.",
+  "hq_country": "AU",
+  "id": "propeller-aero",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Propeller Aero",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://www.propelleraero.com/"
+}

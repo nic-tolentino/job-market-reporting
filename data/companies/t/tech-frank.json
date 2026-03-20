@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.techfrank.co.nz/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "tech-frank",
+    "provider": "CUSTOM"
   },
+  "company_type": "Consultancy",
   "description": "Tech Frank is a forward-thinking NZ tech firm specializing in smart, scalable solutions and bespoke software engineering for businesses navigating digital growth.",
   "employees_count": 20,
   "hq_country": "NZ",

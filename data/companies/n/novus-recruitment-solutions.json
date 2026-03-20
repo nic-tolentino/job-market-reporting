@@ -3,14 +3,6 @@
     "Novus"
   ],
   "company_type": "Agency",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.novus-recruitment.com.au/careers"
-      }
-    ]
-  },
   "description": "Novus is a specialized tech recruitment and executive search firm focusing on senior-level engineering and leadership roles within the AU fintech sector.",
   "employees_count": 20,
   "hq_country": "AU",

@@ -3,15 +3,11 @@
     "Profile Software S.L.",
     "Second Window"
   ],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://profile.es/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "profile",
+    "provider": "SMARTRECRUITERS"
   },
+  "company_type": "Consultancy",
   "description": "An IT consulting activity company specializing in software programming, strategic architecture, and cloud computing.",
   "employees_count": null,
   "hq_country": "ES",
@@ -30,8 +26,13 @@
     "ES"
   ],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:45:00Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-16T21:38:43.989305Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-16T21:38:43.979360Z",
+    "notes": "Likely. Active IT consultancy in Madrid/Barcelona; tech sector generally supports PAC/Blue Card for pros.",
+    "offered": true,
+    "source": "General Spain Tech Trends"
+  },
   "website": "https://profile.es"
 }

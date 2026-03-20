@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "kaluza",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Kaluza is a company profile created during backlog processing.",
+  "description": "Kaluza is an intelligent energy platform providing software to help energy suppliers manage complex grids and renewables.",
   "employees_count": null,
   "hq_country": "UK",
   "id": "kaluza",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHQw-RW7KTaCQ/company-logo_100_100/B4EZuTxx_OIoAU-/0/1767710859647/kaluza_logo?e=1774483200&v=beta&t=zmNclgUHde024IXlITijazVpZzjnhW2KR6A21FXvils",
   "name": "Kaluza",
-  "office_locations": [],
+  "office_locations": [
+    "London"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.860651Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.kaluza.com"
 }

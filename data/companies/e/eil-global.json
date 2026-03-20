@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "eil-global",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://eilglobal.com.au/about-us-old/careers/"
+      }
+    ]
   },
-  "description": "EIL Global is a company profile created during backlog processing.",
+  "description": "EIL Global provides managed IT services, cloud solutions, and communication technology for enterprises across Australia.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "eil-global",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHR7OfB_oRH0Q/company-logo_100_100/company-logo_100_100/0/1630591436727/eil_global_logo?e=1774483200&v=beta&t=9H6ncf7-F4wSVNU4g9aKbVXRxbfg5JYjNECKJ8bHdKk",
   "name": "EIL Global",
-  "office_locations": [],
+  "office_locations": [
+    "Adelaide"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.380434Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.eilglobal.com.au"
 }

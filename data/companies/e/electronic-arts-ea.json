@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "electronic-arts-ea",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.ea.com/careers"
+      }
+    ]
   },
-  "description": "Electronic Arts (EA) is a company profile created during backlog processing.",
+  "description": "Electronic Arts (EA) is a global leader in digital interactive entertainment, developing and delivering games for consoles, PC, and mobile.",
   "employees_count": null,
   "hq_country": "US",
   "id": "electronic-arts-ea",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGQxdnYoe0DZQ/company-logo_100_100/B4EZVJmsPmGgAU-/0/1740696634652/electronic_arts_logo?e=1774483200&v=beta&t=omiueBCdryrA72OdjBQTzh1LlWqcEomn0ua-PZIests",
   "name": "Electronic Arts (EA)",
-  "office_locations": [],
+  "office_locations": [
+    "Redwood City"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:41:54.358151Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.ea.com"
 }

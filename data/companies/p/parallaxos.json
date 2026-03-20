@@ -1,5 +1,9 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "parallaxos",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []

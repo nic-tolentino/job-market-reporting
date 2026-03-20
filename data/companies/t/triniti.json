@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "triniti",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.triniti.com/careers"
+      }
+    ]
   },
-  "description": "triniti is a company profile created during backlog processing.",
+  "description": "Triniti provides Oracle e-Business Suite (EBS) solutions and software development services for global enterprises.",
   "employees_count": null,
   "hq_country": "IN",
   "id": "triniti",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQHGd3p-i3qsUQ/company-logo_100_100/company-logo_100_100/0/1718232860209/trinititechnology_logo?e=1774483200&v=beta&t=evG6EdUPWn8yDLw01_zWl6XcllG1M8un4a_XCMfJAaM",
   "name": "triniti",
-  "office_locations": [],
+  "office_locations": [
+    "Hyderabad"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.262015Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.triniti.com"
 }

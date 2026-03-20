@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "sky",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Sky New Zealand is a company profile created during backlog processing.",
+  "description": "Sky Network Television is New Zealand's leading broadcasting company providing satellite and streaming services.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "sky-new-zealand",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEd8CxsBCftiw/company-logo_100_100/company-logo_100_100/0/1709763998039/skynz_logo?e=1774483200&v=beta&t=vuFay88R5Nnb-z1WHdyzF0evmuUl-EmpOoEXD7f5JJ0",
   "name": "Sky New Zealand",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:10:17.054171Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.sky.co.nz"
 }

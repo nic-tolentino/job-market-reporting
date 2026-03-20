@@ -1,0 +1,24 @@
+{
+  "ats": {
+    "identifier": "arkoselabs",
+    "provider": "GREENHOUSE"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.arkoselabs.com/careers/"
+      }
+    ]
+  },
+  "description": "Arkose Labs prevents multimillion-dollar fraud and abuse for companies like Roblox, Kik, and Electronic Arts. Backed by PayPal, and winner of the 2019 MRC Technology Award, our pioneering solution invisibly recognizes the context, behavior, and past reputation of requests made to the web and mobile apps. When requests cannot be recognized, they are intercepted by our proprietary Enforcement technology to classify their authenticity with evidenced certainty. Enforcement responses are trained by the solution to accurately model Inauthentic requests with machine learning in real-time, which validates the decisiveness of the system to incrementally minimize false positives. Arkose Labs eliminates the need for tedious enterprise-specified actions such as blocking, redirecting, or flagging and thwarts attackers with attritional defenses that compel attackers to surrender.",
+  "hq_country": "US",
+  "id": "arkose-labs",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Arkose Labs",
+  "verification_level": "unverified",
+  "website": "https://www.arkoselabs.com/"
+}

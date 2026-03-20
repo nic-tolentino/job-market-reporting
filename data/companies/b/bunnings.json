@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "bunnings",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Bunnings is a company profile created during backlog processing.",
+  "description": "Bunnings is Australia's leading retailer of home improvement and outdoor living products.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "bunnings",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHkc_VY7ZcNLA/company-logo_100_100/company-logo_100_100/0/1631425198532/bunnings_logo?e=1774483200&v=beta&t=HxX0oLU0ZzJseH_1kkp24-zcI9bU8fXYLELCPFtGiII",
   "name": "Bunnings",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.822224Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.bunnings.com.au"
 }

@@ -1,5 +1,9 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "confidential",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": []

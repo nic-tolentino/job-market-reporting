@@ -1,14 +1,11 @@
 {
   "alternateNames": [],
-  "ats": {
-    "identifier": "KPMGAustralia1",
-    "provider": "SMARTRECRUITERS"
-  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://kpmg.com/au/careers"
       }
     ]
@@ -31,8 +28,13 @@
     "AU"
   ],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:30:00Z",
-  "verification_level": "silver",
-  "visa_sponsorship": null,
+  "updated_at": "2026-03-16T21:36:22.542726Z",
+  "verification_level": "verified",
+  "visa_sponsorship": {
+    "last_verified": "2026-03-16T21:36:22.536811Z",
+    "notes": "Actively sponsors tech roles (TSS/SID) especially in Tech Risk, Cyber, and ERP. Considers candidates for early career in specific areas.",
+    "offered": true,
+    "source": "KPMG Careers"
+  },
   "website": "https://kpmg.com/au"
 }

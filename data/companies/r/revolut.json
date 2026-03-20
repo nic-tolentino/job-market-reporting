@@ -2,10 +2,39 @@
   "alternateNames": [],
   "company_type": "Product",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": [
+        "/api/",
+        "*/email-verification",
+        "*/help",
+        "*/help-centre",
+        "/*.json$",
+        "/_next/",
+        "/*_buildManifest.js$",
+        "/*_middlewareManifest.js$",
+        "/*_ssgManifest.js$",
+        "/*embedded",
+        "/*/query:*",
+        "*?*",
+        "*/api/*amount*",
+        "/en-AT/money-transfer/send-money",
+        "/en-BE/money-transfer/send-money",
+        "/en-BG/money-transfer/send-money",
+        "/en-BR/money-transfer/send-money",
+        "/en-CL/money-transfer/send-money",
+        "/en-CZ/money-transfer/send-money",
+        "/en-CZ/money-transfer/send-money"
+      ]
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.revolut.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.revolut.com/careers/"
       }
     ]
   },
@@ -37,13 +66,13 @@
     "Worldwide"
   ],
   "remote_policy": "Remote",
-  "updated_at": "2026-03-10T10:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.850327Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.850322Z",
+    "notes": "Supports Graduate hubs in Europe (Poland/Portugal) but no explicit sponsorship for AU/NZ hires.",
+    "offered": false,
+    "source": "Revolut Careers",
     "types": []
   },
   "website": "https://www.revolut.com"

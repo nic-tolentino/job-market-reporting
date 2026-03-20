@@ -1,0 +1,29 @@
+{
+  "ats": {
+    "identifier": "Omio",
+    "provider": "SMARTRECRUITERS"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "blocked",
+        "url": "https://www.rome2rio.com/careers/"
+      },
+      {
+        "category": "careers",
+        "status": "blocked",
+        "url": "https://careers.smartrecruiters.com/Omio"
+      }
+    ]
+  },
+  "description": "Rome2rio makes travel planning easy. We are a door-to-door travel information and booking engine, helping you get to and from any location in the world safely. Enter any address, landmark, or city as your destination and we will instantly display all your travel and booking options, along with information about accommodation and things to do, in one convenient spot. Whether you’re after flight, train, bus, ferry, rideshare or rental car info, we’ve got estimated prices, journey durations and booking details from over 5000 companies in more than 160 countries – making us one of the top online travel resources used globally.",
+  "hq_country": "AU",
+  "id": "rome2rio",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Rome2rio",
+  "verification_level": "unverified",
+  "website": "https://www.rome2rio.com/about/"
+}

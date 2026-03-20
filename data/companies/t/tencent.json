@@ -10,8 +10,10 @@
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.tencent.com/en-us/careers"
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "blocked",
+        "url": "https://tencent.wd1.myworkdayjobs.com/en-US"
       }
     ]
   },

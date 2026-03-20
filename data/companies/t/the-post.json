@@ -2,11 +2,16 @@
   "alternateNames": [
     "The Dominion Post"
   ],
+  "ats": {
+    "identifier": "the-post",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.thepost.co.nz/careers"
       }
     ]

@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.simplemachines.com.au/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "simple-machines",
+    "provider": "WORKABLE"
   },
+  "company_type": "Consultancy",
   "description": "Simple Machines is an independent boutique technology firm specializing in architecting scalable data platforms and software systems designed for an AI-driven world.",
   "employees_count": 50,
   "hq_country": "AU",
@@ -37,13 +33,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-10T11:00:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.857194Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
-    "offered": true,
-    "source": null,
+    "last_verified": "2026-03-17T00:13:42.857190Z",
+    "notes": "Boutique tech consultancy. Focuses on local talent.",
+    "offered": false,
+    "source": "Consultancy Profile",
     "types": []
   },
   "website": "https://www.simplemachines.com.au"

@@ -1,0 +1,30 @@
+{
+  "ats": {
+    "identifier": "clipchamp",
+    "provider": "CUSTOM"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://clipchamp.com/en/company/careers/"
+      }
+    ]
+  },
+  "description": "Clipchamp is the go-to video platform, providing all the tools to help anyone seamlessly become a creator of awesome video content. Our in-browser solution allows users to make high quality, engaging videos, without relying on expensive equipment, complicated software or any previous video production experience. We also are paving the way on mobile, with an eagerly anticipated iOS app launch.\\r\\n\\r\\nWe have millions of registered users worldwide and are trusted by both small business and mid-large enterprise, educational organisations influencers and creatives from around the globe.",
+  "hq_country": "AU",
+  "id": "clipchamp",
+  "industries": [
+    "Video",
+    "SaaS",
+    "Creator Tools"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Clipchamp",
+  "notes": "AU-founded; acquired by Microsoft in 2021.",
+  "verification_level": "unverified",
+  "website": "https://clipchamp.com/en/"
+}

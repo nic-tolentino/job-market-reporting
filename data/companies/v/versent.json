@@ -1,0 +1,32 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "manual",
+        "status": "active",
+        "url": "https://aett.wd3.myworkdayjobs.com/Versent"
+      }
+    ]
+  },
+  "description": "Versent is an Australian-born technology company, focused on architecting, building & operating cloud native applications, data streams, platforms and services. Our solutions are centred around AWS and best of breed technology. From a stand-still start in 2014, we've grown to over 360 family members both locally and internationally. With a diversified offering in professional services, managed services and product, we are poised for significant growth in 2020.",
+  "hq_country": "AU",
+  "id": "versent",
+  "industries": [
+    "Cloud",
+    "AWS",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "Versent",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://versent.com.au/"
+}

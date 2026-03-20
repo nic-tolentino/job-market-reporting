@@ -11,6 +11,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://procreate.com/careers"
       }
     ]

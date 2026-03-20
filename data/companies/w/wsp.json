@@ -1,11 +1,16 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "WSP_Careers",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.wsp.com/careers"
+        "category": "careers",
+        "status": "empty",
+        "url": "https://wsp.wd3.myworkdayjobs.com/WSP_Careers/"
       }
     ]
   },

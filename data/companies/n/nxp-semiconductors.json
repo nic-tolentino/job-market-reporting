@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nxp-semiconductors",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://nxp.wd3.myworkdayjobs.com/careers"
+      }
+    ]
   },
-  "description": "NXP Semiconductors is a company profile created during backlog processing.",
+  "description": "NXP Semiconductors is a global semiconductor manufacturer and designer providing secure connectivity solutions for embedded applications.",
   "employees_count": null,
   "hq_country": "NL",
   "id": "nxp-semiconductors",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGhka1Gxef9RQ/company-logo_100_100/company-logo_100_100/0/1704874779319/nxp_semiconductors_logo?e=1774483200&v=beta&t=o54jN6twRvse0y5znCBwbFLzBtQgFMj_ruquggA9sd8",
   "name": "NXP Semiconductors",
-  "office_locations": [],
+  "office_locations": [
+    "Eindhoven"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:03:22.229984Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.nxp.com"
 }

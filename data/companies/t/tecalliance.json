@@ -2,9 +2,16 @@
   "alternateNames": [],
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "active",
+        "url": "https://tecalliance.teamtailor.com/jobs"
+      }
+    ]
   },
-  "description": "TecAlliance is a company profile created during backlog processing.",
+  "description": "TecAlliance is a leading global data specialist for the automotive aftermarket, providing standardized data solutions.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "tecalliance",
@@ -13,11 +20,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHp5C_ZFzCNgQ/company-logo_100_100/company-logo_100_100/0/1633934124509/tecalliance_logo?e=1774483200&v=beta&t=FBeTlBXCIkI3TvGX4X3KOOGQ045GeUSoUdY_jk-yxdI",
   "name": "TecAlliance",
-  "office_locations": [],
+  "office_locations": [
+    "Ismaning"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:26:11.266375Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.tecalliance.net"
 }

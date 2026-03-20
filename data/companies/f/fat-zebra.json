@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "fat-zebra",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.fatzebra.com/"
+      }
+    ]
   },
-  "description": "Fat Zebra is a company profile created during backlog processing.",
+  "description": "Fat Zebra is a scalable Australian payment gateway providing online credit card processing and payment solutions for merchants.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "fat-zebra",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQEsC9Epv9kB6Q/company-logo_100_100/company-logo_100_100/0/1718174076798/fat_zebra_logo?e=1774483200&v=beta&t=BV3OBKMNhjqnktwndJsDuava66NH1Ir8BLvb3dpp7G0",
   "name": "Fat Zebra",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:25:57.690108Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.fatzebra.com.au"
 }

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "rollforming-services-limited",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.rollforming.co.nz/about-us/careers"
+      }
+    ]
   },
-  "description": "Rollforming Services Limited is a company profile created during backlog processing.",
+  "description": "Rollforming Services Limited is a New Zealand company specializing in roll-formed metal products.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "rollforming-services-limited",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFm78HsOmWqUQ/company-logo_100_100/company-logo_100_100/0/1630601828147/rollforming_services_limited_logo?e=1774483200&v=beta&t=xPb-GuEcn2n5okT7ms1IYIpNCp-BkNSKd7irr5y__RI",
   "name": "Rollforming Services Limited",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.848070Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.rollforming.co.nz"
 }

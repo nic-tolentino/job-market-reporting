@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "growthbook",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
+        "url": "https://www.growthbook.io/careers"
+      },
+      {
+        "category": "careers",
+        "status": "active",
         "url": "https://www.growthbook.io/careers"
       }
     ]

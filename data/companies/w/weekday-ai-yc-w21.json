@@ -11,6 +11,7 @@
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.weekday.works/careers"
       }
     ]

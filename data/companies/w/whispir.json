@@ -1,0 +1,20 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.whispir.com.au/careers"
+      }
+    ]
+  },
+  "description": "Whispir is a cloud software and communications platform that seeks to help organisations communicate like people. Our platform enables our customers to build powerful communications workflows and automate interactions between systems, business, devices and people - with no coding required.",
+  "hq_country": "AU",
+  "id": "whispir",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Whispir",
+  "verification_level": "unverified",
+  "website": "https://www.whispir.com.au/about"
+}

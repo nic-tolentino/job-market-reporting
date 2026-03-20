@@ -1,0 +1,25 @@
+{
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.saiglobal.com/about/careers"
+      }
+    ]
+  },
+  "description": "SAI Global is a recognized leading provider of integrated risk management solutions, assurance, and property services. We help organizations protect their brands by proactively managing risk to achieve business excellence, growth, sustainability, and trust. We have a history rich in the development of innovative business solutions, and today this tradition of innovation continues with industry-leading products and solutions in our core business areas. We focus our innovative efforts on risk management software, standards aggregation, regulatory content, ethics and compliance learning, risk assessments, certification, testing and audits.",
+  "hq_country": "AU",
+  "id": "sai-global",
+  "industries": [
+    "Quality",
+    "Compliance",
+    "Consulting"
+  ],
+  "is_agency": true,
+  "is_social_enterprise": false,
+  "name": "Sai Global",
+  "verification_level": "unverified",
+  "website": "https://www.saiglobal.com/"
+}

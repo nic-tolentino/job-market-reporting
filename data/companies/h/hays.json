@@ -2,12 +2,18 @@
   "alternateNames": [
     "Hays Specialist Recruitment"
   ],
+  "ats": {
+    "identifier": "hays",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://www.haysplc.com/careers"
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "empty",
+        "url": "https://www.hays.com/jobs"
       }
     ]
   },
@@ -32,13 +38,13 @@
     "Worldwide"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:36:22.558923Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:36:22.538414Z",
+    "notes": "Recruitment agency. Connects candidates with sponsors but does not usually sponsor directly for outsourced roles.",
     "offered": false,
-    "source": null,
+    "source": "Agency Profile",
     "types": []
   },
   "website": "http://www.haysplc.com"

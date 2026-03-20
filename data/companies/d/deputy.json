@@ -1,0 +1,31 @@
+{
+  "ats": {
+    "identifier": "deputy",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://www.deputy.com/au/careers"
+      }
+    ]
+  },
+  "description": "Deputy is a SaaS Workforce Management Product company. HQ'd in Sydney (AU), with offices in London (UK), Atlanta and San Francisco (USA). We’ve helped hundreds of thousands of people across all industries in 70+ countries save time and money managing their hourly workforce so they can focus on what they do best, and be amazing.\\r\\n\\r\\nDeputy is easy to use scheduling & time clock software. Get started in minutes for free today & start reducing wage costs! Manage your workday from any device with Deputy’s flexible scheduling software and time clock app designed to support any kind of workforce.",
+  "hq_country": "AU",
+  "id": "deputy",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Deputy",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://www.deputy.com/au"
+}

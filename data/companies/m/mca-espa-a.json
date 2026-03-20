@@ -2,12 +2,23 @@
   "alternateNames": [
     "MCA"
   ],
+  "ats": {
+    "identifier": "mca-espa-a",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "active",
         "url": "https://www.mca-groupe.com/careers"
+      },
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://mca-groupe.com/careers"
       }
     ]
   },

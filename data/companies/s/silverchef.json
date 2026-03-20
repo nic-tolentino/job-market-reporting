@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "silverchef",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "empty",
+        "url": "https://silverchefgroup.elmotalent.com.au"
+      }
+    ]
   },
-  "description": "SilverChef is a company profile created during backlog processing.",
+  "description": "SilverChef provides flexible equipment finance solutions for the hospitality industry, including Rent-Try-Buy programs.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "silverchef",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQHQ2M7-C_fQTQ/company-logo_100_100/company-logo_100_100/0/1630584852601/silver_chef_ltd_logo?e=1774483200&v=beta&t=_uV369f-8xGQCODOESFpajZ54S6MCrY6vYta6bIGDjI",
   "name": "SilverChef",
-  "office_locations": [],
+  "office_locations": [
+    "Brisbane"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.419179Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.silverchef.com.au"
 }

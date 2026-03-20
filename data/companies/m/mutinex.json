@@ -1,10 +1,20 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "mutinex",
+    "provider": "OTHER"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "status": "active",
+        "url": "https://careers.mutinex.co/"
+      }
+    ]
   },
-  "description": "Mutinex is a company profile created during backlog processing.",
+  "description": "Mutinex is a marketing investment analytics firm providing AI-powered market mix modeling to optimize marketing ROI.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "mutinex",
@@ -13,11 +23,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEahlpkQ2UK3A/company-logo_100_100/company-logo_100_100/0/1715809441360/mutinex_logo?e=1774483200&v=beta&t=1nTJjxkY7A5qP20zaSTMdGkhBWngA6iSD_EaO_cDlng",
   "name": "Mutinex",
-  "office_locations": [],
+  "office_locations": [
+    "Melbourne"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:32:46.368082Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://mutinex.co"
 }

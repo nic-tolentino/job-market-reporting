@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "pagonxt",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "PagoNxt (a Santander company) is a company profile created during backlog processing.",
+  "description": "PagoNxt is a global payments technology company, part of the Santander Group, offering solutions for businesses and individuals.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "pagonxt-a-santander-company",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFgl6M-ZPv0Dw/company-logo_100_100/company-logo_100_100/0/1707392681527/pagonxt_logo?e=1774483200&v=beta&t=F7Jrhb1UGuXrN070CDIAYN6hhx3RtopfVJoKan6C8Xo",
   "name": "PagoNxt (a Santander company)",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:47:22.976072Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.pagonxt.com"
 }

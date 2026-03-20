@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "supportyourapp",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "SupportYourApp is a company profile created during backlog processing.",
+  "description": "SupportYourApp is a Support-as-a-Service company providing outsourced customer support for tech startups.",
   "employees_count": null,
   "hq_country": "UA",
   "id": "supportyourapp",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGWzwUKdqMPmQ/company-logo_100_100/company-logo_100_100/0/1631354878924?e=1774483200&v=beta&t=nl8_wykRqyqM0hP_J7J1j7IXo2NbZAEBqO-WnC4plK0",
   "name": "SupportYourApp",
-  "office_locations": [],
+  "office_locations": [
+    "Kyiv",
+    "Global"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.386744Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://supportyourapp.com"
 }

@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "bee-line-ready-mix",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "Bee Line Ready Mix is a company profile created during backlog processing.",
+  "description": "Bee Line Ready Mix is an Australian provider of concrete and ready-mix solutions for construction and landscaping projects.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "bee-line-ready-mix",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQH9Lsc3PHwZPA/company-logo_100_100/company-logo_100_100/0/1739317600323/bee_line_ready_mix_logo?e=1774483200&v=beta&t=LJTjfCcleFuckRkIo-oAEBbaHQ2jKmTIzxL-tUUG34w",
   "name": "Bee Line Ready Mix",
-  "office_locations": [],
+  "office_locations": [
+    "Sunshine Coast"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T05:48:00.420044Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.816759Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.beelineremix.com.au"
 }

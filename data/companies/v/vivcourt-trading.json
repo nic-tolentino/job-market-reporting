@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "vivcourt",
+    "provider": "GREENHOUSE"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "VivCourt Trading is a company profile created during backlog processing.",
+  "description": "VivCourt Trading is a technology-driven trading firm reinvesting its profits into social and environmental causes.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "vivcourt-trading",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHeF2WTt_92dw/company-logo_100_100/company-logo_100_100/0/1675138226863/vivienne_court_trading_logo?e=1774483200&v=beta&t=hnJOWNv3ZwTWN_xGSYsK-BNOU7r3lZpqmTte0KUMALo",
   "name": "VivCourt Trading",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.906158Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.vivcourt.com.au"
 }

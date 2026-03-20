@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "teamwire",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "Teamwire is a company profile created during backlog processing.",
+  "description": "Teamwire provides secure enterprise messaging solutions and encrypted apps for business communication.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "teamwire",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQE8N_P8VJGzFw/company-logo_100_100/B56Zsr.BsiHAAY-/0/1765969239766/teamwire_logo?e=1774483200&v=beta&t=xCUZeqxSOFDVrX2nHt_ElBQaoP2WLDYmuT0OP7QbXB0",
   "name": "Teamwire",
-  "office_locations": [],
+  "office_locations": [
+    "Munich"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:38:11.418737Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.390892Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.teamwire.eu"
 }

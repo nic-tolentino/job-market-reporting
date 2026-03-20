@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "visium",
+    "provider": "WORKABLE"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Visium is a company profile created during backlog processing.",
+  "description": "Visium is a Swiss technology firm specialized in artificial intelligence (AI) and data strategy consulting.",
   "employees_count": null,
   "hq_country": "CH",
   "id": "visium",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQEgphcr18j5Mg/company-logo_100_100/B4DZh1hWprHAAc-/0/1754318334975/visium_sa_logo?e=1774483200&v=beta&t=d0sryifkjIbNzY6C8pdgl6T097bUjXge5xXfChhKjEg",
   "name": "Visium",
-  "office_locations": [],
+  "office_locations": [
+    "Zurich"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.904971Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://visium.ch"
 }

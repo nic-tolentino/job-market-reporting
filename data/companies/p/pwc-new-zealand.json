@@ -2,12 +2,18 @@
   "alternateNames": [
     "PwC"
   ],
+  "ats": {
+    "identifier": "pwc",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "http://pwc.co.nz/careers"
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers"
       }
     ]
   },

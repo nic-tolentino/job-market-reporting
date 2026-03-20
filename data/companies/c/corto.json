@@ -4,12 +4,12 @@
   ],
   "company_type": "Product",
   "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.corto.ai/careers"
-      }
-    ]
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    }
   },
   "description": "CORTO is a legaltech company dedicated to revolutionizing the industry with AI-driven solutions that streamline workflows for legal professionals.",
   "employees_count": 50,
@@ -32,13 +32,13 @@
     "Worldwide"
   ],
   "remote_policy": "Flexible",
-  "updated_at": "2026-03-10T09:05:00Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-17T00:13:42.904469Z",
+  "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-17T00:13:42.904463Z",
+    "notes": "AI legal tech. Explicitly mentions visa sponsorship for Senior roles in Sydney.",
     "offered": true,
-    "source": null,
+    "source": "CORTO Listings",
     "types": []
   },
   "website": "https://www.corto.ai"

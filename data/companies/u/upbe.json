@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "upbe",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://predictiva.breezy.hr"
+      }
+    ]
   },
-  "description": "Upbe is a company profile created during backlog processing.",
+  "description": "Upbe is a conversational intelligence platform that uses AI to analyze and categorize telephone interactions for business insights.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "upbe",
@@ -13,11 +24,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHtE4JFe6eofw/company-logo_100_100/company-logo_100_100/0/1666340482457/predictivaio_logo?e=1774483200&v=beta&t=8ayy6eGPPYUyBYLSdH6E7h8XUnYXDPNUAlVD-jRBtLQ",
   "name": "Upbe",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid",
+    "Malaga"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:34:10.000729Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:57:08.851606Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://upbe.ai"
 }

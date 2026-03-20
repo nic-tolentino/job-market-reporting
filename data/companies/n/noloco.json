@@ -1,11 +1,17 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "noloco",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://www.noloco.io/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://noloco.io/jobs"
       }
     ]
   },

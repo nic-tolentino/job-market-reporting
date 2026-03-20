@@ -2,11 +2,16 @@
   "alternateNames": [
     "Landra"
   ],
+  "ats": {
+    "identifier": "landra-sistemas",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "unknown",
         "url": "https://www.landra.es/careers"
       }
     ]

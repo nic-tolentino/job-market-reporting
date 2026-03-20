@@ -5,14 +5,6 @@
     "provider": "ASHBY"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "tech-filtered",
-        "url": "https://halter.com/careers/"
-      }
-    ]
-  },
   "description": "Halter is an agritech company that provides solar-powered smart collars for cows.",
   "employees_count": 150,
   "hq_country": "NZ",
@@ -34,13 +26,13 @@
     "US"
   ],
   "remote_policy": "Hybrid",
-  "updated_at": "2026-03-06T10:00:00Z",
+  "updated_at": "2026-03-16T21:30:05.097692Z",
   "verification_level": "verified",
   "visa_sponsorship": {
-    "last_verified": null,
-    "notes": null,
+    "last_verified": "2026-03-16T21:30:05.074832Z",
+    "notes": "Accredited Employer in NZ. Offers relocation assistance for technology roles including Software and Firmware Engineering.",
     "offered": true,
-    "source": null,
+    "source": "Halter Careers",
     "types": []
   },
   "website": "http://www.halter.co.nz"

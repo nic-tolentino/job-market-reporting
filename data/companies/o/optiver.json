@@ -1,10 +1,11 @@
 {
   "alternateNames": [],
-  "company_type": "Enterprise",
-  "crawler": {
-    "seeds": []
+  "ats": {
+    "identifier": "optiver",
+    "provider": "GREENHOUSE"
   },
-  "description": "Optiver is a company profile created during backlog processing.",
+  "company_type": "Enterprise",
+  "description": "Optiver is a leading global technology-driven market maker, providing liquidity to financial markets worldwide.",
   "employees_count": null,
   "hq_country": "NL",
   "id": "optiver",
@@ -16,8 +17,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.144706Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.optiver.com"
 }

@@ -1,10 +1,15 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "lyrebirdhealth",
+    "provider": "LEVER"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "unknown",
         "url": "www.lyrebirdhealth.com/careers"
       }
     ]

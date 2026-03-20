@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "cause-and-fx-ltd",
+    "provider": "WORKABLE"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "CAUSE AND FX is a company profile created during backlog processing.",
+  "description": "Cause and FX is a premier New Zealand visual effects studio providing high-end VFX for international film and television projects.",
   "employees_count": null,
   "hq_country": "NZ",
   "id": "cause-and-fx",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQF4G9ORmyGjZw/company-logo_100_100/company-logo_100_100/0/1669671684595/cause_and_fx_logo?e=1774483200&v=beta&t=j7sSZGyARn1PUuHEyXH5B-Xm6f9rxG8jfzCgd0J-PUY",
   "name": "CAUSE AND FX",
-  "office_locations": [],
+  "office_locations": [
+    "Auckland"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.634043Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.causeandfx.nz"
 }

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "teg-pty-ltd",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "gemini-search",
+        "status": "blocked",
+        "url": "https://www.ticketek.com.au/careers"
+      }
+    ]
   },
-  "description": "TEG Pty Ltd is a company profile created during backlog processing.",
+  "description": "TEG is a leading global live entertainment, ticketing, and technology company, parent of Ticketek.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "teg-pty-ltd",
@@ -12,12 +23,14 @@
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D560BAQFmvZ7Ai-46nQ/company-logo_100_100/B56ZeqjfoYHUAU-/0/1750913121335/ticketekentertainmentgroup_logo?e=1774483200&v=beta&t=g0T_dTHcuHX8guuF8-fV399szbtPsPWxuKU9l4n_h98",
-  "name": "TEG Pty Ltd",
-  "office_locations": [],
+  "name": "TEG",
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.375654Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.teg.com.au"
 }

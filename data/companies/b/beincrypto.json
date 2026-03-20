@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "beincrypto",
+    "provider": "CUSTOM"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://join.com/companies/beincrypto"
+      }
+    ]
   },
-  "description": "BeInCrypto is a company profile created during backlog processing.",
+  "description": "BeInCrypto is a leading news website and ecosystem for the cryptocurrency and blockchain industry.",
   "employees_count": null,
   "hq_country": "VG",
   "id": "beincrypto",
@@ -16,8 +27,8 @@
   "office_locations": [],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:43:50.835729Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://beincrypto.com"
 }

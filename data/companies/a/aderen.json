@@ -2,12 +2,24 @@
   "alternateNames": [
     "Aderen People"
   ],
+  "ats": {
+    "identifier": "aderen",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
+    "robots": {
+      "blocked": false,
+      "checked_at": "2026-03-17",
+      "crawl_delay": null,
+      "disallow_patterns": []
+    },
     "seeds": [
       {
-        "category": "unknown",
-        "url": "https://aderen.es/careers"
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://aderen.es/aderen-people/work-with-us/"
       }
     ]
   },

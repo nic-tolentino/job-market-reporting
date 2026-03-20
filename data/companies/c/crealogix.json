@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "crealogix",
+    "provider": "SMARTRECRUITERS"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "CREALOGIX is a company profile created during backlog processing.",
+  "description": "CREALOGIX is a global fintech leader providing digital banking solutions to enhance customer experience for financial institutions.",
   "employees_count": null,
   "hq_country": "CH",
   "id": "crealogix",
@@ -13,11 +17,14 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQG5Kg4BFkXM6Q/company-logo_100_100/company-logo_100_100/0/1630655930986/crealogix_logo?e=1774483200&v=beta&t=HZfN1hgj5_oqsBva4ljb34Fhw-DJBnQ2fxPfNzkJ1NI",
   "name": "CREALOGIX",
-  "office_locations": [],
+  "office_locations": [
+    "Zurich",
+    "Barcelona"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:05.140070Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:34:56.620951Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://crealogix.com"
 }

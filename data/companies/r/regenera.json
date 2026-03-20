@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "regenera",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "REGENERA is a company profile created during backlog processing.",
+  "description": "REGENERA Energy is an Energy Services Company specializing in industrial installations, energy efficiency, and renewable energies.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "regenera",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGs94e9OnbU7w/company-logo_100_100/company-logo_100_100/0/1658569932185/regenera_levante_logo?e=1774483200&v=beta&t=wkxQ6AnaX0fREt44Kq_4qicYEGZ9Aq-bVpQJM1XYqj0",
   "name": "REGENERA",
-  "office_locations": [],
+  "office_locations": [
+    "Murcia"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:57:28.207311Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:55:47.206466Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://regeneraenergy.es"
 }

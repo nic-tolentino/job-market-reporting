@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "aenor",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
     "seeds": []
   },
-  "description": "AENOR is a company profile created during backlog processing.",
+  "description": "AENOR is a leading Spanish organization in knowledge management and certification for quality, environment, and social responsibility.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "aenor",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGxeRq5CzX4xQ/company-logo_100_100/B4EZxxvM3zIYAQ-/0/1771434725320/aenor_logo?e=1774483200&v=beta&t=lM9FfnEteDXcYgewPo4mLbcxgt96ZV40-Sb8BEDtS6o",
   "name": "AENOR",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.119750Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.aenor.com"
 }

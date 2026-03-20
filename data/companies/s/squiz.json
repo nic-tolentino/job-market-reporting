@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "squiz",
+    "provider": "WORKABLE"
+  },
   "company_type": "Product",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "blocked",
+        "url": "https://www.squiz.net/about/careers"
+      }
+    ]
   },
-  "description": "Squiz is a company profile created during backlog processing.",
+  "description": "Squiz provides a Digital Experience Platform (DXP) that helps organizations manage and optimize digital customer experiences.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "squiz",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQFkBeZBNNs7qQ/company-logo_100_100/company-logo_100_100/0/1678677026655/squiz_logo?e=1774483200&v=beta&t=pwt13atZaFmeBnRc64AohwwGHp9yI3CJaihADaZXIr8",
   "name": "Squiz",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:13:06.411748Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.squiz.net"
 }

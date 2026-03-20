@@ -7,14 +7,6 @@
     "provider": "LEVER"
   },
   "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://elements.envato.com/careers"
-      }
-    ]
-  },
   "description": "Envato is a leading creative subscription platform providing unlimited access to millions of digital assets and AI-powered tools for creatives worldwide.",
   "employees_count": 600,
   "hq_country": "AU",

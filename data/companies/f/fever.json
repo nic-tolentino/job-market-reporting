@@ -2,15 +2,11 @@
   "alternateNames": [
     "Fever Up"
   ],
-  "company_type": "Product",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://feverup.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "feverup",
+    "provider": "GREENHOUSE"
   },
+  "company_type": "Product",
   "description": "Live entertainment platform curating experiences including concerts, sports, culture, and immersive events in 200+ cities across 30+ countries.",
   "employees_count": null,
   "hq_country": "ES",

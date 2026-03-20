@@ -1,14 +1,10 @@
 {
   "alternateNames": [],
-  "company_type": "Consultancy",
-  "crawler": {
-    "seeds": [
-      {
-        "category": "unknown",
-        "url": "https://www.cognizant.com/careers"
-      }
-    ]
+  "ats": {
+    "identifier": "cognizant",
+    "provider": "SMARTRECRUITERS"
   },
+  "company_type": "Consultancy",
   "description": "Cognizant (Nasdaq-100: CTSH) engineers modern businesses. We help our clients modernize technology, reimagine processes and transform experiences so they can stay ahead in our fast-changing world. Together, we’re improving everyday life. See how at www.cognizant.com or @cognizant.",
   "employees_count": null,
   "hq_country": "US",

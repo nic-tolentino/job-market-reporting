@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "axis-data",
+    "provider": "CUSTOM"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": []
   },
-  "description": "Axis Data S.L.U. is a company profile created during backlog processing.",
+  "description": "Axis Data is an IT services provider specializing in software development and technology solutions for the tourism sector.",
   "employees_count": null,
   "hq_country": "ES",
   "id": "axis-data-s-l-u",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQEtMc2qA7Nhyg/company-logo_100_100/company-logo_100_100/0/1630613220865/axisdata_logo?e=1774483200&v=beta&t=JzOwLK9vsAasn8LGIVScpwzCvkFcLTTWq00GpHs6T30",
   "name": "Axis Data S.L.U.",
-  "office_locations": [],
+  "office_locations": [
+    "Palma de Mallorca"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:23:00.111477Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.axisdata.es"
 }

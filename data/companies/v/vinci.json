@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "vinci",
+    "provider": "CUSTOM"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "empty",
+        "url": "https://www.vinci.com/join-us"
+      }
+    ]
   },
-  "description": "VINCI is a company profile created during backlog processing.",
+  "description": "VINCI is a global player in concessions, construction, and energy, active in more than 120 countries.",
   "employees_count": null,
   "hq_country": "FR",
   "id": "vinci",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C510BAQEjV-vDtrOz4w/company-logo_100_100/company-logo_100_100/0/1631338784115?e=1774483200&v=beta&t=RrsvE_WhSoRHgrMId8ZNU-oWz2eUlEy475WKdL3c2FA",
   "name": "VINCI",
-  "office_locations": [],
+  "office_locations": [
+    "Rueil-Malmaison"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:52:06.145942Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:40:04.900037Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.vinci.com"
 }

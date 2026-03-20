@@ -1,10 +1,15 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "new-zealand-customs-service",
+    "provider": "CUSTOM"
+  },
   "company_type": "Government",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "unknown",
         "url": "www.customs.govt.nz/careers"
       }
     ]

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "rohde-schwarz",
+    "provider": "WORKDAY"
+  },
   "company_type": "Enterprise",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "manual",
+        "status": "blocked",
+        "url": "https://rohdeschwarz.wd3.myworkdayjobs.com/External"
+      }
+    ]
   },
-  "description": "Rohde & Schwarz is a company profile created during backlog processing.",
+  "description": "Rohde & Schwarz is a global technology group that develops, produces and markets innovative information and communications technology products for professional users.",
   "employees_count": null,
   "hq_country": "DE",
   "id": "rohde-schwarz",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQFP99T4C5faIQ/company-logo_100_100/company-logo_100_100/0/1732000549233/rohde_schwarz_logo?e=1774483200&v=beta&t=RpKtj4oxKMRVBILhaCfc1ALEDc2nc5VzGhcrg4UlIFE",
   "name": "Rohde & Schwarz",
-  "office_locations": [],
+  "office_locations": [
+    "Munich"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T08:02:30.341504Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T18:53:24.878132Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.rohde-schwarz.com"
 }

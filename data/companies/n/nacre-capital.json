@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "nacre-capital",
+    "provider": "WORKABLE"
+  },
   "company_type": "Startup",
   "crawler": {
     "seeds": []
   },
-  "description": "Nacre Capital is a company profile created during backlog processing.",
+  "description": "Nacre Capital is a global venture builder focusing on deep technology companies.",
   "employees_count": null,
   "hq_country": "IL",
   "id": "nacre-capital",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQHIFmzaOKCnAQ/company-logo_100_100/company-logo_100_100/0/1641993616689?e=1774483200&v=beta&t=GltLgKWsdRh8oKGq5vH_AZd-4wHCmf5Rw6dxWUGyAj8",
   "name": "Nacre Capital",
-  "office_locations": [],
+  "office_locations": [
+    "Birkirkara, Malta"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:00:08.992286Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.nacrecapital.com"
 }

@@ -1,0 +1,31 @@
+{
+  "ats": {
+    "identifier": "securecodewarrior",
+    "provider": "LEVER"
+  },
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "empty",
+        "url": "https://securecodewarrior.com/careers"
+      }
+    ]
+  },
+  "description": "Secure Code Warrior® was co-founded by Pieter Danhieux and Matias Madou Ph.D., two globally recognized cyber security experts.\\r\\n\\r\\n Through their combined security experience as developers, researchers, trainers and consultants, Pieter and Matias had experienced the negative impact of insecure code and were frustrated by the industry's focus on simply finding vulnerabilities, rather than fixing or preventing them in the first place.",
+  "hq_country": "AU",
+  "id": "secure-code-warrior",
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "name": "Secure Code Warrior",
+  "verification_level": "unverified",
+  "visa_sponsorship": {
+    "last_verified": null,
+    "notes": null,
+    "offered": true,
+    "source": "autechjobs",
+    "types": []
+  },
+  "website": "https://securecodewarrior.com/"
+}

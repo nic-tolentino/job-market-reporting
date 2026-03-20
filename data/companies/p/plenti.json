@@ -1,0 +1,44 @@
+{
+  "alternateNames": [
+    "Plenti Group Limited",
+    "RateSetter Australia"
+  ],
+  "ats": {
+    "identifier": "plenti",
+    "provider": "LEVER"
+  },
+  "company_type": "Product",
+  "crawler": {
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "autechjobs",
+        "status": "active",
+        "url": "https://www.plenti.com.au/careers/"
+      }
+    ]
+  },
+  "description": "Plenti is an ASX-listed Australian fintech lender offering fast and competitively priced car, renewable energy, and personal loans via proprietary technology.",
+  "employees_count": 160,
+  "hq_country": "AU",
+  "id": "plenti",
+  "industries": [
+    "Fintech"
+  ],
+  "is_agency": false,
+  "is_social_enterprise": false,
+  "logoUrl": null,
+  "name": "Plenti",
+  "office_locations": [
+    "Sydney",
+    "Adelaide"
+  ],
+  "operating_countries": [
+    "AU"
+  ],
+  "remote_policy": "Hybrid",
+  "updated_at": "2026-03-17T00:00:00Z",
+  "verification_level": "unverified",
+  "visa_sponsorship": null,
+  "website": "https://www.plenti.com.au"
+}

@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "lookahead",
+    "provider": "CUSTOM"
+  },
   "company_type": "Agency",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.lookahead.com.au/jobs"
+      }
+    ]
   },
-  "description": "Lookahead is a company profile created during backlog processing.",
+  "description": "Lookahead is a specialist Australian technology recruitment agency focusing on engineering and leadership talent.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "lookahead",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHMFajuDpAMQA/company-logo_100_100/company-logo_100_100/0/1630650023605/lookahead_search_logo?e=1774483200&v=beta&t=Bu6ZYny7TSXu8IXtimipMjFNXVEcoYkCN6euW0ZG2oo",
   "name": "Lookahead",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:45:41.244903Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.lookahead.com.au"
 }

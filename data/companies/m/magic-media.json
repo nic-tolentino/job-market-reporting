@@ -1,11 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "magic-media",
+    "provider": "WORKABLE"
+  },
   "company_type": "Consultancy",
   "crawler": {
     "seeds": [
       {
         "category": "unknown",
+        "status": "empty",
         "url": "https://www.magicmedia.studio/careers"
+      },
+      {
+        "category": "careers",
+        "status": "empty",
+        "url": "https://apply.workable.com/magicmedia/"
       }
     ]
   },

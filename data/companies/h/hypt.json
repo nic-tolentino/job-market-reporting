@@ -1,10 +1,21 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "hypt",
+    "provider": "CUSTOM"
+  },
   "company_type": "Startup",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "apply-url-mining",
+        "status": "active",
+        "url": "https://join.com/companies/join-hypt"
+      }
+    ]
   },
-  "description": "hypt is a company profile created during backlog processing.",
+  "description": "hypt is an Australian shopper-engagement platform that helps brands connect with customers through gamified rewards.",
   "employees_count": null,
   "hq_country": "AU",
   "id": "hypt",
@@ -13,11 +24,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQGLSHaW2UBUew/company-logo_100_100/company-logo_100_100/0/1662639646503/join_hypt_logo?e=1774483200&v=beta&t=aOO_wuur6LBBsWF7V-KxQuB4m-Pgbzm9Drvm3W6MfAg",
   "name": "hypt",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:27:03.818991Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T20:52:50.160145Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://hypt.com"
 }

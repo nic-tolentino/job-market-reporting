@@ -1,10 +1,14 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "tymex",
+    "provider": "WORKABLE"
+  },
   "company_type": "Product",
   "crawler": {
     "seeds": []
   },
-  "description": "TymeX is a company profile created during backlog processing.",
+  "description": "TymeX is the technology and innovation hub for Tyme Group, powering banking operations globally.",
   "employees_count": null,
   "hq_country": "VN",
   "id": "tymex",
@@ -13,11 +17,13 @@
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C560BAQHBDU7ryzUt5A/company-logo_100_100/company-logo_100_100/0/1669191454017/tyme_vietnam_logo?e=1774483200&v=beta&t=HZn9V_PqVMk4u2NS5wr1YG3lEE38oRvyS9JwPwcu5_c",
   "name": "TymeX",
-  "office_locations": [],
+  "office_locations": [
+    "Sydney"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T06:28:37.674085Z",
-  "verification_level": "silver",
+  "updated_at": "2026-03-16T19:34:38.377870Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.tyme.com"
 }

@@ -1,23 +1,36 @@
 {
   "alternateNames": [],
+  "ats": {
+    "identifier": "alquiler-seguro-grupo",
+    "provider": "CUSTOM"
+  },
   "company_type": "Unknown",
   "crawler": {
-    "seeds": []
+    "seeds": [
+      {
+        "category": "careers",
+        "source": "path-probe",
+        "status": "active",
+        "url": "https://www.alquilerseguro.es/jobs"
+      }
+    ]
   },
-  "description": "Alquiler Seguro Grupo is a company profile created during backlog processing.",
+  "description": "Alquiler Seguro is a leading Spanish company specializing in rental management and guaranteed rent services for property owners.",
   "employees_count": null,
-  "hq_country": "NZ",
+  "hq_country": "ES",
   "id": "alquiler-seguro-grupo",
   "industries": [],
   "is_agency": false,
   "is_social_enterprise": false,
   "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQElx7GncMrxQg/company-logo_100_100/company-logo_100_100/0/1674470958897/alquilerseguro_grupo_logo?e=1774483200&v=beta&t=ETOWP3Ppk6DfYugo-HBSV9LiUcvd-MchLtNag4Ng3UY",
   "name": "Alquiler Seguro Grupo",
-  "office_locations": [],
+  "office_locations": [
+    "Madrid"
+  ],
   "operating_countries": [],
   "remote_policy": "Unknown",
-  "updated_at": "2026-03-10T07:39:35.003299Z",
-  "verification_level": "unverified",
+  "updated_at": "2026-03-16T20:21:07.500180Z",
+  "verification_level": "verified",
   "visa_sponsorship": null,
-  "website": null
+  "website": "https://www.alquilerseguro.es"
 }
